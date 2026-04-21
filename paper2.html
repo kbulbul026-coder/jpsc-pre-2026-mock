@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JPSC CCS Pre 2026 — GS Paper II Mock Test</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Noto+Sans:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d14;
+    --surface: #13131f;
+    --card: #1a1a2e;
+    --border: #2a2a45;
+    --gold: #e8b84b;
+    --gold-dim: #9a7828;
+    --green: #22c55e;
+    --red: #ef4444;
+    --blue: #60a5fa;
+    --text: #e2e2f0;
+    --muted: #7878a0;
+    --white: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans', 'Noto Sans Devanagari', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  #intro {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: radial-gradient(ellipse at 30% 20%, #1a1040 0%, #0d0d14 60%);
+  }
+
+  .emblem {
+    width: 80px; height: 80px;
+    background: linear-gradient(135deg, #e8b84b, #c8960a);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    box-shadow: 0 0 40px #e8b84b44;
+  }
+
+  .intro-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--gold);
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .intro-sub {
+    color: var(--muted);
+    text-align: center;
+    font-size: 0.85em;
+    margin-top: 6px;
+    margin-bottom: 28px;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+    max-width: 360px;
+    margin-bottom: 28px;
+  }
+
+  .info-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+  }
+
+  .info-card .val {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .info-card .lbl {
+    font-size: 0.72em;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .start-btn {
+    background: linear-gradient(135deg, #e8b84b, #c8960a);
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 48px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 20px #e8b84b44;
+  }
+
+  .start-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px #e8b84b55; }
+
+  #test-screen, #result-screen { display: none; }
+
+  .test-header {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .header-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 0.95em;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .timer {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.05em;
+    font-weight: 700;
+    color: var(--gold);
+    white-space: nowrap;
+    min-width: 72px;
+    text-align: center;
+  }
+
+  .timer.urgent { color: var(--red); border-color: var(--red); animation: pulse 1s infinite; }
+
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
+
+  .progress-wrap {
+    flex: 1;
+    background: var(--border);
+    border-radius: 4px;
+    height: 6px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-dim), var(--gold));
+    border-radius: 4px;
+    transition: width 0.3s;
+  }
+
+  .q-counter {
+    font-size: 0.8em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .q-body {
+    padding: 16px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .q-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 14px;
+    transition: border-color 0.2s;
+  }
+
+  .q-num {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.8em;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .q-text {
+    font-size: 0.95em;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+    -webkit-tap-highlight-color: transparent;
+    text-align: left;
+  }
+
+  .option:hover { border-color: var(--gold-dim); background: #1d1d35; }
+
+  .option.selected {
+    border-color: var(--gold);
+    background: #1f1b08;
+  }
+
+  .option.correct-ans { border-color: var(--green); background: #052e16; }
+  .option.wrong-ans { border-color: var(--red); background: #2d0a0a; }
+
+  .opt-letter {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 0.9em;
+    color: var(--muted);
+    min-width: 24px;
+    padding-top: 1px;
+  }
+
+  .option.selected .opt-letter { color: var(--gold); }
+  .option.correct-ans .opt-letter { color: var(--green); }
+  .option.wrong-ans .opt-letter { color: var(--red); }
+
+  .opt-text { font-size: 0.9em; line-height: 1.5; }
+
+  .nav-bar {
+    position: sticky; bottom: 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 12px 16px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .btn {
+    border: none; border-radius: 8px; cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95em; font-weight: 600;
+    padding: 10px 20px;
+    transition: all 0.15s;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-prev { background: var(--border); color: var(--text); }
+  .btn-prev:hover { background: #3a3a60; }
+
+  .btn-next { background: var(--gold); color: #000; }
+  .btn-next:hover { background: #d4a340; }
+
+  .btn-submit {
+    background: var(--green);
+    color: #000;
+    flex: 1;
+  }
+
+  .btn-submit:hover { background: #16a34a; }
+
+  .btn-skip { background: transparent; color: var(--muted); border: 1px solid var(--border); font-size: 0.82em; padding: 8px 14px; }
+  .btn-skip:hover { color: var(--text); border-color: var(--muted); }
+
+  .palette-wrap {
+    padding: 12px 16px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .palette-title {
+    font-size: 0.75em;
+    color: var(--muted);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+
+  .palette {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .p-dot {
+    width: 30px; height: 30px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.75em;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform 0.1s;
+    background: var(--border);
+    color: var(--muted);
+  }
+
+  .p-dot:hover { transform: scale(1.1); }
+  .p-dot.answered { background: var(--gold); color: #000; }
+  .p-dot.current { border-color: var(--white); }
+
+  #result-screen {
+    min-height: 100vh;
+    padding: 24px 16px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .result-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .result-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+  }
+
+  .score-ring {
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    border: 6px solid var(--gold);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    margin: 20px auto;
+    box-shadow: 0 0 40px #e8b84b33;
+    background: radial-gradient(circle, #1a1a2e, #0d0d14);
+  }
+
+  .score-num {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .score-label { font-size: 0.72em; color: var(--muted); margin-top: 4px; }
+
+  .result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .r-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+  }
+
+  .r-val {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.6em;
+    font-weight: 700;
+  }
+
+  .r-lbl { font-size: 0.7em; color: var(--muted); margin-top: 3px; }
+
+  .review-section { margin-top: 20px; }
+
+  .review-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 1em;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .review-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 10px;
+  }
+
+  .review-item.r-correct { border-left: 3px solid var(--green); }
+  .review-item.r-wrong { border-left: 3px solid var(--red); }
+  .review-item.r-skip { border-left: 3px solid var(--muted); }
+
+  .review-q-num { font-size: 0.72em; color: var(--muted); margin-bottom: 5px; }
+  .review-q-text { font-size: 0.88em; margin-bottom: 8px; line-height: 1.5; }
+  .review-ans {
+    font-size: 0.8em;
+    display: flex; gap: 10px; flex-wrap: wrap;
+  }
+
+  .ans-badge {
+    padding: 2px 8px; border-radius: 4px; font-weight: 600;
+  }
+
+  .ans-your { background: #2d1b00; color: #fbbf24; }
+  .ans-correct { background: #052e16; color: #4ade80; }
+  .ans-skip { background: #1a1a2e; color: #7878a0; }
+
+  .retake-btn {
+    background: linear-gradient(135deg, #e8b84b, #c8960a);
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 40px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 20px #e8b84b44;
+  }
+
+  .filter-btns {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px;
+  }
+
+  .filter-btn {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 14px;
+    font-size: 0.8em; cursor: pointer; color: var(--text);
+    transition: all 0.15s;
+  }
+
+  .filter-btn.active, .filter-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); }
+</style>
+</head>
+<body>
+
+<div id="intro">
+  <div class="emblem">⚖️</div>
+  <div class="intro-title">JPSC Civil Services Pre 2026</div>
+  <div class="intro-sub">सामान्य अध्ययन प्रश्न पत्र — II (Jharkhand GK) &nbsp;|&nbsp; सीरीज C</div>
+  <div class="info-grid">
+    <div class="info-card"><div class="val">100</div><div class="lbl">प्रश्न</div></div>
+    <div class="info-card"><div class="val">200</div><div class="lbl">कुल अंक</div></div>
+    <div class="info-card"><div class="val">2 घंटे</div><div class="lbl">अवधि</div></div>
+    <div class="info-card"><div class="val">0</div><div class="lbl">नेगेटिव मार्किंग</div></div>
+  </div>
+  <button class="start-btn" onclick="startTest()">टेस्ट शुरू करें ▶</button>
+</div>
+
+<div id="test-screen">
+  <div class="test-header">
+    <div class="header-title">JPSC GS-II (Jharkhand)</div>
+    <div class="progress-wrap"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="q-counter" id="q-counter">0/100</div>
+    <div class="timer" id="timer">2:00:00</div>
+  </div>
+
+  <div class="q-body">
+    <div class="q-card" id="q-card">
+      <div class="q-num" id="q-num">Q 1 / 100</div>
+      <div class="q-text" id="q-text"></div>
+      <div class="options" id="options"></div>
+    </div>
+    <div class="palette-wrap">
+      <div class="palette-title">प्रश्न पैलेट</div>
+      <div class="palette" id="palette"></div>
+    </div>
+  </div>
+
+  <div class="nav-bar">
+    <button class="btn btn-prev" onclick="navigate(-1)">◀ पिछला</button>
+    <button class="btn btn-skip" onclick="navigate(1)">छोड़ें</button>
+    <button class="btn btn-next" onclick="navigate(1)">अगला ▶</button>
+    <button class="btn btn-submit" onclick="confirmSubmit()">जमा करें</button>
+  </div>
+</div>
+
+<div id="result-screen">
+  <div class="result-header">
+    <div class="result-title">परिणाम</div>
+    <div id="verdict" style="font-size:0.85em;color:var(--muted);margin-top:4px;">JPSC GS Paper-II</div>
+    <div class="score-ring">
+      <div class="score-num" id="final-score">0</div>
+      <div class="score-label">200 में से</div>
+    </div>
+  </div>
+
+  <div class="result-grid">
+    <div class="r-card"><div class="r-val" id="r-correct" style="color:var(--green)">0</div><div class="r-lbl">सही</div></div>
+    <div class="r-card"><div class="r-val" id="r-wrong" style="color:var(--red)">0</div><div class="r-lbl">गलत</div></div>
+    <div class="r-card"><div class="r-val" id="r-skip" style="color:var(--muted)">0</div><div class="r-lbl">छोड़े गए</div></div>
+  </div>
+
+  <button class="retake-btn" onclick="retake()">🔄 दोबारा टेस्ट दें</button>
+
+  <div class="review-section">
+    <div class="review-title">विस्तृत समीक्षा</div>
+    <div class="filter-btns">
+      <button class="filter-btn active" onclick="filterReview('all',this)">सभी</button>
+      <button class="filter-btn" onclick="filterReview('wrong',this)">गलत</button>
+      <button class="filter-btn" onclick="filterReview('skip',this)">छोड़े गए</button>
+      <button class="filter-btn" onclick="filterReview('correct',this)">सही</button>
+    </div>
+    <div id="review-list"></div>
+  </div>
+</div>
+
+<script>
+const QUESTIONS = [
+  { q: "1. झारखंड में पेसा (PESA), 1996 का महत्व निम्नलिखित में से कौन सही रूप में स्पष्ट करता है?", opts: ["यह प्रथागत कानूनों को समाप्त करता है।","यह स्थानीय संसाधनों पर ग्राम सभा के नियंत्रण को सुदृढ़ करता है।","यह शहरी निकायों को बढ़ावा देता है।","यह शक्ति को राज्य से केन्द्र को हस्तान्तरित करता है।"], ans: 1 },
+  { q: "2. सारन्दा वन क्षेत्र प्रायः समाचार में है क्योंकि इसका महत्व है:", opts: ["यह भारत का सबसे बड़ा टाइगर रिजर्व है।","सर्वोच्च न्यायालय का इसे वन्यजीव अभ्यारण्य बनाने का निर्देश","यह रामसर आर्द्र भूमि है।","यह पूर्णतः गैर अनुसूचित क्षेत्र में स्थित है।"], ans: 1 },
+  { q: "3. संथाल परगना काश्तकारी अधिनियम 1949 के अन्तर्गत संथाल परगना खंड गठित है:", opts: ["दुमका, साहिबगंज, गोड्डा और देवघर","गुमला, गड़वा, गिरिडीह, पाकुड़","धनबाद, जामताड़ा, बोकारो, हजारीबाग","लातेहर, लोहरदगा, चतरा, पलामू"], ans: 0 },
+  { q: "4. संवैधानिक दृष्टिकोण से संथाल परगना काश्तकारी अधिनियम, 1949 में सर्वाधिक किससे जुड़ा है?", opts: ["अनुच्छेद 14 - विधि के समक्ष समानता","अनुच्छेद 19 - आवागमन की स्वतंत्रता","अनुच्छेद 244 - अनुसूचित क्षेत्रों का प्रशासन","अनुच्छेद 300A - सम्पत्ति का अधिकार"], ans: 2 },
+  { q: "5. छोटा नागपुर काश्तकारी अधिनियम 1908 के अन्तर्गत जनजातीय भूमि का गैर-जनजातियों को हस्तान्तरण है:", opts: ["स्वतंत्र रूप से अनुमन्य","ग्राम की सहमति से अनुमन्य","सामान्यतः निषिद्ध (सीमित अपवादों सहित)","पंजीकरण के बाद अनुमन्य"], ans: 2 },
+  { q: "6. छोटा नागपुर काश्तकारी अधिनियम 1908 के अन्तर्गत अवैध रूप से हस्तांतरित जनजातीय भूमि को पुर्नस्थापित करने का अधिकार किसे है?", opts: ["उच्च न्यायालय","उपायुक्त (Deputy Commissioner)","ग्राम सभा","राज्य विधान मंडल"], ans: 1 },
+  { q: "7. छोटा नागपुर काश्तकारी अधिनियम 1908 निम्नलिखित में से किस भू-स्वामित्व प्रणाली को मान्यता देता है?", opts: ["रैयतवारी","महालवारी","मुंडारी खुंटकट्टी","जमींदारी"], ans: 2 },
+  { q: "8. संथाल परगना काश्तकारी अधिनियम 1949 के अन्तर्गत जनजातीय भूमि की पुर्नस्थापना:", opts: ["विवेकाधीन है","समय सीमा से बाधित है","सामान्यतः अनिवार्य है","राज्यपाल की स्वीकृति आवश्यक है"], ans: 2 },
+  { q: "9. संथाल परगना काश्तकारी अधिनियम 1949 के प्रवर्तन में सर्वाधिक निर्णायक भूमिका किसकी है?", opts: ["ग्राम सभा","उपायुक्त","राज्य विधान मंडल","दीवानी न्यायालय"], ans: 1 },
+  { q: "10. संथाल परगना काश्तकारी अधिनियम 1949 के कठोर प्रावधानों को सर्वश्रेष्ठ रूप से किस संदर्भ में समझा जा सकता है?", opts: ["बंगाल का स्थायी बंदोबस्त","जनजातीय विद्रोह एवं भूमि हड़प","क्षेत्र का औद्योगिक पिछड़ापन","जमींदारी उन्मूलन आन्दोलन"], ans: 1 },
+  { q: "11. छोटा नागपुर काश्तकारी अधिनियम, 1908 के अन्तर्गत 'खुंटकट्टी' की अवधारणा है:", opts: ["राज्य द्वारा निर्मित व्यक्तिगत स्वामित्व","खेती अधिकार रहित सामुहिक ग्राम स्वामित्व","प्रथम साफ-सफाई पर आधारित संयुक्त पैतृक स्वामित्व","जमींदार द्वारा दी गई अस्थाई काश्तकारी"], ans: 2 },
+  { q: "12. छोटा नागपुर काश्तकारी अधिनियम 1908 किसके द्वारा अधिनियमित किया गया?", opts: ["ब्रिटिश संसद","गवर्नर जनरल इन काउंसिल","ईस्ट इंडिया कम्पनी","प्रांतीय विधान मंडल"], ans: 1 },
+  { q: "13. किस पंचवर्षीय योजना में बोकारो इस्पात कारखाने की स्थापना हुई?", opts: ["पहली","दूसरी","तीसरी","चौथी"], ans: 2 },
+  { q: "14. झारखंड राज्य में पुनर्स्थापन एवं पुनर्वास नीति किस वर्ष अधिसूचित की गई थी?", opts: ["2005","2008","2010","2012"], ans: 1 },
+  { q: "15. झारखंड में उर्वरक कारखाना कहाँ स्थित है?", opts: ["बोकारो","जमशेदपुर","सिंदरी","राँची"], ans: 2 },
+  { q: "16. झारखंड औद्योगिक नीति 2012 के अनुसार 'PPP mode' का क्या अर्थ है?", opts: ["प्राइवेट पब्लिक पार्टनरशिप","पब्लिक प्राइवेट पार्टनरशिप","पीपल प्राइवेट पार्टनरशिप","इनमें से कोई नहीं"], ans: 1 },
+  { q: "17. पुनर्वास अनुदान राशि (तत्काल) कितनी है?", opts: ["₹2 लाख","₹2.5 लाख","₹3 लाख","₹1.5 लाख"], ans: 1 },
+  { q: "18. पुनर्वास नीति के अंतर्गत जिला स्तर पर पुनर्वास समिति का अध्यक्ष कौन होता है?", opts: ["पुलिस अधीक्षक","जिला दंडाधिकारी / उपायुक्त","ग्राम प्रधान","मुख्य सचिव"], ans: 1 },
+  { q: "19. झारखंड में विस्थापन और पुनर्वास के मामलों में 'आर्थिक क्षेत्र' का गठन करने का क्या उद्देश्य है?", opts: ["औद्योगिक निवेश को हतोत्साहित करना","औद्योगिक निवेश को प्रोत्साहित करना","कृषि योग्य भूमि का अधिग्रहण करना","इनमें से कोई नहीं"], ans: 1 },
+  { q: "20. झारखंड के किस खिलाड़ी को 2024 में अर्जुन पुरस्कार मिला?", opts: ["दीपक मंडल","सलीमा टेटे","माइकल किंडो","असुन्ता लकड़ा"], ans: 1 },
+  { q: "21. शहीद निर्मल महतो स्टेडियम कहाँ है?", opts: ["बोकारो","रामगढ़","दुमका","जमशेदपुर"], ans: 3 },
+  { q: "22. हिंडाल्को एल्युमीनियम उद्योग कहाँ है?", opts: ["जमशेदपुर","सिंदरी","मुरी, राँची","धनबाद, पू. सिंहभूम"], ans: 2 },
+  { q: "23. टाटा आयरन एंड स्टील कंपनी (टिस्को) की स्थापना कब हुई थी?", opts: ["1907","1905","1909","1908"], ans: 0 },
+  { q: "24. चौथी दक्षिण एशियाई एथलेटिक्स चैंपियनशिप 2025 का शुभंकर क्या था?", opts: ["मोर","दलमा","किला","कोयल"], ans: 1 },
+  { q: "25. रूपा रानी तिर्की और लवली चौबे का संबंध किस खेल से है?", opts: ["वुशु","लॉन बॉल","पेंटाथलॉन","तीरंदाजी"], ans: 1 },
+  { q: "26. उत्तराखण्ड के देहरादून में आयोजित 38वें राष्ट्रीय खेल में झारखण्ड ने कुल कितने पदक जीते?", opts: ["7","18","25","13"], ans: 1 },
+  { q: "27. किस मछली को झारखंड की राजकीय मछली घोषित किया गया है?", opts: ["देशी मांगूर","केवई","झींगा","कतला"], ans: 0 },
+  { q: "28. झारखंड बजट 2025-26 के अनुसार वाल्मीकि योजना प्रति माह आर्थिक सहायता कितनी देती है?", opts: ["रु. 2000","रु. 3000","रु. 4000","रु. 5000"], ans: 1 },
+  { q: "29. 'प्रेम में पेड़ होना' पुस्तक के लेखक कौन हैं?", opts: ["जसिंता केरकेट्टा","शिव खेहर","दयामनी बारला","नंदा पांडे"], ans: 0 },
+  { q: "30. भगवान बिरसा मुण्डा एक्सीलेंस अवार्ड 2024 किसको दिया गया?", opts: ["डॉ. अर्पणा शर्मा","अनिल जैन","पुष्कर महतो","कार्तिक सेन"], ans: 0 },
+  { q: "31. झारखंड में 'फूलो-झानो आशीर्वाद अभियान' कब शुरू की गई?", opts: ["जुलाई 2021","सितंबर 2022","अगस्त 2021","सितंबर 2020"], ans: 3 },
+  { q: "32. झारखंड में कितने औद्योगिक क्षेत्र विकास प्राधिकरण कार्यरत हैं?", opts: ["5","4","3","2"], ans: 1 },
+  { q: "33. झारखंड में पहली औद्योगिक नीति की घोषणा कब हुई थी?", opts: ["2000","2001","2002","2003"], ans: 1 },
+  { q: "34. झारखंड बजट मुख्यतः किसमें खर्च होता है?", opts: ["ऊर्जा","पेंशन","सामाजिक कल्याण","शिक्षा"], ans: 3 },
+  { q: "35. झारखंड की पहली महिला डीजीपी कौन बनीं?", opts: ["प्रिया दुबे","तदाशा मिश्रा","रीष्मा रमेशन","उपरोक्त में से कोई नहीं"], ans: 0 },
+  { q: "36. 2024 के मध्य तक, झारखंड में कितने पंचायतों को टीबी मुक्त घोषित किया गया है?", opts: ["46","27","38","51"], ans: 0 },
+  { q: "37. मानकी मुण्डा छात्रवृत्ति योजना किस वर्ष लागू हुआ?", opts: ["2022","2023","2024","2025"], ans: 2 },
+  { q: "38. पलाश ब्रांड किसको सशक्त करने के लिए है?", opts: ["किसानों को","आदिवासी युवा","ग्रामीण और आदिवासी महिलाएँ","बालिकाओं को"], ans: 2 },
+  { q: "39. तेजस्विनी योजना को विश्व बैंक द्वारा कब स्वीकृति दी गई थी?", opts: ["21 जून, 2016","20 मई, 2015","16 अप्रैल, 2017","21 सितंबर, 2018"], ans: 0 },
+  { q: "40. आर्या (ARYA) योजना का क्या उद्देश्य है?", opts: ["महिलाओं को सशक्त करना","बालिका संरक्षण","युवाओं को कृषि की ओर आकर्षित करना","छात्राओं के लिए छात्रवृत्ति"], ans: 2 },
+  { q: "41. निम्न में से किस जनजातीय समुदाय की अन्तर ग्राम पंचायत सभा को 'भीरा' कहा जाता था?", opts: ["टाना भगत","हिल खड़िया","खेरवार","चेरो"], ans: 1 },
+  { q: "42. निम्न में से कौन 2000 ई. में झारखंड विधान सभा के प्रथम विधान सभा अध्यक्ष बने थे?", opts: ["इन्दर सिंह नामधारी","बाबूलाल मराण्डी","प्रभात कुमार","शिबू सोरेन"], ans: 0 },
+  { q: "43. असहयोग आन्दोलन में महत्वपूर्ण भूमिका निभाने के कारण निम्न में किस समुदाय के लिये 1947 में 'कृषि भूमि वापस अधिनियम' बनाया गया था?", opts: ["खेरवार","भूमिज","टाना भगत","सन्ताल"], ans: 2 },
+  { q: "44. बेनीराम महथा मुख्यतः किस क्षेत्र की विभूति थे?", opts: ["राष्ट्रीय आन्दोलन","साहित्य","खेल कूद","नृत्य"], ans: 1 },
+  { q: "45. वाचस्पति त्रिपाठी झारखंड में किस आन्दोलन में गिरफ्तार हुए थे?", opts: ["भारत छोड़ो आन्दोलन","असहयोग आन्दोलन","सविनय अवज्ञा आन्दोलन","स्वदेशी आन्दोलन"], ans: 0 },
+  { q: "46. 1920 के आसपास बिहार, उड़ीसा, पश्चिम बंगाल और मध्य प्रदेश के कुल कितने जिलों को मिलाकर पृथक् झारखंड प्रदेश बनाने की माँग थी?", opts: ["14","15","16","12"], ans: 2 },
+  { q: "47. 1952 के विधान सभा चुनावों में झारखंड पार्टी उड़ीसा विधानसभा की कितनी सीटें जीती थीं?", opts: ["पाँच","छह","तीन","सात"], ans: 0 },
+  { q: "48. निम्नलिखित में से झारखंड के कौन ब्राह्मण पुरोहित कर्म नहीं करते थे?", opts: ["सरवार ब्राह्मण","मैथिल ब्राह्मण","कन्नौजिया ब्राह्मण","शाकल द्वीपी ब्राह्मण"], ans: 0 },
+  { q: "49. पांडे भाव राय निम्नलिखित में किसके दीवान थे?", opts: ["पंचेत राज","कोराम्बे राज","फणि मुकुट राय","रामगढ़ राज"], ans: 2 },
+  { q: "50. 'मांझीथान' नामक पंचायत स्थल मुख्यतः किस जनजाति से संबद्ध था?", opts: ["संथाल","हो","उराँव","मुण्डा"], ans: 0 },
+  { q: "51. ढोकलो सोहोर शासन व्यवस्था मुख्यतः किस जनजाति से जुड़ी है?", opts: ["खेरवार","हो","खड़िया","संथाल"], ans: 2 },
+  { q: "52. परहा के राजनीतिक प्रमुख निम्न में से कौन होते थे?", opts: ["महतो","मांझी","प्रधान","मानकी"], ans: 3 },
+  { q: "53. मोड़ माँझी कितने मांझियों की पंचायत होती है?", opts: ["तीन","पाँच","छह","सात"], ans: 1 },
+  { q: "54. परहा व्यवस्था में पंचायत की बैठक बुलाने का काम निम्नोक्त में से कौन करते थे?", opts: ["पाण्डे","लाल","ओहदार","ठाकूर"], ans: 0 },
+  { q: "55. मुंडा के निर्देश पर गाँव में सूचना देने का काम कौन करते हैं?", opts: ["दीवान","कोटवार","लाल","पान खवास"], ans: 1 },
+  { q: "56. पारम्परिक समुदाय प्रमुखों को 'भूइंहर' नाम किस राजवंश ने प्रचलित किया?", opts: ["खेरवार","चेरो","सिंह","नाग"], ans: 3 },
+  { q: "57. 'पुना खोर' कहानी के लेखक कौन हैं?", opts: ["आह्लाद तिर्की","इन्द्रजीत उराँव","नारायण भगत","दबले कुजूर"], ans: 1 },
+  { q: "58. निम्नोक्त में से किस साहित्यकार को 'पद्मश्री' प्राप्त हुआ है?", opts: ["सहदेव मरांडी","भागवत मुर्मू","लोहरा उराँव","नारायण तिर्की"], ans: 1 },
+  { q: "59. बोकारो के रहने वाले ए. के. झा किस भाषा के साहित्यकार के रूप में प्रसिद्ध हैं?", opts: ["खोरठा","नागपुरी","मैथिली","पंच परगनिया"], ans: 0 },
+  { q: "60. 'रावन वध' का लेखक कौन हैं?", opts: ["परमानन्द महतो","चन्द्रमोहन महतो","समीर","करमचन्द अहीर"], ans: 0 },
+  { q: "61. रामदयाल मुंडा की रचना 'एअ नव कानिको' में कितनी कहानियाँ हैं?", opts: ["सात","नौ","चार","पाँच"], ans: 1 },
+  { q: "62. निम्नोक्त में से कौन सी जनजाति शंकुलाकार झोपड़ी बना कर रहते थे, जिसे 'कुम्बा' कहा जाता था?", opts: ["मुण्डा","उराँव","बेडिया","बिरहोर"], ans: 3 },
+  { q: "63. चुटिया राम मंदिर का निर्माण किस वर्ष हुआ था?", opts: ["1605","1670","1685","1700"], ans: 2 },
+  { q: "64. 'राम कठी' निम्नोक्त में से क्या है?", opts: ["लोक कथा","वाद्य यंत्र","एक प्रसिद्ध मेला","पवित्र स्थल"], ans: 0 },
+  { q: "65. निम्नोक्त में से कौन सा नृत्य दीवाली के दूसरे दिन संपन्न किया जाता है?", opts: ["डोम कच","पड़का","सोहराइ","बौंडी"], ans: 2 },
+  { q: "66. 'नागपुरी फाग शतक' का लेखक कौन है?", opts: ["दृक्पाल देवघरिया","घासीराम","उपेन्द्रनाथ","शीतल प्रसाद"], ans: 1 },
+  { q: "67. निम्नलिखित में से किस जनजातीय समुदाय के देवताओं में 'धर्मेश' नामक देवता शामिल है?", opts: ["उराँव","संथाल","मुण्डा","चेरो"], ans: 0 },
+  { q: "68. 1983 में झारखंड मुक्ति मोर्चा कितने गुटों में बँट गया था?", opts: ["चार","दो","तीन","पाँच"], ans: 1 },
+  { q: "69. 'आदिवासी पंचशील' का प्रवर्तक निम्नलिखित में से कौन थे?", opts: ["लाल बहादुर शास्त्री","इंदिरा गाँधी","दीन दयाल उपाध्याय","जवाहरलाल नेहरू"], ans: 3 },
+  { q: "70. निम्नोक्त में किस नृत्य में केवल महिलाएँ भाग लेती हैं?", opts: ["डोम कच","घुरिया","पनाड़ी","ठड़िया"], ans: 0 },
+  { q: "71. निम्न में से कौन उष्ण जलस्रोत झारखंड में मौजूद है?", opts: ["चावल पानी","तेतुलिया","धूनीपानी","बबेहा"], ans: 1 },
+  { q: "72. झारखंड के भौगर्भिक इतिहास में कौन शांत काल के नाम से जाना जाता है?", opts: ["इयोसीन, ओलिगोसीन, मायोसीन काल","ट्रियासिक, जुरैशिक, क्रिटेशियम काल","कैम्ब्रियन, ओर्डोविसियन, सिल्यूरियन काल","प्लायोसीन, प्लीस्टोसीन, होलोसीन काल"], ans: 0 },
+  { q: "73. दामोदर नदी घाटी के निर्माण काल के संबंध में सही विकल्प बताइए:", opts: ["कैम्ब्रियन काल","डिवोनियन से परमियन काल","जुरैशिक काल","ओलिगोसीन काल"], ans: 1 },
+  { q: "74. निम्न अनुसंधान संस्थानों की स्थापना काल क्रम के अनुसार सही अनुक्रम बताइए:<br><br>i) भारतीय लाख अनुसंधान संस्थान, राँची<br>ii) केन्द्रीय ईंधन अनुसंधान संस्थान, जलगोड़ा<br>iii) केन्द्रीय खनन अनुसंधान केन्द्र, धनबाद", opts: ["(i), (ii), (iii)","(i), (iii), (ii)","(iii), (i), (ii)","(ii), (i), (iii)"], ans: 0 },
+  { q: "75. झारखंड क्षेत्र में विश्वविद्यालयों की स्थापना काल क्रम के अनुसार सही क्रम बताइए:<br><br>i) राँची विश्वविद्यालय, राँची<br>ii) बिरसा कृषि विश्वविद्यालय, राँची<br>iii) निलम्बर-पीताम्बर विश्वविद्यालय, डालटेनगंज<br>iv) सिद्धो-कान्हू विश्वविद्यालय, दुमका", opts: ["(i), (ii), (iv), (iii)","(i), (ii), (iii), (iv)","(iv), (i), (ii), (iii)","(ii), (iii), (iv), (i)"], ans: 0 },
+  { q: "76. झारखंड क्षेत्र में स्थापना काल के अनुसार उद्धृत महाविद्यालयों का सही क्रम क्या है?<br><br>i) GLA महाविद्यालय, डालटेनगंज<br>ii) संत कोलम्बस महाविद्यालय, हजारीबाग<br>iii) राँची कॉलेज, राँची<br>iv) संत जेवियर्स महाविद्यालय, राँची", opts: ["(ii), (iii), (iv), (i)","(i), (ii), (iii), (iv)","(iii), (iv), (i), (ii)","(iv), (i), (ii), (iii)"], ans: 0 },
+  { q: "77. वर्तमान में झारखंड में वन की प्रतिशत सीमा क्या है?", opts: ["10 से 20 प्रतिशत","20 से 30 प्रतिशत","30 से 40 प्रतिशत","40 से 50 प्रतिशत"], ans: 1 },
+  { q: "78. झारखंड में सर्वाधिक वन क्षेत्र कौन सा है?", opts: ["आरक्षित वन (Reserved Forest)","सुरक्षित वन (Protected Forest)","अवर्गीकृत वन","इनमें से कोई नहीं"], ans: 1 },
+  { q: "79. बिहार विभाजन के बाद निम्न में से किन दो जनजातियों को झारखंड में विलय कर दिया गया?", opts: ["गोंड और बैगा","बिरजिया और बथुड़ी","सबर और हिल खड़िया","माल पहाड़िया और सबर"], ans: 2 },
+  { q: "80. सिंहभूम किस खनिज का अग्रणी उत्पादक है?", opts: ["अभ्रक","कोयला","लौह अयस्क","मैंगनीज"], ans: 2 },
+  { q: "81. 2011 की जनगणनानुसार झारखंड में नगरीकरण दर के सही आँकड़े को चिन्हित करें:", opts: ["20.05 प्रतिशत","21.06 प्रतिशत","24.05 प्रतिशत","25.06 प्रतिशत"], ans: 2 },
+  { q: "82. क्रमशः 2011 और 2022 जनगणनानुसार झारखंड की साक्षरता वृद्धि के सही आंकड़े को चिन्हित करें:", opts: ["64.41% और 70.00%","66.41% और 79.3%","69.30% और 85.00%","79.00% और 85.00%"], ans: 1 },
+  { q: "83. झारखंड में 2011 की गणनानुसार सही साक्षरता दर चिन्हित करें:", opts: ["64.41 प्रतिशत","65.40 प्रतिशत","66.41 प्रतिशत","69.41 प्रतिशत"], ans: 2 },
+  { q: "84. क्रमशः 1901 एवं 2011 जनगणना काल में झारखंड की जनजातीय जनसंख्या वृद्धि संबंधी कौन सा आँकड़ा सही है?", opts: ["10.09 लाख और 90.50 लाख","18.29 लाख और 86.45 लाख","15.19 लाख और 87.46 लाख","16.15 लाख और 96.45 लाख"], ans: 1 },
+  { q: "85. क्रमशः 1901 एवं 2011 जनगणना काल में झारखंड की कुल जनसंख्या वृद्धि संबंधी कौन सा आँकड़ा सही है?", opts: ["60.68 लाख और 329.88 लाख","50.56 लाख और 330.09 लाख","56.52 लाख और 390.10 लाख","15.00 लाख और 395.20 लाख"], ans: 0 },
+  { q: "86. झारखंड में 'मुख्यमंत्री जन वन योजना' संकल्पना की शुरुआत कब की गई?", opts: ["2012-13","2015-16","2021-22","2024-25"], ans: 1 },
+  { q: "87. झारखंड में कितने राष्ट्रीय उद्यान (National Parks) हैं?", opts: ["1","2","3","4"], ans: 0 },
+  { q: "88. झारखंड में कितने वन्यजीव अभयारण्य (Sanctuaries) हैं?", opts: ["9","10","11","12"], ans: 2 },
+  { q: "89. झारखंड में वन का प्रकार चिन्हित करें:", opts: ["उष्ण कटिबंधीय वन","उपोष्ण कटिबंधीय वन","शीतोष्ण कटिबंधीय वन","अल्पाइन शीतोष्ण कटिबंधीय वन"], ans: 0 },
+  { q: "90. कोपेन की जलवायु विभाजन योजना के अनुसार झारखंड में कौन सा जलवायु प्रदेश उपलब्ध है?", opts: ["As और Amw","Cwg और Aw","BShw और BWhw","E और Et"], ans: 1 },
+  { q: "91. झारखंड का प्रथम और तैरता हुआ सौर ऊर्जा संयंत्र कहाँ अवस्थित है?", opts: ["राँची","धनबाद","जमशेदपुर","दुमका"], ans: 0 },
+  { q: "92. दामोदर घाटी निगम परियोजना अन्तर्गत सर्वप्रथम किस बाँध का निर्माण किया गया था?", opts: ["मैथन बाँध","तेनुघाट बाँध","कोनार बाँध","तिलैया बाँध"], ans: 3 },
+  { q: "93. दामोदर घाटी परियोजना की संकल्पना प्रशासन के मस्तिष्क में कब अंकुरित हुई?", opts: ["1940","1943","1947","1956"], ans: 1 },
+  { q: "94. एकीकृत बिहार/झारखंड में उग्रवाद की शुरुआत किस जिले में हुई थी?", opts: ["जहानाबाद","अरवल","पूर्णिया","पीपरा"], ans: 0 },
+  { q: "95. झारखंड को निम्न तीन भूकम्पीय क्षेत्रों में विभाजित किया जाता है, कौन सा विकल्प सही है?<br><br>1) दामोदर घाटी क्षेत्र<br>2) उत्तरी झारखंड<br>3) दक्षिणी झारखंड", opts: ["1) अति अल्प, 2) अल्प, 3) मध्यम","1) अल्प, 2) मध्यम, 3) अति अल्प","1) मध्यम, 2) अति अल्प, 3) अल्प","1) अल्प, 2) अति अल्प, 3) मध्यम"], ans: 1 },
+  { q: "96. मृदा प्रबंधन के लिए सही क्रिया कलाप बताइए:<br><br>मृदा प्रबंधन में निम्न क्रियाओं में ध्यान अपेक्षित है:", opts: ["मृदा ताप, मृदा आर्द्रता, मृदा हवा","मृदा अम्लता, मृदा उत्पादकता, मृदा अपरदन","गहन जुताई, एक फसली स्थिति, अत्यधिक खाद","परती रखना, फसल अपशिष्ट जलाना, मृदा उपचार"], ans: 1 },
+  { q: "97. झारखंड के किस जिले में अपेक्षाकृत अधिक मृदाक्षरण होता है?", opts: ["पश्चिम सिंहभूम","सराइकेला","धनबाद","कोडरमा"], ans: 0 },
+  { q: "98. झारखंड में विगत पाँच वर्षों से परती भूमि की स्थिति क्या है?", opts: ["परती भूमि का प्रतिशत बढ़ रहा है।","परती भूमि का प्रतिशत घट रहा है।","परती भूमि का प्रतिशत अपरिवर्तित है।","इनमें से कोई नहीं"], ans: 0 },
+  { q: "99. केन्द्रीय प्रदूषण नियंत्रण बोर्ड (CPCB) की रिपोर्ट 2019-2021 में जैविक ऑक्सीजन माँग (BOD) के आधार पर निम्न में से कौन नदी सर्वाधिक प्रदूषित है?", opts: ["स्वर्णरेखा नदी","खरकई नदी","दामोदर नदी","जुमार नदी"], ans: 0 },
+  { q: "100. झारखंड में किस फल का उत्पादन क्षेत्रफल अपेक्षाकृत अधिक है?", opts: ["अमरूद","केला","आम","कटहल"], ans: 2 }
+];
+
+// Potential key based on logic and Jharkhand GK
+const ANSWER_KEY = [1,1,0,2,2,1,2,2,1,1,2,1,2,1,2,1,1,1,1,1,3,2,0,1,1,1,0,1,0,0,3,1,1,3,0,0,2,2,0,2,1,0,2,1,0,2,0,0,2,0,2,3,1,0,1,3,1,1,0,0,1,3,2,0,2,1,0,1,3,0,1,0,1,0,0,0,1,1,2,2,2,1,2,1,0,1,0,2,0,1,0,3,1,0,1,1,0,0,0,2];
+
+let currentQ = 0;
+let answers = new Array(100).fill(-1);
+let timerInterval;
+let timeLeft = 7200;
+let testStarted = false;
+let reviewData = [];
+
+function startTest() {
+  document.getElementById('intro').style.display = 'none';
+  document.getElementById('test-screen').style.display = 'block';
+  buildPalette();
+  renderQuestion();
+  startTimer();
+}
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    if (timeLeft <= 0) { clearInterval(timerInterval); submitTest(); return; }
+    const h = Math.floor(timeLeft/3600);
+    const m = Math.floor((timeLeft%3600)/60);
+    const s = timeLeft%60;
+    const el = document.getElementById('timer');
+    el.textContent = `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    if (timeLeft <= 300) el.classList.add('urgent');
+  }, 1000);
+}
+
+function buildPalette() {
+  const pal = document.getElementById('palette');
+  pal.innerHTML = '';
+  for (let i = 0; i < 100; i++) {
+    const d = document.createElement('div');
+    d.className = 'p-dot' + (i===0?' current':'');
+    d.id = 'pd-'+i;
+    d.textContent = i+1;
+    d.onclick = () => { currentQ = i; renderQuestion(); };
+    pal.appendChild(d);
+  }
+}
+
+function renderQuestion() {
+  const q = QUESTIONS[currentQ];
+  document.getElementById('q-num').textContent = `Q ${currentQ+1} / 100`;
+  document.getElementById('q-text').innerHTML = q.q; 
+  const opts = document.getElementById('options');
+  opts.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  q.opts.forEach((opt, i) => {
+    const div = document.createElement('div');
+    div.className = 'option' + (answers[currentQ]===i?' selected':'');
+    div.innerHTML = `<span class="opt-letter">${letters[i]}</span><span class="opt-text">${opt}</span>`;
+    div.onclick = () => selectAnswer(i);
+    opts.appendChild(div);
+  });
+  document.querySelectorAll('.p-dot').forEach((d,i) => {
+    d.classList.toggle('current', i===currentQ);
+    d.classList.toggle('answered', answers[i]!==-1);
+  });
+  const answered = answers.filter(a=>a!==-1).length;
+  document.getElementById('progress-fill').style.width = (answered/100*100)+'%';
+  document.getElementById('q-counter').textContent = `${answered}/100`;
+  const pd = document.getElementById('pd-'+currentQ);
+  if (pd) pd.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+
+function selectAnswer(i) {
+  answers[currentQ] = i;
+  renderQuestion();
+}
+
+function navigate(dir) {
+  currentQ = Math.max(0, Math.min(99, currentQ + dir));
+  renderQuestion();
+}
+
+function confirmSubmit() {
+  const unanswered = answers.filter(a=>a===-1).length;
+  if (unanswered > 0) {
+    if (!confirm(`आपने ${unanswered} प्रश्नों के उत्तर नहीं दिए हैं। क्या आप सबमिट करना चाहते हैं?`)) return;
+  }
+  submitTest();
+}
+
+function submitTest() {
+  clearInterval(timerInterval);
+  document.getElementById('test-screen').style.display = 'none';
+  document.getElementById('result-screen').style.display = 'block';
+  calculateResult();
+}
+
+function calculateResult() {
+  let correct = 0, wrong = 0, skip = 0;
+  reviewData = [];
+  answers.forEach((ans, i) => {
+    const correctAns = ANSWER_KEY[i];
+    let status;
+    if (ans === -1) { skip++; status = 'skip'; }
+    else if (ans === correctAns) { correct++; status = 'correct'; }
+    else { wrong++; status = 'wrong'; }
+    reviewData.push({ qNum: i+1, q: QUESTIONS[i].q, opts: QUESTIONS[i].opts, yourAns: ans, correctAns, status });
+  });
+  const score = correct * 2;
+  document.getElementById('final-score').textContent = score;
+  document.getElementById('r-correct').textContent = correct;
+  document.getElementById('r-wrong').textContent = wrong;
+  document.getElementById('r-skip').textContent = skip;
+  const pct = (score/200*100).toFixed(1);
+  document.getElementById('verdict').textContent = `स्कोर: ${score}/200 (${pct}%)`;
+  renderReview('all');
+}
+
+function renderReview(filter) {
+  const list = document.getElementById('review-list');
+  list.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  reviewData.forEach(item => {
+    if (filter !== 'all' && item.status !== filter) return;
+    const div = document.createElement('div');
+    div.className = `review-item r-${item.status}`;
+    let ansHtml = '';
+    if (item.status === 'skip') {
+      ansHtml = `<span class="ans-badge ans-skip">छोड़ा गया</span><span class="ans-badge ans-correct">✓ सही: ${letters[item.correctAns]}: ${item.opts[item.correctAns]}</span>`;
+    } else if (item.status === 'correct') {
+      ansHtml = `<span class="ans-badge ans-correct">✓ सही उत्तर: ${letters[item.yourAns]}: ${item.opts[item.yourAns]}</span>`;
+    } else {
+      ansHtml = `<span class="ans-badge ans-your">✗ आपका: ${letters[item.yourAns]}: ${item.opts[item.yourAns]}</span><span class="ans-badge ans-correct">✓ सही: ${letters[item.correctAns]}: ${item.opts[item.correctAns]}</span>`;
+    }
+    div.innerHTML = `<div class="review-q-num">प्रश्न ${item.qNum}</div><div class="review-q-text">${item.q}</div><div class="review-ans">${ansHtml}</div>`;
+    list.appendChild(div);
+  });
+}
+
+function filterReview(filter, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderReview(filter);
+}
+
+function retake() {
+  answers = new Array(100).fill(-1);
+  currentQ = 0;
+  timeLeft = 7200;
+  reviewData = [];
+  document.getElementById('result-screen').style.display = 'none';
+  document.getElementById('test-screen').style.display = 'block';
+  document.getElementById('timer').classList.remove('urgent');
+  buildPalette();
+  renderQuestion();
+  startTimer();
+}
+</script>
+</body>
+</html>
