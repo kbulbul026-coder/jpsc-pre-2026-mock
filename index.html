@@ -151,7 +151,18 @@
 <div class="footer">
   "हम तर्क और न्याय के साथ विवेक का उपयोग कर अपनी शिक्षा बाँटेंगे।" <br><br>
   Digital Office of <span>Paresh Kumar Hansda</span>
+  <br><br>
+  <p>This page has been viewed <span id="visits">...</span> times.</p>
+  
 </div>
+  <script>
+  function cb(response) {
+      document.getElementById('visits').innerText = response.value;
+  }
+</script>
+<!-- Replace 'your-site-name' with a unique name for your project -->
+<script async src="https://countapi.xyz"></script>
+  
 
 </body>
 </html>
