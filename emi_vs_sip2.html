@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CA Calculator: Loan vs Mutual Fund (Advanced)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  body { background-color: #0f172a; color: #e2e8f0; padding: 20px 10px; line-height: 1.6; }
+  .container { max-width: 800px; margin: 0 auto; }
+  h1 { text-align: center; color: #fbbf24; margin-bottom: 5px; font-size: 24px; }
+  .subtitle { text-align: center; color: #94a3b8; font-size: 13px; margin-bottom: 20px; }
+  
+  .card { background-color: #1e293b; border-radius: 12px; padding: 20px; border: 1px solid #334155; margin-bottom: 20px; }
+  .input-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+  @media(min-width: 600px) { .input-grid { grid-template-columns: 1fr 1fr; } }
+  
+  .input-group { display: flex; flex-direction: column; gap: 5px; }
+  label { font-size: 13px; color: #94a3b8; font-weight: 600; }
+  input { background-color: #0f172a; border: 1px solid #475569; color: #f8fafc; padding: 10px 12px; border-radius: 8px; font-size: 16px; outline: none; }
+  input:focus { border-color: #38bdf8; }
+  
+  .btn { background-color: #fbbf24; color: #0f172a; border: none; padding: 12px; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 10px; transition: 0.2s; }
+  .btn:hover { background-color: #f59e0b; }
+
+  .comparison-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 20px; }
+  @media(min-width: 600px) { .comparison-grid { grid-template-columns: 1fr 1fr; } }
+  
+  .option-card { background-color: #0f172a; padding: 15px; border-radius: 10px; border: 1px solid #334155; }
+  .option-title { font-size: 16px; font-weight: bold; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #334155; }
+  .opt-1 { color: #f87171; border-bottom-color: #451a1a; }
+  .opt-2 { color: #34d399; border-bottom-color: #064e3b; }
+  
+  .data-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }
+  .data-label { color: #94a3b8; }
+  .data-val { font-weight: bold; color: #e2e8f0; }
+  
+  .highlight-box { background-color: #172554; padding: 15px; border-radius: 8px; margin-top: 15px; text-align: center; border: 1px solid #1e3a8a; }
+  .highlight-title { font-size: 12px; color: #93c5fd; text-transform: uppercase; letter-spacing: 1px; }
+  .highlight-val { font-size: 24px; font-weight: bold; color: #fbbf24; margin-top: 5px; }
+
+  .verdict { background: linear-gradient(135deg, #064e3b, #0f172a); border: 1px solid #059669; padding: 20px; border-radius: 10px; margin-top: 20px; text-align: center; }
+  .verdict h3 { color: #34d399; margin-bottom: 10px; font-size: 18px; }
+  .verdict p { font-size: 14px; color: #cbd5e1; }
+
+  /* New style for the negotiation box */
+  .negotiation-box { background: linear-gradient(135deg, #4c1d95, #2e1065); border: 1px solid #7c3aed; padding: 20px; border-radius: 10px; margin-top: 20px; }
+  .negotiation-box h3 { color: #c4b5fd; margin-bottom: 10px; font-size: 16px; display: flex; align-items: center; gap: 8px; }
+  .neg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+  .neg-item { background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px; text-align: center; }
+  .neg-label { font-size: 12px; color: #a78bfa; }
+  .neg-val { font-size: 18px; font-weight: bold; color: #fff; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>EMI vs SIP Calculator (Pro)</h1>
+  <p class="subtitle">CA Strategy: Short Loan vs. Long Loan + Mutual Fund & Rate Negotiation</p>
+
+  <div class="card">
+    <div class="input-grid">
+      <div class="input-group">
+        <label>Loan Principal Amount (₹)</label>
+        <input type="number" id="principal" value="90000">
+      </div>
+      <div class="input-group">
+        <label>Expected MF Return (% p.a.)</label>
+        <input type="number" id="mfRate" value="12.0" step="0.1">
+      </div>
+      <div class="input-group">
+        <label>Option 1: Short Tenure (Years)</label>
+        <input type="number" id="shortTenure" value="3">
+      </div>
+      <div class="input-group">
+        <label>Option 2: Long Tenure (Years)</label>
+        <input type="number" id="longTenure" value="5">
+      </div>
+      <div class="input-group">
+        <label>Base Loan Rate (% p.a.)</label>
+        <input type="number" id="loanRate" value="9.5" step="0.1">
+      </div>
+      <div class="input-group">
+        <label>Lower Loan Rate (Negotiated) %</label>
+        <input type="number" id="lowerRate" value="8.5" step="0.1">
+      </div>
+    </div>
+    <button class="btn" onclick="calculate()">Run CA Analysis</button>
+  </div>
+
+  <div id="results" style="display:none;">
+    <h2 style="font-size: 18px; margin-bottom: 10px; color: #94a3b8;">Financial Comparison (At Base Rate)</h2>
+    <div class="comparison-grid">
+      
+      <div class="option-card">
+        <div class="option-title opt-1">Option 1: Pay off quickly</div>
+        <div class="data-row"><span class="data-label">Loan Tenure:</span> <span class="data-val" id="resT1"></span></div>
+        <div class="data-row"><span class="data-label">Monthly EMI:</span> <span class="data-val" id="resEmi1" style="color:#f87171;"></span></div>
+        <div class="data-row"><span class="data-label">Total Interest Paid:</span> <span class="data-val" id="resInt1"></span></div>
+        <br>
+        <p style="font-size:12px; color:#94a3b8; font-style:italic; line-height:1.4;">
+          *After your loan ends, you invest this entire EMI into a Mutual Fund for the remaining years.
+        </p>
+        <div class="highlight-box">
+          <div class="highlight-title">Net Wealth Created</div>
+          <div class="highlight-val" id="resWealth1"></div>
+        </div>
+      </div>
+
+      <div class="option-card">
+        <div class="option-title opt-2">Option 2: Long Loan + SIP</div>
+        <div class="data-row"><span class="data-label">Loan Tenure:</span> <span class="data-val" id="resT2"></span></div>
+        <div class="data-row"><span class="data-label">Monthly EMI:</span> <span class="data-val" id="resEmi2" style="color:#34d399;"></span></div>
+        <div class="data-row"><span class="data-label">Total Interest Paid:</span> <span class="data-val" id="resInt2"></span></div>
+        <br>
+        <p style="font-size:12px; color:#94a3b8; font-style:italic; line-height:1.4;">
+          *You run a monthly SIP with the EMI savings (<span id="emiSavings" style="font-weight:bold; color:#fbbf24;"></span>) right from Month 1.
+        </p>
+        <div class="highlight-box">
+          <div class="highlight-title">Net Wealth Created</div>
+          <div class="highlight-val" id="resWealth2"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="verdict" id="verdictBox"></div>
+
+    <div class="negotiation-box" id="negBox" style="display:none;">
+      <h3>💡 The Power of Negotiation (For Long Tenure)</h3>
+      <p style="font-size: 13px; color: #e2e8f0;">If you successfully negotiate the interest rate down from <strong id="nBaseRate" style="color:#fbbf24;"></strong> to <strong id="nLowRate" style="color:#fbbf24;"></strong>, here is the extra money you save over the entire loan term:</p>
+      
+      <div class="neg-grid">
+        <div class="neg-item">
+          <div class="neg-label">EMI Reduced By</div>
+          <div class="neg-val" id="nEmiDiff"></div>
+          <div style="font-size:10px; color:#a78bfa; margin-top:2px;">per month</div>
+        </div>
+        <div class="neg-item">
+          <div class="neg-label">Total Bank Interest Saved</div>
+          <div class="neg-val" id="nTotalSaved" style="color:#34d399;"></div>
+          <div style="font-size:10px; color:#a78bfa; margin-top:2px;">over full tenure</div>
+        </div>
+      </div>
+      <p style="font-size: 12px; color: #a78bfa; margin-top: 12px; text-align:center; font-style:italic;">*Pro Tip: Add this monthly saving directly to your Mutual Fund SIP for even higher wealth creation!</p>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  function fmt(num) {
+    return '₹' + Math.round(num).toLocaleString('en-IN');
+  }
+
+  function calculate() {
+    let P = parseFloat(document.getElementById('principal').value);
+    let rBase = parseFloat(document.getElementById('loanRate').value);
+    let rLoan = rBase / 12 / 100;
+    
+    let rLowerBase = parseFloat(document.getElementById('lowerRate').value);
+    let rLower = rLowerBase / 12 / 100;
+
+    let t1 = parseFloat(document.getElementById('shortTenure').value) * 12;
+    let t2 = parseFloat(document.getElementById('longTenure').value) * 12;
+    let rMF = parseFloat(document.getElementById('mfRate').value) / 12 / 100;
+
+    if(t1 >= t2) {
+      alert("Long Tenure must be greater than Short Tenure for this comparison!");
+      return;
+    }
+
+    // --- MAIN CALCULATION (Base Rate) ---
+    let emi1 = P * rLoan * Math.pow(1+rLoan, t1) / (Math.pow(1+rLoan, t1) - 1);
+    let emi2 = P * rLoan * Math.pow(1+rLoan, t2) / (Math.pow(1+rLoan, t2) - 1);
+    
+    let int1 = (emi1 * t1) - P;
+    let int2 = (emi2 * t2) - P;
+    let emiDiff = emi1 - emi2;
+
+    // Wealth Calc - Option 1
+    let remainingMonths = t2 - t1;
+    let wealth1 = 0;
+    if(remainingMonths > 0) {
+      wealth1 = emi1 * ((Math.pow(1 + rMF, remainingMonths) - 1) / rMF) * (1 + rMF);
+    }
+
+    // Wealth Calc - Option 2
+    let wealth2 = emiDiff * ((Math.pow(1 + rMF, t2) - 1) / rMF) * (1 + rMF);
+
+    // Update UI for base calculation
+    document.getElementById('resT1').innerText = (t1/12) + ' Years';
+    document.getElementById('resEmi1').innerText = fmt(emi1);
+    document.getElementById('resInt1').innerText = fmt(int1);
+    document.getElementById('resWealth1').innerText = fmt(wealth1);
+
+    document.getElementById('resT2').innerText = (t2/12) + ' Years';
+    document.getElementById('resEmi2').innerText = fmt(emi2);
+    document.getElementById('resInt2').innerText = fmt(int2);
+    document.getElementById('emiSavings').innerText = fmt(emiDiff) + '/mo';
+    document.getElementById('resWealth2').innerText = fmt(wealth2);
+
+    // Verdict
+    let verdictHTML = '';
+    let diff = Math.abs(wealth2 - wealth1);
+    
+    if (wealth2 > wealth1) {
+      verdictHTML = `<h3>📈 Option 2 is financially smarter!</h3>
+      <p>By taking a longer loan and investing the EMI savings in a Mutual Fund, you create <strong>${fmt(diff)}</strong> more wealth at the end of ${t2/12} years, even after paying higher bank interest.</p>`;
+    } else {
+      verdictHTML = `<h3>📉 Option 1 is financially smarter!</h3>
+      <p>The Mutual Fund returns aren't high enough to beat the loan interest. Pay off your loan quickly. You will be <strong>${fmt(diff)}</strong> richer at the end of ${t2/12} years.</p>`;
+    }
+    document.getElementById('verdictBox').innerHTML = verdictHTML;
+
+    // --- NEGOTIATION CALCULATION (Lower Rate) ---
+    if(rLowerBase > 0 && rLowerBase < rBase) {
+      let emiLow2 = P * rLower * Math.pow(1+rLower, t2) / (Math.pow(1+rLower, t2) - 1);
+      let intLow2 = (emiLow2 * t2) - P;
+      
+      let savedMonthly = emi2 - emiLow2;
+      let savedTotalInt = int2 - intLow2;
+
+      document.getElementById('nBaseRate').innerText = rBase + '%';
+      document.getElementById('nLowRate').innerText = rLowerBase + '%';
+      document.getElementById('nEmiDiff').innerText = fmt(savedMonthly);
+      document.getElementById('nTotalSaved').innerText = fmt(savedTotalInt);
+      
+      document.getElementById('negBox').style.display = 'block';
+    } else {
+      document.getElementById('negBox').style.display = 'none';
+    }
+
+    document.getElementById('results').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
