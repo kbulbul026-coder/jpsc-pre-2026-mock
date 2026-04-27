@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>आप किसी नौकरानी से शादी नहीं कर रहे हैं - विवाह पर आचार्य का दर्शन</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #b45309;
+            --primary-light: #fef3c7;
+            --primary-dark: #92400e;
+            --accent-red: #dc2626;
+            --accent-green: #16a34a;
+            --accent-purple: #9333ea;
+            --accent-blue: #2563eb;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --bg-lighter: #fef3c7;
+        }
+
+        body {
+            font-family: 'Georgia', 'Garamond', serif;
+            background: linear-gradient(to bottom, #f8fafc, #fef3c7);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 1px solid #fcd34d;
+            padding: 2rem 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-container {
+            max-width: 56rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .subtitle {
+            color: var(--text-light);
+            font-size: 1.125rem;
+        }
+
+        .date-label {
+            color: #9ca3af;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 56rem;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        /* Core Message Box */
+        .core-message {
+            background: linear-gradient(to right, #fed7aa, #fed7aa);
+            border: 1px solid #fcd34d;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .core-message p {
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .core-message .highlight-red {
+            color: var(--accent-red);
+            font-weight: bold;
+        }
+
+        /* Section Headings */
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        /* Point Container */
+        .point {
+            margin-bottom: 1rem;
+            border-left: 4px solid #fef08a;
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .point-header {
+            background: linear-gradient(to right, #fef3c7, #fed7aa);
+            padding: 1.5rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: background 0.3s;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .point-header:hover {
+            background: linear-gradient(to right, #fde68a, #fed7aa);
+        }
+
+        .point-header-left {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            flex: 1;
+        }
+
+        .point-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .point-title-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .point-title-section p {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .chevron {
+            flex-shrink: 0;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            margin-top: 0.25rem;
+        }
+
+        .chevron.open {
+            transform: rotate(180deg);
+        }
+
+        .point-content {
+            display: none;
+            padding: 1.5rem;
+            background: white;
+        }
+
+        .point-content.open {
+            display: block;
+        }
+
+        .point-item {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid;
+            margin-bottom: 1.25rem;
+        }
+
+        .point-item.contract {
+            border-left-color: #3b82f6;
+            background: #eff6ff;
+        }
+
+        .point-item.hardtruth {
+            border-left-color: #dc2626;
+            background: #fef2f2;
+        }
+
+        .point-item.solution {
+            border-left-color: #16a34a;
+            background: #f0fdf4;
+        }
+
+        .point-item.question {
+            border-left-color: #9333ea;
+            background: #faf5ff;
+        }
+
+        .point-item.insight {
+            border-left-color: #7c3aed;
+            background: #faf5ff;
+        }
+
+        .point-item.logic {
+            border-left-color: #f59e0b;
+            background: #fffbeb;
+        }
+
+        .point-item.legal {
+            border-left-color: #3b82f6;
+            background: #eff6ff;
+        }
+
+        .point-item.reality {
+            border-left-color: #dc2626;
+            background: #fef2f2;
+        }
+
+        .point-item h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .point-item p {
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Key Lessons Grid */
+        .lessons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .lesson-card {
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid #e5e7eb;
+            transition: box-shadow 0.3s;
+        }
+
+        .lesson-card:hover {
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .lesson-card.blue {
+            background: linear-gradient(135deg, #dbeafe, #e0e7ff);
+        }
+
+        .lesson-card.rose {
+            background: linear-gradient(135deg, #ffe4e6, #fff0f9);
+        }
+
+        .lesson-card.amber {
+            background: linear-gradient(135deg, #fef3c7, #fef08a);
+        }
+
+        .lesson-card.green {
+            background: linear-gradient(135deg, #dcfce7, #f0fdf4);
+        }
+
+        .lesson-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .lesson-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .lesson-card p {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* The Question Box */
+        .question-box {
+            background: linear-gradient(to right, #f3e8ff, #dbeafe);
+            border: 1px solid #c4b5fd;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .question-box h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .question-box p {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .question-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .question-list li {
+            padding: 0.75rem 0 0.75rem 1.5rem;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .question-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Teaching Notes */
+        .teaching-notes {
+            background: linear-gradient(to right, #f0fdf4, #dcfce7);
+            border: 1px solid #86efac;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .teaching-notes h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .teaching-notes p {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .teaching-list {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .teaching-list li {
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+        }
+
+        .teaching-list li:before {
+            content: "• ";
+            margin-right: 0.5rem;
+            font-weight: bold;
+            color: var(--accent-green);
+        }
+
+        /* Final Message */
+        .final-message {
+            background: linear-gradient(to right, #fef3c7, #fed7aa);
+            border: 2px solid #fcd34d;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .final-message h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .final-message p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .final-message .highlight {
+            color: #92400e;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: white;
+            padding: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+            color: #d1d5db;
+        }
+
+        footer .footer-small {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .core-message p {
+                font-size: 1.25rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .point-header {
+                flex-direction: column;
+            }
+
+            .lessons-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-icons">
+                <span>❤️</span>
+                <span>📖</span>
+            </div>
+            <h1>आप किसी नौकरानी से शादी नहीं कर रहे हैं</h1>
+            <p class="subtitle">विवाह, प्रेम और मानवीय संबंधों की प्रकृति पर आचार्य का दर्शन</p>
+            <p class="date-label">एक दार्शनिक प्रवचन</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="core-message">
+            <p>आजकल जिस तरह से विवाह किया जाता है, वह एक <span class="highlight-red">अनुबंध (Contract)</span> है, प्रेम का मिलन नहीं। जब तक हम इस सच्चाई का स्पष्ट रूप से सामना नहीं करते, तब तक हम इससे पैदा होने वाली नाराजगी, लेन-देन और मौन पीड़ा से आगे नहीं बढ़ सकते।</p>
+        </div>
+
+        <h2 class="section-title">समझ के तीन स्तंभ</h2>
+
+        <div class="point">
+            <button class="point-header" onclick="togglePoint(0)">
+                <div class="point-header-left">
+                    <div class="point-icon">🤝</div>
+                    <div class="point-title-section">
+                        <h3>भाग 1: एक अनुबंध के रूप में विवाह: कड़वा सच</h3>
+                        <p>आधुनिक विवाह मूल रूप से स्पष्ट शर्तों वाला एक लेन-देन है, न कि प्रेम की अभिव्यक्ति</p>
+                    </div>
+                </div>
+                <div class="chevron open" id="chevron0">▼</div>
+            </button>
+            <div class="point-content open" id="content0">
+                <div class="point-item contract">
+                    <h4>🤝 सौदा</h4>
+                    <p>"वह घर संभालेगी, खाना बनाएगी, बच्चे पैदा करेगी। वह कमाएगा और खर्चे उठाएगा।" दोनों पक्ष इस अनुबंध को अच्छी तरह जानते हैं।</p>
+                </div>
+                <div class="point-item hardtruth">
+                    <h4>⚠️ कड़वी सच्चाई</h4>
+                    <p>जब पत्नी खाना बनाने से मना करती है, तो पति कमाने से मना कर देता है। जब वह उसके पैसों पर दावा करती है क्योंकि "मैं तुम्हारे लिए खाना बनाती हूं," तो वह एक सेवा प्रदाता (service provider) बन जाती है। जब वह उसके शरीर पर दावा करता है क्योंकि "मैं तुम्हारे खर्चे उठाता हूं," तो यह वेश्यावृत्ति बन जाती है। यह प्रेम नहीं है—यह एक सौदा है।</p>
+                </div>
+                <div class="point-item question">
+                    <h4>? मुख्य प्रश्न</h4>
+                    <p>क्या दो इंसान अपने जीवन को सिर्फ अधिकारों और जिम्मेदारियों तक सीमित किए बिना एक साथ जी सकते हैं? क्या कोई रिश्ता व्यापारिक समझौते से परे मौजूद हो सकता है?</p>
+                </div>
+                <div class="point-item solution">
+                    <h4>✓ समाधान</h4>
+                    <p>विवाह से पहले स्पष्टता: क्या आप कोई सौदा कर रहे हैं या प्रेम की तलाश कर रहे हैं? यदि यह एक सौदा है, तो इसकी शर्तों का सम्मान करें। यदि यह प्रेम है, तो अधिकारों का दावा करना बंद करें। प्रेम में लेन-देन करना दोनों का अपमान है।</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="point">
+            <button class="point-header" onclick="togglePoint(1)">
+                <div class="point-header-left">
+                    <div class="point-icon">🚀</div>
+                    <div class="point-title-section">
+                        <h3>भाग 2: सौदे की आवश्यकता: क्या यह वास्तविक है?</h3>
+                        <p>समाज लेन-देन आधारित संबंधों को निर्धारित करता है, लेकिन क्या हमें इसे एकमात्र मार्ग के रूप में स्वीकार करना चाहिए?</p>
+                    </div>
+                </div>
+                <div class="chevron" id="chevron1">▼</div>
+            </button>
+            <div class="point-content" id="content1">
+                <div class="point-item question">
+                    <h4>? चुनौती</h4>
+                    <p>दो स्वतंत्र प्राणियों के बीच का रिश्ता अनुबंध और लेन-देन पर आधारित क्यों होना चाहिए? जब अधिकारों और जिम्मेदारियों की गिनती की जाती है तो प्रेम कहां जाता है?</p>
+                </div>
+                <div class="point-item insight">
+                    <h4>💡 विरोधाभास</h4>
+                    <p>"व्यापार में व्यापार शोभा देता है। लेकिन प्यार में व्यापार मुंह पर तमाचा है।" फिर भी हम इसे जारी रखते हैं क्योंकि हम डरे हुए हैं, समाज के दबाव में हैं, या इच्छाओं से प्रेरित हैं।</p>
+                </div>
+                <div class="point-item insight">
+                    <h4>🔍 समाज इसकी मांग क्यों करता है</h4>
+                    <p>हम दबाव में शादी करते हैं: समाज का डर, परिवार का दबाव, जैविक जरूरतें, उम्र बढ़ने की चिंता। इसलिए हम अनुबंध बनाते भी हैं और उसका सम्मान करने से भी इनकार करते हैं—जो कि नाराजगी का एक अचूक नुस्खा है。</p>
+                </div>
+                <div class="point-item solution">
+                    <h4>✓ वैकल्पिक मार्ग</h4>
+                    <p>पहले एक पूर्ण इंसान बनें। ऊपर उठें। खुद को इतना विकसित करें कि आप पूरी दुनिया से प्रेम कर सकें, न कि किसी एक व्यक्ति को हताशा में खोजें। एक साथी तब एक 'बोनस' बन जाता है, मजबूरी नहीं।</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="point">
+            <button class="point-header" onclick="togglePoint(2)">
+                <div class="point-header-left">
+                    <div class="point-icon">🔗</div>
+                    <div class="point-title-section">
+                        <h3>भाग 3: आयोजित विवाह (Arranged Marriage) और प्रेम का अभाव</h3>
+                        <p>किसी अजनबी को अपना शरीर सौंपना किसी भी सार्थक रिश्ते की नींव नहीं है</p>
+                    </div>
+                </div>
+                <div class="chevron" id="chevron2">▼</div>
+            </button>
+            <div class="point-content" id="content2">
+                <div class="point-item hardtruth">
+                    <h4>⚠️ असहज सच</h4>
+                    <p>एक लड़की को बहुत लाड़-प्यार से पाला जाता है: केवल लड़कियों के स्कूल में पढ़ाया जाता है, पुरुषों के संपर्क से बचाया जाता है, पूरी तरह सुरक्षित रखा जाता है। फिर—उसे सेक्स के लिए एक अजनबी को सौंप दिया जाता है। विडंबना देखिए: किसी भी पुरुष का स्पर्श वर्जित है, लेकिन एक अजनबी के साथ यौन संबंध की अपेक्षा की जाती है।</p>
+                </div>
+                <div class="point-item logic">
+                    <h4>🧠 तर्क की विफलता</h4>
+                    <p>दो अपरिचित लोग एक-दूसरे से प्रेम कैसे कर सकते हैं? एक-दूसरे की चेतना को जाने बिना, साझा अनुभवों के बिना, "पंख फैलाकर एक साथ उड़े" बिना घनिष्ठता कैसे आ सकती है?</p>
+                </div>
+                <div class="point-item legal">
+                    <h4>⚖️ कानून क्या कहता है</h4>
+                    <p>विवाह की संस्था स्वामित्व पर आधारित है: पति का पत्नी के शरीर पर अधिकार होता है। अगर वैवाहिक बलात्कार (marital rape) वैध है, तो संस्था कायम रहती है। अगर इसे अपराध माना गया, तो विवाह टूट जाता है। यह सच्चाई को उजागर करता है: विवाह जैसा बनाया गया है, वह कब्जे (possession) पर आधारित है, साझेदारी पर नहीं।</p>
+                </div>
+                <div class="point-item reality">
+                    <h4>📌 परिणाम</h4>
+                    <p>सेक्स होगा—क्योंकि कानून इसे विवाह के वैध होने के लिए आवश्यक मानता है। लेकिन प्रेम? वह कभी नहीं आएगा। वास्तविक जुड़ाव से पैदा हुई सहमति के बिना, जो कुछ भी होता है वह केवल शारीरिक है, चाहे उसे कानूनी मान्यता क्यों न प्राप्त हो।</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 3rem;">जीवन के लिए मूल शिक्षाएँ</h2>
+        <div class="lessons-container">
+            <div class="lesson-card rose">
+                <div class="lesson-icon">👤</div>
+                <h3>पहले इंसान बनें</h3>
+                <p>आप कोई भूमिका (role) नहीं हैं। न नौकरानी, न सेक्स वर्कर, न बच्चा पैदा करने की फैक्ट्री, न ही कोई एटीएम। आप एक स्वतंत्र प्राणी हैं जो चुनाव कर रहा है।</p>
+            </div>
+            <div class="lesson-card blue">
+                <div class="lesson-icon">📈</div>
+                <h3>ऊपर उठें, निराश न हों</h3>
+                <p>"आप जितना ऊंचे उठते हैं, किसी ऊंचे व्यक्ति से मिलने की संभावना उतनी ही बढ़ जाती है—और आपको उनकी उतनी ही कम आवश्यकता होती है।" उत्कृष्टता उत्कृष्टता को आकर्षित करती है।</p>
+            </div>
+            <div class="lesson-card amber">
+                <div class="lesson-icon">💪</div>
+                <h3>अपना रास्ता खुद बनाएं</h3>
+                <p>शायद कृष्ण को छोड़कर कोई बिना शर्त मदद नहीं देता। बाकी सभी अपनी कीमत वसूलते हैं। बेहतर है कि खुद को पूरी तरह से विकसित करें।</p>
+            </div>
+            <div class="lesson-card green">
+                <div class="lesson-icon">🕊️</div>
+                <h3>प्रेम के लिए सीखना जरूरी है</h3>
+                <p>"प्रेम सीखना पड़ता है। प्रेम के लिए व्यक्ति को ऊपर उठना पड़ता है।" बहुत कम लोगों में यह क्षमता होती है। ज्यादातर लोग इसका विकल्प खोजते हैं।</p>
+            </div>
+        </div>
+
+        <div class="question-box">
+            <h3>❓ आपके सामने प्रश्न</h3>
+            <p>आप इस बहस में कहां खड़े हैं?</p>
+            <ul class="question-list">
+                <li>क्या आप एक सौदा चाहते हैं, या आप प्रेम चाहते हैं?</li>
+                <li>अगर प्रेम—तो क्या आप ऊपर उठने, बढ़ने और इसके योग्य बनने के लिए तैयार हैं?</li>
+                <li>क्या आप यह स्वीकार कर सकते हैं कि एक साथी एक 'बोनस' है, कोई मजबूरी नहीं?</li>
+                <li>क्या आप ऐसे अनुबंध में प्रवेश करने के उस अचेतन कार्य से आगे बढ़ने के लिए तैयार हैं जिस पर हस्ताक्षर करने का आपको पता भी नहीं था?</li>
+            </ul>
+        </div>
+
+        <div class="teaching-notes">
+            <h3>💡 शिक्षकों और सुविधादाताओं के लिए</h3>
+            <p>यह शिक्षा विवाह और संबंधों के बारे में गहराई से जुड़ी मान्यताओं को चुनौती देती है। इसके लिए जगह बनाएं:</p>
+            <ul class="teaching-list">
+                <li>लोग विवाह क्यों चुनते हैं, इस पर ईमानदारी से विचार</li>
+                <li>सामाजिक दबाव बनाम व्यक्तिगत पसंद पर चर्चा</li>
+                <li>सच्ची सहमति और साझेदारी का क्या अर्थ है, इसकी जांच</li>
+                <li>प्रेम और लेन-देन के बीच अंतर की खोज</li>
+                <li>संबंधों के चुनाव में व्यक्तिगत जवाबदेही</li>
+            </ul>
+        </div>
+
+        <div class="final-message">
+            <h3>🎯 आगे का रास्ता</h3>
+            <p><span class="highlight">आचार्य प्रेम विवाह या आयोजित विवाह का विरोध नहीं करते हैं।</span> वे अचेतन गठबंधनों का विरोध करते हैं। जो रिश्ते बेहोशी में बने हैं—सामाजिक दबाव में, परिवार की जबरदस्ती से, आत्म-ज्ञान के बिना, वासना से प्रेरित होकर—वे जेल बन जाते हैं।</p>
+            <p><span class="highlight">संदेश स्पष्ट है:</span> खुद को जानें। ऊपर उठें। होशपूर्वक चुनाव करें। चाहे आप अकेले चलें या किसी और के साथ, यह आपकी पसंद होनी चाहिए, इस बात से पूरी तरह वाकिफ कि आप क्या चुन रहे हैं।</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>विवाह, प्रेम और मानवीय संबंधों पर दार्शनिक दृष्टिकोण का पता लगाने के लिए एक शैक्षिक संसाधन के रूप में बनाया गया।</p>
+        <p class="footer-small">सोच-समझकर साझा करें। खुलकर चर्चा करें। गहराई से सवाल करें।</p>
+    </footer>
+
+    <script>
+        function togglePoint(index) {
+            const content = document.getElementById(`content${index}`);
+            const chevron = document.getElementById(`chevron${index}`);
+            
+            content.classList.toggle('open');
+            chevron.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
