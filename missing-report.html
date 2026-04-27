@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>गुमशुदगी रिपोर्ट एवं पोस्टर मेकर — Paresh Digital Office</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d14; --surface: #13131f; --card: #1a1a2e;
+    --border: #2a2a45; --gold: #e8b84b; --text: #e2e2f0;
+    --red: #ef4444; --white: #ffffff;
+  }
+  body { font-family: 'Noto Sans Devanagari', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; }
+  .container { max-width: 900px; margin: 0 auto; }
+  .header { text-align: center; margin-bottom: 30px; }
+  .header h1 { color: var(--gold); font-family: 'Rajdhani', sans-serif; font-size: 2.2rem; }
+  
+  .editor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 768px) { .editor-grid { grid-template-columns: 1fr; } }
+  
+  .input-panel { background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid var(--border); }
+  .input-group { margin-bottom: 15px; }
+  label { display: block; margin-bottom: 5px; color: var(--gold); font-size: 0.9rem; }
+  input, textarea { width: 100%; padding: 10px; background: var(--bg); border: 1px solid var(--border); color: var(--white); border-radius: 6px; outline: none; }
+  
+  /* Poster Preview Area */
+  .preview-panel { background: #fff; color: #000; padding: 30px; border-radius: 4px; position: sticky; top: 20px; text-align: center; border: 10px solid var(--red); }
+  .missing-header { background: var(--red); color: #fff; font-size: 3rem; font-weight: 800; padding: 10px; margin: -30px -30px 20px -30px; }
+  #poster-photo { width: 250px; height: 300px; object-fit: cover; border: 5px solid #000; margin-bottom: 15px; background: #eee; }
+  .poster-content { text-align: left; line-height: 1.6; }
+  .poster-content h2 { text-align: center; font-size: 2.2rem; margin-bottom: 10px; border-bottom: 2px solid #000; }
+  .contact-box { background: #000; color: #fff; padding: 15px; margin-top: 20px; text-align: center; font-size: 1.2rem; }
+  
+  .btn-print { background: var(--gold); color: #000; padding: 15px; border: none; border-radius: 8px; font-weight: bold; width: 100%; cursor: pointer; margin-top: 20px; font-size: 1.1rem; }
+  
+  @media print {
+    body * { visibility: hidden; }
+    .preview-panel, .preview-panel * { visibility: visible; }
+    .preview-panel { position: absolute; left: 0; top: 0; width: 100%; border: 15px solid red !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>आपातकालीन गुमशुदगी पोस्टर मेकर</h1>
+    <p>विवेक और त्वरित सहायता हेतु एक 'शून्य-त्रुटि' प्रयास</p>
+  </div>
+
+  <div class="editor-grid">
+    <div class="input-panel">
+      <div class="input-group">
+        <label>फोटो अपलोड करें</label>
+        <input type="file" accept="image/*" onchange="previewImg(event)">
+      </div>
+      <div class="input-group">
+        <label>पूरा नाम</label>
+        <input type="text" id="inName" oninput="update()" placeholder="उदा. श्री ...">
+      </div>
+      <div class="input-group">
+        <label>उम्र / लिंग</label>
+        <input type="text" id="inAge" oninput="update()" placeholder="70 वर्ष, पुरुष">
+      </div>
+      <div class="input-group">
+        <label>कब से लापता (तारीख और समय)</label>
+        <input type="text" id="inDate" oninput="update()" placeholder="27 अप्रैल 2026, सुबह 10 बजे">
+      </div>
+      <div class="input-group">
+        <label>कहाँ से लापता (स्थान)</label>
+        <input type="text" id="inLoc" oninput="update()" placeholder="देवघर टावर चौक के पास">
+      </div>
+      <div class="input-group">
+        <label>पहचान (कपड़े, कद, आदि)</label>
+        <textarea id="inDesc" oninput="update()" rows="3" placeholder="सफेद धोती-कुर्ता, कद 5'6, बाएं हाथ पर निशान"></textarea>
+      </div>
+      <div class="input-group">
+        <label>संपर्क नंबर</label>
+        <input type="text" id="inContact" oninput="update()" placeholder="99xxxxxxxx, 88xxxxxxxx">
+      </div>
+      <button class="btn-print" onclick="window.print()">पोस्टर प्रिंट / PDF सेव करें ➔</button>
+    </div>
+
+    <div class="preview-panel" id="poster">
+      <div class="missing-header">गुमशुदा / MISSING</div>
+      <img id="poster-photo" src="" alt="यहाँ फोटो दिखेगी">
+      <div class="poster-content">
+        <h2 id="outName">नाम यहाँ दिखेगा</h2>
+        <p><strong>उम्र/लिंग:</strong> <span id="outAge">...</span></p>
+        <p><strong>लापता तिथि:</strong> <span id="outDate">...</span></p>
+        <p><strong>स्थान:</strong> <span id="outLoc">...</span></p>
+        <p><strong>शारीरिक विवरण:</strong> <span id="outDesc">...</span></p>
+      </div>
+      <div class="contact-box">
+        सूचना मिलने पर तुरंत कॉल करें:<br>
+        <strong style="font-size: 1.6rem;" id="outContact">मोबाइल नंबर</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function previewImg(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('poster-photo');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  }
+  function update() {
+    document.getElementById('outName').innerText = document.getElementById('inName').value || "नाम यहाँ दिखेगा";
+    document.getElementById('outAge').innerText = document.getElementById('inAge').value || "...";
+    document.getElementById('outDate').innerText = document.getElementById('inDate').value || "...";
+    document.getElementById('outLoc').innerText = document.getElementById('inLoc').value || "...";
+    document.getElementById('outDesc').innerText = document.getElementById('inDesc').value || "...";
+    document.getElementById('outContact').innerText = document.getElementById('inContact').value || "मोबाइल नंबर";
+  }
+</script>
+</body>
+</html>
