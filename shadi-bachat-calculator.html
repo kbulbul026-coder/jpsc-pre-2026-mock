@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>जमा पूंजी — शादी बचत कैलकुलेटर</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --saffron: #E8760A;
+  --saffron-light: #F5A623;
+  --gold: #C9952A;
+  --marigold: #F0C040;
+  --dark: #100C08;
+  --dark2: #1A1410;
+  --dark3: #251E18;
+  --card: #1E1812;
+  --card2: #261F17;
+  --text: #EDE0CC;
+  --muted: #8A7A68;
+  --red: #D45A3A;
+  --green: #4A9E6A;
+  --border: rgba(232,118,10,0.22);
+  --border2: rgba(240,192,64,0.15);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--dark);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at 15% 0%, rgba(232,118,10,0.1) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 100%, rgba(201,149,42,0.07) 0%, transparent 55%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23E8760A' fill-opacity='0.02'%3E%3Cpath d='M30 0l4 8h8l-6 6 2 8-8-4-8 4 2-8-6-6h8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ── HEADER ── */
+header {
+  text-align: center;
+  padding: 52px 20px 28px;
+  position: relative;
+}
+.brand-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(232,118,10,0.12);
+  border: 1px solid var(--border);
+  color: var(--saffron-light);
+  font-size: 11px; font-weight: 600; letter-spacing: 2px;
+  text-transform: uppercase; padding: 5px 16px; border-radius: 20px;
+  margin-bottom: 18px;
+}
+.diya { font-size: 16px; }
+h1 {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: clamp(28px, 5.5vw, 52px);
+  font-weight: 400; line-height: 1.25; color: #fff;
+  text-shadow: 0 2px 20px rgba(232,118,10,0.3);
+}
+h1 em { color: var(--saffron-light); font-style: normal; }
+.subtitle {
+  color: var(--muted); font-size: 14px;
+  margin-top: 10px; line-height: 1.8;
+  font-family: 'Tiro Devanagari Hindi', serif;
+}
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  max-width: 300px; margin: 22px auto 0;
+}
+.divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--saffron), transparent); }
+.divider-icon { color: var(--saffron-light); font-size: 18px; }
+
+/* ── QUOTE BANNER ── */
+.quote-banner {
+  background: linear-gradient(135deg, rgba(232,118,10,0.1), rgba(201,149,42,0.08));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px 28px;
+  margin: 0 20px 28px;
+  max-width: 1060px;
+  margin-left: auto; margin-right: auto;
+  position: relative;
+  overflow: hidden;
+}
+.quote-banner::before {
+  content: '"';
+  position: absolute; left: 16px; top: 0;
+  font-size: 80px; color: rgba(232,118,10,0.12);
+  font-family: serif; line-height: 1;
+}
+.quote-text {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 15px; line-height: 1.9; color: var(--text);
+  padding-left: 24px;
+}
+.quote-attr { font-size: 12px; color: var(--saffron-light); margin-top: 8px; padding-left: 24px; font-weight: 600; }
+
+/* ── CONTAINER ── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px 70px; }
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--saffron);
+  margin-bottom: 20px; display: flex; align-items: center; gap: 8px;
+}
+.section-label::after { content:''; flex:1; height:1px; background: var(--border); }
+
+/* ── CARDS ── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px; padding: 32px;
+  margin-bottom: 24px;
+}
+.card.shimmer { border-color: var(--border2); }
+
+/* ── BUDGET SLIDERS ── */
+.budget-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px; margin-bottom: 28px;
+}
+.field-group label {
+  display: block; font-size: 12px; font-weight: 600;
+  color: var(--muted); margin-bottom: 8px; line-height: 1.5;
+}
+.input-wrap { position: relative; }
+.pfx {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  color: var(--saffron); font-weight: 700; font-size: 15px; pointer-events: none;
+}
+input[type="number"], select {
+  width: 100%; background: var(--dark3);
+  border: 1.5px solid rgba(255,255,255,0.06);
+  border-radius: 10px; color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px; font-weight: 600;
+  padding: 13px 14px 13px 34px; outline: none;
+  transition: border-color 0.2s; -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
+input[type="number"]:focus, select:focus { border-color: var(--saffron); }
+select { padding-left: 14px; cursor: pointer; }
+select option { background: var(--dark3); }
+.nopfx { padding-left: 14px !important; }
+input[type="range"] {
+  width: 100%; accent-color: var(--saffron);
+  height: 4px; cursor: pointer; margin-top: 8px;
+}
+
+/* ── EXPENSE BREAKDOWN ── */
+.expense-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px; margin-bottom: 24px;
+}
+.expense-item {
+  background: var(--dark3); border-radius: 12px;
+  padding: 14px 16px; border: 1px solid rgba(255,255,255,0.05);
+}
+.expense-item label {
+  font-size: 11px; color: var(--muted); font-weight: 600;
+  display: block; margin-bottom: 6px; line-height: 1.4;
+}
+.expense-item input[type="number"] {
+  font-size: 15px; padding: 10px 10px 10px 28px;
+}
+.expense-item .pfx { font-size: 13px; }
+.expense-pct {
+  font-size: 10px; color: var(--saffron-light);
+  margin-top: 4px; font-weight: 600;
+  text-align: right;
+}
+
+.calc-btn {
+  display: block; width: 100%; max-width: 360px;
+  margin: 24px auto 0;
+  background: linear-gradient(135deg, var(--saffron), #D4610A);
+  color: #fff; border: none; border-radius: 12px;
+  padding: 16px 32px;
+  font-family: 'Tiro Devanagari Hindi', sans-serif;
+  font-size: 17px; font-weight: 700; cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 24px rgba(232,118,10,0.35);
+  letter-spacing: 0.3px;
+}
+.calc-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(232,118,10,0.45); }
+
+/* ── RESULTS ── */
+.results { display: none; }
+.results.show { display: block; animation: fadeUp 0.45s ease; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── STAT BOXES ── */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px; margin-bottom: 24px;
+}
+.stat-box {
+  background: var(--card2); border: 1px solid var(--border);
+  border-radius: 14px; padding: 20px 18px;
+}
+.stat-box.bad  { border-color: rgba(212,90,58,0.35); background: rgba(212,90,58,0.07); }
+.stat-box.good { border-color: rgba(74,158,106,0.35); background: rgba(74,158,106,0.07); }
+.stat-box.gold { border-color: rgba(240,192,64,0.4); background: rgba(240,192,64,0.06); }
+.stat-lbl { font-size: 11px; color: var(--muted); font-weight: 600; margin-bottom: 9px; line-height: 1.4; }
+.stat-val { font-size: clamp(20px,3.5vw,30px); font-weight: 700; color: #fff; line-height: 1; }
+.stat-val.saffron { color: var(--saffron-light); }
+.stat-val.red    { color: var(--red); }
+.stat-val.green  { color: var(--green); }
+.stat-val.marigold { color: var(--marigold); }
+.stat-sub { font-size: 11px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+
+/* ── PIE ── */
+.vis-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;
+}
+@media(max-width:640px){ .vis-row { grid-template-columns: 1fr; } }
+.vis-card {
+  background: var(--card2); border: 1px solid var(--border);
+  border-radius: 18px; padding: 26px;
+}
+.vis-title { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 18px; line-height: 1.5; }
+
+.donut-wrap { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+canvas { max-width: 150px; max-height: 150px; }
+.legend { flex: 1; min-width: 120px; }
+.leg-item { display: flex; align-items: flex-start; gap: 9px; margin-bottom: 12px; }
+.dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+.leg-lbl { font-size: 11px; color: var(--muted); line-height: 1.4; }
+.leg-val { font-size: 14px; font-weight: 700; color: #fff; margin-top: 2px; }
+
+/* ── SCENARIO CARDS ── */
+.scenario-header {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px; margin-bottom: 20px;
+}
+.scenario-note {
+  font-size: 13px; color: var(--muted); line-height: 1.75;
+  font-family: 'Tiro Devanagari Hindi', serif;
+  margin-bottom: 20px;
+}
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+.sc-card {
+  border-radius: 14px; padding: 20px;
+  background: var(--dark3); border: 1px solid rgba(255,255,255,0.06);
+  transition: transform 0.2s;
+}
+.sc-card:hover { transform: translateY(-3px); }
+.sc-card.c1 { border-color: rgba(74,158,106,0.3); }
+.sc-card.c2 { border-color: rgba(240,192,64,0.3); }
+.sc-card.c3 { border-color: rgba(232,118,10,0.35); }
+.sc-badge {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: 20px; margin-bottom: 10px;
+}
+.c1 .sc-badge { background: rgba(74,158,106,0.15); color: #4A9E6A; }
+.c2 .sc-badge { background: rgba(240,192,64,0.15); color: var(--marigold); }
+.c3 .sc-badge { background: rgba(232,118,10,0.15); color: var(--saffron-light); }
+.sc-budget { font-size: 26px; font-weight: 700; color: #fff; line-height: 1; margin-bottom: 3px; }
+.sc-sub { font-size: 11px; color: var(--muted); margin-bottom: 14px; line-height: 1.4; }
+.sc-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 7px 0; border-top: 1px solid rgba(255,255,255,0.04); font-size: 12px; gap: 6px;
+}
+.sc-lbl { color: var(--muted); line-height: 1.4; }
+.sc-v  { font-weight: 700; color: #fff; white-space: nowrap; }
+.c1 .sc-save { color: #4A9E6A; font-weight: 700; }
+.c2 .sc-save { color: var(--marigold); font-weight: 700; }
+.c3 .sc-save { color: var(--saffron-light); font-weight: 700; }
+
+/* ── WEALTH TIMELINE ── */
+.timeline-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+}
+.tl-card {
+  background: var(--dark3); border-radius: 12px; padding: 18px 14px;
+  border: 1px solid rgba(255,255,255,0.05); text-align: center;
+}
+.tl-year { font-size: 11px; color: var(--muted); font-weight: 700; letter-spacing: 1px; margin-bottom: 6px; }
+.tl-val  { font-size: 20px; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+.tl-sub  { font-size: 10px; color: var(--muted); line-height: 1.4; }
+
+/* ── VERDICT ── */
+.verdict {
+  background: linear-gradient(135deg, rgba(74,158,106,0.08), rgba(74,158,106,0.02));
+  border: 1px solid rgba(74,158,106,0.25);
+  border-radius: 20px; padding: 28px 30px; margin-bottom: 24px;
+}
+.verdict h3 {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 18px; color: var(--green); margin-bottom: 14px;
+}
+.verdict p {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 14px; line-height: 2; color: var(--text); margin-bottom: 8px;
+}
+.verdict p strong { color: var(--saffron-light); }
+.tip {
+  background: rgba(232,118,10,0.08); border-left: 3px solid var(--saffron);
+  border-radius: 0 10px 10px 0; padding: 14px 18px; margin-top: 16px;
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 13px; color: var(--text); line-height: 1.9;
+}
+.tip strong { color: var(--saffron-light); }
+
+/* ── BAR CHART ── */
+.bar-section { margin-bottom: 24px; }
+.hbar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.hbar-lbl { font-size: 11px; color: var(--muted); width: 100px; flex-shrink: 0; line-height: 1.3; }
+.hbar-track { flex:1; height:10px; background:var(--dark3); border-radius:5px; overflow:hidden; }
+.hbar-fill { height:100%; border-radius:5px; transition: width 1s cubic-bezier(0.23,1,0.32,1); }
+.hbar-val { font-size:11px; font-weight:700; width:80px; text-align:right; flex-shrink:0; }
+
+/* ── TABLE ── */
+.tbl-wrap { overflow-x: auto; }
+table { width:100%; border-collapse:collapse; font-size:13px; }
+th {
+  font-size:11px; font-weight:700; color:var(--muted);
+  padding:10px 12px; text-align:right;
+  border-bottom:1px solid var(--border); white-space:nowrap;
+}
+th:first-child { text-align:left; }
+td { padding:11px 12px; border-bottom:1px solid rgba(255,255,255,0.04); text-align:right; font-weight:500; }
+td:first-child { text-align:left; color:var(--muted); }
+tr:last-child td { color:var(--marigold); font-weight:700; border-bottom:none; font-size:14px; }
+tr:hover td { background:rgba(255,255,255,0.02); }
+
+@media(max-width:600px){
+  .card, .vis-card, .verdict { padding:20px 16px; }
+  .quote-banner { padding:18px 20px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand-tag"><span class="diya">🪔</span> जमा पूंजी — वित्तीय जागरूकता</div>
+  <h1>शादी की <em>असली क़ीमत</em><br>और वो जो आप बचा सकते थे</h1>
+  <p class="subtitle">40 लाख की शादी · 20 लाख की बचत · करोड़ों का भविष्य</p>
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">🌸</div>
+    <div class="divider-line"></div>
+  </div>
+</header>
+
+<!-- QUOTE -->
+<div class="quote-banner">
+  <p class="quote-text">
+    "मैं ज्ञान तो दूँ — ताकि शायद आपको देते-देते मुझे भी सद्बुद्धि आ जाए।
+    40 लाख की शादी में से अगर आपने 10 लाख भी बचा लिए,
+    और उसे 15% पर निवेश किया — तो 30 साल बाद वो <strong style='color:var(--saffron-light)'>6-8 करोड़</strong> बन जाएंगे।"
+  </p>
+  <p class="quote-attr">— जमा पूंजी, CA साहब</p>
+</div>
+
+<div class="container">
+
+  <!-- INPUT -->
+  <div class="card">
+    <div class="section-label">📋 अपनी शादी का बजट भरें</div>
+
+    <div class="budget-grid">
+      <div class="field-group">
+        <label>कुल शादी बजट (आपका अनुमान)</label>
+        <div class="input-wrap">
+          <span class="pfx">₹</span>
+          <input type="number" id="totalBudget" value="4000000" step="100000" min="500000">
+        </div>
+        <input type="range" id="bSlider" min="500000" max="10000000" step="100000" value="4000000"
+          oninput="document.getElementById('totalBudget').value=this.value; autoFill();">
+      </div>
+      <div class="field-group">
+        <label>निवेश पर अनुमानित रिटर्न (% सालाना)</label>
+        <div class="input-wrap">
+          <span class="pfx">%</span>
+          <input type="number" id="returnRate" value="15" min="8" max="24" step="0.5">
+        </div>
+        <input type="range" id="rSlider" min="8" max="24" step="0.5" value="15"
+          oninput="document.getElementById('returnRate').value=this.value;">
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-bottom:16px;">✂️ खर्च किसमें — कितना? (बदल सकते हैं)</div>
+    <div class="expense-grid" id="expenseGrid">
+      <!-- dynamically filled -->
+    </div>
+
+    <button class="calc-btn" onclick="calculate()">🔍 असली हिसाब देखो ➜</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results" id="results">
+
+    <!-- SUMMARY -->
+    <div class="stat-row">
+      <div class="stat-box bad">
+        <div class="stat-lbl">💸 कुल शादी खर्च</div>
+        <div class="stat-val red" id="r-total">—</div>
+        <div class="stat-sub">बैंक खाते से निकलेगा</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-lbl">👥 अनुमानित मेहमान</div>
+        <div class="stat-val saffron" id="r-guests">—</div>
+        <div class="stat-sub">प्रति मेहमान खर्च → <span id="r-per-guest" style="color:var(--red)">—</span></div>
+      </div>
+      <div class="stat-box bad">
+        <div class="stat-lbl">📸 फ़ोटो के लिए खर्च</div>
+        <div class="stat-val red" id="r-photo">—</div>
+        <div class="stat-sub">जो 10 साल बाद एल्बम में बंद होंगे</div>
+      </div>
+      <div class="stat-box good">
+        <div class="stat-lbl">🌱 अगर 25% बचाया होता</div>
+        <div class="stat-val green" id="r-save25">—</div>
+        <div class="stat-sub">सिर्फ़ 25% कम खर्च से</div>
+      </div>
+    </div>
+
+    <!-- DONUT + HBAR -->
+    <div class="vis-row">
+      <div class="vis-card">
+        <div class="vis-title">🥧 आपका शादी बजट — कहाँ-कहाँ जाता है?</div>
+        <div class="donut-wrap">
+          <canvas id="donut" width="150" height="150"></canvas>
+          <div class="legend" id="donutLegend"></div>
+        </div>
+      </div>
+
+      <div class="vis-card">
+        <div class="vis-title">📊 CA साहब की नज़र में — ज़रूरी vs फ़िज़ूल</div>
+        <div id="necessityBars"></div>
+      </div>
+    </div>
+
+    <!-- SCENARIO CARDS -->
+    <div class="card shimmer">
+      <div class="section-label">🎯 अगर खर्च थोड़ा कम होता — तो क्या बचता?</div>
+      <p class="scenario-note">
+        CA साहब कहते हैं — "40 लाख नहीं चले तो 30 लाख करो, 30 नहीं तो 20। पर कुछ तो बचाओ।
+        वो बचाया पैसा 30 साल बाद करोड़ों में बदल जाता है।"
+      </p>
+      <div class="scenario-grid" id="scenarioGrid"></div>
+    </div>
+
+    <!-- WEALTH TIMELINE -->
+    <div class="card">
+      <div class="section-label">🚀 बचाई रकम → भविष्य की दौलत</div>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.8;font-family:'Tiro Devanagari Hindi',serif">
+        नीचे देखिए — शादी में बचाई गई हर रकम, अगर म्यूचुअल फंड में लगाई जाए, तो 10·20·30 साल में क्या बनती है।
+        यही है <em style="color:var(--saffron-light)">चक्रवृद्धि ब्याज</em> की जादुई ताक़त।
+      </p>
+      <div id="wealthTimeline"></div>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>🧾 CA साहब की सीधी बात —</h3>
+      <p id="verdictText"></p>
+      <div class="tip" id="verdictTip"></div>
+    </div>
+
+    <!-- YEAR TABLE -->
+    <div class="card">
+      <div class="section-label">📆 साल-दर-साल — बचाई रकम का बढ़ना</div>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>वर्ष</th>
+              <th>25% बचत का कोष</th>
+              <th>50% बचत का कोष</th>
+              <th>75% बचत का कोष</th>
+            </tr>
+          </thead>
+          <tbody id="yearBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- /results -->
+</div>
+
+<script>
+/* ── DATA ── */
+const CATEGORIES = [
+  { id:'venue',     label:'🏟️ वेन्यू / बाग-बगीचा',   default:0.20, necessity:'wasteful' },
+  { id:'catering',  label:'🍽️ खाना-पीना (कैटरिंग)',   default:0.28, necessity:'semi' },
+  { id:'jewellery', label:'💍 गहने / ज़ेवर',           default:0.15, necessity:'needed' },
+  { id:'clothes',   label:'👗 कपड़े (लहंगा, शेरवानी)', default:0.08, necessity:'wasteful' },
+  { id:'photo',     label:'📸 फ़ोटो / वीडियो',         default:0.06, necessity:'wasteful' },
+  { id:'decor',     label:'🌸 सजावट / लाइटिंग',       default:0.08, necessity:'semi' },
+  { id:'music',     label:'🎵 बैंड / DJ / संगीत',      default:0.04, necessity:'semi' },
+  { id:'other',     label:'📦 बाकी खर्च (misc)',       default:0.11, necessity:'semi' },
+];
+
+const COLORS = ['#E8760A','#C9952A','#4A9E6A','#D45A3A','#8A7A68','#5B8DD4','#A06BD4','#4AAEB5'];
+
+function fmt(n) {
+  if(n>=10000000) return '₹'+(n/10000000).toFixed(2)+' करोड़';
+  if(n>=100000)   return '₹'+(n/100000).toFixed(2)+' लाख';
+  if(n>=1000)     return '₹'+(n/1000).toFixed(1)+' हज़ार';
+  return '₹'+Math.round(n).toLocaleString('en-IN');
+}
+
+function fv(pv, r, n) { return pv * Math.pow(1+r, n); }
+
+/* ── BUILD EXPENSE INPUTS ── */
+function buildExpenseGrid() {
+  const grid = document.getElementById('expenseGrid');
+  const budget = parseFloat(document.getElementById('totalBudget').value) || 4000000;
+  grid.innerHTML = '';
+  CATEGORIES.forEach(cat => {
+    const amount = Math.round(budget * cat.default / 10000) * 10000;
+    const div = document.createElement('div');
+    div.className = 'expense-item';
+    div.innerHTML = `
+      <label>${cat.label}</label>
+      <div class="input-wrap">
+        <span class="pfx">₹</span>
+        <input type="number" id="exp_${cat.id}" value="${amount}" step="10000" class="exp-input">
+      </div>
+      <div class="expense-pct" id="pct_${cat.id}">${(cat.default*100).toFixed(0)}% of कुल</div>`;
+    grid.appendChild(div);
+    div.querySelector('.exp-input').addEventListener('input', updatePcts);
+  });
+}
+
+function updatePcts() {
+  const total = CATEGORIES.reduce((s,c)=> s + (parseFloat(document.getElementById('exp_'+c.id)?.value)||0), 0);
+  CATEGORIES.forEach(cat => {
+    const v = parseFloat(document.getElementById('exp_'+cat.id)?.value) || 0;
+    const el = document.getElementById('pct_'+cat.id);
+    if(el) el.textContent = total > 0 ? (v/total*100).toFixed(0)+'% of कुल' : '0%';
+  });
+}
+
+function autoFill() {
+  const budget = parseFloat(document.getElementById('totalBudget').value) || 4000000;
+  CATEGORIES.forEach(cat => {
+    const el = document.getElementById('exp_'+cat.id);
+    if(el) el.value = Math.round(budget * cat.default / 10000) * 10000;
+  });
+  updatePcts();
+}
+
+/* ── DRAW DONUT ── */
+function drawDonut(amounts) {
+  const canvas = document.getElementById('donut');
+  const ctx = canvas.getContext('2d');
+  const total = amounts.reduce((a,b)=>a+b,0);
+  const cx=75,cy=75,R=65,ir=45;
+  ctx.clearRect(0,0,150,150);
+  let start = -Math.PI/2;
+  amounts.forEach((amt,i) => {
+    const angle = (amt/total)*2*Math.PI;
+    ctx.beginPath();
+    ctx.moveTo(cx+ir*Math.cos(start),cy+ir*Math.sin(start));
+    ctx.arc(cx,cy,R,start,start+angle);
+    ctx.arc(cx,cy,ir,start+angle,start,true);
+    ctx.closePath();
+    ctx.fillStyle = COLORS[i];
+    ctx.fill();
+    start += angle;
+  });
+  // center
+  ctx.fillStyle='#fff'; ctx.font='bold 12px sans-serif'; ctx.textAlign='center';
+  ctx.fillText(fmt(total), cx, cy-4);
+  ctx.fillStyle='#8A7A68'; ctx.font='9px sans-serif';
+  ctx.fillText('कुल खर्च', cx, cy+10);
+
+  // legend
+  const leg = document.getElementById('donutLegend');
+  leg.innerHTML='';
+  amounts.forEach((amt,i) => {
+    const pct = (amt/total*100).toFixed(0);
+    leg.innerHTML += `
+      <div class="leg-item">
+        <div class="dot" style="background:${COLORS[i]}"></div>
+        <div>
+          <div class="leg-lbl">${CATEGORIES[i].label.substring(3)}</div>
+          <div class="leg-val">${fmt(amt)} <span style="color:var(--muted);font-size:11px">(${pct}%)</span></div>
+        </div>
+      </div>`;
+  });
+}
+
+/* ── NECESSITY BARS ── */
+function buildNecessityBars(amounts, total) {
+  const wasteful = amounts.reduce((s,v,i) => CATEGORIES[i].necessity==='wasteful'?s+v:s, 0);
+  const semi     = amounts.reduce((s,v,i) => CATEGORIES[i].necessity==='semi'?s+v:s, 0);
+  const needed   = amounts.reduce((s,v,i) => CATEGORIES[i].necessity==='needed'?s+v:s, 0);
+
+  const bars = [
+    {label:'❌ फ़िज़ूलखर्ची\n(वेन्यू, कपड़े, फ़ोटो)', val:wasteful, color:'#D45A3A'},
+    {label:'⚠️ थोड़ा जरूरी\n(खाना, सजावट, बाकी)', val:semi, color:'#C9952A'},
+    {label:'✅ ज़रूरी\n(गहने)',                    val:needed, color:'#4A9E6A'},
+  ];
+  const div = document.getElementById('necessityBars');
+  div.innerHTML = `<div style="font-size:11px;color:var(--muted);margin-bottom:12px">CA साहब की नज़र में — इसमें से ज़्यादातर बचाया जा सकता था</div>`;
+  bars.forEach(b => {
+    const pct = (b.val/total*100).toFixed(0);
+    div.innerHTML += `
+      <div class="hbar-row">
+        <div class="hbar-lbl" style="white-space:pre-line;font-size:10px">${b.label}</div>
+        <div class="hbar-track">
+          <div class="hbar-fill" style="width:0%;background:${b.color}" data-target="${pct}"></div>
+        </div>
+        <div class="hbar-val" style="color:${b.color}">${fmt(b.val)}</div>
+      </div>`;
+  });
+  setTimeout(() => {
+    div.querySelectorAll('.hbar-fill').forEach(el => {
+      el.style.width = el.dataset.target + '%';
+    });
+  }, 150);
+}
+
+/* ── SCENARIO CARDS ── */
+function buildScenarios(total, rate) {
+  const r = rate/100;
+  const scenarios = [
+    {pct:25, label:'थोड़ी समझदारी', cls:'c1'},
+    {pct:50, label:'अच्छी समझदारी', cls:'c2'},
+    {pct:75, label:'बड़ी समझदारी!', cls:'c3'},
+  ];
+  const grid = document.getElementById('scenarioGrid');
+  grid.innerHTML='';
+  scenarios.forEach(sc => {
+    const saved    = total * sc.pct/100;
+    const newBudget= total - saved;
+    const v10 = fv(saved,r,10), v20=fv(saved,r,20), v30=fv(saved,r,30);
+    const card=document.createElement('div');
+    card.className=`sc-card ${sc.cls}`;
+    card.innerHTML=`
+      <div class="sc-badge">${sc.label} — ${sc.pct}% कम खर्च</div>
+      <div class="sc-budget">${fmt(newBudget)}</div>
+      <div class="sc-sub">की शादी (बजाय ${fmt(total)} के)</div>
+      <div class="sc-row"><span class="sc-lbl">बचाई रकम</span><span class="sc-save">↓ ${fmt(saved)}</span></div>
+      <div class="sc-row"><span class="sc-lbl">10 साल बाद</span><span class="sc-v">${fmt(v10)}</span></div>
+      <div class="sc-row"><span class="sc-lbl">20 साल बाद</span><span class="sc-v">${fmt(v20)}</span></div>
+      <div class="sc-row"><span class="sc-lbl">30 साल बाद</span><span class="sc-v" style="color:var(--marigold)">${fmt(v30)}</span></div>`;
+    grid.appendChild(card);
+  });
+}
+
+/* ── WEALTH TIMELINE ── */
+function buildWealthTimeline(total, rate) {
+  const r = rate/100;
+  const savings = [total*0.25, total*0.50, total*0.75];
+  const labels  = ['25% बचाया', '50% बचाया', '75% बचाया'];
+  const colors  = ['#4A9E6A','#C9952A','#E8760A'];
+  const years   = [5,10,15,20,25,30];
+
+  const tl = document.getElementById('wealthTimeline');
+  tl.innerHTML='';
+
+  savings.forEach((saved,si) => {
+    const row = document.createElement('div');
+    row.style.cssText='margin-bottom:20px';
+    row.innerHTML=`<div style="font-size:12px;font-weight:700;color:${colors[si]};margin-bottom:10px">
+      💰 ${labels[si]} = ${fmt(saved)} → निवेश पर:</div>`;
+    const grid=document.createElement('div');
+    grid.className='timeline-grid';
+    years.forEach(y => {
+      const val = fv(saved,r,y);
+      const card=document.createElement('div');
+      card.className='tl-card';
+      card.innerHTML=`
+        <div class="tl-year">${y} साल बाद</div>
+        <div class="tl-val" style="color:${colors[si]}">${fmt(val)}</div>
+        <div class="tl-sub">${rate}% सालाना रिटर्न पर</div>`;
+      grid.appendChild(card);
+    });
+    row.appendChild(grid);
+    tl.appendChild(row);
+  });
+}
+
+/* ── YEAR TABLE ── */
+function buildYearTable(total, rate) {
+  const r=rate/100;
+  const s1=total*0.25, s2=total*0.50, s3=total*0.75;
+  const tbody=document.getElementById('yearBody');
+  tbody.innerHTML='';
+  [5,10,15,20,25,30].forEach(y => {
+    const tr=document.createElement('tr');
+    tr.innerHTML=`
+      <td>वर्ष ${y}</td>
+      <td style="color:#4A9E6A">${fmt(fv(s1,r,y))}</td>
+      <td style="color:#C9952A">${fmt(fv(s2,r,y))}</td>
+      <td style="color:#E8760A">${fmt(fv(s3,r,y))}</td>`;
+    tbody.appendChild(tr);
+  });
+  // totals row label
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td>बचाई रकम</td>
+    <td style="color:#4A9E6A">${fmt(s1)}</td>
+    <td style="color:#C9952A">${fmt(s2)}</td>
+    <td style="color:#E8760A">${fmt(s3)}</td>`;
+  tbody.appendChild(tr);
+}
+
+/* ── MAIN CALCULATE ── */
+function calculate() {
+  const total  = CATEGORIES.reduce((s,c)=>{
+    return s+(parseFloat(document.getElementById('exp_'+c.id)?.value)||0);
+  },0);
+  const rate   = parseFloat(document.getElementById('returnRate').value)||15;
+  const amounts= CATEGORIES.map(c=>parseFloat(document.getElementById('exp_'+c.id)?.value)||0);
+
+  // Update stat boxes
+  const guests = Math.round(total / 3500);
+  document.getElementById('r-total').textContent   = fmt(total);
+  document.getElementById('r-guests').textContent  = guests.toLocaleString('en-IN') + ' मेहमान';
+  document.getElementById('r-per-guest').textContent='₹'+Math.round(total/guests).toLocaleString('en-IN')+' प्रति मेहमान';
+  document.getElementById('r-photo').textContent   = fmt(amounts[4]||0);
+  document.getElementById('r-save25').textContent  = fmt(total*0.25);
+
+  drawDonut(amounts);
+  buildNecessityBars(amounts, total);
+  buildScenarios(total, rate);
+  buildWealthTimeline(total, rate);
+  buildYearTable(total, rate);
+
+  // Verdict
+  const saved50 = total*0.5;
+  const v30     = fv(saved50, rate/100, 30);
+  document.getElementById('verdictText').innerHTML=`
+    आपकी शादी का बजट है <strong>${fmt(total)}</strong>। इसमें से
+    <strong style="color:var(--red)">${fmt(total*0.40)}</strong> (40%) ऐसी चीज़ों पर जाएगा
+    जो शादी के बाद किसी काम नहीं आएंगी — बड़ा वेन्यू, महंगे कपड़े, फ़ोटोग्राफर।<br><br>
+    अगर आपने आधा खर्च कम किया — यानी <strong>${fmt(saved50)}</strong> बचाए —
+    और उसे ${rate}% सालाना रिटर्न पर निवेश किया, तो 30 साल बाद वो
+    <strong style="color:var(--green)">${fmt(v30)}</strong> बन जाएंगे।
+    यही है शादी की असली क़ीमत — जो आप खर्च नहीं करते, वो भविष्य बनाती है।`;
+
+  document.getElementById('verdictTip').innerHTML=`
+    <strong>💡 CA साहब की अंतिम बात:</strong>
+    शादी को यादगार बनाइए — महंगी नहीं। जिनको आप जानते हो उन्हें बुलाइए, जिनको नहीं जानते उन्हें नहीं।
+    मेन्यू इतना रखिए कि सब खा सकें — पूरी दुनिया की डिशेस नहीं। बचाए पैसे को SIP में डालिए।
+    <em>बच्चे की शादी पर लाखों खर्च करोगे — या उन्हें लाखों की विरासत दोगे?</em>`;
+
+  const res=document.getElementById('results');
+  res.classList.add('show');
+  setTimeout(()=>res.scrollIntoView({behavior:'smooth',block:'start'}),100);
+}
+
+/* ── INIT ── */
+window.onload = () => {
+  buildExpenseGrid();
+  document.getElementById('totalBudget').addEventListener('input', ()=>{
+    document.getElementById('bSlider').value=document.getElementById('totalBudget').value;
+    autoFill();
+  });
+};
+</script>
+</body>
+</html>
