@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>शुभ विवाह – राहुल 💍 पिंकी</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red:    #8b0000;
+  --dred:   #5a0010;
+  --cream:  #f5f0e0;
+  --lcream: #faf7ed;
+  --gold:   #c8960a;
+  --lgold:  #e8c840;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: #4a3010;
+  background-image: repeating-linear-gradient(45deg,rgba(0,0,0,.06) 0,rgba(0,0,0,.06) 1px,transparent 1px,transparent 9px);
+  min-height:100vh; display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  padding:24px 12px; font-family:'Noto Serif Devanagari',serif;
+}
+
+/* ── SHARED CARD SHELL ── */
+.card {
+  width:100%; max-width:500px;
+  background:var(--cream);
+  border:2px solid var(--gold);
+  box-shadow:0 0 0 1px var(--lgold), 0 0 0 5px #4a3010, 0 18px 52px rgba(0,0,0,.55);
+  animation:up .8s ease both;
+  position:relative; overflow:hidden;
+}
+.card + .card { margin-top:18px; }
+@keyframes up{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+/* ─ Checkered border pattern top/bottom ─ */
+.check-border {
+  height:14px; width:100%;
+  background:repeating-linear-gradient(90deg,
+    var(--dred) 0,var(--dred) 7px,
+    var(--lgold) 7px,var(--lgold) 14px);
+}
+
+/* ─ Trellis background watermark ─ */
+.card::before {
+  content:'';
+  position:absolute; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(200,150,10,.07) 2px, transparent 2px),
+    linear-gradient(45deg,rgba(139,0,0,.04) 25%,transparent 25%,transparent 75%,rgba(139,0,0,.04) 75%),
+    linear-gradient(135deg,rgba(139,0,0,.04) 25%,transparent 25%,transparent 75%,rgba(139,0,0,.04) 75%);
+  background-size:22px 22px, 22px 22px, 22px 22px;
+}
+.card > * { position:relative; z-index:1; }
+
+/* ══════════════════════════════
+   CARD 1 — COVER
+══════════════════════════════ */
+
+/* Lantern corners */
+.lanterns {
+  display:flex; justify-content:space-between; align-items:flex-start;
+  padding:10px 14px 0;
+}
+.lantern { font-size:28px; opacity:.7; }
+
+/* Ganesh arch */
+.ganesh-arch {
+  text-align:center; padding:0 40px 8px; margin-top:-10px;
+}
+.arch-frame {
+  display:inline-block;
+  background:linear-gradient(160deg,#f8e8c0,#f0d090);
+  border:2.5px solid var(--gold);
+  border-radius:50% 50% 8px 8px / 40% 40% 8px 8px;
+  padding:14px 20px 10px;
+  box-shadow:inset 0 2px 8px rgba(200,150,10,.2), 0 4px 16px rgba(0,0,0,.1);
+  position:relative;
+}
+.arch-frame::before {
+  content:'';
+  position:absolute; inset:5px;
+  border:1px solid rgba(200,150,10,.4);
+  border-radius:50% 50% 6px 6px / 38% 38% 6px 6px;
+  pointer-events:none;
+}
+.ganesh-emoji { font-size:80px; line-height:1; display:block; }
+
+/* Mantra */
+.mantra-text {
+  text-align:center; font-size:12px; font-weight:600;
+  color:var(--dred); line-height:1.7;
+  padding:10px 20px;
+  border-bottom:1px solid rgba(139,0,0,.15);
+}
+
+/* Peacock row */
+.peacock-row {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:10px 20px;
+}
+.peacock { font-size:26px; opacity:.7; }
+
+/* Names + Shubh section */
+.names-shubh {
+  display:flex; justify-content:space-between; align-items:flex-start;
+  padding:4px 20px 14px; gap:8px;
+}
+.left-names { flex-shrink:0; }
+.name-rahul {
+  font-size:28px; font-weight:900; color:var(--red);
+  line-height:1; margin-bottom:10px;
+}
+.couple-illus {
+  font-size:48px; text-align:center;
+  display:flex; flex-direction:column; align-items:center;
+}
+.sang-small {
+  font-size:11px; font-weight:700; color:var(--red);
+  background:rgba(139,0,0,.08); padding:1px 8px; border-radius:10px;
+  margin-top:-4px;
+}
+.name-pinki {
+  font-size:28px; font-weight:900; color:var(--red);
+  line-height:1; margin-top:6px;
+}
+
+.right-shubh { text-align:right; }
+.shubh-heading {
+  font-size:30px; font-weight:900; color:var(--red);
+  font-style:italic; line-height:1.1;
+}
+.shubh-date {
+  font-size:13px; font-weight:700; color:var(--dred);
+  margin:6px 0 2px;
+  border-top:1px solid rgba(139,0,0,.2);
+  padding-top:6px;
+}
+.shubh-day {
+  font-size:11px; font-weight:600; color:var(--red);
+}
+.preet-label {
+  font-size:17px; font-weight:900; color:var(--red);
+  margin-top:10px;
+}
+.preet-date { font-size:12px; font-weight:700; color:var(--dred); }
+
+/* Sewa mein */
+.sewa-section {
+  padding:10px 20px;
+  border-top:1px dashed rgba(139,0,0,.25);
+  border-bottom:1px solid rgba(139,0,0,.15);
+}
+.sewa-label { font-size:12px; color:var(--red); font-weight:600; }
+.sewa-line {
+  border-bottom:1px solid var(--red);
+  margin:4px 0 8px;
+}
+.preshar-row {
+  display:flex; justify-content:space-between; align-items:flex-start; gap:10px;
+}
+.sender-block { flex:1; }
+.sender-label { font-size:11px; font-weight:700; color:var(--red); margin-bottom:3px; }
+.sender-name  { font-size:15px; font-weight:900; color:var(--dred); line-height:1.2; }
+.sender-tag   { font-size:10.5px; color:var(--red); font-weight:600; }
+.sender-addr  { font-size:11px; color:var(--dred); line-height:1.7; font-weight:600; margin-top:4px; }
+.sender-mob   { font-size:13px; font-weight:800; color:var(--dred); margin-top:4px; }
+.aapka-block  {
+  flex-shrink:0; text-align:center;
+  background:rgba(139,0,0,.06); border:1px solid rgba(139,0,0,.15);
+  border-radius:50%; width:80px; height:80px;
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column; padding:8px;
+}
+.aapka-text { font-size:9px; font-weight:700; color:var(--red); line-height:1.4; text-align:center; }
+
+.printer-line {
+  text-align:center; font-size:9px; color:rgba(90,0,10,.4);
+  padding:6px 12px 10px;
+}
+
+
+/* ══════════════════════════════
+   CARD 2 — INNER (2 COLS)
+══════════════════════════════ */
+.inner-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:0;
+}
+.inner-col {
+  padding:14px 14px;
+}
+.inner-col + .inner-col {
+  border-left:1.5px solid rgba(139,0,0,.2);
+}
+
+/* Inner col headings */
+.inner-ganesh { font-size:11px; font-weight:700; color:var(--dred); text-align:center; margin-bottom:5px; }
+.inner-mantra { font-size:9.5px; color:var(--red); text-align:center; font-weight:600; line-height:1.65; margin-bottom:8px; }
+.prem-shlok { font-size:10.5px; color:var(--dred); text-align:center; font-weight:600; line-height:1.6; font-style:italic; margin-bottom:10px; border-bottom:1px dashed rgba(139,0,0,.2); padding-bottom:8px; }
+
+/* Schedule */
+.sched-big-title {
+  text-align:center; font-size:18px; font-weight:900;
+  color:var(--dred); letter-spacing:.5px; margin-bottom:10px;
+}
+.sched-item { margin-bottom:10px; }
+.sched-date-line { font-size:11px; font-weight:700; color:var(--dred); margin-bottom:2px; }
+.sched-event-name {
+  font-size:14px; font-weight:900; color:var(--red);
+  text-align:center; padding:4px 0;
+  border-top:1px solid rgba(139,0,0,.15);
+  border-bottom:1px solid rgba(139,0,0,.15);
+}
+.sched-desc { font-size:10.5px; color:var(--dred); line-height:1.65; font-weight:600; margin-top:4px; text-align:center; }
+.sched-divider {
+  text-align:center; color:var(--gold); font-size:14px; margin:4px 0;
+}
+
+.note-sched {
+  background:rgba(139,0,0,.06); border:1px solid rgba(139,0,0,.2);
+  border-radius:4px; padding:7px 10px; font-size:10px;
+  color:var(--dred); font-weight:600; line-height:1.65;
+  text-align:center; margin:8px 0;
+}
+
+.sthal-box {
+  background:rgba(139,0,0,.05); border:1.5px solid var(--red);
+  border-radius:4px; padding:7px 10px; margin:8px 0;
+}
+.sthal-title { font-size:11px; font-weight:900; color:var(--red); text-align:center; margin-bottom:4px; }
+.sthal-text  { font-size:10.5px; color:var(--dred); text-align:center; font-weight:600; line-height:1.6; }
+
+.baal-box {
+  background:rgba(139,0,0,.04); border:1px dashed rgba(139,0,0,.3);
+  border-radius:4px; padding:7px 10px; margin:8px 0;
+  font-size:10px; color:var(--dred); line-height:1.65; font-weight:600;
+}
+.baal-title { font-size:11px; font-weight:800; color:var(--red); margin-bottom:3px; }
+.poem-box {
+  font-size:10px; color:var(--red); font-weight:600; font-style:italic;
+  text-align:center; line-height:1.7; margin-top:8px;
+  border-top:1px dashed rgba(139,0,0,.2); padding-top:8px;
+}
+
+/* Right col */
+.baidyanath-text {
+  font-size:10px; color:var(--dred); font-weight:600; text-align:center;
+  line-height:1.65; margin-bottom:8px;
+  border-bottom:1px solid rgba(139,0,0,.15); padding-bottom:8px;
+}
+.groom-name-big { font-size:20px; font-weight:900; color:var(--dred); text-align:center; line-height:1.1; margin-bottom:5px; }
+.person-detail  { font-size:10.5px; color:var(--dred); text-align:center; line-height:1.7; font-weight:600; }
+
+.sang-center-row {
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  margin:10px 0;
+}
+.sang-word { font-size:15px; font-weight:700; color:var(--red); }
+.couple-line { font-size:22px; }
+
+.mangal-parinat {
+  font-size:18px; font-weight:900; color:var(--red);
+  text-align:center; margin:8px 0;
+}
+.invite-text {
+  font-size:10.5px; color:var(--dred); font-weight:600;
+  text-align:center; line-height:1.7;
+  border-bottom:1px dashed rgba(139,0,0,.2); padding-bottom:8px; margin-bottom:8px;
+}
+
+.people-section { margin-top:6px; }
+.people-title {
+  font-size:11px; font-weight:800; color:var(--red);
+  text-align:center; margin-bottom:4px;
+}
+.people-names {
+  font-size:10px; color:var(--dred); font-weight:600;
+  line-height:1.75; text-align:center;
+}
+.aakankshi-box {
+  margin-top:8px; text-align:center;
+  border-top:1px solid rgba(139,0,0,.15); padding-top:8px;
+}
+.aakankshi-title { font-size:11px; font-weight:800; color:var(--red); margin-bottom:3px; }
+.aakankshi-names { font-size:11px; color:var(--dred); font-weight:700; line-height:1.75; }
+
+/* RESPONSIVE */
+@media(max-width:480px){
+  .names-shubh{flex-wrap:wrap;justify-content:center;gap:12px;}
+  .right-shubh{text-align:center;width:100%;}
+  .inner-grid{grid-template-columns:1fr;}
+  .inner-col+.inner-col{border-left:none;border-top:2px solid rgba(139,0,0,.2);}
+  .preshar-row{flex-direction:column;}
+  .aapka-block{width:100%;border-radius:6px;height:auto;padding:10px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ CARD 1 — COVER ══════════════ -->
+<div class="card">
+  <div class="check-border"></div>
+
+  <!-- Lanterns -->
+  <div class="lanterns">
+    <span class="lantern">🏮</span>
+    <span class="lantern">🏮</span>
+  </div>
+
+  <!-- Ganesh -->
+  <div class="ganesh-arch">
+    <div class="arch-frame">
+      <span class="ganesh-emoji">🐘</span>
+    </div>
+  </div>
+
+  <!-- Mantra -->
+  <div class="mantra-text">
+    दक्रतुण्ड महाकाय, सूर्यकोटि समप्रभः ।<br>
+    निर्विघ्नं कुरूमेदेव, सर्व कार्येषु सर्वदा ।।
+  </div>
+
+  <!-- Peacocks -->
+  <div class="peacock-row">
+    <span class="peacock">🦚</span>
+    <span style="font-size:13px;font-weight:700;color:var(--dred);text-align:center;line-height:1.5;">— स्नेह निमंत्रण —</span>
+    <span class="peacock">🦚</span>
+  </div>
+
+  <!-- Main: Names + Shubh Vivah -->
+  <div class="names-shubh">
+    <div class="left-names">
+      <div class="name-rahul">राहुल</div>
+      <div class="couple-illus">
+        <span>👫</span>
+        <span class="sang-small">संग</span>
+      </div>
+      <div class="name-pinki">पिंकी</div>
+    </div>
+
+    <div class="right-shubh">
+      <div class="shubh-heading">शुभविवाह</div>
+      <div class="shubh-date">दिनांक 12.05.2026 (मंगलवार)</div>
+      <div style="text-align:center;color:var(--gold);font-size:14px;margin:4px 0;">— ✦ —</div>
+      <div class="preet-label">प्रीतिभोज</div>
+      <div class="preet-date">दिनांक 13.05.2026 (बुधवार)</div>
+    </div>
+  </div>
+
+  <!-- Sewa mein + Sender -->
+  <div class="sewa-section">
+    <div class="sewa-label">सेवा में,</div>
+    <div class="sewa-label">श्री / श्रीमती ________________________</div>
+    <div class="sewa-line"></div>
+    <div class="preshar-row">
+      <div class="sender-block">
+        <div class="sender-label">प्रेषक :–</div>
+        <div class="sender-name">हीरालाल कोल</div>
+        <div class="sender-tag">(सेवा निवृत शिक्षक)</div>
+        <div class="sender-addr">
+          ग्राम : भलबिन्धा, पोस्ट : मगडीहा,<br>
+          थाना : सोनारायठाढ़ी, जिला : देवघर (झा0)
+        </div>
+        <div class="sender-mob">मो0 : 6202547056</div>
+      </div>
+      <div class="aapka-block">
+        <div class="aapka-text">आपका<br>आगमन ही<br>हमारा परम<br>सौभाग्य।</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="printer-line">Pintu Printing Press Sarat &nbsp;|&nbsp; Mob: 9113130880</div>
+  <div class="check-border" style="background:repeating-linear-gradient(90deg,var(--lgold) 0,var(--lgold) 7px,var(--dred) 7px,var(--dred) 14px);"></div>
+</div>
+<!-- / CARD 1 -->
+
+
+<!-- ══════════════ CARD 2 — INNER ══════════════ -->
+<div class="card">
+  <div class="check-border"></div>
+
+  <div class="inner-grid">
+
+    <!-- LEFT COLUMN: Schedule -->
+    <div class="inner-col">
+      <div class="inner-ganesh">।। श्री गणेशाय नमः ।।</div>
+      <div class="inner-mantra">
+        मंगलम् भगवान विष्णुः 🕉️ मंगलम् गरुडध्वजः ।<br>
+        मंगलम् पुण्डरीकाक्षः 🕉️ मंगलाय तनोडहरिः ।।
+      </div>
+      <div class="prem-shlok">
+        "प्रथम निमंत्रण आपको गौरी पुत्र गणेश,<br>
+        मंगल कार्य संभालिए ब्रह्मा विष्णु महेश।"
+      </div>
+
+      <div class="sched-big-title">॥ वैवाहिक कार्यक्रम ॥</div>
+
+      <!-- Event 1 -->
+      <div class="sched-item">
+        <div class="sched-date-line">दिनांक 09.05.2026 दिन शनिवार :</div>
+        <div class="sched-event-name">!! शुभ-तिलकोत्सव !!</div>
+      </div>
+      <div class="sched-divider">—✦—</div>
+
+      <!-- Event 2 -->
+      <div class="sched-item">
+        <div class="sched-date-line">दिनांक 11.05.2026 दिन सोमवार :</div>
+        <div class="sched-event-name">!! पननैती !!</div>
+      </div>
+      <div class="sched-divider">—✦—</div>
+
+      <!-- Event 3 -->
+      <div class="sched-item">
+        <div class="sched-date-line">दिनांक 12.05.2026 दिन मंगलवार :</div>
+        <div class="sched-desc">
+          कुल देव–देवी पूजन, मंडप–पूजन, घुतढारी,<br>
+          बारात प्रस्थान एवं रात्रि में
+        </div>
+        <div class="sched-event-name">शुभ–विवाह ।</div>
+      </div>
+
+      <!-- Note -->
+      <div class="note-sched">
+        नोट : बारात हमारे पैतृक आवास ग्राम<br>
+        <strong>"भलबिन्धा"</strong> से <strong>"ललकीटाँड</strong><br>
+        (कोरनाटाँड टोला)"<br>
+        के लिए रात <strong>08 बजे</strong> प्रस्थान करेगी।
+      </div>
+
+      <div class="sched-divider">—✦—</div>
+
+      <!-- Event 4 -->
+      <div class="sched-item">
+        <div class="sched-date-line">दिनांक 13.05.2026 दिन बुधवार :</div>
+        <div class="sched-desc">वर–वधू स्वागत समारोह एवं</div>
+        <div class="sched-event-name">!! प्रीतिभोज !!</div>
+        <div class="sched-desc">(शाम 05 बजे से आपके आगमन तक।)</div>
+      </div>
+
+      <!-- Venue -->
+      <div class="sthal-box">
+        <div class="sthal-title">: कार्यक्रम स्थल :</div>
+        <div class="sthal-text">
+          समस्त वैवाहिक कार्यक्रम हमारे<br>
+          निजी आवास <strong>भलबिन्धा</strong> से सम्पन्न होगा।
+        </div>
+      </div>
+
+      <!-- Baal Manuhar -->
+      <div class="baal-box">
+        <div class="baal-title">:– बाल मनुहार :–</div>
+        इंतजार की घड़ियाँ खत्म हो गई हमसब नाचेंगे गाएंगे,<br>
+        मेरे चाचु की शादी में आग्रह हैं आप जरूर आएंगे :<br>
+        <strong>वामिका, गौतम एवं लक्ष्मी ।</strong>
+      </div>
+
+      <div class="poem-box">
+        "सपनों का जहन सजाने जा रहे हैं,<br>
+        अपने प्यारे जीवन साथी से मिलने जा रहे हैं।<br>
+        आपकी मौजूदगी से खुशी होगी चौगुनी,<br>
+        इसलिए हम आपको शादी में बुलाने आ रहे हैं।।"
+      </div>
+    </div>
+    <!-- /LEFT COL -->
+
+    <!-- RIGHT COLUMN: Couple + Family -->
+    <div class="inner-col">
+      <div class="inner-ganesh">।। श्री गणेशाय नमः ।।</div>
+      <div class="inner-mantra">
+        वक्रतुण्ड महाकाय, ⊙ सूर्यकोटि समप्रभः ।<br>
+        निर्विघ्नं कुरूमेदेव, सर्व कार्येषु सर्वदा ।।
+      </div>
+
+      <div class="baidyanath-text">
+        मान्यवर,<br>
+        देवाधिदेव बाबा वैद्यनाथ एवं माता पार्वती की<br>
+        असीम अनुकम्पा से
+      </div>
+
+      <!-- Groom -->
+      <div class="groom-name-big">आयुष्मान राहुल कोल</div>
+      <div class="person-detail">
+        कनिष्ठ सुपुत्र : श्री हीरालाल कोल एवं श्रीमती सुमित्रा देवी<br>
+        ग्राम : भलबिन्धा, पोस्ट : मगडीहा<br>
+        थाना : सोनारायठाढ़ी, जिला : देवघर (झारखण्ड)
+      </div>
+
+      <!-- Sang -->
+      <div class="sang-center-row">
+        <span class="couple-line">👰</span>
+        <span class="sang-word">संग</span>
+        <span class="couple-line">🤵</span>
+      </div>
+
+      <!-- Bride -->
+      <div class="groom-name-big">आयुष्मती कुमारी पिंकी</div>
+      <div class="person-detail">
+        कनिष्ठ सुपुत्री : श्री रघु कोल एवं श्रीमती दासिया कोल<br>
+        ग्राम : ललकीटाँड (कोरनाटाँड टोला)<br>
+        पो0 : पालमो, थाना : गिरिडीह<br>
+        जिला : गिरिडीह (झारखण्ड)
+      </div>
+
+      <!-- Mangal Parinat -->
+      <div class="mangal-parinat">के मंगले परिणय</div>
+      <div class="invite-text">
+        की शुभ एवं मधुर बेला पर आप–सपरिवार<br>
+        पधार कर वर–वधू को शुभाशीष प्रदान कर<br>
+        हमें अनुगृहीत करें।
+      </div>
+
+      <!-- Swagat -->
+      <div class="people-section">
+        <div class="people-title">!! स्वागताकांक्षी !!</div>
+        <div class="people-names">
+          सर्वश्री बुनुलाल कोल, भुवनेश्वर कोल,<br>
+          रमेश कोल, तुलसी कोल, सुरेन्द्र कोल,<br>
+          गुईडू कोल, शंकर कोल ।
+        </div>
+      </div>
+
+      <!-- Darshan -->
+      <div class="people-section" style="margin-top:8px;">
+        <div class="people-title">!! दर्शनाभिलाषी !!</div>
+        <div class="people-names">
+          सर्वश्री मदन कोल, राजेश कोल, प्रितम कोल,<br>
+          निर्मल कोल, हरगोरी कोल, जनार्दन कोल,<br>
+          सुनील, परेश, जयलाल, उत्तम, लिखराज,<br>
+          जयकुमार, रामदेव एवं समस्त कोल परिवार ।
+        </div>
+      </div>
+
+      <!-- Aakankshi -->
+      <div class="aakankshi-box">
+        <div class="aakankshi-title">!! आकांक्षी !!</div>
+        <div class="aakankshi-names">
+          श्रीमती सुमित्रा कोल<br>
+          श्री हीरालाल कोल
+        </div>
+      </div>
+    </div>
+    <!-- /RIGHT COL -->
+
+  </div><!-- /inner-grid -->
+
+  <!-- Bottom peacock row -->
+  <div style="display:flex;justify-content:space-between;padding:6px 16px 0;font-size:24px;opacity:.6;">
+    <span>🦚</span><span>🦚</span>
+  </div>
+
+  <div class="check-border" style="background:repeating-linear-gradient(90deg,var(--lgold) 0,var(--lgold) 7px,var(--dred) 7px,var(--dred) 14px);"></div>
+</div>
+<!-- / CARD 2 -->
+
+</body>
+</html>
