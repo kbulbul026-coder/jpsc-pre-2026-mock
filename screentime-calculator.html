@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>जमा पूंजी — स्क्रीन टाइम कैलकुलेटर</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:    #0A0E14;
+  --bg2:   #111520;
+  --bg3:   #181E2C;
+  --card:  #141928;
+  --card2: #1C2338;
+  --blue:  #3B82F6;
+  --blue2: #60A5FA;
+  --red:   #EF4444;
+  --red2:  #FCA5A5;
+  --green: #22C55E;
+  --green2:#86EFAC;
+  --gold:  #F59E0B;
+  --gold2: #FCD34D;
+  --text:  #E2E8F0;
+  --muted: #64748B;
+  --border:rgba(59,130,246,0.18);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  min-height:100vh;
+  background-image:
+    radial-gradient(ellipse at 0% 0%,rgba(59,130,246,0.08) 0%,transparent 50%),
+    radial-gradient(ellipse at 100% 100%,rgba(239,68,68,0.06) 0%,transparent 50%);
+}
+
+/* HEADER */
+header{text-align:center;padding:50px 20px 24px;position:relative;}
+.brand{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.25);
+  color:var(--blue2);font-size:11px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:18px;
+}
+h1{
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:clamp(26px,5vw,48px);line-height:1.25;color:#fff;font-weight:400;
+}
+h1 span{color:var(--red);}
+h1 em{color:var(--gold2);font-style:normal;}
+.sub{color:var(--muted);font-size:14px;margin-top:10px;line-height:1.8;font-family:'Tiro Devanagari Hindi',serif;}
+.hdivider{display:flex;align-items:center;gap:12px;max-width:260px;margin:20px auto 0;}
+.hd-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);}
+
+/* QUOTE */
+.quote{
+  max-width:1060px;margin:0 auto 28px;padding:0 20px;
+}
+.quote-inner{
+  background:linear-gradient(135deg,rgba(239,68,68,0.09),rgba(59,130,246,0.06));
+  border:1px solid rgba(239,68,68,0.2);border-radius:16px;padding:22px 28px;
+  position:relative;overflow:hidden;
+}
+.quote-inner::before{
+  content:'"';position:absolute;right:12px;top:-10px;
+  font-size:90px;color:rgba(239,68,68,0.08);font-family:serif;line-height:1;
+}
+.qt{font-family:'Tiro Devanagari Hindi',serif;font-size:15px;line-height:1.9;color:var(--text);}
+.qt strong{color:var(--red);}
+.qa{font-size:12px;color:var(--blue2);margin-top:8px;font-weight:600;}
+
+/* CONTAINER */
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px 70px;}
+
+/* SECTION LABEL */
+.slbl{
+  font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--blue2);margin-bottom:18px;display:flex;align-items:center;gap:8px;
+}
+.slbl::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* CARD */
+.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:24px;}
+
+/* INPUTS */
+.igrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin-bottom:24px;}
+.fg label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:8px;line-height:1.4;}
+.iw{position:relative;}
+.pfx{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--blue);font-weight:700;font-size:15px;pointer-events:none;}
+input[type="number"],select{
+  width:100%;background:var(--bg3);border:1.5px solid rgba(255,255,255,0.07);
+  border-radius:10px;color:#fff;font-family:'DM Sans',sans-serif;
+  font-size:17px;font-weight:600;padding:13px 14px 13px 34px;
+  outline:none;transition:border-color 0.2s;-moz-appearance:textfield;
+}
+input[type="number"]::-webkit-inner-spin-button{-webkit-appearance:none;}
+input[type="number"]:focus,select:focus{border-color:var(--blue);}
+select{padding-left:14px;cursor:pointer;}
+select option{background:var(--bg3);}
+.nopfx{padding-left:14px!important;}
+input[type="range"]{width:100%;accent-color:var(--blue);height:4px;cursor:pointer;margin-top:8px;}
+
+/* PHONE MOCK */
+.phone-mock{
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+  background:var(--bg3);border-radius:14px;padding:18px 22px;
+  border:1px solid rgba(239,68,68,0.2);margin-bottom:24px;
+}
+.phone-icon{font-size:40px;flex-shrink:0;}
+.phone-text{flex:1;min-width:180px;}
+.phone-text h4{font-size:14px;font-weight:700;color:var(--red);margin-bottom:4px;font-family:'Tiro Devanagari Hindi',serif;}
+.phone-text p{font-size:12px;color:var(--muted);line-height:1.6;font-family:'Tiro Devanagari Hindi',serif;}
+.phone-stat{text-align:right;flex-shrink:0;}
+.phone-stat .pv{font-size:28px;font-weight:700;color:var(--red);}
+.phone-stat .pl{font-size:10px;color:var(--muted);margin-top:2px;}
+
+.calc-btn{
+  display:block;width:100%;max-width:360px;margin:0 auto;
+  background:linear-gradient(135deg,var(--blue),#1D4ED8);
+  color:#fff;border:none;border-radius:12px;padding:16px 32px;
+  font-family:'Tiro Devanagari Hindi',sans-serif;font-size:17px;font-weight:700;
+  cursor:pointer;transition:transform 0.15s,box-shadow 0.15s;
+  box-shadow:0 4px 24px rgba(59,130,246,0.35);
+}
+.calc-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(59,130,246,0.45);}
+
+/* RESULTS */
+.results{display:none;}
+.results.show{display:block;animation:fadeUp 0.4s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* STAT GRID */
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:14px;margin-bottom:24px;}
+.sbox{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:20px 18px;}
+.sbox.bad{border-color:rgba(239,68,68,0.3);background:rgba(239,68,68,0.06);}
+.sbox.good{border-color:rgba(34,197,94,0.3);background:rgba(34,197,94,0.06);}
+.sbox.gold{border-color:rgba(245,158,11,0.3);background:rgba(245,158,11,0.06);}
+.slb{font-size:11px;color:var(--muted);font-weight:600;margin-bottom:9px;line-height:1.4;}
+.sv{font-size:clamp(18px,3.5vw,28px);font-weight:700;color:#fff;line-height:1;}
+.sv.red{color:var(--red);}
+.sv.green{color:var(--green);}
+.sv.gold{color:var(--gold2);}
+.sv.blue{color:var(--blue2);}
+.ssub{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.5;}
+
+/* COMPARISON CARDS */
+.cmp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:24px;}
+.cmp-card{
+  border-radius:14px;padding:22px 18px;
+  background:var(--bg3);border:1px solid rgba(255,255,255,0.06);
+  transition:transform 0.2s;
+}
+.cmp-card:hover{transform:translateY(-3px);}
+.cmp-card.bad{border-color:rgba(239,68,68,0.3);}
+.cmp-card.good{border-color:rgba(34,197,94,0.3);}
+.cmp-badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;}
+.bad .cmp-badge{background:rgba(239,68,68,0.15);color:var(--red);}
+.good .cmp-badge{background:rgba(34,197,94,0.15);color:var(--green);}
+.cmp-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;font-family:'Tiro Devanagari Hindi',serif;}
+.cmp-sub{font-size:11px;color:var(--muted);margin-bottom:14px;line-height:1.5;}
+.cmp-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-top:1px solid rgba(255,255,255,0.05);font-size:12px;gap:6px;}
+.cmp-lbl{color:var(--muted);line-height:1.4;}
+.cmp-val{font-weight:700;color:#fff;white-space:nowrap;}
+.bad .cmp-val.h{color:var(--red);}
+.good .cmp-val.h{color:var(--green);}
+
+/* RAHUL STORY */
+.story-card{
+  background:linear-gradient(135deg,rgba(245,158,11,0.08),rgba(34,197,94,0.05));
+  border:1px solid rgba(245,158,11,0.22);border-radius:20px;padding:28px;margin-bottom:24px;
+}
+.story-card h3{font-family:'Tiro Devanagari Hindi',serif;font-size:18px;color:var(--gold2);margin-bottom:14px;}
+.story-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+.step{background:var(--bg3);border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.05);text-align:center;}
+.step-icon{font-size:28px;margin-bottom:8px;}
+.step-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;font-family:'Tiro Devanagari Hindi',serif;}
+.step-val{font-size:20px;font-weight:700;margin-bottom:4px;}
+.step-desc{font-size:11px;color:var(--muted);line-height:1.5;font-family:'Tiro Devanagari Hindi',serif;}
+
+/* WEALTH TIMELINE */
+.tl-outer{margin-bottom:24px;}
+.tl-row{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.tl-lbl{font-size:11px;color:var(--muted);width:90px;flex-shrink:0;line-height:1.3;}
+.tl-track{flex:1;height:10px;background:var(--bg3);border-radius:5px;overflow:hidden;}
+.tl-fill{height:100%;border-radius:5px;transition:width 1s cubic-bezier(0.23,1,0.32,1);}
+.tl-val{font-size:12px;font-weight:700;width:90px;text-align:right;flex-shrink:0;}
+
+/* YEAR TABLE */
+.tbl-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th{font-size:11px;font-weight:700;color:var(--muted);padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap;}
+th:first-child{text-align:left;}
+td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,0.04);text-align:right;font-weight:500;}
+td:first-child{text-align:left;color:var(--muted);}
+tr:last-child td{color:var(--gold2);font-weight:700;border-bottom:none;}
+tr:hover td{background:rgba(255,255,255,0.02);}
+
+/* VERDICT */
+.verdict{
+  background:linear-gradient(135deg,rgba(34,197,94,0.08),rgba(34,197,94,0.02));
+  border:1px solid rgba(34,197,94,0.25);border-radius:20px;padding:28px 30px;margin-bottom:24px;
+}
+.verdict h3{font-family:'Tiro Devanagari Hindi',serif;font-size:18px;color:var(--green);margin-bottom:14px;}
+.verdict p{font-family:'Tiro Devanagari Hindi',serif;font-size:14px;line-height:2;color:var(--text);margin-bottom:8px;}
+.verdict p strong{color:var(--gold2);}
+.tip{background:rgba(59,130,246,0.07);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:14px 18px;margin-top:16px;font-family:'Tiro Devanagari Hindi',serif;font-size:13px;color:var(--text);line-height:1.9;}
+.tip strong{color:var(--blue2);}
+
+/* SKILLS GRID */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:16px;}
+.skill-pill{
+  background:var(--bg3);border-radius:10px;padding:12px 14px;
+  border:1px solid rgba(255,255,255,0.06);font-size:12px;
+  display:flex;align-items:center;gap:8px;cursor:pointer;
+  transition:border-color 0.2s,background 0.2s;
+}
+.skill-pill:hover{border-color:var(--blue);background:rgba(59,130,246,0.08);}
+.skill-pill .si{font-size:20px;}
+.skill-pill .st .sn{font-weight:600;color:#fff;margin-bottom:2px;font-family:'Tiro Devanagari Hindi',serif;}
+.skill-pill .st .se{color:var(--green);font-size:11px;font-weight:600;}
+
+@media(max-width:600px){
+  .card,.story-card,.verdict{padding:20px 16px;}
+  .quote-inner{padding:18px 18px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">📱 जमा पूंजी — वित्तीय जागरूकता</div>
+  <h1>आपका <span>स्क्रीन टाइम</span><br>आपको <em>लूट</em> रहा है!</h1>
+  <p class="sub">3 घंटे रोज़ · 100 घंटे महीने · लाखों का नुकसान · करोड़ों की चूक</p>
+  <div class="hdivider"><div class="hd-line"></div><span>📵</span><div class="hd-line"></div></div>
+</header>
+
+<div class="quote">
+  <div class="quote-inner">
+    <p class="qt">"राहुल के पास टाइम नहीं था ट्यूशन पढ़ाने का — <strong>लेकिन 3 घंटे रील के लिए था।</strong>
+    वही एक घंटा ट्यूशन में लगाया तो ₹9,000 महीने की एक्स्ट्रा इनकम आ गई।
+    उसमें से ₹5,000 SIP में डाल दो — बस हो गई जमा पूंजी।"</p>
+    <p class="qa">— जमा पूंजी, CA साहब</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- INPUT CARD -->
+  <div class="card">
+    <div class="slbl">📱 अपना हिसाब भरो</div>
+
+    <div class="igrid">
+      <div class="fg">
+        <label>रोज़ का स्क्रीन टाइम (घंटे)</label>
+        <div class="iw">
+          <span class="pfx">⏱</span>
+          <input type="number" id="screenHours" value="3" min="0.5" max="12" step="0.5">
+        </div>
+        <input type="range" min="0.5" max="12" step="0.5" value="3"
+          oninput="document.getElementById('screenHours').value=this.value;">
+      </div>
+
+      <div class="fg">
+        <label>मासिक तनख्वाह / आमदनी (₹)</label>
+        <div class="iw">
+          <span class="pfx">₹</span>
+          <input type="number" id="salary" value="30000" min="5000" step="1000">
+        </div>
+        <input type="range" min="5000" max="200000" step="1000" value="30000"
+          oninput="document.getElementById('salary').value=this.value;">
+      </div>
+
+      <div class="fg">
+        <label>अगर यह समय कमाई में लगाएं — घंटे का रेट (₹)</label>
+        <div class="iw">
+          <span class="pfx">₹</span>
+          <input type="number" id="hourlyRate" value="150" min="50" step="50">
+        </div>
+        <input type="range" min="50" max="2000" step="50" value="150"
+          oninput="document.getElementById('hourlyRate').value=this.value;">
+      </div>
+
+      <div class="fg">
+        <label>म्यूचुअल फंड SIP रिटर्न (% सालाना)</label>
+        <div class="iw">
+          <span class="pfx">%</span>
+          <input type="number" id="sipRate" value="12" min="8" max="20" step="0.5">
+        </div>
+        <input type="range" min="8" max="20" step="0.5" value="12"
+          oninput="document.getElementById('sipRate').value=this.value;">
+      </div>
+    </div>
+
+    <!-- PHONE MOCK -->
+    <div class="phone-mock">
+      <div class="phone-icon">📵</div>
+      <div class="phone-text">
+        <h4>आपका फ़ोन आपका असली दुश्मन है</h4>
+        <p>Instagram · Reels · WhatsApp फॉरवर्ड · Random Videos · Memes<br>
+        यह "आराम" नहीं है — दिमाग़ तो चल ही रहा है, कमाई रुकी हुई है।</p>
+      </div>
+      <div class="phone-stat">
+        <div class="pv" id="ph-monthly">—</div>
+        <div class="pl">घंटे / महीने</div>
+      </div>
+    </div>
+
+    <!-- SKILLS YOU COULD LEARN -->
+    <div class="slbl" style="margin-bottom:12px;">🛠️ इस समय में क्या सीख सकते थे?</div>
+    <div class="skills-grid">
+      <div class="skill-pill"><span class="si">🤖</span><div class="st"><div class="sn">AI / ChatGPT</div><div class="se">₹500–₹5000/घंटा</div></div></div>
+      <div class="skill-pill"><span class="si">📊</span><div class="st"><div class="sn">Stock Market</div><div class="se">खुद की दौलत बनाओ</div></div></div>
+      <div class="skill-pill"><span class="si">📚</span><div class="st"><div class="sn">ट्यूशन पढ़ाना</div><div class="se">₹3000–₹15000/माह</div></div></div>
+      <div class="skill-pill"><span class="si">💻</span><div class="st"><div class="sn">Excel / Tally</div><div class="se">नौकरी में बढ़त</div></div></div>
+      <div class="skill-pill"><span class="si">🎨</span><div class="st"><div class="sn">Graphic Design</div><div class="se">₹200–₹2000/काम</div></div></div>
+      <div class="skill-pill"><span class="si">✍️</span><div class="st"><div class="sn">Content Writing</div><div class="se">₹1–₹5/शब्द</div></div></div>
+    </div>
+
+    <button class="calc-btn" onclick="calculate()" style="margin-top:28px;">🔍 असली नुकसान देखो ➜</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results" id="results">
+
+    <!-- STATS -->
+    <div class="sgrid">
+      <div class="sbox bad">
+        <div class="slb">📱 महीने में बर्बाद घंटे</div>
+        <div class="sv red" id="r-mhours">—</div>
+        <div class="ssub" id="r-yhours">— घंटे / साल</div>
+      </div>
+      <div class="sbox bad">
+        <div class="slb">💸 महीने का मौका गँवाया</div>
+        <div class="sv red" id="r-mloss">—</div>
+        <div class="ssub">अगर उस समय में कमाई होती</div>
+      </div>
+      <div class="sbox bad">
+        <div class="slb">📉 आपका असली घंटे का रेट</div>
+        <div class="sv red" id="r-realrate">—</div>
+        <div class="ssub">स्क्रीन टाइम काटने के बाद</div>
+      </div>
+      <div class="sbox gold">
+        <div class="slb">💰 अगर 50% समय कमाई में लगाया</div>
+        <div class="sv gold" id="r-earn50">—</div>
+        <div class="ssub">हर महीने एक्स्ट्रा इनकम</div>
+      </div>
+    </div>
+
+    <!-- COMPARISON -->
+    <div class="card">
+      <div class="slbl">⚡ दोनों जिंदगियाँ — एक साथ देखो</div>
+      <div class="cmp-grid">
+        <div class="cmp-card bad">
+          <div class="cmp-badge">❌ रील वाला राहुल</div>
+          <div class="cmp-title">स्क्रोलिंग जिंदगी</div>
+          <div class="cmp-sub">हर रोज़ <span id="c-hours">—</span> घंटे फोन पर</div>
+          <div class="cmp-row"><span class="cmp-lbl">महीने में बर्बाद</span><span class="cmp-val h" id="c-wasted">—</span></div>
+          <div class="cmp-row"><span class="cmp-lbl">साल में बर्बाद</span><span class="cmp-val h" id="c-ywasted">—</span></div>
+          <div class="cmp-row"><span class="cmp-lbl">एक्स्ट्रा इनकम</span><span class="cmp-val h">₹0</span></div>
+          <div class="cmp-row"><span class="cmp-lbl">SIP निवेश</span><span class="cmp-val h">₹0</span></div>
+          <div class="cmp-row"><span class="cmp-lbl">10 साल बाद</span><span class="cmp-val h">₹0</span></div>
+          <div class="cmp-row"><span class="cmp-lbl">नींद / स्वास्थ्य</span><span class="cmp-val h">बर्बाद 😴</span></div>
+        </div>
+        <div class="cmp-card good">
+          <div class="cmp-badge">✅ समझदार राहुल</div>
+          <div class="cmp-title">जमा पूंजी वाली जिंदगी</div>
+          <div class="cmp-sub">वही समय कमाई में लगाया</div>
+          <div class="cmp-row"><span class="cmp-lbl">एक्स्ट्रा इनकम / माह</span><span class="cmp-val h" id="c-earn">—</span></div>
+          <div class="cmp-row"><span class="cmp-lbl">SIP हर महीने</span><span class="cmp-val h" id="c-sip">—</span></div>
+          <div class="cmp-row"><span class="cmp-lbl">10 साल बाद</span><span class="cmp-val h" id="c-10">—</span></div>
+          <div class="cmp-row"><span class="cmp-lbl">20 साल बाद</span><span class="cmp-val h" id="c-20">—</span></div>
+          <div class="cmp-row"><span class="cmp-lbl">30 साल बाद</span><span class="cmp-val h" id="c-30">—</span></div>
+          <div class="cmp-row"><span class="cmp-lbl">नींद / स्वास्थ्य</span><span class="cmp-val h">बेहतर ✅</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RAHUL STORY STEPS -->
+    <div class="story-card">
+      <h3>📖 राहुल की कहानी — आपके नंबरों से</h3>
+      <div class="story-steps" id="storySteps"></div>
+    </div>
+
+    <!-- WEALTH TIMELINE -->
+    <div class="card">
+      <div class="slbl">🚀 SIP का जादू — साल-दर-साल</div>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:18px;line-height:1.8;font-family:'Tiro Devanagari Hindi',serif">
+        बचाए समय से कमाई → SIP में निवेश → <em style="color:var(--gold2)">चक्रवृद्धि ब्याज की ताक़त</em>
+      </p>
+      <div id="wealthBars"></div>
+    </div>
+
+    <!-- YEAR TABLE -->
+    <div class="card">
+      <div class="slbl">📆 साल-दर-साल — SIP का बढ़ता कोष</div>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>वर्ष</th>
+              <th>जमा किया (कुल)</th>
+              <th>25% समय से</th>
+              <th>50% समय से</th>
+              <th>75% समय से</th>
+            </tr>
+          </thead>
+          <tbody id="yearBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>🧾 CA साहब की सीधी बात —</h3>
+      <p id="verdictText"></p>
+      <div class="tip" id="verdictTip"></div>
+    </div>
+
+  </div><!-- /results -->
+</div>
+
+<script>
+function fmt(n){
+  if(n>=10000000) return '₹'+(n/10000000).toFixed(2)+' करोड़';
+  if(n>=100000)   return '₹'+(n/100000).toFixed(2)+' लाख';
+  if(n>=1000)     return '₹'+(n/1000).toFixed(1)+' हज़ार';
+  return '₹'+Math.round(n).toLocaleString('en-IN');
+}
+
+// SIP future value
+function sipFV(monthly, r, months){
+  const mr = r/12/100;
+  return monthly * ((Math.pow(1+mr,months)-1)/mr) * (1+mr);
+}
+
+function calculate(){
+  const screenH  = parseFloat(document.getElementById('screenHours').value)||3;
+  const salary   = parseFloat(document.getElementById('salary').value)||30000;
+  const hourly   = parseFloat(document.getElementById('hourlyRate').value)||150;
+  const sipRate  = parseFloat(document.getElementById('sipRate').value)||12;
+
+  const monthlyH = Math.round(screenH * 30);
+  const yearlyH  = monthlyH * 12;
+
+  // Effective hourly (salary / working hours)
+  const workingHours = 8 * 26; // 26 working days
+  const effHourly    = salary / workingHours;
+  const realHourly   = salary / (workingHours - screenH*26); // actual productive rate impact
+
+  const monthlyLoss  = monthlyH * hourly;
+  const yearlyLoss   = monthlyLoss * 12;
+
+  // If 50% of screen time used productively
+  const earn50  = (screenH * 0.5 * 30) * hourly;
+  const sip50   = Math.round(earn50 * 0.5 / 500) * 500; // invest 50% of extra in SIP
+
+  const earn25  = (screenH * 0.25 * 30) * hourly;
+  const sip25   = Math.round(earn25 * 0.5 / 500) * 500;
+
+  const earn75  = (screenH * 0.75 * 30) * hourly;
+  const sip75   = Math.round(earn75 * 0.5 / 500) * 500;
+
+  // Update phone mock
+  document.getElementById('ph-monthly').textContent = monthlyH;
+
+  // Stats
+  document.getElementById('r-mhours').textContent = monthlyH + ' घंटे';
+  document.getElementById('r-yhours').textContent = yearlyH + ' घंटे / साल';
+  document.getElementById('r-mloss').textContent  = fmt(monthlyLoss);
+  document.getElementById('r-realrate').textContent= '₹'+Math.round(salary/(workingHours+monthlyH))+'/घंटा';
+  document.getElementById('r-earn50').textContent  = fmt(earn50);
+
+  // Comparison
+  document.getElementById('c-hours').textContent  = screenH;
+  document.getElementById('c-wasted').textContent = fmt(monthlyLoss);
+  document.getElementById('c-ywasted').textContent= fmt(yearlyLoss);
+  document.getElementById('c-earn').textContent   = fmt(earn50);
+  document.getElementById('c-sip').textContent    = fmt(sip50);
+  document.getElementById('c-10').textContent     = fmt(sipFV(sip50,sipRate,120));
+  document.getElementById('c-20').textContent     = fmt(sipFV(sip50,sipRate,240));
+  document.getElementById('c-30').textContent     = fmt(sipFV(sip50,sipRate,360));
+
+  // Story steps
+  const steps=[
+    {icon:'📵',title:'रोज़ स्क्रीन टाइम',val:screenH+' घंटे',desc:'Instagram · Reels · WhatsApp फॉरवर्ड',color:'var(--red)'},
+    {icon:'💡',title:'1 घंटा बचाया',val:fmt(hourly*30)+'/माह',desc:'ट्यूशन, फ्रीलांस या स्किल से',color:'var(--gold2)'},
+    {icon:'📈',title:'50% समय लगाया',val:fmt(earn50)+'/माह',desc:'एक्स्ट्रा इनकम शुरू',color:'var(--green)'},
+    {icon:'🌱',title:'SIP शुरू की',val:fmt(sip50)+'/माह',desc:'एक्स्ट्रा इनकम का हिस्सा',color:'var(--blue2)'},
+    {icon:'🏆',title:'10 साल बाद',val:fmt(sipFV(sip50,sipRate,120)),desc:sipRate+'% सालाना रिटर्न पर',color:'var(--gold2)'},
+    {icon:'🚀',title:'30 साल बाद',val:fmt(sipFV(sip50,sipRate,360)),desc:'चक्रवृद्धि की ताक़त!',color:'var(--green)'},
+  ];
+  const stepsEl=document.getElementById('storySteps');
+  stepsEl.innerHTML='';
+  steps.forEach(s=>{
+    stepsEl.innerHTML+=`
+      <div class="step">
+        <div class="step-icon">${s.icon}</div>
+        <div class="step-title">${s.title}</div>
+        <div class="step-val" style="color:${s.color}">${s.val}</div>
+        <div class="step-desc">${s.desc}</div>
+      </div>`;
+  });
+
+  // Wealth bars
+  const barsData=[
+    {label:'5 साल',  v25:sipFV(sip25,sipRate,60),  v50:sipFV(sip50,sipRate,60),  v75:sipFV(sip75,sipRate,60)},
+    {label:'10 साल', v25:sipFV(sip25,sipRate,120), v50:sipFV(sip50,sipRate,120), v75:sipFV(sip75,sipRate,120)},
+    {label:'15 साल', v25:sipFV(sip25,sipRate,180), v50:sipFV(sip50,sipRate,180), v75:sipFV(sip75,sipRate,180)},
+    {label:'20 साल', v25:sipFV(sip25,sipRate,240), v50:sipFV(sip50,sipRate,240), v75:sipFV(sip75,sipRate,240)},
+    {label:'25 साल', v25:sipFV(sip25,sipRate,300), v50:sipFV(sip50,sipRate,300), v75:sipFV(sip75,sipRate,300)},
+    {label:'30 साल', v25:sipFV(sip25,sipRate,360), v50:sipFV(sip50,sipRate,360), v75:sipFV(sip75,sipRate,360)},
+  ];
+  const maxVal = barsData[barsData.length-1].v75;
+  const barsEl = document.getElementById('wealthBars');
+  barsEl.innerHTML=`
+    <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:16px;font-size:11px;font-weight:700;">
+      <span style="color:#4A9E6A">● 25% समय (SIP: ${fmt(sip25)}/माह)</span>
+      <span style="color:var(--gold2)">● 50% समय (SIP: ${fmt(sip50)}/माह)</span>
+      <span style="color:var(--blue2)">● 75% समय (SIP: ${fmt(sip75)}/माह)</span>
+    </div>`;
+  barsData.forEach(b=>{
+    barsEl.innerHTML+=`
+      <div class="tl-row">
+        <div class="tl-lbl">${b.label}</div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:4px;">
+          <div class="tl-track"><div class="tl-fill" data-w="${(b.v25/maxVal*100).toFixed(1)}" style="width:0%;background:#4A9E6A"></div></div>
+          <div class="tl-track"><div class="tl-fill" data-w="${(b.v50/maxVal*100).toFixed(1)}" style="width:0%;background:var(--gold2)"></div></div>
+          <div class="tl-track"><div class="tl-fill" data-w="${(b.v75/maxVal*100).toFixed(1)}" style="width:0%;background:var(--blue2)"></div></div>
+        </div>
+        <div style="width:90px;text-align:right;font-size:10px;color:var(--muted);line-height:1.8">
+          ${fmt(b.v25)}<br>${fmt(b.v50)}<br>${fmt(b.v75)}
+        </div>
+      </div>`;
+  });
+  setTimeout(()=>{
+    document.querySelectorAll('.tl-fill').forEach(el=>{
+      el.style.width=el.dataset.w+'%';
+    });
+  },150);
+
+  // Year table
+  const tbody=document.getElementById('yearBody');
+  tbody.innerHTML='';
+  [1,2,3,5,7,10,15,20,25,30].forEach(y=>{
+    const mo=y*12;
+    const invested=sip50*mo;
+    const tr=document.createElement('tr');
+    tr.innerHTML=`
+      <td>वर्ष ${y}</td>
+      <td style="color:var(--muted)">${fmt(invested)}</td>
+      <td style="color:#4A9E6A">${fmt(sipFV(sip25,sipRate,mo))}</td>
+      <td style="color:var(--gold2)">${fmt(sipFV(sip50,sipRate,mo))}</td>
+      <td style="color:var(--blue2)">${fmt(sipFV(sip75,sipRate,mo))}</td>`;
+    tbody.appendChild(tr);
+  });
+
+  // Verdict
+  const v30_50 = sipFV(sip50,sipRate,360);
+  document.getElementById('verdictText').innerHTML=`
+    आप रोज़ <strong>${screenH} घंटे</strong> फ़ोन पर बिताते हैं — यानी महीने में <strong>${monthlyH} घंटे</strong>।
+    अगर इस समय का सिर्फ़ आधा भी कमाई में लगाएं तो <strong>${fmt(earn50)}</strong> महीने की एक्स्ट्रा इनकम आ सकती है।
+    उसमें से <strong>${fmt(sip50)}</strong> हर महीने SIP में डालें —
+    तो ${sipRate}% सालाना रिटर्न पर 30 साल में <strong style="color:var(--green)">${fmt(v30_50)}</strong> बन जाएंगे।<br><br>
+    यह रील नहीं देने की सज़ा नहीं है — यह <strong>समय की असली क़ीमत</strong> का हिसाब है।
+    बेरोज़गार को फ़ील नहीं होता कि वो बेरोज़गार है — क्योंकि रील ने उसकी बेचैनी छीन ली।`;
+
+  document.getElementById('verdictTip').innerHTML=`
+    <strong>💡 CA साहब की अंतिम बात:</strong>
+    रील देखना बंद करो — ऐसा नहीं कह रहे। पर <em>टाइम लिमिट</em> लगाओ।
+    जो घंटे बचें उसमें एक काम सीखो। एक बच्चे को पढ़ाओ। एक स्किल बढ़ाओ।
+    <strong>₹9,000 की एक्स्ट्रा इनकम + ₹5,000 SIP = करोड़ों की जमा पूंजी।</strong>
+    यही राहुल की कहानी है। यही आपकी भी हो सकती है।`;
+
+  const res=document.getElementById('results');
+  res.classList.add('show');
+  setTimeout(()=>res.scrollIntoView({behavior:'smooth',block:'start'}),100);
+}
+
+// Live update phone mock
+document.getElementById('screenHours').addEventListener('input',()=>{
+  const h=parseFloat(document.getElementById('screenHours').value)||3;
+  document.getElementById('ph-monthly').textContent=Math.round(h*30);
+});
+
+window.onload=()=>{
+  document.getElementById('ph-monthly').textContent=Math.round(3*30);
+};
+</script>
+</body>
+</html>
