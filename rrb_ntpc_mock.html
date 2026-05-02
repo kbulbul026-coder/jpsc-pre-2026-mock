@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RRB NTPC Graduate CBT-1 Mock Test</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Noto+Sans:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060914;
+    --surface: #0d1220;
+    --card: #111827;
+    --border: #1e2d4a;
+    --blue: #3b82f6;
+    --blue-dim: #1d4ed8;
+    --cyan: #22d3ee;
+    --green: #10b981;
+    --red: #f43f5e;
+    --gold: #fbbf24;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --white: #f1f5f9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans', 'Noto Sans Devanagari', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  /* INTRO */
+  #intro {
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px;
+    background: radial-gradient(ellipse at 20% 30%, #0a1a3a 0%, #060914 70%);
+  }
+  .rrb-logo { font-family: 'Baloo 2', sans-serif; font-size: 1.1em; font-weight: 700; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; text-align: center; margin-bottom: 6px; }
+  .intro-title { font-family: 'Baloo 2', sans-serif; font-size: 1.4em; font-weight: 700; color: var(--white); text-align: center; margin-bottom: 4px; }
+  .intro-sub { color: var(--muted); text-align: center; font-size: 0.82em; margin-bottom: 24px; }
+  .train-icon { font-size: 2.5em; margin-bottom: 14px; filter: drop-shadow(0 0 20px #22d3ee88); }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; max-width: 340px; margin-bottom: 24px; }
+  .info-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px; text-align: center; }
+  .info-card .val { font-family: 'Baloo 2', sans-serif; font-size: 1.5em; font-weight: 700; color: var(--cyan); }
+  .info-card .lbl { font-size: 0.7em; color: var(--muted); margin-top: 2px; }
+  .marking-box { background: #0d1a2e; border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; width: 100%; max-width: 340px; margin-bottom: 24px; font-size: 0.82em; }
+  .marking-box div { display: flex; justify-content: space-between; padding: 3px 0; }
+  .marking-box .correct-m { color: var(--green); }
+  .marking-box .wrong-m { color: var(--red); }
+  .start-btn { background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: #fff; border: none; border-radius: 50px; padding: 14px 48px; font-family: 'Baloo 2', sans-serif; font-size: 1.1em; font-weight: 700; letter-spacing: 1px; cursor: pointer; box-shadow: 0 4px 20px #3b82f655; transition: transform 0.15s, box-shadow 0.15s; }
+  .start-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px #3b82f666; }
+
+  /* TEST HEADER */
+  #test-screen, #result-screen { display: none; }
+  .test-header { position: sticky; top: 0; z-index: 100; background: var(--surface); border-bottom: 1px solid var(--border); padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+  .header-title { font-family: 'Baloo 2', sans-serif; font-weight: 700; color: var(--cyan); font-size: 0.88em; letter-spacing: 1px; white-space: nowrap; }
+  .timer { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 5px 12px; font-family: 'Baloo 2', sans-serif; font-size: 1em; font-weight: 700; color: var(--cyan); white-space: nowrap; min-width: 70px; text-align: center; }
+  .timer.urgent { color: var(--red); border-color: var(--red); animation: pulse 1s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+  .progress-wrap { flex: 1; background: var(--border); border-radius: 4px; height: 5px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #1d4ed8, #22d3ee); border-radius: 4px; transition: width 0.3s; }
+  .q-counter { font-size: 0.78em; color: var(--muted); white-space: nowrap; }
+
+  /* QUESTION */
+  .q-body { padding: 14px; max-width: 680px; margin: 0 auto; }
+  .q-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; margin-bottom: 12px; }
+  .q-num { font-family: 'Baloo 2', sans-serif; font-size: 0.78em; color: var(--cyan); font-weight: 600; letter-spacing: 1px; margin-bottom: 8px; }
+  .q-section-tag { display: inline-block; background: #1e3a5f; color: var(--cyan); border-radius: 4px; padding: 1px 8px; font-size: 0.7em; margin-bottom: 6px; }
+  .q-text { font-size: 0.92em; line-height: 1.75; color: var(--text); }
+  .options { display: flex; flex-direction: column; gap: 9px; margin-top: 14px; }
+  .option { display: flex; align-items: flex-start; gap: 12px; background: var(--surface); border: 2px solid var(--border); border-radius: 10px; padding: 11px 14px; cursor: pointer; transition: all 0.15s; -webkit-tap-highlight-color: transparent; text-align: left; }
+  .option:hover { border-color: var(--blue-dim); background: #131e35; }
+  .option.selected { border-color: var(--blue); background: #0d1e3d; }
+  .option.correct-ans { border-color: var(--green); background: #032917; }
+  .option.wrong-ans { border-color: var(--red); background: #2d0a14; }
+  .opt-letter { font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 0.88em; color: var(--muted); min-width: 22px; padding-top: 1px; }
+  .option.selected .opt-letter { color: var(--blue); }
+  .option.correct-ans .opt-letter { color: var(--green); }
+  .option.wrong-ans .opt-letter { color: var(--red); }
+  .opt-text { font-size: 0.88em; line-height: 1.5; }
+
+  /* NAV */
+  .nav-bar { position: sticky; bottom: 0; background: var(--surface); border-top: 1px solid var(--border); padding: 10px 14px; display: flex; gap: 8px; align-items: center; }
+  .btn { border: none; border-radius: 8px; cursor: pointer; font-family: 'Baloo 2', sans-serif; font-size: 0.92em; font-weight: 600; padding: 9px 18px; transition: all 0.15s; }
+  .btn-prev { background: var(--border); color: var(--text); }
+  .btn-prev:hover { background: #2a3d5a; }
+  .btn-next { background: var(--blue); color: #fff; }
+  .btn-next:hover { background: var(--blue-dim); }
+  .btn-submit { background: var(--green); color: #000; flex: 1; }
+  .btn-submit:hover { background: #059669; }
+  .btn-skip { background: transparent; color: var(--muted); border: 1px solid var(--border); font-size: 0.78em; padding: 7px 12px; }
+
+  /* PALETTE */
+  .palette-wrap { padding: 10px 14px; max-width: 680px; margin: 0 auto; }
+  .palette-title { font-size: 0.7em; color: var(--muted); margin-bottom: 6px; letter-spacing: 1px; }
+  .palette { display: flex; flex-wrap: wrap; gap: 5px; }
+  .p-dot { width: 28px; height: 28px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-family: 'Baloo 2', sans-serif; font-size: 0.7em; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: transform 0.1s; background: var(--border); color: var(--muted); }
+  .p-dot:hover { transform: scale(1.12); }
+  .p-dot.answered { background: var(--blue); color: #fff; }
+  .p-dot.current { border-color: var(--cyan); }
+
+  /* RESULT */
+  #result-screen { min-height: 100vh; padding: 22px 14px; max-width: 680px; margin: 0 auto; }
+  .result-title { font-family: 'Baloo 2', sans-serif; font-size: 1.3em; font-weight: 700; color: var(--cyan); text-align: center; letter-spacing: 2px; }
+  .score-ring { width: 130px; height: 130px; border-radius: 50%; border: 5px solid var(--blue); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 18px auto; box-shadow: 0 0 40px #3b82f633; background: radial-gradient(circle, #111827, #060914); }
+  .score-num { font-family: 'Baloo 2', sans-serif; font-size: 2em; font-weight: 700; color: var(--cyan); line-height: 1; }
+  .score-label { font-size: 0.7em; color: var(--muted); margin-top: 4px; }
+  .result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin-bottom: 20px; }
+  .r-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px 8px; text-align: center; }
+  .r-val { font-family: 'Baloo 2', sans-serif; font-size: 1.5em; font-weight: 700; }
+  .r-lbl { font-size: 0.68em; color: var(--muted); margin-top: 3px; }
+  .review-title { font-family: 'Baloo 2', sans-serif; font-weight: 700; color: var(--cyan); font-size: 0.95em; letter-spacing: 1px; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  .review-item { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 13px; margin-bottom: 9px; }
+  .review-item.r-correct { border-left: 3px solid var(--green); }
+  .review-item.r-wrong { border-left: 3px solid var(--red); }
+  .review-item.r-skip { border-left: 3px solid var(--muted); }
+  .review-q-num { font-size: 0.7em; color: var(--muted); margin-bottom: 4px; }
+  .review-q-text { font-size: 0.86em; margin-bottom: 7px; line-height: 1.5; }
+  .review-ans { font-size: 0.78em; display: flex; gap: 8px; flex-wrap: wrap; }
+  .ans-badge { padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+  .ans-your { background: #2d1b00; color: #fbbf24; }
+  .ans-correct { background: #032917; color: #34d399; }
+  .ans-skip { background: #1a1a2e; color: #64748b; }
+  .retake-btn { background: linear-gradient(135deg, #3b82f6, #06b6d4); color: #fff; border: none; border-radius: 50px; padding: 13px 40px; font-family: 'Baloo 2', sans-serif; font-size: 1em; font-weight: 700; cursor: pointer; display: block; margin: 18px auto; letter-spacing: 1px; box-shadow: 0 4px 20px #3b82f644; }
+  .filter-btns { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 12px; }
+  .filter-btn { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 5px 12px; font-size: 0.78em; cursor: pointer; color: var(--text); transition: all 0.15s; }
+  .filter-btn.active, .filter-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .penalty-note { background: #1a0a10; border: 1px solid #3d1a24; border-radius: 8px; padding: 10px 12px; font-size: 0.78em; color: #fca5a5; margin-bottom: 16px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="train-icon">🚂</div>
+  <div class="rrb-logo">Railway Recruitment Board</div>
+  <div class="intro-title">RRB NTPC Graduate — CBT 1</div>
+  <div class="intro-sub">CEN 06/2025 &nbsp;|&nbsp; 22 March 2026 &nbsp;|&nbsp; Shift 1</div>
+  <div class="info-grid">
+    <div class="info-card"><div class="val">100</div><div class="lbl">Questions</div></div>
+    <div class="info-card"><div class="val">100</div><div class="lbl">Total Marks</div></div>
+    <div class="info-card"><div class="val">90 min</div><div class="lbl">Duration</div></div>
+    <div class="info-card"><div class="val">1/3</div><div class="lbl">Negative Marking</div></div>
+  </div>
+  <div class="marking-box">
+    <div><span>Correct Answer</span><span class="correct-m">+1 mark</span></div>
+    <div><span>Wrong Answer</span><span class="wrong-m">−1/3 mark</span></div>
+    <div><span>Not Attempted</span><span style="color:var(--muted)">0 marks</span></div>
+  </div>
+  <button class="start-btn" onclick="startTest()">START TEST ▶</button>
+</div>
+
+<!-- TEST -->
+<div id="test-screen">
+  <div class="test-header">
+    <div class="header-title">RRB NTPC</div>
+    <div class="progress-wrap"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="q-counter" id="q-counter">0/100</div>
+    <div class="timer" id="timer">1:30:00</div>
+  </div>
+  <div class="q-body">
+    <div class="q-card" id="q-card">
+      <div class="q-num" id="q-num">Q 1 / 100</div>
+      <div class="q-text" id="q-text"></div>
+      <div class="options" id="options"></div>
+    </div>
+    <div class="palette-wrap">
+      <div class="palette-title">QUESTION PALETTE</div>
+      <div class="palette" id="palette"></div>
+    </div>
+  </div>
+  <div class="nav-bar">
+    <button class="btn btn-prev" onclick="navigate(-1)">◀ Prev</button>
+    <button class="btn btn-skip" onclick="navigate(1)">Skip</button>
+    <button class="btn btn-next" onclick="navigate(1)">Next ▶</button>
+    <button class="btn btn-submit" onclick="confirmSubmit()">Submit</button>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div id="result-screen">
+  <div class="result-title">RESULT</div>
+  <div id="verdict" style="text-align:center;font-size:0.82em;color:var(--muted);margin-top:4px;">RRB NTPC CBT-1</div>
+  <div class="score-ring">
+    <div class="score-num" id="final-score">0</div>
+    <div class="score-label">out of 100</div>
+  </div>
+  <div class="penalty-note">⚠️ Score = Correct × 1 − Wrong × 0.33 (1/3 negative marking applied)</div>
+  <div class="result-grid">
+    <div class="r-card"><div class="r-val" id="r-correct" style="color:var(--green)">0</div><div class="r-lbl">Correct</div></div>
+    <div class="r-card"><div class="r-val" id="r-wrong" style="color:var(--red)">0</div><div class="r-lbl">Wrong</div></div>
+    <div class="r-card"><div class="r-val" id="r-skip" style="color:var(--muted)">0</div><div class="r-lbl">Skipped</div></div>
+  </div>
+  <button class="retake-btn" onclick="retake()">🔄 Retake Test</button>
+  <div style="margin-top:16px;">
+    <div class="review-title">DETAILED REVIEW</div>
+    <div class="filter-btns">
+      <button class="filter-btn active" onclick="filterReview('all',this)">All</button>
+      <button class="filter-btn" onclick="filterReview('wrong',this)">Wrong</button>
+      <button class="filter-btn" onclick="filterReview('skip',this)">Skipped</button>
+      <button class="filter-btn" onclick="filterReview('correct',this)">Correct</button>
+    </div>
+    <div id="review-list"></div>
+  </div>
+</div>
+
+<script>
+const Q = [
+  {q:"दो पाइप एक टंकी को क्रमशः 24 मिनट और 36 मिनट में भर सकते हैं। तीसरा पाइप इसे 18 मिनट में खाली कर सकता है। यदि तीनों पाइप एक साथ खोले जाएं, तो टंकी को भरने में कितना समय लगेगा?", opts:["72 मिनट","144 मिनट","60 मिनट","108 मिनट"], ans:0},
+  {q:"IT सेवा क्षेत्र में भारी समृद्धि के कारण किस भारतीय शहर को 'भारत की सिलिकॉन वैली' के नाम से जाना जाता है?", opts:["बेंगलुरु","हैदराबाद","चेन्नई","मुंबई"], ans:0},
+  {q:"अलाउद्दीन खिलजी के शासनकाल में दीवान-ए-रियासत क्या थी?", opts:["कृषि विभाग","बाजार और मूल्य नियंत्रण विभाग","शाही पत्राचार विभाग","धार्मिक धर्मदाय विभाग"], ans:1},
+  {q:"8 cm भुजा वाले समबाहु त्रिभुज का क्षेत्रफल (दशमलव के दो स्थानों तक) ज्ञात कीजिए।", opts:["27.71 sq. cm","29.91 sq. cm","24.41 sq. cm","26.61 sq. cm"], ans:0},
+  {q:"एक पर्यटक अपनी 120 km की यात्रा तीन चरणों में पूरी करता है। पहले चरण में x km/hr, दूसरे में 50% बढ़कर, तीसरे में दूसरे से 20% कम। बराबर समय व्यतीत और औसत चाल 48 km/hr हो तो x = ?", opts:["38.3","40.3","38.9","39.3"], ans:2},
+  {q:"निम्नलिखित में से किस अक्षर समूह द्वारा # और % को प्रतिस्थापित किया जाए ताकि :: के बाईं ओर के अक्षर युग्म के बीच अनुसरण किया गया पैटर्न, :: के दाईं ओर के बीच समान हो?\n# : POM :: LKI : %", opts:["# = TJQ, % = HFL","# = RTP, % = GFM","# = TSQ, % = HGE","# = SRP, % = GFE"], ans:2},
+  {q:"संख्याओं के दो सेट नीचे दिए गए हैं। प्रत्येक सेट में पहली संख्या पर कुछ संक्रियाएं करके दूसरी प्राप्त होती है। उसी प्रकार तीसरी आती है और आगे भी। कौन-सा विकल्प समान संक्रियाओं का अनुसरण करता है?\n17 - 7 - 21 - 33 ;\n21 - 11 - 33 - 45", opts:["14-4-12-24","23-13-26-52","21-11-33-72","16-8-24-48"], ans:0},
+  {q:"कौन-सा मीट्रिक, CPU द्वारा प्रति क्लॉक साइकिल (per clock cycle) निष्पादित अनुदेशों की औसत संख्या को दर्शाता है?", opts:["कोर काउंट (Core count)","IPC (प्रति साइकिल अनुदेश)","क्लॉक स्पीड (Clock speed)","बस स्पीड (Bus speed)"], ans:1},
+  {q:"ऊष्मीय प्रदूषण मुख्यतः औद्योगिक प्रक्रियाओं से संबंधित किस क्रिया के परिणामस्वरूप होता है?", opts:["भारी धातुओं का उत्सर्जन","डिटर्जेंट का मिश्रण","निलंबित ठोस का संचयन","शीतलक के रूप में जल का उपयोग"], ans:3},
+  {q:"निम्नलिखित में से किस अक्षर-समूह द्वारा # और % को प्रतिस्थापित किया जाए ताकि :: के बाईं ओर के युग्म में अनुसरण किया गया पैटर्न, :: के दाईं ओर के युग्म में भी समान हो?\n# : LKP :: TSX : %", opts:["# = QNU, % = OIB","# = QPU, % = ONS","# = QIV, % = OLL","# = ISU, % = ONM"], ans:1},
+  {q:"एक निश्चित तर्क के अनुसार, 23 का संबंध 139 से है। समान तर्क का अनुसरण करते हुए, 28 का संबंध 169 से है। उसी तर्क पर 25 का संबंध निम्नलिखित में से किससे है?", opts:["146","155","141","151"], ans:3},
+  {q:"कौन-सी पवन प्रणाली का सातत्य प्रवाह वर्ष भर उच्च दाब क्षेत्रों से निम्न दाब की ओर होता है?", opts:["भूवीय पवन","मौसमी पवन","भूमंडलीय पवन","स्थानीय पवन"], ans:2},
+  {q:"एक निश्चित कूट भाषा में:\nA + B = 'A, B की बहन है'\nA - B = 'A, B का पति है'\nA × B = 'A, B का पुत्र है'\nA ÷ B = 'A, B की पुत्री है'\nयदि 'T + P × M - V ÷ S', तो T का S से क्या संबंध है?", opts:["पुत्री की पुत्री","बहन की पुत्री","पुत्र की पुत्री","भाई की पुत्री"], ans:0},
+  {q:"एक वस्तु को उसके अंकित मूल्य के 3/10 पर बेचने पर हितेश को 16% हानि होती है। यदि वह इसे अंकित मूल्य के 69% पर बेचता, तो लाभ प्रतिशत ज्ञात कीजिए।", opts:["95.7%","93.2%","94.8%","93.8%"], ans:1},
+  {q:"किसी निश्चित कूट भाषा में:\nX + Y = 'X, Y का पति है'\nX – Y = 'X, Y की माता है'\nX × Y = 'X, Y की बहन है'\nX ÷ Y = 'X, Y का पिता है'\nयदि 'P + Q – R × S ÷ T', तो P का T से क्या संबंध है?", opts:["पिता का भाई","माता का पिता","माता का भाई","पिता का पिता"], ans:3},
+  {q:"सात डिब्बे M, A, R, K, E, T और S एक के ऊपर एक रखे हैं। E और T के बीच केवल S रखा है। R के नीचे केवल K है। E के ऊपर केवल A है। M और K के बीच कितने डिब्बे हैं?", opts:["दो","तीन","एक","एक भी नहीं"], ans:2},
+  {q:"12 संख्याओं का योगफल 528 है। उनका औसत ज्ञात कीजिए।", opts:["43","45","42","44"], ans:3},
+  {q:"उत्तर भारत पर नियंत्रण के लिए गुर्जर-प्रतिहारों, पालों और राष्ट्रकूटों के बीच हुए संघर्ष के वर्णन के लिए किस शब्द का उपयोग किया जाता है?", opts:["चक्रवर्तिन (Chakravartin)","महासंग्राम (Mahasangram)","त्रिपक्षीय (Tripartite)","धर्मयुद्ध (Dharmayuddha)"], ans:2},
+  {q:"निम्नलिखित संख्या-प्रतीक शृंखला का संदर्भ लीजिए और प्रश्न का उत्तर दीजिए (गणना केवल बाएं से दाएं):\n(बाएं) 2 < 8 5 8 7 4 9 $ % % % & @ ? & @ 5 9 6 ? (दाएं)\nऐसी कितनी संख्याएं हैं जिनमें से प्रत्येक के ठीक पहले एक संख्या और ठीक बाद एक प्रतीक हो?", opts:["एक भी नहीं","दो","तीन","एक"], ans:1},
+  {q:"यदि 'A' अर्थ '÷', 'B' अर्थ '×', 'C' अर्थ '+' और 'D' अर्थ '−', तो निम्नलिखित समीकरण में प्रश्न चिह्न (?) के स्थान पर क्या आएगा?\n13 B 2 C 6 D 8 A 4 = ?", opts:["30","27","28","29"], ans:0},
+  {q:"21 दिसंबर 2025 को, राष्ट्रपति द्रौपदी मुर्मू ने विकसित भारत–रोजगार और आजीविका के लिए गारंटी मिशन (ग्रामीण) (VB–G RAM G) विधेयक, 2025 को स्वीकृति प्रदान की, जिससे वित्तीय वर्ष में ग्रामीण मजदूरी रोजगार गारंटी बढ़कर कितने दिन की हो गई?", opts:["100 दिन","125 दिन","175 दिन","150 दिन"], ans:1},
+  {q:"एक महिला ने 90 मिनट तक 20 मीटर/मिनट की चाल से और फिर 60 मिनट तक 65 मीटर/मिनट की चाल से यात्रा की। संपूर्ण यात्रा के लिए उसकी औसत चाल (मीटर/मिनट) ज्ञात कीजिए।", opts:["38","31","42","44"], ans:0},
+  {q:"0 माध्य वाले 7 क्रमागत पूर्णांकों का मानक विचलन ______ है।", opts:["2","0","3","1"], ans:0},
+  {q:"शॉर्ट फॉर्म ASCII दुनिया भर में इस्तेमाल होने वाला एक जरूरी कंप्यूटर मानक है। ASCII में C अक्षर का मतलब कोड है, जो बताता है कि ASCII हर एक कैरेक्टर को एक यूनीक न्यूमेरिकल वैल्यू देने की एक मानक प्रणाली है, जिसे कैरेक्टर __________ कहते हैं।", opts:["इनपुट डिवाइस","मेमोरी कंपोनेंट","प्रोसेसिंग चिप","एनकोडिंग स्कीम"], ans:3},
+  {q:"'m' के उन मानों के बीच अंतर ज्ञात कीजिए, जिनके लिए 2m = 5√m − 2 है।", opts:["2√2","8/3","15/4","2√3"], ans:2},
+  {q:"दिसंबर 2025 तक प्राप्त जानकारी के अनुसार, कौन-सी विधि मध्यवर्तियों को भारत में बच्चों को प्रभावित करने वाले अवैध और हानिकारक ऑनलाइन कंटेंट के विरुद्ध कार्रवाई करने के लिए बाध्य करती है?", opts:["राष्ट्रीय बाल सुरक्षा प्रोटोकॉल, 2022","डिजिटल सेवा विनियमन अधिनियम, 2024","सूचना प्रौद्योगिकी (मध्यवर्ती दिशानिर्देश और डिजिटल मीडिया आचार संहिता) नियम, 2021","बाल संरक्षण ऑनलाइन नीति, 2020"], ans:2},
+  {q:"समूह A में 21 सदस्य, समूह B में 11 सदस्य और समूह C में 17 सदस्य हैं। इन समूहों के सभी सदस्य एक रेस्टोरेंट में गए। समूह A, B और C के प्रत्येक सदस्य पर खर्च की गई औसत राशि क्रमशः ₹465, ₹410 और ₹466 है। प्रति सदस्य खर्च की गई कुल औसत राशि (₹) ज्ञात कीजिए।", opts:["454","455","452","453"], ans:3},
+  {q:"यदि A का वेतन B के वेतन से 130% अधिक है, तो B का वेतन A के वेतन से कितने प्रतिशत (दशमलव के दो स्थानों तक) कम है?", opts:["54.62%","56.52%","55.88%","58.42%"], ans:1},
+  {q:"P, Q और R प्रकार की प्रत्येक वस्तु की कीमत क्रमशः ₹280, ₹180 और ₹120 है। सुब्रता प्रत्येक प्रकार की वस्तुएं 3 : 2 : 3 अनुपात में ₹6,240 में खरीदती है। उसने Q प्रकार की कितनी वस्तुएं खरीदीं?", opts:["5","14","8","16"], ans:2},
+  {q:"100 पुरुषों के पास 26 दिनों का राशन है। यदि 48 पुरुष चले गए, तो शेष पुरुषों के लिए वही राशन कितने दिनों तक चलेगा?", opts:["48","52","50","54"], ans:2},
+  {q:"किसी निश्चित कूट भाषा में, 'TOUR' को '4791' के रूप में और 'FORT' को '1279' के रूप में कूटबद्ध किया जाता है। दी गई कूट भाषा में 'F' का कूट क्या है?", opts:["9","1","2","7"], ans:2},
+  {q:"दिए गए कथनों और निष्कर्षों को पढ़ें। कथन:\nसभी केकड़े, चमगादड़ हैं। सभी चमगादड़, विंग हैं। सभी विंग, कुत्ते हैं।\nनिष्कर्ष:\n(I) सभी केकड़े, कुत्ते हैं।\n(II) कुछ कुत्ते, चमगादड़ हैं।", opts:["निष्कर्ष (I) और (II) दोनों अनुसरण करते हैं","केवल निष्कर्ष (I) अनुसरण करता है","केवल निष्कर्ष (II) अनुसरण करता है","न निष्कर्ष (I) और न (II) अनुसरण करता है"], ans:0},
+  {q:"P किसी वस्तु को Q को 77% लाभ पर बेचता है। Q उसी वस्तु को R को 50% हानि पर बेचता है। यदि R ने वस्तु के लिए ₹2655 का भुगतान किया, तो P द्वारा वस्तु को किस मूल्य (₹) पर खरीदा गया था?", opts:["3003","3002","3001","3000"], ans:3},
+  {q:"L, M, N, O, A, B और C प्रत्येक की परीक्षा सोमवार से शुरू होकर रविवार को समाप्त होने वाले एक सप्ताह के अलग-अलग दिन होती है। N से पहले किसी की परीक्षा नहीं होती। N और O के बीच केवल तीन दिन का व्यवधान है। O और M के बीच केवल एक व्यक्ति की परीक्षा होती है। L की परीक्षा बुधवार को होती है। B की परीक्षा, C के बाद किसी दिन लेकिन A से पहले किसी दिन होती है। B की परीक्षा सप्ताह के किस दिन होती है?", opts:["सोमवार","शनिवार","गुरुवार","मंगलवार"], ans:2},
+  {q:"एक दुकानदार किसी वस्तु का मूल्य उसके क्रय मूल्य से 100% अधिक अंकित करता है। 88% लाभ प्राप्त करने के लिए उसके अंकित मूल्य पर कितने प्रतिशत की छूट दी जाए?", opts:["5%","3%","6%","4%"], ans:2},
+  {q:"दिए गए अक्षर-संख्या-समूहों में से कौन-सा निम्नलिखित श्रृंखला को तार्किक रूप से पूर्ण बनाने के लिए प्रश्न-चिह्न (?) को प्रतिस्थापित करेगा?\nNVA 7 &nbsp; KSX 14 &nbsp; HPU 21 &nbsp; EMR 28 &nbsp; ?", opts:["LST 40","BJO 35","NDP 35","WPF 37"], ans:1},
+  {q:"निम्नलिखित संख्या-प्रतीक शृंखला में यदि सभी संख्याओं को हटा दिया जाए, तो बाएं से चौथे स्थान पर क्या होगा?\n(बाएं) 5 # % 8 * $ % @ 1 3 @ $ 4 6 9 7 # $ 2 % 5 4 (दाएं)", opts:["*","$","#","%"], ans:1},
+  {q:"एक कमरे की लंबाई, चौड़ाई और ऊंचाई क्रमशः 20 m, 10 m और 6 m है। यदि कमरे की चारों दीवारों और छत को रंगने की दर ₹15 प्रति वर्ग मीटर है, तो कुल लागत ज्ञात कीजिए।", opts:["₹6500","₹9200","₹7200","₹8400"], ans:3},
+  {q:"दो समरूप त्रिभुजों के क्षेत्रफल क्रमशः 841 cm² और 676 cm² हैं। उनके संगत शीर्षलंब का अनुपात ज्ञात कीजिए।", opts:["27 : 24","29 : 26","24 : 28","38 : 27"], ans:1},
+  {q:"34वीं बंगाल नेटिव इन्फैन्ट्री के सिपाही के रूप में मंगल पांडे के आंदोलन का कारण कौन-सा नया हथियार था?", opts:["ब्राउन बेस मस्केट (Brown Bess musket)","स्नाइडर राइफल (Snider rifle)","मैचलॉक गन (Matchlock gun)","एनफील्ड राइफल (Enfield rifle)"], ans:3},
+  {q:"राज्य के नीति निर्देशक सिद्धांतों में समाहित गांधीवादी सिद्धांतों के अनुसार, राज्य निम्नलिखित में से किसको बढ़ावा देने का प्रयास करेगा?", opts:["शहरी क्षेत्रों में औद्योगीकरण","विदेशी व्यापार समझौते","बड़े पैमाने पर कॉर्पोरेट कृषि","ग्रामीण क्षेत्रों में व्यक्तिगत या सहकारी आधार पर कुटीर उद्योग"], ans:3},
+  {q:"आवर्ती दशमलव 0.2̄6̄ को साधारण भिन्न में परिवर्तित करें।", opts:["7/15","4/15","2/15","1/15"], ans:1},
+  {q:"दिए गए कथनों और निष्कर्षों को पढ़ें।\nकथन: सभी हाथ, पैर हैं। कुछ हाथ, चेहरे हैं। कुछ चेहरे, आर्म हैं।\nनिष्कर्ष:\n(I) कुछ पैर, चेहरे हैं।\n(II) कुछ हाथ, आर्म हैं।", opts:["केवल निष्कर्ष (II) अनुसरण करता है","न (I) और न (II) अनुसरण करता है","निष्कर्ष (I) और (II) दोनों अनुसरण करते हैं","केवल निष्कर्ष (I) अनुसरण करता है"], ans:3},
+  {q:"16 + 18 ÷ 6 − 3 × 3 का मान ज्ञात कीजिए।", opts:["9","13","12","10"], ans:3},
+  {q:"पाँच बॉक्स – बॉक्स-A, बॉक्स-B, बॉक्स-C, बॉक्स-D और बॉक्स-E – का वजन अलग-अलग है। इनमें से दूसरा सबसे भारी बॉक्स कौन-सा है?\n(I) बॉक्स-C का वजन बॉक्स-A और बॉक्स-B से अधिक है, लेकिन बॉक्स-D से कम है।\n(II) बॉक्स-E, बॉक्स-C से भारी है, लेकिन बॉक्स-D से हल्का है।", opts:["कथन I से उत्तर मिलता है, कथन II से नहीं","दोनों कथन I और II एक साथ पर्याप्त हैं","कथन I और II मिलकर भी पर्याप्त नहीं हैं","कथन II से उत्तर मिलता है, कथन I से नहीं"], ans:1},
+  {q:"किसी वस्तु के संवेग को उसके द्रव्यमान और वेग के गुणनफल के रूप में परिभाषित किया जाता है, तो उसकी SI इकाइयां क्या हैं?", opts:["kg m s","kg m s⁻¹","kg m s⁻²","g m s⁻¹"], ans:1},
+  {q:"निम्नलिखित में से कौन-सा अक्षर-संख्या समूह दी गई श्रृंखला में प्रश्न चिह्न (?) को प्रतिस्थापित करके इसे तार्किक रूप से पूर्ण बना देगा?\nDHG 42 &nbsp; CGF 38 &nbsp; BFE 34 &nbsp; AED 30 &nbsp; ?", opts:["ZDI 25","ZEB 26","ZDC 26","ZCB 25"], ans:2},
+  {q:"जनवरी 2025 में, अल्जीरिया ने संयुक्त राज्य अमेरिका के साथ एक समझौता ज्ञापन पर हस्ताक्षर किए, जो ______ पर केंद्रित है।", opts:["स्वास्थ्य सेवा सहयोग","कृषि सहयोग","सैन्य सहयोग","शैक्षिक सहयोग"], ans:2},
+  {q:"यह प्रश्न नीचे दी गई पाँच तीन-अंकीय संख्याओं पर आधारित है।\n(बाएं) 442 &nbsp; 405 &nbsp; 297 &nbsp; 384 &nbsp; 316 (दाएं)\nयदि सबसे बड़ी संख्या के तीसरे अंक को सबसे छोटी संख्या के दूसरे अंक से जोड़ा जाए, तो परिणाम क्या होगा?", opts:["12","10","9","11"], ans:3},
+  {q:"विटामिन B1 की कमी से विशेष रूप से कौन-सा रोग होता है?", opts:["रतौंधी (Night blindness)","बेरी-बेरी (Beri-beri)","स्कर्वी (Scurvy)","रिकेट्स (Rickets)"], ans:1},
+  {q:"मान लीजिए C एक वृत्त है जिसका केंद्र O है और AB, C पर एक लघु चाप है। मान लीजिए S, लघु चाप AB पर एक बिंदु है। यदि AB, O पर 120° का कोण अंतरित करता है, तो ∠ASB का माप ज्ञात कीजिए।", opts:["100°","120°","60°","110°"], ans:1},
+  {q:"संविधान (101वां संशोधन) अधिनियम, 2016 के अंतर्गत, उन मामलों में जहाँ वस्तुओं या सेवाओं की आपूर्ति अंतर्राज्यीय व्यापार या वाणिज्य के दौरान होती है, GST पर कानून बनाने की अनन्य शक्ति किसके पास है?", opts:["राज्य विधानमंडल","नीति आयोग","भारत के राष्ट्रपति","संसद"], ans:3},
+  {q:"यूनेस्को (UNESCO) विश्व धरोहर स्थल ताजमहल भारत के किस राज्य/केंद्र शासित प्रदेश में स्थित है?", opts:["उत्तर प्रदेश","दिल्ली","मध्य प्रदेश","राजस्थान"], ans:0},
+  {q:"ध्रुव बिंदु A से चलना शुरू करता है और पूर्व की ओर 38 km चलता है। फिर वह बाएँ मुड़ता है और 35 km चलता है, फिर बाएँ मुड़ता है और 39 km चलता है। फिर वह फिर बाएँ मुड़ता है और 37 km चलता है। अंत में वह फिर बाएँ मुड़ता है, 1 km चलकर बिंदु P पर रुकता है। बिंदु A पर वापस पहुँचने के लिए न्यूनतम दूरी और किस दिशा में चलना होगा?", opts:["उत्तर की ओर 2 km","उत्तर की ओर 4 km","उत्तर की ओर 3 km","उत्तर की ओर 1 km"], ans:0},
+  {q:"दिल्ली सल्तनत काल के दौरान अमीर खुसरो ने अपनी साहित्यिक रचनाओं में मुख्य रूप से किस भाषा का उपयोग किया था?", opts:["अपभ्रंश","फारसी","प्राकृत","संस्कृत"], ans:1},
+  {q:"निम्नलिखित में से किस टीम ने चेंगदू (Chengdu) में फाइनल में विजयी होने के बाद दिसंबर 2025 में टेबल टेनिस ITTF मिक्स्ड टीम विश्व कप का खिताब प्राप्त किया?", opts:["जर्मनी (Germany)","रिपब्लिक ऑफ कोरिया (Republic of Korea)","जापान (Japan)","पीपुल्स रिपब्लिक ऑफ चाइना (People's Republic of China)"], ans:3},
+  {q:"निम्नलिखित में से कौन-सा शब्द उन स्थानों के लिए प्रयुक्त किया जाता है, जो दो या दो से अधिक परिवहन मार्गों के मिलन स्थल के रूप में कार्य करते हैं?", opts:["लिंक","नोड","ग्रिड","नेटवर्क"], ans:1},
+  {q:"अमित ने समान राशि को साधारण ब्याज और वार्षिक रूप से संयोजित चक्रवृद्धि ब्याज पर 2 वर्षों के लिए 4% वार्षिक की समान दर से निवेश किया। अंत में, उसने दोनों अर्जित ब्याज दरों में ₹52 का अंतर पाया। प्रत्येक स्थिति में निवेश की गई राशि (₹) कितनी थी?", opts:["32850","32500","31600","31750"], ans:1},
+  {q:"निम्नलिखित में से कौन-सा डॉक्यूमेंट सुशासन से संबंधित नहीं है?", opts:["नागरिक चार्टर","राष्ट्रीय वन नीति, 1988","द्वितीय प्रशासनिक सुधार आयोग","सेवोत्तम मॉडल"], ans:1},
+  {q:"किस घटना ने भारत में पुर्तगाली शक्ति के पतन और ब्रिटिश और डच प्रभाव के उदय को सर्वोत्तम रूप में चिह्नित किया?", opts:["अंग्रेजों द्वारा मद्रास की स्थापना (1639)","ऐक्स-ला-चैपल की संधि (1748)","प्लासी का युद्ध (1757)","एंग्लो-फ्रांसीसी द्वारा होर्मुज पर कब्जा (1622)"], ans:3},
+  {q:"दी गई श्रृंखला में '?' के स्थान पर क्या आना चाहिए?\n30 &nbsp; 28 &nbsp; 25 &nbsp; 20 &nbsp; 13 &nbsp; ?", opts:["3","2","4","1"], ans:1},
+  {q:"एक निश्चित तर्क के अनुसार, 22 का संबंध 60 से है। समान तर्क का अनुसरण करते हुए, 27 का संबंध 75 से है। उसी तर्क पर 33 का संबंध निम्नलिखित में से किससे है?", opts:["103","93","97","86"], ans:1},
+  {q:"ग्रीनहाउस गैस उत्सर्जन तीव्रता लक्ष्य नियम, 2025 के अंतर्गत, यदि कोई बाध्यकारी संस्था लक्ष्यों को पूरा करने में विफल रहती है, तो पर्यावरणीय क्षतिपूर्ति कार्बन क्रेडिट की कीमतों से संबद्ध होती है। कमी के लिए क्षतिपूर्ति ________।", opts:["SPCB द्वारा तय किया गया प्रति टन एक निश्चित जुर्माना है","कार्बन क्रेडिट प्रमाणपत्रों के औसत व्यापार मूल्य के बराबर होती है","कार्बन क्रेडिट प्रमाणपत्रों के औसत व्यापार मूल्य से दोगुनी होती है","कार्बन क्रेडिट प्रमाणपत्रों के औसत व्यापार मूल्य का तीन गुना होती है"], ans:2},
+  {q:"मान लीजिए ABC एक समकोण त्रिभुज है जिसमें ∠B = 90°, ∠ACB = 30° और AB = 5 cm है। AC + BC का मान (cm में) ज्ञात कीजिए।", opts:["10 + 5√3","10 + 2√3","5√3","12√3"], ans:0},
+  {q:"भारत सरकार द्वारा मौद्रिक नीति समिति के ढांचे के अंतर्गत अप्रैल 2026 तक मुद्रास्फीति का लक्ष्य कितना निर्धारित किया गया है?", opts:["±1% की सहिष्णुता के साथ 3%","बिना किसी विनिर्दिष्ट सहिष्णुता के 6%","±2% की सहिष्णुता के साथ 4%","±2% की सहिष्णुता के साथ 5%"], ans:2},
+  {q:"अंग्रेजी वर्णमाला क्रम के आधार पर, निम्नलिखित चार अक्षर-समूह युग्मों में से तीन किसी निश्चित तरीके से एकसमान हैं और इस प्रकार एक समूह बनाते हैं। कौन-सा अक्षर-समूह युग्म उस समूह से संबंधित नहीं है?\n(नोट: असंगत अक्षर-समूह युग्म, व्यंजनों/स्वरों की संख्या पर आधारित नहीं है।)", opts:["KL - NO","TU - WX","XY - YZ","AB - DE"], ans:2},
+  {q:"हर्षवर्धन की जीवनी हर्षचरित की रचना निम्नलिखित में से किस दरबारी कवि ने संस्कृत में की थी?", opts:["विष्णु शर्मा","रविकीर्ति","बाणभट्ट","सुरसेना"], ans:2},
+  {q:"दो व्यक्तियों, P और Q, की आयु का अनुपात 3 : 4 है। 6 वर्ष बाद, उनकी आयु का अनुपात 4 : 5 हो जाएगा। P की वर्तमान आयु कितनी है?", opts:["30 वर्ष","20 वर्ष","18 वर्ष","13 वर्ष"], ans:2},
+  {q:"निम्नलिखित में से किस प्रकार की तरंग में, माध्यम के कण तरंग संचरण की दिशा के समानांतर गति करते हैं?", opts:["अनुदैर्ध्य तरंग","पृष्ठीय तरंग","अनुप्रस्थ तरंग","वैद्युतचुंबकीय तरंग"], ans:0},
+  {q:"दी गई श्रृंखला में '?' के स्थान पर क्या आना चाहिए?\n111 &nbsp; 110 &nbsp; 106 &nbsp; 97 &nbsp; 81 &nbsp; ?", opts:["74","56","57","73"], ans:1},
+  {q:"निम्नलिखित आंकड़ों का बहुलक 36 है। इसमें लुप्त बारंबारता ज्ञात कीजिए।\nवर्ग अंतराल: 0-10, 10-20, 20-30, 30-40, 40-50\nबारंबारता: 4, 6, ?, 9, 5", opts:["4","5","3","6"], ans:2},
+  {q:"अंग्रेजी वर्णानुक्रम पर आधारित, निम्नलिखित चार अक्षर-समूह युग्मों में से तीन एक निश्चित तरीके से एकसमान हैं तथा इस प्रकार एक समूह का निर्माण करते हैं। निम्नलिखित में से कौन-सा अक्षर-समूह युग्म, उस समूह से संबंधित नहीं है?\n(नोट: असंगत अक्षर-समूह युग्म, व्यंजनों/स्वरों की संख्या पर आधारित नहीं है।)", opts:["OR − OU","ZC − AD","DG − EH","RU − SV"], ans:0},
+  {q:"प्रथम मैकेनिकल कंप्यूटिंग डिवाइस को डिजाइन करने के लिए प्रसिद्ध रूप से किसे 'कंप्यूटर का जनक' माना जाता है?", opts:["एलन ट्यूरिंग (Alan Turing)","चार्ल्स बैबेज (Charles Babbage)","जॉन वॉन न्यूमैन (John von Neumann)","ब्लेज़ पास्कल (Blaise Pascal)"], ans:1},
+  {q:"यदि x⁴ − 83x² + 1 = 0 और x > 0 है, तो √(x³ − x⁻³ + 28) का मान ज्ञात कीजिए।", opts:["27","29","28","26"], ans:2},
+  {q:"निम्नलिखित में से किस संशोधन ने नगरपालिकाओं के लिए 'जिला योजना समितियां' और 'महानगरीय योजना समितियां' गठित करना संवैधानिक रूप से अनिवार्य बना दिया?", opts:["74वां संशोधन","97वां संशोधन","102वां संशोधन","73वां संशोधन"], ans:0},
+  {q:"जुलाई 2025 में, हिमाचल प्रदेश सरकार ने भूस्खलन के खतरे के कारण, केलांग (Kalang) गांव से परिवारों को अस्थायी रूप से स्थानांतरित करना शुरू किया। यह गांव किस जिले में स्थित है?", opts:["कांगड़ा जिला","शिमला जिला","कुल्लू जिला","मंडी जिला"], ans:3},
+  {q:"निम्नलिखित में से कौन-सा अनुच्छेद सर्वोच्च न्यायालय के मूल क्षेत्राधिकार से संबंधित है?", opts:["अनुच्छेद 32","अनुच्छेद 141","अनुच्छेद 131","अनुच्छेद 124"], ans:2},
+  {q:"y का वह मान ज्ञात कीजिए, जो 19 × 7 × 630 ÷ √2025 = y + 517 को संतुष्ट करता है।", opts:["1340","1345","1348","1335"], ans:1},
+  {q:"एक बैग में ₹1, ₹2 और ₹5 के सिक्के 8 : 4 : 3 के अनुपात में हैं। यदि सिक्कों की कुल कीमत ₹930 है, तो बैग में सिक्कों की कुल संख्या कितनी है?", opts:["420","480","400","450"], ans:3},
+  {q:"लक्षणों का कौन-सा संयोजन मनुष्यों में इन्फ्लूएंजा की सबसे सामान्य विशेषता है?", opts:["बुखार, खांसी और शरीर में दर्द","पित्तिका, खुजली और सूजन","सीने में दर्द, धड़कन और स्वेदन","वमन, अतिसार और निर्जलीकरण"], ans:0},
+  {q:"निम्नलिखित रैखिक समीकरणों के निकाय का हल ज्ञात कीजिए।\nx + 4y + 2z = 12\n2x − y + z = 3\nx + y − z = 0", opts:["x = 1, y = 3/2, z = 5/2","x = 1, y = 5/2, z = 3/2","x = 3/2, y = 1, z = 5/2","x = 5/2, y = 1, z = 3/2"], ans:0},
+  {q:"सात लोग, A, B, C, D, E, F और G, उत्तर की ओर अभिमुख होकर एक पंक्ति में बैठे हैं। C के बाईं ओर केवल दो व्यक्ति बैठे हैं। C और F के बीच केवल तीन व्यक्ति बैठे हैं। B, C के दाईं ओर दूसरे स्थान पर बैठा है। B और D के बीच केवल दो व्यक्ति बैठे हैं। E, G के दाईं ओर किसी एक स्थान पर, लेकिन A के बाईं ओर किसी एक स्थान पर बैठा है। D के बाईं ओर कितने व्यक्ति बैठे हैं?", opts:["4","3","2","1"], ans:3},
+  {q:"निम्नलिखित में से किसे भारतीय राष्ट्रीय आंदोलन के दौरान शिक्षा और सामाजिक सुधारों को बढ़ावा देने के लिए 'सर्वेन्ट्स ऑफ इंडिया सोसायटी (Servants of India Society)' की स्थापना का श्रेय दिया जाता है?", opts:["गोपाल कृष्ण गोखले","दादाभाई नौरोजी","लाला लाजपत राय","बिपिन चंद्र पाल"], ans:0},
+  {q:"निम्नलिखित में से कौन-सा देश, 2024 के लिए सबसे कम औसत आयु के संदर्भ में सबसे युवा देश है?", opts:["फिलिस्तीन","अफगानिस्तान","इराक","नाइजर"], ans:3},
+  {q:"वर्ष 2025 में, बगराम एयर बेस, जो अमेरिकी राष्ट्रपति डोनाल्ड ट्रम्प द्वारा इसे पुनः अपने स्वामित्व में लेने के प्रयास के बाद सुर्खियों में रहा है, किस देश में स्थित सबसे बड़ा एयर बेस है?", opts:["ईरान","अफगानिस्तान","पाकिस्तान","उज्बेकिस्तान"], ans:1},
+  {q:"मौलिक अधिकारों के अतिरिक्त अन्य कानूनी अधिकारों के संबंध में रिट जारी करने की उच्च न्यायालयों की शक्ति ______ के अंतर्गत उल्लिखित है।", opts:["अनुच्छेद 227","अनुच्छेद 32","अनुच्छेद 226","अनुच्छेद 245"], ans:2},
+  {q:"सात व्यक्ति B, C, D, O, P, Q और R एक गोल मेज के परितः मेज के केंद्र की ओर अभिमुख होकर बैठे हैं। P के दाईं ओर गणना करने पर, P और B के बीच केवल एक व्यक्ति बैठा है। O, Q के बाईं ओर उसी स्थान पर है। C, D के बाईं ओर उसी स्थान पर बैठा है। Q, C का बाईं ओर पड़ोस में बैठा है। R, C का निकटतम पड़ोसी नहीं है। R के दाईं ओर गणना करने पर, R और B के बीच कितने व्यक्ति बैठे हैं?", opts:["एक","दो","चार","तीन"], ans:3},
+  {q:"विंडोज 11 में, निम्नलिखित में से कौन-सा बिल्ट-इन टूल, यूजर के कीबोर्ड शॉर्टकट Ctrl + Shift + Esc दबाने पर तुरंत ओपेन हो जाता है?", opts:["कंट्रोल पैनल (Control Panel)","टास्क मैनेजर (Task Manager)","फाइल एक्सप्लोरर (File Explorer)","सेटिंग (Settings)"], ans:1},
+  {q:"अप्रैल 2025 में सर्वोच्च न्यायालय द्वारा निर्णीत किस मामले के कारण अनुच्छेद 143 के तहत राज्य विधेयकों की स्वीकृति के लिए समयसीमा से संबंधित 16वां राष्ट्रपति संदर्भ (प्रेसिडेंशियल रेफरेंस) भेजा गया?", opts:["कैसर-ए-हिंद प्राइवेट लिमिटेड बनाम राष्ट्रीय वस्त्र निगम","नबाम रेबिया बनाम उपाध्यक्ष, अरुणाचल प्रदेश","तमिलनाडु राज्य बनाम तमिलनाडु के राज्यपाल","एस. आर. बोम्मई बनाम भारत संघ"], ans:2},
+  {q:"कोई प्राकृत संख्या N इस प्रकार है कि 120 और N का लघुत्तम समापवर्त्य (LCM) 360 है, तथा 900 और N का महत्तम समापवर्तक (HCF) 90 है, तो N के संभावित मान ज्ञात कीजिए।", opts:["1","3","4","2"], ans:0},
+  {q:"किसी संख्या के 20% का मान, 620 के 20% से 200 अधिक है। वह संख्या ज्ञात कीजिए।", opts:["1620","1720","1470","1670"], ans:0},
+  {q:"कौन-सा पद उस स्थिति का वर्णन करता है जिसमें एक व्यक्ति नियोजित तो होता है, लेकिन वेतन, कार्य-घंटे या कौशल स्तर के संदर्भ में वांछित क्षमता में नहीं होता?", opts:["अल्प-रोजगार","अंशकालिक रोजगार","निम्न वेतन रोजगार","अनैच्छिक रोजगार"], ans:0},
+  {q:"वारली चित्रकला, एक पारंपरिक जनजातीय कला शैली, की उत्पत्ति किस भारतीय राज्य से हुई है?", opts:["महाराष्ट्र","मध्य प्रदेश","ओडिशा","राजस्थान"], ans:0},
+  {q:"निम्नलिखित में से कौन-सा कारक उत्तर-सुधार युग में रिलायंस इंडस्ट्रीज और टाटा समूह जैसी भारतीय बहुराष्ट्रीय कंपनियों के उदय में उल्लेखनीय रूप से योगदान देता है?", opts:["वैश्वीकरण और निजीकरण","कृषि निर्यात में वृद्धि","सरकारी सब्सिडी जारी रहना","राष्ट्रीयकृत क्षेत्रों का विस्तार"], ans:0},
+  {q:"यदि '+' का अर्थ '−' है, '−' का अर्थ '×' है, '×' का अर्थ '÷' है और '÷' का अर्थ '+' है, तो निम्नलिखित समीकरण में प्रश्न चिह्न (?) के स्थान पर क्या आएगा?\n79 − 8 ÷ 55 + 423 × 3 = ?", opts:["525","519","546","584"], ans:2},
+  {q:"एक निश्चित कूट भाषा में, 'BELL' को '1582' के रूप में और 'SELL' को '2568' के रूप में कूटबद्ध किया जाता है। उस भाषा में 'S' के लिए कूट क्या है?", opts:["5","1","2","6"], ans:3},
+  {q:"छह बॉक्स A, B, C, D, E और F एक के ऊपर एक रखे गए हैं। F को ऊपर से तीसरे स्थान पर रखा गया है। F और D के बीच केवल दो बॉक्स रखे गए हैं। A को F के ऊपर किसी स्थान पर लेकिन E के नीचे किसी स्थान पर रखा गया है। C को दूसरे स्थान पर नहीं रखा गया है। A और B के बीच कितने बॉक्स रखे गए हैं?", opts:["तीन","चार","दो","एक"], ans:2},
+  {q:"गारो, खासी, जयंतिया और नागा पहाड़ियाँ, जो लगभग पूर्व-पश्चिम दिशा में फैली हुई हैं, उत्तर-दक्षिण दिशा में फैली किस पर्वत शृंखला से जुड़ी हुई हैं?", opts:["मिज़ो और विंध्य पहाड़ियाँ","मिज़ो और रखाइन पहाड़ियाँ","सतपुड़ा और मिज़ो पहाड़ियाँ","नीलगिरी और रखाइन पहाड़ियाँ"], ans:1},
+  {q:"साधारण ब्याज पर कोई धनराशि किस वार्षिक दर से 10 वर्षों में स्वयं की पांच गुनी हो जाएगी?", opts:["80%","40%","38%","42%"], ans:1},
+  {q:"अंग्रेजी वर्णमाला क्रम के आधार पर एक निश्चित तरीके से LFGK का संबंध RKKN से है। उसी प्रकार, GMOP का संबंध MRSS से है। उसी तर्क का अनुसरण करते हुए, COLU का संबंध निम्नलिखित में से किससे है?", opts:["GWNZ","ITPX","JUQZ","HSOX"], ans:1}
+];
+
+let currentQ = 0, answers = new Array(100).fill(-1), timerInterval, timeLeft = 5400, reviewData = [];
+
+function startTest() {
+  document.getElementById('intro').style.display = 'none';
+  document.getElementById('test-screen').style.display = 'block';
+  buildPalette(); renderQuestion(); startTimer();
+}
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    if (timeLeft <= 0) { clearInterval(timerInterval); submitTest(); return; }
+    const h = Math.floor(timeLeft/3600), m = Math.floor((timeLeft%3600)/60), s = timeLeft%60;
+    const el = document.getElementById('timer');
+    el.textContent = `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    if (timeLeft <= 300) el.classList.add('urgent');
+  }, 1000);
+}
+
+function buildPalette() {
+  const pal = document.getElementById('palette'); pal.innerHTML = '';
+  for (let i = 0; i < 100; i++) {
+    const d = document.createElement('div');
+    d.className = 'p-dot' + (i===0?' current':'');
+    d.id = 'pd-'+i; d.textContent = i+1;
+    d.onclick = () => { currentQ = i; renderQuestion(); };
+    pal.appendChild(d);
+  }
+}
+
+function renderQuestion() {
+  const q = Q[currentQ];
+  document.getElementById('q-num').textContent = `Q ${currentQ+1} / 100`;
+  document.getElementById('q-text').innerHTML = q.q.replace(/\n/g,'<br>');
+  const opts = document.getElementById('options'); opts.innerHTML = '';
+  ['A','B','C','D'].forEach((l, i) => {
+    const div = document.createElement('div');
+    div.className = 'option' + (answers[currentQ]===i?' selected':'');
+    div.innerHTML = `<span class="opt-letter">${l}</span><span class="opt-text">${q.opts[i]}</span>`;
+    div.onclick = () => selectAnswer(i);
+    opts.appendChild(div);
+  });
+  document.querySelectorAll('.p-dot').forEach((d,i) => {
+    d.classList.toggle('current', i===currentQ);
+    d.classList.toggle('answered', answers[i]!==-1);
+  });
+  const answered = answers.filter(a=>a!==-1).length;
+  document.getElementById('progress-fill').style.width = (answered/100*100)+'%';
+  document.getElementById('q-counter').textContent = `${answered}/100`;
+  document.getElementById('pd-'+currentQ)?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+
+function selectAnswer(i) { answers[currentQ] = i; renderQuestion(); }
+function navigate(dir) { currentQ = Math.max(0, Math.min(99, currentQ+dir)); renderQuestion(); }
+
+function confirmSubmit() {
+  const u = answers.filter(a=>a===-1).length;
+  if (u > 0 && !confirm(`${u} प्रश्न अनुत्तरित हैं। क्या आप Submit करना चाहते हैं?`)) return;
+  submitTest();
+}
+
+function submitTest() {
+  clearInterval(timerInterval);
+  document.getElementById('test-screen').style.display = 'none';
+  document.getElementById('result-screen').style.display = 'block';
+  calculateResult();
+}
+
+function calculateResult() {
+  let correct=0, wrong=0, skip=0; reviewData=[];
+  answers.forEach((ans, i) => {
+    const ca = Q[i].ans; let status;
+    if (ans===-1) { skip++; status='skip'; }
+    else if (ans===ca) { correct++; status='correct'; }
+    else { wrong++; status='wrong'; }
+    reviewData.push({qNum:i+1, q:Q[i].q, opts:Q[i].opts, yourAns:ans, correctAns:ca, status});
+  });
+  const score = Math.round((correct - wrong/3)*100)/100;
+  document.getElementById('final-score').textContent = score.toFixed(2);
+  document.getElementById('r-correct').textContent = correct;
+  document.getElementById('r-wrong').textContent = wrong;
+  document.getElementById('r-skip').textContent = skip;
+  const pct = (score/100*100).toFixed(1);
+  document.getElementById('verdict').textContent = `Score: ${score.toFixed(2)}/100 (${pct}%) | Correct: ${correct} | Wrong: ${wrong}`;
+  renderReview('all');
+}
+
+function renderReview(filter) {
+  const list = document.getElementById('review-list'); list.innerHTML = '';
+  const L = ['A','B','C','D'];
+  reviewData.forEach(item => {
+    if (filter!=='all' && item.status!==filter) return;
+    const div = document.createElement('div');
+    div.className = `review-item r-${item.status}`;
+    let ansHtml = '';
+    if (item.status==='skip') {
+      ansHtml = `<span class="ans-badge ans-skip">Skipped</span><span class="ans-badge ans-correct">✓ ${L[item.correctAns]}: ${item.opts[item.correctAns]}</span>`;
+    } else if (item.status==='correct') {
+      ansHtml = `<span class="ans-badge ans-correct">✓ ${L[item.yourAns]}: ${item.opts[item.yourAns]}</span>`;
+    } else {
+      ansHtml = `<span class="ans-badge ans-your">✗ आपका: ${L[item.yourAns]}: ${item.opts[item.yourAns]}</span><span class="ans-badge ans-correct">✓ सही: ${L[item.correctAns]}: ${item.opts[item.correctAns]}</span>`;
+    }
+    div.innerHTML = `<div class="review-q-num">Q${item.qNum}</div><div class="review-q-text">${item.q.replace(/\n/g,'<br>')}</div><div class="review-ans">${ansHtml}</div>`;
+    list.appendChild(div);
+  });
+}
+
+function filterReview(f, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active'); renderReview(f);
+}
+
+function retake() {
+  answers=new Array(100).fill(-1); currentQ=0; timeLeft=5400; reviewData=[];
+  document.getElementById('result-screen').style.display='none';
+  document.getElementById('test-screen').style.display='block';
+  document.getElementById('timer').classList.remove('urgent');
+  buildPalette(); renderQuestion(); startTimer();
+}
+</script>
+</body>
+</html>
