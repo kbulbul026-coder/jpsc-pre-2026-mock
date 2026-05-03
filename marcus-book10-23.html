@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>मेडिटेशन्स — बिंदु २३ | मार्कस ऑरेलियस</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --soil:    #1c1710;
+    --moss:    #2e3d2a;
+    --stone:   #8c8478;
+    --cream:   #ede8dc;
+    --green:   #6a8f5e;
+    --fern:    #4d6b42;
+    --mist:    rgba(237,232,220,0.55);
+    --border:  rgba(140,132,120,0.25);
+    --warm:    #c2a46e;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--soil);
+    color: var(--cream);
+    font-family: 'Noto Serif Devanagari', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Organic texture — like bark / parchment */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse 90% 55% at 10% 5%,  rgba(106,143,94,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse 70% 60% at 90% 95%, rgba(77,107,66,0.1)  0%, transparent 50%),
+      radial-gradient(ellipse 60% 70% at 50% 50%, rgba(194,164,110,0.05) 0%, transparent 65%);
+    pointer-events: none; z-index: 0;
+  }
+
+  /* Horizon line — subtle ground feel */
+  body::after {
+    content: '';
+    position: fixed;
+    left: 0; right: 0;
+    top: 55%;
+    height: 1px;
+    background: linear-gradient(to right, transparent 0%, rgba(106,143,94,0.12) 30%, rgba(106,143,94,0.12) 70%, transparent 100%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .container {
+    position: relative; z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+    opacity: 0; transform: translateY(-14px);
+    animation: fadeDown 0.9s ease 0.1s forwards;
+  }
+
+  .eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    color: var(--stone);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 6vw, 44px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--cream);
+  }
+
+  .title em { font-style: italic; color: var(--green); }
+
+  .subtitle {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--stone);
+    letter-spacing: 0.07em;
+  }
+
+  .ornament {
+    margin: 24px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .ornament::before, .ornament::after {
+    content: '';
+    width: 60px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--green));
+    opacity: 0.45;
+  }
+
+  .ornament::after { transform: scaleX(-1); }
+
+  .ornament-leaf { color: var(--green); font-size: 14px; opacity: 0.7; }
+
+  /* ── Core quote ── */
+  .quote-wrap {
+    margin-bottom: 44px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.35s forwards;
+  }
+
+  .quote-card {
+    background: rgba(46,61,42,0.35);
+    border: 1px solid rgba(106,143,94,0.3);
+    border-radius: 10px;
+    padding: 32px 36px;
+    position: relative;
+  }
+
+  .quote-card::before {
+    content: '"';
+    position: absolute;
+    top: -10px; left: 28px;
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    color: var(--green);
+    opacity: 0.18;
+    line-height: 1;
+  }
+
+  .quote-num {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    color: var(--green);
+    opacity: 0.7;
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .quote-text {
+    font-size: clamp(16px, 2.8vw, 19px);
+    line-height: 1.95;
+    color: var(--cream);
+  }
+
+  .quote-text em {
+    font-style: italic;
+    color: rgba(237,232,220,0.75);
+  }
+
+  /* ── Plato callout ── */
+  .plato-strip {
+    margin-top: 20px;
+    background: rgba(194,164,110,0.08);
+    border-left: 3px solid var(--warm);
+    border-radius: 0 6px 6px 0;
+    padding: 16px 22px;
+  }
+
+  .plato-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    color: var(--warm);
+    opacity: 0.75;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .plato-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(14px, 2.5vw, 17px);
+    color: rgba(237,232,220,0.85);
+    line-height: 1.6;
+  }
+
+  /* ── Sections ── */
+  .sections {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 44px;
+  }
+
+  .sec {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 26px 30px;
+    background: rgba(237,232,220,0.03);
+    opacity: 0;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .sec:hover {
+    border-color: rgba(106,143,94,0.4);
+    background: rgba(237,232,220,0.05);
+  }
+
+  .sec.s1 { animation: fadeUp 0.9s ease 0.55s forwards; }
+  .sec.s2 { animation: fadeUp 0.9s ease 0.7s  forwards; }
+  .sec.s3 { animation: fadeUp 0.9s ease 0.85s forwards; }
+
+  .sec-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    color: var(--fern);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(16px, 2.5vw, 19px);
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .sec-body {
+    font-size: clamp(13px, 2vw, 15px);
+    line-height: 1.9;
+    color: var(--mist);
+    font-weight: 300;
+  }
+
+  .sec-body em { font-style: italic; color: rgba(237,232,220,0.8); }
+  .sec-body strong { color: var(--cream); font-weight: 500; }
+
+  /* ── Shepherd vs King ── */
+  .comparison {
+    margin-bottom: 44px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 1s forwards;
+  }
+
+  .comp-title {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    color: var(--stone);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .comp-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .comp-col {
+    padding: 24px 22px;
+  }
+
+  .comp-col.left  { background: rgba(46,61,42,0.3); }
+  .comp-col.right { background: rgba(28,23,16,0.5); }
+
+  .comp-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 14px;
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    background: rgba(237,232,220,0.02);
+    gap: 8px;
+  }
+
+  .comp-eq {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--stone);
+    opacity: 0.5;
+  }
+
+  .comp-who {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: var(--green);
+    opacity: 0.7;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .comp-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(16px, 2.5vw, 20px);
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .comp-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    font-size: clamp(12px, 1.8vw, 14px);
+    color: var(--mist);
+    line-height: 1.6;
+  }
+
+  .comp-item::before {
+    content: '—';
+    color: var(--green);
+    opacity: 0.6;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── Lessons ── */
+  .lessons {
+    margin-bottom: 44px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 1.15s forwards;
+  }
+
+  .lessons-head {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    color: var(--stone);
+    text-align: center;
+    margin-bottom: 22px;
+  }
+
+  .lesson {
+    display: flex;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .lesson:first-of-type { border-top: 1px solid var(--border); }
+
+  .lesson-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    padding-top: 2px;
+    opacity: 0.75;
+  }
+
+  .lesson-content strong {
+    display: block;
+    font-size: clamp(14px, 2vw, 15px);
+    color: var(--cream);
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  .lesson-content p {
+    font-size: clamp(13px, 1.8vw, 14px);
+    color: var(--mist);
+    line-height: 1.75;
+  }
+
+  /* ── Conclusion ── */
+  .conclusion {
+    text-align: center;
+    padding: 32px;
+    border: 1px solid rgba(106,143,94,0.3);
+    border-radius: 10px;
+    background: rgba(46,61,42,0.2);
+    margin-bottom: 52px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 1.3s forwards;
+  }
+
+  .concl-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(16px, 3vw, 20px);
+    color: var(--cream);
+    line-height: 1.65;
+  }
+
+  .concl-text strong {
+    font-style: normal;
+    color: var(--green);
+  }
+
+  /* ── Share ── */
+  .share-section {
+    text-align: center;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 1.45s forwards;
+  }
+
+  .share-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    color: var(--stone);
+    opacity: 0.45;
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .share-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    cursor: pointer;
+    border: none;
+    transition: all 0.25s;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--fern);
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .btn-primary:hover {
+    background: var(--green);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(74,107,66,0.45);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--stone);
+    border: 1px solid var(--border);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--stone);
+    color: var(--cream);
+    transform: translateY(-2px);
+  }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 56px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 1.6s forwards;
+  }
+
+  .footer p {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    color: var(--stone);
+    opacity: 0.3;
+  }
+
+  /* ── Toast ── */
+  .toast {
+    position: fixed;
+    bottom: 28px; left: 50%;
+    transform: translateX(-50%) translateY(70px);
+    background: #1e3a28;
+    color: #8fcfa0;
+    padding: 11px 22px;
+    border-radius: 24px;
+    font-size: 14px;
+    border: 1px solid rgba(106,143,94,0.35);
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    z-index: 999;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  }
+
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ── Animations ── */
+  @keyframes fadeDown { to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeUp   { to { opacity:1; transform:translateY(0); } }
+
+  @media (max-width: 520px) {
+    .container { padding: 44px 16px 60px; }
+    .quote-card { padding: 24px 20px; }
+    .sec { padding: 22px 18px; }
+    .comp-col { padding: 18px 14px; }
+    .comp-divider { padding: 16px 10px; }
+    .conclusion { padding: 26px 18px; }
+    .btn { padding: 11px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header class="header">
+    <span class="eyebrow">Marcus Aurelius · Meditations · Book X</span>
+    <h1 class="title">ध्यान-प्रविष्टि <em>२३</em></h1>
+    <p class="subtitle">स्थान का भ्रम — शांति भीतर है, बाहर नहीं</p>
+    <div class="ornament"><span class="ornament-leaf">❧</span></div>
+  </header>
+
+  <!-- Quote -->
+  <div class="quote-wrap">
+    <div class="quote-card">
+      <span class="quote-num">BOOK X · POINT 23</span>
+      <p class="quote-text">
+        हमेशा अपने सामने यह बात याद रखें कि <em>'यह जगह किसी खाली मैदान या शांत स्थान से अलग नहीं है'</em> —
+        और यहाँ जो चीज़ें मौजूद हैं, वे बिल्कुल वैसी ही हैं जैसी किसी पहाड़ की चोटी पर,
+        समुद्र के किनारे, या कहीं भी होती हैं।
+      </p>
+
+      <div class="plato-strip">
+        <span class="plato-label">PLATO · THEAETETUS</span>
+        <p class="plato-text">
+          "पहाड़ों में भेड़ों के बाड़े की बाड़ लगाना, और बकरियों या भेड़ों का दूध दुहना।"
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sections -->
+  <div class="sections">
+
+    <div class="sec s1">
+      <span class="sec-tag">पहलू १</span>
+      <p class="sec-title">स्थान का भ्रम — The Illusion of Geography</p>
+      <p class="sec-body">
+        हम अक्सर सोचते हैं — <em>"अगर मैं पहाड़ पर, समुद्र किनारे, या किसी शांत गाँव में चला जाऊँ तो शांति मिलेगी।"</em>
+        मार्कस इस सोच को सिरे से खारिज करते हैं।
+        <br><br>
+        रोम जैसा भीड़भाड़ वाला शहर भी आध्यात्मिक रूप से एक 'खाली मैदान' जैसा ही है।
+        <strong>शांति जगह में नहीं, मन में होती है।</strong>
+        यदि मन अशांत है, तो पहाड़ पर भी आप अपनी चिंताओं का शोर ही सुनेंगे।
+      </p>
+    </div>
+
+    <div class="sec s2">
+      <span class="sec-tag">पहलू २</span>
+      <p class="sec-title">प्लेटो का दृष्टांत — राजा और चरवाहा</p>
+      <p class="sec-body">
+        प्लेटो ने <em>Theaetetus</em> में कहा — महल में बैठा राजा और पहाड़ों पर रहने वाला चरवाहा, दोनों मूलतः एक ही काम कर रहे हैं।
+        <br><br>
+        चरवाहा अपनी भेड़ों के बाड़े की रखवाली करता है।
+        राजा अपने शहर की सीमाओं की रक्षा करता है और जनता से कर वसूलता है।
+        <br><br>
+        <strong>दोनों का काम एक जैसा है</strong> — बस राजा का बाड़ा बड़ा है और उसकी 'भेड़ें' इंसान हैं।
+      </p>
+    </div>
+
+    <div class="sec s3">
+      <span class="sec-tag">पहलू ३</span>
+      <p class="sec-title">जीवन का सरलीकरण — Demystifying Power</p>
+      <p class="sec-body">
+        सत्ता, राजनीति और शहरी जीवन की चकाचौंध को जब आप एक 'भेड़ के बाड़े' के रूप में देखते हैं,
+        तो मन से <em>सफलता का अहंकार</em> और <em>दूसरों का डर</em> — दोनों एक साथ खत्म हो जाते हैं।
+        <br><br>
+        जीवन उतना जटिल नहीं है जितना हम समझते हैं।
+        <strong>बुनियाद हमेशा साधारण होती है।</strong>
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Shepherd vs King comparison -->
+  <div class="comparison">
+    <p class="comp-title">🐑 चरवाहा और राजा — एक ही सिक्के के दो पहलू</p>
+    <div class="comp-grid">
+      <div class="comp-col left">
+        <span class="comp-who">THE SHEPHERD</span>
+        <p class="comp-name">चरवाहा</p>
+        <div class="comp-item">भेड़ों के बाड़े की रखवाली</div>
+        <div class="comp-item">जानवरों का दूध निकालना</div>
+        <div class="comp-item">पहाड़ों पर एकांत जीवन</div>
+        <div class="comp-item">झुंड की देखरेख</div>
+      </div>
+      <div class="comp-divider">
+        <span class="comp-eq">=</span>
+      </div>
+      <div class="comp-col right">
+        <span class="comp-who">THE KING</span>
+        <p class="comp-name">राजा</p>
+        <div class="comp-item">शहर की सीमाओं की रक्षा</div>
+        <div class="comp-item">जनता से कर (Tax) वसूलना</div>
+        <div class="comp-item">महल में राजसी जीवन</div>
+        <div class="comp-item">प्रजा की देखरेख</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lessons -->
+  <div class="lessons">
+    <p class="lessons-head">💡 जीवन के लिए व्यावहारिक सबक</p>
+
+    <div class="lesson">
+      <div class="lesson-icon">🏔️</div>
+      <div class="lesson-content">
+        <strong>शांति भीतर है, बाहर नहीं</strong>
+        <p>छुट्टियों या रिटायरमेंट का इंतज़ार मत कीजिए। अपने भीतर का एकांत (Inner Citadel) बनाइए —
+        ताकि आप जहाँ भी खड़े हों, वही आपके लिए पहाड़ की चोटी बन जाए।</p>
+      </div>
+    </div>
+
+    <div class="lesson">
+      <div class="lesson-icon">🐑</div>
+      <div class="lesson-content">
+        <strong>अपने काम को साधारण मानें</strong>
+        <p>CEO हों या साधारण कर्मचारी — आप बस एक 'चरवाहे' हैं जो अपना काम कर रहे हैं।
+        न अपने पद पर घमंड करें, न दूसरों के पद से डरें।</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Conclusion -->
+  <div class="conclusion">
+    <p class="concl-text">
+      <strong>भूगोल आपकी आत्मा को नहीं बदल सकता।</strong><br>
+      आप जहाँ हैं, वहीं प्रकृति है —<br>
+      और वहीं आपका कर्तव्य है।
+    </p>
+  </div>
+
+  <!-- Share -->
+  <div class="share-section">
+    <span class="share-label">SHARE THIS REFLECTION</span>
+    <div class="share-buttons">
+      <button class="btn btn-primary" onclick="shareNative()">↗ शेयर करें</button>
+      <button class="btn btn-ghost"   onclick="copyText()">⧉ कॉपी करें</button>
+      <a class="btn btn-ghost"
+         href="https://wa.me/?text=%E0%A4%AE%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%95%E0%A4%B8%20%E0%A4%91%E0%A4%B0%E0%A5%87%E0%A4%B2%E0%A4%BF%E0%A4%AF%E0%A4%B8%20%E2%80%94%20%E0%A4%AC%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%81%2023%0A%0A%22%E0%A4%B6%E0%A4%BE%E0%A4%82%E0%A4%A4%E0%A4%BF%20%E0%A4%9C%E0%A4%97%E0%A4%B9%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%A8%E0%A4%B9%E0%A5%80%E0%A4%82%2C%20%E0%A4%AE%E0%A4%A8%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%B9%E0%A5%8B%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A5%88%E0%A5%A4%22%0A%0A%E2%80%94%20Marcus%20Aurelius%2C%20Meditations%20X.23%0A%0A%E0%A4%AD%E0%A5%82%E0%A4%97%E0%A5%8B%E0%A4%B2%20%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A5%80%20%E0%A4%86%E0%A4%A4%E0%A5%8D%E0%A4%AE%E0%A4%BE%20%E0%A4%95%E0%A5%8B%20%E0%A4%A8%E0%A4%B9%E0%A5%80%E0%A4%82%20%E0%A4%AC%E0%A4%A6%E0%A4%B2%20%E0%A4%B8%E0%A4%95%E0%A4%A4%E0%A4%BE%E0%A5%A4"
+         target="_blank">💬 WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>MARCUS AURELIUS · MEDITATIONS · BOOK X · 23 · STOIC PHILOSOPHY</p>
+  </footer>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2800);
+  }
+
+  function shareNative() {
+    const data = {
+      title: 'मार्कस ऑरेलियस — मेडिटेशन्स, बिंदु २३',
+      text: '"शांति जगह में नहीं, मन में होती है।"\n\nचरवाहा और राजा — दोनों एक ही काम करते हैं। बस बाड़ा अलग है।\n\n"भूगोल आपकी आत्मा को नहीं बदल सकता।"\n\n— Marcus Aurelius, Meditations X.23',
+    };
+    if (navigator.share) {
+      navigator.share(data).catch(() => {});
+    } else {
+      copyText();
+    }
+  }
+
+  function copyText() {
+    const text = `मार्कस ऑरेलियस — मेडिटेशन्स, बिंदु २३\n\n"शांति जगह में नहीं, मन में होती है।"\n\nचरवाहा बनाम राजा — दोनों का काम एक ही है, बस बाड़ा अलग है।\n\nसबक:\n• शांति भीतर है, बाहर नहीं\n• अपने काम को साधारण मानें\n• भूगोल आत्मा को नहीं बदल सकता\n\n— Marcus Aurelius, Meditations X.23`;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(() => showToast('✓ कॉपी हो गया!'));
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta);
+      ta.select(); document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast('✓ कॉपी हो गया!');
+    }
+  }
+</script>
+</body>
+</html>
