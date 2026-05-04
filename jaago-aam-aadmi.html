@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>जागो आम आदमी | चमकते शहरों का कड़वा सच</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@300;400;500;600;700&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:   #0a0a0a;
+    --paper:   #f0ebe0;
+    --red:     #d42b2b;
+    --red2:    #ff3b3b;
+    --ink:     #1a1a1a;
+    --muted:   rgba(240,235,224,0.55);
+    --rule:    rgba(240,235,224,0.12);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--paper);
+    font-family: 'Noto Serif Devanagari', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    background: var(--red);
+    padding: 10px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid #fff;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .masthead-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: 0.25em;
+    color: #fff; text-transform: uppercase; opacity: 0.85;
+  }
+  .masthead-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: #fff;
+    animation: pulse 2s ease infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50%      { opacity:0.4; transform:scale(0.75); }
+  }
+
+  /* HERO */
+  .hero {
+    padding: 56px 32px 48px;
+    border-bottom: 1px solid var(--rule);
+    position: relative; overflow: hidden;
+    opacity: 0; animation: fadeIn 0.8s ease 0.1s forwards;
+  }
+  .hero::before {
+    content: 'सच';
+    position: absolute; right: -20px; top: -20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 280px; color: rgba(212,43,43,0.06);
+    line-height: 1; pointer-events: none; user-select: none;
+  }
+  .hero-kicker {
+    display: inline-flex; align-items: center;
+    gap: 10px; margin-bottom: 24px;
+  }
+  .kicker-rule { width: 36px; height: 3px; background: var(--red); }
+  .kicker-text {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; letter-spacing: 0.3em;
+    color: var(--red2); text-transform: uppercase;
+  }
+  .hero-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 12vw, 96px);
+    line-height: 0.92; letter-spacing: 0.01em;
+    color: var(--paper); margin-bottom: 12px;
+  }
+  .hero-headline span { color: var(--red); }
+  .hero-sub {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(17px, 3vw, 22px);
+    color: var(--muted); line-height: 1.5;
+    max-width: 580px; margin-top: 20px;
+    padding-top: 20px; border-top: 1px solid var(--rule);
+  }
+
+  /* STAT BAR */
+  .stat-bar {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    border-bottom: 1px solid var(--rule);
+    opacity: 0; animation: fadeIn 0.8s ease 0.4s forwards;
+  }
+  .stat-item { padding: 24px 28px; border-right: 1px solid var(--rule); }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px,6vw,52px); color: var(--red);
+    line-height: 1; display: block; margin-bottom: 6px;
+  }
+  .stat-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: 0.2em;
+    color: var(--muted); text-transform: uppercase; line-height: 1.5;
+  }
+
+  /* BODY */
+  .body-wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  /* SECTION */
+  .section {
+    padding: 52px 0; border-bottom: 1px solid var(--rule);
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .section.visible { opacity:1; transform:translateY(0); }
+  .section-tag { display:flex; align-items:center; gap:12px; margin-bottom:20px; }
+  .tag-num { font-family:'Space Mono',monospace; font-size:11px; color:var(--red); opacity:0.7; }
+  .tag-line { flex:1; height:1px; background:var(--rule); }
+  .section-title {
+    font-family:'DM Serif Display',serif;
+    font-size:clamp(22px,4vw,32px); color:var(--paper);
+    line-height:1.25; margin-bottom:20px;
+  }
+  .section-title em { font-style:italic; color:var(--muted); }
+  .section-body { font-size:clamp(15px,2.2vw,17px); line-height:1.9; color:rgba(240,235,224,0.78); font-weight:300; }
+  .section-body strong { color:var(--paper); font-weight:600; }
+
+  /* PULL QUOTE */
+  .pull-quote { margin:32px 0; padding:28px 0 28px 28px; border-left:4px solid var(--red); }
+  .pull-quote p {
+    font-family:'DM Serif Display',serif; font-style:italic;
+    font-size:clamp(18px,3.5vw,24px); color:var(--paper); line-height:1.5;
+  }
+
+  /* BULLET */
+  .bullet-list { list-style:none; margin:24px 0; display:flex; flex-direction:column; gap:16px; }
+  .bullet-list li {
+    display:flex; gap:16px; align-items:flex-start;
+    font-size:clamp(14px,2vw,16px); line-height:1.85; color:rgba(240,235,224,0.78);
+  }
+  .bullet-list li::before {
+    content:'//'; font-family:'Space Mono',monospace;
+    font-size:12px; color:var(--red); flex-shrink:0; padding-top:3px; opacity:0.8;
+  }
+  .bullet-list li strong { color:var(--paper); }
+
+  /* CONTRAST BOX */
+  .contrast-box { background:var(--paper); color:var(--ink); border-radius:4px; padding:32px 30px; margin:32px 0; }
+  .contrast-box .cb-label {
+    font-family:'Space Mono',monospace; font-size:10px;
+    letter-spacing:0.3em; color:var(--red); text-transform:uppercase;
+    margin-bottom:14px; display:block;
+  }
+  .contrast-box p { font-family:'DM Serif Display',serif; font-size:clamp(18px,3vw,22px); line-height:1.55; color:var(--ink); }
+  .contrast-box p strong { color:var(--red); }
+
+  /* DIVIDER QUOTE */
+  .divider-quote {
+    padding:48px 0; text-align:center; border-bottom:1px solid var(--rule);
+    opacity:0; transform:translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .divider-quote.visible { opacity:1; transform:translateY(0); }
+  .dq-text {
+    font-family:'DM Serif Display',serif; font-style:italic;
+    font-size:clamp(18px,3.5vw,26px); color:var(--paper);
+    line-height:1.5; max-width:580px; margin:0 auto 16px;
+  }
+  .dq-rule { width:48px; height:3px; background:var(--red); margin:0 auto; }
+
+  /* SOLUTION GRID */
+  .solution-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:2px; margin:28px 0; border:1px solid var(--rule); border-radius:4px; overflow:hidden;
+  }
+  .sol-item {
+    padding:24px 22px; background:rgba(240,235,224,0.03);
+    border-right:1px solid var(--rule); transition:background 0.25s;
+  }
+  .sol-item:last-child { border-right:none; }
+  .sol-item:hover { background:rgba(212,43,43,0.08); }
+  .sol-icon { font-size:22px; margin-bottom:12px; display:block; }
+  .sol-title { font-family:'DM Serif Display',serif; font-size:17px; color:var(--paper); margin-bottom:8px; line-height:1.3; }
+  .sol-body { font-size:13px; line-height:1.75; color:var(--muted); }
+
+  /* FINAL CALLOUT */
+  .final-callout {
+    background:var(--red); margin:0 -24px; padding:48px 32px; text-align:center;
+    opacity:0; transform:translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .final-callout.visible { opacity:1; transform:translateY(0); }
+  .fc-text {
+    font-family:'DM Serif Display',serif; font-style:italic;
+    font-size:clamp(18px,3.5vw,26px); color:#fff;
+    line-height:1.55; max-width:600px; margin:0 auto 28px;
+  }
+
+  /* SHARE */
+  .share-section { padding:44px 0 60px; text-align:center; opacity:0; animation:fadeIn 0.8s ease 0.5s forwards; }
+  .share-label {
+    font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.4em;
+    color:var(--muted); text-transform:uppercase; margin-bottom:20px; display:block;
+  }
+  .share-buttons { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .btn {
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 24px; border-radius:3px;
+    font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.2em;
+    cursor:pointer; border:none; transition:all 0.2s;
+    text-decoration:none; text-transform:uppercase;
+  }
+  .btn-red { background:var(--red); color:#fff; font-weight:700; }
+  .btn-red:hover { background:var(--red2); transform:translateY(-2px); box-shadow:0 8px 24px rgba(212,43,43,0.45); }
+  .btn-outline { background:transparent; color:var(--muted); border:1px solid var(--rule); }
+  .btn-outline:hover { border-color:rgba(240,235,224,0.4); color:var(--paper); transform:translateY(-2px); }
+
+  /* FOOTER */
+  .footer {
+    padding:20px 32px; border-top:1px solid var(--rule);
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  }
+  .footer p { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.25em; color:var(--muted); opacity:0.35; text-transform:uppercase; }
+
+  /* TOAST */
+  .toast {
+    position:fixed; bottom:28px; left:50%;
+    transform:translateX(-50%) translateY(70px);
+    background:#1a3a1a; color:#7fcf7f; padding:11px 22px; border-radius:24px;
+    font-family:'Space Mono',monospace; font-size:12px;
+    border:1px solid rgba(127,207,127,0.3);
+    transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    z-index:999; box-shadow:0 8px 32px rgba(0,0,0,0.6);
+  }
+  .toast.show { transform:translateX(-50%) translateY(0); }
+
+  @keyframes fadeIn { to { opacity:1; } }
+
+  @media (max-width:540px) {
+    .masthead { padding:10px 18px; }
+    .hero { padding:40px 20px 36px; }
+    .stat-bar { grid-template-columns:1fr 1fr; }
+    .stat-item:nth-child(3) { grid-column:span 2; border-right:none; border-top:1px solid var(--rule); }
+    .body-wrap { padding:0 18px; }
+    .final-callout { margin:0 -18px; padding:36px 22px; }
+    .btn { padding:12px 16px; }
+    .footer { padding:18px 20px; }
+    .solution-grid { grid-template-columns:1fr; }
+    .sol-item { border-right:none; border-bottom:1px solid var(--rule); }
+    .sol-item:last-child { border-bottom:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <span class="masthead-tag">जन-पत्रिका · विशेष रिपोर्ट</span>
+  <div style="display:flex;align-items:center;gap:8px;">
+    <div class="masthead-dot"></div>
+    <span class="masthead-tag">लाइव · 2025</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-kicker">
+    <div class="kicker-rule"></div>
+    <span class="kicker-text">कड़वा सच · विशेष संपादकीय</span>
+  </div>
+  <h1 class="hero-headline">जागो<br><span>आम</span><br>आदमी</h1>
+  <p class="hero-sub">
+    चमकते शहरों के पीछे का वह सच जो कोई नहीं बताता —
+    इंदौर से इंडिया तक, जीडीपी से जमीन तक।
+  </p>
+</div>
+
+<div class="stat-bar">
+  <div class="stat-item">
+    <span class="stat-num">150Cr</span>
+    <span class="stat-label">भारत की<br>जनसंख्या</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">#4</span>
+    <span class="stat-label">दुनिया की<br>अर्थव्यवस्था</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">?</span>
+    <span class="stat-label">आम आदमी<br>की हैसियत</span>
+  </div>
+</div>
+
+<div class="body-wrap">
+
+  <div class="section" id="s1">
+    <div class="section-tag"><span class="tag-num">01</span><div class="tag-line"></div></div>
+    <h2 class="section-title">जीडीपी का धोखा —<br><em>क्या हम वाकई अमीर हो रहे हैं?</em></h2>
+    <p class="section-body">टीवी और अखबार कहते हैं GDP बढ़ रहा है — लेकिन सच्चाई के आंकड़े कुछ और कहानी कहते हैं।</p>
+    <ul class="bullet-list">
+      <li><strong>भीड़ का कमाल:</strong> अर्थव्यवस्था बड़ी इसलिए नहीं कि हम अमीर हो गए — बल्कि इसलिए कि हम <strong>150 करोड़</strong> हैं।</li>
+      <li><strong>अमीरों का कब्जा:</strong> देश की कुल कमाई का बड़ा हिस्सा सिर्फ मुट्ठी भर लोगों के पास है।</li>
+      <li><strong>आम आदमी की जेब:</strong> चंद अरबपतियों की कमाई हटाएं तो एक आम भारतीय की असली आय आज भी बेहद कम है — यह आंकड़ा गरीबी को छिपा लेता है।</li>
+    </ul>
+    <div class="pull-quote">
+      <p>"अमीर होने का असली मतलब यह नहीं कि 100 लोगों को गरीब करके एक आदमी महल में बैठे।"</p>
+    </div>
+  </div>
+
+  <div class="section" id="s2">
+    <div class="section-tag"><span class="tag-num">02</span><div class="tag-line"></div></div>
+    <h2 class="section-title">साफ हवा और पानी —<br><em>क्या यह सिर्फ अमीरों की बपौती है?</em></h2>
+    <p class="section-body">इंदौर — भारत का सबसे 'स्वच्छ' शहर — और वहाँ दूषित पानी से मासूम बच्चों की मौत। प्रदूषण सबको घेरता है, लेकिन खामियाजा सिर्फ गरीब भुगतता है।</p>
+    <ul class="bullet-list">
+      <li><strong>अमीर की ढाल:</strong> जो उद्योग हवा-पानी गंदा करते हैं, उनके मालिक एयर प्यूरिफायर लगवाते हैं और बोतलबंद पानी पीते हैं।</li>
+      <li><strong>गरीब की मजबूरी:</strong> आम आदमी के पास कोई विकल्प नहीं — वही गंदी हवा, वही दूषित बोरवेल।</li>
+    </ul>
+    <div class="contrast-box">
+      <span class="cb-label">कड़वा गणित</span>
+      <p>साफ पानी सिर्फ <strong>100 लोगों</strong> के लिए — पीने वाले <strong>500 खड़े</strong> हैं।<br>साफ पानी सिर्फ वो पिएगा जो <strong>सबसे ऊंची बोली</strong> लगा सकता है।<br>बाकियों को गटर का पानी ही नसीब होगा।</p>
+    </div>
+  </div>
+
+  <div class="section" id="s3">
+    <div class="section-tag"><span class="tag-num">03</span><div class="tag-line"></div></div>
+    <h2 class="section-title">असली जड़ —<br><em>बेतहाशा बढ़ती जनसंख्या</em></h2>
+    <p class="section-body">हम नज़रअंदाज़ करते हैं कि आस-पास की गंदगी, प्रदूषण और संसाधनों की कमी का सबसे बड़ा कारण हम खुद हैं।</p>
+    <ul class="bullet-list">
+      <li><strong>संसाधनों पर दबाव:</strong> जब धरती कम है और लोग ज्यादा — हाहाकार मचना तय है।</li>
+      <li><strong>भीड़ ही गंदगी है:</strong> जिस डिब्बे में 5 बैठें वहाँ 50 ठूंसे जाएं तो गंदगी फैलेगी ही। प्रकृति खुद गंदी नहीं — इंसानों की भीड़ उसे गंदा करती है।</li>
+      <li><strong>भविष्य के साथ खिलवाड़:</strong> बिना आर्थिक सुरक्षा के 'ऊपर वाला पालेगा' सोचकर बच्चे पैदा करना उन बच्चों को उसी नर्क में धकेलना है।</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="divider-quote" id="dq1">
+  <div class="body-wrap">
+    <p class="dq-text">"जब पूरा शहर डूब रहा हो, तो आप अपने कमरे की हवा साफ नहीं रख सकते।"</p>
+    <div class="dq-rule"></div>
+  </div>
+</div>
+
+<div class="body-wrap">
+  <div class="section" id="s4">
+    <div class="section-tag"><span class="tag-num">04</span><div class="tag-line"></div></div>
+    <h2 class="section-title">तो फिर क्या करें?<br><em>आम आदमी के लिए रास्ता</em></h2>
+    <p class="section-body">अगर लगता है कि सिर्फ घर में महंगा फिल्टर लगाने से बच जाएंगे — यह सबसे बड़ा भ्रम है।</p>
+    <div class="solution-grid">
+      <div class="sol-item">
+        <span class="sol-icon">✊</span>
+        <p class="sol-title">सामूहिक मांग करें</p>
+        <p class="sol-body">व्यक्तिगत ग्लानि छोड़ें। कंपनी के प्रदूषण पर सवाल उठाएं।</p>
+      </div>
+      <div class="sol-item">
+        <span class="sol-icon">🗳️</span>
+        <p class="sol-title">वोट की ताकत</p>
+        <p class="sol-body">ऐसी नीतियां मांगें जो पर्यावरण और सेहत को मुनाफे से ऊपर रखें।</p>
+      </div>
+      <div class="sol-item">
+        <span class="sol-icon">📚</span>
+        <p class="sol-title">शिक्षा और जागरूकता</p>
+        <p class="sol-body">अंधविश्वास में आकर जनसंख्या न बढ़ाएं। शिक्षा ही असली हथियार है।</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="final-callout" id="fc">
+  <div class="body-wrap">
+    <p class="fc-text">"असली अर्थव्यवस्था का लक्ष्य यह होना चाहिए कि हर इंसान को सम्मानजनक जिंदगी मिले — जहाँ सांस लेने के लिए साफ हवा और पीने के लिए साफ पानी के लिए तरसना न पड़े।"</p>
+    <div class="share-buttons">
+      <button class="btn" style="background:#fff;color:var(--red);font-weight:700;" onclick="shareNative()">↗ शेयर करें</button>
+      <button class="btn" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);" onclick="copyText()">⧉ कॉपी करें</button>
+      <a class="btn" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);" href="https://wa.me/?text=%F0%9F%94%B4+%E0%A4%9C%E0%A4%BE%E0%A4%97%E0%A5%8B+%E0%A4%86%E0%A4%AE+%E0%A4%86%E0%A4%A6%E0%A4%AE%E0%A5%80+%E2%80%94+%E0%A4%9A%E0%A4%AE%E0%A4%95%E0%A4%A4%E0%A5%87+%E0%A4%B6%E0%A4%B9%E0%A4%B0%E0%A5%8B%E0%A4%82+%E0%A4%95%E0%A4%BE+%E0%A4%95%E0%A4%A1%E0%A4%BC%E0%A4%B5%E0%A4%BE+%E0%A4%B8%E0%A4%9A" target="_blank">💬 WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<div class="body-wrap">
+  <div class="share-section">
+    <span class="share-label">इसे फैलाएं — जागरूकता ही बदलाव है</span>
+    <div class="share-buttons">
+      <button class="btn btn-red" onclick="shareNative()">↗ शेयर करें</button>
+      <button class="btn btn-outline" onclick="copyText()">⧉ कॉपी करें</button>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>जन-पत्रिका · विशेष संपादकीय · 2025</p>
+  <p>जागरूकता ही परिवर्तन है</p>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.section, .divider-quote, .final-callout').forEach(el => observer.observe(el));
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2800);
+  }
+
+  function shareNative() {
+    const data = {
+      title: 'जागो आम आदमी — चमकते शहरों का कड़वा सच',
+      text: '🔴 जागो आम आदमी\n\nहम दुनिया की चौथी सबसे बड़ी अर्थव्यवस्था हैं — और इंदौर में गंदे पानी से बच्चों की मौत हो रही है। यह कैसा विकास है?\n\nजीडीपी का धोखा, प्रदूषण की असली कीमत, और जनसंख्या का सच — एक ज़रूरी रिपोर्ट।',
+    };
+    if (navigator.share) { navigator.share(data).catch(() => {}); } else { copyText(); }
+  }
+
+  function copyText() {
+    const text = `🔴 जागो आम आदमी — चमकते शहरों का कड़वा सच\n\n• जीडीपी का धोखा: 150 करोड़ की भीड़ से बड़ी दिखती है अर्थव्यवस्था\n• साफ पानी सिर्फ उसे मिलता है जो सबसे ऊंची बोली लगाए\n• भीड़ ही गंदगी है — प्रकृति खुद गंदी नहीं होती\n\n"जब पूरा शहर डूब रहा हो, तो आप अपने कमरे की हवा साफ नहीं रख सकते।"\n\nजागरूकता ही परिवर्तन है।`;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(() => showToast('✓ कॉपी हो गया!'));
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+      document.body.removeChild(ta); showToast('✓ कॉपी हो गया!');
+    }
+  }
+</script>
+</body>
+</html>

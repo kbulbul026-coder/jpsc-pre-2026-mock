@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>सोना कितना सोना है? | जमा पूंजी गाइड</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold:    #c9933a;
+    --gold2:   #f0c060;
+    --dark:    #1a1408;
+    --warm:    #2d2210;
+    --bg:      #faf6ee;
+    --paper:   #f5eed8;
+    --ink:     #1a1408;
+    --mid:     rgba(26,20,8,0.6);
+    --rule:    rgba(201,147,58,0.2);
+    --red:     #c0311f;
+    --green:   #2e6b35;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Serif Devanagari', serif;
+    min-height: 100vh; overflow-x: hidden;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--dark);
+    padding: 10px 28px;
+    display: flex; align-items:center; justify-content:space-between;
+  }
+  .topbar-tag {
+    font-family:'Space Mono',monospace; font-size:10px;
+    letter-spacing:0.3em; color:var(--gold2); text-transform:uppercase;
+  }
+  .topbar-logo {
+    font-family:'Space Mono',monospace; font-size:11px;
+    letter-spacing:0.15em; color:var(--gold); font-weight:700;
+    text-transform:uppercase;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--dark) 0%, #2a1c06 100%);
+    padding: 52px 24px 44px;
+    position: relative; overflow: hidden;
+    opacity:0; animation: fadeIn 0.8s ease 0.1s forwards;
+  }
+  .hero::before {
+    content: '⬡';
+    position:absolute; right:-20px; top:-30px;
+    font-size: 260px; color: rgba(201,147,58,0.05);
+    line-height:1; pointer-events:none;
+  }
+  .hero-inner { max-width:660px; margin:0 auto; }
+  .hero-kicker {
+    display:flex; align-items:center; gap:12px; margin-bottom:20px;
+  }
+  .kicker-bar { width:28px; height:2px; background:var(--gold); }
+  .kicker-text {
+    font-family:'Space Mono',monospace; font-size:10px;
+    letter-spacing:0.3em; color:var(--gold); text-transform:uppercase;
+  }
+  .hero h1 {
+    font-family:'Playfair Display',serif;
+    font-size:clamp(34px,8vw,60px); font-weight:700;
+    line-height:1.05; color:#fff; margin-bottom:10px;
+  }
+  .hero h1 em { color:var(--gold2); font-style:italic; }
+  .hero-sub {
+    font-family:'Playfair Display',serif; font-style:italic;
+    font-size:clamp(15px,2.5vw,19px); color:rgba(255,255,255,0.6);
+    line-height:1.55; margin-top:18px;
+    border-top:1px solid rgba(201,147,58,0.2); padding-top:18px;
+  }
+
+  /* ── PURITY TABLE ── */
+  .purity-strip {
+    background: var(--gold);
+    opacity:0; animation: fadeIn 0.8s ease 0.35s forwards;
+  }
+  .purity-inner {
+    max-width:660px; margin:0 auto;
+    display:grid; grid-template-columns:repeat(5,1fr);
+  }
+  .pur-cell {
+    padding:14px 10px; text-align:center;
+    border-right:1px solid rgba(255,255,255,0.2);
+    transition:background 0.2s;
+  }
+  .pur-cell:last-child { border-right:none; }
+  .pur-cell:hover { background:rgba(255,255,255,0.15); }
+  .pur-code {
+    font-family:'Space Mono',monospace; font-size:clamp(14px,2.5vw,18px);
+    font-weight:700; color:var(--dark); display:block; margin-bottom:4px;
+  }
+  .pur-karat {
+    font-family:'Space Mono',monospace; font-size:10px;
+    color:rgba(26,20,8,0.7); text-transform:uppercase; letter-spacing:0.1em;
+  }
+
+  /* ── BODY ── */
+  .col { max-width:660px; margin:0 auto; padding:0 24px; }
+
+  /* ── SECTION ── */
+  .sec {
+    padding:44px 0; border-bottom:1px solid var(--rule);
+    opacity:0; transform:translateY(20px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .sec.visible { opacity:1; transform:translateY(0); }
+  .sec-tag { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .sec-num { font-family:'Space Mono',monospace; font-size:10px; color:var(--gold); opacity:0.8; }
+  .sec-rule { flex:1; height:1px; background:var(--rule); }
+  .sec-title {
+    font-family:'Playfair Display',serif; font-weight:700;
+    font-size:clamp(20px,3.5vw,27px); color:var(--ink);
+    line-height:1.25; margin-bottom:16px;
+  }
+  .sec-title em { font-style:italic; color:var(--mid); font-weight:400; }
+  .sec-body {
+    font-size:clamp(14px,2.2vw,16px); line-height:1.95;
+    color:rgba(26,20,8,0.8); font-weight:300;
+  }
+  .sec-body strong { color:var(--ink); font-weight:600; }
+
+  /* ── ALERT BOX ── */
+  .alert {
+    margin:24px 0; padding:20px 24px;
+    border-radius:4px; display:flex; gap:16px; align-items:flex-start;
+  }
+  .alert.warn {
+    background:rgba(192,49,31,0.06); border-left:4px solid var(--red);
+  }
+  .alert.ok {
+    background:rgba(46,107,53,0.07); border-left:4px solid var(--green);
+  }
+  .alert.info {
+    background:rgba(201,147,58,0.08); border-left:4px solid var(--gold);
+  }
+  .alert-icon { font-size:20px; flex-shrink:0; margin-top:2px; }
+  .alert-text { font-size:clamp(13px,2vw,15px); line-height:1.8; color:var(--ink); }
+  .alert-text strong { font-weight:600; }
+
+  /* ── PROCESS STEPS ── */
+  .steps { margin:24px 0; display:flex; flex-direction:column; gap:2px; }
+  .step {
+    display:grid; grid-template-columns:40px 1fr;
+    gap:0 16px; padding:18px 20px;
+    background:rgba(201,147,58,0.05);
+    border:1px solid var(--rule); border-radius:4px;
+    margin-bottom:2px; transition:background 0.2s;
+  }
+  .step:hover { background:rgba(201,147,58,0.1); }
+  .step-n {
+    font-family:'Space Mono',monospace; font-weight:700;
+    font-size:18px; color:var(--gold); line-height:1;
+    padding-top:2px;
+  }
+  .step-title { font-size:15px; font-weight:600; color:var(--ink); margin-bottom:4px; }
+  .step-body { font-size:13px; line-height:1.7; color:var(--mid); }
+
+  /* ── CODE ANATOMY ── */
+  .code-box {
+    background:var(--dark); border-radius:8px;
+    padding:28px 24px; margin:24px 0; position:relative;
+  }
+  .code-label {
+    font-family:'Space Mono',monospace; font-size:9px;
+    letter-spacing:0.35em; color:var(--gold); text-transform:uppercase;
+    margin-bottom:16px; display:block;
+  }
+  .code-display {
+    font-family:'Space Mono',monospace; font-size:clamp(20px,5vw,36px);
+    font-weight:700; color:var(--gold2); letter-spacing:0.15em;
+    margin-bottom:20px; text-align:center;
+  }
+  .code-parts { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .code-part {
+    background:rgba(255,255,255,0.04); border:1px solid rgba(201,147,58,0.2);
+    border-radius:4px; padding:12px 14px;
+  }
+  .cp-val {
+    font-family:'Space Mono',monospace; font-size:11px;
+    color:var(--gold); font-weight:700; margin-bottom:4px; display:block;
+  }
+  .cp-desc { font-size:12px; color:rgba(255,255,255,0.5); line-height:1.5; }
+
+  /* ── CHECKLIST ── */
+  .checklist { margin:20px 0; display:flex; flex-direction:column; gap:10px; }
+  .chk-item {
+    display:flex; gap:14px; align-items:flex-start;
+    font-size:clamp(13px,2vw,15px); line-height:1.75; color:var(--ink);
+  }
+  .chk-icon { flex-shrink:0; font-size:16px; padding-top:2px; }
+
+  /* ── PURITY FULL TABLE ── */
+  .purity-table {
+    width:100%; border-collapse:collapse;
+    margin:24px 0; border:1px solid var(--rule); border-radius:4px; overflow:hidden;
+  }
+  .purity-table th {
+    background:var(--dark); color:var(--gold);
+    font-family:'Space Mono',monospace; font-size:10px;
+    letter-spacing:0.25em; text-transform:uppercase;
+    padding:12px 16px; text-align:left; font-weight:700;
+  }
+  .purity-table td {
+    padding:13px 16px; border-bottom:1px solid var(--rule);
+    font-size:14px; color:var(--ink); vertical-align:middle;
+  }
+  .purity-table tr:last-child td { border-bottom:none; }
+  .purity-table tr:hover td { background:rgba(201,147,58,0.05); }
+  .pt-code {
+    font-family:'Space Mono',monospace; font-weight:700;
+    font-size:16px; color:var(--gold);
+  }
+  .pt-bar {
+    height:8px; border-radius:4px; background:linear-gradient(to right,var(--gold),var(--gold2));
+    min-width:12px; max-width:100%; transition:width 0.3s;
+  }
+
+  /* ── FINAL CTA ── */
+  .cta {
+    background:var(--dark); padding:44px 24px; text-align:center;
+    opacity:0; transform:translateY(20px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .cta.visible { opacity:1; transform:translateY(0); }
+  .cta h2 {
+    font-family:'Playfair Display',serif; font-style:italic;
+    font-size:clamp(20px,4vw,28px); color:#fff; line-height:1.5;
+    max-width:500px; margin:0 auto 24px;
+  }
+  .cta h2 strong { font-style:normal; color:var(--gold2); }
+  .cta-steps {
+    display:flex; flex-direction:column; gap:10px;
+    max-width:440px; margin:0 auto 32px; text-align:left;
+  }
+  .cta-step {
+    display:flex; gap:14px; align-items:center;
+    font-family:'Space Mono',monospace; font-size:12px;
+    color:rgba(255,255,255,0.7); letter-spacing:0.05em;
+  }
+  .cta-step-n {
+    width:28px; height:28px; border-radius:50%;
+    background:var(--gold); color:var(--dark);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:13px; flex-shrink:0;
+  }
+
+  /* ── SHARE ── */
+  .share-section {
+    padding:40px 24px 56px; text-align:center;
+    opacity:0; animation:fadeIn 0.8s ease 0.5s forwards;
+  }
+  .share-label {
+    font-family:'Space Mono',monospace; font-size:10px;
+    letter-spacing:0.4em; color:var(--mid); text-transform:uppercase;
+    margin-bottom:18px; display:block;
+  }
+  .share-buttons { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+  .btn {
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 22px; border-radius:4px;
+    font-family:'Space Mono',monospace; font-size:10px;
+    letter-spacing:0.18em; cursor:pointer; border:none;
+    transition:all 0.2s; text-decoration:none; text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .btn-gold { background:var(--gold); color:var(--dark); font-weight:700; }
+  .btn-gold:hover { background:var(--gold2); transform:translateY(-2px); box-shadow:0 6px 20px rgba(201,147,58,0.4); }
+  .btn-dark { background:var(--dark); color:var(--gold2); border:1px solid rgba(201,147,58,0.3); }
+  .btn-dark:hover { border-color:var(--gold); transform:translateY(-2px); }
+  .btn-outline { background:transparent; color:var(--mid); border:1px solid var(--rule); }
+  .btn-outline:hover { border-color:var(--gold); color:var(--gold); transform:translateY(-2px); }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top:1px solid var(--rule); padding:14px 28px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+  }
+  .footer p { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.25em; color:var(--mid); text-transform:uppercase; }
+
+  /* ── TOAST ── */
+  .toast {
+    position:fixed; bottom:28px; left:50%;
+    transform:translateX(-50%) translateY(70px);
+    background:#1a3a1a; color:#7fcf7f; padding:11px 22px;
+    border-radius:24px; font-family:'Space Mono',monospace; font-size:12px;
+    border:1px solid rgba(127,207,127,0.3);
+    transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    z-index:999; box-shadow:0 8px 32px rgba(0,0,0,0.2);
+  }
+  .toast.show { transform:translateX(-50%) translateY(0); }
+
+  @keyframes fadeIn { to{opacity:1;} }
+
+  @media(max-width:520px){
+    .topbar,.footer{padding:10px 16px;}
+    .hero{padding:40px 18px 36px;}
+    .col{padding:0 18px;}
+    .purity-inner{grid-template-columns:repeat(3,1fr);}
+    .pur-cell:nth-child(4),.pur-cell:nth-child(5){border-top:1px solid rgba(255,255,255,0.2);}
+    .code-parts{grid-template-columns:1fr;}
+    .share-section{padding:32px 18px 48px;}
+    .cta{padding:36px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <span class="topbar-tag">जमा पूंजी सीरीज़ · निवेश जागरूकता</span>
+  <span class="topbar-logo">⬡ Gold Guide</span>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-kicker">
+      <div class="kicker-bar"></div>
+      <span class="kicker-text">सोना खरीदने से पहले पढ़ें</span>
+    </div>
+    <h1>सोना कितना<br><em>सोना है?</em></h1>
+    <p class="hero-sub">
+      BIS हॉलमार्क, कैरेट, शुद्धता कोड — सब कुछ जो आपको सुनार की दुकान पर जाने से पहले जरूर जानना चाहिए।
+    </p>
+  </div>
+</div>
+
+<!-- Purity quick reference -->
+<div class="purity-strip">
+  <div class="purity-inner">
+    <div class="pur-cell">
+      <span class="pur-code">999</span>
+      <span class="pur-karat">24 कैरेट</span>
+    </div>
+    <div class="pur-cell">
+      <span class="pur-code">916</span>
+      <span class="pur-karat">22 कैरेट</span>
+    </div>
+    <div class="pur-cell">
+      <span class="pur-code">750</span>
+      <span class="pur-karat">18 कैरेट</span>
+    </div>
+    <div class="pur-cell">
+      <span class="pur-code">585</span>
+      <span class="pur-karat">14 कैरेट</span>
+    </div>
+    <div class="pur-cell">
+      <span class="pur-code">375</span>
+      <span class="pur-karat">9 कैरेट</span>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+
+  <!-- S1 Common Myth -->
+  <div class="sec" id="s1">
+    <div class="sec-tag"><span class="sec-num">01</span><div class="sec-rule"></div></div>
+    <h2 class="sec-title">सबसे बड़ा भ्रम —<br><em>हॉलमार्क = 24 कैरेट? ❌</em></h2>
+    <p class="sec-body">
+      बहुत से लोग सोचते हैं कि <strong>"BIS हॉलमार्क लगा है मतलब 24 कैरेट सोना है।"</strong> यह पूरी तरह गलत है।
+      हॉलमार्क सिर्फ यह बताता है कि जेवर की शुद्धता <em>जांची गई और प्रमाणित है</em> — लेकिन वह शुद्धता 9 कैरेट भी हो सकती है और 24 कैरेट भी।
+    </p>
+    <div class="alert warn">
+      <span class="alert-icon">⚠️</span>
+      <p class="alert-text">
+        <strong>ध्यान रखें:</strong> हॉलमार्क के बाद जो संख्या (916, 750 आदि) लिखी है — वही असली शुद्धता है। वो संख्या देखे बिना सोना मत खरीदें।
+      </p>
+    </div>
+    <div class="alert ok">
+      <span class="alert-icon">✅</span>
+      <p class="alert-text">
+        <strong>सही तरीका:</strong> दुकानदार से पूछें — "इस जेवर का BIS कोड क्या है? 916 है या 750?"
+        फिर खुद BIS Care ऐप पर वेरीफाई करें।
+      </p>
+    </div>
+  </div>
+
+  <!-- S2 What is BIS Hallmark -->
+  <div class="sec" id="s2">
+    <div class="sec-tag"><span class="sec-num">02</span><div class="sec-rule"></div></div>
+    <h2 class="sec-title">BIS हॉलमार्क क्या होता है?</h2>
+    <p class="sec-body">
+      BIS (Bureau of Indian Standards) का हॉलमार्क सरकारी प्रमाणन है — जैसे इलेक्ट्रॉनिक्स पर ISI मार्क।
+      <strong>2021 के बाद से बिना हॉलमार्क के सोना बेचना गैरकानूनी है।</strong>
+    </p>
+    <div class="code-box">
+      <span class="code-label">हॉलमार्क यूनिक ID का उदाहरण</span>
+      <div class="code-display">⬡ 916 · AZ4B7C</div>
+      <div class="code-parts">
+        <div class="code-part">
+          <span class="cp-val">⬡ BIS Logo</span>
+          <p class="cp-desc">Bureau of Indian Standards का आधिकारिक चिह्न</p>
+        </div>
+        <div class="code-part">
+          <span class="cp-val">916</span>
+          <p class="cp-desc">शुद्धता — 22 कैरेट (91.6% शुद्ध सोना)</p>
+        </div>
+        <div class="code-part">
+          <span class="cp-val">AZ4B7C</span>
+          <p class="cp-desc">Unique Alphanumeric Code — HUID</p>
+        </div>
+        <div class="code-part">
+          <span class="cp-val">HUID में</span>
+          <p class="cp-desc">कब बना, किसने बनाया, कहाँ जांचा — सब कुछ</p>
+        </div>
+      </div>
+    </div>
+    <div class="alert info">
+      <span class="alert-icon">💡</span>
+      <p class="alert-text">
+        BIS Hallmark की cost सिर्फ <strong>₹25 प्रति जेवर</strong> होती है — इसलिए हॉलमार्क से कीमत "बहुत बढ़ जाती है" यह दलील गलत है।
+      </p>
+    </div>
+  </div>
+
+  <!-- S3 Process -->
+  <div class="sec" id="s3">
+    <div class="sec-tag"><span class="sec-num">03</span><div class="sec-rule"></div></div>
+    <h2 class="sec-title">हॉलमार्क कैसे लगता है?</h2>
+    <p class="sec-body" style="margin-bottom:20px;">
+      <strong>ज्वेलर खुद हॉलमार्क नहीं लगा सकता।</strong> यह प्रक्रिया BIS-registered laboratory में होती है।
+    </p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div>
+          <p class="step-title">ज्वेलर जेवर बनाता है</p>
+          <p class="step-body">और उसे BIS-Registered Assaying & Hallmarking Centre (AHC) को भेजता है।</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div>
+          <p class="step-title">Lab सैंपल लेकर जांचती है</p>
+          <p class="step-body">X-Ray या Fire Assay method से शुद्धता की जांच होती है।</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div>
+          <p class="step-title">Unique HUID Code मिलता है</p>
+          <p class="step-body">Laser से उस कोड को जेवर पर उकेरा जाता है — वहीं Lab में।</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <div>
+          <p class="step-title">ज्वेलर को वापस मिलता है</p>
+          <p class="step-body">अब यह जेवर legally hallmarked है और बिक सकता है।</p>
+        </div>
+      </div>
+    </div>
+    <div class="alert warn">
+      <span class="alert-icon">🚫</span>
+      <p class="alert-text">
+        अगर दुकानदार कहे <strong>"कल हॉलमार्क लगवा के दे देंगे"</strong> — यह संभव ही नहीं है।
+        हॉलमार्क Lab से ही आता है, दुकान पर नहीं लगता।
+      </p>
+    </div>
+  </div>
+
+  <!-- S4 Purity Table -->
+  <div class="sec" id="s4">
+    <div class="sec-tag"><span class="sec-num">04</span><div class="sec-rule"></div></div>
+    <h2 class="sec-title">शुद्धता कोड — पूरी तालिका</h2>
+    <p class="sec-body" style="margin-bottom:20px;">जितना ऊंचा नंबर, उतना शुद्ध सोना, उतनी ज्यादा कीमत।</p>
+    <table class="purity-table">
+      <thead>
+        <tr>
+          <th>कोड</th>
+          <th>कैरेट</th>
+          <th>शुद्धता %</th>
+          <th>कहाँ मिलता है</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pt-code">999</span></td>
+          <td>24 कैरेट</td>
+          <td>99.9%<br><div class="pt-bar" style="width:100%"></div></td>
+          <td>Gold Coins &amp; Bars</td>
+        </tr>
+        <tr>
+          <td><span class="pt-code">958</span></td>
+          <td>23 कैरेट</td>
+          <td>95.8%<br><div class="pt-bar" style="width:96%"></div></td>
+          <td>Traditional Ornaments</td>
+        </tr>
+        <tr>
+          <td><span class="pt-code" style="color:#c9933a;">916</span></td>
+          <td>22 कैरेट ★</td>
+          <td>91.6%<br><div class="pt-bar" style="width:92%"></div></td>
+          <td>सबसे ज्यादा बिकने वाला</td>
+        </tr>
+        <tr>
+          <td><span class="pt-code">750</span></td>
+          <td>18 कैरेट</td>
+          <td>75.0%<br><div class="pt-bar" style="width:75%"></div></td>
+          <td>Diamond Jewellery</td>
+        </tr>
+        <tr>
+          <td><span class="pt-code">585</span></td>
+          <td>14 कैरेट</td>
+          <td>58.5%<br><div class="pt-bar" style="width:58%"></div></td>
+          <td>Designer Jewellery</td>
+        </tr>
+        <tr>
+          <td><span class="pt-code">375</span></td>
+          <td>9 कैरेट</td>
+          <td>37.5%<br><div class="pt-bar" style="width:37%"></div></td>
+          <td>Low-cost Ornaments</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="alert warn">
+      <span class="alert-icon">🧮</span>
+      <p class="alert-text">
+        अगर दुकानदार <strong>750 की ज्वेलरी का भाव 916 लगाकर</strong> फिर "discount" दे — तो वो discount नहीं, धोखा है।
+        पहले कोड देखो, फिर भाव।
+      </p>
+    </div>
+  </div>
+
+  <!-- S5 Verify -->
+  <div class="sec" id="s5">
+    <div class="sec-tag"><span class="sec-num">05</span><div class="sec-rule"></div></div>
+    <h2 class="sec-title">खुद वेरीफाई करें —<br><em>BIS Care App</em></h2>
+    <p class="sec-body" style="margin-bottom:20px;">
+      सोना खरीदते समय मोबाइल निकालें और खुद जांचें। पैसा लग रहा है — जमा पूंजी है।
+    </p>
+    <div class="checklist">
+      <div class="chk-item">
+        <span class="chk-icon">📱</span>
+        <span><strong>"BIS Care"</strong> ऐप डाउनलोड करें (Google Play / App Store पर उपलब्ध)</span>
+      </div>
+      <div class="chk-item">
+        <span class="chk-icon">🔢</span>
+        <span>दुकानदार से <strong>जेवर का HUID code</strong> मांगें (जेवर पर उकेरा होता है)</span>
+      </div>
+      <div class="chk-item">
+        <span class="chk-icon">🔍</span>
+        <span>ऐप में कोड डालें — पता चलेगा: <strong>कैरेट, कब बना, किस Lab में जांचा, कौन सा ज्वेलर</strong></span>
+      </div>
+      <div class="chk-item">
+        <span class="chk-icon">✅</span>
+        <span>सब कुछ match करे तभी खरीदें — <strong>भरोसा करो, लेकिन लापरवाही नहीं</strong></span>
+      </div>
+    </div>
+    <div class="alert info">
+      <span class="alert-icon">🏛️</span>
+      <p class="alert-text">
+        <strong>घर में पुरानी ज्वेलरी पड़ी है?</strong> दादा-नाना के जमाने की? BIS AHC Lab में ले जाकर हॉलमार्क करवाएं।
+        पता चलेगा वो सोना है या नहीं, और है तो कितने कैरेट का।
+        <br>बड़े ज्वेलर ब्रांड्स की खुद की In-House BIS-registered Lab होती है — वहाँ भी करवा सकते हैं।
+      </p>
+    </div>
+  </div>
+
+</div><!-- /col -->
+
+<!-- CTA -->
+<div class="cta" id="cta">
+  <h2>
+    "भरोसा कीजिए —<br>
+    लेकिन <strong>लापरवाही न करें।</strong><br>
+    जमा पूंजी है आपकी।"
+  </h2>
+  <div class="cta-steps">
+    <div class="cta-step">
+      <span class="cta-step-n">1</span>
+      जेवर पर BIS Logo और कोड देखें
+    </div>
+    <div class="cta-step">
+      <span class="cta-step-n">2</span>
+      916 / 750 / 585 — संख्या से शुद्धता जानें
+    </div>
+    <div class="cta-step">
+      <span class="cta-step-n">3</span>
+      BIS Care App पर HUID वेरीफाई करें
+    </div>
+    <div class="cta-step">
+      <span class="cta-step-n">4</span>
+      तब खरीदें — बिना किसी ग्लानि के!
+    </div>
+  </div>
+  <div class="share-buttons">
+    <button class="btn btn-gold" onclick="shareNative()">↗ शेयर करें</button>
+    <button class="btn" style="background:transparent;color:var(--gold2);border:1px solid rgba(201,147,58,0.35);" onclick="copyText()">⧉ कॉपी करें</button>
+    <a class="btn" style="background:transparent;color:var(--gold2);border:1px solid rgba(201,147,58,0.35);"
+       href="https://wa.me/?text=%F0%9F%AA%99+%E0%A4%B8%E0%A5%8B%E0%A4%A8%E0%A4%BE+%E0%A4%96%E0%A4%B0%E0%A5%80%E0%A4%A6%E0%A4%A8%E0%A5%87+%E0%A4%B8%E0%A5%87+%E0%A4%AA%E0%A4%B9%E0%A4%B2%E0%A5%87+%E0%A4%AF%E0%A4%B9+%E0%A4%9C%E0%A4%BC%E0%A4%B0%E0%A5%82%E0%A4%B0+%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A5%87%E0%A4%82%0A%0ABIS+%E0%A4%B9%E0%A5%89%E0%A4%B2%E0%A4%AE%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%95+%3D+24+%E0%A4%95%E0%A5%88%E0%A4%B0%E0%A5%87%E0%A4%9F+%E0%A4%A8%E0%A4%B9%E0%A5%80%E0%A4%82+%E0%A4%B9%E0%A5%8B%E0%A4%A4%E0%A4%BE!+%E0%A4%B9%E0%A5%89%E0%A4%B2%E0%A4%AE%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%95+%E0%A4%B6%E0%A5%81%E0%A4%A6%E0%A5%8D%E0%A4%A7%E0%A4%A4%E0%A4%BE+%E0%A4%95%E0%A5%80+%E0%A4%97%E0%A4%BE%E0%A4%B0%E0%A4%82%E0%A4%9F%E0%A5%80+%E0%A4%B9%E0%A5%88%2C+%E0%A4%A8+%E0%A4%95%E0%A4%BF+24+%E0%A4%95%E0%A5%88%E0%A4%B0%E0%A5%87%E0%A4%9F+%E0%A4%95%E0%A5%80!%0A%0A%E0%A4%B6%E0%A5%81%E0%A4%A6%E0%A5%8D%E0%A4%A7%E0%A4%A4%E0%A4%BE+%E0%A4%95%E0%A5%8B%E0%A4%A1%3A%0A999+%3D+24+%E0%A4%95%E0%A5%88%E0%A4%B0%E0%A5%87%E0%A4%9F%0A916+%3D+22+%E0%A4%95%E0%A5%88%E0%A4%B0%E0%A5%87%E0%A4%9F+(%E0%A4%B8%E0%A4%AC%E0%A4%B8%E0%A5%87+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%9A%E0%A4%B2%E0%A4%BF%E0%A4%A4)%0A750+%3D+18+%E0%A4%95%E0%A5%88%E0%A4%B0%E0%A5%87%E0%A4%9F%0A585+%3D+14+%E0%A4%95%E0%A5%88%E0%A4%B0%E0%A5%87%E0%A4%9F%0A%0ABIS+Care+App+%E0%A4%B8%E0%A5%87+HUID+%E0%A4%B5%E0%A5%87%E0%A4%B0%E0%A5%80%E0%A4%AB%E0%A4%BE%E0%A4%87+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82%21+%E0%A4%9C%E0%A4%AE%E0%A4%BE+%E0%A4%AA%E0%A5%82%E0%A4%82%E0%A4%9C%E0%A5%80+%E0%A4%B9%E0%A5%88+%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A5%80%E0%A5%A4"
+       target="_blank">💬 WhatsApp</a>
+  </div>
+</div>
+
+<!-- Share -->
+<div class="col">
+  <div class="share-section">
+    <span class="share-label">परिवार और दोस्तों को जरूर बताएं</span>
+    <div class="share-buttons">
+      <button class="btn btn-gold" onclick="shareNative()">↗ शेयर करें</button>
+      <button class="btn btn-outline" onclick="copyText()">⧉ कॉपी करें</button>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>जमा पूंजी सीरीज़ · BIS Hallmark Guide · 2025</p>
+  <p>सतर्क रहें · सुरक्षित रहें</p>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, {threshold:0.1});
+  document.querySelectorAll('.sec, .cta').forEach(el => obs.observe(el));
+
+  function showToast(msg){
+    const t=document.getElementById('toast');
+    t.textContent=msg; t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),2800);
+  }
+
+  function shareNative(){
+    const data={
+      title:'सोना कितना सोना है? — BIS Hallmark Guide',
+      text:'🪙 सोना खरीदने से पहले यह जरूर जानें!\n\nBIS हॉलमार्क = 24 कैरेट? ❌ गलत!\n\nशुद्धता कोड:\n999 = 24 कैरेट\n916 = 22 कैरेट (सबसे प्रचलित)\n750 = 18 कैरेट\n585 = 14 कैरेट\n\nBIS Care App से HUID वेरीफाई जरूर करें।\n\n— जमा पूंजी सीरीज़'
+    };
+    if(navigator.share){ navigator.share(data).catch(()=>{}); } else { copyText(); }
+  }
+
+  function copyText(){
+    const text=`🪙 सोना खरीदने से पहले यह जरूर जानें!\n\n❌ BIS हॉलमार्क = 24 कैरेट? — यह गलत है!\nहॉलमार्क शुद्धता की गारंटी है, 24 कैरेट की नहीं।\n\nशुद्धता कोड:\n999 → 24 कैरेट (सिक्के/बार)\n916 → 22 कैरेट (सबसे प्रचलित)\n750 → 18 कैरेट\n585 → 14 कैरेट\n375 → 9 कैरेट\n\nसही तरीका:\n1. जेवर पर BIS logo + कोड देखें\n2. BIS Care App डाउनलोड करें\n3. HUID कोड डालकर वेरीफाई करें\n4. तब खरीदें\n\nBIS Hallmark cost = सिर्फ ₹25 प्रति जेवर\nज्वेलर खुद हॉलमार्क नहीं लगा सकता — Lab से ही आता है।\n\n— जमा पूंजी सीरीज़ | भरोसा करें, लापरवाही नहीं`;
+    if(navigator.clipboard){
+      navigator.clipboard.writeText(text).then(()=>showToast('✓ कॉपी हो गया!'));
+    } else {
+      const ta=document.createElement('textarea');ta.value=text;
+      document.body.appendChild(ta);ta.select();document.execCommand('copy');
+      document.body.removeChild(ta);showToast('✓ कॉपी हो गया!');
+    }
+  }
+</script>
+</body>
+</html>
