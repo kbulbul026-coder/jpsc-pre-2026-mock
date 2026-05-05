@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>मेडिटेशन्स — बिंदु २६ | अदृश्य शक्ति</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0f0a;--p:#e2ded2;--dim:rgba(226,222,210,0.52);
+    --gr:#5a9e6a;--gl:#8dcf9d;--amber:#c9933a;--rule:rgba(90,158,106,0.2);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--p);font-family:'Noto Serif Devanagari',serif;min-height:100vh;overflow-x:hidden;position:relative;}
+  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 55% at 15% 10%,rgba(90,158,106,0.1) 0%,transparent 55%),radial-gradient(ellipse 50% 60% at 85% 85%,rgba(201,147,58,0.06) 0%,transparent 50%);pointer-events:none;z-index:0;}
+  .w{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:60px 22px 80px;}
+
+  .hdr{text-align:center;margin-bottom:48px;opacity:0;animation:fd .9s ease .1s forwards;}
+  .ey{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.4em;color:var(--gl);text-transform:uppercase;margin-bottom:14px;display:block;opacity:.7;}
+  .ht{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,7vw,50px);font-weight:300;color:var(--p);line-height:1.1;}
+  .ht em{font-style:italic;color:var(--gr);}
+  .sub{margin-top:10px;font-size:13px;color:var(--dim);letter-spacing:.07em;}
+  .orn{margin:22px auto 0;display:flex;align-items:center;justify-content:center;gap:14px;}
+  .orn::before,.orn::after{content:'';width:50px;height:1px;background:linear-gradient(to right,transparent,var(--gr));opacity:.35;}
+  .orn::after{transform:scaleX(-1);}
+  .orn span{color:var(--gr);opacity:.6;font-size:14px;}
+
+  /* Two wonders */
+  .wonders{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:40px;opacity:0;animation:fu .9s ease .35s forwards;}
+  .wcard{border:1px solid var(--rule);border-radius:8px;padding:24px 20px;background:rgba(255,255,255,0.03);transition:border-color .3s,background .3s;}
+  .wcard:hover{border-color:rgba(90,158,106,.4);background:rgba(90,158,106,.06);}
+  .wicon{font-size:28px;margin-bottom:10px;display:block;}
+  .wtag{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.3em;color:var(--gr);text-transform:uppercase;margin-bottom:8px;display:block;}
+  .wtit{font-size:clamp(15px,2.5vw,17px);font-weight:600;color:var(--p);margin-bottom:8px;line-height:1.3;}
+  .wbod{font-size:clamp(12px,1.8vw,13px);color:var(--dim);line-height:1.7;}
+
+  /* quote */
+  .qb{background:rgba(90,158,106,.06);border:1px solid var(--rule);border-left:3px solid var(--gr);border-radius:2px 8px 8px 2px;padding:30px 34px;margin-bottom:40px;opacity:0;animation:fu .9s ease .55s forwards;position:relative;}
+  .qb::before{content:'"';position:absolute;top:-12px;left:22px;font-family:'Cormorant Garamond',serif;font-size:60px;color:var(--gr);opacity:.18;line-height:1;}
+  .qnum{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.35em;color:var(--gl);opacity:.6;margin-bottom:16px;display:block;}
+  .qt{font-family:'Cormorant Garamond',serif;font-size:clamp(16px,2.8vw,20px);line-height:1.9;color:var(--p);font-weight:300;}
+  .qt em{font-style:italic;color:var(--dim);}
+  .qt strong{color:var(--gl);font-weight:500;}
+
+  /* sections */
+  .secs{display:flex;flex-direction:column;gap:18px;margin-bottom:40px;}
+  .sec{border:1px solid var(--rule);border-radius:8px;padding:24px 28px;background:rgba(255,255,255,.03);opacity:0;transform:translateY(18px);transition:opacity .65s,transform .65s,border-color .3s;}
+  .sec.vs{opacity:1;transform:translateY(0);}
+  .sec:hover{border-color:rgba(90,158,106,.38);}
+  .stag{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.3em;color:var(--gr);text-transform:uppercase;margin-bottom:8px;display:block;opacity:.75;}
+  .stit{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(16px,2.5vw,20px);color:var(--p);margin-bottom:10px;line-height:1.25;}
+  .sbod{font-size:clamp(13px,2vw,15px);line-height:1.9;color:var(--dim);}
+  .sbod em{font-style:italic;color:rgba(226,222,210,.8);}
+  .sbod strong{color:var(--p);font-weight:500;}
+
+  /* logos analogy */
+  .analogy{margin:24px 0;display:grid;grid-template-columns:1fr auto 1fr;gap:0;border:1px solid var(--rule);border-radius:8px;overflow:hidden;}
+  .an-col{padding:20px 18px;text-align:center;}
+  .an-col.left{background:rgba(90,158,106,.08);}
+  .an-col.right{background:rgba(201,147,58,.06);}
+  .an-div{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 12px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);background:rgba(226,222,210,.02);}
+  .an-eq{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:var(--dim);opacity:.5;}
+  .an-icon{font-size:22px;margin-bottom:6px;display:block;}
+  .an-name{font-size:clamp(13px,2vw,15px);font-weight:600;color:var(--p);margin-bottom:4px;}
+  .an-desc{font-size:12px;color:var(--dim);line-height:1.5;}
+
+  /* final */
+  .pl{text-align:center;padding:36px 28px;border:1px solid rgba(201,147,58,.25);border-radius:8px;background:rgba(201,147,58,.05);margin-bottom:40px;opacity:0;transform:translateY(18px);transition:opacity .65s,transform .65s;}
+  .pl.vs{opacity:1;transform:translateY(0);}
+  .pl-ey{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.4em;color:rgba(201,147,58,.7);margin-bottom:14px;display:block;text-transform:uppercase;}
+  .pl-t{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,3.5vw,24px);color:var(--p);line-height:1.6;}
+  .pl-t strong{font-style:normal;color:var(--gl);}
+
+  .sh{text-align:center;opacity:0;animation:fu .9s ease 1.2s forwards;}
+  .shl{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.4em;color:var(--dim);opacity:.4;margin-bottom:16px;display:block;}
+  .shb{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;border-radius:5px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.18em;cursor:pointer;border:none;transition:all .2s;text-decoration:none;text-transform:uppercase;white-space:nowrap;}
+  .bt{background:var(--gr);color:#fff;font-weight:600;}
+  .bt:hover{background:var(--gl);transform:translateY(-2px);box-shadow:0 7px 20px rgba(90,158,106,.4);}
+  .bg{background:transparent;color:var(--dim);border:1px solid var(--rule);}
+  .bg:hover{border-color:var(--gr);color:var(--p);transform:translateY(-2px);}
+
+  .foot{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);text-align:center;opacity:0;animation:fu .9s ease 1.4s forwards;}
+  .foot p{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.3em;color:var(--dim);opacity:.25;text-transform:uppercase;}
+
+  .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(70px);background:#1a3520;color:#8dcf9d;padding:10px 20px;border-radius:24px;font-size:13px;border:1px solid rgba(141,207,157,.3);transition:transform .4s cubic-bezier(.34,1.56,.64,1);z-index:999;font-family:'Noto Serif Devanagari',serif;}
+  .toast.on{transform:translateX(-50%) translateY(0);}
+
+  @keyframes fd{to{opacity:1;transform:translateY(0);}}
+  @keyframes fu{to{opacity:1;transform:translateY(0);}}
+
+  @media(max-width:480px){
+    .w{padding:40px 16px 60px;}
+    .wonders{grid-template-columns:1fr;}
+    .analogy{grid-template-columns:1fr;grid-template-rows:auto auto auto;}
+    .an-div{flex-direction:row;border:none;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:12px 16px;}
+    .qb,.sec,.pl{padding:20px 16px;}
+    .btn{padding:10px 14px;}
+  }
+</style>
+</head>
+<body>
+<div class="w">
+
+  <header class="hdr">
+    <span class="ey">Marcus Aurelius · Meditations · Book X</span>
+    <h1 class="ht">ध्यान-प्रविष्टि <em>२६</em></h1>
+    <p class="sub">अदृश्य शक्ति — Logos का चमत्कार</p>
+    <div class="orn"><span>❧</span></div>
+  </header>
+
+  <!-- Two Wonders -->
+  <div class="wonders">
+    <div class="wcard">
+      <span class="wicon">🧬</span>
+      <span class="wtag">चमत्कार १</span>
+      <p class="wtit">एक बीज → पूरा इंसान</p>
+      <p class="wbod">एक पुरुष बीज बोता है — कुछ सेकंड का काम। लेकिन 9 महीने तक हड्डियाँ, धड़कता दिल और चेतन मस्तिष्क बनाने का काम — <strong>इंसान का नहीं।</strong></p>
+    </div>
+    <div class="wcard">
+      <span class="wicon">🍞</span>
+      <span class="wtag">चमत्कार २</span>
+      <p class="wtit">रोटी → चेतना और शक्ति</p>
+      <p class="wbod">आप चबाकर निगलते हैं — बस। लेकिन उस रोटी से खून, संवेदनाएं, सोचने की क्षमता और मांसपेशियों की ताकत बनाना — <strong>आपका काम नहीं।</strong></p>
+    </div>
+  </div>
+
+  <!-- Quote -->
+  <div class="qb">
+    <span class="qnum">BOOK X · POINT 26</span>
+    <p class="qt">
+      वह बीज छोड़ता है और चला जाता है। फिर <strong>एक शक्ति — जो उसकी अपनी नहीं है</strong> — उसे ग्रहण करती है और एक बच्चे का निर्माण करती है।
+      <br><br>
+      <em>यह (एक जीता-जागता इंसान)... उस (एक छोटे से कण) से?</em>
+      <br><br>
+      इन चीजों को <strong>चुपचाप होते हुए देखना</strong> और उस शक्ति को पहचानना जो उन्हें चलाती है —
+      ठीक वैसे जैसे हम गुरुत्वाकर्षण को <em>आँखों से नहीं, विवेक से</em> देखते हैं।
+    </p>
+  </div>
+
+  <!-- Sections -->
+  <div class="secs">
+    <div class="sec" id="s1">
+      <span class="stag">पहलू १</span>
+      <p class="stit">मनुष्य का अहंकार बनाम प्रकृति का काम</p>
+      <p class="sbod">
+        हम कहते हैं — <em>"मैंने बच्चे को जन्म दिया।"</em>
+        <em>"मैंने जिम जाकर यह ताकत बनाई।"</em>
+        <br><br>
+        मार्कस याद दिलाते हैं — <strong>इंसान का योगदान कितना कम है।</strong>
+        बीज बोना कुछ सेकंड का काम है। बाकी सब वह 'शक्ति' कर रही है
+        जिस पर आपका कोई नियंत्रण नहीं।
+      </p>
+    </div>
+
+    <div class="sec" id="s2">
+      <span class="stag">पहलू २</span>
+      <p class="stit">Logos — प्रकृति की अदृश्य बुद्धिमत्ता</p>
+      <p class="sbod">
+        स्टोइक दर्शन उस शक्ति को <strong>Logos</strong> या सार्वभौमिक विवेक कहता है।
+        यह चुपचाप, बिना किसी शोर के <em>हर पल आपके भीतर चमत्कार कर रही है।</em>
+        <br><br>
+        जड़ (निर्जीव) भोजन को जीवन (चेतना) में बदलना —
+        इस प्रक्रिया के सामने <strong>मानवीय अहंकार और सफलताएं बहुत छोटी और तुच्छ हैं।</strong>
+      </p>
+    </div>
+
+    <div class="sec" id="s3">
+      <span class="stag">पहलू ३</span>
+      <p class="stit">न दिखने वाली चीज को देखने की कला</p>
+      <div class="analogy">
+        <div class="an-col left">
+          <span class="an-icon">⚖️</span>
+          <p class="an-name">गुरुत्वाकर्षण</p>
+          <p class="an-desc">आँखों से नहीं दिखता — पर चीजों को गिरते देख जानते हैं कि बल मौजूद है</p>
+        </div>
+        <div class="an-div">
+          <span class="an-eq">=</span>
+        </div>
+        <div class="an-col right">
+          <span class="an-icon">🌿</span>
+          <p class="an-name">Logos</p>
+          <p class="an-desc">आँखों से नहीं दिखता — पर बीज को पेड़ बनते देख जानते हैं कि वह मौजूद है</p>
+        </div>
+      </div>
+      <p class="sbod" style="margin-top:14px;">
+        अपनी <em>'बुद्धि की आँखों'</em> से उस छिपे हुए कारीगर को देखें
+        जो यह सब कर रहा है।
+      </p>
+    </div>
+  </div>
+
+  <!-- Final -->
+  <div class="pl" id="pl">
+    <span class="pl-ey">निष्कर्ष</span>
+    <p class="pl-t">
+      हम इस ब्रह्मांड के रचयिता नहीं हैं।<br>
+      हम केवल उस महान शक्ति के <strong>माध्यम</strong> हैं<br>
+      जो हमारे भीतर से अपना काम कर रही है।<br>
+      <strong>इस चमत्कार को रोज़ देखना — असली आध्यात्मिकता है।</strong>
+    </p>
+  </div>
+
+  <!-- Share -->
+  <div class="sh">
+    <span class="shl">SHARE THIS REFLECTION</span>
+    <div class="shb">
+      <button class="btn bt" onclick="shr()">↗ शेयर करें</button>
+      <button class="btn bg" onclick="cpy()">⧉ कॉपी करें</button>
+      <a class="btn bg" href="https://wa.me/?text=%E0%A4%AE%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%95%E0%A4%B8+%E0%A4%91%E0%A4%B0%E0%A5%87%E0%A4%B2%E0%A4%BF%E0%A4%AF%E0%A4%B8+%E2%80%94+%E0%A4%AC%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%81+26%0A%0A%E0%A4%B5%E0%A4%B9+%E0%A4%AC%E0%A5%80%E0%A4%9C+%E0%A4%9B%E0%A5%8B%E0%A5%9C%E0%A4%A4%E0%A4%BE+%E0%A4%B9%E0%A5%88+%E0%A4%94%E0%A4%B0+%E0%A4%9A%E0%A4%B2%E0%A4%BE+%E0%A4%9C%E0%A4%BE%E0%A4%A4%E0%A4%BE+%E0%A4%B9%E0%A5%88%E0%A5%A4+%E0%A4%AB%E0%A4%BF%E0%A4%B0+%E0%A4%8F%E0%A4%95+%E0%A4%B6%E0%A4%95%E0%A5%8D%E0%A4%A4%E0%A4%BF+%E2%80%94+%E0%A4%9C%E0%A5%8B+%E0%A4%89%E0%A4%B8%E0%A4%95%E0%A5%80+%E0%A4%85%E0%A4%AA%E0%A4%A8%E0%A5%80+%E0%A4%A8%E0%A4%B9%E0%A5%80%E0%A4%82+%E0%A4%B9%E0%A5%88+%E2%80%94+%E0%A4%8F%E0%A4%95+%E0%A4%AC%E0%A4%9A%E0%A5%8D%E0%A4%9A%E0%A5%87+%E0%A4%95%E0%A4%BE+%E0%A4%A8%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%AE%E0%A4%BE%E0%A4%A3+%E0%A4%95%E0%A4%B0%E0%A4%A4%E0%A5%80+%E0%A4%B9%E0%A5%88%E0%A5%A4%0A%0A%E0%A4%B9%E0%A4%AE+%E0%A4%87%E0%A4%B8+%E0%A4%AC%E0%A5%8D%E0%A4%B0%E0%A4%B9%E0%A5%8D%E0%A4%AE%E0%A4%BE%E0%A4%82%E0%A4%A1+%E0%A4%95%E0%A5%87+%E0%A4%B0%E0%A4%9A%E0%A4%AF%E0%A4%BF%E0%A4%A4%E0%A4%BE+%E0%A4%A8%E0%A4%B9%E0%A5%80%E0%A4%82+%E2%80%94+%E0%A4%B9%E0%A4%AE+%E0%A4%95%E0%A5%87%E0%A4%B5%E0%A4%B2+%E0%A4%89%E0%A4%B8+%E0%A4%AE%E0%A4%B9%E0%A4%BE%E0%A4%A8+%E0%A4%B6%E0%A4%95%E0%A5%8D%E0%A4%A4%E0%A4%BF+%E0%A4%95%E0%A5%87+%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE+%E0%A4%B9%E0%A5%88%E0%A4%82%E0%A5%A4" target="_blank">💬 WhatsApp</a>
+    </div>
+  </div>
+
+  <footer class="foot"><p>Marcus Aurelius · Meditations · Book X · 26 · Stoic Philosophy</p></footer>
+</div>
+
+<div class="toast" id="t"></div>
+<script>
+  const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vs');obs.unobserve(x.target);}}),{threshold:.1});
+  document.querySelectorAll('.sec,.pl').forEach(el=>obs.observe(el));
+  function toast(m){const t=document.getElementById('t');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2800);}
+  function shr(){const d={title:'मार्कस ऑरेलियस — बिंदु २६',text:'"वह बीज छोड़ता है — फिर एक शक्ति, जो उसकी अपनी नहीं, एक बच्चे का निर्माण करती है।"\n\nहम ब्रह्मांड के रचयिता नहीं — केवल उस महान शक्ति के माध्यम हैं।\n\n— Marcus Aurelius, Meditations X.26'};if(navigator.share)navigator.share(d).catch(()=>{});else cpy();}
+  function cpy(){const t=`मार्कस ऑरेलियस — मेडिटेशन्स, बिंदु २६\n\nदो चमत्कार:\n• एक बीज → पूरा इंसान (9 महीने — आपका काम नहीं)\n• एक रोटी → चेतना और ताकत (आपका काम नहीं)\n\n"जड़ भोजन को जीवन में बदलना — इस प्रक्रिया के सामने मानवीय अहंकार तुच्छ है।"\n\nLOGOS = प्रकृति की अदृश्य बुद्धिमत्ता — गुरुत्वाकर्षण की तरह, आँखों से नहीं, विवेक से दिखती है।\n\nहम ब्रह्मांड के रचयिता नहीं — केवल माध्यम हैं।\n\n— Marcus Aurelius, Meditations X.26`;navigator.clipboard?navigator.clipboard.writeText(t).then(()=>toast('✓ कॉपी हो गया!')):void(()=>{const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');document.body.removeChild(a);toast('✓ कॉपी हो गया!');})();}
+</script>
+</body>
+</html>

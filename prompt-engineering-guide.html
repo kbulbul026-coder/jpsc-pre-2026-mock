@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt Engineering — Complete Hindi Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0c10;--surface:#0f1218;--p:#e8eaf0;--dim:rgba(232,234,240,0.5);
+    --blue:#4a90d9;--bl:#7ab5f0;--purple:#8b6fd4;--green:#4aad7a;
+    --amber:#d4943a;--rule:rgba(74,144,217,0.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--p);font-family:'Noto Sans Devanagari',sans-serif;min-height:100vh;overflow-x:hidden;}
+  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 60% 40% at 10% 5%,rgba(74,144,217,0.1) 0%,transparent 50%),radial-gradient(ellipse 50% 50% at 90% 95%,rgba(139,111,212,0.08) 0%,transparent 50%);pointer-events:none;z-index:0;}
+
+  /* top band */
+  .topbar{background:var(--blue);padding:9px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+  .tb-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.25em;color:#fff;text-transform:uppercase;opacity:.9;}
+  .tb-dot{width:8px;height:8px;border-radius:50%;background:#fff;animation:pulse 2s ease infinite;}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.75);}}
+
+  .wrap{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:52px 22px 72px;}
+
+  /* hero */
+  .hero{margin-bottom:44px;opacity:0;animation:fu .9s ease .1s forwards;}
+  .kicker{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+  .k-bar{width:28px;height:2px;background:var(--blue);}
+  .k-txt{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.3em;color:var(--blue);text-transform:uppercase;}
+  .hero h1{font-family:'Inter',sans-serif;font-size:clamp(28px,7vw,52px);font-weight:700;line-height:1.05;letter-spacing:-.02em;color:var(--p);margin-bottom:14px;}
+  .hero h1 em{font-style:normal;color:var(--blue);}
+  .hero-sub{font-size:clamp(14px,2.2vw,16px);line-height:1.8;color:var(--dim);border-top:1px solid var(--rule);padding-top:18px;margin-top:18px;}
+
+  /* concept cards */
+  .cc-head{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.3em;color:var(--dim);text-align:center;margin-bottom:20px;text-transform:uppercase;}
+  .cc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:40px;opacity:0;animation:fu .9s ease .35s forwards;}
+  .cc{padding:18px 16px;border:1px solid var(--rule);border-radius:8px;background:rgba(255,255,255,.03);transition:border-color .3s,background .3s;}
+  .cc:hover{border-color:rgba(74,144,217,.4);background:rgba(74,144,217,.06);}
+  .cc-icon{font-size:20px;margin-bottom:8px;display:block;}
+  .cc-t{font-family:'Space Mono',monospace;font-size:11px;color:var(--blue);font-weight:700;margin-bottom:6px;}
+  .cc-b{font-size:13px;line-height:1.65;color:var(--dim);}
+
+  /* sections */
+  .sec{padding:36px 0;border-bottom:1px solid var(--rule);opacity:0;transform:translateY(18px);transition:opacity .65s,transform .65s;}
+  .sec.vs{opacity:1;transform:translateY(0);}
+  .stag{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+  .snum{font-family:'Space Mono',monospace;font-size:10px;color:var(--blue);opacity:.7;}
+  .srule{flex:1;height:1px;background:var(--rule);}
+  .stit{font-size:clamp(18px,3vw,24px);font-weight:700;color:var(--p);margin-bottom:14px;line-height:1.25;}
+  .stit em{font-style:normal;color:var(--dim);font-weight:400;}
+  .sbod{font-size:clamp(13px,2vw,15px);line-height:1.9;color:var(--dim);}
+  .sbod strong{color:var(--p);font-weight:600;}
+  .sbod em{font-style:italic;color:rgba(232,234,240,.8);}
+
+  /* code block */
+  .code{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px 18px;margin:18px 0;font-family:'Space Mono',monospace;font-size:12px;line-height:1.7;overflow-x:auto;}
+  .code .label{font-size:9px;letter-spacing:.3em;color:var(--blue);text-transform:uppercase;margin-bottom:10px;display:block;opacity:.7;}
+  .code .k{color:var(--purple);}
+  .code .v{color:var(--green);}
+  .code .c{color:var(--dim);}
+
+  /* technique cards */
+  .tech-grid{display:flex;flex-direction:column;gap:10px;margin:18px 0;}
+  .tcard{border:1px solid var(--rule);border-radius:8px;padding:18px 20px;background:rgba(255,255,255,.03);display:grid;grid-template-columns:40px 1fr;gap:0 14px;align-items:start;transition:border-color .3s,background .3s;}
+  .tcard:hover{border-color:rgba(74,144,217,.38);background:rgba(74,144,217,.05);}
+  .tc-n{font-family:'Space Mono',monospace;font-weight:700;font-size:14px;color:var(--blue);line-height:1;padding-top:2px;}
+  .tc-t{font-weight:700;font-size:15px;color:var(--p);margin-bottom:4px;}
+  .tc-b{font-size:13px;color:var(--dim);line-height:1.65;}
+  .tc-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--amber);text-transform:uppercase;margin-bottom:6px;display:block;}
+
+  /* comparison */
+  .comp{display:grid;grid-template-columns:1fr 1fr;gap:2px;border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin:18px 0;}
+  .comp-h{padding:10px 16px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-align:center;font-weight:700;}
+  .comp-h.d{background:rgba(139,111,212,.15);color:var(--purple);}
+  .comp-h.s{background:rgba(74,173,122,.15);color:var(--green);}
+  .comp-b{padding:16px;font-size:13px;line-height:1.7;color:var(--dim);}
+  .comp-b.d{background:rgba(139,111,212,.05);}
+  .comp-b.s{background:rgba(74,173,122,.05);}
+  .comp-b em{display:block;font-style:italic;margin-top:8px;color:rgba(232,234,240,.65);}
+
+  /* context table */
+  .ctx-table{width:100%;border-collapse:collapse;margin:18px 0;border:1px solid var(--rule);border-radius:6px;overflow:hidden;}
+  .ctx-table th{background:rgba(74,144,217,.12);color:var(--bl);font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;padding:10px 14px;text-align:left;}
+  .ctx-table td{padding:11px 14px;border-bottom:1px solid var(--rule);font-size:13px;color:var(--dim);}
+  .ctx-table tr:last-child td{border-bottom:none;}
+  .ctx-table tr:hover td{background:rgba(74,144,217,.04);}
+  .ctx-table .tool{font-family:'Space Mono',monospace;font-weight:700;color:var(--bl);}
+
+  /* summary table */
+  .sum-table{width:100%;border-collapse:collapse;margin:18px 0;border:1px solid var(--rule);border-radius:6px;overflow:hidden;}
+  .sum-table th{background:var(--surface);color:var(--blue);font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;padding:10px 12px;text-align:left;}
+  .sum-table td{padding:10px 12px;border-bottom:1px solid var(--rule);font-size:12px;color:var(--dim);}
+  .sum-table .tech{font-weight:600;color:var(--p);}
+
+  /* final */
+  .final{background:var(--blue);padding:40px 24px;text-align:center;margin:0 -22px;opacity:0;transform:translateY(18px);transition:opacity .65s,transform .65s;}
+  .final.vs{opacity:1;transform:translateY(0);}
+  .final p{font-size:clamp(16px,3vw,20px);color:#fff;line-height:1.65;max-width:500px;margin:0 auto 24px;}
+  .final p strong{font-weight:700;}
+
+  /* share */
+  .sh{padding:36px 0 52px;text-align:center;opacity:0;animation:fu .9s ease 1.2s forwards;}
+  .shl{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.35em;color:var(--dim);opacity:.4;margin-bottom:16px;display:block;text-transform:uppercase;}
+  .shb{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;border-radius:5px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.18em;cursor:pointer;border:none;transition:all .2s;text-decoration:none;text-transform:uppercase;white-space:nowrap;}
+  .bt{background:var(--blue);color:#fff;font-weight:700;}
+  .bt:hover{background:var(--bl);transform:translateY(-2px);box-shadow:0 7px 20px rgba(74,144,217,.4);}
+  .bg{background:transparent;color:var(--dim);border:1px solid var(--rule);}
+  .bg:hover{border-color:var(--blue);color:var(--p);transform:translateY(-2px);}
+
+  .foot{border-top:1px solid var(--rule);padding:14px 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+  .foot p{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--dim);opacity:.3;text-transform:uppercase;}
+
+  .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(70px);background:#1a2535;color:#7ab5f0;padding:10px 20px;border-radius:24px;font-size:13px;border:1px solid rgba(122,181,240,.3);transition:transform .4s cubic-bezier(.34,1.56,.64,1);z-index:999;}
+  .toast.on{transform:translateX(-50%) translateY(0);}
+
+  @keyframes fu{to{opacity:1;transform:translateY(0);}}
+
+  @media(max-width:520px){
+    .wrap{padding:40px 16px 60px;}
+    .cc-grid{grid-template-columns:1fr 1fr;}
+    .comp{grid-template-columns:1fr;}
+    .tcard{grid-template-columns:36px 1fr;}
+    .final{margin:0 -16px;padding:32px 18px;}
+    .btn{padding:10px 14px;}
+    .foot{padding:12px 16px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="tb-tag">AI Scale · Prompt Engineering · Free Course</span>
+  <div style="display:flex;align-items:center;gap:8px;">
+    <div class="tb-dot"></div>
+    <span class="tb-tag">स्वाति · हिंदी गाइड</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="kicker"><div class="k-bar"></div><span class="k-txt">Complete Course Summary</span></div>
+    <h1>Prompt<br><em>Engineering</em><br>Complete Guide</h1>
+    <p class="hero-sub">
+      IBM, Google और Microsoft के paid courses का सारा content — एक जगह, हिंदी में।
+      Transformer से लेकर Chain-of-Thought तक — जो जानना जरूरी है।
+    </p>
+  </div>
+
+  <!-- Core concepts -->
+  <p class="cc-head">Core Concepts</p>
+  <div class="cc-grid">
+    <div class="cc"><span class="cc-icon">🤖</span><p class="cc-t">LLM क्या है?</p><p class="cc-b">Large Language Model — Transformer architecture पर बना, जो text generate करता है।</p></div>
+    <div class="cc"><span class="cc-icon">🪙</span><p class="cc-t">Token</p><p class="cc-b">AI word नहीं, tokens पढ़ता है। "Playing" = "play" + "ing" — दो tokens।</p></div>
+    <div class="cc"><span class="cc-icon">🪟</span><p class="cc-t">Context Window</p><p class="cc-b">AI एक बार में जितना याद रख सकता है — उससे ज्यादा दो तो पुरानी बात भूल जाएगा।</p></div>
+    <div class="cc"><span class="cc-icon">🧠</span><p class="cc-t">Attention</p><p class="cc-b">Transformer पूरे sentence को एक साथ process करता है — RNN की तरह शब्द-दर-शब्द नहीं।</p></div>
+  </div>
+
+  <!-- S1 AI Evolution -->
+  <div class="sec" id="s1">
+    <div class="stag"><span class="snum">01</span><div class="srule"></div></div>
+    <h2 class="stit">AI का इतिहास — <em>RNN से Transformer तक</em></h2>
+    <div class="tech-grid">
+      <div class="tcard">
+        <div class="tc-n">RNN</div>
+        <div><p class="tc-t">Recurrent Neural Network</p><p class="tc-b">समस्या: Vanishing Gradient। लंबा paragraph देते थे — शुरुआत भूल जाता था।</p></div>
+      </div>
+      <div class="tcard">
+        <div class="tc-n">LSTM</div>
+        <div><p class="tc-t">Long Short-Term Memory</p><p class="tc-b">RNN का upgrade — Gates लगाए कि क्या याद रखना है। लेकिन training बहुत slow।</p></div>
+      </div>
+      <div class="tcard">
+        <div class="tc-n">2017</div>
+        <div><p class="tc-t">Transformer — "Attention is All You Need"</p><p class="tc-b">Google का paper। पूरा sentence parallel process करता है। यही ChatGPT, Gemini का base है।</p></div>
+      </div>
+    </div>
+    <p class="sbod"><strong>Prompt Engineering इसलिए possible है</strong> क्योंकि Transformer है। RNN/LSTM में prompt का कोई मतलब नहीं था।</p>
+  </div>
+
+  <!-- S2 Context Window -->
+  <div class="sec" id="s2">
+    <div class="stag"><span class="snum">02</span><div class="srule"></div></div>
+    <h2 class="stit">Context Window — <em>Blackboard Analogy</em></h2>
+    <p class="sbod" style="margin-bottom:16px;">जैसे blackboard भर जाए तो ऊपर की लिखावट मिटाते हैं — AI भी limit के बाद पुरानी बात भूल जाता है।</p>
+    <table class="ctx-table">
+      <thead><tr><th>Tool</th><th>Context Window</th><th>Best For</th></tr></thead>
+      <tbody>
+        <tr><td class="tool">ChatGPT</td><td>128K – 256K tokens</td><td>Essay, Email, General tasks</td></tr>
+        <tr><td class="tool">Gemini</td><td>1M – 2M tokens</td><td>Large codebase, Long chats</td></tr>
+        <tr><td class="tool">Claude</td><td>~200K tokens</td><td>Long documents, Analysis</td></tr>
+        <tr><td class="tool">Perplexity</td><td>~200K tokens</td><td>Research, Search-based tasks</td></tr>
+      </tbody>
+    </table>
+    <p class="sbod"><strong>ध्यान रखें:</strong> अगर आपने शुरुआत में "Always reply in Hindi" लिखा और context limit पार हो गई — AI English में जवाब देगा।</p>
+  </div>
+
+  <!-- S3 Prompt Types -->
+  <div class="sec" id="s3">
+    <div class="stag"><span class="snum">03</span><div class="srule"></div></div>
+    <h2 class="stit">Direct vs Structured Prompting</h2>
+    <div class="comp">
+      <div class="comp-h d">Direct Prompting</div>
+      <div class="comp-h s">Structured Prompting</div>
+      <div class="comp-b d">
+        "Write a blog post about coffee."<br>
+        <em>AI को नहीं पता — कितने words? किस audience के लिए? क्या tone?</em>
+      </div>
+      <div class="comp-b s">
+        Role + Context + Task + Constraints + Output format<br>
+        <em>AI को सब पता है — आपका result बेहतर होगा।</em>
+      </div>
+    </div>
+    <div class="code">
+      <span class="label">RCTO Framework — Structured Prompt Template</span>
+      <span class="k">Role:</span> <span class="v">Act as a Senior Content Marketer with 10 years experience</span><br>
+      <span class="k">Context:</span> <span class="v">I'm launching a new organic coffee brand for Gen-Z</span><br>
+      <span class="k">Task:</span> <span class="v">Write an engaging blog post title (max 300 words)</span><br>
+      <span class="k">Constraints:</span> <span class="v">Avoid jargon. Don't mention caffeine side effects</span><br>
+      <span class="k">Output:</span> <span class="v">Markdown format with a catchy H1 header</span>
+    </div>
+  </div>
+
+  <!-- S4 Core Techniques -->
+  <div class="sec" id="s4">
+    <div class="stag"><span class="snum">04</span><div class="srule"></div></div>
+    <h2 class="stit">Core Prompting Techniques</h2>
+    <div class="tech-grid">
+      <div class="tcard">
+        <div class="tc-n">①</div>
+        <div>
+          <span class="tc-tag">Zero-Shot</span>
+          <p class="tc-t">कोई example नहीं — सीधा instruction</p>
+          <p class="tc-b">"Classify the sentiment: The battery is amazing but screen is dull." → AI खुद decide करता है।</p>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="tc-n">②</div>
+        <div>
+          <span class="tc-tag">Few-Shot</span>
+          <p class="tc-t">2-3 examples देकर pattern सिखाना</p>
+          <p class="tc-b">"I love pizza → positive (1), Delivery was late → negative (0)" — फिर नया example दो। Output specific format में मिलेगा।</p>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="tc-n">③</div>
+        <div>
+          <span class="tc-tag">Chain-of-Thought</span>
+          <p class="tc-t">"Think step by step" — hallucination कम होता है</p>
+          <p class="tc-b">"A farmer has 15 sheep, all but 8 die. How many left?" → Answer: 8 (not 7)। CoT logical problems में जरूरी है।</p>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="tc-n">④</div>
+        <div>
+          <span class="tc-tag">ReAct Framework</span>
+          <p class="tc-t">Thought → Action → Observation loop</p>
+          <p class="tc-b">Research tasks के लिए। AI सोचता है, search करता है, observe करता है — loop में।</p>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="tc-n">⑤</div>
+        <div>
+          <span class="tc-tag">Tree-of-Thoughts</span>
+          <p class="tc-t">3 experts एक साथ brainstorm करें</p>
+          <p class="tc-b">"Imagine 3 different experts solving this problem..." — AI खुद best solution चुनता है, weak ideas eliminate करता है।</p>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="tc-n">⑥</div>
+        <div>
+          <span class="tc-tag">Iterative Prompting</span>
+          <p class="tc-t">पहली बार perfect नहीं — refine करते रहो</p>
+          <p class="tc-b">Image generation, Resume writing — जब तक desired output न मिले, prompt को improve करते रहो।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S5 Quick Reference -->
+  <div class="sec" id="s5">
+    <div class="stag"><span class="snum">05</span><div class="srule"></div></div>
+    <h2 class="stit">Quick Reference — <em>कौन सी technique कब?</em></h2>
+    <table class="sum-table">
+      <thead><tr><th>Technique</th><th>कब Use करें</th></tr></thead>
+      <tbody>
+        <tr><td class="tech">Zero-Shot</td><td>Simple सवाल, जहाँ context की जरूरत नहीं</td></tr>
+        <tr><td class="tech">Few-Shot</td><td>Specific format चाहिए — JSON, specific tone</td></tr>
+        <tr><td class="tech">Chain-of-Thought</td><td>Math, logic, coding problems</td></tr>
+        <tr><td class="tech">ReAct</td><td>Research, real-time data, multi-step tasks</td></tr>
+        <tr><td class="tech">Tree-of-Thoughts</td><td>Strategy, multiple scenarios, brainstorming</td></tr>
+        <tr><td class="tech">RAG</td><td>Internal docs, PDF से Q&A, exam prep</td></tr>
+        <tr><td class="tech">Iterative</td><td>Image generation, creative writing, resume</td></tr>
+      </tbody>
+    </table>
+    <div class="code" style="margin-top:20px;">
+      <span class="label">Golden Rule — हमेशा याद रखें</span>
+      <span class="k">Calculator</span> आने से Maths भूले? <span class="v">नहीं।</span><br>
+      <span class="k">Google Maps</span> आने से रास्ता याद रखना छोड़ा? <span class="v">नहीं।</span><br>
+      <span class="c">→ AI prompt लिख सकता है — पर आपको verify करने के लिए खुद जानना जरूरी है।</span>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- Final CTA -->
+<div class="final" id="final">
+  <div style="max-width:600px;margin:0 auto;">
+    <p><strong>Prompt Engineering = Machine का nature समझो।</strong><br>जैसे Boss का nature जाने बिना उनसे बात करना मुश्किल है — वैसे ही LLM का architecture जाने बिना अच्छा prompt देना मुश्किल है।</p>
+    <div class="shb" style="justify-content:center;">
+      <button class="btn" style="background:#fff;color:var(--blue);font-weight:700;" onclick="shr()">↗ शेयर करें</button>
+      <button class="btn" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);" onclick="cpy()">⧉ कॉपी करें</button>
+      <a class="btn" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);" href="https://wa.me/?text=%F0%9F%A4%96+Prompt+Engineering+Complete+Hindi+Guide%0A%0AIBM%2C+Google%2C+Microsoft+के+concepts+%E2%80%94+एक+जगह%0A%0AKey+Techniques%3A%0A1.+Zero-Shot%0A2.+Few-Shot%0A3.+Chain-of-Thought%0A4.+ReAct+Framework%0A5.+Tree-of-Thoughts%0A%0AStructured+Prompt+%3D+Role+%2B+Context+%2B+Task+%2B+Constraints+%2B+Output" target="_blank">💬 WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="sh">
+    <span class="shl">SHARE THIS GUIDE</span>
+    <div class="shb">
+      <button class="btn bt" onclick="shr()">↗ शेयर करें</button>
+      <button class="btn bg" onclick="cpy()">⧉ कॉपी करें</button>
+    </div>
+  </div>
+</div>
+
+<div class="foot">
+  <p>AI Scale · Prompt Engineering Course · Free · Hindi</p>
+  <p>Swati · Stay Curious, Keep Learning</p>
+</div>
+
+<div class="toast" id="t"></div>
+<script>
+  const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vs');obs.unobserve(x.target);}}),{threshold:.1});
+  document.querySelectorAll('.sec,.final').forEach(el=>obs.observe(el));
+  function toast(m){const t=document.getElementById('t');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2800);}
+  function shr(){const d={title:'Prompt Engineering — Complete Hindi Guide',text:'🤖 Prompt Engineering Complete Hindi Guide\n\nIBM, Google, Microsoft के concepts — एक जगह\n\nKey Techniques:\n1. Zero-Shot, Few-Shot, Chain-of-Thought\n2. ReAct Framework, Tree-of-Thoughts\n3. Iterative Prompting, RAG\n\nStructured Prompt = Role + Context + Task + Constraints + Output\n\n— AI Scale by Swati'};if(navigator.share)navigator.share(d).catch(()=>{});else cpy();}
+  function cpy(){const t=`🤖 Prompt Engineering — Complete Hindi Guide\n\nKey Techniques:\n1. Zero-Shot → Simple सवाल, no examples\n2. Few-Shot → 2-3 examples देकर pattern सिखाना\n3. Chain-of-Thought → "Think step by step" → hallucination कम\n4. ReAct → Thought→Action→Observation loop\n5. Tree-of-Thoughts → 3 experts brainstorm\n6. Iterative → Refine करते रहो\n\nStructured Prompt Template:\nRole + Context + Task + Constraints + Output\n\nContext Window:\n• Gemini: 1M-2M tokens (best for long docs)\n• ChatGPT: 128K-256K tokens\n• Claude: ~200K tokens\n\nGolden Rule: Calculator आने से Maths नहीं भूले — AI prompt लिखे तो भी खुद जानना जरूरी है।\n\n— AI Scale by Swati`;navigator.clipboard?navigator.clipboard.writeText(t).then(()=>toast('✓ कॉपी हो गया!')):void(()=>{const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');document.body.removeChild(a);toast('✓ कॉपी हो गया!');})();}
+</script>
+</body>
+</html>
