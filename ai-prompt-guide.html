@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beginner-Friendly AI & Prompt Engineering Guide</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+      color: #222;
+      font-family: Arial, sans-serif;
+      line-height: 1.8;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 24px;
+    }
+
+    h1, h2, h3, h4 {
+      line-height: 1.4;
+      margin-top: 32px;
+      color: #111;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+    }
+
+    p {
+      margin: 14px 0;
+    }
+
+    section {
+      margin-top: 40px;
+    }
+
+    article {
+      margin-top: 20px;
+    }
+
+    nav {
+      background: #f0f4f8;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
+
+    nav ul {
+      padding-left: 20px;
+    }
+
+    nav li {
+      margin-bottom: 8px;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    blockquote {
+      border-left: 4px solid #666;
+      margin: 20px 0;
+      padding: 10px 16px;
+      background: #f9f9f9;
+      font-style: italic;
+    }
+
+    code, pre {
+      background: #f3f3f3;
+      padding: 12px;
+      display: block;
+      overflow-x: auto;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table th,
+    table td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+    }
+
+    table th {
+      background: #f1f1f1;
+    }
+
+    aside {
+      background: #fff8e1;
+      padding: 16px;
+      border-left: 4px solid #f4b400;
+      margin: 24px 0;
+      border-radius: 6px;
+    }
+
+    details {
+      background: #f8f8f8;
+      padding: 14px;
+      margin: 16px 0;
+      border-radius: 8px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .highlight {
+      background: #eef6ff;
+      padding: 16px;
+      border-left: 4px solid #1976d2;
+      margin: 24px 0;
+      border-radius: 6px;
+    }
+
+    .quick-revision {
+      background: #f3fff3;
+      padding: 18px;
+      border-left: 4px solid #2e7d32;
+      margin-top: 30px;
+      border-radius: 6px;
+    }
+
+    .spacer {
+      height: 20px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 16px;
+      }
+
+      main {
+        padding: 18px;
+      }
+
+      h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main>
+
+  <header>
+    <h1>Beginner-Friendly AI & Prompt Engineering Guide</h1>
+    <p><strong>आसान भाषा में AI, ChatGPT और Prompt Engineering समझें</strong></p>
+  </header>
+
+  <nav>
+    <h2>Table of Contents</h2>
+    <ul>
+      <li>Introduction</li>
+      <li>AI क्या है?</li>
+      <li>AI इतना Important क्यों है?</li>
+      <li>AI के Main Concepts</li>
+      <li>Data Science + Machine Learning + AI</li>
+      <li>LLM क्या है?</li>
+      <li>Prompt Engineering क्या है?</li>
+      <li>Prompting Techniques</li>
+      <li>Real-World Uses of AI</li>
+      <li>Beginner Mistakes</li>
+      <li>Advanced Strategies</li>
+      <li>Practice Prompts</li>
+      <li>Quick Revision</li>
+      <li>Final Key Takeaways</li>
+    </ul>
+  </nav>
+
+  <section>
+    <h2>1. Introduction — शुरुआत आसान तरीके से</h2>
+
+    <p>
+      आज के समय में AI (Artificial Intelligence) तेजी से हर field को बदल रहा है।
+    </p>
+
+    <ul>
+      <li>पढ़ाई</li>
+      <li>नौकरी</li>
+      <li>Content Creation</li>
+      <li>Coding</li>
+      <li>Marketing</li>
+      <li>Business</li>
+    </ul>
+
+    <p>
+      हर जगह AI tools का उपयोग बढ़ रहा है।
+    </p>
+
+    <blockquote>
+      “AI आखिर है क्या?”<br />
+      “ChatGPT कैसे काम करता है?”<br />
+      “Prompt Engineering क्या होता है?”
+    </blockquote>
+
+    <p>
+      इस guide में हम इन सभी concepts को आसान Hindi/Hinglish में समझेंगे।
+    </p>
+  </section>
+
+  <section>
+    <h2>2. AI क्या है? (Artificial Intelligence)</h2>
+
+    <article>
+      <h3>AI को आसान भाषा में समझें</h3>
+
+      <p>
+        AI मतलब ऐसी technology जो इंसानों की तरह:
+      </p>
+
+      <ul>
+        <li>सोच सके</li>
+        <li>समझ सके</li>
+        <li>सीख सके</li>
+        <li>जवाब दे सके</li>
+        <li>Problems solve कर सके</li>
+      </ul>
+
+      <blockquote>
+        “AI talks to you as if a friend is talking to you.”
+      </blockquote>
+
+      <p>
+        यानी AI ऐसे बात करता है जैसे कोई दोस्त आपसे बात कर रहा हो।
+      </p>
+
+      <div class="highlight">
+        <strong>Simple Example:</strong>
+        <ul>
+          <li>ChatGPT से सवाल पूछना</li>
+          <li>Google Assistant से बात करना</li>
+          <li>YouTube recommendations देखना</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <h2>3. AI इतना Important क्यों है?</h2>
+
+    <ul>
+      <li>समय बचाता है</li>
+      <li>Productivity बढ़ाता है</li>
+      <li>Repetitive काम automate करता है</li>
+      <li>Ideas generate करता है</li>
+      <li>Fast learning में मदद करता है</li>
+    </ul>
+
+    <h3>Daily Life Use Cases</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>काम</th>
+          <th>AI कैसे मदद करता है</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>YouTube</td>
+          <td>Recommended videos दिखाता है</td>
+        </tr>
+        <tr>
+          <td>Netflix</td>
+          <td>आपकी पसंद की movies suggest करता है</td>
+        </tr>
+        <tr>
+          <td>Banking</td>
+          <td>Fraud detect करता है</td>
+        </tr>
+        <tr>
+          <td>Education</td>
+          <td>Personalized learning देता है</td>
+        </tr>
+        <tr>
+          <td>Healthcare</td>
+          <td>Diseases detect करने में मदद करता है</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>4. AI के Main Concepts</h2>
+
+    <article>
+      <h3>4.1 Language Understanding</h3>
+
+      <p>AI इंसानी भाषा समझ सकता है।</p>
+
+      <ul>
+        <li>Chatbots</li>
+        <li>ChatGPT</li>
+        <li>Virtual Assistants</li>
+      </ul>
+
+      <aside>
+        <strong>Easy Explanation:</strong><br />
+        अगर आप लिखते हैं:
+        <br /><br />
+        “मुझे SEO सीखना है”
+        <br /><br />
+        तो AI समझ जाता है कि:
+        <ul>
+          <li>SEO क्या है</li>
+          <li>आप beginner हैं</li>
+          <li>आपको explanation चाहिए</li>
+        </ul>
+      </aside>
+    </article>
+
+    <article>
+      <h3>4.2 Perception</h3>
+
+      <p>AI images, sound और video समझ सकता है।</p>
+
+      <ul>
+        <li>Face unlock</li>
+        <li>Self-driving cars</li>
+        <li>Voice assistants</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>4.3 Learning</h3>
+
+      <blockquote>
+        “I've seen this somewhere before.”
+      </blockquote>
+
+      <p>
+        AI patterns पहचानता है और data से सीखता है।
+      </p>
+    </article>
+
+    <article>
+      <h3>4.4 Reasoning</h3>
+
+      <p>
+        AI logic use करके answers देता है।
+      </p>
+
+      <div class="highlight">
+        <strong>Example:</strong>
+        <p>
+          अगर prompt में doctor, symptoms और treatment लिखा है,
+          तो AI healthcare-related answer देगा।
+        </p>
+      </div>
+    </article>
+
+    <article>
+      <h3>4.5 Problem Solving</h3>
+
+      <ul>
+        <li>Route planning</li>
+        <li>Coding help</li>
+        <li>Content writing</li>
+        <li>Data analysis</li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>5. Data Science + Machine Learning + AI</h2>
+
+    <blockquote>
+      “These three together form a solid team, like the Avengers of healthcare.”
+    </blockquote>
+
+    <article>
+      <h3>Data Science</h3>
+
+      <p>Data collect और analyze करना।</p>
+
+      <aside>
+        <strong>Beginner Note:</strong><br />
+        Data = Information
+        <ul>
+          <li>Numbers</li>
+          <li>Text</li>
+          <li>Photos</li>
+          <li>Videos</li>
+        </ul>
+      </aside>
+    </article>
+
+    <article>
+      <h3>Machine Learning</h3>
+
+      <p>
+        Machine को data से सीखाना।
+      </p>
+
+      <p>
+        Example: Weather prediction system।
+      </p>
+    </article>
+
+    <article>
+      <h3>Artificial Intelligence</h3>
+
+      <p>
+        AI machine को smart decisions लेने में मदद करता है।
+      </p>
+
+      <ul>
+        <li>Reports analyze करना</li>
+        <li>Disease predict करना</li>
+        <li>Treatment suggest करना</li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>6. LLM क्या है? (Large Language Model)</h2>
+
+    <p>
+      LLM modern AI systems का brain होता है।
+    </p>
+
+    <h3>LLM क्या कर सकता है?</h3>
+
+    <ul>
+      <li>Language समझ सकता है</li>
+      <li>Articles लिख सकता है</li>
+      <li>Translation कर सकता है</li>
+      <li>Coding कर सकता है</li>
+      <li>Summaries बना सकता है</li>
+      <li>Creative writing कर सकता है</li>
+    </ul>
+
+    <blockquote>
+      “It has read the entire internet.”
+    </blockquote>
+
+    <details>
+      <summary>Easy Explanation</summary>
+      <p>
+        LLM ने internet का बहुत बड़ा data पढ़ा है।
+        इसलिए यह patterns और context समझ पाता है।
+      </p>
+    </details>
+  </section>
+
+  <section>
+    <h2>7. AI Context कैसे समझता है?</h2>
+
+    <h3>Example: “Bank”</h3>
+
+    <p><strong>Sentence 1:</strong> “I deposited money in the bank.”</p>
+    <p>यहां bank = financial institution</p>
+
+    <div class="spacer"></div>
+
+    <p><strong>Sentence 2:</strong> “We sat near the river bank.”</p>
+    <p>यहां bank = नदी का किनारा</p>
+
+    <aside>
+      <strong>Semantic Association:</strong><br />
+      AI आसपास के words देखकर सही meaning समझता है।
+    </aside>
+
+    <blockquote>
+      “Understanding the context is the greatest power of LLMs.”
+    </blockquote>
+  </section>
+
+  <section>
+    <h2>8. Prompt Engineering क्या है?</h2>
+
+    <p>
+      Prompt Engineering = AI को सही instructions देने की कला।
+    </p>
+
+    <blockquote>
+      “Garbage in = Garbage out.”
+    </blockquote>
+
+    <p>
+      जितना clear prompt होगा,
+      उतना powerful output मिलेगा।
+    </p>
+
+    <article>
+      <h3>Weak Prompt</h3>
+
+      <pre>Write an Instagram caption.</pre>
+
+      <ul>
+        <li>No audience</li>
+        <li>No tone</li>
+        <li>No context</li>
+      </ul>
+
+      <p>Result: Generic output</p>
+    </article>
+
+    <article>
+      <h3>Better Prompt</h3>
+
+<pre>
+Act as a luxury travel content creator.
+
+Write a premium Instagram caption for a Maldives resort reel.
+
+Tone:
+- Elegant
+- Aspirational
+- Short
+
+Target Audience:
+Indian luxury travelers aged 25-40
+
+Include:
+- Hook
+- CTA
+- 5 hashtags
+</pre>
+
+      <p>
+        अब AI audience, tone और structure समझकर बेहतर response देगा।
+      </p>
+    </article>
+  </section>
+
+  <section>
+    <h2>9. Prompting Techniques</h2>
+
+    <article>
+      <h3>9.1 Role-Based Prompting</h3>
+
+<pre>
+Act as a doctor.
+Act as a coding mentor.
+Act as a marketing strategist.
+</pre>
+
+      <p>
+        AI उस role की language और thinking adopt करता है।
+      </p>
+    </article>
+
+    <article>
+      <h3>9.2 Context Engineering</h3>
+
+      <h4>Bad Prompt</h4>
+
+      <pre>Write a blog.</pre>
+
+      <h4>Better Prompt</h4>
+
+<pre>
+Write a beginner-friendly SEO blog
+for Indian freelancers
+about ChatGPT productivity tools.
+</pre>
+
+    </article>
+
+    <article>
+      <h3>9.3 Few-Shot Prompting</h3>
+
+<pre>
+Example 1:
+Coffee Caption:
+Fuel your hustle ☕
+
+Example 2:
+Sneaker Caption:
+Walk like you own the street 👟
+
+Now create one for wireless headphones.
+</pre>
+
+      <p>
+        AI examples देखकर pattern समझता है।
+      </p>
+    </article>
+
+    <article>
+      <h3>9.4 Chain-of-Thought Prompting</h3>
+
+<pre>
+Solve this problem step by step.
+
+1. Identify issue
+2. Analyze causes
+3. Suggest solutions
+4. Prioritize best option
+</pre>
+
+      <p>
+        इससे AI reasoning improve करता है।
+      </p>
+    </article>
+
+    <article>
+      <h3>9.5 Structured Output Prompting</h3>
+
+<pre>
+Explain SEO in this format:
+- Definition
+- Benefits
+- Tools
+- Examples
+- Mistakes
+</pre>
+
+      <p>
+        Result:
+      </p>
+
+      <ul>
+        <li>Clean output</li>
+        <li>Less editing</li>
+        <li>Professional structure</li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>10. Real-World Uses of AI</h2>
+
+    <ul>
+      <li><strong>Students:</strong> Notes summarize करना</li>
+      <li><strong>Teachers:</strong> Lesson planning</li>
+      <li><strong>Freelancers:</strong> Proposals और captions</li>
+      <li><strong>Developers:</strong> Debugging और documentation</li>
+      <li><strong>Content Creators:</strong> Hooks और scripts</li>
+      <li><strong>Working Professionals:</strong> Reports और productivity tasks</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>11. Beginner Mistakes</h2>
+
+    <ul>
+      <li>❌ Very short prompts</li>
+      <li>❌ No context</li>
+      <li>❌ Perfect output expect करना</li>
+      <li>❌ Follow-up prompts ना करना</li>
+      <li>❌ Too many instructions देना</li>
+    </ul>
+
+    <aside>
+      <strong>Beginner Note:</strong><br />
+      Prompt Engineering practice से improve होती है।
+    </aside>
+  </section>
+
+  <section>
+    <h2>12. Advanced Strategies</h2>
+
+    <article>
+      <h3>Multi-Step Prompting</h3>
+
+      <p>
+        पहले outline बनाओ,
+        फिर detailed content।
+      </p>
+    </article>
+
+    <article>
+      <h3>Prompt Chaining</h3>
+
+      <ol>
+        <li>Generate ideas</li>
+        <li>Select best idea</li>
+        <li>Create article</li>
+        <li>Optimize SEO</li>
+        <li>Create social media posts</li>
+      </ol>
+    </article>
+
+    <article>
+      <h3>AI as a Collaborator</h3>
+
+      <ul>
+        <li>Assistant</li>
+        <li>Brainstorming partner</li>
+        <li>Editor</li>
+        <li>Teacher</li>
+        <li>Strategist</li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>13. Practice Prompts</h2>
+
+    <h3>Content Writing Practice</h3>
+
+<pre>
+Act as a professional blog writer.
+
+Write a beginner-friendly article on:
+“How Indian Students Can Use ChatGPT for Learning”.
+
+Tone:
+Simple Hindi-English mix
+
+Include:
+- examples
+- benefits
+- mistakes
+- practical tips
+</pre>
+
+    <h3>Productivity Practice</h3>
+
+<pre>
+Act as a productivity coach.
+
+Suggest 10 ways Indian working professionals
+can save time using ChatGPT.
+</pre>
+  </section>
+
+  <section class="quick-revision">
+    <h2>14. Quick Revision</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Simple Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AI</td>
+          <td>Smart machine</td>
+        </tr>
+        <tr>
+          <td>Machine Learning</td>
+          <td>Data से सीखना</td>
+        </tr>
+        <tr>
+          <td>Data Science</td>
+          <td>Data analyze करना</td>
+        </tr>
+        <tr>
+          <td>LLM</td>
+          <td>Language समझने वाला AI</td>
+        </tr>
+        <tr>
+          <td>Prompt Engineering</td>
+          <td>AI को सही instructions देना</td>
+        </tr>
+        <tr>
+          <td>Context</td>
+          <td>Background information</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>15. Final Key Takeaways</h2>
+
+    <ul>
+      <li>✅ AI को Google की तरह use मत करो</li>
+      <li>✅ Specific prompts लिखो</li>
+      <li>✅ Context देना सीखो</li>
+      <li>✅ Experiment करो</li>
+      <li>✅ AI सीखना अभी शुरू करो</li>
+    </ul>
+
+    <blockquote>
+      AI को assistant, teacher, editor और strategist की तरह use करो।
+    </blockquote>
+  </section>
+
+  <section>
+    <h2>Final Encouraging Note 🌟</h2>
+
+    <p>
+      अगर आप beginner हैं, तो घबराने की जरूरत नहीं है।
+    </p>
+
+    <p>
+      AI सीखना coding सीखने जैसा मुश्किल नहीं है।
+    </p>
+
+    <ul>
+      <li>Basics समझिए</li>
+      <li>Prompts लिखिए</li>
+      <li>Experiment कीजिए</li>
+      <li>Daily use में AI को शामिल कीजिए</li>
+    </ul>
+
+    <p>
+      धीरे-धीरे आप smarter prompts,
+      better workflows और professional AI usage सीख जाएंगे।
+    </p>
+  </section>
+
+</main>
+
+</body>
+  </html>
