@@ -1,310 +1,713 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Digital Office - Paresh Kumar Hansda</title>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Noto+Sans:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #0d0d14;
-    --surface: #13131f;
-    --card: #1a1a2e;
-    --border: #2a2a45;
-    --gold: #e8b84b;
-    --gold-dim: #9a7828;
-    --text: #e2e2f0;
-    --muted: #7878a0;
-  }
-  body {
-    font-family: 'Noto Sans', 'Noto Sans Devanagari', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-  }
-  .header {
-    text-align: center;
-    padding: 50px 20px 30px;
-    width: 100%;
-    background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
-    border-bottom: 1px solid var(--border);
-  }
-  .header h1 {
-    font-family: 'Rajdhani', sans-serif;
-    color: var(--gold);
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-  }
-  .header p {
-    color: var(--muted);
-    font-size: 1.1rem;
-    max-width: 650px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    padding: 50px 20px;
-    max-width: 1000px;
-    justify-content: center;
-    width: 100%;
-  }
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 40px 30px;
-    width: 100%;
-    max-width: 300px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(232, 184, 75, 0.15);
-    border-color: var(--gold-dim);
-  }
-  .card h2 {
-    color: #ffffff;
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    font-family: 'Rajdhani', sans-serif;
-  }
-  .card p {
-    color: var(--muted);
-    font-size: 0.95rem;
-    margin-bottom: 30px;
-    line-height: 1.5;
-  }
-  .btn {
-    display: inline-block;
-    background: var(--gold);
-    color: #000000;
-    text-decoration: none;
-    padding: 10px 24px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: background 0.2s, transform 0.1s;
-  }
-  .btn:hover {
-    background: #fcd34d;
-    transform: scale(1.02);
-  }
-  .footer {
-    margin-top: auto;
-    padding: 25px;
-    text-align: center;
-    color: var(--muted);
-    font-size: 0.95rem;
-    border-top: 1px solid var(--border);
-    width: 100%;
-    background: var(--surface);
-  }
-  .footer span {
-    color: var(--gold);
-    font-weight: 500;
-  }
-  .badge {
-    background: rgba(232, 184, 75, 0.1);
-    color: var(--gold);
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    display: inline-block;
-    margin-bottom: 15px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Office - Paresh Kumar Hansda | शिक्षा, विवेक और जीवन समाधान</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Noto+Sans:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ========== Root Variables ========== */
+    :root {
+      --bg: #0d0d14;
+      --surface: #13131f;
+      --card: #1a1a2e;
+      --card-alt: #252538;
+      --border: #2a2a45;
+      --gold: #e8b84b;
+      --gold-dim: #9a7828;
+      --text: #e2e2f0;
+      --text-secondary: #b0b0c0;
+      --muted: #7878a0;
+      --accent-red: #ef4444;
+      --accent-orange: #E8760A;
+      --accent-blue: #3b82f6;
+      --accent-purple: #9333ea;
+      --accent-gold: #c9933a;
+      --accent-darkred: #b91c1c;
+      
+      --radius: 12px;
+      --radius-sm: 8px;
+      --transition: 0.3s ease;
+    }
+
+    /* ========== Reset & Globals ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans', 'Noto Sans Devanagari', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ========== Scrollbar Styling ========== */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--surface);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--gold-dim);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--gold);
+    }
+
+    /* ========== Header Section ========== */
+    .header {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(135deg, var(--surface) 0%, var(--card) 100%);
+      border-bottom: 2px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(232, 184, 75, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .header h1 {
+      font-family: 'Rajdhani', sans-serif;
+      color: var(--gold);
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    .header-subtitle {
+      color: var(--muted);
+      font-size: 1.15rem;
+      margin-bottom: 25px;
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
+    .header-meta {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* ========== Navigation & Quick Links ========== */
+    .quick-nav {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(26, 26, 46, 0.95);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-button {
+      padding: 8px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all var(--transition);
+      font-weight: 500;
+    }
+
+    .nav-button:hover {
+      background: var(--border);
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .nav-button.active {
+      background: var(--gold);
+      color: #000;
+      border-color: var(--gold);
+    }
+
+    /* ========== Main Container ========== */
+    .main-content {
+      flex: 1;
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* ========== Section Styles ========== */
+    .content-section {
+      margin-bottom: 50px;
+      scroll-margin-top: 100px;
+    }
+
+    .section-header {
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-header h2 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      color: var(--gold);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ========== Card Grid ========== */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 25px;
+      width: 100%;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold-dim);
+      box-shadow: 0 12px 32px rgba(232, 184, 75, 0.12);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-badge {
+      display: inline-block;
+      background: rgba(232, 184, 75, 0.1);
+      color: var(--gold);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      width: fit-content;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card-badge.accent-red {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--accent-red);
+    }
+
+    .card-badge.accent-orange {
+      background: rgba(232, 118, 10, 0.15);
+      color: #F5A623;
+    }
+
+    .card-badge.accent-blue {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60A5FA;
+    }
+
+    .card-badge.accent-purple {
+      background: rgba(147, 51, 234, 0.15);
+      color: var(--accent-purple);
+    }
+
+    .card h3 {
+      color: #ffffff;
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+    }
+
+    .card-subtitle {
+      color: var(--gold);
+      font-size: 1rem;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      flex-grow: 1;
+      line-height: 1.7;
+    }
+
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gold);
+      color: #000000;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      align-self: flex-start;
+      gap: 6px;
+    }
+
+    .card-btn:hover {
+      background: #fcd34d;
+      transform: translateX(3px);
+      box-shadow: 0 4px 12px rgba(232, 184, 75, 0.3);
+    }
+
+    /* ========== Colored Card Variants ========== */
+    .card.card-red {
+      border-color: var(--accent-red);
+    }
+
+    .card.card-red:hover {
+      box-shadow: 0 12px 32px rgba(239, 68, 68, 0.1);
+    }
+
+    .card.card-orange {
+      border-color: var(--accent-orange);
+    }
+
+    .card.card-orange:hover {
+      box-shadow: 0 12px 32px rgba(232, 118, 10, 0.1);
+    }
+
+    .card.card-blue {
+      border-color: var(--accent-blue);
+    }
+
+    .card.card-blue:hover {
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.1);
+    }
+
+    .card.card-purple {
+      border-color: var(--accent-purple);
+    }
+
+    .card.card-purple:hover {
+      box-shadow: 0 12px 32px rgba(147, 51, 234, 0.1);
+    }
+
+    .card.card-gold {
+      border-color: var(--accent-gold);
+    }
+
+    .card.card-gold:hover {
+      box-shadow: 0 12px 32px rgba(201, 147, 58, 0.1);
+    }
+
+    .card.card-darkred {
+      border-color: var(--accent-darkred);
+    }
+
+    .card.card-darkred:hover {
+      box-shadow: 0 12px 32px rgba(185, 28, 28, 0.1);
+    }
+
+    /* ========== Info Box / Callout Styles ========== */
+    .info-box {
+      background: rgba(232, 184, 75, 0.05);
+      border-left: 4px solid var(--gold);
+      padding: 20px;
+      border-radius: var(--radius-sm);
+      margin: 20px 0;
+    }
+
+    .info-box.info-important {
+      background: rgba(239, 68, 68, 0.05);
+      border-left-color: var(--accent-red);
+    }
+
+    /* ========== Footer ========== */
+    .footer {
+      background: var(--surface);
+      border-top: 2px solid var(--border);
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--muted);
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .footer-message {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+    }
+
+    .footer-signature {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .footer-signature span {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .footer-counter {
+      margin: 25px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .footer-counter img {
+      max-width: 200px;
+      height: auto;
+    }
+
+    /* ========== Responsive Design ========== */
+    @media (max-width: 768px) {
+      .header {
+        padding: 40px 15px 30px;
+      }
+
+      .header h1 {
+        font-size: 1.8rem;
+      }
+
+      .header-subtitle {
+        font-size: 1rem;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-container {
+        gap: 8px;
+      }
+
+      .nav-button {
+        padding: 7px 14px;
+        font-size: 0.85rem;
+      }
+
+      .main-content {
+        padding: 25px 15px;
+      }
+
+      .section-header h2 {
+        font-size: 1.4rem;
+      }
+    }
+
+    /* ========== Accessibility ========== */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      /* Light mode support can be added here */
+    }
+
+  </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>Digital Office: Paresh Kumar Hansda</h1>
-  <p>शिक्षा, विवेक और 'रूट कॉज़ एनालिसिस' (Root Cause Analysis) का डिजिटल हब। यहाँ ज्ञान और तकनीकी उपकरणों को निस्वार्थ भाव से साझा किया जाता है।</p>
-</div>
-
-<div class="container">
-    <div class="card" style="border-color: #ef4444; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.1);">
-    <div class="badge" style="color: #ef4444; background: rgba(239, 68, 68, 0.15);">आपातकालीन टूल (Emergency)</div>
-    <h2>गुमशुदगी रिपोर्ट<br><span style="font-size: 1.1rem; color: #ef4444;">पोस्टर जेनरेटर</span></h2>
-    <p>किसी अपने के लापता होने पर घबराएं नहीं। मात्र 1 मिनट में पुलिस और सोशल मीडिया के लिए प्रिंट-रेडी डिजिटल पोस्टर तैयार करें।</p>
-    <a href="missing-report.html" class="btn" style="background: #ef4444; color: #ffffff;">टूल का उपयोग करें ➔</a>
-    </div>
-  
-
-
-
-  
-  <div class="card">
-    <div class="badge">Financial Tool (Hindi)</div>
-    <h2>EMI कैलकुलेटर<br><span style="font-size: 1.1rem; color: var(--gold);">डिजिटल CA</span></h2>
-    <p>लोन की EMI, ब्याज और नेगोशिएशन से होने वाली बचत को हिंदी में समझें और सही निवेश का निर्णय लें।</p>
-    <a href="emi-calculator-2.html" class="btn">टूल का उपयोग करें ➔</a>
+<!-- ========== HEADER ========== -->
+<header class="header">
+  <div class="header-content">
+    <h1>🏛️ Digital Office</h1>
+    <p class="header-subtitle">
+      शिक्षा, विवेक और जीवन समाधान का डिजिटल हब
+    </p>
+    <p class="header-subtitle" style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 0;">
+      "हम तर्क और न्याय के साथ विवेक का उपयोग कर अपनी शिक्षा बाँटेंगे।"
+    </p>
   </div>
+</header>
 
-  <div class="card">
-    <div class="badge">Financial Tool (Adv)</div>
-    <h2>EMI vs SIP<br><span style="font-size: 1.1rem; color: var(--gold);">Smart Calculator</span></h2>
-    <p>लोन जल्दी चुकाना बेहतर है या लंबी अवधि का लोन लेकर बचे हुए पैसे को म्यूच्यूअल फण्ड में निवेश करना?</p>
-    <a href="emi_vs_sip2.html" class="btn">टूल का उपयोग करें ➔</a>
+<!-- ========== QUICK NAVIGATION ========== -->
+<nav class="quick-nav">
+  <div class="nav-container">
+    <button class="nav-button active" onclick="scrollToSection('emergency')">आपातकालीन</button>
+    <button class="nav-button" onclick="scrollToSection('finance')">वित्त</button>
+    <button class="nav-button" onclick="scrollToSection('exams')">परीक्षाएं</button>
+    <button class="nav-button" onclick="scrollToSection('philosophy')">दर्शन</button>
+    <button class="nav-button" onclick="scrollToSection('stoic')">ध्यान</button>
+    <button class="nav-button" onclick="scrollToSection('special')">विशेष</button>
   </div>
+</nav>
 
+<!-- ========== MAIN CONTENT ========== -->
+<main class="main-content">
 
-    <div class="card" style="border-color: #E8760A; box-shadow: 0 4px 15px rgba(232, 118, 10, 0.1);">
-    <div class="badge" style="color: #F5A623; background: rgba(232, 118, 10, 0.15);">जमा पूंजी (Finance)</div>
-    <h2>शादी बचत<br><span style="font-size: 1.1rem; color: #E8760A;">कैलकुलेटर</span></h2>
-    <p>शादी के दिखावे में होने वाले खर्च और 'चक्रवृद्धि ब्याज' (Compounding) से बनने वाले करोड़ों के भविष्य का असली गणित समझें।</p>
-    <a href="shadi-bachat-calculator.html" class="btn" style="background: linear-gradient(135deg, #E8760A, #D4610A); color: #ffffff; border: none;">हिसाब देखें ➔</a>
+  <!-- ========== EMERGENCY TOOLS ========== -->
+  <section id="emergency" class="content-section">
+    <div class="section-header">
+      <h2>🚨 आपातकालीन उपकरण</h2>
+      <p>जब समय सीमित हो और त्वरित समाधान की आवश्यकता हो</p>
     </div>
 
-    <div class="card" style="border-color: #3b82f6; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);">
-    <div class="badge" style="color: #60A5FA; background: rgba(59, 130, 246, 0.15);">समय प्रबंधन (Productivity)</div>
-    <h2>स्क्रीन टाइम<br><span style="font-size: 1.1rem; color: #3b82f6;">कैलकुलेटर</span></h2>
-    <p>रील्स और सोशल मीडिया में बर्बाद हो रहे समय की असली 'वित्तीय कीमत' और भविष्य के करोड़ों के नुकसान का गणित समझें।</p>
-    <a href="screentime-calculator.html" class="btn" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: #ffffff; border: none;">असली नुकसान देखें ➔</a>
+    <div class="card-grid">
+      <div class="card card-red">
+        <span class="card-badge accent-red">आपातकालीन</span>
+        <h3>गुमशुदगी रिपोर्ट</h3>
+        <p class="card-subtitle">पोस्टर जेनरेटर</p>
+        <p>
+          किसी अपने के लापता होने पर घबराएं नहीं। मात्र 1 मिनट में पुलिस और सोशल मीडिया के लिए प्रभावी पोस्टर तैयार करें। समय की कीमत समझें—हर मिनट मायने रखता है।
+        </p>
+        <a href="missing-report.html" class="card-btn">टूल का उपयोग करें ➔</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FINANCIAL TOOLS ========== -->
+  <section id="finance" class="content-section">
+    <div class="section-header">
+      <h2>💰 वित्तीय समझ और निर्णय</h2>
+      <p>पैसे से जुड़ी सभी चीजें साफ़-साफ़ समझें</p>
     </div>
 
+    <div class="card-grid">
+      <div class="card card-gold">
+        <span class="card-badge">वित्तीय उपकरण</span>
+        <h3>EMI कैलकुलेटर</h3>
+        <p class="card-subtitle">डिजिटल CA (हिंदी)</p>
+        <p>
+          लोन की EMI, ब्याज और नेगोशिएशन से होने वाली बचत को हिंदी में समझें। सही निर्णय लें—गलत सूचना से बचें।
+        </p>
+        <a href="emi-calculator-2.html" class="card-btn">गणना करें ➔</a>
+      </div>
 
+      <div class="card card-gold">
+        <span class="card-badge">वित्तीय उपकरण</span>
+        <h3>EMI vs SIP</h3>
+        <p class="card-subtitle">स्मार्ट तुलना</p>
+        <p>
+          लोन जल्दी चुकाना बेहतर है या लंबी अवधि का लोन लेकर बचे हुए पैसे को निवेश करना? अपने परिस्थिति के अनुसार सही चुनाव करें।
+        </p>
+        <a href="emi_vs_sip2.html" class="card-btn">तुलना देखें ➔</a>
+      </div>
 
+      <div class="card card-orange">
+        <span class="card-badge accent-orange">जमा पूंजी</span>
+        <h3>शादी बचत</h3>
+        <p class="card-subtitle">कैलकुलेटर</p>
+        <p>
+          शादी के दिखावे में होने वाले खर्च और चक्रवृद्धि ब्याज (Compounding) से बनने वाले सच को समझें। स्मार्ट तरीके से योजना बनाएं।
+        </p>
+        <a href="shadi-bachat-calculator.html" class="card-btn" style="background: linear-gradient(135deg, #E8760A, #D4610A); color: #ffffff;">हिसाब देखें ➔</a>
+      </div>
 
-    <div class="card" style="border-color: #c9933a; box-shadow: 0 4px 15px rgba(201, 147, 58, 0.1);">
-    <div class="badge" style="color: #c9933a; background: rgba(201, 147, 58, 0.15);">वित्तीय जागरूकता</div>
-    <h2>सोना कितना<br><span style="font-size: 1.1rem; color: #c9933a;">सोना है?</span></h2>
-    <p>क्या हॉलमार्क का मतलब 24 कैरेट है? सोना खरीदने से पहले BIS कोड (916, 750) का असली सच और ठगी से बचने का तरीका जानें।</p>
-    <a href="sona-kitna-sona.html" class="btn" style="background: linear-gradient(135deg, #c9933a, #f0c060); color: #1a1408; font-weight: 700;">पूरी सच्चाई पढ़ें ➔</a>
-  </div>
-
-  <div class="card" style="border-color: #d42b2b; box-shadow: 0 4px 15px rgba(212, 43, 43, 0.1);">
-    <div class="badge" style="color: #ff3b3b; background: rgba(212, 43, 43, 0.15);">कड़वा सच (Report)</div>
-    <h2>जागो आम<br><span style="font-size: 1.1rem; color: #d42b2b;">आदमी</span></h2>
-    <p>चमकते शहरों के पीछे का वह सच जो कोई नहीं बताता। जीडीपी का धोखा, प्रदूषण की कीमत और बेतहाशा बढ़ती भीड़ का असली अंजाम।</p>
-    <a href="jaago-aam-aadmi.html" class="btn" style="background: #d42b2b; color: #ffffff;">विशेष रिपोर्ट देखें ➔</a>
-  </div>
-  
-
-
-
-    <div class="card" style="border-color: #b91c1c; box-shadow: 0 4px 15px rgba(185, 28, 28, 0.1);">
-    <div class="badge" style="color: #b91c1c; background: rgba(185, 28, 28, 0.15);">आत्म-ज्ञान (Self-Knowledge)</div>
-    <h2>आचार्य प्रशांत<br><span style="font-size: 1.1rem; color: #b91c1c;">आंतरिक आज़ादी</span></h2>
-    <p>क्या समाज सुधार से दुनिया बदलेगी या खुद के उद्धार से? IIT-IIM से वेदांत तक की यात्रा और जीवन के कठोर सत्यों का सार।</p>
-    <a href="acharya-interview2.html" class="btn" style="background: linear-gradient(135deg, #b91c1c, #dc2626); color: #ffffff;">विचार मंथन करें ➔</a>
+      <div class="card card-gold">
+        <span class="card-badge">वित्तीय जागरूकता</span>
+        <h3>सोना कितना सोना है?</h3>
+        <p class="card-subtitle">शुद्धता की सच्चाई</p>
+        <p>
+          क्या हॉलमार्क का मतलब 24 कैरेट है? सोना खरीदने से पहले BIS कोड (916, 750) का असली सच जानें। बेवकूफ़ी से बचें।
+        </p>
+        <a href="sona-kitna-sona.html" class="card-btn" style="background: linear-gradient(135deg, #c9933a, #f0c060); color: #1a1408; font-weight: 700;">सच्चाई जानें ➔</a>
+      </div>
     </div>
-  
+  </section>
 
-
-
-  
-  
-  <div class="card">
-    <div class="badge">Response Sheet</div>
-    <h2>JPSC GS-I<br><span style="font-size: 1.1rem; color: var(--gold);">सामान्य अध्ययन</span></h2>
-    <p>इतिहास, भूगोल, राजव्यवस्था और समसामयिकी (Current Affairs) पर आधारित 100 प्रश्नों की आधिकारिक समीक्षा।</p>
-    <a href="paper1.html" class="btn">ऑडिट एवं समीक्षा ➔</a>
-  </div>
-
-  <div class="card">
-    <div class="badge">Response Sheet</div>
-    <h2>JPSC GS-II<br><span style="font-size: 1.1rem; color: var(--gold);">झारखण्ड विशेष</span></h2>
-    <p>झारखण्ड का इतिहास, भूगोल, संस्कृति, सीएनटी/एसपीटी एक्ट एवं औद्योगिक नीतियों पर आधारित 100 प्रश्नों की समीक्षा।</p>
-    <a href="paper2.html" class="btn">ऑडिट एवं समीक्षा ➔</a>
-  </div>
-
-    <div class="card" style="border-color: #3b82f6; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);">
-    <div class="badge" style="color: #22d3ee; background: rgba(34, 211, 238, 0.1);">CBT-1 मॉक टेस्ट</div>
-    <h2>RRB NTPC<br><span style="font-size: 1.1rem; color: #3b82f6;">Graduate Level</span></h2>
-    <p>100 प्रश्न, 90 मिनट, 1/3 नेगेटिव मार्किंग। रेलवे के वास्तविक परीक्षा पैटर्न पर आधारित पूर्ण अभ्यास टेस्ट और विस्तृत समीक्षा।</p>
-    <a href="rrb_ntpc_mock.html" class="btn" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: #ffffff;">मॉक टेस्ट शुरू करें ➔</a>
-    </div>
-  
-
-    <div class="card" style="border-color: #9333ea; box-shadow: 0 4px 15px rgba(147, 51, 234, 0.1);">
-    <div class="badge" style="color: #9333ea; background: rgba(147, 51, 234, 0.15);">दार्शनिक लेख (Philosophy)</div>
-    <h2>विवाह और प्रेम<br><span style="font-size: 1.1rem; color: #9333ea;">आचार्य का दर्शन</span></h2>
-    <p>क्या विवाह एक बिज़नेस डील है या प्रेम का मिलन? मानवीय संबंधों और जीवन के कड़वे सत्यों पर एक गहरी विचार-मंथन प्रस्तुति।</p>
-    <a href="marriage_philosophy_standalone.html" class="btn" style="background: #9333ea; color: #ffffff;">पूरा लेख पढ़ें ➔</a>
+  <!-- ========== TIME & PRODUCTIVITY ========== -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2>⏰ समय और जीवन प्रबंधन</h2>
+      <p>अप��े कीमती समय की कीमत समझें</p>
     </div>
 
+    <div class="card-grid">
+      <div class="card card-blue">
+        <span class="card-badge accent-blue">समय प्रबंधन</span>
+        <h3>स्क्रीन टाइम</h3>
+        <p class="card-subtitle">असली कीमत की गणना</p>
+        <p>
+          रील्स और सोशल मीडिया में बर्बाद हो रहे समय की असली 'वित्तीय कीमत' और भविष्य पर प्रभाव को समझें। हर मिनट मायने रखता है।
+        </p>
+        <a href="screentime-calculator.html" class="card-btn" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: #ffffff;">असली नुकसान देखें ➔</a>
+      </div>
+    </div>
+  </section>
 
+  <!-- ========== EXAMINATION PREPARATION ========== -->
+  <section id="exams" class="content-section">
+    <div class="section-header">
+      <h2>📚 परीक्षा की तैयारी</h2>
+      <p>JPSC और RRB प्रतियोगी परीक्षाओं के लिए विस्तृत संसाधन</p>
+    </div>
 
+    <div class="card-grid">
+      <div class="card">
+        <span class="card-badge">उत्तर पत्र विश्लेषण</span>
+        <h3>JPSC GS-I</h3>
+        <p class="card-subtitle">सामान्य अध्ययन</p>
+        <p>
+          इतिहास, भूगोल, राजव्यवस्था और समसामयिकी पर आधारित 100 प्रश्नों की विस्तृत समीक्षा। परीक्षकों के अनुभव को समझें।
+        </p>
+        <a href="paper1.html" class="card-btn">ऑडिट और समीक्षा देखें ➔</a>
+      </div>
 
-    <div class="card" style="border-color: #c9933a; background: linear-gradient(145deg, #1a1209, #110d06);">
-    <div class="badge" style="color: #c9933a; background: rgba(201, 147, 58, 0.1);">दैनिक ध्यान (Stoic)</div>
-    <h2>Amor Fati<br><span style="font-size: 1.1rem; color: #c9933a;">नियति से प्रेम</span></h2>
-    <p>"मैं तुम्हारी इस लालसा में तुम्हारा भागीदार हूँ।" मार्कस ऑरेलियस का ब्रह्मांड और नियति को स्वीकार करने का अद्भुत दर्शन।</p>
-    <a href="marcus-book10-21.html" class="btn" style="background: #c9933a; color: #1a1209;">मंथन करें ➔</a>
-  </div>
+      <div class="card">
+        <span class="card-badge">उत्तर पत्र विश्लेषण</span>
+        <h3>JPSC GS-II</h3>
+        <p class="card-subtitle">झारखण्ड विशेष</p>
+        <p>
+          झारखण्ड का इतिहास, भूगोल, संस्कृति, CNT/SPT एक्ट और औद्योगिक नीतियों की गहन समीक्षा। स्थानीय महत्व को समझें।
+        </p>
+        <a href="paper2.html" class="card-btn">ऑडिट और समीक्षा देखें ➔</a>
+      </div>
 
-  <div class="card" style="border-color: #7a8fa6; background: linear-gradient(145deg, #0d1118, #06090c);">
-    <div class="badge" style="color: #7a8fa6; background: rgba(122, 143, 166, 0.1);">दैनिक ध्यान (Stoic)</div>
-    <h2>निडरता<br><span style="font-size: 1.1rem; color: #7a8fa6;">भविष्य के 3 मार्ग</span></h2>
-    <p>जीते रहना, समाप्त करना या मर जाना। जीवन के इन तीन विकल्पों को समझकर मन से मृत्यु और अनिश्चितता का भय निकालें।</p>
-    <a href="marcus-book10-22.html" class="btn" style="background: #7a8fa6; color: #0d1118;">मंथन करें ➔</a>
-  </div>
+      <div class="card card-blue">
+        <span class="card-badge accent-blue">CBT-1 मॉक टेस्ट</span>
+        <h3>RRB NTPC</h3>
+        <p class="card-subtitle">Graduate Level प्रशिक्षण</p>
+        <p>
+          100 प्रश्न, 90 मिनट, 1/3 नेगेटिव मार्किंग। रेलवे के वास्तविक परीक्षा पैटर्न पर आधारित। अपनी शक्ति का आकलन करें।
+        </p>
+        <a href="rrb_ntpc_mock.html" class="card-btn" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: #ffffff;">मॉक टेस्ट शुरू करें ➔</a>
+      </div>
+    </div>
+  </section>
 
-  <div class="card" style="border-color: #6a8f5e; background: linear-gradient(145deg, #1c1710, #0f110c);">
-    <div class="badge" style="color: #6a8f5e; background: rgba(106, 143, 94, 0.1);">दैनिक ध्यान (Stoic)</div>
-    <h2>आंतरिक शांति<br><span style="font-size: 1.1rem; color: #6a8f5e;">स्थान का भ्रम</span></h2>
-    <p>"शांति जगह में नहीं, मन में होती है।" स्थान बदलने से आत्मा नहीं बदलती, शांति केवल आपके भीतर है।</p>
-    <a href="marcus-book10-23.html" class="btn" style="background: #6a8f5e; color: #1c1710;">मंथन करें ➔</a>
-  </div>
+  <!-- ========== SOCIAL AWARENESS ========== -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2>🔍 समाज और जागरूकता</h2>
+      <p>कड़वी सच्चाई को समझने का समय है</p>
+    </div>
 
+    <div class="card-grid">
+      <div class="card card-darkred">
+        <span class="card-badge accent-red">विशेष रिपोर्ट</span>
+        <h3>जागो आम आदमी</h3>
+        <p class="card-subtitle">कड़वा सच</p>
+        <p>
+          चमकते शहरों के पीछे का वह सच जो कोई नहीं बताता। GDP का धोखा, प्रदूषण की वास्तविकता और सामाजिक असमानता को समझें।
+        </p>
+        <a href="jaago-aam-aadmi.html" class="card-btn" style="background: #d42b2b; color: #ffffff;">विशेष रिपोर्ट पढ़ें ➔</a>
+      </div>
+    </div>
+  </section>
 
-    <div class="card" style="border-color: #4a90d9; box-shadow: 0 4px 15px rgba(74, 144, 217, 0.1);">
-    <div class="badge" style="color: #7ab5f0; background: rgba(74, 144, 217, 0.15);">तकनीकी शिक्षा (AI)</div>
-    <h2>Prompt<br><span style="font-size: 1.1rem; color: #4a90d9;">Engineering</span></h2>
-    <p>AI से सही सवाल कैसे पूछें? Zero-Shot, ReAct, और Tree-of-Thoughts का पूर्ण हिंदी मार्गदर्शन।</p>
-    <a href="prompt-engineering-guide.html" class="btn" style="background: linear-gradient(135deg, #4a90d9, #8b6fd4); color: #ffffff;">AI मास्टर बनें ➔</a>
-  </div>
+  <!-- ========== PHILOSOPHY & SELF-KNOWLEDGE ========== -->
+  <section id="philosophy" class="content-section">
+    <div class="section-header">
+      <h2>🧘 दर्शन और आत्म-ज्ञान</h2>
+      <p>जीवन के बड़े सवालों के बारे में गहन विचार</p>
+    </div>
 
-  <div class="card" style="border-color: #4a9e8f; background: linear-gradient(145deg, #0f0f14, #0a0a0d);">
-    <div class="badge" style="color: #7dcfc0; background: rgba(74, 158, 143, 0.1);">दैनिक ध्यान (Stoic)</div>
-    <h2>मन का ऑडिट<br><span style="font-size: 1.1rem; color: #4a9e8f;">स्वयं की जांच</span></h2>
-    <p>"मेरा मन। यह क्या है? मैं इसे क्या बना रहा हूँ?" अपने मन को समाज और वासना का गुलाम बनने से रोकें।</p>
-    <a href="marcus-book10-24.html" class="btn" style="background: #4a9e8f; color: #0f0f14; font-weight: bold;">ऑडिट करें ➔</a>
-  </div>
+    <div class="card-grid">
+      <div class="card card-darkred">
+        <span class="card-badge accent-red">आत्म-ज्ञान</span>
+        <h3>आचार्य प्रशांत</h3>
+        <p class="card-subtitle">आंतरिक आज़ादी</p>
+        <p>
+          क्या समाज सुधार से दुनिया बदलेगी या खुद के उद्धार से? IIT-IIM से वेदांत तक की यात्रा में आचार्य प्रशांत के विचार।
+        </p>
+        <a href="acharya-interview2.html" class="card-btn" style="background: linear-gradient(135deg, #b91c1c, #dc2626); color: #ffffff;">विचार मंथन करें ➔</a>
+      </div>
 
-  <div class="card" style="border-color: #5a9e6a; background: linear-gradient(145deg, #0b0f0a, #060805);">
-    <div class="badge" style="color: #8dcf9d; background: rgba(90, 158, 106, 0.1);">दैनिक ध्यान (Stoic)</div>
-    <h2>अदृश्य शक्ति<br><span style="font-size: 1.1rem; color: #5a9e6a;">प्रकृति का नियम</span></h2>
-    <p>"हम ब्रह्मांड के रचयिता नहीं — केवल माध्यम हैं।" प्रकृति की अदृश्य बुद्धिमत्ता (Logos) के सामने मानवीय अहंकार का त्याग।</p>
-    <a href="marcus-book10-26.html" class="btn" style="background: #5a9e6a; color: #0b0f0a; font-weight: bold;">मंथन करें ➔</a>
-  </div>
-  
+      <div class="card card-purple">
+        <span class="card-badge accent-purple">दार्शनिक विचार</span>
+        <h3>विवाह और प्रेम</h3>
+        <p class="card-subtitle">आचार्य का दर्शन</p>
+        <p>
+          क्या विवाह एक बिज़नेस डील है या प्रेम का मिलन? मानवीय संबंधों और जीवन के कड़वे सच को गहराई से समझें।
+        </p>
+        <a href="marriage_philosophy_standalone.html" class="card-btn" style="background: #9333ea; color: #ffffff;">पूरा लेख पढ़ें ➔</a>
+      </div>
+    </div>
+  </section>
 
+  <!-- ========== DAILY CONTEMPLATION ========== -->
+  <section id="stoic" class="content-section">
+    <div class="section-header">
+      <h2>🌅 दैनिक ध्यान और प्रज्ञा</h2>
+      <p>Marcus Aurelius के Stoic विचार हिंदी में</p>
+    </div>
 
+    <div class="info-box">
+      <strong>💡 ध्यान रखें:</strong> ये पाठ आपके दैनिक जीवन में शांति, स्पष्टता और मजबूती लाने के लिए हैं। एक बार में एक ही विचार पर ध्यान दें।
+    </div>
 
-  
-
-    <div class="card" style="border-color: #8b0000; box-shadow: 0 4px 15px rgba(139, 0, 0, 0.1);">
-    <div class="badge" style="color: #8b0000; background: rgba(139, 0, 0, 0.1);">शुभ विवाह (Invitation)</div>
-    <h2>राहुल 💍 पिंकी<br><span style="font-size: 1.1rem; color: #8b0000;">डिजिटल आमंत्रण</span></h2>
-    <p>हमारे परिवार के इस मांगलिक अवसर पर आपका स्नेहपूर्ण आमंत्रण। कार्यक्रम का विवरण और डिजिटल कार्ड यहाँ देखें।</p>
-    <a href="rahul_pinky_final_card.html" class="btn" style="background: #8b0000; color: #ffffff;">आमंत्रण पत्र देखें ➔</a>
-  </div>
-
-  
-
-
-  
-</div>
-
-<div class="footer">
-  <div style="margin-bottom: 20px;">
-    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://kbulbul026-coder.github.io/jpsc-pre-2026-mock/&count_bg=%23e8b84b&title_bg=%231a1a2e&icon=&icon_color=%23E7E7E7&title=कुल+विज़िटर&edge_flat=true" alt="Views Counter" style="border-radius: 6px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
-  </div>
-  "हम तर्क और न्याय के साथ विवेक का उपयोग कर अपनी शिक्षा बाँटेंगे।" <br><br>
-  Digital Office of <span>Paresh Kumar Hansda</span>
-</div>
-
-</body>
-</html>
+    <div class="card-grid">
+      <div class="card" style="border-color: #c9933a; background: linear-gradient(145deg, #1a1209, #110d06);">
+        <span class="card-badge" style="color: #c9933a; background: rgba(201, 147, 58, 0.1);">Stoic दर्शन</span>
+        <h3>Amor Fati</h3>
+        <p class="card-subtitle">नियति से प्रेम</p>
+        <p>
+          "मैं तुम्हारी इस लालसा में तुम्हारा भागीदार हूँ।" Marcu
