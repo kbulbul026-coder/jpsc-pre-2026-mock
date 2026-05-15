@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>शुरुआत की राह: विचारों को आय में बदलें | हिंदी बिज़नेस गाइड</title>
+    <meta name="description" content="कम निवेश वाले, घर-आधारित और टिकाऊ व्यावसायिक विचारों पर एक हिंदी विश्लेषण। अपनी वित्तीय स्वतंत्रता की राह खोजें।">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;700;900&display=swap');
+
+        :root {
+            --color-primary: #8e24aa; /* Deep Purple */
+            --color-secondary: #00bcd4; /* Cyan/Teal */
+            --color-background: #fcfcfc; /* Off-White */
+            --color-surface: #ffffff;
+            --color-text: #212121; /* Dark Text */
+            --color-accent-green: #4caf50; /* Green for Eco */
+            --color-accent-gold: #ffb300; /* Gold for Highlight */
+            --font-family-sans: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+            --spacing-unit: 1rem;
+        }
+
+        /* Base Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family-sans);
+            line-height: 1.7;
+            color: var(--color-text);
+            background-color: var(--color-background);
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        
+        strong {
+            font-weight: 700;
+        }
+
+        /* Container & Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-unit);
+        }
+
+        /* Header & Hero Section */
+        header {
+            background: linear-gradient(135deg, var(--color-primary), #673ab7); /* Purple Gradient */
+            color: white;
+            padding: 4rem 0 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+
+        /* Sticky Navigation */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--color-surface);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 0;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: var(--color-text);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .nav-list a:hover {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        /* Emotional Connection / Mindset Section */
+        .mindset-section {
+            padding: 3rem 0;
+            text-align: center;
+            background-color: #f3e5f5; /* Lighter Purple for contrast */
+            margin-bottom: 2rem;
+        }
+
+        .mindset-section h2 {
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .mindset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .mindset-card {
+            background-color: var(--color-surface);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            text-align: left;
+        }
+
+        .mindset-card h3 {
+            color: var(--color-secondary);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        
+        .insight-box {
+            background-color: #fff8e1; /* Soft Yellow */
+            border-left: 5px solid var(--color-accent-gold);
+            padding: var(--spacing-unit) 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+            font-style: italic;
+            font-weight: 500;
+            color: #795548;
+        }
+        
+        .insight-box strong {
+            color: #d84315;
+            font-style: normal;
+        }
+
+        /* Business Ideas Grid */
+        .idea-section {
+            padding: 2rem 0;
+        }
+
+        .idea-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .idea-card {
+            background-color: var(--color-surface);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .idea-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .idea-header {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .idea-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+            font-weight: 800;
+        }
+
+        .idea-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .idea-content h4 {
+            color: var(--color-secondary);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid #eceff1;
+            padding-bottom: 5px;
+            font-weight: 700;
+        }
+
+        /* Collapsible Section Styling (Details/Summary) */
+        .collapsible-content details {
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fcfcfc;
+        }
+
+        .collapsible-content summary {
+            padding: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            outline: none;
+            list-style: none;
+            transition: background-color 0.2s;
+            color: var(--color-text);
+        }
+        
+        .collapsible-content summary:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .collapsible-content summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .collapsible-content summary::after {
+            content: "+";
+            float: right;
+            transition: transform 0.2s;
+        }
+
+        .collapsible-content details[open] > summary::after {
+            content: "-";
+            transform: rotate(0deg);
+        }
+
+        .details-body {
+            padding: 1rem;
+            padding-top: 0;
+            border-top: 1px dashed #eee;
+        }
+        
+        .tag-list {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #e0f7fa; /* Light Cyan */
+            color: var(--color-secondary);
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Resources and Footer */
+        .resources-section {
+            background-color: #ede7f6; /* Soft Lavender */
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .resources-section h2 {
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .resource-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+
+        .resource-list li {
+            background-color: var(--color-surface);
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+        
+        .resource-list a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .resource-list a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: white;
+            background-color: var(--color-text);
+            font-size: 0.9rem;
+        }
+        
+        /* Utility Classes */
+        .section-title {
+            font-size: 2rem;
+            color: var(--color-text);
+            margin-bottom: 2rem;
+            text-align: center;
+            padding-top: 1rem;
+        }
+        
+        .section-title span {
+            color: var(--color-primary);
+            font-weight: 900;
+        }
+        
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .nav-list {
+                gap: 0.5rem;
+            }
+            
+            .nav-list a {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.8rem;
+            }
+
+            .container {
+                padding: var(--spacing-unit) 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>घर बैठे <span style="font-weight: 900;">लाखों कमाएँ</span>: छोटे निवेश के बिज़नेस आइडिया</h1>
+            <p>महंगाई के दौर में सिंगल इनकम पर निर्भरता खत्म करें। जागरूकता ही अवसर है।</p>
+        </div>
+    </header>
+
+    <!-- Sticky Navigation -->
+    <div class="sticky-nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#mindset">शुरुआत</a></li>
+                <li><a href="#food-kitchen">रसोई आधारित</a></li>
+                <li><a href="#agri-proc">कृषि प्रोसेसिंग</a></li>
+                <li><a href="#eco-waste">वेस्ट-टू-वेल्थ</a></li>
+                <li><a href="#skills-serv">कौशल आधारित</a></li>
+                <li><a href="#resources">स्रोत</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Emotional Connection & Mindset Section -->
+    <section id="mindset" class="mindset-section">
+        <div class="container">
+            <h2>भावनात्मक जुड़ाव: आप शुरुआत क्यों नहीं कर पा रहे?</h2>
+            <p>नौकरी में निराशा, वित्तीय तनाव, या बस शुरुआत करने का डर—ये सभी सामान्य भावनाएं हैं। पर याद रखें, बिज़नेस आइडिया सिर्फ़ 10% है। असली सफलता सही मानसिकता (Mindset) और अमल (Execution) में है।</p>
+            
+            <div class="insight-box">
+                <p><strong>सबसे बड़ी गलती:</strong> 90% लोग इसलिए शुरू नहीं करते क्योंकि वे सोचते हैं "इसे बेचूंगा कहाँ?"। पहले उत्पाद (Product) को पहचानें, उसकी गुणवत्ता (Quality) पर काम करें, और उसे हज़ारों तक पहुँचाएँ, फिर लाखों या करोड़ों का सोचें।</p>
+            </div>
+            
+            <h3>उद्यमिता के मुख्य मॉडल</h3>
+            <div class="mindset-grid">
+                <div class="mindset-card">
+                    <h3>DCBA मॉडल (व्यावसायिक शुरुआत के लिए)</h3>
+                    <ol>
+                        <li><strong>D - Dream (सपना):</strong> एक बड़ा सपना या ज़रूरत रखें। दबाव (Pressure) अक्सर तेज़ी से सफलता दिलाता है।</li>
+                        <li><strong>C - Challenge (चुनौती):</strong> अपने आस-पास की चुनौतियों का बारीक अध्ययन करें (जैसे: शहर में अच्छा खाना न मिलना, कचरा)।</li>
+                        <li><strong>B - Business (बिज़नेस):</strong> उन चुनौतियों को व्यावसायिक अवसर में बदलें।</li>
+                        <li><strong>A - Awareness (जागरूकता):</strong> रिसर्च करें कि बाज़ार में कौन क्या कर रहा है, और आप उसमें क्या नया मूल्य (Value) जोड़ सकते हैं।</li>
+                    </ol>
+                </div>
+                
+                <div class="mindset-card">
+                    <h3>H-P-P-R मॉडल (खाद्य गुणवत्ता के लिए)</h3>
+                    <p>यह मॉडल किसी भी खाद्य-आधारित बिज़नेस में दीर्घकालिक सफलता सुनिश्चित करता है:</p>
+                    <ol>
+                        <li><strong>H - Hygiene (स्वच्छता):</strong> केवल स्वच्छता बनाए न रखें, बल्कि उसे <strong>दिखाएँ भी</strong> (जैसे: भोजन बनाते समय का वीडियो भेजें)।</li>
+                        <li><strong>P - Preparation (तैयारी):</strong> रिसर्च और डेवलपमेंट में समय निवेश करें। जब तक आप खुद संतुष्ट न हों, तब तक न बेचें।</li>
+                        <li><strong>P - Presentation (प्रस्तुति):</strong> खाने से पहले ही ग्राहक को खुशी देने के लिए प्रस्तुति पर ध्यान दें।</li>
+                        <li><strong>R - Repeat Order (दोबारा ऑर्डर):</strong> यदि ग्राहक दोबारा ऑर्डर नहीं कर रहा, तो कुछ कमी है जिसे तुरंत सुधारें।</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Ideas Section -->
+    <section class="idea-section">
+        <div class="container">
+            <h2 class="section-title"><span>व्यवसाय के अवसर:</span> कम निवेश और उच्च क्षमता वाले आइडिया</h2>
+
+            <!-- 1. Food & Kitchen -->
+            <h3 id="food-kitchen" class="section-title" style="font-size: 1.7rem; text-align: left; border-bottom: 3px solid var(--color-primary); margin-top: 2rem;">1. घर की रसोई से क्लाउड किचन इनोवेशन (Urban Focus)</h3>
+            <div class="idea-grid">
+
+                <!-- Idea 1: Hyper-Local Healthy Food Delivery -->
+                <div class="idea-card">
+                    <div class="idea-header">
+                        <h3>ताज़ा और पौष्टिक भोजन की डिलीवरी (फ्रूट सलाद, सूप)</h3>
+                        <p style="font-size: 0.9rem;">कार्यशील पेशेवरों और परिवारों को दैनिक पोषण प्रदान करना।</p>
+                    </div>
+                    <div class="idea-content collapsible-content">
+                        <details>
+                            <summary>आइडिया क्या है और यह क्यों ज़रूरी है?</summary>
+                            <div class="details-body">
+                                <strong>यह क्या है:</strong> शहरी क्षेत्रों में काम करने वाले पति-पत्नी के लिए ताज़े, घर-जैसे भोजन जैसे - *फ्रूट सलाद* (Fruit Salad), *स्प्राउट्स* (Sprouts), *सूप* (Vegetable Soup), *दलिया*, *खिचड़ी* या *उपमा* बनाना और उन्हें वितरित करना।
+                                <h4>कौन शुरू कर सकता है</h4>
+                                कोई भी, विशेष रूप से वो लोग जो खाना बनाने में अच्छे हैं और स्वच्छता/पोषण को समझते हैं। इसे परिवार के तीन सदस्य पार्ट-टाइम में भी कर सकते हैं।
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>यह आइडिया क्यों महत्वपूर्ण है?</summary>
+                            <div class="details-body">
+                                <ul>
+                                    <li><strong>उच्च मांग:</strong> शहरों में लोग रोज़ाना नाश्ते/दोपहर के भोजन के लिए स्वस्थ विकल्प ढूँढते हैं, जो उन्हें नियमित रूप से मिल जाए, न कि सिर्फ़ पार्टी के लिए।</li>
+                                    <li><strong>कम निवेश, उच्च मार्जिन:</strong> परिवार के तीन सदस्य पार्ट-टाइम काम करके 40-50% मार्जिन के साथ महीने में ₹1.5 - ₹2 लाख का बिज़नेस कर रहे थे।</li>
+                                    <li><strong>स्केलेबिलिटी:</strong> इसे सब्सक्रिप्शन मॉडल (Subscription Model) के माध्यम से आसानी से बढ़ाया जा सकता है।</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>पर्यावरण-अनुकूल पहलू</summary>
+                            <div class="details-body">
+                                स्थानीय (Local) और ताज़े फलों/सब्जियों का उपयोग करके लंबी दूरी के परिवहन (Logistics) से होने वाले कार्बन फुटप्रिंट को कम करना। स्वस्थ, प्राकृतिक भोजन को बढ़ावा देना।
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>शुरुआत करने की प्रेरणा</summary>
+                            <div class="details-body">
+                                <strong>छोटे स्तर से शुरुआत करें:</strong> आपको एक बड़ा रेस्टोरेंट नहीं चाहिए, 90% ज़रूरी चीज़ें पहले से ही आपके घर की रसोई में मौजूद हैं।
+                                <p><strong>परफेक्ट समय का इंतज़ार मत करें:</strong> सबसे पहले अपने लोकल एरिया/सोसाइटी में फ़्री सैंपलिंग (Free Sampling) करें। यह सबसे सस्ता ग्राहक अधिग्रहण (Customer Acquisition) का तरीका है।</p>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>शुरुआत कैसे करें?</summary>
+                            <div class="details-body">
+                                <strong>पहला कदम:</strong> एक सबसे बेहतरीन, पौष्टिक डिश को परफेक्ट करें (जैसे: एक विशेष फ्रूट सलाद)।
+                                <ul>
+                                    <li><strong>लो-कॉस्ट मार्केटिंग:</strong> **Google My Business** पर अपना मेन्यू (Menu) और सभी searchable आइटम (जैसे "मेरे पास का सबसे अच्छा सूप") अपडेट करें।</li>
+                                    <li><strong>कौशल:</strong> खाना पकाने की अच्छी समझ, स्वच्छता का ध्यान रखना, लोकल डिलीवरी प्रबंधन।</li>
+                                </ul>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>Search Keywords</summary>
+                            <div class="details-body tag-list">
+                                <span class="tag">Healthy Meal Delivery</span>
+                                <span class="tag">Home Kitchen Business</span>
+                                <span class="tag">Fresh Salad Subscription</span>
+                                <span class="tag">GMB Cloud Kitchen</span>
+                                <span class="tag">पौष्टिक भोजन</span>
+                                <span class="tag">घर से सूप बिज़नेस</span>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                
+                <!-- Idea 2: Value-Added Indian Staples and Snacks (High Shelf Life) -->
+                <div class="idea-card">
+                    <div class="idea-header">
+                        <h3>विशेष और त्योहार के स्नैक्स (ज़्यादा शेल्फ-लाइफ)</h3>
+                        <p style="font-size: 0.9rem;">कटहल के मसाले से लेकर ठेकुआ तक, खासियत पर फोकस करें।</p>
+                    </div>
+                    <div class="idea-content collapsible-content">
+                        <details>
+                            <summary>आइडिया क्या है और यह क्यों ज़रूरी है?</summary>
+                            <div class="details-body">
+                                <strong>यह क्या है:</strong> पारंपरिक भारतीय खाद्य पदार्थों में कोई नया मूल्य (Value) जोड़कर प्रीमियम पर बेचना। जैसे: कटहल की सब्ज़ी के लिए ख़ास मसाला, त्योहारों के मीठे और नमकीन स्नैक्स (*गुजिया*, *समोसा*, *बालूशाही*) या मल्टीग्रेन *आटा*।
+                                <h4>कैसे काम करता है</h4>
+                                पूना में एक उदाहरण जहाँ एक महिला 17+ WhatsApp ग्रुप्स बनाकर रोज़ सुबह 50 किलो स्नैक एडवांस पेमेंट के साथ बेच देती हैं। पश्चिम बंगाल के 16-17 साल के बच्चों ने **ठेकुआ** (Chhath Puja Dish) बेचकर लाखों का बिज़नेस किया।
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>यह आइडिया क्यों महत्वपूर्ण है?</summary>
+                            <div class="details-body">
+                                <ul>
+                                    <li><strong>ब्रांडिंग:</strong> एक विशिष्ट उत्पाद (Specialty Product) पर ध्यान केंद्रित करने से मजबूत ब्रांड पहचान बनती है।</li>
+                                    <li><strong>मिलेट्स का अवसर:</strong> मिलेट्स (Millets) से जुड़े उत्पाद आजकल मोदी सरकार के प्रचार के कारण अपने आप बिक रहे हैं, बस गुणवत्ता में दम होना चाहिए।</li>
+                                    <li><strong>ग्रामीण/छोटे शहर का अवसर:</strong> यदि आप शहर से दूर हैं, तो *नमकीन* या *ठेकुआ* जैसे 45–60 दिन शेल्फ-लाइफ वाले उत्पादों पर ध्यान दें।</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>पर्यावरण-अनुकूल पहलू</summary>
+                            <div class="details-body">
+                                <strong>टिकाऊपन:</strong> बाजरा (Millets) जैसे पौष्टिक अनाजों को बढ़ावा देना, जो पानी की कम खपत करते हैं और स्थानीय किसानों से उच्च गुणवत्ता वाला कच्चा माल (Raw Material) सोर्स करना।
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>शुरुआत करने की प्रेरणा</summary>
+                            <div class="details-body">
+                                <strong>छोटे स्तर से शुरुआत करें:</strong> अपनी मार्केटिंग का पैसा Facebook Ads में लगाने के बजाय सीधे ग्राहक को डिस्काउंट या मुफ़्त सैंपल के रूप में दें।
+                                <p><strong>सोशल मीडिया शक्ति:</strong> 16-17 साल के बच्चों ने केवल रील्स बनाकर लाखों का बिज़नेस किया। अपने उत्पाद की तैयारी और ग्राहकों के अनुभव की रील्स बनाएँ।</p>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>शुरुआत कैसे करें?</summary>
+                            <div class="details-body">
+                                <strong>पहला कदम:</strong> एक पारंपरिक व्यंजन चुनें और उसकी रेसिपी को बिल्कुल परफेक्ट कर लें।
+                                <ul>
+                                    <li><strong>ऑनलाइन/ऑफलाइन:</strong> ऑर्गेनिक मार्केटिंग के लिए स्थानीय मेलों (Exhibitions/Melas) में स्टॉल लगाएँ और डिस्काउंट कूपन बाँटें।</li>
+                                    <li><strong>कौशल:</strong> पाक कला विशेषज्ञता, खाद्य मानकीकरण (Standardization), WhatsApp/सोशल मीडिया प्रबंधन।</li>
+                                </ul>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>Search Keywords</summary>
+                            <div class="details-body tag-list">
+                                <span class="tag">WhatsApp Food Selling</span>
+                                <span class="tag">Millets Snacks Business</span>
+                                <span class="tag">High Shelf Life Food</span>
+                                <span class="tag">मल्टीग्रेन आटा</span>
+                                <span class="tag">ठेकुआ स्टार्टअप</span>
+                                <span class="tag">नमकीन होममेड</span>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2. Agriculture & Processing -->
+            <h3 id="agri-proc" class="section-title" style="font-size: 1.7rem; text-align: left; border-bottom: 3px solid var(--color-secondary); margin-top: 2rem;">2. कृषि प्रोसेसिंग और ग्रामीण अवसर (Value Addition)</h3>
+            <div class="idea-grid">
+
+                <!-- Idea 3: Dehydrated Food Powders & Specialty Pastes -->
+                <div class="idea-card">
+                    <div class="idea-header" style="background-color: var(--color-secondary);">
+                        <h3>सूखे खाद्य पाउडर और पेस्ट (करेला, आम, अदरक)</h3>
+                        <p style="font-size: 0.9rem;">फसल के नुकसान को रोकें और अंतरराष्ट्रीय बाज़ार में बेचें।</p>
+                    </div>
+                    <div class="idea-content collapsible-content">
+                        <details>
+                            <summary>आइडिया क्या है और यह क्यों ज़रूरी है?</summary>
+                            <div class="details-body">
+                                <strong>यह क्या है:</strong> अधिक उत्पादित होने वाली फ़सलों (जैसे *प्याज*, *टमाटर*, *अदरक*, *लहसुन*, *करेला* या *आम*) को सुखाकर (Dehydrate) पाउडर, पेस्ट या पल्प (*आम पापड़*) बनाना।
+                                <h4>कैसे काम करता है</h4>
+                                भारत कृषि प्रधान देश होने के कारण फसलें अक्सर ख़राब हो जाती हैं। साधारण प्रोसेसिंग से उत्पाद का मूल्य कई गुना बढ़ जाता है (उदाहरण: प्रोसेस किया हुआ आम विदेशों में ₹3000/किलो बिकता है)।
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>यह आइडिया क्यों महत्वपूर्ण है?</summary>
+                            <div class="details-body">
+                                <ul>
+                                    <li><strong>अंतर्राष्ट्रीय मांग:</strong> करेला पाउडर (Bitter Gourd Powder) जैसी चीज़ें बीपी (BP) और शुगर (Sugar) जैसी बीमारियों की दवाइयों में बड़े पैमाने पर उपयोग होती हैं।</li>
+                                    <li><strong>सरकारी सहायता:</strong> भारत सरकार खाद्य प्रसंस्करण (Food Processing) इकाइयों पर 30% से 60% तक की सब्सिडी और लोन दे रही है।</li>
+                                    <li><strong>कम निवेश:</strong> गाँव में यह बिज़नेस केवल ₹25,000 के निवेश में शुरू किया जा सकता है।</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>पर्यावरण-अनुकूल पहलू</summary>
+                            <div class="details-body">
+                                <strong>फसल अपशिष्ट कम करना:</strong> यह सीधे तौर पर किसानों के फसल नुकसान (Overproduction Waste) को कम करता है और खाद्य सुरक्षा को बढ़ाता है।
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>शुरुआत करने की प्रेरणा</summary>
+                            <div class="details-body">
+                                <strong>धीमी वृद्धि ही सफलता है:</strong> अगर आपको इसे बेचने के लिए ज़्यादा ऐड (Ad) नहीं भी करना पड़ता है, तो भी इसकी मार्केटिंग **परिणाम (Outcome)** पर केंद्रित करें, न कि सिर्फ़ उत्पाद के फीचर्स पर (जैसे: मोरिंगो खाने से स्वास्थ्य में क्या बदलाव आएगा)।
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>शुरुआत कैसे करें?</summary>
+                            <div class="details-body">
+                                <strong>पहला कदम:</strong> अपने स्थानीय क्षेत्र में अधिकता से उपलब्ध होने वाली फ़सल चुनें (*अदरक*, *लहसुन*, *धनिया*) और उसके पेस्ट/पाउडर की गुणवत्ता पर काम करें।
+                                <ul>
+                                    <li><strong>कौशल:</strong> बुनियादी प्रोसेसिंग, सुखाने की तकनीक, गुणवत्ता नियंत्रण (Quality Control), पैकेजिंग।</li>
+                                    <li><strong>उदाहरण:</strong> हरियाणा के पास एक इंजीनियर दंपति मोरिंगो (सहजन) पाउडर बनाकर एक्सपोर्ट कर रहे हैं।</li>
+                                </ul>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>Search Keywords</summary>
+                            <div class="details-body tag-list">
+                                <span class="tag">Karela Powder Export</span>
+                                <span class="tag">Food Processing Subsidy</span>
+                                <span class="tag">Ginger Garlic Paste Business</span>
+                                <span class="tag">Dehydrated Onion Powder</span>
+                                <span class="tag">आम पापड़ प्रोसेसिंग</span>
+                                <span class="tag">मोरिंगो पाउडर बिज़नेस</span>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Idea 4: High-Value Exotic & Medicinal Crops -->
+                <div class="idea-card">
+                    <div class="idea-header" style="background-color: var(--color-secondary);">
+                        <h3>उच्च मूल्य वाली खेती और हर्बल उत्पाद (केसर, ड्रैगन फ्रूट)</h3>
+                        <p style="font-size: 0.9rem;">कम जगह में भी लाखों का कारोबार संभव।</p>
+                    </div>
+                    <div class="idea-content collapsible-content">
+                        <details>
+                            <summary>आइडिया क्या है और यह क्यों ज़रूरी है?</summary>
+                            <div class="details-body">
+                                <strong>यह क्या है:</strong> ऐसी फसलें उगाना जिनकी मांग या मूल्य बहुत अधिक है। उदाहरण: *केसर* (Saffron), *माइक्रोग्रीन्स* (Micro Greens), *ड्रैगन फ्रूट* (Dragon Fruit), *शिमला मिर्च* (Capsicum in Polyhouse)। इसके साथ ही *हिबिस्कस* (जासोन फूल), *ब्लू टी* (*अपराजिता*), या *गिलोय* जैसी औषधीय जड़ी-बूटियों को प्रोसेस करना।
+                                <h4>सफलता के उदाहरण</h4>
+                                एक व्यक्ति ने 100 वर्ग फुट के कमरे से माइक्रोग्रीन्स बेचकर ₹1.44 करोड़ का टर्नओवर किया। वाराणसी के राजकुमार पाल 500 वर्ग फुट की छत से ड्रैगन फ्रूट उगाकर ₹3-4 लाख प्रति सीज़न कमा रहे हैं।
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>यह आइडिया क्यों महत्वपूर्ण है?</summary>
+                            <div class="details-body">
+                                <ul>
+                                    <li><strong>उच्च मार्जिन:</strong> केसर ₹3 लाख प्रति किलो तक बिकता है। हर्बल टी (*हिबिस्कस*) भी लगभग ₹2000 प्रति किलो के भाव से बिकती है।</li>
+                                    <li><strong>कम जगह:</strong> खेती के लिए बहुत बड़े खेत की ज़रूरत नहीं है; छत (Terrace) और छोटे कमरे का उपयोग हो सकता है।</li>
+                                    <li><strong>आसान मार्केटिंग:</strong> *गिलोय* और *ब्लू टी* जैसे उत्पादों को पहले ही बड़े ब्रांड्स ने लोकप्रिय बना दिया है।</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>पर्यावरण-अनुकूल पहलू</summary>
+                            <div class="details-body">
+                                <strong>हरित व्यापार:</strong> यह जैविक (Organic) खेती को बढ़ावा देता है। *पॉली हाउस* में *शिमला मिर्च* जैसी खेती को सरकार भी सब्सिडी दे रही है।
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>शुरुआत करने की प्रेरणा</summary>
+                            <div class="details-body">
+                                <strong>सीखने का निवेश:</strong> लोग स्कूल-कॉलेज में 20 साल लगाते हैं, पर बिज़नेस स्किल सीखने में 6 महीने नहीं। शुरुआत करने से पहले 4-6 महीने की ट्रेनिंग लें। जिस व्यक्ति को 3 साल लगे, आप उसके पदचिन्हों पर चलकर डेढ़ साल में ही सफल हो सकते हैं।
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>शुरुआत कैसे करें?</summary>
+                            <div class="details-body">
+                                <strong>पहला कदम:</strong> अपने क्षेत्र के आस-पास आसानी से मिलने वाली जड़ी-बूटी (*गिलोय*) या फसल चुनें।
+                                <ul>
+                                    <li><strong>लो-कॉस्ट तकनीक:</strong> *हिबिस्कस* के फूलों को तोड़ने के बाद, उन्हें सीधी धूप से बचाकर छाँव वाली जगह पर सुखाएँ।</li>
+                                    <li><strong>AI/Online मदद:</strong> Google पर "Moringa Powder Business" या "Saffron Cultivation India" सर्च करके पहले से काम कर रहे लोगों के वीडियो देखें।</li>
+                                </ul>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>Search Keywords</summary>
+                            <div class="details-body tag-list">
+                                <span class="tag">Saffron Cultivation India</span>
+                                <span class="tag">Dragon Fruit Farming Terrace</span>
+                                <span class="tag">माइक्रोग्रीन बिज़नेस</span>
+                                <span class="tag">हिबिस्कस टी होम बिज़नेस</span>
+                                <span class="tag">गिलोय जूस उत्पादन</span>
+                                <span class="tag">पॉली हाउस खेती</span>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Eco-Friendly, Waste & Upcycling -->
+            <h3 id="eco-waste" class="section-title" style="font-size: 1.7rem; text-align: left; border-bottom: 3px solid var(--color-accent-green); margin-top: 2rem;">3. पर्यावरण और शून्य-अपशिष्ट (Waste-to-Wealth)</h3>
+            <div class="idea-grid">
+
+                <!-- Idea 5: Waste Clothing Upcycling (Bags, Mats, Rugs) -->
+                <div class="idea-card">
+                    <div class="idea-header" style="background-color: var(--color-accent-green);">
+                        <h3>पुराने कपड़ों की रीसाइक्लिंग: दरी और उपयोगी बैग</h3>
+                        <p style="font-size: 0.9rem;">कचरे में जा रहे कपड़ों को नए उत्पादों में बदलकर लाभ कमाना।</p>
+                    </div>
+                    <div class="idea-content collapsible-content">
+                        <details>
+                            <summary>आइडिया क्या है और यह क्यों ज़रूरी है?</summary>
+                            <div class="details-body">
+                                <strong>यह क्या है:</strong> घरों से पुराने कपड़े/साड़ियाँ खरीदकर या लेकर (फ़्री में नहीं), उन्हें रंग और गुणवत्ता के हिसाब से अलग करके बैग, घर में बिछाने वाली दरी (Rug), या पानी सोखने वाले मैट (*पैरपश*) बनाना।
+                                <h4>सफलता के उदाहरण</h4>
+                                एक माँ-बेटे की जोड़ी पार्ट-टाइम में 3BHK घर से 2000 बैग/माह बेचकर ₹1 लाख का नेट प्रॉफिट कमा रही है।
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>यह आइडिया क्यों महत्वपूर्ण है?</summary>
+                            <div class="details-body">
+                                <ul>
+                                    <li><strong>उत्कृष्ट मार्जिन:</strong> कच्चे माल की लागत बहुत कम (या शून्य, जैसे साड़ियों को दरी बनाने के लिए केवल मज़दूरी लेना)।</li>
+                                    <li><strong>भावनात्मक मूल्य:</strong> मार्केटिंग में उत्पाद की जगह **"देश का कचरा कम करने"** की कहानी पर ध्यान केंद्रित करना।</li>
+                                    <li><strong>कम निवेश:</strong> एक सिलाई मशीन और 1-2 टेलर की ज़रूरत। इसे घर के एक कमरे से शुरू किया जा सकता है।</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>पर्यावरण-अनुकूल पहलू</summary>
+                            <div class="details-body">
+                                <strong>मूल मिशन:</strong> लैंडफिल (Landfills) में जाने वाले कपड़े के ढेर को सीधे कम करना। यह चक्रीय अर्थव्यवस्था (Circular Economy) का एक उत्कृष्ट उदाहरण है।
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>शुरुआत करने की प्रेरणा</summary>
+                            <div class="details-body">
+                                <strong>छोटा स्टार्ट काफी है:</strong> यह कोई रॉकेट साइंस नहीं है। यदि आपके पास संगठन क्षमता (Organizational Skills) है, तो इसे तुरंत शुरू कर सकते हैं।
+                                <p><strong>योजना:</strong> बेटा सोशल मीडिया पर जागरूकता फैलाता है और माँ कपड़े इकट्ठा करने का काम करती हैं — अपनी कौशल का कॉम्प्लीमेंट्री (Complementary) उपयोग करें।</p>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>शुरुआत कैसे करें?</summary>
+                            <div class="details-body">
+                                <strong>पहला कदम:</strong> पुराने कपड़ों को इकट्ठा करने के लिए अपने आस-पड़ोस में एक अनाउंसमेंट करें।
+                                <ul>
+                                    <li><strong>ऑनलाइन अवसर:</strong> सोशल मीडिया पर "पहले" (कचरा) और "बाद" (तैयार उत्पाद) की रील्स बनाएँ।</li>
+                                    <li><strong>संबंधित आइडिया:</strong> पुराने चिप्स/नमकीन के पैकेट्स से सजावट के सामान बनाना।</li>
+                                </ul>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>Search Keywords</summary>
+                            <div class="details-body tag-list">
+                                <span class="tag">Textile Upcycling</span>
+                                <span class="tag">कचरे से कमाई</span>
+                                <span class="tag">Saree Recycling Rugs</span>
+                                <span class="tag">Zero Waste Home Decor</span>
+                                <span class="tag">पुराने कपड़ों के बैग</span>
+                                <span class="tag">कम निवेश व्यवसाय</span>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Idea 6: Vermicompost & Cow Dung Products -->
+                <div class="idea-card">
+                    <div class="idea-header" style="background-color: var(--color-accent-green);">
+                        <h3>गोबर और रसोई अपशिष्ट से वर्मीकम्पोस्ट (कचुआ खाद)</h3>
+                        <p style="font-size: 0.9rem;">अपशिष्ट को उर्वरक और दैनिक उपयोग की वस्तुओं में बदलना।</p>
+                    </div>
+                    <div class="idea-content collapsible-content">
+                        <details>
+                            <summary>आइडिया क्या है और यह क्यों ज़रूरी है?</summary>
+                            <div class="details-body">
+                                <strong>यह क्या है:</strong> जैविक अपशिष्ट (Organic Waste) जैसे रसोई के बचे हुए खाने, गाय का गोबर (*मवेशियों के कारण गाँव में एक बड़ी चुनौती*) या मंदिर के फूल इकट्ठा करके कचुआ खाद (Vermicompost), धूपबत्ती, पेंट या उपहार (Gift) आइटम बनाना।
+                                <h4>क्यों ज़रूरी</h4>
+                                यह गाँव और शहर दोनों में जैविक कचरे की समस्या का समाधान करता है। शहर की सोसाइटीज़ में कचरा प्रबंधन (Waste Management) करके उस खाद से छत पर सब्ज़ियाँ उगाना और बेचना एक सफल मॉडल है।
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>यह आइडिया क्यों महत्वपूर्ण है?</summary>
+                            <div class="details-body">
+                                <ul>
+                                    <li><strong>बाज़ार की मांग:</strong> जैविक खाद (Organic Manure) की माँग अर्बन गार्डनिंग (Urban Gardening) और नर्सरी में बहुत अधिक है।</li>
+                                    <li><strong>शून्य कच्चा माल लागत:</strong> मंदिर के फूल इकट्ठा करके धूपबत्ती बनाने जैसे बिज़नेस में कच्चा माल फ़्री होता है।</li>
+                                    <li><strong>अंतर्राष्ट्रीय अवसर:</strong> गाय के गोबर से बने उत्पादों (पेंट, गिफ्ट) की मांग भारत के बाहर भी है।</li>
+                                    <li><strong>उदाहरण:</strong> दिल्ली की नवजीवन सोसाइटी कचरे का 100% प्रबंधन करके शून्य-अपशिष्ट सोसाइटी बन गई।</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>पर्यावरण-अनुकूल पहलू</summary>
+                            <div class="details-body">
+                                <strong>स्थिरता (Sustainability):</strong> लैंडफिल को कम करता है और रासायनिक उर्वरकों के उपयोग को हतोत्साहित करता है। मक्का (Bhutta) के तने से गुड़ बनाना (जो अन्यथा बर्बाद हो जाता) एक और सफल मॉडल है।
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>शुरुआत करने की प्रेरणा</summary>
+                            <div class="details-body">
+                                <strong>गांव में आसानी:</strong> गाँव में जगह की समस्या नहीं होती, इसलिए कम्पोस्ट बनाना सीधा काम है।
+                                <p><strong>छोटे स्तर से शुरुआत करें:</strong> ₹50,000–₹2 लाख के निवेश से छोटे वर्मीकम्पोस्ट बेड शुरू किए जा सकते हैं।</p>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>शुरुआत कैसे करें?</summary>
+                            <div class="details-body">
+                                <strong>पहला कदम:</strong> यदि शहर में हैं, तो अपनी सोसाइटी के अध्यक्ष से मिलकर कचरा अलग-अलग (Segregate) करने का नियम शुरू करवाएँ।
+                                <ul>
+                                    <li><strong>कौशल:</strong> कम्पोस्टिंग/खाद बनाने की बुनियादी जानकारी।</li>
+                                    <li><strong>मार्केटिंग:</strong> उत्पाद के फ़ीचर नहीं, बल्कि उसके आउटकम (जैसे स्वस्थ सब्ज़ियाँ) बेचें।</li>
+                                </ul>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>Search Keywords</summary>
+                            <div class="details-body tag-list">
+                                <span class="tag">Vermicompost India</span>
+                                <span class="tag">कचुआ खाद बिज़नेस</span>
+                                <span class="tag">Cow Dung Paint</span>
+                                <span class="tag">Zero Waste Society</span>
+                                <span class="tag">मंदिर फूल धूपबत्ती</span>
+                                <span class="tag">Organic Manure</span>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Skills, Services & Digital -->
+            <h3 id="skills-serv" class="section-title" style="font-size: 1.7rem; text-align: left; border-bottom: 3px solid var(--color-primary); margin-top: 2rem;">4. कौशल और सेवा आधारित अवसर (Home-based Services)</h3>
+            <div class="idea-grid">
+
+                <!-- Idea 7: Premium Home-Based Daycare & Child Skill Training -->
+                <div class="idea-card">
+                    <div class="idea-header">
+                        <h3>प्रीमियम होम-बेस्ड डेकेयर और बाल कौशल प्रशिक्षण</h3>
+                        <p style="font-size: 0.9rem;">माता-पिता की चिंताओं को समझें और उन्हें दूर करके विश्वास जीतें।</p>
+                    </div>
+                    <div class="idea-content collapsible-content">
+                        <details>
+                            <summary>आइडिया क्या है और यह क्यों ज़रूरी है?</summary>
+                            <div class="details-body">
+                                <strong>यह क्या है:</strong> अपने घर से छोटे पैमाने पर डेकेयर (Daycare) चलाना या उच्च-मूल्य वाले कौशल प्रशिक्षण (*मिडब्रेन एक्टिवेशन*, योगा) देना।
+                                <h4>मार्केटिंग की कुंजी</h4>
+                                माता-पिता की सबसे बड़ी चिंताएँ (सुरक्षा, स्वच्छता, व्यवहार) होती हैं। सफल डेकेयर वह है जो इन चिंताओं का जवाब पहले ही दे दे (जैसे: 24/7 CCTV एक्सेस, बच्चे की डेली प्रोग्रेस का वीडियो भेजना, पॉटी ट्रेनिंग के लिए नैनीज़ को जेंटल ट्रेनिंग देना)।
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>यह आइडिया क्यों महत्वपूर्ण है?</summary>
+                            <div class="details-body">
+                                <ul>
+                                    <li><strong>उच्च मांग और फीस:</strong> एक सोसाइटी में 17 डेकेयर सेंटर तक चल रहे हैं। एक शिफ्ट में 50 बच्चे और ₹3000 प्रति बच्चा फीस से ₹1.5 लाख कमाना आसान है।</li>
+                                    <li><strong>कम पूंजी:</strong> केवल एक ख़ाली कमरा, सुरक्षा के लिए CCTV, और 2-3 नैनीज़ की ज़रूरत होती है।</li>
+                                    <li><strong>मूल्य प्रस्ताव:</strong> बच्चों को धैर्य (Patience) सिखाने और एक्टिविटी-आधारित लर्निंग (Activity-based learning) पर ज़ोर दें।</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>पर्यावरण-अनुकूल पहलू</summary>
+                            <div class="details-body">
+                                <strong>नैतिक व्यापार:</strong> बच्चों को केवल एकेडमिक दबाव के बजाय भावनात्मक और व्यवहारिक विकास सिखाना एक नैतिक और दीर्घकालिक मूल्य है।
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>शुरुआत करने की प्रेरणा</summary>
+                            <div class="details-body">
+                                <strong>सफलता सेवा पर निर्भर:</strong> सफलता केवल बेहतरीन ग्राहक सेवा (Customer Service) और वास्तविक देखभाल (Genuine Care) पर निर्भर करती है, न कि बड़े इंफ्रास्ट्रक्चर पर।
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>शुरुआत कैसे करें?</summary>
+                            <div class="details-body">
+                                <strong>पहला कदम:</strong> *मिडब्रेन एक्टिवेशन* या किसी अन्य उच्च-मूल्य वाले कौशल की ट्रेनिंग लें।
+                                <ul>
+                                    <li><strong>रणनीति:</strong> उन 8-10 सवालों की लिस्ट बनाएँ जो माता-पिता सबसे ज़्यादा पूछते हैं, और हर सवाल का जवाब अपनी मार्केटिंग में पहले ही दे दें।</li>
+                                    <li><strong>कौशल:</strong> बाल मनोविज्ञान (Child Psychology), प्रभावी संचार (Effective Communication)।</li>
+                                </ul>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>Search Keywords</summary>
+                            <div class="details-body tag-list">
+                                <span class="tag">Home Daycare Business</span>
+                                <span class="tag">Midbrain Activation Training</span>
+                                <span class="tag">Childcare Marketing</span>
+                                <span class="tag">Safe Home Childcare</span>
+                                <span class="tag">एक्टिविटी आधारित शिक्षा</span>
+                                <span class="tag">घर से कोचिंग</span>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Idea 8: Natural & Organic Skincare Manufacturing -->
+                <div class="idea-card">
+                    <div class="idea-header">
+                        <h3>नेचुरल और हैंडमेड स्किनकेयर उत्पाद (साबुन, फेस पैक)</h3>
+                        <p style="font-size: 0.9rem;">केमिकल-मुक्त उत्पादों की बढ़ती मांग का फायदा उठाएँ।</p>
+                    </div>
+                    <div class="idea-content collapsible-content">
+                        <details>
+                            <summary>आइडिया क्या है और यह क्यों ज़रूरी है?</summary>
+                            <div class="details-body">
+                                <strong>यह क्या है:</strong> घर पर *मुल्तानी मिट्टी*, *हल्दी*, *एलोवेरा* (Aloe Vera), *चिया सीड*, *कद्दू के बीज* (Pumpkin Seed) या *चारकोल* जैसे प्राकृतिक चीज़ों का उपयोग करके *साबुन*, *फेस पैक* और अन्य सौंदर्य उत्पाद बनाना।
+                                <h4>सफलता</h4>
+                                एक व्यक्ति रोज़ाना 150-200 हैंडमेड साबुन बेचकर महीने में लगभग ₹3-3.5 लाख का बिज़नेस कर रहा है। शुद्ध, हाथ से बने होने का दावा ही इसका मूल्य है।
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>यह आइडिया क्यों महत्वपूर्ण है?</summary>
+                            <div class="details-body">
+                                <ul>
+                                    <li><strong>मार्केट डिमांड:</strong> बाज़ार में केमिकल-युक्त उत्पादों की जागरूकता बढ़ने के कारण ऑर्गेनिक, प्राकृतिक उत्पादों की मांग लगातार बढ़ रही है।</li>
+                                    <li><strong>लो-कॉस्ट रॉ मटेरियल:</strong> संतरे के छिलकों को जूस की दुकानों से फ़्री में लेकर सुखाना और मुल्तानी मिट्टी के साथ फेस पैक बनाना एक सरल और सस्ता इनोवेशन है।</li>
+                                    <li><strong>शुरुआत का खर्च:</strong> बिंदी बनाने वाली मशीन ₹12-15,000 में आती है, जिसका इस्तेमाल करके भी बिज़नेस शुरू हो सकता है।</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>पर्यावरण-अनुकूल पहलू</summary>
+                            <div class="details-body">
+                                <strong>अपशिष्ट का उपयोग:</strong> यह जूस की दुकानों से निकलने वाले संतरे के छिलके या इस्तेमाल की गई चाय पत्ती जैसे अपशिष्ट पदार्थों का उपयोग करके लैंडफिल का बोझ कम करता है।
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>शुरुआत करने की प्रेरणा</summary>
+                            <div class="details-body">
+                                <strong>हार मत मानिए:</strong> हो सकता है कि पहले 5 उत्पाद फ़ॉर्मूलेशन (Formulations) विफल हो जाएँ, लेकिन सही उत्पाद मिलने तक प्रयोग करते रहें।
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>शुरुआत कैसे करें?</summary>
+                            <div class="details-body">
+                                <strong>पहला कदम:</strong> ऑनलाइन रिसर्च करें कि कौन से 150 ऑर्गेनिक उत्पाद घर पर बनाए जा सकते हैं। एक को चुनें और उसे परफेक्ट करें।
+                                <ul>
+                                    <li><strong>लो-कॉस्ट:</strong> शुरुआत में रसोई के उपकरण का उपयोग करें। कच्चे माल के लिए संतरे के छिलके मुफ़्त में सोर्स करें।</li>
+                                    <li><strong>कौशल:</strong> फ़ॉर्मूलेशन की बुनियादी समझ (YouTube से सीख सकते हैं), टेस्टिंग, और आकर्षक पैकेजिंग।</li>
+                                </ul>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>Search Keywords</summary>
+                            <div class="details-body tag-list">
+                                <span class="tag">Organic Soap Making</span>
+                                <span class="tag">Handmade Face Pack</span>
+                                <span class="tag">Multani Mitti Business</span>
+                                <span class="tag">Orange Peel Powder</span>
+                                <span class="tag">केमिकल फ्री स्किनकेयर</span>
+                                <span class="tag">बिंदी बनाने की मशीन</span>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                
+                <!-- Additional Skill-Based Ideas (Hidden Gems) -->
+                <div class="idea-card">
+                    <div class="idea-header" style="background-color: var(--color-text);">
+                        <h3>कौशल आधारित सूक्ष्म व्यवसाय (Micro Businesses)</h3>
+                        <p style="font-size: 0.9rem;">इंटरनेट और अपनी प्रतिभा का उपयोग करके कमाई।</p>
+                    </div>
+                    <div class="idea-content collapsible-content">
+                        <details>
+                            <summary>मुख्य आइडियाज</summary>
+                            <div class="details-body">
+                                <ul>
+                                    <li><strong>कंटेंट क्रिएशन/कोचिंग:</strong> यदि आपको *गिटार*, *कराटे*, *सिलाई-कढ़ाई* (Stitching), *स्केटिंग* या कोई खेल आता है, तो उसकी ट्यूशन क्लास अपने घर या ऑनलाइन शुरू करें।</li>
+                                    <li><strong>नेटवर्किंग और कोलैबोरेशन:</strong> बिज़नेस नेटवर्किंग समूह बनाकर सालाना फ़ीस लेना। (एक भाई-बहन की जोड़ी इस मॉडल से करोड़ों कमा रही है)।</li>
+                                    <li><strong>एफिलिएट/बाटर मार्केटिंग:</strong> अपने उत्पाद को सीधे बेचने के बजाय, सोशल मीडिया इन्फ्लुएंसर (Influencers) को फ़्री में उत्पाद देकर उनसे अपने प्रोडक्ट को प्रमोट करवाना।</li>
+                                </ul>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>शुरुआत कैसे करें?</summary>
+                            <div class="details-body">
+                                <strong>पहला कदम:</strong> अपनी सबसे अच्छी स्किल पहचानें।
+                                <ul>
+                                    <li><strong>रणनीति:</strong> यदि आप सिर्फ़ प्रोडक्ट बना सकते हैं (Production Expert), तो एक ऐसा पार्टनर चुनें जो मार्केटिंग और सेल्स में एक्सपर्ट हो। दोनों के कौशल कॉम्प्लीमेंट्री (Complementary) होने चाहिए।</li>
+                                    <li><strong>उदाहरण:</strong> सिलाई-कढ़ाई करने वाले एक भाई-बहन की जोड़ी करोड़ों का रेवेन्यू कर रही है।</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Resources Section -->
+    <section id="resources" class="resources-section">
+        <div class="container">
+            <h2>अगला कदम: गहराई से रिसर्च और ज़रूरी स्रोत</h2>
+            <p>सुनने के बाद रुकें नहीं। जो लोग पहले से यह काम कर रहे हैं, उनसे सीखें।</p>
+            
+            <ul class="resource-list">
+                <li>
+                    <strong>मूल YouTube चर्चा:</strong>
+                    <br>[Startup ideas and frameworks to make you wealthy. - YouTube](https://youtu.be/07GKdopqtNw?si=78RKEUWNSs7MmtNC)
+                </li>
+                <li>
+                    <strong>उल्लेखित ई-बुक (E-Book):</strong>
+                    <br>20 सामान्य और 20 महिलाओं के लिए विशिष्ट व्यावसायिक विचारों वाली ई-बुक, जिसमें केस स्टडी और मार्केटिंग रणनीतियाँ शामिल हैं। (लिंक डिस्क्रिप्शन में उपलब्ध है)।
+                </li>
+                <li>
+                    <strong>व्यक्तिगत विकास के लिए पुस्तक:</strong>
+                    <br>शिखा जी की पुस्तक: **'द वे बैक टू यू'**। यह आपको अपने 'हायर सेल्फ' से जुड़ने और जीवन की समस्याओं (स्ट्रेस, ओवरथिंकिंग) के समाधान खोजने में मदद करेगी।
+                </li>
+                <li>
+                    <strong>डीप रिसर्च के लिए खोज वाक्यांश:</strong>
+                    <br>इन वाक्यांशों का उपयोग करके Google पर खोज करें:
+                    <div class="tag-list" style="justify-content: center;">
+                        <span class="tag">HPP&R मॉडल क्या है?</span>
+                        <span class="tag">माइक्रोग्रीन 1 करोड़ टर्नओवर</span>
+                        <span class="tag">ड्रैगन फ्रूट टेरेस फार्मिंग</span>
+                        <span class="tag">फूड प्रोसेसिंग सब्सिडी इंडिया</span>
+                        <span class="tag">Google My Business क्लाउड किचन</span>
+                        <span class="tag">मशरूम किंग सक्सेस स्टोरी</span>
+                    </div>
+                </li>
+                <li>
+                    <strong>साझेदारी (Partnership) का नियम:</strong>
+                    <br>सफलता के लिए, ऐसा पार्टनर चुनें जिसका कौशल आपके कौशल का पूरक हो (जैसे: आप बनाने में अच्छे हैं, तो वह बेचने में अच्छा हो)। समान कौशल वाले दो लोग एक साथ धीमी गति से बढ़ते हैं।
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 हिंदी स्टार्टअप विश्लेषण। आपकी यात्रा आज से शुरू!</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
