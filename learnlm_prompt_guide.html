@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LearnLM Prompt Engineering Guide (Hindi Edition)</title>
+
+<style>
+:root{
+    --bg:#0f172a;
+    --card:#111827;
+    --soft:#1e293b;
+    --text:#f8fafc;
+    --muted:#cbd5e1;
+    --primary:#38bdf8;
+    --green:#22c55e;
+    --yellow:#facc15;
+    --red:#ef4444;
+    --purple:#a855f7;
+    --border:#334155;
+    --code:#020617;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family: Inter, system-ui, sans-serif;
+    background:linear-gradient(180deg,#020617,#0f172a);
+    color:var(--text);
+    line-height:1.8;
+}
+
+.container{
+    display:flex;
+}
+
+.sidebar{
+    width:320px;
+    position:sticky;
+    top:0;
+    height:100vh;
+    overflow:auto;
+    padding:25px;
+    border-right:1px solid var(--border);
+    background:rgba(2,6,23,0.95);
+    backdrop-filter: blur(10px);
+}
+
+.sidebar h2{
+    font-size:24px;
+    margin-bottom:20px;
+    color:var(--primary);
+}
+
+.sidebar a{
+    display:block;
+    color:var(--muted);
+    text-decoration:none;
+    margin:10px 0;
+    transition:0.3s;
+    font-size:14px;
+}
+
+.sidebar a:hover{
+    color:white;
+    transform:translateX(5px);
+}
+
+.content{
+    flex:1;
+    padding:40px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.hero{
+    padding:60px 40px;
+    border-radius:24px;
+    background:linear-gradient(135deg,#0ea5e9,#7c3aed);
+    margin-bottom:40px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+
+.hero h1{
+    font-size:54px;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:20px;
+    max-width:900px;
+}
+
+.section{
+    margin-bottom:40px;
+}
+
+.card{
+    background:rgba(15,23,42,0.9);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:30px;
+    margin-top:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+h2{
+    font-size:36px;
+    margin-bottom:20px;
+    color:#fff;
+}
+
+h3{
+    font-size:24px;
+    margin-top:25px;
+    margin-bottom:15px;
+    color:var(--primary);
+}
+
+p{
+    margin-bottom:18px;
+    color:#e2e8f0;
+}
+
+ul{
+    padding-left:25px;
+    margin-bottom:20px;
+}
+
+li{
+    margin-bottom:12px;
+}
+
+.code{
+    background:var(--code);
+    border-left:5px solid var(--primary);
+    padding:20px;
+    border-radius:16px;
+    overflow:auto;
+    margin:20px 0;
+    font-family:Consolas, monospace;
+    color:#93c5fd;
+    white-space:pre-wrap;
+}
+
+.highlight{
+    background:rgba(56,189,248,0.12);
+    border:1px solid rgba(56,189,248,0.3);
+    padding:18px;
+    border-radius:16px;
+    margin:20px 0;
+}
+
+.tip{
+    background:rgba(34,197,94,0.12);
+    border-left:5px solid var(--green);
+    padding:18px;
+    border-radius:16px;
+    margin:20px 0;
+}
+
+.warning{
+    background:rgba(239,68,68,0.1);
+    border-left:5px solid var(--red);
+    padding:18px;
+    border-radius:16px;
+    margin:20px 0;
+}
+
+.revision{
+    background:rgba(250,204,21,0.1);
+    border-left:5px solid var(--yellow);
+    padding:18px;
+    border-radius:16px;
+    margin:20px 0;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin:20px 0;
+}
+
+table th, table td{
+    border:1px solid var(--border);
+    padding:14px;
+    text-align:left;
+}
+
+table th{
+    background:#1e293b;
+}
+
+.bad{
+    color:#f87171;
+}
+
+.good{
+    color:#4ade80;
+}
+
+.tag{
+    display:inline-block;
+    padding:5px 12px;
+    border-radius:999px;
+    background:#1e293b;
+    margin:5px;
+    font-size:13px;
+}
+
+.footer{
+    margin-top:80px;
+    text-align:center;
+    color:#94a3b8;
+    padding:40px;
+}
+
+button{
+    padding:10px 18px;
+    border:none;
+    border-radius:12px;
+    background:var(--primary);
+    color:#000;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.light{
+    --bg:#f8fafc;
+    --card:#ffffff;
+    --soft:#f1f5f9;
+    --text:#0f172a;
+    --muted:#334155;
+    --border:#cbd5e1;
+    --code:#e2e8f0;
+}
+
+@media(max-width:1000px){
+    .container{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        height:auto;
+        position:relative;
+        border-right:none;
+        border-bottom:1px solid var(--border);
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .content{
+        padding:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+<h2>📘 LearnLM Guide</h2>
+
+<a href="#intro">Introduction</a>
+<a href="#what">What is LearnLM?</a>
+<a href="#why">Why Google Created LearnLM</a>
+<a href="#philosophy">Core Philosophy</a>
+<a href="#principles">Prompting Principles</a>
+<a href="#difference">LearnLM vs Normal Prompting</a>
+<a href="#parts">PARTS Framework</a>
+<a href="#goodbad">Good vs Bad Prompt</a>
+<a href="#role">Role Prompting</a>
+<a href="#cot">Chain of Thought</a>
+<a href="#structured">Structured Output</a>
+<a href="#education">Educational Prompting</a>
+<a href="#memory">Memory & Context</a>
+<a href="#safety">Safety & Hallucination</a>
+<a href="#templates">Prompt Templates</a>
+<a href="#student">Student Examples</a>
+<a href="#teacher">Teacher Examples</a>
+<a href="#business">Business Examples</a>
+<a href="#mistakes">Common Mistakes</a>
+<a href="#best">Best Practices</a>
+<a href="#advanced">Advanced Techniques</a>
+<a href="#summary">Summary Notes</a>
+<a href="#cheatsheet">Final Cheat Sheet</a>
+<a href="#top25">Top 25 Prompts</a>
+
+<button onclick="toggleTheme()">🌗 Theme Toggle</button>
+</div>
+
+<div class="content">
+
+<section class="hero" id="intro">
+<h1>🚀 LearnLM Prompt Engineering Guide</h1>
+
+<p>
+Google LearnLM आधारित यह प्रीमियम हिंदी गाइड भारतीय छात्रों, शिक्षकों, AI beginners, prompt engineering learners और Hindi-speaking users के लिए बनाई गई है।
+</p>
+
+<p>
+यह गाइड आपको सिखाएगी कि AI से बेहतर उत्तर कैसे प्राप्त करें, professional prompts कैसे लिखें, और Gemini / ChatGPT जैसे AI tools को smart तरीके से कैसे उपयोग करें।
+</p>
+
+<div style="margin-top:25px;">
+<span class="tag">AI Learning</span>
+<span class="tag">Prompt Engineering</span>
+<span class="tag">Google LearnLM</span>
+<span class="tag">Gemini</span>
+<span class="tag">Hindi Guide</span>
+</div>
+</section>
+
+<section class="section" id="what">
+<h2>🧠 What is LearnLM?</h2>
+
+<div class="card">
+
+<p>
+LearnLM Google द्वारा बनाया गया एक AI learning-focused framework है जो AI को सिर्फ answers देने के बजाय “सिखाने” (teaching) के लिए optimize करता है।
+</p>
+
+<p>
+इसका मुख्य उद्देश्य AI को एक intelligent tutor, coach, mentor और learning assistant बनाना है।
+</p>
+
+<div class="highlight">
+<strong>सरल भाषा में:</strong><br/>
+Normal AI अक्सर सिर्फ जवाब देता है। LearnLM वाला AI आपको समझाता है, guide करता है, सोचने पर मजबूर करता है और learning improve करता है।
+</div>
+
+<h3>📚 Real-World Analogy</h3>
+
+<p>
+कल्पना कीजिए:
+</p>
+
+<ul>
+<li>एक student teacher से सिर्फ answer मांगता है।</li>
+<li>एक teacher answer देने के बजाय concept समझाता है।</li>
+<li>student को सोचने पर मजबूर करता है।</li>
+<li>गलती सुधारने में मदद करता है।</li>
+</ul>
+
+<p>
+यही LearnLM philosophy है।
+</p>
+
+<h3>💡 AI Usage Example</h3>
+
+<p>
+अगर student पूछे:
+</p>
+
+<div class="code">
+"What is photosynthesis?"
+</div>
+
+<p>
+Normal AI definition देगा।
+LearnLM-based AI:
+</p>
+
+<ul>
+<li>simple explanation देगा</li>
+<li>example देगा</li>
+<li>diagram समझाएगा</li>
+<li>quiz पूछेगा</li>
+<li>student understanding check करेगा</li>
+</ul>
+
+<div class="revision">
+<strong>Quick Revision:</strong><br/>
+LearnLM = AI that teaches, guides, adapts, and improves learning experience.
+</div>
+
+</div>
+</section>
+
+<section class="section" id="why">
+<h2>🌍 Why Google Created LearnLM</h2>
+
+<div class="card">
+
+<p>
+Google ने LearnLM इसलिए बनाया क्योंकि traditional AI learning के लिए perfect नहीं था।
+</p>
+
+<h3>⚠️ Education Problems</h3>
+
+<table>
+<tr>
+<th>Problem</th>
+<th>Impact</th>
+</tr>
+
+<tr>
+<td>Students bored feel करते हैं</td>
+<td>Low engagement</td>
+</tr>
+
+<tr>
+<td>One-size-fits-all learning</td>
+<td>Personalization नहीं</td>
+</tr>
+
+<tr>
+<td>Teachers overloaded</td>
+<td>Burnout</td>
+</tr>
+
+<tr>
+<td>Complex content</td>
+<td>Beginners confuse हो जाते हैं</td>
+</tr>
+
+<tr>
+<td>Language barriers</td>
+<td>Hindi learners struggle करते हैं</td>
+</tr>
+</table>
+
+<h3>🇮🇳 Indian Context</h3>
+
+<ul>
+<li>UPSC students को adaptive revision चाहिए</li>
+<li>CBSE students को simple explanations चाहिए</li>
+<li>Hindi-medium learners को bilingual support चाहिए</li>
+<li>Teachers को lesson planning automation चाहिए</li>
+</ul>
+
+<div class="tip">
+<strong>Pro Tip:</strong><br/>
+LearnLM सिर्फ AI model नहीं है — यह “learning science + AI” का combination है।
+</div>
+
+</div>
+</section>
+
+<section class="section" id="philosophy">
+<h2>🎯 Core Philosophy of LearnLM</h2>
+
+<div class="card">
+
+<h3>1️⃣ Active Learning</h3>
+
+<p>
+Student सिर्फ पढ़े नहीं — actively सोचे।
+</p>
+
+<div class="code">
+"Explain Newton's Laws and then ask me 3 application-based questions."
+</div>
+
+<h3>2️⃣ Cognitive Load Management</h3>
+
+<p>
+Complex चीजों को छोटे steps में तोड़ना।
+</p>
+
+<div class="code">
+"Teach recursion step-by-step for a beginner."
+</div>
+
+<h3>3️⃣ Curiosity Stimulation</h3>
+
+<p>
+AI ऐसे questions पूछे जो curiosity बढ़ाएँ।
+</p>
+
+<div class="code">
+"Why do you think planets don't fall into the Sun?"
+</div>
+
+<h3>4️⃣ Adaptive Learning</h3>
+
+<p>
+AI learner level के हिसाब से adapt करे।
+</p>
+
+<div class="code">
+"Explain AI for a Class 8 student."
+</div>
+
+<h3>5️⃣ Metacognition</h3>
+
+<p>
+Student को समझ आए कि उसने कैसे सीखा।
+</p>
+
+<div class="code">
+"Ask me to explain my reasoning after solving."
+</div>
+
+</div>
+</section>
+
+<section class="section" id="principles">
+<h2>📌 Important Prompting Principles</h2>
+
+<div class="card">
+
+<table>
+<tr>
+<th>Principle</th>
+<th>Meaning</th>
+</tr>
+
+<tr>
+<td>Role Definition</td>
+<td>AI को role दो</td>
+</tr>
+
+<tr>
+<td>Clear Instructions</td>
+<td>Specific task बताओ</td>
+</tr>
+
+<tr>
+<td>Audience Mention</td>
+<td>किसके लिए output है बताओ</td>
+</tr>
+
+<tr>
+<td>Structure</td>
+<td>Output format define करो</td>
+</tr>
+
+<tr>
+<td>Context</td>
+<td>Background information दो</td>
+</tr>
+</table>
+
+<div class="warning">
+<strong>Common Mistake:</strong><br/>
+Beginners vague prompts लिखते हैं:
+<br/><br/>
+"Explain AI"
+<br/><br/>
+यह बहुत broad prompt है।
+</div>
+
+<div class="tip">
+<strong>Better Prompt:</strong>
+</div>
+
+<div class="code">
+"You are an AI teacher. Explain Artificial Intelligence to a Class 9 student using simple examples from daily life."
+</div>
+
+</div>
+</section>
+
+<section class="section" id="difference">
+<h2>⚡ LearnLM vs Normal Prompting</h2>
+
+<div class="card">
+
+<table>
+<tr>
+<th>Normal Prompting</th>
+<th>LearnLM Style</th>
+</tr>
+
+<tr>
+<td>Just answer</td>
+<td>Teach concept</td>
+</tr>
+
+<tr>
+<td>Direct response</td>
+<td>Guided learning</td>
+</tr>
+
+<tr>
+<td>No adaptation</td>
+<td>Adaptive difficulty</td>
+</tr>
+
+<tr>
+<td>No reflection</td>
+<td>Encourages thinking</td>
+</tr>
+
+<tr>
+<td>Static content</td>
+<td>Interactive learning</td>
+</tr>
+</table>
+
+<h3>📘 Example</h3>
+
+<p class="bad">❌ Bad Prompt:</p>
+
+<div class="code">
+"Tell me about photosynthesis."
+</div>
+
+<p class="good">✅ LearnLM Prompt:</p>
+
+<div class="code">
+"You are a biology tutor. Explain photosynthesis to a CBSE Class 7 student using simple language, real-life analogies, and then ask 3 understanding questions."
+</div>
+
+</div>
+</section>
+
+<section class="section" id="parts">
+<h2>🧩 PARTS Framework</h2>
+
+<div class="card">
+
+<p>
+Google LearnLM का सबसे important framework है:
+</p>
+
+<table>
+<tr>
+<th>Letter</th>
+<th>Meaning</th>
+<th>Purpose</th>
+</tr>
+
+<tr>
+<td>P</td>
+<td>Persona</td>
+<td>AI role define करना</td>
+</tr>
+
+<tr>
+<td>A</td>
+<td>Act</td>
+<td>Task define करना</td>
+</tr>
+
+<tr>
+<td>R</td>
+<td>Recipient</td>
+<td>Audience बताना</td>
+</tr>
+
+<tr>
+<td>T</td>
+<td>Theme</td>
+<td>Topic define करना</td>
+</tr>
+
+<tr>
+<td>S</td>
+<td>Structure</td>
+<td>Output format define करना</td>
+</tr>
+</table>
+
+<h3>✅ Example</h3>
+
+<div class="code">
+"You are a UPSC history mentor. Create a beginner-friendly lesson for Hindi-speaking students about the Revolt of 1857. Include timeline, causes, and practice MCQs."
+</div>
+
+<div class="highlight">
+<strong>Breakdown:</strong><br/><br/>
+
+P = UPSC history mentor<br/>
+A = Create lesson<br/>
+R = Hindi-speaking students<br/>
+T = Revolt of 1857<br/>
+S = timeline + MCQs
+</div>
+
+</div>
+</section>
+
+<section class="section" id="goodbad">
+<h2>✅ Good Prompt vs ❌ Bad Prompt</h2>
+
+<div class="card">
+
+<table>
+<tr>
+<th>Bad Prompt</th>
+<th>Why Bad?</th>
+</tr>
+
+<tr>
+<td>"Teach Python"</td>
+<td>Too vague</td>
+</tr>
+
+<tr>
+<td>"Help me study"</td>
+<td>No context</td>
+</tr>
+
+<tr>
+<td>"Explain coding"</td>
+<td>No audience level</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th>Good Prompt</th>
+<th>Why Good?</th>
+</tr>
+
+<tr>
+<td>"Teach Python basics to a Class 11 CBSE student."</td>
+<td>Specific audience</td>
+</tr>
+
+<tr>
+<td>"Create a 7-day UPSC revision plan."</td>
+<td>Clear task</td>
+</tr>
+
+<tr>
+<td>"Explain loops with Indian examples."</td>
+<td>Practical context</td>
+</tr>
+</table>
+
+<div class="revision">
+<strong>Remember This:</strong><br/>
+Specific prompts = Better AI output
+</div>
+
+</div>
+</section>
+
+<section class="section" id="role">
+<h2>🎭 Role Prompting</h2>
+
+<div class="card">
+
+<p>
+Role Prompting का मतलब AI को specific identity देना।
+</p>
+
+<h3>Examples</h3>
+
+<div class="code">
+"You are a friendly Hindi-speaking coding mentor."
+</div>
+
+<div class="code">
+"You are an IIT-JEE physics coach."
+</div>
+
+<div class="code">
+"You are a supportive English speaking trainer for Indian students."
+</div>
+
+<h3>🎯 Why Powerful?</h3>
+
+<ul>
+<li>Tone improve होता है</li>
+<li>Accuracy बढ़ती है</li>
+<li>Consistency आती है</li>
+<li>Learning style better होता है</li>
+</ul>
+
+<div class="tip">
+<strong>Pro Tip:</strong><br/>
+AI role जितना clear होगा, response उतना बेहतर होगा।
+</div>
+
+</div>
+</section>
+
+<section class="section" id="cot">
+<h2>🧠 Chain of Thought Prompting</h2>
+
+<div class="card">
+
+<p>
+Chain of Thought Prompting AI को step-by-step reasoning करने के लिए guide करता है।
+</p>
+
+<h3>📘 Example</h3>
+
+<div class="code">
+"Solve this math problem step-by-step and explain your reasoning."
+</div>
+
+<h3>🇮🇳 UPSC Example</h3>
+
+<div class="code">
+"Analyze the causes of the French Revolution step-by-step for UPSC preparation."
+</div>
+
+<h3>💡 Why Useful?</h3>
+
+<ul>
+<li>Complex problems solve करने में मदद</li>
+<li>Student reasoning improve</li>
+<li>Better explanations</li>
+<li>Less hallucination</li>
+</ul>
+
+<div class="highlight">
+<strong>Real-Life Analogy:</strong><br/>
+जैसे teacher board पर पूरा solution process दिखाता है।
+</div>
+
+</div>
+</section>
+
+<section class="section" id="structured">
+<h2>📦 Structured Output Prompting</h2>
+
+<div class="card">
+
+<p>
+AI output को organized format में generate करवाना।
+</p>
+
+<h3>📘 Example</h3>
+
+<div class="code">
+"Create a table with:
+- Topic
+- Definition
+- Example
+- Common Mistakes"
+</div>
+
+<h3>📊 Business Example</h3>
+
+<div class="code">
+"Generate a marketing plan in the following format:
+1. Goal
+2. Audience
+3. Strategy
+4. Budget
+5. Timeline"
+</div>
+
+<div class="tip">
+<strong>Pro Tip:</strong><br/>
+Structured prompts APIs और automation में बहुत useful होते हैं।
+</div>
+
+</div>
+</section>
+
+<section class="section" id="education">
+<h2>🎓 Educational Prompting</h2>
+
+<div class="card">
+
+<p>
+LearnLM का सबसे powerful area educational prompting है।
+</p>
+
+<h3>📚 Features</h3>
+
+<ul>
+<li>Scaffolding</li>
+<li>Adaptive learning</li>
+<li>Questioning</li>
+<li>Feedback</li>
+<li>Reflection</li>
+</ul>
+
+<h3>📘 Student Tutor Prompt</h3>
+
+<div class="code">
+"You are a supportive math tutor. Ask the student what topic they need help with. Give hints instead of direct answers. Encourage reasoning."
+</div>
+
+<h3>📘 Teacher Prompt</h3>
+
+<div class="code">
+"You are a CBSE lesson planner. Create a 40-minute science lesson plan with activities and assessment."
+</div>
+
+<div class="revision">
+<strong>Quick Revision:</strong><br/>
+Educational prompts should teach — not just answer.
+</div>
+
+</div>
+</section>
+
+<section class="section" id="memory">
+<h2>🧠 Memory and Context Handling</h2>
+
+<div class="card">
+
+<p>
+AI को previous information याद दिलाना context handling कहलाता है।
+</p>
+
+<h3>❌ Weak Prompt</h3>
+
+<div class="code">
+"Continue."
+</div>
+
+<h3>✅ Better Prompt</h3>
+
+<div class="code">
+"Based on the UPSC modern history notes we discussed earlier, create a revision quiz."
+</div>
+
+<h3>💡 Why Important?</h3>
+
+<ul>
+<li>Conversation continuity</li>
+<li>Personalization</li>
+<li>Long-term learning</li>
+<li>Better tutoring</li>
+</ul>
+
+</div>
+</section>
+
+<section class="section" id="safety">
+<h2>🛡️ Safety and Hallucination Reduction</h2>
+
+<div class="card">
+
+<p>
+Hallucination मतलब AI गलत information confidently दे।
+</p>
+
+<h3>📘 Safer Prompt</h3>
+
+<div class="code">
+"If you are unsure, clearly mention uncertainty instead of guessing."
+</div>
+
+<h3>📘 Research Prompt</h3>
+
+<div class="code">
+"Only use verified educational information and explain limitations if data is incomplete."
+</div>
+
+<div class="warning">
+<strong>Important:</strong><br/>
+AI हमेशा सही नहीं होता।
+Cross-check जरूरी है।
+</div>
+
+</div>
+</section>
+
+<section class="section" id="templates">
+<h2>📋 Prompt Templates</h2>
+
+<div class="card">
+
+<h3>🎓 Student Template</h3>
+
+<div class="code">
+"You are a helpful tutor.
+Explain [TOPIC] for a [LEVEL] student.
+Use simple language.
+Give examples.
+Ask understanding questions."
+</div>
+
+<h3>👨‍🏫 Teacher Template</h3>
+
+<div class="code">
+"You are a lesson planning assistant.
+Create a [DURATION] lesson plan for [GRADE].
+Include activities, assessment, and homework."
+</div>
+
+<h3>💼 Business Template</h3>
+
+<div class="code">
+"You are a business consultant.
+Create a marketing strategy for a small Indian business selling [PRODUCT]."
+</div>
+
+</div>
+</section>
+
+<section class="section" id="student">
+<h2>🎒 Student Examples</h2>
+
+<div class="card">
+
+<h3>CBSE Science</h3>
+
+<div class="code">
+"Explain electricity for Class 10 CBSE students using simple examples and diagrams."
+</div>
+
+<h3>UPSC</h3>
+
+<div class="code">
+"Create 20 UPSC-style MCQs on Indian Polity with explanations."
+</div>
+
+<h3>Coding</h3>
+
+<div class="code">
+"Teach Python loops using beginner-friendly examples."
+</div>
+
+<h3>English Speaking</h3>
+
+<div class="code">
+"You are an English speaking coach for Hindi speakers. Correct grammar gently and encourage conversation."
+</div>
+
+</div>
+</section>
+
+<section class="section" id="teacher">
+<h2>👨‍🏫 Teacher Examples</h2>
+
+<div class="card">
+
+<div class="code">
+"Create a 5E lesson plan for Class 8 science."
+</div>
+
+<div class="code">
+"Generate formative assessment questions from this chapter."
+</div>
+
+<div class="code">
+"Simplify this article for 6th-grade students."
+</div>
+
+<div class="code">
+"Generate parent communication for weak-performing students."
+</div>
+
+</div>
+</section>
+
+<section class="section" id="business">
+<h2>💼 Business Examples</h2>
+
+<div class="card">
+
+<div class="code">
+"Create Instagram captions for an Indian chai startup."
+</div>
+
+<div class="code">
+"Generate customer support replies for an Indian ecommerce store."
+</div>
+
+<div class="code">
+"Create Hindi-English bilingual ads for a coaching institute."
+</div>
+
+</div>
+</section>
+
+<section class="section" id="mistakes">
+<h2>❌ Prompt Engineering Mistakes</h2>
+
+<div class="card">
+
+<ul>
+<li>Too vague prompts</li>
+<li>No audience definition</li>
+<li>No format instructions</li>
+<li>Too many tasks together</li>
+<li>No context</li>
+<li>Ignoring AI limitations</li>
+</ul>
+
+<div class="warning">
+<strong>Common Mistake:</strong><br/>
+"Explain everything about AI."
+</div>
+
+<div class="tip">
+<strong>Better:</strong><br/>
+"Explain Machine Learning basics for beginners in simple language."
+</div>
+
+</div>
+</section>
+
+<section class="section" id="best">
+<h2>🌟 Best Practices</h2>
+
+<div class="card">
+
+<ul>
+<li>Always define role</li>
+<li>Use clear instructions</li>
+<li>Specify audience</li>
+<li>Ask for structure</li>
+<li>Use examples</li>
+<li>Iterate prompts</li>
+<li>Keep prompts modular</li>
+</ul>
+
+<div class="revision">
+<strong>Remember:</strong><br/>
+Prompt engineering = Communication skill
+</div>
+
+</div>
+</section>
+
+<section class="section" id="advanced">
+<h2>🚀 Advanced Techniques</h2>
+
+<div class="card">
+
+<h3>1️⃣ Multi-Step Prompting</h3>
+
+<div class="code">
+"First explain the concept.
+Then generate examples.
+Then create quiz questions."
+</div>
+
+<h3>2️⃣ Reflection Prompting</h3>
+
+<div class="code">
+"Review your answer and improve clarity for beginners."
+</div>
+
+<h3>3️⃣ Adaptive Prompting</h3>
+
+<div class="code">
+"If the student struggles, simplify the explanation."
+</div>
+
+<h3>4️⃣ Gamification Prompting</h3>
+
+<div class="code">
+"Turn this history lesson into an interactive roleplay game."
+</div>
+
+</div>
+</section>
+
+<section class="section" id="summary">
+<h2>📝 Summary Notes</h2>
+
+<div class="card">
+
+<ul>
+<li>LearnLM = Learning-focused AI</li>
+<li>AI should guide, not just answer</li>
+<li>PARTS framework बहुत important है</li>
+<li>Role prompting improves quality</li>
+<li>Structured prompts = better output</li>
+<li>Educational prompting future of AI learning है</li>
+<li>AI + Learning Science = Powerful education</li>
+</ul>
+
+</div>
+</section>
+
+<section class="section" id="cheatsheet">
+<h2>📌 Final Cheat Sheet</h2>
+
+<div class="card">
+
+<table>
+<tr>
+<th>Goal</th>
+<th>Prompt Technique</th>
+</tr>
+
+<tr>
+<td>Teaching</td>
+<td>Role Prompting</td>
+</tr>
+
+<tr>
+<td>Reasoning</td>
+<td>Chain of Thought</td>
+</tr>
+
+<tr>
+<td>Formatting</td>
+<td>Structured Output</td>
+</tr>
+
+<tr>
+<td>Personalization</td>
+<td>Adaptive Prompting</td>
+</tr>
+
+<tr>
+<td>Safer Output</td>
+<td>Verification Instructions</td>
+</tr>
+</table>
+
+</div>
+</section>
+
+<section class="section" id="top25">
+<h2>🔥 Top 25 Ready-to-Use LearnLM Prompts</h2>
+
+<div class="card">
+
+<ol>
+
+<li>
+<div class="code">
+"You are a supportive UPSC mentor. Create a 30-day revision plan for Indian Polity."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Explain Python loops for a Class 11 beginner using simple examples."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Create CBSE Class 10 science quiz questions with explanations."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Teach algebra step-by-step for a beginner."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Act as an IELTS speaking coach for Hindi-speaking students."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Generate interview questions for freshers in software engineering."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Create a study timetable for NEET preparation."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Explain the Indian Constitution in simple language."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Create a lesson plan on photosynthesis for Class 7."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Generate coding exercises for Java beginners."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Act as a career counselor for Indian college students."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Explain stock market basics for beginners in India."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Create flashcards for UPSC geography preparation."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Generate a mock test for SSC CGL reasoning."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Teach spoken English through Hindi explanations."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Create a digital marketing strategy for a local Indian business."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Explain AI ethics using real-world examples."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Create interactive classroom activities for middle school students."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Act as a math tutor and guide the student instead of giving direct answers."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Generate multiple-choice questions from uploaded notes."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Explain machine learning using cricket examples."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Rewrite this article for 6th-grade students."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Create revision notes for Indian history."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Generate bilingual Hindi-English classroom instructions."
+</div>
+</li>
+
+<li>
+<div class="code">
+"Act as a supportive coding mentor and help debug beginner mistakes."
+</div>
+</li>
+
+</ol>
+
+<div class="highlight">
+<strong>🎉 Congratulations!</strong><br/>
+अब आप LearnLM Prompt Engineering की strong foundation सीख चुके हैं।
+</div>
+
+</div>
+</section>
+
+<div class="footer">
+<p>
+Made with ❤️ for Indian AI Learners • LearnLM Hindi Guide • Prompt Engineering Mastery
+</p>
+</div>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+    document.body.classList.toggle('light');
+}
+</script>
+
+</body>
+</html>
