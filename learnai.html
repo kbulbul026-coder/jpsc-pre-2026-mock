@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>LearnLM + Gemini Prompt Engineering Guide (Hindi Explained)</title>
+
+<meta name="description" content="LearnLM, Gemini, Prompt Engineering, AI workflows, educational AI systems, structured prompting aur advanced AI prompting techniques ka complete Hindi guide." />
+
+<meta name="keywords" content="Prompt Engineering Hindi, Gemini AI, LearnLM, AI prompts, structured prompting, AI workflows, educational AI, Google Gemini, AI learning guide" />
+
+<meta name="author" content="OpenAI Educational Formatting Engine" />
+
+<style>
+
+:root{
+    --bg:#f5f7fb;
+    --card:#ffffff;
+    --text:#1d2433;
+    --muted:#5f6b85;
+    --accent:#5b7cff;
+    --border:#e3e8f2;
+    --code:#111827;
+    --highlight:#eef4ff;
+    --shadow:0 10px 30px rgba(0,0,0,0.06);
+}
+
+body.dark{
+    --bg:#0f172a;
+    --card:#111827;
+    --text:#f3f4f6;
+    --muted:#9ca3af;
+    --accent:#7ea2ff;
+    --border:#1f2937;
+    --code:#0b1220;
+    --highlight:#172554;
+    --shadow:0 10px 30px rgba(0,0,0,0.45);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+    "Noto Sans Devanagari",
+    "Poppins",
+    "Mangal",
+    sans-serif;
+
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.85;
+}
+
+a{
+    color:var(--accent);
+    text-decoration:none;
+}
+
+header{
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+    padding:70px 20px;
+}
+
+.hero{
+    max-width:1100px;
+    margin:auto;
+}
+
+.hero h1{
+    font-size:clamp(2rem,5vw,4rem);
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:1.1rem;
+    opacity:.92;
+    max-width:900px;
+}
+
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:999;
+    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,.8);
+    border-bottom:1px solid var(--border);
+}
+
+body.dark .topbar{
+    background:rgba(15,23,42,.9);
+}
+
+.topbar-inner{
+    max-width:1200px;
+    margin:auto;
+    padding:14px 20px;
+    display:flex;
+    gap:15px;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+
+.search-box{
+    flex:1;
+    min-width:250px;
+}
+
+.search-box input{
+    width:100%;
+    padding:12px 15px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    font-size:1rem;
+}
+
+.toggle-btn{
+    border:none;
+    background:var(--accent);
+    color:white;
+    padding:12px 18px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.layout{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:30px;
+    padding:40px 20px;
+}
+
+aside{
+    position:sticky;
+    top:90px;
+    height:max-content;
+}
+
+.toc{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:var(--shadow);
+}
+
+.toc h3{
+    margin-bottom:18px;
+    font-size:1.1rem;
+}
+
+.toc ul{
+    list-style:none;
+}
+
+.toc li{
+    margin-bottom:12px;
+}
+
+.toc a{
+    color:var(--muted);
+    font-size:.95rem;
+}
+
+main{
+    min-width:0;
+}
+
+section{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:45px;
+    margin-bottom:35px;
+    box-shadow:var(--shadow);
+}
+
+h2{
+    font-size:2rem;
+    margin-bottom:20px;
+    line-height:1.3;
+}
+
+h3{
+    margin-top:35px;
+    margin-bottom:15px;
+    font-size:1.4rem;
+}
+
+h4{
+    margin-top:25px;
+    margin-bottom:10px;
+    font-size:1.1rem;
+}
+
+p{
+    margin-bottom:18px;
+    color:var(--text);
+}
+
+ul{
+    padding-left:20px;
+    margin-bottom:20px;
+}
+
+li{
+    margin-bottom:10px;
+}
+
+blockquote{
+    background:var(--highlight);
+    border-left:5px solid var(--accent);
+    padding:20px;
+    border-radius:14px;
+    margin:25px 0;
+    font-size:1rem;
+}
+
+.code-block{
+    position:relative;
+    margin:25px 0;
+}
+
+pre{
+    background:var(--code);
+    color:#e5e7eb;
+    padding:24px;
+    border-radius:18px;
+    overflow:auto;
+    font-size:.92rem;
+    line-height:1.7;
+}
+
+.copy-btn{
+    position:absolute;
+    top:14px;
+    right:14px;
+    border:none;
+    background:var(--accent);
+    color:white;
+    padding:8px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:.85rem;
+}
+
+.insight{
+    background:#fff7ed;
+    border-left:5px solid #fb923c;
+    padding:20px;
+    border-radius:14px;
+    margin:25px 0;
+}
+
+body.dark .insight{
+    background:#3b2208;
+}
+
+.takeaway{
+    background:#ecfeff;
+    border-left:5px solid #06b6d4;
+    padding:20px;
+    border-radius:14px;
+    margin:25px 0;
+}
+
+body.dark .takeaway{
+    background:#082f49;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+    margin-top:25px;
+}
+
+.card{
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:22px;
+    background:var(--bg);
+}
+
+details{
+    margin:18px 0;
+    border:1px solid var(--border);
+    border-radius:14px;
+    overflow:hidden;
+}
+
+summary{
+    cursor:pointer;
+    padding:18px;
+    font-weight:700;
+    background:var(--highlight);
+}
+
+.details-content{
+    padding:20px;
+}
+
+footer{
+    text-align:center;
+    padding:60px 20px;
+    color:var(--muted);
+}
+
+.tag{
+    display:inline-block;
+    padding:6px 12px;
+    background:var(--highlight);
+    border-radius:999px;
+    margin:5px;
+    font-size:.85rem;
+}
+
+hr{
+    border:none;
+    border-top:1px solid var(--border);
+    margin:40px 0;
+}
+
+.print-note{
+    display:none;
+}
+
+@media(max-width:980px){
+
+    .layout{
+        grid-template-columns:1fr;
+    }
+
+    aside{
+        position:relative;
+        top:0;
+    }
+
+    section{
+        padding:28px;
+    }
+
+}
+
+@media print{
+
+    .topbar,
+    aside,
+    .copy-btn,
+    .toggle-btn{
+        display:none !important;
+    }
+
+    body{
+        background:white;
+        color:black;
+    }
+
+    section{
+        box-shadow:none;
+        border:none;
+        page-break-inside:avoid;
+    }
+
+    .print-note{
+        display:block;
+        margin-bottom:30px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="hero">
+
+<span class="tag">AI Education</span>
+<span class="tag">Prompt Engineering</span>
+<span class="tag">Gemini + LearnLM</span>
+
+<h1>
+LearnLM + Gemini Prompt Engineering Guide
+</h1>
+
+<p>
+यह एक premium Hindi educational guide है जिसमें Google LearnLM + Gemini के पूरे prompt engineering framework,
+AI teaching workflows, structured prompting systems, educational AI behaviors, adaptive learning patterns,
+और advanced prompting strategies को आसान Hindi में समझाया गया है।
+</p>
+
+</div>
+</header>
+
+<div class="topbar">
+<div class="topbar-inner">
+
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Search concepts, prompts, techniques..." />
+</div>
+
+<button class="toggle-btn" onclick="toggleTheme()">
+🌙 Dark / Light
+</button>
+
+</div>
+</div>
+
+<div class="layout">
+
+<aside>
+
+<nav class="toc">
+<h3>📚 Table of Contents</h3>
+
+<ul>
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#learnlm">What is LearnLM?</a></li>
+<li><a href="#prompting">Prompt Engineering Basics</a></li>
+<li><a href="#parts">PARTS Framework</a></li>
+<li><a href="#goodbetterbest">Good vs Better vs Best Prompts</a></li>
+<li><a href="#techniques">Advanced Prompting Techniques</a></li>
+<li><a href="#learning-science">Learning Science Principles</a></li>
+<li><a href="#workflows">AI Workflows</a></li>
+<li><a href="#prompt-library">High-Value Prompt Library</a></li>
+<li><a href="#educational-ai">Educational AI Systems</a></li>
+<li><a href="#developer-loop">Prompt-to-Product Loop</a></li>
+<li><a href="#bestpractices">Best Practices</a></li>
+<li><a href="#final">Final Learnings</a></li>
+</ul>
+
+</nav>
+
+</aside>
+
+<main>
+
+<section id="intro">
+
+<h2>🚀 Introduction</h2>
+
+<p>
+AI models पहले mainly answer generators थे। लेकिन LearnLM जैसे systems AI को सिर्फ answer machine नहीं,
+बल्कि एक intelligent teacher, tutor, coach और learning assistant में बदल रहे हैं।
+</p>
+
+<p>
+Google ने LearnLM research के जरिए Gemini models को learning science principles के अनुसार optimize किया है।
+इसका मतलब:
+</p>
+
+<ul>
+<li>AI अब सिर्फ जवाब नहीं देता</li>
+<li>AI सोचने पर मजबूर करता है</li>
+<li>AI guided learning कराता है</li>
+<li>AI curiosity trigger करता है</li>
+<li>AI learner के level के अनुसार adapt करता है</li>
+</ul>
+
+<blockquote>
+“Best AI systems वो नहीं जो fastest answer दें —
+बल्कि वो जो इंसान को बेहतर सोचने में मदद करें।”
+</blockquote>
+
+<div class="insight">
+<h4>💡 Important Insight</h4>
+<p>
+Modern Prompt Engineering का future सिर्फ “better outputs” नहीं है —
+बल्कि “better learning behaviors” है।
+</p>
+</div>
+
+<div class="takeaway">
+<h4>⚡ Quick Takeaway</h4>
+<p>
+Prompt Engineering अब content generation से आगे बढ़कर
+behavior design बन चुका है।
+</p>
+</div>
+
+</section>
+
+<section id="learnlm">
+
+<h2>🧠 What is LearnLM?</h2>
+
+<p>
+LearnLM Google का educational AI research framework है जिसे Gemini models में integrate किया गया है।
+इसका purpose है:
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h4>🎯 Active Learning</h4>
+<p>
+Student को passive reader नहीं,
+active thinker बनाना।
+</p>
+</div>
+
+<div class="card">
+<h4>🧩 Cognitive Load Management</h4>
+<p>
+Complex concepts को छोटे digestible steps में तोड़ना।
+</p>
+</div>
+
+<div class="card">
+<h4>🔄 Adaptive Learning</h4>
+<p>
+हर learner के अनुसार difficulty बदलना।
+</p>
+</div>
+
+<div class="card">
+<h4>🤔 Metacognition</h4>
+<p>
+Learner को यह समझाना कि answer कैसे निकला।
+</p>
+</div>
+
+</div>
+
+<h3>यह क्यों महत्वपूर्ण है?</h3>
+
+<p>
+Traditional AI tools direct answer दे देते हैं।
+लेकिन direct answers learning को कमजोर कर सकते हैं।
+LearnLM systems:
+</p>
+
+<ul>
+<li>Hints देते हैं</li>
+<li>Guided questioning करते हैं</li>
+<li>Step-by-step scaffolding करते हैं</li>
+<li>Critical thinking improve करते हैं</li>
+</ul>
+
+<h3>Real-world Example</h3>
+
+<blockquote>
+Bad AI:
+“Answer is 42.”
+
+LearnLM-style AI:
+“पहले सोचो problem क्या पूछ रही है।
+फिर variables identify करो।
+अब पहला step क्या होगा?”
+</blockquote>
+
+<div class="takeaway">
+<h4>⚡ Quick Takeaway</h4>
+<p>
+Educational AI का future = Human tutor जैसी interaction quality।
+</p>
+</div>
+
+</section>
+
+<section id="prompting">
+
+<h2>✍️ Prompt Engineering Basics</h2>
+
+<p>
+Prompt Engineering सिर्फ “AI को instruction देना” नहीं है।
+यह actually AI behavior architecture design करना है।
+</p>
+
+<h3>Prompt Engineering क्या करता है?</h3>
+
+<ul>
+<li>AI role define करता है</li>
+<li>Tone control करता है</li>
+<li>Reasoning style बदलता है</li>
+<li>Output structure तय करता है</li>
+<li>Learning behavior trigger करता है</li>
+</ul>
+
+<h3>Weak Prompt vs Strong Prompt</h3>
+
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+<pre>
+Weak Prompt:
+"Teach me DNA."
+
+Strong Prompt:
+"You are a high school biology educator.
+Design a lesson for 10th grade students introducing
+the structure and function of DNA.
+Tailor the lesson for an inquiry-based science class,
+include an engaging lab activity and provide a
+claim-evidence-reasoning writing prompt."
+</pre>
+</div>
+
+<h3>क्यों Powerful है?</h3>
+
+<p>
+Strong prompts:
+</p>
+
+<ul>
+<li>Context देते हैं</li>
+<li>Audience define करते हैं</li>
+<li>Output structure बताते हैं</li>
+<li>Pedagogical behavior specify करते हैं</li>
+<li>AI confusion कम करते हैं</li>
+</ul>
+
+<div class="insight">
+<h4>💡 Important Insight</h4>
+<p>
+AI vague instructions पर generic answers देता है।
+Specific instructions पर high-quality behavior देता है।
+</p>
+</div>
+
+</section>
+
+<section id="parts">
+
+<h2>🧩 PARTS Framework</h2>
+
+<p>
+LearnLM guide का सबसे powerful framework है:
+<strong>PARTS</strong>
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h4>P — Persona</h4>
+<p>
+AI कौन बनेगा?
+Tutor? Coach? Scientist?
+</p>
+</div>
+
+<div class="card">
+<h4>A — Act</h4>
+<p>
+AI को क्या करना है?
+Explain? Create? Analyze?
+</p>
+</div>
+
+<div class="card">
+<h4>R — Recipient</h4>
+<p>
+Output किसके लिए है?
+Beginner? Student? Developer?
+</p>
+</div>
+
+<div class="card">
+<h4>T — Theme</h4>
+<p>
+Topic क्या है?
+DNA? Algebra? Prompt Engineering?
+</p>
+</div>
+
+<div class="card">
+<h4>S — Structure</h4>
+<p>
+Format क्या होगा?
+Lesson plan? Quiz? Table?
+</p>
+</div>
+
+</div>
+
+<h3>PARTS क्यों इतना Powerful है?</h3>
+
+<p>
+यह framework AI ambiguity हटाता है।
+जब AI को:
+</p>
+
+<ul>
+<li>role पता होता है</li>
+<li>task पता होता है</li>
+<li>audience पता होती है</li>
+<li>topic clear होता है</li>
+<li>output structure defined होता है</li>
+</ul>
+
+<p>
+तब output dramatically improve होता है।
+</p>
+
+<h3>Full Example Prompt</h3>
+
+<div class="code-block">
+
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+<pre>
+You are a high school biology educator.
+Design a lesson for 10th grade students
+introducing the structure and function of DNA.
+
+Tailor the lesson for an inquiry-based science class,
+include an engaging lab activity and provide a
+claim-evidence-reasoning writing prompt
+as the exit ticket.
+</pre>
+
+</div>
+
+<h3>Hindi Explanation</h3>
+
+<p>
+यह prompt powerful इसलिए है क्योंकि:
+</p>
+
+<ul>
+<li>Role clear है</li>
+<li>Student level clear है</li>
+<li>Teaching method defined है</li>
+<li>Expected output clear है</li>
+<li>Assessment included है</li>
+</ul>
+
+<div class="takeaway">
+<h4>⚡ Quick Takeaway</h4>
+<p>
+अगर आपका prompt unclear है,
+तो AI भी unclear होगा।
+</p>
+</div>
+
+</section>
+
+<section id="goodbetterbest">
+
+<h2>📈 Good vs Better vs Best Prompts</h2>
+
+<h3>❌ Weak Prompt</h3>
+
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+<pre>
+"Create a lesson on DNA for high school students."
+</pre>
+</div>
+
+<p>
+Problem:
+बहुत vague है।
+AI को नहीं पता:
+</p>
+
+<ul>
+<li>कौन सा grade?</li>
+<li>कौन सा teaching style?</li>
+<li>क्या outcomes चाहिए?</li>
+</ul>
+
+<hr>
+
+<h3>⚠️ Better Prompt</h3>
+
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+<pre>
+"You are a biology teacher.
+Write a lesson introducing DNA structure
+for inquiry-based learning."
+</pre>
+</div>
+
+<p>
+यह बेहतर है क्योंकि:
+</p>
+
+<ul>
+<li>role added है</li>
+<li>topic narrowed है</li>
+<li>instructional style defined है</li>
+</ul>
+
+<hr>
+
+<h3>✅ Best Prompt</h3>
+
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+<pre>
+"You are a high school biology educator.
+Design a lesson for 10th grade students introducing
+the structure and function of DNA.
+
+Tailor the lesson for an inquiry-based science class,
+include an engaging lab activity and provide a
+claim-evidence-reasoning writing prompt
+as the exit ticket."
+</pre>
+</div>
+
+<div class="insight">
+<h4>💡 Important Insight</h4>
+<p>
+Professional Prompt Engineering का secret:
+specificity + structure + pedagogy।
+</p>
+</div>
+
+</section>
+
+<section id="techniques">
+
+<h2>⚡ Advanced Prompt Engineering Techniques</h2>
+
+<h3>1. Role Prompting</h3>
+
+<p>
+AI को specific identity देना।
+</p>
+
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+<pre>
+"You are a supportive high school math coach."
+</pre>
+</div>
+
+<h4>क्यों काम करता है?</h4>
+
+<p>
+Role AI के:
+</p>
+
+<ul>
+<li>tone</li>
+<li>expertise</li>
+<li>behavior</li>
+<li>response style</li>
+</ul>
+
+<p>
+को बदल देता है।
+</p>
+
+<hr>
+
+<h3>2. Chain of Thought Prompting</h3>
+
+<p>
+AI को reasoning steps follow करने के लिए encourage करना।
+</p>
+
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+<pre>
+"Explain step-by-step how the student should solve this."
+</pre>
+</div>
+
+<h4>Benefit</h4>
+
+<ul>
+<li>Better reasoning</li>
+<li>Fewer hallucinations</li>
+<li>Transparent thinking</li>
+</ul>
+
+<hr>
+
+<h3>3. Scaffolding</h3>
+
+<p>
+Direct answer देने के बजाय guided hints देना।
+</p>
+
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+<pre>
+"If the student is stuck,
+give a gentle nudge instead of the answer."
+</pre>
+</div>
+
+<h4>Why Powerful?</h4>
+
+<p>
+यह real human tutoring behavior जैसा है।
+</p>
+
+<hr>
+
+<h3>4. Adaptive Prompting</h3>
+
+<p>
+User performance के अनुसार difficulty बदलना।
+</p>
+
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+<pre>
+"Start simple and increase difficulty
+if the learner answers correctly."
+</pre>
+</div>
+
+<hr>
+
+<h3>5. Reflection Prompting</h3>
+
+<p>
+Learner को अपने thinking process पर reflect करवाना।
+</p>
+
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+<pre>
+"Ask the learner why they chose that strategy."
+</pre>
+</div>
+
+<h4>Real-world Value</h4>
+
+<p>
+यह deep learning create करता है।
+</p>
+
+<div class="takeaway">
+<h4>⚡ Quick Takeaway</h4>
+<p>
+Advanced prompting का goal सिर्फ “smart outputs” नहीं,
+बल्कि “smart thinking behaviors” है।
+</p>
+</div>
+
+</section>
+
+<section id="learning-science">
+
+<h2>🎓 Learning Science Principles</h2>
+
+<h3>1. Inspire Active Learning</h3>
+
+<p>
+Student को active participant बनाना।
+</p>
+
+<blockquote>
+Bad:
+“Here is the answer.”
+
+Better:
+“What do you think happens first?”
+</blockquote>
+
+<h3>2. Manage Cognitive Load</h3>
+
+<p>
+Complex चीजों को छोटे chunks में divide करना।
+</p>
+
+<h3>3. Adapt to Learner</h3>
+
+<p>
+हर learner अलग होता है।
+AI को:
+</p>
+
+<ul>
+<li>tone adapt करना चाहिए</li>
+<li>difficulty adjust करनी चाहिए</li>
+<li>examples personalize करने चाहिए</li>
+</ul>
+
+<h3>4. Stimulate Curiosity</h3>
+
+<p>
+Questions learning को drive करते हैं।
+</p>
+
+<h3>5. Deepen Metacognition</h3>
+
+<p>
+Learner को यह समझाना कि answer कैसे निकला।
+</p>
+
+<div class="insight">
+<h4>💡 Important Insight</h4>
+<p>
+Best educational AI answers नहीं देता —
+thinking habits build करता है।
+</p>
+</div>
+
+</section>
+
+<section id="workflows">
+
+<h2>🔄 AI Workflows & Instructional Systems</h2>
+
+<h3>Image-Based Science Tutor</h3>
+
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+<pre>
+You are a science tutor.
+A student uploads a diagram and asks a question.
+
+Help them interpret the visual,
+describe what it shows,
+and explain the concept.
+
+Ask guiding questions so you don’t give them
+the answer directly.
+</pre>
+</div>
+
+<h4>Why Powerful?</h4>
+
+<ul>
+<li>Multimodal reasoning</li>
+<li>Visual analysis</li>
+<li>Guided learning</li>
+<li>Scientific reasoning</li>
+</ul>
+
+<hr>
+
+<h3>Adaptive Quiz Generator</h3>
+
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+<pre>
+You are a tutor preparing a student for a test.
+
+Before generating questions,
+ask for subject, level, and specific topic.
+
+Start simple,
+increase difficulty if correct,
+and ask for explanations.
+
+Summarize or continue after five questions.
+</pre>
+</div>
+
+<h4>यह क्यों Powerful है?</h4>
+
+<p>
+यह AI को static quiz tool नहीं,
+बल्कि adaptive tutor बनाता है।
+</p>
+
+<hr>
+
+<h3>Course-Based Tutor</h3>
+
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+<pre>
+You are an excellent tutor.
+
+The student will upload a syllabus
+or other course materials.
+
+Review the documents,
+surface high-level topics,
+and negotiate a study plan.
+
+Help the student break down key concepts,
+asking clarifying questions if input is vague.
+</pre>
+</div>
+
+<h4>Real-world Applications</h4>
+
+<ul>
+<li>Exam preparation</li>
+<li>Personal AI tutor</li>
+<li>Study planning</li>
+<li>Course summarization</li>
+</ul>
+
+</section>
+
+<section id="prompt-library">
+
+<h2>🔥 High-Value Prompt Library</h2>
+
+<details open>
+<summary>📘 Reading Comprehension Coach</summary>
+
+<div class="details-content">
+
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+<pre>
+You are Book Buddy,
+a conversation partner for young readers.
+
+When a student tells you what they’ve read,
+ask them open-ended questions
+about the theme, character, tone, and so on.
+
+Encourage personal connection
+and critical thinking.
+</pre>
+</div>
+
+<h4>Hindi Explanation</h4>
+
+<p>
+यह prompt learner को passive reading से active interpretation की तरफ ले जाता है।
+</p>
+
+</div>
+</details>
+
+<details>
+<summary>➗ Math Discourse Coach</summary>
+
+<div class="details-content">
+
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+<pre>
+You are an academic dialogue coach for math.
+
+After a student solves a problem,
+ask them to explain how they got their answer
+and why they chose that strategy.
+
+Encourage exploration of alternate approaches
+and help them identify patterns or errors in reasoning.
+
+Keep the tone curious and supportive.
+</pre>
+</div>
+
+<h4>Why It Works</h4>
+
+<p>
+यह सिर्फ answer checking नहीं करता —
+यह mathematical thinking develop करता है।
+</p>
+
+</div>
+</details>
+
+<details>
+<summary>📄 Relevel Text for Target Grade</summary>
+
+<div class="details-content">
+
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+<pre>
+You are an academic writer.
+
+Rewrite the following text so that it would be
+easier to read for a student in the given grade.
+
+Simplify the most complex sentences,
+but stay very close to the original text and style.
+
+The goal is not to write a summary,
+so be comprehensive and keep the text almost as long.
+</pre>
+</div>
+
+<h4>Best Use Case</h4>
+
+<ul>
+<li>ESL learners</li>
+<li>School simplification</li>
+<li>Accessibility</li>
+<li>Content adaptation</li>
+</ul>
+
+</div>
+</details>
+
+</section>
+
+<section id="educational-ai">
+
+<h2>🏫 Educational AI Systems</h2>
+
+<h3>Modern Educational AI को क्या solve करना चाहिए?</h3>
+
+<div class="grid">
+
+<div class="card">
+<h4>🎯 Student Engagement</h4>
+<p>
+Interactive learning experiences।
+</p>
+</div>
+
+<div class="card">
+<h4>🧠 Personalized Learning</h4>
+<p>
+हर learner के अनुसार teaching।
+</p>
+</div>
+
+<div class="card">
+<h4>♿ Accessibility</h4>
+<p>
+Different learning needs support करना।
+</p>
+</div>
+
+<div class="card">
+<h4>📊 Learning Analytics</h4>
+<p>
+Student performance समझना।
+</p>
+</div>
+
+<div class="card">
+<h4>👩‍🏫 Teacher Burnout Reduction</h4>
+<p>
+AI assistants द्वारा workload reduce करना।
+</p>
+</div>
+
+</div>
+
+<h3>Important Observation</h3>
+
+<p>
+Future AI systems:
+</p>
+
+<ul>
+<li>personalized होंगे</li>
+<li>multimodal होंगे</li>
+<li>adaptive होंगे</li>
+<li>pedagogy-aware होंगे</li>
+</ul>
+
+<div class="insight">
+<h4>💡 Important Insight</h4>
+<p>
+AI का biggest opportunity education में है —
+क्योंकि personalized tutoring historically बहुत expensive था।
+</p>
+</div>
+
+</section>
+
+<section id="developer-loop">
+
+<h2>🛠️ Prompt-to-Product Development Loop</h2>
+
+<p>
+LearnLM guide developers को एक complete AI workflow देता है:
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h4>1️⃣ Prototype</h4>
+<p>
+AI Studio में prompts test करो।
+</p>
+</div>
+
+<div class="card">
+<h4>2️⃣ Deploy</h4>
+<p>
+Gemini API से production में use करो।
+</p>
+</div>
+
+<div class="card">
+<h4>3️⃣ Monitor</h4>
+<p>
+User interactions analyze करो।
+</p>
+</div>
+
+<div class="card">
+<h4>4️⃣ Refine</h4>
+<p>
+Prompt behavior improve करो।
+</p>
+</div>
+
+</div>
+
+<h3>Key Learning</h3>
+
+<blockquote>
+“Prompts are not text.
+Prompts are reusable behaviors.”
+</blockquote>
+
+<h3>Why This Matters</h3>
+
+<p>
+Modern AI products essentially:
+</p>
+
+<ul>
+<li>prompt systems</li>
+<li>workflow orchestration</li>
+<li>behavior tuning</li>
+<li>reasoning pipelines</li>
+</ul>
+
+<p>
+का combination हैं।
+</p>
+
+</section>
+
+<section id="bestpractices">
+
+<h2>✅ Prompt Engineering Best Practices</h2>
+
+<h3>1. Define Role First</h3>
+
+<p>
+Always start with:
+</p>
+
+<div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+<pre>
+"You are..."
+</pre>
+</div>
+
+<hr>
+
+<h3>2. Give Clear Objectives</h3>
+
+<p>
+AI guessing नहीं करे।
+Clear instructions दो।
+</p>
+
+<hr>
+
+<h3>3. Structure Outputs</h3>
+
+<p>
+Specify:
+</p>
+
+<ul>
+<li>table</li>
+<li>steps</li>
+<li>JSON</li>
+<li>lesson plan</li>
+<li>summary format</li>
+</ul>
+
+<hr>
+
+<h3>4. Iterate Like Code</h3>
+
+<p>
+Prompt Engineering = software engineering mindset।
+</p>
+
+<hr>
+
+<h3>5. Test Real Inputs</h3>
+
+<p>
+Students जैसे real-world examples use करो।
+</p>
+
+<hr>
+
+<h3>6. Build Learning Flows</h3>
+
+<p>
+Single answers नहीं —
+conversation systems बनाओ।
+</p>
+
+<div class="takeaway">
+<h4>⚡ Quick Takeaway</h4>
+<p>
+Best prompts evolve through iteration,
+testing, and user feedback।
+</p>
+</div>
+
+</section>
+
+<section id="final">
+
+<h2>🏁 Final Learnings</h2>
+
+<p>
+इस पूरे LearnLM guide का सबसे बड़ा message यह है:
+</p>
+
+<blockquote>
+Future of AI = Human-centered learning systems
+</blockquote>
+
+<h3>Core Insights</h3>
+
+<ul>
+<li>Prompt Engineering behavior design है</li>
+<li>AI tutoring future का major industry बनेगा</li>
+<li>Structured prompting dramatically output improve करता है</li>
+<li>Learning science + AI = massive opportunity</li>
+<li>Adaptive workflows static chatbots से कहीं powerful हैं</li>
+<li>Educational AI का goal thinking improve करना होना चाहिए</li>
+</ul>
+
+<h3>Most Valuable Frameworks</h3>
+
+<div class="grid">
+
+<div class="card">
+<h4>PARTS Framework</h4>
+<p>
+Structured prompt design।
+</p>
+</div>
+
+<div class="card">
+<h4>Scaffolding</h4>
+<p>
+Guided learning behavior।
+</p>
+</div>
+
+<div class="card">
+<h4>Adaptive Prompting</h4>
+<p>
+Difficulty personalization।
+</p>
+</div>
+
+<div class="card">
+<h4>Reflection Prompting</h4>
+<p>
+Thinking awareness build करना।
+</p>
+</div>
+
+</div>
+
+<div class="insight">
+<h4>💡 Final Important Insight</h4>
+<p>
+Best AI systems answers generate नहीं करते —
+they create better thinkers.
+</p>
+</div>
+
+<div class="takeaway">
+<h4>⚡ Final Quick Takeaway</h4>
+<p>
+अगर आप Prompt Engineering सीख रहे हैं,
+तो सिर्फ prompts मत लिखिए —
+AI behaviors design करना सीखिए।
+</p>
+</div>
+
+</section>
+
+<footer>
+
+<p>
+Premium Educational AI Guide • LearnLM + Gemini Prompt Engineering • Hindi Explained
+</p>
+
+<p style="margin-top:10px;">
+Built for Indian learners, creators, students, freelancers, and AI professionals.
+</p>
+
+</footer>
+
+</main>
+</div>
+
+<script>
+
+function toggleTheme(){
+    document.body.classList.toggle('dark');
+    localStorage.setItem(
+        'theme',
+        document.body.classList.contains('dark')
+        ? 'dark'
+        : 'light'
+    );
+}
+
+if(localStorage.getItem('theme') === 'dark'){
+    document.body.classList.add('dark');
+}
+
+function copyCode(button){
+    const code = button.nextElementSibling.innerText;
+
+    navigator.clipboard.writeText(code);
+
+    const old = button.innerText;
+    button.innerText = "Copied!";
+
+    setTimeout(()=>{
+        button.innerText = old;
+    },1500);
+}
+
+const searchInput = document.getElementById('searchInput');
+
+searchInput.addEventListener('input', function(){
+
+    const query = this.value.toLowerCase();
+
+    document.querySelectorAll('section').forEach(section=>{
+
+        const text = section.innerText.toLowerCase();
+
+        if(text.includes(query)){
+            section.style.display = 'block';
+        }else{
+            section.style.display = 'none';
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
