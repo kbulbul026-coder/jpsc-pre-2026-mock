@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अस्तित्व की गरिमा: सामाजिक स्वीकृति या आत्म-सम्मान?</title>
+    <style>
+        :root {
+            --bg-light: #f7f5f2;
+            --text-light: #1f1f1f;
+            --accent-light: #b33939; /* Soft maroon/red */
+            --toc-bg-light: #ffffff;
+            --quote-bg-light: #f1f1f1;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --reflection-bg: #fffbe6; /* Soft cream/yellow */
+        }
+        [data-theme="dark"] {
+            --bg-light: #121212;
+            --text-light: #e0e0e0;
+            --accent-light: #f0a39d; /* Soft coral for dark mode */
+            --toc-bg-light: #1f1f1f;
+            --quote-bg-light: #2c2c2c;
+            --shadow-color: rgba(255, 255, 255, 0.1);
+            --reflection-bg: #3a3a3a; /* Darker reflection */
+        }
+        body {
+            font-family: "Noto Sans Devanagari", "Mangal", sans-serif;
+            line-height: 1.8;
+            color: var(--text-light);
+            background-color: var(--bg-light);
+            transition: background-color 0.3s, color 0.3s;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        a {
+            color: var(--accent-light);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            gap: 40px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--toc-bg-light);
+            border-bottom: 1px solid var(--quote-bg-light);
+        }
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: var(--accent-light);
+        }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+        /* Main Content Area */
+        main {
+            flex-grow: 1;
+            padding-right: 20px;
+            max-width: 700px; /* Readable line length */
+        }
+        /* Typography */
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 35px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--accent-light);
+            color: var(--text-light);
+        }
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 30px;
+            color: var(--accent-light);
+        }
+        article p, article li {
+            font-size: 1.1rem;
+            margin-bottom: 1.2em;
+            text-align: justify;
+        }
+        /* Quote Blocks */
+        blockquote {
+            margin: 40px 0;
+            padding: 20px 30px;
+            border-left: 5px solid var(--accent-light);
+            background-color: var(--quote-bg-light);
+            font-style: italic;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+        blockquote footer {
+            margin-top: 10px;
+            display: block;
+            font-style: normal;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        /* Reflection and Special Sections */
+        .reflection-block {
+            background-color: var(--reflection-bg);
+            border: 1px solid var(--accent-light);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        .reflection-block h3 {
+            margin-top: 0;
+        }
+        /* Details/Summary for Expandable Content */
+        details {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 6px;
+            background-color: var(--quote-bg-light);
+            border: 1px solid rgba(179, 57, 57, 0.2);
+        }
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+            color: var(--accent-light);
+            padding-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        details p {
+            padding-top: 10px;
+            margin-bottom: 0;
+            border-top: 1px dashed rgba(0, 0, 0, 0.1);
+        }
+        [data-theme="dark"] details p {
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+        /* Aside/TOC */
+        aside {
+            flex-basis: 300px;
+            flex-shrink: 0;
+            padding-top: 40px;
+        }
+        nav {
+            position: sticky;
+            top: 20px;
+            background-color: var(--toc-bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px var(--shadow-color);
+        }
+        nav h3 {
+            margin-top: 0;
+            border-bottom: 1px solid var(--quote-bg-light);
+            padding-bottom: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav li {
+            margin-bottom: 10px;
+        }
+        nav a {
+            display: block;
+            color: var(--text-light);
+            opacity: 0.9;
+            padding: 5px 0;
+            border-left: 3px solid transparent;
+        }
+        nav a:hover, nav a.active {
+            color: var(--accent-light);
+            border-left: 3px solid var(--accent-light);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--quote-bg-light);
+            margin-top: 50px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        /* Dark/Light Mode Toggle */
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            padding: 10px 15px;
+            border: 1px solid var(--text-light);
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        .theme-toggle:hover {
+            background-color: var(--accent-light);
+            color: white;
+            border-color: var(--accent-light);
+        }
+        /* Mobile Responsiveness */
+        @media (max-width: 1050px) {
+            .container {
+                flex-direction: column;
+                gap: 20px;
+                padding: 10px;
+            }
+            main {
+                max-width: 100%;
+                padding-right: 0;
+            }
+            aside {
+                flex-basis: auto;
+                padding: 10px 0;
+                order: -1; /* TOC above content on mobile */
+            }
+            nav {
+                position: relative;
+                top: 0;
+                margin-bottom: 20px;
+            }
+        }
+        @media print {
+            body { background-color: white; color: black; }
+            [data-theme="dark"] { --bg-light: white; --text-light: black; }
+            header, nav, .theme-toggle, .reflection-block { display: none; }
+            main { max-width: none; }
+            h2, h3 { border-bottom-color: #aaa; color: #333; }
+            blockquote { background-color: #eee; border-left-color: #555; color: #333; }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <button class="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
+
+    <header>
+        <p>आचार्य प्रशांत के संवाद का गहन विश्लेषण</p>
+        <h1>अस्तित्व की गरिमा: सामाजिक स्वीकृति या आत्म-सम्मान?</h1>
+        <p>अपनी चेतना को पहचानें, शरीर और संस्कारों की गुलामी से मुक्त हों।</p>
+    </header>
+
+    <div class="container">
+        <aside>
+            <nav id="toc">
+                <h3>विषय सूची (Table of Contents)</h3>
+                <ul>
+                    <li><a href="#core-ideas">मुख्य सीख</a></li>
+                    <li><a href="#psychology">गहन मनोवैज्ञानिक विश्लेषण</a></li>
+                    <li><a href="#modern-life">जीवन में इसका क्या अर्थ है?</a></li>
+                    <li><a href="#decision">स्वतंत्र सोच और निर्णय का ढाँचा</a></li>
+                    <li><a href="#self-improvement">आत्म-सुधार के सूत्र</a></li>
+                    <li><a href="#quotes">महत्वपूर्ण उद्धरण</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main>
+            <article>
+                <section id="core-ideas">
+                    <h2><span id="मुख्य-सीख">मुख्य सीख (Core Concepts)</span></h2>
+                    <p>यह संवाद व्यक्ति की पहचान, आत्म-सम्मान और सामाजिक दबावों के गहरे मनोवैज्ञानिक संघर्ष पर केंद्रित है। इसका केंद्रीय सत्य यह है कि जब हम स्वयं को 'शरीर' मान लेते हैं, तब हमारी सारी गरिमा खत्म हो जाती है और हम सामाजिक वस्तुओं की तरह बिकने को तैयार हो जाते हैं।</p>
+
+                    <h3>मूल दार्शनिक संदेश (Main Philosophical Message)</h3>
+                    <ul>
+                        <li><strong>पहचान देह नहीं, चेतना है:</strong> मनुष्य की वास्तविक पहचान उसका भौतिक शरीर (जिस्म) नहीं, बल्कि उसकी चेतना (Consciousness) है। सारे आध्यात्मिक और दार्शनिक ग्रंथ (जैसे वेद, गीता, वेदांत) इसी चेतना की ऊँचाई और शुद्धता को स्थापित करने के लिए हैं।</li>
+                        <li><strong>आत्म-सम्मान सबसे बड़ा सत्य:</strong> स्वयं को किसी की स्वीकृति या अनुमोदन के लिए 'प्रदर्शनी' (नुमाइश) लगाना, अपनी गरिमा को बेच देना है। यह 'बड़े घाटे का सौदा' है, जहाँ बाहर की थोड़ी सी स्वीकृति के लिए व्यक्ति स्वयं के प्रति सबसे बड़ा अपराधी बन जाता है।</li>
+                        <li><strong>कमजोरी का स्रोत:</strong> स्त्री को इतिहास में कमजोर बनाया गया है, लेकिन अब सबसे बड़ी हार तब होती है जब वह खुद विद्रोह करके भी स्वयं को केवल शरीर मानकर प्रदर्शन करने लगती है। यह अपने भीतर की चेतना के प्रति सबसे बड़ा धोखा है।</li>
+                    </ul>
+
+                    <blockquote id="धीरज-पढें" class="reflection-block">
+                        <h3>धीरे पढ़ें (Pause and Reflect)</h3>
+                        <p><strong>"समाज, परिवार, संस्कार इनके सामने निर्दोष बने रहने के लिए व्यक्ति स्वयं के प्रति ही बड़े से बड़ा दोषी अपराधी हो जाता है।"</strong></p>
+                        <p>क्या मैंने कभी सामाजिक दबाव में ऐसा काम किया है, जिसके लिए आज मुझे अपने आप से शर्मिंदा होना पड़ता है? यह अपराध समाज के प्रति नहीं, मेरे अपने 'स्व' के प्रति है। इसे पहचानना ही प्रायश्चित का पहला कदम है।</p>
+                    </blockquote>
+                </section>
+
+                <section id="psychology">
+                    <h2><span id="गहन-मनोवैज्ञानिक-विश्लेषण">गहन मनोवैज्ञानिक विश्लेषण (Deep Psychological Insights)</span></h2>
+                    <p>यह खंड उन मूलभूत समस्याओं की व्याख्या करता है जो आज के युवा और वयस्कों को आंतरिक रूप से खोखला कर रही हैं:</p>
+
+                    <h3>क्यों लोग बाहरी स्वीकृति (Validation) के भूखे हैं?</h3>
+                    <details>
+                        <summary>अहंकार का पहला विषय: शरीर</summary>
+                        <p>अहंकार (Ego) बहुत सी चीज़ों को अपना ऑब्जेक्ट (विषय) बनाकर रखता है, और इसमें सबसे पहला ऑब्जेक्ट हमारा शरीर होता है। जब हम खुद को केवल यह शरीर मान लेते हैं, तो अहंकार की वस्तु बन जाते हैं। अपनी अपूर्णता को छुपाने या पूरा करने के लिए हम इस 'वस्तु' का प्रदर्शन करके बाहरी 'खरीददार' ढूंढने लगते हैं।</p>
+                    </details>
+                    
+                    <details>
+                        <summary>रिश्ते की निर्भरता (Relationship Dependency) और खालीपन</summary>
+                        <p>हम अक्सर किसी दूसरे व्यक्ति को अपने जीवन के केंद्र (center of life) में रखने की गलती करते हैं—"वो तू मेरी ज़िन्दगी है।" यह कॉन्सेप्ट हमें गंदी फिल्मों, टीवी सीरियलों और सामाजिक रूढ़ियों से मिला है। जिन लोगों ने पढ़ने, खेलने, या किसी ऊँचे मकसद में आनंद लेना नहीं सीखा, वे जीवन के <strong style="color: var(--accent-light);">निम्न आनंदों (Lower Pleasures)</strong> में ही जानवरों की तरह भटकते रहते हैं। यह निर्भरता ही चिंता (anxiety) और भावनात्मक कमजोरी की जड़ है।</p>
+                    </details>
+                    
+                    <ul>
+                        <li><strong>मानसिक रोग की ओर धकेलना:</strong> बाहरी रिजेक्शन (जैसे किसी का 'अट्रैक्टिव नहीं हो' कहना) को व्यक्तिगत सत्य मान लेना खुद को मानसिक रोग (Neurosis) की ओर धकेलना है। यह तुलनात्मक मानसिकता (*Comparison Mindset*) आत्म-सम्मान को पूरी तरह नष्ट कर देती है।</li>
+                        <li><strong>सामाजिक दबाव और लोगों को खुश करना (People Pleasing):</strong> परिवार और समाज अक्सर 'संस्कारों' और प्रथाओं का हवाला देकर दबाव डालते हैं—<span style="font-style: italic;">“राजा भी अपनी बिटिया नहीं रख पाए हैं”</span>। इस दबाव में हम अपनी सहजता और चेतना के विरुद्ध काम करते हैं। हम बाहरी आंटियों या दीदियों के कहने पर कपड़े, व्यवहार और स्क्रिप्ट तैयार करते हैं, ताकि लड़का 'पट जाए'।</li>
+                    </ul>
+                </section>
+
+                <section id="modern-life">
+                    <h2><span id="जीवन-में-इसका-क्या-अर्थ-है">जीवन में इसका क्या अर्थ है? (Practical Life Connections)</span></h2>
+
+                    <div class="reflection-block">
+                        <h3>आज के समाज की समस्या (The Problem of Modern Society)</h3>
+                        <p>युवावस्था (16 से 22 वर्ष) तक पहुँचते ही, बिना खुद को ढाले, सँवारे या गढ़े, बस <strong style="color: var(--accent-light);">जोड़ा बनाने की बेताबी</strong> शुरू हो जाती है। करियर, ज्ञान और कौशल विकास को छोड़कर ध्यान सिर्फ़ इस बात पर होता है कि कहीं <em style="font-style: italic;">जोड़ी नहीं बनी तो क्या होगा?</em> यह डेस्पिरेशन (व्याकुलता) ही उन्हें गलत रिश्तों और अपमानजनक स्थितियों की ओर ले जाती है।</p>
+                    </div>
+
+                    <h3>रिश्तों में गलती कहाँ होती है?</h3>
+                    <ul>
+                        <li><strong>प्रेम बनाम व्यापार:</strong> यदि रिश्ते में प्रेम (Love) नहीं है, तो वह केवल 'शरीर का व्यापार' या 'जिस्म फ़रोशी' है—लेनदेन है। प्रेम में अहंकार खुद को छोड़ देता है, जबकि व्यापार में अहंकार अपने शरीर (पहले ऑब्जेक्ट) को बेचकर कुछ पाना चाहता है (जैसे ध्यान या स्वीकृति)।</li>
+                        <li><strong>अपमान सहना (Indignity):</strong> बार-बार अपमान सहते हुए भी, ऐसे व्यक्ति के सामने बिछ जाना जो आपके शरीर का उपयोग कूड़ेदान की तरह कर रहा है, आपकी गरिमा को नष्ट कर देता है।</li>
+                        <li><strong>टूटी बेड़ियाँ न टूटना:</strong> शरीर देने या नुमाइश लगाने से न तो आपके भ्रम टूटते हैं, न बंधन टूटते हैं, बल्कि आपकी गरिमा और खो जाती है, और आप अगली बार और भी ज्यादा खुद को 'शरीर जैसा' अनुभव करने लगते हैं।</li>
+                    </ul>
+
+                    <h3>करियर और तुलना का जाल (Career and Comparison Trap)</h3>
+                    <p>करियर का चुनाव या सामाजिक सफलता का दबाव अक्सर इसी असुरक्षा (Insecurity) से उपजा है। हम कोई कार्य इसलिए नहीं करते क्योंकि वह हमें ऊँचा उठाएगा, बल्कि इसलिए करते हैं ताकि समाज/परिवार को दिखा सकें कि हम 'कुछ हैं', जिससे हमारी जोड़ी बन सके या हमारी स्वीकृति मिल सके। यह <em style="font-style: italic;">विषय</em> (Object) को पाना है, न कि <em style="font-style: italic;">चेतना</em> (Consciousness) को जानना।</p>
+
+                    <blockquote class="quote-block">
+                        "तुम्हारी नियत अच्छे हाथ की नहीं अच्छा बनने की होनी चाहिए। अच्छे बनो, ऊँचे बनो।"
+                    </blockquote>
+                </section>
+
+                <section id="decision">
+                    <h2><span id="स्वतंत्र-सोच-कैसे-विकसित-करें">स्वतंत्र सोच और निर्णय का ढाँचा (Decision-Making Framework)</span></h2>
+
+                    <h3>क्लैरिटी का एकमात्र सवाल (The Single Question for Clarity)</h3>
+                    <p>जीवन का हर निर्णय लेते समय—चाहे वह करियर का हो, रिश्ता चुनने का हो, या कोई छोटा-सा कर्म हो—सिर्फ़ एक ही सवाल पूछें, यही अहंकार से मुक्त निर्णय लेने का सबसे सरल और सटीक तरीका है:</p>
+                    <div class="reflection-block" style="background-color: var(--accent-light); color: white;">
+                        <h3 style="color: white; border-bottom: none;">निर्णय-शक्ति का सूत्र</h3>
+                        <p style="font-size: 1.2rem; font-weight: bold; line-height: 1.5;">क्या इससे मैं और उठूंगा कि गिरूंगा?<br>
+                        (Will this elevate me or degrade me?)</p>
+                    </div>
+                    <p>यदि कोई कार्य या व्यक्ति आपको घटने में, यानी अहंकार को छोड़ने में, मदद नहीं कर रहा है, तो वह आपके लिए उचित नहीं है। <em style="font-style: italic;">सही जगह</em> वह है जो आपको चेतना के तल पर ऊपर उठने में मदद करे।</p>
+
+                    <h3>असली प्रायश्चित (Atonement) का तरीका</h3>
+                    <p>गलतियों का पश्चात्ताप (ग्लानि) तभी सार्थक है जब वह एक कड़ा संकल्प बन जाए:</p>
+                    <ul>
+                        <li>जो एक बार हो गया, वह दोबारा नहीं होगा।</li>
+                        <li>भीतर जो बैठा हुआ था जिसने यह गलती करी, मैं उसको ही बदल डालूँगी।</li>
+                        <li>वो गलती करने के लिए बचेगा ही नहीं।</li>
+                    </ul>
+                </section>
+
+                <section id="self-improvement">
+                    <h2><span id="आत्म-सुधार-के-सूत्र">आत्म-सुधार के सूत्र (Self-Improvement Insights)</span></h2>
+
+                    <h3>आंतरिक आत्मविश्वास और पूर्णता</h3>
+                    <ul>
+                        <li><strong>भीतर से पूर्ण होना:</strong> किसी साथी के बिना भी 'आई एम ओके एंड कंप्लीट' (I am Okay and Complete) का भाव होना चाहिए। यह पूर्णता (*Purnamadam*) ही सच्चा आत्मविश्वास है। जब आप डेस्परेट (व्याकुल) नहीं होते, तभी आप सुयोग्य व्यक्ति को जीवन में आने की जगह देते हैं।</li>
+                        <li><strong>शरीर को मजबूत करना:</strong> शरीर कमजोर होने से और कई तरह की बाहरी कमजोरियाँ स्वीकारनी पड़ती हैं। शरीर को मजबूत रखो, दौड़ो, भागो। यह आपको मानसिक गुलामी से बचाता है।</li>
+                        <li><strong>उच्च उद्देश्य:</strong> जीवन को खेलने, पढ़ने, या किसी <strong style="color: var(--accent-light);">ऊँचे मकसद (Higher Purpose)</strong> से जोड़ें। जब आपके पास ऊँचा मकसद होगा, तो निम्न वासनाओं और सामाजिक दबावों के लिए समय या रुचि नहीं बचेगी।</li>
+                    </ul>
+                    
+                    <div class="reflection-block">
+                        <h3>आत्मचिंतन (Self-Reflection)</h3>
+                        <p>जब तक आपको यह पता है कि आप किसी लायक नहीं हैं, आपमें कमियाँ हैं, तब तक जोड़ेबाजी में भूलकर भी मत पड़ना। पहले खुद को बनाओ, जिंदगी को बनाओ, ताकत बढ़ाओ, ज्ञान बढ़ाओ, कौशल सीखो, दुनिया देखो। जब आप ऊँचाई पर पहुँच जाते हैं, तो आपकी जिंदगी में जो भी आएगा, वह भी उसी ऊंचाई का होगा—<strong style="font-style: italic;">"ऊँचाइयों पर ऊँचे ही लोग मिलेंगे।"</strong></p>
+                    </div>
+
+                    <h3>चेतना का सम्मान: जीवन में प्रेम और गरिमा</h3>
+                    <p>मनुष्य को मनुष्य की गरिमा से गिराने में समस्या है। प्रेम में शारीरिक मिलन भी बाहरी तौर पर शरीरों का ही आलिंगन है, लेकिन वह 'नुमाइश' नहीं कहलाता। समस्या तब है जब प्रेम कहीं नहीं है, और आप अपने शरीर को बेचकर हवस का ईंधन बना रहे हैं।</p>
+                    
+                    <details>
+                        <summary>मिले क्या?</summary>
+                        <p>यदि शरीर देने के बाद भी आपके भ्रम न कटे, बंधन न टूटे, ज्ञान न बढ़ा, तो आपको क्या मिला? आपको केवल <strong style="color: var(--accent-light);">अपमान (Indignity)</strong> मिला। अपने पहले ऑब्जेक्ट (शरीर) को देने के बदले में अपमान लेना, सबसे बड़ी मूर्खता है।</p>
+                    </details>
+                </section>
+
+                <section id="quotes">
+                    <h2><span id="महत्वपूर्ण-उद्धरण">महत्वपूर्ण उद्धरण (Powerful Extractions)</span></h2>
+                    <p>संवाद के कुछ सबसे शक्तिशाली और जीवन-बदलने वाले कथन:</p>
+                    
+                    <blockquote class="quote-block">
+                        "तुमने शरीर भी दे दिया और शरीर तुम्हारा पहला ऑब्जेक्ट था। तुमने अपना पहला ऑब्जेक्ट दे दिया और बदले में क्या मिला? इंडिग्निटी।"
+                    </blockquote>
+                    <blockquote class="quote-block">
+                        "जब तक तुम्हें पता है कि तुम किसी लायक नहीं हो। किसी काबिल नहीं हो। तुम में 100 तरह के दोष और कमजोरियाँ पाले सब बैठे हो। तब तक ये जोड़ेबाजी में भूलकर भी मत पड़ना।"
+                    </blockquote>
+                    <blockquote class="quote-block">
+                        "मैं साथी बनाने का विरोध नहीं कर रहा हूँ। मैं किसी व्यक्ति को जीवन के केंद्र पर रखने पर पुनर्विचार करने को कह रहा हूँ।"
+                    </blockquote>
+                    <blockquote class="quote-block">
+                        "वह चाहते हैं कि आप अपने आप को शरीर की तरह देखो। आपने वह शुरू कर दिया। यह गुनाह है।"
+                    </blockquote>
+                    <blockquote class="quote-block">
+                        "सारी गलतियाँ, सारे अपराध अच्छे होते हैं। उनसे सबक ले लो बस। और यही आँसुओं का सबब होता है..."
+                    </blockquote>
+                </section>
+            </article>
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2026 आत्म-सम्मान और जीवन-क्लैरिटी के लिए एक पहल। | यह विश्लेषण आचार्य प्रशांत के संवाद पर आधारित है।</p>
+    </footer>
+
+    <script>
+        const toggleTheme = () => {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+        };
+
+        // Initialize theme from localStorage or default to light
+        const initializeTheme = () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+            document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+        };
+
+        // Simple TOC scrolling effect (optional)
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeTheme();
+
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Highlight active TOC item based on scroll position
+            const sections = document.querySelectorAll('section[id]');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 70; // Offset for fixed header/sticky TOC
+                    if (scrollY >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                document.querySelectorAll('nav a').forEach(a => {
+                    a.classList.remove('active');
+                    if (a.getAttribute('href').includes(current)) {
+                        a.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+
