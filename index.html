@@ -1,1064 +1,485 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Office • Paresh Kumar Hansda</title>
 
-<title>Digital Office • Paresh Kumar Hansda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Noto+Sans:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Light Theme Variables */
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --surface-soft: #f1f5f9;
+            --text: #0f172a;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --primary: #2563eb;
+            --accent: #e8b84b;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            
+            /* Category Colors */
+            --c-emergency: #dc2626;
+            --c-finance: #c58b2a;
+            --c-tech: #7c3aed;
+            --c-study: #2563eb;
+            --c-philosophy: #b91c1c;
+            --c-stoic: #475569;
+        }
 
-<style>
-:root{
-  --bg:#0b0b12;
-  --surface:#13131d;
-  --card:#1a1a27;
-  --soft:#202033;
-  --border:#2d2d46;
+        [data-theme="dark"] {
+            --bg: #0b0f1a;
+            --surface: #131927;
+            --surface-soft: #1e293b;
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+            --border: #2d3748;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
 
-  --text:#ececf4;
-  --muted:#9b9bb8;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background 0.3s ease;
+        }
 
-  --gold:#e8b84b;
-  --blue:#60a5fa;
-  --green:#65b07a;
-  --red:#ef4444;
-  --purple:#9b5de5;
+        /* Reading Progress */
+        .progress-wrap { position: fixed; top: 0; left: 0; width: 100%; height: 4px; z-index: 1000; }
+        .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), var(--accent)); transition: width 0.1s; }
 
-  --shadow:0 6px 20px rgba(0,0,0,0.25);
-}
+        /* Header & Hero */
+        .hero {
+            padding: 100px 20px 60px;
+            text-align: center;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero h1 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--text);
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+        .hero span { color: var(--accent); }
+        .hero p {
+            max-width: 800px;
+            margin: auto;
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
 
-*{
-  box-sizing:border-box;
-}
+        /* Navigation */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: rgba(var(--surface), 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 10px 0;
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 5px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: 0.2s;
+        }
+        .nav-links a:hover { background: var(--surface-soft); color: var(--primary); }
 
-html{
-  scroll-behavior:smooth;
-}
+        .theme-toggle {
+            background: var(--surface-soft);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            color: var(--text);
+            font-weight: 600;
+        }
 
-body{
-  margin:0;
-  padding:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Noto Sans','Noto Sans Devanagari',sans-serif;
-  line-height:1.8;
-}
+        /* Layout */
+        .container { max-width: 1200px; margin: auto; padding: 60px 20px; }
+        
+        .section-header { margin-bottom: 40px; }
+        .section-header h2 { font-size: 2.2rem; margin-bottom: 10px; font-family: 'Rajdhani', sans-serif; }
+        .section-header p { color: var(--muted); max-width: 700px; }
 
-/* ---------------- HEADER ---------------- */
+        /* Grid & Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
 
-header{
-  padding:60px 20px 40px;
-  text-align:center;
-  border-bottom:1px solid var(--border);
-  background:
-    linear-gradient(
-      180deg,
-      #171724 0%,
-      #0b0b12 100%
-    );
-}
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .card:hover { transform: translateY(-8px); border-color: var(--primary); }
 
-header h1{
-  margin:0;
-  font-size:clamp(2rem,5vw,3.2rem);
-  font-family:'Rajdhani',sans-serif;
-  color:var(--gold);
-  letter-spacing:1px;
-}
+        .card-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 5px 12px;
+            border-radius: 10px;
+            width: fit-content;
+            margin-bottom: 20px;
+        }
 
-header p{
-  max-width:850px;
-  margin:20px auto 0;
-  color:var(--muted);
-  font-size:1.05rem;
-}
+        .card h3 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.3; }
+        .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 25px; flex-grow: 1; }
 
-/* ---------------- STICKY NAV ---------------- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            gap: 8px;
+        }
+        .btn:hover { opacity: 0.9; transform: scale(1.02); }
 
-.sticky-nav{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(11,11,18,0.95);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--border);
-}
+        /* Color Variations */
+        .c-red { border-top: 5px solid var(--c-emergency); }
+        .c-red .card-badge { background: #fee2e2; color: #b91c1c; }
+        .c-red .btn { background: var(--c-emergency); color: white; }
 
-.sticky-nav nav{
-  max-width:1200px;
-  margin:auto;
-  overflow-x:auto;
-  white-space:nowrap;
-  padding:12px 16px;
-}
+        .c-gold { border-top: 5px solid var(--c-finance); }
+        .c-gold .card-badge { background: #fef3c7; color: #92400e; }
+        .c-gold .btn { background: var(--c-finance); color: white; }
 
-.sticky-nav a{
-  display:inline-block;
-  margin-right:10px;
-  padding:8px 14px;
-  border-radius:999px;
-  text-decoration:none;
-  color:var(--muted);
-  background:var(--soft);
-  font-size:0.92rem;
-  transition:0.2s ease;
-}
+        .c-blue { border-top: 5px solid var(--c-study); }
+        .c-blue .card-badge { background: #dbeafe; color: #1e40af; }
+        .c-blue .btn { background: var(--c-study); color: white; }
 
-.sticky-nav a:hover{
-  color:#fff;
-  background:#2c2c46;
-}
+        .c-purple { border-top: 5px solid var(--c-tech); }
+        .c-purple .card-badge { background: #ede9fe; color: #5b21b6; }
+        .c-purple .btn { background: var(--c-tech); color: white; }
 
-/* ---------------- CONTAINER ---------------- */
+        .c-dark { border-top: 5px solid var(--c-stoic); }
+        .c-dark .card-badge { background: #f1f5f9; color: #334155; }
+        .c-dark .btn { background: var(--c-stoic); color: white; }
 
-.container{
-  width:100%;
-  max-width:1200px;
-  margin:auto;
-  padding:30px 18px 80px;
-}
+        /* Calm Note Block */
+        .calm-banner {
+            background: var(--surface-soft);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 80px;
+            border: 1px solid var(--border);
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        .calm-text h2 { margin-bottom: 10px; color: var(--primary); }
 
-/* ---------------- CALM NOTE ---------------- */
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .calm-banner { flex-direction: column; text-align: center; padding: 30px 20px; }
+            .nav-inner { flex-direction: column; gap: 15px; }
+        }
 
-.calm-note{
-  background:linear-gradient(145deg,#161623,#101018);
-  border:1px solid var(--border);
-  border-left:4px solid var(--gold);
-  padding:20px;
-  border-radius:16px;
-  margin-bottom:35px;
-}
-
-.calm-note h2{
-  margin-top:0;
-  color:var(--gold);
-  font-size:1.2rem;
-}
-
-.calm-note p{
-  margin-bottom:0;
-  color:var(--muted);
-}
-
-/* ---------------- SECTION ---------------- */
-
-section{
-  margin:55px 0;
-}
-
-.section-heading{
-  margin-bottom:25px;
-}
-
-.section-heading h2{
-  font-size:1.9rem;
-  margin-bottom:10px;
-}
-
-.section-heading p{
-  color:var(--muted);
-  max-width:850px;
-}
-
-/* ---------------- GRID ---------------- */
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
-}
-
-/* ---------------- CARD ---------------- */
-
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:26px 22px;
-  box-shadow:var(--shadow);
-  transition:0.25s ease;
-}
-
-.card:hover{
-  transform:translateY(-4px);
-  border-color:#404067;
-}
-
-.badge{
-  display:inline-block;
-  padding:5px 12px;
-  border-radius:999px;
-  font-size:0.8rem;
-  font-weight:600;
-  margin-bottom:14px;
-}
-
-.card h3{
-  margin:0 0 14px;
-  line-height:1.5;
-  font-size:1.35rem;
-}
-
-.card h3 span{
-  display:block;
-  margin-top:4px;
-  font-size:1rem;
-}
-
-.card p{
-  color:var(--muted);
-  font-size:0.96rem;
-  margin-bottom:24px;
-}
-
-.btn{
-  display:inline-block;
-  text-decoration:none;
-  padding:11px 18px;
-  border-radius:10px;
-  font-weight:700;
-  transition:0.2s ease;
-}
-
-.btn:hover{
-  transform:scale(1.02);
-}
-
-/* ---------------- SPECIAL BLOCKS ---------------- */
-
-.pause{
-  text-align:center;
-  margin:70px 0 45px;
-  color:var(--muted);
-  font-size:0.95rem;
-}
-
-blockquote{
-  margin:0;
-  padding:20px;
-  border-left:4px solid var(--gold);
-  background:#141421;
-  border-radius:12px;
-  color:#d8d8e8;
-}
-
-/* ---------------- DETAILS ---------------- */
-
-details{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:14px;
-  margin-top:18px;
-  overflow:hidden;
-}
-
-summary{
-  cursor:pointer;
-  padding:18px;
-  font-weight:600;
-  color:#fff;
-}
-
-details article{
-  padding:0 18px 18px;
-  color:var(--muted);
-}
-
-/* ---------------- FOOTER ---------------- */
-
-footer{
-  margin-top:80px;
-  border-top:1px solid var(--border);
-  background:#11111a;
-  padding:40px 20px;
-  text-align:center;
-}
-
-footer p{
-  color:var(--muted);
-  max-width:700px;
-  margin:18px auto;
-}
-
-footer span{
-  color:var(--gold);
-  font-weight:600;
-}
-
-/* ---------------- MOBILE ---------------- */
-
-@media(max-width:600px){
-
-  header{
-    padding:50px 18px 30px;
-  }
-
-  .card{
-    padding:22px 18px;
-  }
-
-  .section-heading h2{
-    font-size:1.5rem;
-  }
-
-  .sticky-nav nav{
-    padding-bottom:14px;
-  }
-
-}
-</style>
+        footer {
+            background: var(--surface);
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- ===================================================== -->
-<!-- HEADER -->
-<!-- ===================================================== -->
+<div class="progress-wrap"><div class="progress-bar" id="pBar"></div></div>
 
-<header>
-
-  <h1>Digital Office: Paresh Kumar Hansda</h1>
-
-  <p>
-    शिक्षा, विवेक और 'रूट कॉज़ एनालिसिस' (Root Cause Analysis) का डिजिटल हब।
-    यहाँ ज्ञान, आत्मचिंतन, तकनीकी शिक्षा और जीवन को बेहतर बनाने वाले डिजिटल उपकरण
-    निस्वार्थ भाव से साझा किए जाते हैं।
-  </p>
-
+<header class="hero">
+    <div class="badge" style="background:var(--surface-soft); padding:8px 20px; border-radius:50px; font-weight:600; font-size:0.9rem; margin-bottom:20px; display:inline-block;">🌿 शिक्षा • विवेक • Root Cause Analysis</div>
+    <h1>Digital Office:<br><span>Paresh Kumar Hansda</span></h1>
+    <p>एक शांत डिजिटल मंच जहाँ ज्ञान, आत्मचिंतन और आधुनिक तकनीक का संगम होता है। यहाँ हम तर्क और विवेक के साथ अपनी शिक्षा बाँटते हैं।</p>
 </header>
 
-<!-- ===================================================== -->
-<!-- STICKY NAV -->
-<!-- ===================================================== -->
-
-<div class="sticky-nav">
-  <nav>
-
-    <a href="#quick-relief">शुरुआत</a>
-    <a href="#emergency">आपातकाल</a>
-    <a href="#finance">वित्तीय समझ</a>
-    <a href="#productivity">समय और जीवन</a>
-    <a href="#education">पढ़ाई एवं परीक्षा</a>
-    <a href="#philosophy">आत्मचिंतन</a>
-    <a href="#stoic">दैनिक ध्यान</a>
-    <a href="#technology">तकनीकी शिक्षा</a>
-    <a href="#social">सामाजिक सोच</a>
-    <a href="#family">परिवार एवं निमंत्रण</a>
-
-  </nav>
-</div>
-
-<!-- ===================================================== -->
-<!-- MAIN -->
-<!-- ===================================================== -->
+<nav class="top-nav">
+    <div class="nav-inner">
+        <div class="nav-links">
+            <a href="#emergency">आपातकाल</a>
+            <a href="#finance">वित्तीय समझ</a>
+            <a href="#education">पढ़ाई एवं परीक्षा</a>
+            <a href="#ai-tech">तकनीकी एवं AI</a>
+            <a href="#philosophy">आत्मचिंतन</a>
+            <a href="#stoic">दैनिक ध्यान</a>
+        </div>
+        <button class="theme-toggle" id="themeBtn">🌙 Dark Mode</button>
+    </div>
+</nav>
 
 <main class="container">
 
-  <!-- ========================================= -->
-  <!-- QUICK RELIEF -->
-  <!-- ========================================= -->
+    <section class="calm-banner">
+        <div class="calm-text">
+            <h2>धीरे पढ़ें • जल्दी नहीं</h2>
+            <p>जीवन की भागदौड़ के बीच, यह स्थान आपको रुकने और सोचने की जगह देता है। यदि मन भारी हो, तो एक-एक सेक्शन को गहराई से समझें। जानकारी सिर्फ डेटा नहीं, वह आपका सहारा बन सकती है।</p>
+            <p style="margin-top:15px; font-style:italic; color:var(--muted);">"शांति जगह में नहीं, मन में होती है।"</p>
+        </div>
+    </section>
 
-  <section id="quick-relief">
-
-    <div class="calm-note">
-
-      <h2>धीरे पढ़ें • जल्दी नहीं</h2>
-
-      <p>
-        यह केवल एक वेबसाइट नहीं है। यह उन लोगों के लिए एक शांत डिजिटल स्थान है
-        जो जीवन, पढ़ाई, नौकरी, परिवार, भविष्य, तनाव, पैसों या मानसिक उलझनों के बीच
-        थोड़ी स्पष्टता और सहारा ढूँढ रहे हैं।
-        <br><br>
-        यदि मन भारी हो — तो एक-एक सेक्शन धीरे पढ़ें।
-        आपको यहाँ ज्ञान के साथ सोचने और रुककर समझने की जगह भी मिलेगी।
-      </p>
-
-    </div>
-
-    <blockquote>
-      “हम तर्क और न्याय के साथ विवेक का उपयोग कर अपनी शिक्षा बाँटेंगे।”
-    </blockquote>
-
-  </section>
-
-  <div class="pause">
-    ⸻ थोड़ा रुकें • गहरी साँस लें • फिर आगे बढ़ें ⸻
-  </div>
-
-  <!-- ========================================= -->
-  <!-- EMERGENCY -->
-  <!-- ========================================= -->
-
-  <section id="emergency">
-
-    <div class="section-heading">
-      <h2>आपातकालीन सहायता</h2>
-      <p>
-        कठिन समय में सही जानकारी और तेज़ सहायता बेहद महत्वपूर्ण होती है।
-      </p>
-    </div>
-
+    <section id="emergency" class="section-header">
+        <h2>आपातकालीन सहायता</h2>
+        <p>कठिन समय में सही जानकारी और तेज़ सहायता के लिए तैयार किए गए डिजिटल टूल्स।</p>
+    </section>
     <div class="grid">
-
-      <article class="card" style="border-color:#ef4444;">
-
-        <div class="badge" style="background:rgba(239,68,68,0.12); color:#ff6b6b;">
-          आपातकालीन टूल (Emergency)
+        <div class="card c-red">
+            <div class="card-badge">Emergency</div>
+            <h3>गुमशुदगी रिपोर्ट पोस्टर जेनरेटर</h3>
+            <p>मात्र 1 मिनट में पुलिस और सोशल मीडिया के लिए प्रोफेशनल प्रिंट-रेडी डिजिटल पोस्टर तैयार करें।</p>
+            <a href="missing-report.html" class="btn">टूल का उपयोग करें ➔</a>
         </div>
-
-        <h3>
-          गुमशुदगी रिपोर्ट
-          <span style="color:#ef4444;">पोस्टर जेनरेटर</span>
-        </h3>
-
-        <p>
-          किसी अपने के लापता होने पर घबराएं नहीं।
-          मात्र 1 मिनट में पुलिस और सोशल मीडिया के लिए
-          प्रिंट-रेडी डिजिटल पोस्टर तैयार करें।
-        </p>
-
-        <a href="missing-report.html"
-           class="btn"
-           style="background:#ef4444;color:#fff;">
-           टूल का उपयोग करें ➔
-        </a>
-
-      </article>
-
     </div>
 
-  </section>
-
-  <!-- ========================================= -->
-  <!-- FINANCE -->
-  <!-- ========================================= -->
-
-  <section id="finance">
-
-    <div class="section-heading">
-
-      <h2>वित्तीय समझ और भविष्य की सुरक्षा</h2>
-
-      <p>
-        पैसे की चिंता, लोन, शादी का खर्च, निवेश और भविष्य —
-        ये सब आम भारतीय परिवारों के सबसे बड़े मानसिक दबावों में से हैं।
-        यहाँ दिए गए टूल कठिन आर्थिक निर्णयों को आसान भाषा में समझने में मदद करेंगे।
-      </p>
-
-    </div>
-
+    <section id="finance" class="section-header">
+        <h2>वित्तीय समझ और भविष्य</h2>
+        <p>लोन, निवेश और बचत के असली गणित को अपनी भाषा में समझें।</p>
+    </section>
     <div class="grid">
-
-      <article class="card">
-
-        <div class="badge"
-             style="background:rgba(232,184,75,0.12);color:var(--gold);">
-          Financial Tool (Hindi)
+        <div class="card c-gold">
+            <div class="card-badge">Financial Tool</div>
+            <h3>EMI कैलकुलेटर: डिजिटल CA</h3>
+            <p>लोन की EMI, ब्याज और नेगोशिएशन से होने वाली बचत को सरल हिंदी में समझें।</p>
+            <a href="emi-calculator-2.html" class="btn">कैलकुलेटर देखें ➔</a>
         </div>
-
-        <h3>
-          EMI कैलकुलेटर
-          <span style="color:var(--gold);">डिजिटल CA</span>
-        </h3>
-
-        <p>
-          लोन की EMI, ब्याज और नेगोशिएशन से होने वाली बचत को हिंदी में समझें
-          और सही निवेश का निर्णय लें।
-        </p>
-
-        <a href="emi-calculator-2.html"
-           class="btn"
-           style="background:var(--gold);color:#000;">
-          टूल का उपयोग करें ➔
-        </a>
-
-      </article>
-
-      <article class="card">
-
-        <div class="badge"
-             style="background:rgba(232,184,75,0.12);color:var(--gold);">
-          Financial Tool (Adv)
+        <div class="card c-gold">
+            <div class="card-badge">Financial Tool</div>
+            <h3>EMI vs SIP: Smart Calc</h3>
+            <p>लोन जल्दी चुकाना बेहतर है या निवेश करना? लंबी अवधि के वित्तीय प्रभाव की तुलना करें।</p>
+            <a href="emi_vs_sip2.html" class="btn">तुलना देखें ➔</a>
         </div>
-
-        <h3>
-          EMI vs SIP
-          <span style="color:var(--gold);">Smart Calculator</span>
-        </h3>
-
-        <p>
-          लोन जल्दी चुकाना बेहतर है या लंबी अवधि का लोन लेकर
-          बचे हुए पैसे को म्यूच्यूअल फण्ड में निवेश करना?
-        </p>
-
-        <a href="emi_vs_sip2.html"
-           class="btn"
-           style="background:var(--gold);color:#000;">
-          टूल का उपयोग करें ➔
-        </a>
-
-      </article>
-
-      <article class="card" style="border-color:#E8760A;">
-
-        <div class="badge"
-             style="background:rgba(232,118,10,0.15);color:#F5A623;">
-          जमा पूंजी (Finance)
+        <div class="card c-gold">
+            <div class="card-badge">Wealth Building</div>
+            <h3>शादी बचत कैलकुलेटर</h3>
+            <p>दिखावे के खर्च और Compounding के बीच के अंतर को समझें। भविष्य के करोड़ों का हिसाब करें।</p>
+            <a href="shadi-bachat-calculator.html" class="btn">हिसाब देखें ➔</a>
         </div>
-
-        <h3>
-          शादी बचत
-          <span style="color:#E8760A;">कैलकुलेटर</span>
-        </h3>
-
-        <p>
-          शादी के दिखावे में होने वाले खर्च और
-          'चक्रवृद्धि ब्याज' (Compounding) से बनने वाले करोड़ों के भविष्य
-          का असली गणित समझें।
-        </p>
-
-        <a href="shadi-bachat-calculator.html"
-           class="btn"
-           style="background:#E8760A;color:#fff;">
-          हिसाब देखें ➔
-        </a>
-
-      </article>
-
-      <article class="card" style="border-color:#c9933a;">
-
-        <div class="badge"
-             style="background:rgba(201,147,58,0.15);color:#c9933a;">
-          वित्तीय जागरूकता
+        <div class="card c-gold">
+            <div class="card-badge">Awareness</div>
+            <h3>सोना कितना सोना है?</h3>
+            <p>BIS कोड, हॉलमार्क और सोना खरीदते समय होने वाली ठगी से बचने की पूरी जानकारी।</p>
+            <a href="sona-kitna-sona.html" class="btn">पूरी सच्चाई ➔</a>
         </div>
-
-        <h3>
-          सोना कितना
-          <span style="color:#c9933a;">सोना है?</span>
-        </h3>
-
-        <p>
-          क्या हॉलमार्क का मतलब 24 कैरेट है?
-          सोना खरीदने से पहले BIS कोड (916, 750)
-          का असली सच और ठगी से बचने का तरीका जानें।
-        </p>
-
-        <a href="sona-kitna-sona.html"
-           class="btn"
-           style="background:#c9933a;color:#1a1408;">
-          पूरी सच्चाई पढ़ें ➔
-        </a>
-
-      </article>
-
-
-        <div class="card" style="border-color: #8e24aa; box-shadow: 0 4px 15px rgba(142, 36, 170, 0.1);">
-    <div class="badge" style="color: #8e24aa; background: rgba(142, 36, 170, 0.15);">स्टार्टअप (Business)</div>
-    <h2>बिज़नेस<br><span style="font-size: 1.1rem; color: #8e24aa;">आइडियाज़ गाइड</span></h2>
-    <p>कम निवेश वाले, घर-आधारित और टिकाऊ व्यावसायिक विचार। माइक्रोग्रीन, क्लाउड किचन और आय सृजन के नए मॉडल्स सीखें।</p>
-    <a href="bidea.html" class="btn" style="background: linear-gradient(135deg, #8e24aa, #ab47bc); color: #ffffff;">शुरुआत की राह ➔</a>
+        <div class="card c-purple">
+            <div class="card-badge">Startup</div>
+            <h3>बिज़नेस आइडियाज़ गाइड</h3>
+            <p>कम निवेश वाले, घर-आधारित और टिकाऊ व्यावसायिक विचार। माइक्रोग्रीन से क्लाउड किचन तक।</p>
+            <a href="bidea.html" class="btn">शुरुआत की राह ➔</a>
         </div>
-      
-
     </div>
 
-    <details>
-      <summary>महत्वपूर्ण विचार • पैसे से जुड़ी मानसिक शांति</summary>
-
-      <article>
-        <p>
-          कई बार आर्थिक तनाव केवल पैसों की कमी से नहीं,
-          बल्कि गलत निर्णय, सामाजिक तुलना और भविष्य के डर से बढ़ता है।
-          समझदारी से लिया गया छोटा निर्णय भी आने वाले वर्षों में बड़ी राहत दे सकता है।
-        </p>
-      </article>
-
-    </details>
-
-  </section>
-
-  <!-- ========================================= -->
-  <!-- PRODUCTIVITY -->
-  <!-- ========================================= -->
-
-  <section id="productivity">
-
-    <div class="section-heading">
-
-      <h2>समय, ध्यान और जीवन का संतुलन</h2>
-
-      <p>
-        आज सबसे बड़ी लड़ाई समय की नहीं —
-        ध्यान (Attention) की है।
-      </p>
-
-    </div>
-
+    <section id="education" class="section-header">
+        <h2>पढ़ाई और परीक्षा तैयारी</h2>
+        <p>प्रतियोगी परीक्षाओं के लिए व्यवस्थित सामग्री और मॉक टेस्ट।</p>
+    </section>
     <div class="grid">
-
-      <article class="card" style="border-color:#3b82f6;">
-
-        <div class="badge"
-             style="background:rgba(59,130,246,0.15);color:#60A5FA;">
-          समय प्रबंधन (Productivity)
+        <div class="card c-blue">
+            <div class="card-badge">JPSC GS-I</div>
+            <h3>सामान्य अध्ययन समीक्षा</h3>
+            <p>इतिहास, भूगोल, और राजव्यवस्था पर आधारित 100 प्रश्नों की आधिकारिक समीक्षा।</p>
+            <a href="paper1.html" class="btn">समीक्षा देखें ➔</a>
         </div>
-
-        <h3>
-          स्क्रीन टाइम
-          <span style="color:#3b82f6;">कैलकुलेटर</span>
-        </h3>
-
-        <p>
-          रील्स और सोशल मीडिया में बर्बाद हो रहे समय की
-          असली 'वित्तीय कीमत' और भविष्य के करोड़ों के नुकसान
-          का गणित समझें।
-        </p>
-
-        <a href="screentime-calculator.html"
-           class="btn"
-           style="background:#2563eb;color:#fff;">
-          असली नुकसान देखें ➔
-        </a>
-
-      </article>
-
+        <div class="card c-blue">
+            <div class="card-badge">JPSC GS-II</div>
+            <h3>झारखण्ड विशेष अध्ययन</h3>
+            <p>झारखण्ड का इतिहास, संस्कृति, कानून और औद्योगिक नीतियों का गहन विश्लेषण।</p>
+            <a href="paper2.html" class="btn">अध्ययन करें ➔</a>
+        </div>
+        <div class="card c-blue">
+            <div class="card-badge">RRB NTPC</div>
+            <h3>CBT-1 मॉक टेस्ट</h3>
+            <p>वास्तविक परीक्षा पैटर्न पर आधारित 100 प्रश्नों का अभ्यास टेस्ट और विस्तृत विश्लेषण।</p>
+            <a href="rrb_ntpc_mock.html" class="btn">टेस्ट शुरू करें ➔</a>
+        </div>
     </div>
 
-  </section>
-
-  <!-- ========================================= -->
-  <!-- EDUCATION -->
-  <!-- ========================================= -->
-
-  <section id="education">
-
-    <div class="section-heading">
-
-      <h2>पढ़ाई, प्रतियोगिता और आत्मविश्वास</h2>
-
-      <p>
-        प्रतियोगी परीक्षाओं की तैयारी केवल जानकारी की नहीं,
-        मानसिक धैर्य की भी परीक्षा होती है।
-      </p>
-
-    </div>
-
+    <section id="ai-tech" class="section-header">
+        <h2>तकनीकी शिक्षा और AI</h2>
+        <p>आने वाला समय AI का है। इसे सही तरीके से उपयोग करना सीखें।</p>
+    </section>
     <div class="grid">
-
-      <article class="card">
-
-        <div class="badge"
-             style="background:rgba(232,184,75,0.12);color:var(--gold);">
-          Response Sheet
+        <div class="card c-purple">
+            <div class="card-badge">AI Training</div>
+            <h3>Prompt Engineering Guide</h3>
+            <p>AI से सही सवाल पूछना सीखें। Zero-Shot, ReAct और Tree-of-Thoughts की हिंदी गाइड।</p>
+            <a href="ai-prompt-guide.html" class="btn">मास्टर बनें ➔</a>
         </div>
-
-        <h3>
-          JPSC GS-I
-          <span style="color:var(--gold);">सामान्य अध्ययन</span>
-        </h3>
-
-        <p>
-          इतिहास, भूगोल, राजव्यवस्था और समसामयिकी (Current Affairs)
-          पर आधारित 100 प्रश्नों की आधिकारिक समीक्षा।
-        </p>
-
-        <a href="paper1.html"
-           class="btn"
-           style="background:var(--gold);color:#000;">
-          ऑडिट एवं समीक्षा ➔
-        </a>
-
-      </article>
-
-      <article class="card">
-
-        <div class="badge"
-             style="background:rgba(232,184,75,0.12);color:var(--gold);">
-          Response Sheet
+        <div class="card c-purple">
+            <div class="card-badge">Advanced AI</div>
+            <h3>Gemini + LearnLM Masterclass</h3>
+            <p>AI का व्यवहार डिज़ाइन करना सीखें। एजुकेशनल वर्कफ़्लो और ऑटोमेशन की एडवांस गाइड।</p>
+            <a href="learnai.html" class="btn">महारत हासिल करें ➔</a>
         </div>
-
-        <h3>
-          JPSC GS-II
-          <span style="color:var(--gold);">झारखण्ड विशेष</span>
-        </h3>
-
-        <p>
-          झारखण्ड का इतिहास, भूगोल, संस्कृति,
-          सीएनटी/एसपीटी एक्ट एवं औद्योगिक नीतियों पर आधारित
-          100 प्रश्नों की समीक्षा।
-        </p>
-
-        <a href="paper2.html"
-           class="btn"
-           style="background:var(--gold);color:#000;">
-          ऑडिट एवं समीक्षा ➔
-        </a>
-
-      </article>
-
-      <article class="card" style="border-color:#3b82f6;">
-
-        <div class="badge"
-             style="background:rgba(34,211,238,0.12);color:#22d3ee;">
-          CBT-1 मॉक टेस्ट
+        <div class="card c-purple">
+            <div class="card-badge">Educational AI</div>
+            <h3>LearnLM प्रॉम्प्ट गाइड</h3>
+            <p>Google के खास एजुकेशन मॉडल के सीक्रेट्स। सोक्रेटिक संवाद के ज़रिए सीखना।</p>
+            <a href="learnlm_prompt_guide.html" class="btn">सीखना शुरू करें ➔</a>
         </div>
-
-        <h3>
-          RRB NTPC
-          <span style="color:#3b82f6;">Graduate Level</span>
-        </h3>
-
-        <p>
-          100 प्रश्न, 90 मिनट, 1/3 नेगेटिव मार्किंग।
-          रेलवे के वास्तविक परीक्षा पैटर्न पर आधारित
-          पूर्ण अभ्यास टेस्ट और विस्तृत समीक्षा।
-        </p>
-
-        <a href="rrb_ntpc_mock.html"
-           class="btn"
-           style="background:#2563eb;color:#fff;">
-          मॉक टेस्ट शुरू करें ➔
-        </a>
-
-      </article>
-
-
-      
-  <div class="card" style="border-color: #2563eb; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1);">
-    <div class="badge" style="color: #1e40af; background: rgba(37, 99, 235, 0.15);">तकनीकी ज्ञान (AI & Tech)</div>
-    <h2>AI & Prompt<br><span style="font-size: 1.1rem; color: #2563eb;">इंजीनियरिंग गाइड</span></h2>
-    <p>शुरुआती लोगों के लिए आसान भाषा में AI, ChatGPT और प्रॉम्प्ट इंजीनियरिंग के बेसिक से लेकर एडवांस कॉन्सेप्ट्स की पूरी मास्टरक्लास।</p>
-    <a href="ai-prompt-guide.html" class="btn" style="background: linear-gradient(135deg, #2563eb, #1e3a8a); color: #ffffff;">AI मास्टर बनें ➔</a>
-  </div>
-
-
-
-
-
-        <div class="card" style="border-color: #5b7cff; box-shadow: 0 4px 15px rgba(91, 124, 255, 0.1);">
-    <div class="badge" style="color: #5b7cff; background: rgba(91, 124, 255, 0.15);">एडवांस्ड AI (Gemini)</div>
-    <h2>Gemini + LearnLM<br><span style="font-size: 1.1rem; color: #5b7cff;">एडवांस्ड मास्टरक्लास</span></h2>
-    <p>सिर्फ प्रॉम्प्ट नहीं, AI का 'व्यवहार' (Behavior) डिज़ाइन करना सीखें। एजुकेशनल AI और वर्कफ़्लो ऑटोमेशन की सबसे एडवांस हिंदी गाइड।</p>
-    <a href="learnai.html" class="btn" style="background: linear-gradient(135deg, #5b7cff, #3b5bdb); color: #ffffff; border: none;">महारत हासिल करें ➔</a>
+        <div class="card c-blue">
+            <div class="card-badge">Productivity</div>
+            <h3>स्क्रीन टाइम कैलकुलेटर</h3>
+            <p>सोशल मीडिया में बर्बाद हो रहे समय की असली आर्थिक और मानसिक कीमत समझें।</p>
+            <a href="screentime-calculator.html" class="btn">नुकसान देखें ➔</a>
         </div>
-
-      
-      
-
-        <div class="card" style="border-color: #38bdf8; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.1);">
-    <div class="badge" style="color: #38bdf8; background: rgba(56, 189, 248, 0.15);">शैक्षणिक AI (LearnLM)</div>
-    <h2>LearnLM<br><span style="font-size: 1.1rem; color: #a855f7;">प्रॉम्प्ट मास्टरक्लास</span></h2>
-    <p>Google के खास एजुकेशन मॉडल 'LearnLM' के सीक्रेट्स। सोक्रेटिक संवाद और एक्टिव लर्निंग के ज़रिए AI से बेहतरीन तरीके से सीखें और सिखाएं।</p>
-    <a href="learnlm_prompt_guide.html" class="btn" style="background: linear-gradient(135deg, #38bdf8, #a855f7); color: #ffffff;">सीखना शुरू करें ➔</a>
-  </div>
-
-
-      
     </div>
 
-  </section>
-
-  <div class="pause">
-    ⸻ जीवन केवल दौड़ नहीं • समझ भी है ⸻
-  </div>
-
-  <!-- ========================================= -->
-  <!-- SOCIAL -->
-  <!-- ========================================= -->
-
-  <section id="social">
-
-    <div class="section-heading">
-
-      <h2>समाज, भीड़ और वास्तविकता</h2>
-
-      <p>
-        हर चमकती चीज़ प्रगति नहीं होती।
-        कई बार सच को समझना ही जागरूकता की शुरुआत होती है।
-      </p>
-
-    </div>
-
+    <section id="philosophy" class="section-header">
+        <h2>आत्मचिंतन और जीवन दर्शन</h2>
+        <p>जब बाहरी दुनिया उलझी हुई लगे, तब भीतर की समझ सबसे बड़ी शक्ति बनती है।</p>
+    </section>
     <div class="grid">
-
-      <article class="card" style="border-color:#d42b2b;">
-
-        <div class="badge"
-             style="background:rgba(212,43,43,0.15);color:#ff4d4d;">
-          कड़वा सच (Report)
+        <div class="card c-red">
+            <div class="card-badge">Self-Knowledge</div>
+            <h3>आचार्य प्रशांत: आंतरिक आज़ादी</h3>
+            <p>समाज सुधार बनाम स्वयं का उद्धार। जीवन के कठोर सत्यों पर एक गहरी चर्चा।</p>
+            <a href="acharya-interview2.html" class="btn">विचार मंथन ➔</a>
         </div>
-
-        <h3>
-          जागो आम
-          <span style="color:#d42b2b;">आदमी</span>
-        </h3>
-
-        <p>
-          चमकते शहरों के पीछे का वह सच जो कोई नहीं बताता।
-          जीडीपी का धोखा, प्रदूषण की कीमत और
-          बेतहाशा बढ़ती भीड़ का असली अंजाम।
-        </p>
-
-        <a href="jaago-aam-aadmi.html"
-           class="btn"
-           style="background:#d42b2b;color:#fff;">
-          विशेष रिपोर्ट देखें ➔
-        </a>
-
-      </article>
-
+        <div class="card c-dark">
+            <div class="card-badge">Philosophy</div>
+            <h3>विवाह और प्रेम दर्शन</h3>
+            <p>क्या विवाह केवल सामाजिक व्यवस्था है? मानवीय संबंधों पर एक दार्शनिक विश्लेषण।</p>
+            <a href="marriage_philosophy_standalone.html" class="btn">पूरा लेख पढ़ें ➔</a>
+        </div>
+        <div class="card c-dark">
+            <div class="card-badge">Mental Peace</div>
+            <h3>आत्मचिंतन और मानसिक थकान</h3>
+            <p>क्या आपका मन लगातार दौड़ने से थक गया है? 'ऑटो-पायलट' ज़िंदगी से बाहर निकलें।</p>
+            <a href="atmachintan.html" class="btn">शांति से पढ़ें ➔</a>
+        </div>
+        <div class="card c-red">
+            <div class="card-badge">Beyond Body</div>
+            <h3>देह और अधिकार से परे</h3>
+            <p>स्वयं को देह के जाल से निकालकर 'अनंत चेतना' के रूप में पहचानने का कठोर दर्शन।</p>
+            <a href="beyod.html" class="btn">सत्य का सामना ➔</a>
+        </div>
+        <div class="card c-red">
+            <div class="card-badge">Report</div>
+            <h3>जागो आम आदमी</h3>
+            <p>चमकते शहरों के पीछे का सच—जीडीपी, प्रदूषण और बेतहाशा बढ़ती भीड़ का अंजाम।</p>
+            <a href="jaago-aam-aadmi.html" class="btn">विशेष रिपोर्ट ➔</a>
+        </div>
+        <div class="card c-dark">
+            <div class="card-badge">Invitation</div>
+            <h3>राहुल 💍 पिंकी डिजिटल कार्ड</h3>
+            <p>हमारे परिवार के मांगलिक अवसर का डिजिटल आमंत्रण और कार्यक्रम का विवरण।</p>
+            <a href="rahul_pinky_final_card.html" class="btn">आमंत्रण देखें ➔</a>
+        </div>
     </div>
 
-  </section>
-
-  <!-- ========================================= -->
-  <!-- PHILOSOPHY -->
-  <!-- ========================================= -->
-
-  <section id="philosophy">
-
-    <div class="section-heading">
-
-      <h2>आत्म-ज्ञान और गहरी सोच</h2>
-
-      <p>
-        जब बाहरी दुनिया उलझी हुई लगे,
-        तब भीतर की समझ सबसे बड़ी शक्ति बनती है।
-      </p>
-
-    </div>
-
+    <section id="stoic" class="section-header">
+        <h2>दैनिक ध्यान: Stoic Wisdom</h2>
+        <p>मार्कस ऑरेलियस के दर्शन के माध्यम से जीवन को स्वीकारने और मन को शांत करने की कला।</p>
+    </section>
     <div class="grid">
-
-      <article class="card" style="border-color:#b91c1c;">
-
-        <div class="badge"
-             style="background:rgba(185,28,28,0.15);color:#ff7b7b;">
-          आत्म-ज्ञान (Self-Knowledge)
+        <div class="card c-dark">
+            <div class="card-badge">Stoic</div>
+            <h3>Amor Fati: नियति से प्रेम</h3>
+            <p>ब्रह्मांड और नियति को स्वीकार करने का अद्भुत दर्शन। जो हो रहा है, उसे स्वीकारें।</p>
+            <a href="marcus-book10-21.html" class="btn">मंथन करें ➔</a>
         </div>
-
-        <h3>
-          आचार्य प्रशांत
-          <span style="color:#b91c1c;">आंतरिक आज़ादी</span>
-        </h3>
-
-        <p>
-          क्या समाज सुधार से दुनिया बदलेगी या खुद के उद्धार से?
-          IIT-IIM से वेदांत तक की यात्रा और
-          जीवन के कठोर सत्यों का सार।
-        </p>
-
-        <a href="acharya-interview2.html"
-           class="btn"
-           style="background:#b91c1c;color:#fff;">
-          विचार मंथन करें ➔
-        </a>
-
-      </article>
-
-
-  <div class="card" style="border-color: #9c8a6a; box-shadow: 0 4px 15px rgba(156, 138, 106, 0.1);">
-    <div class="badge" style="color: #8a785a; background: rgba(156, 138, 106, 0.15);">मानसिक शांति (Mental Peace)</div>
-    <h2>आत्मचिंतन<br><span style="font-size: 1.1rem; color: #9c8a6a;">और मानसिक थकान</span></h2>
-    <p>क्या आपका मन लगातार दौड़ने से थक गया है? 'ऑटो-पायलट' वाली ज़िंदगी से बाहर निकलकर, खुद को और अपनी बेचैनी को समझने का एक गहरा दार्शनिक पाठ।</p>
-    <a href="atmachintan.html" class="btn" style="background: linear-gradient(135deg, #9c8a6a, #7a6b52); color: #ffffff;">शांति से पढ़ें ➔</a>
-  </div>
-
-
-      
-      <article class="card" style="border-color:#9333ea;">
-
-        <div class="badge"
-             style="background:rgba(147,51,234,0.15);color:#c084fc;">
-          दार्शनिक लेख (Philosophy)
+        <div class="card c-dark">
+            <div class="card-badge">Stoic</div>
+            <h3>निडरता: भविष्य के मार्ग</h3>
+            <p>जीते रहना या समाप्त हो जाना? मन से मृत्यु और अनिश्चितता का भय निकालें।</p>
+            <a href="marcus-book10-22.html" class="btn">मंथन करें ➔</a>
         </div>
-
-        <h3>
-          विवाह और प्रेम
-          <span style="color:#9333ea;">आचार्य का दर्शन</span>
-        </h3>
-
-        <p>
-          क्या विवाह एक बिज़नेस डील है या प्रेम का मिलन?
-          मानवीय संबंधों और जीवन के कड़वे सत्यों पर
-          एक गहरी विचार-मंथन प्रस्तुति।
-        </p>
-
-        <a href="marriage_philosophy_standalone.html"
-           class="btn"
-           style="background:#9333ea;color:#fff;">
-          पूरा लेख पढ़ें ➔
-        </a>
-
-      </article>
-
-
-
-
-        <div class="card" style="border-color: #8b2635; box-shadow: 0 4px 15px rgba(139, 38, 53, 0.1);">
-    <div class="badge" style="color: #8b2635; background: rgba(139, 38, 53, 0.15);">आत्म-सम्मान (Philosophy)</div>
-    <h2>देह और अधिकार<br><span style="font-size: 1.1rem; color: #8b2635;">से परे (Beyond Body)</span></h2>
-    <p>आपकी कीमत विवाह बाज़ार या समाज तय नहीं करता। स्वयं को 'देह' के जाल से निकालकर 'अनंत चेतना' के रूप में पहचानने का एक कठोर दर्शन।</p>
-    <a href="beyod.html" class="btn" style="background: linear-gradient(135deg, #8b2635, #b83246); color: #ffffff; border: none;">सत्य का सामना करें ➔</a>
+        <div class="card c-dark">
+            <div class="card-badge">Stoic</div>
+            <h3>मर्यादा और विवेक (Book 2)</h3>
+            <p>मृत्यु से मित्रता और अहंकार का विसर्जन। मेडिटेशन्स के दूसरे भाग का विश्लेषण।</p>
+            <a href="book2.html" class="btn">दर्शन को समझें ➔</a>
         </div>
-      
-
-
-        <div class="card" style="border-color: #b33939; box-shadow: 0 4px 15px rgba(179, 57, 57, 0.1);">
-    <div class="badge" style="color: #b33939; background: rgba(179, 57, 57, 0.15);">आत्म-मंथन (Philosophy)</div>
-    <h2>अस्तित्व की<br><span style="font-size: 1.1rem; color: #b33939;">गरिमा (Dignity)</span></h2>
-    <p>सामाजिक स्वीकृति या आत्म-सम्मान? स्वयं को शरीर और समाज की खोखली मान्यताओं से ऊपर उठाने का एक गहरा और सत्य दर्शन।</p>
-    <a href="beyond_flesh.html" class="btn" style="background: linear-gradient(135deg, #b33939, #8e2a2a); color: #ffffff; border: none;">सत्य को जानें ➔</a>
+        <div class="card c-dark">
+            <div class="card-badge">Stoic</div>
+            <h3>मुक्ति और विदा (Final)</h3>
+            <p>जब नाटककार इशारा करे, तो मुस्कुराहट के साथ मंच छोड़ें। अंतिम शांति का मार्ग।</p>
+            <a href="books12.html" class="btn">अंतिम शांति ➔</a>
         </div>
-      
-
-
-      
-      
+        <div class="card c-dark">
+            <div class="card-badge">Stoic</div>
+            <h3>आंतरिक शांति (Book 10-23)</h3>
+            <p>"शांति जगह में नहीं, मन में होती है।" स्थान बदलने से आत्मा नहीं बदलती।</p>
+            <a href="marcus-book10-23.html" class="btn">मंथन करें ➔</a>
+        </div>
     </div>
 
-  </section>
+</main>
 
-  <!-- ========================================= -->
-  <!-- STOIC -->
-  <!-- ========================================= -->
-
-  <section id="stoic">
-
-    <div class="section-heading">
-
-      <h2>दैनिक ध्यान • मन को स्थिर करने वाले विचार</h2>
-
-      <p>
-        जीवन में हर प्रश्न का तुरंत उत्तर नहीं मिलता।
-        कुछ विचार केवल धीरे-धीरे भीतर उतरते हैं।
-      </p>
-
+<footer>
+    <div style="margin-bottom:30px;">
+        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://kbulbul026-coder.github.io/jpsc-pre-2026-mock/&count_bg=%23e8b84b&title_bg=%231a1a2e&title=Visitors&edge_flat=true" alt="Counter" />
     </div>
+    <p>यह डिजिटल स्पेस उन लोगों के लिए है जो केवल जानकारी नहीं, बल्कि विवेक और स्पष्टता खोज रहे हैं।</p>
+    <p><strong>Digital Office of Paresh Kumar Hansda</strong></p>
+    <p style="font-size:0.85rem; margin-top:10px; color:var(--muted);">ज्ञान • विवेक • मानवता</p>
+</footer>
 
-    <div class="grid">
+<script>
+    // Progress Bar
+    window.addEventListener("scroll", () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById("pBar").style.width = scrolled + "%";
+    });
 
+    // Dark Mode Toggle
+    const themeBtn = document.getElementById("themeBtn");
+    themeBtn.addEventListener("click", () => {
+        const isDark = document.body.getAttribute("data-theme") === "dark";
+        if(isDark) {
+            document.body.removeAttribute("data-theme");
+            themeBtn.innerHTML = "🌙 Dark Mode";
+        } else {
+            document.body.setAttribute("data-theme", "dark");
+            themeBtn.innerHTML = "☀️ Light Mode";
+        }
+    });
+</script>
 
-
-        <div class="card" style="border-color: #3d4f58; box-shadow: 0 4px 15px rgba(61, 79, 88, 0.1);">
-    <div class="badge" style="color: #3d4f58; background: rgba(61, 79, 88, 0.15);">गहन अध्ययन (Stoic)</div>
-    <h2>मर्यादा और<br><span style="font-size: 1.1rem; color: #3d4f58;">विवेक का मार्ग</span></h2>
-    <p>मृत्यु से मित्रता, अहंकार का विसर्जन और आंतरिक स्वायत्तता। मार्कस ऑरेलियस के 'मेडिटेशन्स' के दूसरे भाग का संपूर्ण हिंदी विश्लेषण।</p>
-    <a href="book2.html" class="btn" style="background: linear-gradient(135deg, #3d4f58, #2a363d); color: #ffffff; border: none;">दर्शन को समझें ➔</a>
-        </div>
-      
-
-      
-
-      <article class="card" style="border-color:#c9933a;">
-
-        <div class="badge"
-             style="background:rgba(201,147,58,0.1);color:#c9933a;">
-          दैनिक ध्यान (Stoic)
-        </div>
-
-        <h3>
-          Amor Fati
-          <span style="color:#c9933a;">नियति से प्रेम</span>
-        </h3>
-
-        <p>
-          "मैं तुम्हारी इस लालसा में तुम्हारा भागीदार हूँ।"
-          मार्कस ऑरेलियस का ब्रह्मांड और नियति को स्वीकार
-          करने का अद्भुत दर्शन।
-        </p>
-
-        <a href="marcus-book10-21.html"
-           class="btn"
-           style="background:#c9933a;color:#1a1209;">
-          मंथन करें ➔
-        </a>
-
-      </article>
-
-      <article class="card" style="border-color:#7a8fa6;">
-
-        <div class="badge"
-             style="background:rgba(122,143,166,0.1);color:#7a8fa6;">
-          दैनिक ध्यान (Stoic)
-        </div>
-
-        <h3>
-          निडरता
-          <span style="color:#7a8fa6;">भविष्य के 3 मार्ग</span>
-        </h3>
-
-        <p>
-          जीते रहना, समाप्त करना या मर जाना।
-          जीवन के इन तीन विकल्पों को समझकर
-          मन से मृत्यु और अनिश्चितता का भय निकालें।
-        </p>
-
-        <a href="marcus-book10-22.html"
-           class="btn"
-           style="background:#7a8fa6;color:#111;">
-          मंथन करें ➔
-        </a>
-
-      </article>
-
-
-      
-
-        <div class="card" style="border-color: #5d4037; box-shadow: 0 4px 15px rgba(93, 64, 55, 0.1);">
-    <div class="badge" style="color: #5d4037; background: rgba(93, 64, 55, 0.15);">आत्म-ज्ञान (Stoic)</div>
-    <h2>शरीर एक<br><span style="font-size: 1.1rem; color: #5d4037;">औज़ार है</span></h2>
-    <p>"आप मांस और हड्डियों का ढेर नहीं, बल्कि एक अदृश्य 'विवेक' हैं।" शरीर और आत्मा के बीच के अंतर को समझाने वाला मार्कस ऑरेलियस का गहरा दर्शन।</p>
-    <a href="book10b.html" class="btn" style="background: linear-gradient(135deg, #5d4037, #3e2723); color: #ffffff;">मंथन करें ➔</a>
-        </div>
-      
-
-
-
-
-        <div class="card" style="border-color: #2b6cb0; box-shadow: 0 4px 15px rgba(43, 108, 176, 0.1);">
-    <div class="badge" style="color: #2b6cb0; background: rgba(43, 108, 176, 0.15);">अंतिम अध्याय (Grand Finale)</div>
-    <h2>मुक्ति और विदा<br><span style="font-size: 1.1rem; color: #2b6cb0;">(The Final Exit)</span></h2>
-    <p>जब नाटककार इशारा करे, तो मुस्कुराहट के साथ मंच छोड़ें। मार्कस ऑरेलियस की 'मेडिटेशन्स' का अंतिम और सबसे गहरा निष्कर्ष।</p>
-    <a href="books12.html" class="btn" style="background: linear-gradient(135deg, #2b6cb0, #1a365d); color: #ffffff; border: none;">अंतिम शांति ➔</a>
-        </div>
-      
-
-
-
-
-      
-
-        <div class="card" style="border-color: #34495E; box-shadow: 0 4px 15px rgba(52, 73, 94, 0.1);">
-    <div class="badge" style="color: #34495E; background: rgba(52, 73, 94, 0.15);">मानसिक शांति (Stoic)</div>
-    <h2>स्वस्थ मन<br><span style="font-size: 1.1rem; color: #34495E;">बनाम बहस</span></h2>
-    <p>"क्या यह बहस मेरी मानसिक शांति से ज्यादा ज़रूरी है?" फालतू के झगड़ों और ईगो (Ego) को छोड़कर एक शांत और स्वस्थ मन का चुनाव करें।</p>
-    <a href="book11g.html" class="btn" style="background: linear-gradient(135deg, #34495E, #2C3E50); color: #ffffff;">मंथन करें ➔</a>
-        </div>
-      
-
-
-      
-      
-      <article class="card" style="border-color:#6a8f5e;">
-
-        <div class="badge"
-             style="background:rgba(106,143,94,0.1);color:#8fd89d;">
-          दैनिक ध्यान (Stoic)
-        </div>
-
-        <h3>
-          आंतरिक शांति
-          <span style="color:#6a8f5e;">स्थान का भ्रम</span>
-        </h3>
-
-        <p>
-          "शांति जगह में नहीं, मन में होती है।"
-          स्थान बदलने से आत्मा नहीं बदलती,
-          शांति केवल आपके भीतर है।
-        </p>
-
-        <a href="marcus-book10-23.html"
-           class="btn"
-           style="background:#6a8f5e;co
+</body>
+</html>
