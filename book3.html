@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>मार्कस ऑरेलियस: मेडिटेशन्स - भाग 3 | समय, विवेक और सद्गुण की Stoic शिक्षाएँ</title>
+<meta name="description" content="मार्कस ऑरेलियस की 'मेडिटेशन्स' के तीसरे भाग (Book 3) का पूर्ण हिंदी अनुवाद, विस्तृत अर्थ और जीवन के लिए व्यावहारिक सबक। एक शांत, गहन, और मोबाइल-अनुकूल पठन अनुभव के लिए डिज़ाइन किया गया।">
+<meta name="keywords" content="मार्कस ऑरेलियस, मेडिटेशन्स, स्टोइकिज्म, हिंदी दर्शन, long reading, Stoic Philosophy Hindi, आत्म-सुधार">
+<meta name="author" content="Marcus Aurelius">
+<style>
+/* Base styles for a calm, long-reading experience /
+:root {
+--color-primary: #3C3C3C; / Deep Anthracite/Philosophical Grey /
+--color-secondary: #7395AE; / Soft Blue-Grey for emphasis /
+--color-background: #FDFDFD; / Off-White/Creamy Background /
+--color-accent-light: #E7E7E7; / Soft border/separator /
+--color-highlight: #F5EFE1; / Very light parchment/yellow for practical lessons /
+--color-quote: #EBEFF5; / Light blue for sutras */
+--max-read-width: 700px;
+}
+    body {
+        font-family: 'Noto Sans Devanagari', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        line-height: 1.7;
+        color: var(--color-primary);
+        background-color: var(--color-background);
+        margin: 0;
+        padding: 0;
+        font-size: 1.15rem; /* Larger font for readability */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+        max-width: var(--max-read-width);
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Typography */
+    h1, h2, h3 {
+        font-family: 'Noto Serif Devanagari', Georgia, serif;
+        color: #2D2D2D;
+        line-height: 1.3;
+    }
+
+    h1 { font-size: 2.2rem; margin-top: 40px; }
+    h2 { 
+        font-size: 1.8rem; 
+        margin-top: 30px; 
+        border-bottom: 2px solid var(--color-accent-light); 
+        padding-bottom: 5px;
+        scroll-margin-top: 70px; /* For smooth scrolling target */
+    }
+    h3 { font-size: 1.4rem; color: var(--color-secondary); margin-top: 25px; }
+    p { margin-bottom: 1.2rem; }
+
+    /* Semantic Structure Styling */
+    header {
+        background-color: #FFFFFF;
+        border-bottom: 1px solid var(--color-accent-light);
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    main {
+        padding-top: 20px;
+    }
+
+    article {
+        margin-bottom: 40px;
+        padding-bottom: 30px;
+        border-bottom: 1px dashed var(--color-accent-light); /* Soft separator between entries */
+    }
+
+    /* Nav and Sticky TOC */
+    nav {
+        position: sticky;
+        top: 0;
+        background-color: #FFFFFF;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--color-accent-light);
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        max-width: var(--max-read-width);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 0.95rem;
+        line-height: 1.2;
+        font-weight: 500;
+    }
+    .toc-list li {
+        margin: 4px 8px;
+    }
+    .toc-list a {
+        text-decoration: none;
+        color: var(--color-secondary);
+        padding: 5px 8px;
+        border: 1px solid var(--color-accent-light);
+        border-radius: 4px;
+        transition: background-color 0.2s, color 0.2s;
+    }
+    .toc-list a:hover {
+        background-color: var(--color-quote);
+        color: var(--color-primary);
+    }
+    
+    /* Quotes and Special Blocks */
+    blockquote {
+        background-color: var(--color-quote);
+        border-left: 5px solid var(--color-secondary);
+        padding: 15px 20px;
+        margin: 20px 0;
+        font-style: italic;
+        color: #3C3C3C;
+        font-size: 1.1rem;
+        border-radius: 4px;
+    }
+    
+    /* Highlight Boxes ("महत्वपूर्ण विचार") - Card Based */
+    aside.highlight-box {
+        background-color: var(--color-highlight);
+        border-radius: 8px;
+        padding: 20px;
+        margin: 30px 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        border: 1px solid #e0d0b8;
+    }
+    aside.highlight-box h3 {
+        color: #92580a; /* Darker tone for contrast */
+        margin-top: 0;
+    }
+
+    /* Reflection Pause ("धीरे पढ़ें") */
+    .pause-separator {
+        text-align: center;
+        margin: 50px 0;
+        font-size: 1rem;
+        color: var(--color-secondary);
+        font-style: italic;
+        opacity: 0.8;
+        letter-spacing: 0.5px;
+    }
+    .pause-separator::before,
+    .pause-separator::after {
+        content: "◆";
+        margin: 0 10px;
+    }
+
+    /* Collapsible (Details/Summary) for long explanations */
+    details {
+        margin: 20px 0;
+        padding: 10px;
+        border: 1px solid var(--color-accent-light);
+        border-radius: 5px;
+        background-color: #FFFFFF;
+    }
+    summary {
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+        padding: 5px 0;
+        color: #2D2D2D;
+        font-size: 1.1rem;
+    }
+    summary::marker {
+        content: '▶ ';
+        font-size: 0.9em;
+        color: var(--color-secondary);
+    }
+    details[open] summary::marker {
+        content: '▼ ';
+    }
+    
+    /* Footer */
+    footer {
+        margin-top: 50px;
+        padding: 20px;
+        border-top: 1px solid var(--color-accent-light);
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--color-secondary);
+    }
+    
+    /* Mobile Adjustments */
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.05rem;
+        }
+        .container {
+            padding: 10px;
+        }
+        .toc-list {
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+        }
+        .toc-list li {
+            margin: 3px 5px;
+        }
+        h2 {
+            font-size: 1.6rem;
+        }
+    }
+</style>
+<!-- Script for smooth scrolling and dynamic TOC (UX) -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dynamic TOC Generation (Ensuring all 16 entries are linked)
+        const tocList = document.getElementById('toc');
+        if (tocList) {
+            tocList.innerHTML = '';
+            for (let i = 1; i <= 16; i++) {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<a href="#entry-${i}">${i}</a>`;
+                tocList.appendChild(listItem);
+            }
+        }
+    });
+</script>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>मार्कस ऑरेलियस: मेडिटेशन्स - भाग 3</h1>
+        <p>मार्कस ऑरेलियस की 'मेडिटेशन्स' के **तीसरे भाग (Book 3)** की शुरुआत करते हैं। इस भाग में मार्कस समय की तात्कालिकता और मानसिक स्पष्टता पर और भी अधिक जोर देते हैं।</p>
+    </div>
+</header>
+
+<nav aria-label="Book 3 Table of Contents">
+    <div class="container">
+        <ul class="toc-list" id="toc">
+            <!-- TOC links will be dynamically populated by script -->
+        </ul>
+    </div>
+</nav>
+
+<main class="container">
+    <section id="book-3-entries" aria-labelledby="book-3-title">
+        
+        <!-- Entry 1 -->
+        <article id="entry-1">
+            <h2>1. समय की तात्कालिकता और मानसिक स्पष्टता (The Urgency of Mind)</h2>
+            <blockquote class="sutra">
+                <p><strong>सूत्र:</strong> केवल जीवित रहना पर्याप्त नहीं है; अपनी बुद्धि के धुंधला होने से पहले जागना अनिवार्य है।</p>
+            </blockquote>
+            
+            <section class="translation-section">
+                <h3>📝 अनुवाद (Translation)</h3>
+                <p>"हमें केवल इसलिए जल्दी नहीं करनी चाहिए क्योंकि हम हर दिन मृत्यु के करीब पहुँच रहे हैं, बल्कि इसलिए भी क्योंकि दुनिया को समझने और सत्य का विश्लेषण करने की हमारी शक्ति (बुद्धि) हमारे शरीर के मरने से पहले ही खत्म हो सकती है। कोई व्यक्ति जीवित रहकर सांस ले सकता है और भोजन कर सकता है, लेकिन अपने कर्तव्यों को पहचानने और सही निर्णय लेने की क्षमता समय के साथ धुंधली हो सकती है। इसलिए, इससे पहले कि हमारा विवेक हमारा साथ छोड़ दे, हमें जागना होगा।"</p>
+            </section>
+
+            <details class="stoic-explanation">
+                <summary>🧠 विस्तृत अर्थ (Stoic Philosophy के अनुसार)</summary>
+                <ul>
+                    <li><strong>बौद्धिक मृत्यु बनाम शारीरिक मृत्यु:</strong> स्टोइकों के लिए, मनुष्य होने का असली अर्थ केवल जैविक रूप से जीवित रहना नहीं, बल्कि 'तर्क' (Reason) का उपयोग करना है। यदि बुढ़ापे या बीमारी के कारण हम सही-गलत का अंतर भूल जाते हैं, तो वह 'उच्च जीवन' समाप्त हो जाता है।</li>
+                    <li><strong>मानसिक स्वास्थ्य की प्राथमिकता:</strong> मार्कस चेतावनी देते हैं कि समझ (Understanding) और धारणा (Grasp of the world) शरीर से पहले भी साथ छोड़ सकती है। अतः मानसिक स्पष्टता रहते हुए ही आत्म-सुधार करना चाहिए।</li>
+                    <li><strong>अंतिम समय का सदुपयोग:</strong> यह सोचना कि "बुढ़ापे में दर्शन समझेंगे" एक जुआ है। अपनी सर्वोत्तम मानसिक अवस्था में ही सत्य की खोज करनी चाहिए।</li>
+                </ul>
+            </details>
+
+            <aside class="highlight-box">
+                <h3>💡 जीवन के लिए व्यावहारिक सबक</h3>
+                <ul>
+                    <li><strong>टालमटोल का त्याग:</strong> आत्म-अनुशासन और अच्छे कामों को 'भविष्य' के लिए न बचाएं। अपनी सक्रिय बुद्धि का 'अभी' उपयोग करें।</li>
+                    <li><strong>बौद्धिक व्यायाम:</strong> अपने दिमाग को लगातार चुनौती दें और जागरूक रहें, ताकि बुढ़ापे में भी आपकी निर्णय लेने की क्षमता बनी रहे।</li>
+                    <li><strong>समय का मूल्य:</strong> याद रखें कि हर बीतता दिन न केवल आयु कम कर रहा है, बल्कि आपकी सोचने की तीक्ष्णता को भी प्रभावित कर सकता है।</li>
+                </ul>
+            </aside>
+        </article>
+
+        <div class="pause-separator">धीरे पढ़ें • चिंतन के लिए एक पल रुकें</div>
+
+        <!-- Entry 2 -->
+        <article id="entry-2">
+            <h2>2. प्रकृति के 'दोषों' में सुंदरता (Beauty in Nature’s Imperfections)</h2>
+            <blockquote class="sutra">
+                <p><strong>सूत्र:</strong> प्रकृति का हर रूप, यहाँ तक कि क्षय और विसंगतियाँ भी, अपने आप में सुंदर और पूर्ण हैं।</p>
+            </blockquote>
+            
+            <section class="translation-section">
+                <h3>📝 अनुवाद (Translation)</h3>
+                <p>"प्रकृति की अनपेक्षित चीज़ों में भी अपना एक आकर्षण होता है। जैसे ओवन में पकते समय ब्रेड का ऊपर से फट जाना; वे दरारें बेकिंग का अनचाहा हिस्सा हैं, फिर भी वे आकर्षक लगती हैं। पके हुए अंजीर का फटना, गिरने को तैयार जैतून का ढलना, शेर की भृकुटी पर झुर्रियां और सुअर के मुँह का झाग—ये सब अलग से देखने पर शायद सुंदर न लगें, लेकिन प्रकृति का हिस्सा होने के नाते ये उसे समृद्ध करते हैं। जो प्रकृति के साथ गहराई से जुड़ा है, वह इन अनपेक्षित चीज़ों में भी आनंद ढूँढ लेगा।"</p>
+            </section>
+            
+            <details class="stoic-explanation">
+                <summary>🧠 विस्तृत अर्थ (Stoic Philosophy के अनुसार)</summary>
+                <ul>
+                    <li><strong>समग्रता का दृष्टिकोण (Holistic View):</strong> स्टोइकिज्म हमें सिखाता है कि हम चीजों को उनके अलग-अलग हिस्सों में नहीं, बल्कि 'संपूर्ण प्रकृति' के संदर्भ में देखें। जब हम ऐसा करते हैं, तो बुढ़ापा या मृत्यु भी वैसी ही सुंदर लगती है जैसे फूल का खिलना।</li>
+                    <li><strong>स्वाभाविक प्रक्रिया:</strong> ब्रेड की दरारें या पके फल का फटना यह दर्शाता है कि चीज़ें अपनी 'पूर्णता' (Maturity) पर पहुँच गई हैं। प्रकृति में कुछ भी 'गलत' या 'बदसूरत' नहीं है।</li>
+                    <li><strong>गहरी संवेदनशीलता:</strong> केवल वही व्यक्ति इस सुंदरता को देख सकता है जो ब्रह्मांड के नियमों के साथ सामंजस्य (At home with Nature) में रहता है।</li>
+                </ul>
+            </details>
+
+            <aside class="highlight-box">
+                <h3>💡 जीवन के लिए व्यावहारिक सबक</h3>
+                <ul>
+                    <li><strong>पूर्णता (Perfection) का मोह छोड़ें:</strong> अपनी और दूसरों की कमियों को स्वीकार करें। ये 'दरारें' ही हमें वास्तविक और अद्वितीय बनाती हैं।</li>
+                    <li><strong>बुढ़ापे का सम्मान:</strong> झुर्रियों या ढलते शरीर को 'कुरूपता' न मानें। इसे अनुभव और प्रकृति की परिपक्वता के रूप में देखें।</li>
+                    <li><strong>सकारात्मक दृष्टि:</strong> अपने आस-पास की साधारण और 'अजीब' चीज़ों में भी प्रकृति की कलाकारी को पहचानना शुरू करें।</li>
+                </ul>
+            </aside>
+        </article>
+
+        <div class="pause-separator">धीरे पढ़ें • चिंतन के लिए एक पल रुकें</div>
+
+        <!-- Entry 3 -->
+        <article id="entry-3">
+            <h2>3. महानताओं का अंत और प्रस्थान (The Inevitability of Departure)</h2>
+            <blockquote class="sutra">
+                <p><strong>सूत्र:</strong> जब इतिहास के सबसे महान सम्राट और विद्वान भी नहीं रहे, तो अपनी मृत्यु से घबराना व्यर्थ है।</p>
+            </blockquote>
+            
+            <section class="translation-section">
+                <h3>📝 अनुवाद (Translation)</h3>
+                <p>"हिप्पोक्रेट्स ने कई बीमारियों का इलाज किया, पर अंततः वे खुद मर गए। सिकंदर, पोंपे और सीज़र—जिन्होंने हज़ारों को युद्ध में मार गिराया—वे भी एक दिन इस जीवन से विदा हो गए। हेराक्लिटस ने कहा था कि दुनिया आग में समाप्त होगी, लेकिन वे खुद बीमारी से मरे। सुकरात को इंसानों ने मारा, तो डेमोक्रिटस को कीड़ों ने। अब? तुमने अपनी यात्रा शुरू की, तुम समुद्र पार कर चुके हो। अब उतरने का समय है। चाहे इसके पार दूसरा जीवन हो या शून्यता, तुम इस जर्जर शरीर की गुलामी और सुख-दुख के बंधनों से मुक्त हो जाओगे। एक हिस्सा मन है, दूसरा मिट्टी।"</p>
+            </section>
+            
+            <details class="stoic-explanation">
+                <summary>🧠 विस्तृत अर्थ (Stoic Philosophy के अनुसार)</summary>
+                <ul>
+                    <li><strong>मेमेंटो मोरी (Memento Mori):</strong> मार्कस इतिहास के दिग्गजों का उदाहरण देकर हमारे अहंकार को तोड़ते हैं। मृत्यु एक महान 'बराबरी करने वाली' (Leveler) शक्ति है।</li>
+                    <li><strong>प्रस्थान का तर्क:</strong> जीवन एक समुद्री यात्रा की तरह है। किनारे पर उतरना (मृत्यु) दुखद नहीं, बल्कि यात्रा का पूर्ण होना है।</li>
+                    <li><strong>द्वैतवाद:</strong> स्टोइकिज्म में शरीर (Body) को केवल एक 'मिट्टी का बर्तन' या 'जर्जर पेटी' माना गया है, जबकि मन (Mind/Spirit) ही हमारी असली पहचान है। मृत्यु केवल इन दोनों का अलग होना है।</li>
+                </ul>
+            </details>
+
+            <aside class="highlight-box">
+                <h3>💡 जीवन के लिए व्यावहारिक सबक</h3>
+                <ul>
+                    <li><strong>अहंकार का विसर्जन:</strong> जब सीज़र और सिकंदर जैसे शक्तिशाली लोग काल के ग्रास बन गए, तो अपनी छोटी-सी प्रतिष्ठा पर घमंड करना नादानी है।</li>
+                    <li><strong>मृत्यु का भय त्यागें:</strong> मृत्यु या तो एक नई शुरुआत है या फिर दुखों से पूर्ण मुक्ति। दोनों ही स्थितियों में डरने का कोई कारण नहीं है।</li>
+                    <li><strong>आंतरिक सत्ता पर ध्यान:</strong> अपने शरीर को सजाने और संवारने में सारा समय न गँवाएं; अपनी 'बुद्धि' और 'चरित्र' को संवारें, क्योंकि वही आपका दिव्य अंश है।</li>
+                </ul>
+            </aside>
+        </article>
+
+        <div class="pause-separator">धीरे पढ़ें • चिंतन के लिए एक पल रुकें</div>
+
+        <!-- Entry 4 -->
+        <article id="entry-4">
+            <h2>4. आंतरिक स्पष्टता और सामाजिक उत्तरदायित्व (Inner Clarity and Social Responsibility)</h2>
+            <blockquote class="sutra">
+                <p><strong>सूत्र:</strong> अपनी मानसिक ऊर्जा को दूसरों की जासूसी करने में नहीं, बल्कि अपने विचारों को शुद्ध और परोपकारी बनाने में लगाएं।</p>
+            </blockquote>
+            
+            <section class="translation-section">
+                <h3>📝 अनुवाद (Translation)</h3>
+                <p>"अपना बचा हुआ समय दूसरों के बारे में चिंता करने में बर्बाद न करें—जब तक कि वह सामान्य भलाई (Common Good) से न जुड़ा हो। यह आपको उपयोगी काम करने से रोकेगा। आप इसमें उलझे रहेंगे कि कौन क्या कर रहा है, क्यों कर रहा है, और वे क्या सोच रहे हैं। अपने विचारों की श्रृंखला से हर उस चीज़ को बाहर निकालें जो निरर्थक, अप्रासंगिक या दुर्भावनापूर्ण है। अपने विचारों को इतना पारदर्शी बनाएं कि यदि कोई आपसे पूछे, 'तुम क्या सोच रहे हो?', तो आप तुरंत और ईमानदारी से जवाब दे सकें। ऐसा व्यक्ति देवताओं का सेवक और उस महान प्रतियोगिता का एथलीट है, जिसे कोई भी बाहरी घटना हरा नहीं सकती।"</p>
+            </section>
+            
+            <details class="stoic-explanation">
+                <summary>🧠 विस्तृत अर्थ (Stoic Philosophy के अनुसार)</summary>
+                <ul>
+                    <li><strong>विचारों की छंटनी (Winnowing of Thoughts):</strong> मार्कस के अनुसार, एक दार्शनिक का मन इतना साफ होना चाहिए कि उसके भीतर कोई भी 'गुप्त' या 'शर्मनाक' विचार न हो। पारदर्शिता ही मानसिक शक्ति की निशानी है।</li>
+                    <li><strong>अजेय एथलीट:</strong> स्टोइकिज्म जीवन को एक महान संघर्ष या खेल मानता है। असली जीत पदक जीतने में नहीं, बल्कि किसी भी दुख, सुख या अपमान से विचलित न होने में है।</li>
+                    <li><strong>लोगोस के प्रति समर्पण:</strong> जो व्यक्ति दूसरों की बुराई या गपशप छोड़कर अपने कर्तव्य पर ध्यान देता है, वह ब्रह्मांडीय न्याय (Justice) के रंग में रंग जाता है।</li>
+                </ul>
+            </details>
+
+            <aside class="highlight-box">
+                <h3>💡 जीवन के लिए व्यावहारिक सबक</h3>
+                <ul>
+                    <li><strong>तुलना का अंत:</strong> दूसरों के जीवन में क्या चल रहा है, इस जिज्ञासा को मार दें। यह केवल आपकी एकाग्रता को नष्ट करती है।</li>
+                    <li><strong>ईमानदार सोच:</strong> दिन में कई बार रुककर खुद से पूछें—"क्या मैं अभी जो सोच रहा हूँ, उसे सबके सामने बता सकता हूँ?" यदि नहीं, तो उस विचार को तुरंत बदलें।</li>
+                    <li><strong>अविचल मन:</strong> बाहरी परिस्थितियों को अपने मन की शांति तय न करने दें। आप स्वयं अपने विचारों के मालिक हैं।</li>
+                </ul>
+            </aside>
+        </article>
+
+        <div class="pause-separator">धीरे पढ़ें • चिंतन के लिए एक पल रुकें</div>
+
+        <!-- Entry 5 -->
+        <article id="entry-5">
+            <h2>5. आचरण की गरिमा (Dignity in Action)</h2>
+            <blockquote class="sutra">
+                <p><strong>सूत्र:</strong> बाहरी सहायता या दूसरों की प्रशंसा के बिना, अपने पैरों पर सीधा खड़ा होना सीखें।</p>
+            </blockquote>
+            
+            <section class="translation-section">
+                <h3>📝 अनुवाद (Translation)</h3>
+                <p>"बिना किसी मजबूरी के, बिना स्वार्थ के और बिना संदेह के कार्य करें। अपने विचारों को दिखावे के लिए न सजाएं। व्यर्थ शब्दों और अनावश्यक कार्यों से बचें। अपने भीतर की आत्मा को एक वयस्क, एक नागरिक, एक रोमन और एक शासक की तरह कार्य करने दें, जो एक सैनिक की तरह अपने पद पर तैनात है और जीवन से अपनी विदाई का धैर्यपूर्वक इंतजार कर रहा है। आपको किसी शपथ या गवाह की आवश्यकता नहीं होनी चाहिए। प्रसन्न रहें, और दूसरों द्वारा दी गई शांति पर निर्भर न रहें। आपको सीधा खड़ा होना चाहिए—दूसरों द्वारा सीधा किया हुआ नहीं (Stand up straight—not straightened)।"</p>
+            </section>
+            
+            <details class="stoic-explanation">
+                <summary>🧠 विस्तृत अर्थ (Stoic Philosophy के अनुसार)</summary>
+                <ul>
+                    <li><strong>आत्म-संप्रभुता (Self-Sovereignty):</strong> एक स्टोइक को अपनी शांति के लिए किसी और की 'हाँ' या 'सहारा' की ज़रूरत नहीं होती। यदि आपकी शांति दूसरों के व्यवहार पर टिकी है, तो आप अभी भी गुलाम हैं।</li>
+                    <li><strong>सैनिक जैसा अनुशासन:</strong> मार्कस खुद को एक सैनिक मानते हैं जिसे प्रकृति ने एक 'पोस्ट' पर नियुक्त किया है। जब तक विदा होने का आदेश (मृत्यु) न आए, तब तक ईमानदारी से कर्तव्य निभाना ही धर्म है।</li>
+                    <li><strong>दिखावे का निषेध:</strong> सच्ची बुद्धिमत्ता सादगी में है। न शब्दों का आडंबर चाहिए, न ही चरित्र का पाखंड।</li>
+                </ul>
+            </details>
+
+            <aside class="highlight-box">
+                <h3>💡 जीवन के लिए व्यावहारिक सबक</h3>
+                <ul>
+                    <li><strong>आत्म-निर्भरता:</strong> अपनी खुशी के लिए "Validations" (दूसरों की तारीफ) माँगना बंद करें। अपने सिद्धांतों पर अडिग रहें।</li>
+                    <li><strong>सादगी अपनाएं:</strong> कम बोलें और वही बोलें जो सत्य और आवश्यक हो। अनावश्यक कार्यों में अपनी ऊर्जा नष्ट न करें।</li>
+                    <li><strong>मर्यादा:</strong> भीड़ का हिस्सा बनने के बजाय एक जिम्मेदार नागरिक की तरह व्यवहार करें, चाहे कोई देख रहा हो या नहीं।</li>
+                </ul>
+            </aside>
+        </article>
+
+        <div class="pause-separator">धीरे पढ़ें • चिंतन के लिए एक पल रुकें</div>
+
+        <!-- Entry 6 -->
+        <article id="entry-6">
+            <h2>6. सर्वोच्च भलाई का चुनाव (Choosing the Supreme Good)</h2>
+            <blockquote class="sutra">
+                <p><strong>सूत्र:</strong> यदि आपको सत्य और न्याय से बेहतर कुछ भी मिले, तो उसे अपनाएं; अन्यथा अपने भीतर की दिव्यता के प्रति वफादार रहें।</p>
+            </blockquote>
+            
+            <section class="translation-section">
+                <h3>📝 अनुवाद (Translation)</h3>
+                <p>"यदि आपको अपने जीवन में न्याय, सच्चाई, आत्म-संयम और साहस से बेहतर कुछ भी मिले, तो उसे पूरे मन से अपना लें—वह वास्तव में कुछ असाधारण होगा। लेकिन यदि आपको अपने भीतर रहने वाली उस शक्ति (विवेक) से श्रेष्ठ कुछ नहीं मिलता, जिसने वासनाओं को जीत लिया है और जो देवताओं के प्रति समर्पित है, तो किसी और चीज़ के लिए जगह न बनाएं। ऐसी किसी भी चीज़ को (जैसे प्रसिद्धि, धन या विलासिता) अपने और उस 'भलाई' के बीच न आने दें जो आपकी अपनी है। यह गलत होगा कि एक तर्कसंगत नागरिक के रूप में आपकी उन्नति और तालियों की गड़गड़ाहट या धन के बीच कोई तुलना हो। हमेशा 'सर्वश्रेष्ठ' का चुनाव करें—और सर्वश्रेष्ठ वही है जो आपकी तर्कसंगत प्रकृति को लाभ पहुँचाए।"</p>
+            </section>
+            
+            <details class="stoic-explanation">
+                <summary>🧠 विस्तृत अर्थ (Stoic Philosophy के अनुसार)</summary>
+                <ul>
+                    <li><strong>सद्गुण ही एकमात्र पुरस्कार (Virtue is the only Good):</strong> मार्कस स्पष्ट करते हैं कि न्याय और साहस जैसे आंतरिक गुण, बाहरी लाभों (जैसे ऊँचा पद या संपत्ति) से कहीं अधिक मूल्यवान हैं।</li>
+                    <li><strong>आकर्षणों का विश्लेषण:</strong> धन या प्रसिद्धि शुरू में सद्गुणों के साथ मेल खाती हुई लग सकती हैं, लेकिन अक्सर वे अचानक हमें अपने नियंत्रण में ले लेती हैं और सही रास्ते से भटका देती हैं।</li>
+                    <li><strong>तर्कसंगत चुनाव:</strong> यदि आप एक इंसान (Rational Being) के रूप में कार्य कर रहे हैं, तो वह 'सर्वश्रेष्ठ' है। यदि आप केवल एक जानवर (Animal instincts) की तरह सुख के पीछे भाग रहे हैं, तो उसे स्वीकार करें और अपनी स्थिति को पहचानें।</li>
+                </ul>
+            </details>
+
+            <aside class="highlight-box">
+                <h3>💡 जीवन के लिए व्यावहारिक सबक</h3>
+                <ul>
+                    <li><strong>प्राथमिकता तय करें:</strong> जब पद और नैतिकता के बीच चुनाव करना हो, तो हमेशा नैतिकता को चुनें। पद अस्थायी है, चरित्र स्थायी।</li>
+                    <li><strong>लालच से बचाव:</strong> बाहरी प्रलोभनों के प्रति सावधान रहें। वे एक मीठे जाल की तरह हैं जो आपकी मानसिक स्वतंत्रता छीन लेते हैं।</li>
+                    <li><strong>सत्य के प्रति निष्ठा:</strong> एक बार जब आप जान लें कि सही क्या है, तो उस पर टिके रहें। दुनिया की कोई भी 'वाह-वाही' आपके आत्म-सम्मान से बड़ी नहीं है।</li>
+                </ul>
+            </aside>
+        </article>
+
+        <div class="pause-separator">धीरे पढ़ें • चिंतन के लिए एक पल रुकें</div>
+        
+        <p style="text-align: center; font-style: italic; color: var(--color-secondary); margin: 30px 0;">निश्चित रूप से, मार्कस ऑरेलियस की 'मेडिटेशन्स' के **तीसरे भाग (Book 3)** के अगले तीन महत्वपूर्ण बिंदुओं (7, 8 और 9) का सुव्यवस्थित विवरण यहाँ दिया गया है:</p>
+
+        <!-- Entry 7 -->
+        <article id="entry-7">
+            <h2>7. आंतरिक सत्य और भय से मुक्ति (Inner Truth and Freedom from Fear)</h2>
+            <blockquote class="sutra">
+                <p><strong>सूत्र:</strong> उस लाभ को कभी अपना न मानें जो आपके चरित्र, विश्वास या शर्म की भावना को नष्ट करता हो।</p>
+            </blockquote>
+            
+            <section class="translation-section">
+                <h3>📝 अनुवाद (Translation)</h3>
+                <p>"किसी भी ऐसी चीज़ को अपने लिए लाभदायक न समझें जो आपको विश्वासघात करने, अपनी शर्म खोने, या नफरत, संदेह, दुर्भावना या पाखंड दिखाने के लिए मजबूर करे। यदि आप अपने मन, अपने मार्गदर्शक विवेक और उसकी शक्तियों का सम्मान करेंगे, तो आप नाटकों (Dramatics), विलाप और बेचैनी से मुक्त रहेंगे। आपको न तो अकेलेपन की ज़रूरत होगी और न ही हज़ारों की भीड़ की। इन सबसे ऊपर, आप भय और इच्छा से मुक्त होंगे। शरीर में आत्मा कितने समय तक रहेगी, इसकी आपको एक पल भी चिंता नहीं होगी। यदि जाने का समय आए, तो खुशी-खुशी विदा हों।"</p>
+            </section>
+            
+            <details class="stoic-explanation">
+                <summary>🧠 विस्तृत अर्थ (Stoic Philosophy के अनुसार)</summary>
+                <ul>
+                    <li><strong>नैतिक लाभ बनाम भौतिक लाभ:</strong> मार्कस यहाँ एक स्पष्ट रेखा खींचते हैं। यदि कोई पद या धन पाने के लिए आपको झूठ बोलना पड़े या किसी को धोखा देना पड़े, तो वह चीज़ 'लाभ' नहीं, बल्कि आपकी आत्मा के लिए 'हानि' है।</li>
+                    <li><strong>एकांत और भीड़ से स्वतंत्रता:</strong> एक परिपक्व स्टोइक अपनी शांति के लिए बाहरी स्थितियों पर निर्भर नहीं होता। वह अकेले में भी प्रसन्न है और समाज में भी, क्योंकि उसकी शांति उसके 'आंतरिक शासक' (Guiding Spirit) से आती है।</li>
+                    <li><strong>मृत्यु के प्रति दृष्टिकोण:</strong> जब व्यक्ति सद्गुणों के साथ जीता है, तो वह मृत्यु से नहीं डरता। उसे इस बात की चिंता नहीं होती कि वह 40 साल जिएगा या 80, क्योंकि उसने अपने समय का उपयोग सही अवस्था (Right State) में रहने के लिए किया है।</li>
+                </ul>
+            </details>
+
+            <aside class="highlight-box">
+                <h3>💡 जीवन के लिए व्यावहारिक सबक</h3>
+                <ul>
+                    <li><strong>सत्यनिष्ठा (Integrity):</strong> कभी भी ऐसा लाभ न लें जिसके लिए आपको अपने सिद्धांतों से समझौता करना पड़े। वह 'सौदा' हमेशा घाटे का होता है।</li>
+                    <li><strong>मानसिक स्थिरता:</strong> जीवन की चुनौतियों में "विलाप" करने या "दांत पीसने" के बजाय, तर्कसंगत होकर समाधान खोजें।</li>
+                    <li><strong>सम्मानजनक विदाई:</strong> हर काम और हर दिन को इस गरिमा के साथ जिएं कि यदि अभी विदा होना पड़े, तो आप गर्व के साथ जा सकें।</li>
+                </ul>
+            </aside>
+        </article>
+
+        <div class="pause-separator">धीरे पढ़ें • चिंतन के लिए एक पल रुकें</div>
+
+        <!-- Entry 8 -->
+        <article id="entry-8">
+            <h2>8. शुद्ध और अनुशासित मन (The Mind of One Purified)</h2>
+            <blockquote class="sutra">
+                <p><strong>सूत्र:</strong> एक अनुशासित मन में न तो कोई अधूरापन होता है और न ही कोई कड़वाहट।</p>
+            </blockquote>
+            
+            <section class="translation-section">
+                <h3>📝 अनुवाद (Translation)</h3>
+                <p>"एक ऐसे व्यक्ति का मन जो सीधा और शुद्ध हो चुका है: उसमें न तो कोई मवाद (Pus) होता है, न गंदगी और न ही कोई पुराने घाव (Scabs)। उसका जीवन मृत्यु द्वारा बीच में काटा हुआ महसूस नहीं होता, जैसे कोई अभिनेता नाटक पूरा होने और कथानक समाप्त होने से पहले ही मंच छोड़ दे। वहां न तो दासता है और न ही अहंकार; न ही दूसरों के सामने गिड़गिड़ाना और न ही तिरस्कार; न कोई बहाना और न ही सच्चाई से पलायन।"</p>
+            </section>
+            
+            <details class="stoic-explanation">
+                <summary>🧠 विस्तृत अर्थ (Stoic Philosophy के अनुसार)</summary>
+                <ul>
+                    <li><strong>मानसिक स्वच्छता:</strong> मार्कस मन की तुलना एक स्वस्थ शरीर से करते हैं। 'मवाद' और 'गंदगी' उन छिपे हुए विकारों (जैसे ईर्ष्या, दबी हुई नफरत या पाखंड) के प्रतीक हैं जिन्हें हम अक्सर दबा देते हैं। एक शुद्ध मन इन सबसे मुक्त होता है।</li>
+                    <li><strong>जीवन की पूर्णता:</strong> स्टोइक दर्शन में, यदि आप वर्तमान क्षण में न्याय और विवेक से जी रहे हैं, तो आपका जीवन 'पूर्ण' है। मृत्यु आपको कभी 'अधूरा' नहीं छोड़ सकती क्योंकि आपने अपना 'पार्ट' हर पल पूरी ईमानदारी से निभाया है।</li>
+                    <li><strong>अतिवाद से मुक्ति:</strong> एक शुद्ध व्यक्ति न तो दूसरों का गुलाम (Servility) बनकर रहता है और न ही अहंकारी (Arrogance) होकर दूसरों को तुच्छ समझता है। वह सत्य के प्रति समर्पित रहता है।</li>
+                </ul>
+            </details>
+
+            <aside class="highlight-box">
+                <h3>💡 जीवन के लिए व्यावहारिक सबक</h3>
+                <ul>
+                    <li><strong>दैनिक शुद्धि:</strong> रोज़ रात को यह जाँचें कि क्या आपके मन में किसी के प्रति कोई कड़वाहट या 'गंदगी' जमा तो नहीं हो रही? उसे दर्शन की मदद से साफ़ करें।</li>
+                    <li><strong>बहानेबाज़ी छोड़ें:</strong> अपनी गलतियों के लिए परिस्थितियों को दोष देना (Evasion) बंद करें। अपनी जिम्मेदारी स्वीकार करना ही शुद्धिकरण की शुरुआत है।</li>
+                    <li><strong>वर्तमान की पूर्णता:</strong> अपने हर कार्य को इतनी पूर्णता से करें कि उसके बाद कुछ भी 'बाकी' न लगे।</li>
+                </ul>
+            </aside>
+        </article>
+
+        <div class="pause-separator">धीरे पढ़ें • चिंतन के लिए एक पल रुकें</div>
+
+        <!-- Entry 9 -->
+        <article id="entry-9">
+            <h2>9. निर्णय लेने की शक्ति का सम्मान (Respect for the Faculty of Judgment)</h2>
+            <blockquote class="sutra">
+                <p><strong>सूत्र:</strong> आपके विचारों को नियंत्रित करने की क्षमता ही आपके मन की एकमात्र सुरक्षा है।</p>
+            </blockquote>
+            
+            <section class="translation-section">
+                <h3>📝 अनुवाद (Translation)</h3>
+                <p>"अपनी राय बनाने और विचारों को नियंत्रित करने की क्षमता (Faculty of Judgment) का सम्मान के साथ व्यवहार करें। यही वह एकमात्र शक्ति है जो आपके मन को उन धारणाओं (Perceptions) से बचाती है जो आपकी तर्कसंगत प्रकृति के विरुद्ध हैं। यही क्षमता आपको विचारशीलता, मानवता के प्रति स्नेह और दैवीय इच्छा के प्रति समर्पण करने के योग्य बनाती है।"</p>
+            </section>
+            
+            <details class="stoic-explanation">
+                <summary>🧠 विस्तृत अर्थ (Stoic Philosophy के अनुसार)</summary>
+                <ul>
+                    <li><strong>धारणा की सुरक्षा:</strong> दुनिया में जो कुछ भी होता है, वह हमें उतना परेशान नहीं करता जितना उस घटना के बारे में हमारी 'राय' परेशान करती है। मार्कस कहते हैं कि इस 'राय बनाने की शक्ति' को सही रखना ही सबसे महत्वपूर्ण कौशल है।</li>
+                    <li><strong>तर्कसंगत प्रकृति:</strong> मनुष्य को अन्य प्राणियों से अलग उसकी 'तर्कशक्ति' बनाती है। यदि हम अपनी धारणाओं को गलत दिशा में जाने देते हैं, तो हम अपनी प्रकृति के विरुद्ध कार्य करते हैं।</li>
+                    <li><strong>तीन स्तंभ:</strong> सही निर्णय लेने की शक्ति हमें तीन चीज़ें देती है: 1. स्पष्ट सोच (Thoughtfulness), 2. दूसरों के प्रति प्रेम (Affection), और 3. नियति को स्वीकार करना (Submission to the divine)।</li>
+                </ul>
+            </details>
+
+            <aside class="highlight-box">
+                <h3>💡 जीवन के लिए व्यावहारिक सबक</h3>
+                <ul>
+                    <li><strong>अपनी 'राय' को चुनौती दें:</strong> जब भी आप गुस्सा या दुखी महसूस करें, तुरंत अपनी धारणा (Perception) को जाँचें। पूछें— "क्या मैं इस चीज़ को गलत तरीके से तो नहीं देख रहा हूँ?"</li>
+                    <li><strong>मानवीय जुड़ाव:</strong> याद रखें कि तर्कसंगत होने का मतलब केवल 'लॉजिकल' होना नहीं है, बल्कि दूसरों के प्रति दयालु होना भी है।</li>
+                    <li><strong>मानसिक द्वारपाल:</strong> अपने मन में आने वाले हर विचार को अंदर न आने दें। अपनी निर्णय-शक्ति को एक द्वारपाल की तरह इस्तेमाल करें जो केवल 'सत्य' को ही अंदर आने दे।</li>
+                </ul>
+            </aside>
+        </article>
+
+        <div class="pause-separator">धीरे पढ़ें • चिंतन के लिए एक पल रुकें</div>
+
+        <p style="text-align: center; font-style: italic; color: var(--color-secondary); margin: 30px 0;">निश्चित रूप से, मार्कस ऑरेलियस की 'मेडिटेशन्स' के **तीसरे भाग (Book 3)** के अगले तीन महत्वपूर्ण बिंदुओं (10, 11 और 12) का सुव्यवस्थित विवरण यहाँ दिया गया है:</p>
+        
+        <!-- Entry 10 -->
+        <article id="entry-10">
+            <h2>10. सिद्धांतों की सरलता और संक्षिप्तता (Simplicity and Brevity of Principles)</h2>
+            <blockquote class="sutra">
+                <p><strong>सूत्र:</strong> अपने जीवन के दर्शन को कुछ बुनियादी और शक्तिशाली सिद्धांतों तक सीमित रखें।</p>
+            </blockquote>
+            
+            <section class="translation-section">
+                <h3>📝 अनुवाद (Translation)</h3>
+                <p>"बाकी सब कुछ छोड़ दो और केवल इन कुछ सिद्धांतों को थामे रखो। याद रखो कि हर व्यक्ति केवल वर्तमान क्षण में ही जीता है—जो एक संक्षिप्त बिंदु है। बाकी सब कुछ या तो बीत चुका है या भविष्य के अंधकार में है। मनुष्य का जीवन छोटा है, और वह जिस पृथ्वी के कोने पर रहता है, वह भी छोटा है। यहाँ तक कि सबसे लंबी मरणोपरांत प्रसिद्धि (Posthumous fame) भी छोटी है, जो केवल उन अल्पजीवी मनुष्यों के माध्यम से आगे बढ़ती है जो जल्द ही मर जाएंगे और जो खुद को भी ठीक से नहीं जानते, तो फिर उस व्यक्ति को क्या जानेंगे जो बहुत पहले मर चुका है?"</p>
+            </section>
+            
+            <details class="stoic-explanation">
+                <summary>🧠 विस्तृत अर्थ (Stoic Philosophy के अनुसार)</summary>
+                <ul>
+                    <li><strong>वर्तमान की संकीर्णता:</strong> स्टोइकिज्म का मूल मंत्र है कि जीवन केवल 'अभी' है। अतीत केवल याद है और भविष्य केवल कल्पना। इन दोनों की चिंता में वर्तमान को गँवाना सबसे बड़ी मूर्खता है।</li>
+                    <li><strong>प्रसिद्धि का भ्रम:</strong> मार्कस (जो स्वयं एक सम्राट थे) जानते थे कि इतिहास के पन्नों में नाम होना व्यर्थ है। जिन लोगों ने आपको याद रखा है, वे स्वयं नश्वर हैं। सच्ची संतुष्टि बाहरी प्रशंसा में नहीं, बल्कि वर्तमान में सही कार्य करने में है।</li>
+                    <li><strong>स्थान और समय का परिप्रेक्ष्य:</strong> ब्रह्मांड की विशालता के सामने हमारा अस्तित्व एक धूल के कण जैसा है। यह विचार हमें अहंकार से मुक्त कर 'विनम्र' बनाता है।</li>
+                </ul>
+            </details>
+
+            <aside class="highlight-box">
+                <h3>💡 जीवन के लिए व्यावहारिक सबक</h3>
+                <ul>
+                    <li><strong>जटिलता कम करें:</strong> अपने दिमाग को हज़ारों नियमों से न भरें। बस कुछ बुनियादी गुणों (जैसे ईमानदारी और दया) को अपना आधार बनाएं।</li>
+                    <li><strong>मशहूर होने की चाह छोड़ें:</strong> यह न सोचें कि लोग आपके मरने के बाद क्या कहेंगे। इसके बजाय इस पर ध्यान दें कि आप 'अभी' क्या कर रहे हैं।</li>
+                    <li><strong>ज़ूम-आउट (Zoom-out) करें:</strong> जब कोई समस्या बड़ी लगे, तो ब्रह्मांड की विशालता के बारे में सोचें। आपकी समस्या अचानक बहुत छोटी लगने लगेगी।</li>
+                </ul>
+            </aside>
+        </article>
+
+        <div class="pause-separator">धीरे पढ़ें • चिंतन के लिए एक पल रुकें</div>
+
+        <!-- Entry 11 -->
+        <article id="entry-11">
+            <h2>11. सत्य का नग्न विश्लेषण (The Naked Analysis of Truth)</h2>
+            <blockquote class="sutra">
+                <p><strong>सूत्र:</strong> किसी भी चीज़ को उसके वास्तविक और नग्न रूप में देखने के लिए उसका मानसिक विश्लेषण करें।</p>
+            </blockquote>
+            
+            <section class="translation-section">
+                <h3>📝 अनुवाद (Translation)</h3>
+                <p>"हमेशा एक परिभाषा या विवरण तैयार करें कि आपके सामने आने वाली वस्तु वास्तव में क्या है। इसे इसके नग्न रूप में देखें, इसके पूर्ण अस्तित्व को इसके हिस्सों में विभाजित करके देखें। खुद से कहें: 'इसका नाम क्या है? यह किन तत्वों से बनी है? और यह किन तत्वों में वापस मिल जाएगी?' कोई भी चीज़ मन को इतना उदार नहीं बनाती जितना कि जीवन में आने वाली हर घटना की व्यवस्थित और वैज्ञानिक रूप से जांच करने की क्षमता।"</p>
+            </section>
+            
+            <details class="stoic-explanation">
+                <summary>🧠 विस्तृत अर्थ (Stoic Philosophy के अनुसार)</summary>
+                <ul>
+                    <li><strong>वस्तुनिष्ठ चित्रण (Objective Representation):</strong> मार्कस सिखाते हैं कि हमें चीज़ों को उनके सामाजिक 'लेबल' या 'चकाचौंध' के बिना देखना चाहिए। जैसे, 'शानदार पोशाक' केवल भेड़ के बाल हैं जिन्हें रंग दिया गया है।</li>
+                    <li><strong>डर और लालच का इलाज:</strong> जब हम किसी चीज़ का वैज्ञानिक विश्लेषण करते हैं (जैसे मृत्यु केवल तत्वों का अलग होना है), तो उस चीज़ का डर या उसके प्रति अंधा आकर्षण समाप्त हो जाता है।</li>
+                    <li><strong>ब्रह्मांडीय उद्देश्य:</strong> विश्लेषण करते समय खुद से पूछें—"यह वस्तु ब्रह्मांड के लिए क्या मूल्य रखती है? और एक तर्कसंगत नागरिक के रूप में मेरे लिए इसका क्या महत्व है?"</li>
+                </ul>
+            </details>
+
+            <aside class="highlight-box">
+                <h3>💡 जीवन के लिए व्यावहारिक सबक</h3>
+                <ul>
+                    <li><strong>चीज़ों को 'अनपैक' (Unpack) करें:</strong> यदि आप किसी महँगी चीज़ को पाने के लिए बेताब हैं, तो सोचें कि वह असल में किस धातु, प्लास्टिक या कपड़े से बनी है। क्या वह वास्तव में आपकी शांति से कीमती है?</li>
+                    <li><strong>स्पष्ट दृष्टि:</strong> किसी भी व्यक्ति या परिस्थिति के बाहरी प्रभाव (Status या Power) से प्रभावित होने के बजाय, उनके वास्तविक चरित्र और तत्वों को देखें।</li>
+                    <li><strong>वैज्ञानिक सोच:</strong> भावनाओं के बजाय तथ्यों के आधार पर निर्णय लेने की आदत डालें।</li>
+                </ul>
+            </aside>
+        </article>
+
+        <div class="pause-separator">धीरे पढ़ें • चिंतन के लिए एक पल रुकें</div>
+
+        <!-- Entry 12 -->
+        <article id="entry-12">
+            <h2>12. वर्तमान कार्य की पवित्रता (The Sanctity of the Task at Hand)</h2>
+            <blockquote class="sutra">
+                <p><strong>सूत्र:</strong> अपने सामने मौजूद कार्य को तर्क, न्याय और बिना किसी विचलित होने की भावना के साथ पूरा करें।</p>
+            </blockquote>
+            
+            <section class="translation-section">
+                <h3>📝 अनुवाद (Translation)</h3>
+                <p>"यदि आप अपने सामने मौजूद कार्य को तर्क के नियमों का पालन करते हुए—पूरी एकाग्रता, ऊर्जा और कोमलता के साथ करते हैं; यदि आप किसी और चीज़ से विचलित नहीं होते, बल्कि अपनी अंतरात्मा को वैसे ही शुद्ध रखते हैं जैसे कि उसे अभी वापस करना हो; यदि आप इसे बिना किसी अपेक्षा या डर के करते हैं, और अपने वर्तमान कार्य में प्रकृति के अनुरूप बने रहते हैं—तो आप एक सुखी जीवन जिएंगे। और कोई भी आपको ऐसा करने से नहीं रोक सकता।"</p>
+            </section>
+            
+            <details class="stoic-explanation">
+                <summary>🧠 विस्तृत अर्थ (Stoic Philosophy के अनुसार)</summary>
+                <ul>
+                    <li><strong>पवित्र कर्तव्य:</strong> स्टोइक दर्शन में, 'अभी का काम' ही आपकी सबसे बड़ी पूजा है। यदि आप एक छात्र हैं, तो पढ़ना; यदि एक कर्मचारी हैं, तो ईमानदारी से काम करना—यही आपका दैवीय अंश है।</li>
+                    <li><strong>अविचल अंतरात्मा:</strong> "अंतरात्मा को अभी वापस करना हो" का अर्थ है कि आपको इस तरह जीना चाहिए कि यदि इसी क्षण मृत्यु आ जाए, तो आपकी आत्मा पर कोई बोझ या बेईमानी का दाग न हो।</li>
+                    <li><strong>बाधामुक्ति:</strong> मार्कस कहते हैं कि आपकी शांति आपके अपने हाथ में है। लोग आपके शरीर को रोक सकते हैं, लेकिन वे आपको 'सही सोचने' और 'सही ढंग से कार्य करने' से नहीं रोक सकते।</li>
+                </ul>
+            </details>
+
+            <aside class="highlight-box">
+                <h3>💡 जीवन के लिए व्यावहारिक सबक</h3>
+                <ul>
+                    <li><strong>पूर्ण उपस्थिति:</strong> जो काम कर रहे हैं, बस उसी में डूब जाएं। भविष्य के परिणामों या अतीत की गलतियों को काम के बीच में न आने दें।</li>
+                    <li><strong>ईमानदारी का मानक:</strong> हर काम को इस मानक के साथ करें कि उसे ईश्वर या पूरी दुनिया देख रही है।</li>
+                    <li><strong>आंतरिक स्वतंत्रता:</strong> याद रखें कि सुख बाहरी परिस्थितियों में नहीं, बल्कि अपने कर्तव्य को सही ढंग से निभाने की 'संतुष्टि' में है।</li>
+                </ul>
+            </aside>
+        </article>
+
+        <div class="pause-separator">धीरे पढ़ें • चिंतन के लिए एक पल रुकें</div>
+
+        <p style="text-align: center; font-style: italic; color: var(--color-secondary); margin: 30px 0;">निश्चित रूप से, मार्कस ऑरेलियस की 'मेडिटेशन्स' के **तीसरे भाग (Book 3)** के अगले तीन महत्वपूर्ण बिंदुओं (13, 14 और 15) का सुव्यवस्थित विवरण यहाँ दिया गया है:</p>
+        
+        <!-- Entry 13 -->
+        <article id="entry-13">
+            <h2>13. जीवन के कौशल और विवेक का उपयोग (The Skills of Life and Use of Reason)</h2>
+            <blockquote class="sutra">
+                <p><strong>सूत्र:</strong> जैसे एक चिकित्सक के पास हमेशा औजार तैयार रहते हैं, वैसे ही आपके पास जीवन की घटनाओं को समझने के लिए सिद्धांत तैयार होने चाहिए।</p>
+            </blockquote>
+            
+            <section class="translation-section">
+                <h3>📝 अनुवाद (Translation)</h3>
+                <p>"जैसे चिकित्सकों के पास आपातकालीन उपचार के लिए अपने औजार और छुरियां हमेशा तैयार रहती हैं, वैसे ही तुम भी अपने पास जीवन के सिद्धांतों (Principles) को हमेशा तैयार रखो। ताकि तुम ईश्वरीय और मानवीय चीजों के बीच के संबंध को समझ सको और हर कार्य को, चाहे वह कितना भी छोटा क्यों न हो, इस बोध के साथ कर सको कि ये दोनों एक-दूसरे से जुड़े हुए हैं। याद रखो कि तुम किसी भी मानवीय कार्य को तब तक सही ढंग से नहीं कर सकते जब तक तुम उसे दैवीय सत्यों से जोड़कर न देख लो, और इसका विपरीत भी उतना ही सच है।"</p>
+            </section>
+            
+            <details class="stoic-explanation">
+                <summary>🧠 विस्तृत अर्थ (Stoic Philosophy के अनुसार)</summary>
+                <ul>
+                    <li><strong>तैयारी की अवस्था:</strong> स्टोइकिज्म का मानना है कि संकट के समय नया ज्ञान काम नहीं आता, बल्कि जो सिद्धांत पहले से अभ्यास किए गए हों, वही काम आते हैं।</li>
+                    <li><strong>ब्रह्मांडीय एकता:</strong> मार्कस यहाँ 'लोगोस' (Logos) की बात कर रहे हैं। ईश्वर और मनुष्य अलग नहीं हैं। जो नियम ब्रह्मांड को चलाते हैं, वही नियम हमारे चरित्र को भी चलाने चाहिए।</li>
+                    <li><strong>पूर्णता की दृष्टि:</strong> छोटे से छोटा सामाजिक कार्य (जैसे किसी की मदद करना या अपना काम करना) वास्तव में ब्रह्मांडीय न्याय का ही एक हिस्सा है। जब आप इसे इस बड़े नजरिए से देखते हैं, तो आपके कार्य में पवित्रता आ जाती है।</li>
+                </ul>
+            </details>
+
+            <aside class="highlight-box">
+                <h3>💡 जीवन के लिए व्यावहारिक सबक</h3>
+                <ul>
+                    <li><strong>मानसिक शस्त्रागार:</strong> अपने दिमाग में 2-3 ऐसे सूत्र हमेशा तैयार रखें (जैसे: "यह भी बीत जाएगा" या "यह मेरे नियंत्रण में नहीं है") जो मुश्किल समय में तुरंत ढाल का काम करें।</li>
+                    <li><strong>कार्य की गंभीरता:</strong> किसी भी काम को 'तुच्छ' न समझें। उसे इस तरह करें जैसे वह ब्रह्मांड की व्यवस्था को बनाए रखने के लिए ज़रूरी हो।</li>
+                    <li><strong>जुड़ाव पहचानें:</strong> अपने व्यक्तिगत व्यवहार और अपने नैतिक सिद्धांतों के बीच कभी दूरी न आने दें।</li>
+                </ul>
+            </aside>
+        </article>
+
+        <div class="pause-separator">धीरे पढ़ें • चिंतन के लिए एक पल रुकें</div>
+
+        <!-- Entry 14 -->
+        <article id="entry-14">
+            <h2>14. भटकाव का अंत और स्वयं की ओर वापसी (End Distractions and Return to Self)</h2>
+            <blockquote class="sutra">
+                <p><strong>सूत्र:</strong> अब इधर-उधर भागना बंद करें और समय रहते अपनी आत्मा के कल्याण के लिए कार्य करें।</p>
+            </blockquote>
+            
+            <section class="translation-section">
+                <h3>📝 अनुवाद (Translation)</h3>
+                <p>"अब और अधिक इधर-उधर मत भटको। तुम अपनी पुरानी यादों (Memoirs) को पढ़ने नहीं जा रहे हो, न ही उन प्राचीन रोमनों और यूनानियों के इतिहास को, और न ही उन किताबों के संकलन को जिन्हें तुमने अपने बुढ़ापे के लिए बचाकर रखा था। इसके बजाय, अपने अंतिम लक्ष्य की ओर बढ़ो। झूठी आशाओं को छोड़ दो और यदि तुम्हें खुद की ज़रा भी परवाह है, तो अभी से अपने स्वयं के कल्याण में लग जाओ, जब तक कि तुम्हारे पास ऐसा करने की शक्ति है।"</p>
+            </section>
+            
+            <details class="stoic-explanation">
+                <summary>🧠 विस्तृत अर्थ (Stoic Philosophy के अनुसार)</summary>
+                <ul>
+                    <li><strong>टालमटोल की निरर्थकता:</strong> हम अक्सर ज्ञान इकट्ठा करने (पढ़ने-लिखने) को ही आत्म-सुधार मान लेते हैं। मार्कस चेतावनी देते हैं कि 'जानना' और 'होना' (Being) दो अलग बातें हैं।</li>
+                    <li><strong>सीमित समय:</strong> बुढ़ापे के लिए योजनाएं बनाना एक भ्रम है क्योंकि कोई नहीं जानता कि कल उसकी बुद्धि और शरीर साथ देंगे या नहीं।</li>
+                    <li><strong>स्वयं के प्रति प्रेम:</strong> स्टोइक दर्शन में स्वयं की परवाह करने का अर्थ स्वार्थ नहीं, बल्कि अपनी आत्मा को सद्गुणी बनाना है। यदि आप आज अपनी नैतिकता पर काम नहीं कर रहे, तो आप स्वयं के सबसे बड़े शत्रु हैं।</li>
+                </ul>
+            </details>
+
+            <aside class="highlight-box">
+                <h3>💡 जीवन के लिए व्यावहारिक सबक</h3>
+                <ul>
+                    <li><strong>क्रियान्वयन (Execution) पर ज़ोर:</strong> केवल मोटिवेशनल किताबें पढ़ना या दर्शन पर चर्चा करना बंद करें। उन 1-2 सिद्धांतों को चुनें और उन्हें आज से ही अपने व्यवहार में लाएं।</li>
+                    <li><strong>प्राथमिकता तय करें:</strong> विचलित करने वाले शौक और मनोरंजन को कम करें जो आपको आपके मुख्य उद्देश्य से दूर ले जाते हैं।</li>
+                    <li><strong>तात्कालिकता (Urgency):</strong> यह न सोचें कि "मैं रिटायरमेंट के बाद ध्यान या साधना करूँगा।" जो सुधार करना है, वह अभी करें।</li>
+                </ul>
+            </aside>
+        </article>
+
+        <div class="pause-separator">धीरे पढ़ें • चिंतन के लिए एक पल रुकें</div>
+
+        <!-- Entry 15 -->
+        <article id="entry-15">
+            <h2>15. शब्दों के पीछे की वास्तविकता (The Reality Behind Words)</h2>
+            <blockquote class="sutra">
+                <p><strong>सूत्र:</strong> केवल शब्दों को न जानें, बल्कि उन कार्यों और अर्थों को समझें जो शब्दों के पीछे छिपे हैं।</p>
+            </blockquote>
+            
+            <section class="translation-section">
+                <h3>📝 अनुवाद (Translation)</h3>
+                <p>"वे नहीं जानते कि 'चोरी करना', 'बोना', 'खरीदना', 'शांति से रहना' और 'यह देखना कि क्या किया जाना चाहिए' जैसे शब्दों का वास्तव में क्या अर्थ है। यह केवल आँखों से नहीं, बल्कि एक अलग प्रकार की दृष्टि (Inward vision) से देखा जाता है। शरीर, आत्मा और मन: शरीर के लिए संवेदनाएं (Sensations), आत्मा के लिए आवेग (Impulses), और मन के लिए सिद्धांत (Principles) हैं।"</p>
+            </section>
+            
+            <details class="stoic-explanation">
+                <summary>🧠 विस्तृत अर्थ (Stoic Philosophy के अनुसार)</summary>
+                <ul>
+                    <li><strong>आंतरिक दृष्टि (Inward Vision):</strong> लोग अक्सर 'शांति' या 'न्याय' जैसे शब्दों का उपयोग करते हैं, लेकिन वे उनके दार्शनिक सार को नहीं समझते। मार्कस कहते हैं कि असली समझ केवल आँखों से नहीं, बल्कि विवेक (Reason) से आती है।</li>
+                    <li><strong>मनुष्य का विभाजन:</strong> 1. **शरीर:** यह केवल स्पर्श और दर्द को महसूस करता है (जानवरों की तरह)। 2. **आत्मा (Psychē):** यहाँ से इच्छाएं और आवेग उठते हैं। 3. **मन (Nous):** यही वह स्थान है जहाँ सिद्धांत और निर्णय बसते हैं।</li>
+                    <li><strong>नैतिक स्पष्टता:</strong> एक दार्शनिक केवल बाहरी कार्यों को नहीं देखता, बल्कि उन कार्यों के पीछे के 'इरादे' और 'तर्क' को जाँचता है।</li>
+                </ul>
+            </details>
+
+            <aside class="highlight-box">
+                <h3>💡 जीवन के लिए व्यावहारिक सबक</h3>
+                <ul>
+                    <li><strong>गहन अवलोकन:</strong> जब आप कहें कि "मैं शांति चाहता हूँ," तो गहराई से सोचें कि आपके लिए शांति का वास्तविक अर्थ क्या है। क्या यह केवल शोर की अनुपस्थिति है या मन की स्थिरता?</li>
+                    <li><strong>आवेगों पर लगाम:</strong> अपनी शारीरिक संवेदनाओं या अचानक उठने वाले आवेगों (गुस्सा, लालच) को अपना मालिक न बनने दें। हमेशा अपने 'सिद्धांतों' (Principles) को सबसे ऊपर रखें।</li>
+                    <li><strong>सतही ज्ञान से बचें:</strong> चीज़ों के केवल नाम जानने से संतुष्ट न हों; उनके स्वभाव और प्रभाव को समझें।</li>
+                </ul>
+            </aside>
+        </article>
+
+        <div class="pause-separator">धीरे पढ़ें • चिंतन के लिए एक पल रुकें</div>
+
+        <!-- Entry 16 -->
+        <article id="entry-16">
+            <h2>16. मन की संप्रभुता और सद्गुण (Sovereignty of Mind and Virtue)</h2>
+            <blockquote class="sutra">
+                <p><strong>सूत्र:</strong> शरीर और आवेग दूसरों के पास भी हो सकते हैं, लेकिन अपनी बुद्धि को सिद्धांतों के प्रति वफादार रखना ही एक अच्छे व्यक्ति की पहचान है।</p>
+            </blockquote>
+            
+            <section class="translation-section">
+                <h3>📝 अनुवाद (Translation)</h3>
+                <p>"शरीर के लिए संवेदनाएं (Sensations) हैं, आत्मा के लिए आवेग (Impulses) हैं, और मन के लिए सिद्धांत (Principles) हैं। संवेदनाओं को महसूस करना तो मवेशियों का भी काम है। आवेगों के वश में होना तो जंगली जानवरों, अत्याचारियों और उन लोगों का भी स्वभाव है जो बंद दरवाजों के पीछे ईश्वर के विरुद्ध काम करते हैं। यदि ये सब चीज़ें दूसरों में भी समान रूप से पाई जाती हैं, तो फिर एक अच्छे व्यक्ति की विशिष्टता क्या है? वह यह है: जो कुछ भी उसके साथ होता है और नियति द्वारा उसे सौंपा जाता है, उससे संतुष्ट रहना; अपने भीतर रहने वाली उस दैवीय शक्ति (विवेक) को प्रदूषित न करना या विचारों की भीड़ से विचलित न होने देना; उसे शांत रखना और ईश्वर का सम्मान करते हुए कभी भी सत्य के विरुद्ध कुछ न बोलना और न्याय के विरुद्ध कुछ न करना।"</p>
+            </section>
+            
+            <details class="stoic-explanation">
+                <summary>🧠 विस्तृत अर्थ (Stoic Philosophy के अनुसार)</summary>
+                <ul>
+                    <li><strong>मनुष्य की विशिष्टता:</strong> मार्कस स्पष्ट करते हैं कि महसूस करना (इंद्रियां) या किसी चीज़ की ओर खिंचे चले जाना (इच्छाएं) हमें इंसान नहीं बनाता, क्योंकि ये गुण तो जानवरों में भी हैं। जो चीज़ हमें वास्तव में मनुष्य और 'सद्गुणी' बनाती है, वह है हमारी <strong>तर्कशक्ति (Reason)</strong>।</li>
+                    <li><strong>आंतरिक देवता (The Resident Divinity):</strong> स्टोइकिज्म के अनुसार, हमारे भीतर ईश्वर का एक अंश (Daemon) निवास करता है। जब हम झूठ बोलते हैं या अन्याय करते हैं, तो हम उस पवित्र अंश को 'प्रदूषित' करते हैं।</li>
+                    <li><strong>नियति के साथ सामंजस्य:</strong> एक अच्छे व्यक्ति की सबसे बड़ी परीक्षा तब होती है जब उसके साथ कुछ 'अप्रिय' घटता है। यदि वह उस स्थिति को बिना कड़वाहट के स्वीकार करता है, तो वह ब्रह्मांडीय नियमों का सम्मान कर रहा होता है।</li>
+                    <li><strong>अविचल नैतिकता:</strong> चाहे पूरी दुनिया आपके खिलाफ हो या आपको मूर्ख समझे, आपका कर्तव्य केवल अपने सिद्धांतों के प्रति सच्चा रहना है।</li>
+                </ul>
+            </details>
+
+            <aside class="highlight-box">
+                <h3>💡 जीवन के लिए व्यावहारिक सबक</h3>
+                <ul>
+                    <li><strong>आवेगों पर लगाम:</strong> जब भी आपको गुस्सा आए या लालच महसूस हो, याद रखें कि यह एक 'पशुवत आवेग' है। रुकें और अपनी 'बुद्धि' को निर्णय लेने दें।</li>
+                    <li><strong>सत्य और न्याय का व्रत:</strong> अपने दैनिक जीवन में दो नियम कभी न तोड़ें—हमेशा सच बोलें (भले ही वह कठिन हो) और हमेशा न्यायपूर्ण कार्य करें।</li>
+                    <li><strong>प्रसन्नता का स्रोत:</strong> अपनी खुशी को बाहरी सफलताओं में न ढूँढें। सच्ची शांति इस बात में है कि आपने अपनी अंतरात्मा को शुद्ध रखा है।</li>
+                    <li><strong>दुनिया की राय की उपेक्षा:</strong> यदि लोग आपके सरल और दार्शनिक जीवन का मजाक उड़ाएं, तो भी विचलित न हों। आपकी संतुष्टि आपकी अपनी नैतिकता से आनी चाहिए, दूसरों के 'सर्टिफिकेट' से नहीं।</li>
+                </ul>
+            </aside>
+            
+            <!-- Final line from source: -->
+            <p style="margin-top: 30px;">​<strong>तीसरे भाग का समापन:</strong> मार्कस ऑरेलियस ने इस भाग में हमें सिखाया है कि समय बहुत कम है और हमारी एकमात्र सुरक्षा हमारा अपना **विवेक** है।</p>
+        </article>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p><strong>मार्कस ऑरेलियस (Marcus Aurelius) की 'मेडिटेशन्स' - भाग 3 का हिंदी अनुवाद और विस्तृत अर्थ।</strong></p>
+        <p>यह पृष्ठ स्टोइक दर्शन के गहन अध्ययन और आरामदायक पठन अनुभव के लिए डिज़ाइन किया गया है।</p>
+        <p>&copy; 2026. सभी सामग्री मूल स्रोत से संरक्षित है।</p>
+    </div>
+</footer>
+</body>
+</html>
