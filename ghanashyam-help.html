@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>सहयोग की अपील — घनश्याम कोल</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-deep:#0B4A50;
+    --teal-mid:#12666E;
+    --cream:#F4ECD8;
+    --rust:#B54A2C;
+    --ochre:#DFA23B;
+    --ink:#211B14;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{background:#3a3a3a; min-height:100vh;}
+  body{
+    display:flex; justify-content:center; align-items:center; padding:28px 0;
+    font-family:'Noto Sans Devanagari', sans-serif;
+  }
+  .poster{
+    width:1080px;
+    min-height:1350px;
+    background:var(--cream);
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+    padding:40px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  
+  /* बॉर्डर और डिज़ाइन */
+  .poster::before {
+    content: ''; position: absolute; inset: 15px;
+    border: 3px solid var(--teal-deep); pointer-events: none;
+  }
+  .poster::after {
+    content: ''; position: absolute; inset: 23px;
+    border: 1px dashed var(--rust); pointer-events: none;
+  }
+
+  header { text-align: center; margin-top: 20px; z-index: 2; width: 100%; }
+  header h1 { font-family: 'Yatra One', cursive; color: var(--rust); font-size: 3.5rem; text-shadow: 2px 2px 0px rgba(0,0,0,0.1); margin-bottom: 10px; }
+  header h2 { font-family: 'Noto Serif Devanagari', serif; color: var(--teal-deep); font-size: 2.2rem; font-weight: 700; letter-spacing: 1px; }
+
+  /* फोटो फ्रेम - इमेज मैपिंग */
+  .photo-container {
+    margin: 30px 0; z-index: 2; display: flex; justify-content: center; width: 100%;
+  }
+  .photo-frame {
+    width: 650px; height: 380px; background: #fff;
+    border: 8px solid #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-radius: 4px; overflow: hidden; position: relative;
+  }
+  .photo-frame img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
+  }
+
+  .content-text {
+    max-width: 900px; text-align: center; z-index: 2; margin-bottom: 25px; padding: 0 20px;
+  }
+  .content-text p { font-size: 1.4rem; color: var(--ink); line-height: 1.8; font-weight: 500; text-align: justify; }
+  .content-text p.plea { color: var(--rust); font-weight: 700; margin-top: 15px; font-size: 1.45rem; border-top: 1px dashed rgba(181,74,44,0.3); padding-top: 15px; }
+
+  .divider { display: flex; align-items: center; justify-content: center; width: 100%; margin: 15px 0; z-index: 2; }
+  .divider .line { width: 250px; height: 2px; background: var(--teal-mid); }
+  .divider .dot { width: 12px; height: 12px; background: var(--rust); transform: rotate(45deg); margin: 0 15px; }
+
+  /* बैंक विवरण कार्ड */
+  .bank-card {
+    background: var(--teal-deep); color: white; border-radius: 12px;
+    padding: 30px 40px; width: 850px; margin: 20px 0; z-index: 2;
+    box-shadow: 0 8px 25px rgba(11,74,80,0.25); border: 2px solid var(--ochre);
+  }
+  .bank-card h3 { font-family: 'Noto Serif Devanagari', serif; text-align: center; color: var(--ochre); font-size: 1.8rem; margin-bottom: 20px; letter-spacing: 1px; }
+  .bank-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .row { display: flex; flex-direction: column; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; }
+  .label { font-size: 1.1rem; color: rgba(244,236,216,0.7); margin-bottom: 4px; }
+  .value { font-size: 1.4rem; font-weight: 600; color: var(--cream); }
+
+  .note { font-size: 1.1rem; color: var(--rust); font-weight: 600; margin-top: 10px; z-index: 2; font-style: italic; }
+
+  footer { width: 100%; text-align: center; margin-top: auto; padding-top: 30px; border-top: 1px dashed var(--teal-mid); z-index: 2; }
+  footer .call { font-size: 1.5rem; color: var(--teal-deep); font-weight: 700; letter-spacing: 0.5px; }
+  footer .contact { font-size: 1.3rem; color: var(--ink); font-weight: 600; margin-top: 5px; }
+
+  /* बैकग्राउंड डेकोरेशन एलिमेंट्स */
+  .corner-dec {
+    position: absolute; width: 100px; height: 100px; border: 4px solid var(--teal-deep); z-index: 1; pointer-events: none;
+  }
+  .top-left { top: 25px; left: 25px; border-right: none; border-bottom: none; }
+  .top-right { top: 25px; right: 25px; border-left: none; border-bottom: none; }
+  .bottom-left { bottom: 25px; left: 25px; border-right: none; border-top: none; }
+  .bottom-right { bottom: 25px; right: 25px; border-left: none; border-top: none; }
+</style>
+</head>
+<body>
+
+  <div class="poster">
+    <div class="corner-dec top-left"></div>
+    <div class="corner-dec top-right"></div>
+    <div class="corner-dec bottom-left"></div>
+    <div class="corner-dec bottom-right"></div>
+
+    <header>
+      <h1>॥ सहयोग की अपील ॥</h1>
+      <h2>सच्ची सेवा का हाथ बढ़ाएं</h2>
+    </header>
+
+    <div class="photo-container">
+      <div class="photo-frame">
+        <img src="photo.jpg" alt="घनश्याम कोल जी का स्वास्थ्य हालचाल लेते हुए">
+      </div>
+    </div>
+
+    <div class="content-text">
+      <p>
+        मंडल अध्यक्ष श्री जीतन कोल जी एवं श्री दासू कोल जी के साथ उनसे मुलाकात कर स्वास्थ्य की जानकारी ली गई। घनश्याम कोल जी वर्षों से समाज के उत्थान हेतु निरंतर समर्पित भाव से कार्य करते रहे हैं। वर्तमान में वे गंभीर अस्वस्थता से जूझ रहे हैं और अस्पताल में उपचाराधीन हैं।
+      </p>
+      <p class="plea">
+        ऐसे कठिन समय में समस्त कोल समाज एवं सहृदय शुभचिंतकों से विनम्र निवेदन है कि आगे आकर अपना यथासंभव स्वैच्छिक आर्थिक सहयोग प्रदान करें, ताकि उनका समुचित इलाज समय पर सुनिश्चित हो सके।
+      </p>
+    </div>
+
+    <div class="divider">
+      <div class="line"></div>
+      <div class="dot"></div>
+      <div class="line"></div>
+    </div>
+
+    <div class="bank-card">
+      <h3>सहयोग हेतु बैंक विवरण</h3>
+      <div class="bank-grid">
+        <div class="row"><span class="label">खाताधारक</span><span class="value">घनश्याम कोल</span></div>
+        <div class="row"><span class="label">बैंक शाखा</span><span class="value">Bank of India, गिरिडीह</span></div>
+        <div class="row"><span class="label">खाता संख्या</span><span class="value">400118210001050</span></div>
+        <div class="row"><span class="label">IFSC कोड</span><span class="value">BKID0004801</span></div>
+      </div>
+    </div>
+
+    <div class="note">
+      * कृपया राशि भेजने से पूर्व बैंक खाता संख्या एवं विवरण की भली-भांति पुष्टि अवश्य कर लें।
+    </div>
+
+    <footer>
+      <div class="call">आपका थोड़ा सा सहयोग किसी का जीवन बचा सकता है</div>
+      <div class="contact">संपर्क सूत्र : ____________________</div>
+    </footer>
+  </div>
+
+</body>
+</html>
