@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<title>सहयोग की अपील — घनश्याम कोल</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-deep:#0B4A50;
+    --teal-mid:#12666E;
+    --cream:#F4ECD8;
+    --rust:#B54A2C;
+    --ochre:#DFA23B;
+    --ink:#211B14;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{background:#3a3a3a;}
+  body{
+    display:flex; justify-content:center; padding:28px 0;
+    font-family:'Noto Sans Devanagari', sans-serif;
+  }
+  .poster{
+    width:1080px;
+    min-height:1350px;
+    background:var(--cream);
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+  }
+  /* woven diamond motif strip */
+  .motif{
+    height:22px;
+    width:100%;
+    background:
+      linear-gradient(135deg, var(--ochre) 25%, transparent 25%) -11px 0,
+      linear-gradient(225deg, var(--ochre) 25%, transparent 25%) -11px 0,
+      linear-gradient(315deg, var(--ochre) 25%, transparent 25%),
+      linear-gradient(45deg, var(--ochre) 25%, transparent 25%);
+    background-size:22px 22px;
+    background-color:var(--teal-deep);
+  }
+  header{
+    background:var(--teal-deep);
+    color:var(--cream);
+    padding:38px 60px 30px;
+    text-align:center;
+    position:relative;
+  }
+  .eyebrow{
+    font-size:19px;
+    letter-spacing:2px;
+    color:var(--ochre);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  h1.org{
+    font-family:'Yatra One', cursive;
+    font-size:40px;
+    line-height:1.35;
+    font-weight:400;
+    color:var(--cream);
+  }
+  .subunit{
+    margin-top:12px;
+    font-size:20px;
+    color:#CFE3E1;
+    font-weight:500;
+  }
+
+  .photo-wrap{
+    position:relative;
+    margin:0 60px;
+    margin-top:-6px;
+    z-index:2;
+  }
+  .photo-frame{
+    border:8px solid var(--ochre);
+    outline:3px solid var(--teal-deep);
+    outline-offset:-14px;
+    overflow:hidden;
+    box-shadow:0 14px 30px rgba(0,0,0,.35);
+  }
+  .photo-frame img{
+    width:100%; display:block; object-fit:cover; max-height:430px;
+  }
+  .photo-caption{
+    background:var(--rust);
+    color:var(--cream);
+    text-align:center;
+    padding:12px 20px;
+    font-size:18px;
+    font-weight:600;
+    letter-spacing:.5px;
+  }
+
+  .headline{
+    text-align:center;
+    padding:34px 70px 6px;
+  }
+  .headline h2{
+    font-family:'Noto Serif Devanagari', serif;
+    font-size:34px;
+    color:var(--rust);
+    font-weight:700;
+    line-height:1.5;
+  }
+
+  .body-copy{
+    padding:14px 70px 6px;
+    font-size:20px;
+    line-height:1.85;
+    color:var(--ink);
+  }
+  .body-copy p{margin-bottom:16px;}
+  .body-copy .name{color:var(--teal-deep); font-weight:700;}
+  .body-copy .plea{
+    font-weight:600;
+    color:var(--rust);
+  }
+
+  .divider{
+    display:flex; align-items:center; gap:14px;
+    margin:8px 70px 22px;
+  }
+  .divider .line{flex:1; height:2px; background:var(--ochre);}
+  .divider .dot{width:9px; height:9px; background:var(--rust); transform:rotate(45deg);}
+
+  .bank-card{
+    margin:0 70px 26px;
+    background:var(--teal-deep);
+    color:var(--cream);
+    border-radius:6px;
+    padding:26px 30px;
+    position:relative;
+  }
+  .bank-card::before{
+    content:"";
+    position:absolute; left:0; top:0; bottom:0; width:8px;
+    background:var(--ochre);
+  }
+  .bank-card h3{
+    font-family:'Yatra One', cursive;
+    font-weight:400;
+    font-size:24px;
+    color:var(--ochre);
+    margin-bottom:14px;
+  }
+  .bank-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 30px;
+    font-size:18px;
+  }
+  .bank-grid .row{display:flex; justify-content:space-between; border-bottom:1px solid rgba(244,236,216,.25); padding-bottom:6px;}
+  .bank-grid .label{color:#B9D6D3; font-weight:500;}
+  .bank-grid .value{font-weight:700; letter-spacing:.4px;}
+
+  .note{
+    margin:0 70px 20px;
+    font-size:15px;
+    color:#5c5343;
+    background:#EAE0C4;
+    border:1px dashed var(--ochre);
+    padding:12px 18px;
+    border-radius:4px;
+  }
+
+  footer{
+    background:var(--rust);
+    color:var(--cream);
+    text-align:center;
+    padding:26px 40px 32px;
+  }
+  footer .call{
+    font-family:'Yatra One', cursive;
+    font-size:26px;
+    margin-bottom:8px;
+  }
+  footer .contact{
+    font-size:19px;
+    font-weight:600;
+    letter-spacing:.5px;
+  }
+  .footer-note{
+    font-size:14px;
+    opacity:.85;
+    margin-top:10px;
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="motif"></div>
+
+    <header>
+      <div class="eyebrow">जय जोहार • जय आदिवासी • जय कोल समाज</div>
+      <h1 class="org">भारत प्राचीन आदिवासी कोल जाति कल्याण समिति</h1>
+      <div class="subunit">झारखंड आंदोलनकारी संघर्ष मोर्चा — दुमका मंडल</div>
+    </header>
+
+    <div class="photo-wrap">
+      <div class="photo-frame">
+        <img src="photo.jpg" alt="घनश्याम कोल">
+      </div>
+      <div class="photo-caption">श्री घनश्याम कोल जी से मुलाकात करते मंडल पदाधिकारी</div>
+    </div>
+
+    <div class="headline">
+      <h2>सहयोग की अपील 🙏</h2>
+    </div>
+
+    <div class="body-copy">
+      <p>
+        सूचित किया जाता है कि समिति के केंद्रीय उपाध्यक्ष <span class="name">श्री घनश्याम कोल जी</span>
+        (निवासी — ललकी टांड़, गिरिडीह) की तबीयत गंभीर बनी हुई है।
+      </p>
+      <p>
+        मंडल अध्यक्ष श्री जीतन कोल जी एवं श्री दासू कोल जी के साथ उनसे मुलाकात कर
+        स्वास्थ्य की जानकारी ली गई। घनश्याम कोल जी वर्षों से समाज के उत्थान हेतु
+        निरंतर समर्पित भाव से कार्य करते रहे हैं।
+      </p>
+      <p class="plea">
+        ऐसे कठिन समय में समस्त कोल समाज से विनम्र निवेदन है कि आगे आकर अपना
+        यथासंभव सहयोग प्रदान करें, ताकि उनका समुचित इलाज हो सके।
+      </p>
+    </div>
+
+    <div class="divider"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
+
+    <div class="bank-card">
+      <h3>सहयोग हेतु बैंक विवरण</h3>
+      <div class="bank-grid">
+        <div class="row"><span class="label">खाताधारक</span><span class="value">घनश्याम कोल</span></div>
+        <div class="row"><span class="label">बैंक शाखा</span><span class="value">Bank of India, गिरिडीह</span></div>
+        <div class="row"><span class="label">खाता संख्या</span><span class="value">400118210001050</span></div>
+        <div class="row"><span class="label">IFSC कोड</span><span class="value">BKID0004801</span></div>
+      </div>
+    </div>
+
+    <div class="note">
+      कृपया राशि भेजने से पूर्व बैंक खाता संख्या की एक बार पासबुक से पुष्टि अवश्य कर लें।
+    </div>
+
+    <footer>
+      <div class="call">आपका थोड़ा सा सहयोग किसी बड़े काम आ सकता है</div>
+      <div class="contact">संपर्क सूत्र (बिरसा कुमार) : +91 XXXXX XXXXX</div>
+      <div class="footer-note">भारत प्राचीन आदिवासी कोल जाति कल्याण समिति — केंद्रीय कार्यालय</div>
+    </footer>
+  </div>
+</body>
+</html>
