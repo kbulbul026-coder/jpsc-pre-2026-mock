@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>भावनात्मक साक्षरता (Emotional Literacy) - डिजिटल संस्करण</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), #1a252f);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            margin: 15px 0 0 0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            margin-top: 25px;
+        }
+
+        /* सूचकांक (Index) के लिए विशेष स्टाइलिंग */
+        .index-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .index-list li {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .index-list li:hover {
+            background-color: #f1f8ff;
+        }
+
+        .index-list a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .index-list a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* महत्वपूर्ण नोट्स/उद्धरणों के लिए स्टाइलिंग */
+        .blockquote {
+            border-left: 5px solid var(--secondary-color);
+            background-color: #ecf0f1;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        /* व्यावहारिक टूल बॉक्स */
+        .tool-box {
+            background-color: #e8f4fd;
+            border: 1px solid #d4eafc;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .tool-box h4 {
+            margin-top: 0;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        /* टेबल स्टाइलिंग */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            border-top: 1px solid #ddd;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- पुस्तक का मुख्य शीर्ष (Header) -->
+    <header class="header">
+        <h1>भावनात्मक साक्षरता (Emotional Literacy)</h1>
+        <p>मन का रिमोट कंट्रोल आपके हाथ में — आत्म-सुधार की एक व्यावहारिक गाइड</p>
+    </header>
+
+    <div class="container">
+
+        <!-- ======================================================= -->
+        <!-- सेक्शन 0: सूचकांक (INDEX PLACEHOLDER)                  -->
+        <!-- ======================================================= -->
+        <section id="index-section" class="card">
+            <h2>विषय-सूची (Index)</h2>
+            <ul class="index-list">
+                <!-- यहाँ पर हम आपका अध्याय 0 (Index) जोड़ेंगे -->
+                <li><a href="#intro">प्रस्तावना: भावनाओं को शिक्षित क्यों करें?</a></li>
+                <li><a href="#chapter1">अध्याय 1: आत्म-जागरूकता (Self-Awareness)</a></li>
+                <li><a href="#chapter2">अध्याय 2: भावनाओं का प्रबंधन (Managing Emotions)</a></li>
+                <li><a href="#chapter3">अध्याय 3: उलझनों को सुलझाना (SOCS विधि)</a></li>
+                <li><a href="#chapter4">अध्याय 4: सहानुभूति (Empathy)</a></li>
+                <li><a href="#chapter5">अध्याय 5: संबंधों को संभालना (Handling Relationships)</a></li>
+                <li><a href="#conclusion">उपसंहार: जीवन ही अंतिम परीक्षा है</a></li>
+            </ul>
+        </section>
+
+
+
+
+<!-- ======================================================= -->
+<!-- सेक्शन 0: विषय-सूची (INDEX)                             -->
+<!-- ======================================================= -->
+<section id="index-section" class="card">
+    <div style="text-align: center; margin-bottom: 35px;">
+        <h2 style="border-bottom: none; display: inline-block; padding-bottom: 0;">📚 पुस्तक की विषय-सूची एवं ब्लूप्रिंट</h2>
+        <p style="color: #7f8c8d; font-style: italic; margin-top: 5px;">"मन का रिमोट कंट्रोल आपके हाथ में — आत्म-सुधार की एक व्यावहारिक गाइड"</p>
+    </div>
+
+    <!-- पुस्तक की टोन और उद्देश्य -->
+    <div class="blockquote" style="margin-bottom: 30px;">
+        <strong>💡 हमारा दृष्टिकोण:</strong> यह किताब भारी-भरकम मनोवैज्ञानिक शब्दों (Psychological Jargons) से दूर, एक सच्चे दोस्त या मेंटर की तरह है। यहाँ हर अध्याय को 3 हिस्सों में बांटा गया है: 
+        <span style="color: var(--secondary-color);"><strong>कहानी (The Hook)</strong></span>, 
+        <span style="color: var(--primary-color);"><strong>सरल विश्लेषण (The Concept)</strong></span>, और 
+        <span style="color: var(--accent-color);"><strong>दैनिक टूलकिट (The Actionable Tool)</strong></span>।
+    </div>
+
+    <!-- इंडेक्स ग्रिड/लिस्ट -->
+    <ul class="index-list">
+        
+        <!-- प्रस्तावना -->
+        <li>
+            <div style="display: flex; flex-direction: column;">
+                <a href="#intro" style="font-size: 1.1rem;">📍 प्रस्तावना: भावनाओं को शिक्षित क्यों करें?</a>
+                <span style="font-size: 0.85rem; color: #7f8c8d; margin-top: 4px; padding-left: 20px;">IQ बनाम EQ: स्वयं का अवलोकन (Self-Observer) करने की कला।</span>
+            </div>
+            <a href="#intro" style="color: var(--secondary-color); text-decoration: none; font-size: 0.9rem; font-weight: bold;">➔ पढ़ें</a>
+        </li>
+
+        <!-- अध्याय 1 -->
+        <li>
+            <div style="display: flex; flex-direction: column;">
+                <a href="#chapter1" style="font-size: 1.1rem;">अध्याय 1: आत्म-जागरूकता (Self-Awareness)</a>
+                <span style="font-size: 0.85rem; color: #555; margin-top: 4px; padding-left: 20px;">
+                    <strong>मुख्य सवाल:</strong> "मैं ऐसा क्यों महसूस कर रहा हूँ?"<br>
+                    <small style="color:#7f8c8d;">🛠️ व्यावहारिक टूल: 'द डेली इमोशन थर्मामीटर' (1 से 10 स्कोर ट्रैकिंग)</small>
+                </span>
+            </div>
+            <a href="#chapter1" style="color: var(--secondary-color); text-decoration: none; font-size: 0.9rem; font-weight: bold;">➔ पढ़ें</a>
+        </li>
+
+        <!-- अध्याय 2 -->
+        <li>
+            <div style="display: flex; flex-direction: column;">
+                <a href="#chapter2" style="font-size: 1.1rem;">अध्याय 2: भावनाओं का प्रबंधन (Managing Emotions)</a>
+                <span style="font-size: 0.85rem; color: #555; margin-top: 4px; padding-left: 20px;">
+                    <strong>मुख्य सवाल:</strong> "रुकिए! रिएक्ट मत कीजिए"<br>
+                    <small style="color:#7f8c8d;">🛠️ व्यावहारिक टूल: 'द 90-सेकंड स्टॉपलाइट' (लाल, पीली और हरी बत्ती का नियम)</small>
+                </span>
+            </div>
+            <a href="#chapter2" style="color: var(--secondary-color); text-decoration: none; font-size: 0.9rem; font-weight: bold;">➔ पढ़ें</a>
+        </li>
+
+        <!-- अध्याय 3 -->
+        <li>
+            <div style="display: flex; flex-direction: column;">
+                <a href="#chapter3" style="font-size: 1.1rem;">अध्याय 3: उलझनों को सुलझाना (Productive Choices)</a>
+                <span style="font-size: 0.85rem; color: #555; margin-top: 4px; padding-left: 20px;">
+                    <strong>मुख्य सवाल:</strong> संकट के समय सही निर्णय कैसे लें?<br>
+                    <small style="color:#7f8c8d;">🛠️ व्यावहारिक टूल: 'द SOCS जर्नल' (Situation, Options, Consequences, Solutions)</small>
+                </span>
+            </div>
+            <a href="#chapter3" style="color: var(--secondary-color); text-decoration: none; font-size: 0.9rem; font-weight: bold;">➔ पढ़ें</a>
+        </li>
+
+        <!-- अध्याय 4 -->
+        <li>
+            <div style="display: flex; flex-direction: column;">
+                <a href="#chapter4" style="font-size: 1.1rem;">अध्याय 4: दूसरों को समझना (Empathy)</a>
+                <span style="font-size: 0.85rem; color: #555; margin-top: 4px; padding-left: 20px;">
+                    <strong>मुख्य सवाल:</strong> "वो ऐसा क्यों कर रहे हैं?"<br>
+                    <small style="color:#7f8c8d;">🛠️ व्यावहारिक टूल: 'जूता बदल कर देखें' (Walk in their Shoes) & एक्टिव लिसनिंग</small>
+                </span>
+            </div>
+            <a href="#chapter4" style="color: var(--secondary-color); text-decoration: none; font-size: 0.9rem; font-weight: bold;">➔ पढ़ें</a>
+        </li>
+
+        <!-- अध्याय 5 -->
+        <li>
+            <div style="display: flex; flex-direction: column;">
+                <a href="#chapter5" style="font-size: 1.1rem;">अध्याय 5: रिश्तों में मिठास (Handling Relationships)</a>
+                <span style="font-size: 0.85rem; color: #555; margin-top: 4px; padding-left: 20px;">
+                    <strong>मुख्य सवाल:</strong> "बिना लड़े अपनी बात कैसे कहें?"<br>
+                    <small style="color:#7f8c8d;">🛠️ व्यावहारिक टूल: 'I-Statements' का जादू (Blame की जगह Expression)</small>
+                </span>
+            </div>
+            <a href="#chapter5" style="color: var(--secondary-color); text-decoration: none; font-size: 0.9rem; font-weight: bold;">➔ पढ़ें</a>
+        </li>
+
+        <!-- विशेष फीचर्स -->
+        <li>
+            <div style="display: flex; flex-direction: column;">
+                <a href="#bonus" style="font-size: 1.1rem; color: var(--accent-color);">✨ विशेष बोनस फीचर्स (Super-Engaging Tools)</a>
+                <span style="font-size: 0.85rem; color: #555; margin-top: 4px; padding-left: 20px;">
+                    🧰 इमोशनल फर्स्ट-एड किट (Quick Reference Card)<br>
+                    📅 30-दिन का इमोशनल डिटॉक्स चैलेंज (कैलेंडर/ट्रैकर)
+                </span>
+            </div>
+            <a href="#conclusion" style="color: var(--accent-color); text-decoration: none; font-size: 0.9rem; font-weight: bold;">➔ देखें</a>
+        </li>
+
+        <!-- उपसंहार -->
+        <li>
+            <div style="display: flex; flex-direction: column;">
+                <a href="#conclusion" style="font-size: 1.1rem;">🎯 उपसंहार: जीवन ही अंतिम परीक्षा है</a>
+                <span style="font-size: 0.85rem; color: #7f8c8d; margin-top: 4px; padding-left: 20px;">किताब को बंद करने के बाद रोज़मर्रा की ज़िंदगी में बदलाव की शुरुआत।</span>
+            </div>
+            <a href="#conclusion" style="color: var(--secondary-color); text-decoration: none; font-size: 0.9rem; font-weight: bold;">➔ पढ़ें</a>
+        </li>
+
+    </ul>
+</section>
+
+
+
+
+<!-- ======================================================= -->
+<!-- सेक्शन: प्रस्तावना (INTRODUCTION)                       -->
+<!-- ======================================================= -->
+<section id="intro" class="card">
+    
+    <!-- प्रस्तावना का शीर्षक -->
+    <div style="text-align: center; margin-bottom: 30px;">
+        <span style="color: var(--secondary-color); font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Introduction</span>
+        <h2 style="border-bottom: none; margin-top: 5px; font-size: 2rem;">प्रस्तावना: भावनाओं को शिक्षित क्यों करें?</h2>
+        <p style="color: #7f8c8d; font-size: 1.2rem; margin-top: -5px;">"IQ बनाम EQ: स्वयं का अवलोकन करने की कला"</p>
+    </div>
+
+    <!-- मुख्य विचार (The Hook) -->
+    <p>हम एक ऐसे समाज में बड़े होते हैं जहाँ बचपन से ही एक ही बात पर सबसे ज्यादा जोर दिया जाता है—<strong>"अच्छे नंबर लाओ ताकि अच्छी नौकरी मिले।"</strong> स्कूल से लेकर कॉलेज तक, हमारी पूरी शिक्षा व्यवस्था हमारे <strong>IQ (Intelligence Quotient)</strong> यानी कि हमारी तार्किक और गणितीय क्षमता को बढ़ाने में लगी रहती है।</p>
+    
+    <p>लेकिन क्या कभी किसी क्लास में यह सिखाया गया कि जब परीक्षा के डर से हाथ कांपने लगें तो क्या करें? जब किसी अपने से धोखा मिले तो उस गहरे दुःख से कैसे बाहर आएं? या जब ऑफिस में बॉस बिना बात चिल्ला दे तो उस गुस्से को कैसे संभालें?</p>
+
+    <div class="blockquote">
+        <strong>💡 एक कड़वा सच:</strong> आपका IQ (किताबी ज्ञान) आपको एक बेहतरीन नौकरी तो दिला सकता है, लेकिन जीवन की परीक्षाओं (रिश्तों को निभाना, तनाव झेलना, और असफलताओं से उठना) में पास होने के लिए आपको <strong>EQ (Emotional Quotient)</strong> यानी भावनात्मक साक्षरता की जरूरत होती है।
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+    <!-- विश्लेषण (The Concept) -->
+    <h3>⚖️ IQ बनाम EQ: असली सफलता क्या है?</h3>
+    <p>आज की भागदौड़ भरी जिंदगी में हर दूसरा इंसान मानसिक अशांति, एंग्जायटी या बिगड़े हुए रिश्तों से परेशान है। इसका कारण यह नहीं है कि वे बुद्धिमान नहीं हैं। इसका कारण यह है कि वे अपनी भावनाओं के हाथों मजबूर हैं।</p>
+    
+    <p>जब हम <strong>"भावनाओं को शिक्षित करने" (Educating Affect)</strong> की बात करते हैं, तो हमारा मतलब अपनी भावनाओं को दबाना या उन्हें खत्म करना नहीं होता। इसका मतलब होता है अपनी भावनाओं की भाषा को समझना।</p>
+
+    <!-- तुलनात्मक तालिका -->
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 50%;">IQ (बुद्धिमत्ता गुणांक)</th>
+                <th style="width: 50%;">EQ (भावनात्मक गुणांक)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>यह आपको काम (Task) को कुशलता से करना सिखाता है।</td>
+                <td>यह आपको काम के दबाव (Stress) को संभालना सिखाता है।</td>
+            </tr>
+            <tr>
+                <td>यह सूचनाओं और तथ्यों को याद रखने में मदद करता है।</td>
+                <td>यह खुद को और दूसरों को समझने में मदद करता है।</td>
+            </tr>
+            <tr>
+                <td>यह आपको ऑफिस के केबिन तक पहुँचाता है।</td>
+                <td>यह आपको एक बेहतरीन लीडर और अच्छा इंसान बनाता है।</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+    <!-- मुख्य कला -->
+    <h3>👁️ स्वयं का अवलोकन (Self-Observer) करने की कला</h3>
+    <p>भावनात्मक रूप से साक्षर होने का सबसे पहला और जादुई नियम है—<strong>'Self-Observer' (स्वयं का अवलोकन करने वाला)</strong> बनना।</p>
+    
+    <p>जरा सोचिए, जब आप किसी थिएटर में फिल्म देखने जाते हैं, तो पर्दे पर चल रहे ड्रामे, रोने-धोने या लड़ाई-झगड़े को देखकर आप भावुक तो होते हैं, लेकिन आप यह नहीं भूलते कि आप कुर्सी पर बैठे एक दर्शक हैं। आप पर्दे के ड्रामे का हिस्सा नहीं बनते।</p>
+    
+    <p>ठीक यही कला हमें अपने जीवन में उतारनी है। जब आपके भीतर गुस्से, ईर्ष्या या उदासी का ड्रामा चल रहा हो, तो उस भावना में पूरी तरह बह जाने के बजाय, एक सेकंड के लिए पीछे हटें और एक दर्शक (Observer) की तरह खुद को देखें और कहें—<em>"अरे देखो, इस वक्त मुझे बहुत तेज गुस्सा आ रहा है।"</em></p>
+
+    <p>जैसे ही आप खुद को एक तीसरे इंसान की नजर से देखना शुरू करते हैं, भावनाओं का आपके ऊपर से नियंत्रण टूटने लगता है।</p>
+
+    <!-- इस किताब का उद्देश्य -->
+    <div class="tool-box" style="background-color: #f1f8ff; border-color: #d4eafc;">
+        <h4>🎯 इस पुस्तक का एकमात्र उद्देश्य</h4>
+        <p style="margin: 0;">यह किताब आपको कोई थ्योरी या बड़ी-बड़ी परिभाषाएं रटाने के लिए नहीं लिखी गई है। यह एक व्यावहारिक गाइड है, जो आपके हाथ में आपके मन का 'रिमोट कंट्रोल' सौंपने आई है। यहाँ दी गई तकनीकें बेहद सरल हैं, जिन्हें आप कल सुबह से ही आजमाना शुरू कर सकते हैं ताकि आप स्वयं का एक <strong>बेहतर और शांत संस्करण (Better Version)</strong> बन सकें।</p>
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ======================================================= -->
+<!-- सेक्शन 1: अध्याय 1                                      -->
+<!-- ======================================================= -->
+<section id="chapter1" class="card">
+    
+    <!-- अध्याय का शीर्षक -->
+    <div style="text-align: center; margin-bottom: 30px;">
+        <span style="color: var(--secondary-color); font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Module 1</span>
+        <h2 style="border-bottom: none; margin-top: 5px; font-size: 2rem;">अध्याय 1: आत्म-जागरूकता (Self-Awareness)</h2>
+        <p style="color: #7f8c8d; font-size: 1.2rem; margin-top: -5px;">"मैं ऐसा क्यों महसूस कर रहा हूँ?"</p>
+    </div>
+
+    <!-- कहानी (The Hook) -->
+    <p>सुबह के 7:00 बजे हैं। अलार्म बजता है। आप अपनी आँखें खोलते हैं, लेकिन आपके सीने में एक अजीब सी भारीपन है। कोई बड़ी बात नहीं हुई है, सब कुछ ठीक है, लेकिन आपका मन उदास है। आप रसोई में जाते हैं, चाय का कप स्लैब पर थोड़ा जोर से रखते हैं। आपका पार्टनर आपसे पूछता है, <em>"क्या आज ऑफिस जल्दी जाना है?"</em> और आप अचानक चिढ़कर जवाब देते हैं, <em>"तुम्हें क्यों लगता है कि मैं हमेशा ऑफिस के तनाव में रहता हूँ?"</em></p>
+
+    <p style="font-weight: bold; color: var(--accent-color); font-size: 1.1rem; margin-top: 20px;">क्या ऐसा आपके साथ कभी हुआ है?</p>
+
+    <p>हम में से ज्यादातर लोग अपनी भावनाओं के साथ जी रहे हैं, लेकिन हम उनके प्रति जाग्रत नहीं हैं। हम उस कार की तरह चल रहे हैं जिसका स्टीयरिंग व्हील तो हमारे हाथ में है, लेकिन हमें यह नहीं पता कि कार किस दिशा में जा रही है।</p>
+
+    <p>भावनात्मक साक्षरता (Emotional Literacy) की शुरुआत इसी 'स्टीयरिंग व्हील' को समझने से होती है, जिसे हम कहते हैं—<strong>आत्म-जागरूकता (Self-Awareness)</strong>।</p>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+    <!-- मनोविज्ञान का विश्लेषण (The Concept) -->
+    <h3>🧠 मन का मौसम: भावनाएं क्या हैं?</h3>
+    <p>जैसे आसमान में मौसम बदलता रहता है—कभी धूप, कभी बारिश, तो कभी आंधी—वैसे ही हमारा मन भी है। समस्या यह नहीं है कि मौसम बदल रहा है; समस्या यह है कि हम हर बारिश को 'तूफान' समझ लेते हैं</p>
+
+    <p>जब हम यह नहीं समझ पाते कि हम क्या महसूस कर रहे हैं, तो हम <strong>'रिएक्ट' (React)</strong> करते हैं, <strong>'रिस्पॉन्ड' (Respond)</strong> नहीं।</p>
+    
+    <ul style="padding-left: 20px; margin-bottom: 25px;">
+        <li style="margin-bottom: 10px;"><strong>रिएक्ट करना:</strong> बिना सोचे-समझे भावना के बहाव में बह जाना (जैसे गुस्से में फोन फेंक देना या चिल्ला देना)।</li>
+        <li style="margin-bottom: 10px;"><strong>रिस्पॉन्ड करना:</strong> यह देखना कि मुझे गुस्सा आ रहा है, और फिर तय करना कि मुझे अब क्या करना है।</li>
+    </ul>
+
+    <p>इसे ही मनोवैज्ञानिक <strong>'द सेल्फ-ऑब्जर्वर' (The Self-Observer)</strong> या स्वयं का अवलोकन करने वाला कहते हैं। एक ऐसा इंसान जो खुद के भीतर चल रहे ड्रामे को एक दर्शक की तरह देख सकता है।</p>
+
+    <h3>🩺 शरीर कभी झूठ नहीं बोलता: शारीरिक संकेत</h3>
+    <p>क्या आप जानते हैं कि आपका दिमाग किसी भावना को पहचानने से पहले आपका शरीर उसे महसूस कर लेता है?</p>
+
+    <p>जब आपको डर लगता है, तो सबसे पहले आपकी सांसें तेज होती हैं या पेट में अजीब सी हलचल होती है। जब आपको गुस्सा आता है, तो आपकी मुट्ठियां खिंचने लगती हैं या जबड़े सख्त हो जाते हैं।</p>
+
+    <div class="blockquote">
+        <strong>⚠️ याद रखें:</strong> भावनाएं सिर्फ विचारों में नहीं होतीं, वे आपके शरीर में रहती हैं। अगली बार जब आपका मूड खराब हो, तो आंखें बंद करें और खुद से पूछें—मेरे शरीर में यह भावना कहाँ महसूस हो रही है? क्या मेरे सिर में भारीपन है? क्या मेरी पीठ में तनाव है?
+    </div>
+
+    <p>जैसे ही आप शरीर के स्तर पर भावना को पहचान लेते हैं, उसका असर आधा कम हो जाता है।</p>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+    <!-- दैनिक टूलकिट (The Actionable Tool) -->
+    <div class="tool-box">
+        <h4>🛠️ आज का टूल: 'द डेली इमोशन थर्मामीटर'</h4>
+        <p>इस अध्याय को सिर्फ पढ़ना नहीं है, इसे आजमाना है। आज से हम अपनी जिंदगी में 'इमोशन थर्मामीटर' (Emotion Thermometer) का उपयोग करेंगे। आपको दिन में तीन बार (सुबह, दोपहर और रात को सोने से पहले) खुद को <strong>1 से 10</strong> के पैमाने पर एक स्कोर देना है:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">स्कोर</th>
+                    <th>मानसिक स्थिति का मतलब</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="font-weight: bold; color: var(--accent-color);">1 - 3</td>
+                    <td>ऊर्जा बेहद कम है (उदास, थका हुआ, अकेलापन या निराशा)</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold; color: var(--secondary-color);">4 - 6</td>
+                    <td>सामान्य स्थिति (शांत, न बहुत खुश, न दुखी, बस काम में व्यस्त)</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold; color: #27ae60;">7 - 10</td>
+                    <td>उच्च ऊर्जा (उत्साहित, खुश, प्रेरित या बहुत सकारात्मक)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="margin-top: 20px; font-weight: bold;">आपको क्या करना है?</p>
+        <p>अपनी डायरी या फोन के नोट्स ऐप में बस इतना लिखें:</p>
+        <ul style="list-style-type: square; padding-left: 20px;">
+            <li>सुबह 9:00 बजे - स्कोर: 4 <em>(थोड़ी नींद आ रही है, पर ठीक हूँ)</em></li>
+            <li>दोपहर 3:00 बजे - स्कोर: 8 <em>(क्लाइंट की मीटिंग अच्छी रही, काफी उत्साहित हूँ)</em></li>
+            <li>रात 9:00 बजे - स्कोर: 3 <em>(दिनभर की थकान के बाद चिढ़चिढ़ापन हो रहा है)</em></li>
+        </ul>
+
+        <p style="margin-top: 15px;"><strong>फायदा क्या होगा?</strong> जब आप लगातार 7 दिन ऐसा करेंगे, तो आपको अपने मूड का एक पैटर्न दिखने लगेगा। आपको समझ आएगा कि दोपहर 3 बजे आपकी ऊर्जा क्यों गिरती है या सुबह उठते ही आप कैसा महसूस करते हैं। जब आप अपनी भावना को एक 'नंबर' दे देते हैं, तो आप उसके मालिक बन जाते हैं, वह भावना आपकी मालिक नहीं रहती।</p>
+    </div>
+
+    <!-- व्यावहारिक अभ्यास (Self-Reflection) -->
+    <div style="background-color: #fcf8e3; border: 1px solid #fbeed5; padding: 25px; border-radius: 8px; margin-top: 25px;">
+        <h4 style="margin-top: 0; color: #c09853;">📝 आपके लिए आज का अभ्यास (Self-Reflection)</h4>
+        <p>नीचे दिए गए सवालों के जवाब अपनी डायरी में पूरी ईमानदारी से लिखें (इसे कोई और नहीं पढ़ने वाला है):</p>
+        <ol style="padding-left: 20px; margin-bottom: 0;">
+            <li style="margin-bottom: 8px;">ऐसी कौन सी बात या परिस्थिति है, जो मेरा मूड सबसे जल्दी खराब कर देती है?</li>
+            <li style="margin-bottom: 8px;">जब मुझे बहुत तेज गुस्सा या तनाव होता है, तो मेरे शरीर में सबसे पहले क्या बदलाव आता है? <em>(जैसे- सिरदर्द, भारी सांसें, दिल की धड़कन तेज होना)</em></li>
+            <li style="margin-bottom: 0;">आज मेरा 'औसत इमोशन स्कोर' क्या रहा?</li>
+        </</ol>
+    </div>
+
+    <!-- अध्याय का सार -->
+    <div class="blockquote" style="border-left-color: var(--accent-color); background-color: #fff5f5; margin-top: 30px; font-weight: 600;">
+        🎯 अध्याय का सार: "आप अपनी भावनाओं को आने से नहीं रोक सकते, लेकिन आप यह जरूर तय कर सकते हैं कि वे भावनाएं आपकी जिंदगी को नियंत्रित न करें। पहला कदम सिर्फ इतना है कि आप जाग जाएं और कहें—हाँ, मैं इस वक्त यह महसूस कर रहा हूँ।"
+    </div>
+
+</section>
+
+
+
+
+<!-- ======================================================= -->
+<!-- सेक्शन 2: अध्याय 2                                      -->
+<!-- ======================================================= -->
+<section id="chapter2" class="card">
+    
+    <!-- अध्याय का शीर्षक -->
+    <div style="text-align: center; margin-bottom: 30px;">
+        <span style="color: var(--secondary-color); font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Module 2</span>
+        <h2 style="border-bottom: none; margin-top: 5px; font-size: 2rem;">अध्याय 2: भावनाओं का प्रबंधन (Managing Emotions)</h2>
+        <p style="color: #7f8c8d; font-size: 1.2rem; margin-top: -5px;">"रुकिए! रिएक्ट मत कीजिए"</p>
+    </div>
+
+    <!-- कहानी (The Hook) -->
+    <p>कल्पना कीजिए कि आप शाम को दफ्तर से थके-हारे घर लौटते हैं। दिनभर काम का दबाव था और बॉस की झिड़की भी सुननी पड़ी थी। जैसे ही आप घर का दरवाजा खोलते हैं, आप देखते हैं कि लिविंग रूम में सामान बिखरा पड़ा है और बच्चे शोर मचा रहे हैं।</p>
+    
+    <p>तभी आपका पार्टनर कहता है, <em>"अरे, आते वक्त दूध का पैकेट लाने को कहा था, भूल गए क्या?"</em></p>
+    
+    <p>बस! आपके भीतर जैसे एक ज्वालामुखी फट पड़ता है। आप चिल्ला उठते हैं, <em>"दिनभर गधे की तरह खट कर आ रहा हूँ, किसी को मेरी कदर नहीं है! खुद क्यों नहीं ले आए?"</em> आप अपने कमरे का दरवाजा जोर से पटक कर बंद कर लेते हैं।</p>
+    
+    <p>अगले आधे घंटे तक घर में एक भारी सन्नाटा पसर जाता है। आपका गुस्सा धीरे-धीरे शांत होता है, और उसकी जगह एक गहरी आत्मग्लानि (Guilt) ले लेती है। आप सोचते हैं, <em>"मुझे इस तरह नहीं चिल्लाना चाहिए था। बात इतनी बड़ी भी नहीं थी।"</em></p>
+
+    <p style="font-weight: bold; color: var(--accent-color); font-size: 1.1rem; margin-top: 20px;">क्या यह कहानी आपको जानी-पहचानी लगती है?</p>
+
+    <p>हम सब अपनी जिंदगी में इस मोड़ पर कभी न कभी आते हैं। जब भावनाएं—खासकर गुस्सा, हताशा या डर—हम पर हावी हो जाते हैं, तो हम एक रोबोट की तरह <strong>'रिएक्ट' (React)</strong> करते हैं। हमें लगता है कि हमारा खुद पर कोई कंट्रोल ही नहीं था। लेकिन क्या वाकई ऐसा है?</p>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+    <!-- मनोविज्ञान का विश्लेषण (The Concept) -->
+    <h3>⏳ 90 सेकंड का नियम: गुस्से का विज्ञान</h3>
+    <p>न्यूरोसाइंटिस्ट्स (Brain Scientists) ने एक बहुत ही दिलचस्प बात खोजी है। जब हमें किसी बात पर अचानक गुस्सा या डर महसूस होता है, तो हमारे दिमाग में एक केमिकल रिएक्शन होता है। यह केमिकल हमारे शरीर में <strong>सिर्फ 90 सेकंड (डेढ़ मिनट)</strong> तक रहता है।</p>
+
+    <div class="blockquote">
+        <strong>💡 इसका मतलब क्या है?</strong> इसका मतलब है कि जैविक रूप से गुस्सा सिर्फ 90 सेकंड का होता है। उसके बाद भी अगर हम आधे घंटे तक गुस्से में उबल रहे हैं, तो वह दिमाग के केमिकल की वजह से नहीं, बल्कि हमारे उन <strong>विचारों</strong> की वजह से है जिन्हें हम बार-बार दोहराकर उस मरे हुए सांप को जिंदा रख रहे हैं।
+    </div>
+
+    <p>अगर हम उस शुरुआती 90 सेकंड में खुद को संभाल लें, तो हम एक बहुत बड़े तूफान से बच सकते हैं। और इसे संभालने का सबसे बेहतरीन टूल है—<strong>'स्टॉपलाइट तकनीक' (The Stoplight Method)</strong>।</p>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+    <!-- स्टॉपलाइट तकनीक का विस्तार -->
+    <h3>🚦 मन का ट्रैफ़िक सिग्नल: स्टॉपलाइट तकनीक</h3>
+    <p>सड़क पर जब लाल बत्ती होती है, तो हम गाड़ी रोक देते हैं ताकि एक्सीडेंट न हो। हमारे मन के भीतर भी जब भावनाओं का ट्रैफ़िक बढ़ जाए, तो हमें इसी सिग्नल सिस्टम का इस्तेमाल करना है:</p>
+
+    <!-- लाल बत्ती -->
+    <div style="background-color: #fff5f5; border-left: 5px solid #e74c3c; padding: 20px; border-radius: 0 8px 8px 0; margin-bottom: 20px;">
+        <h4 style="margin: 0 0 10px 0; color: #c0392b;">🔴 1. लाल बत्ती (Red Light): रुकें और शांत हों</h4>
+        <p style="margin: 0 0 5px 0;"><strong>जब क्या हो:</strong> आपको महसूस हो कि दिल की धड़कन तेज हो रही है, आवाज ऊंची हो रही है, या हाथ कांप रहे हैं।</p>
+        <p style="margin: 0;"><strong>आपको क्या करना है:</strong> <strong>STOP!</strong> बिल्कुल रुक जाएं। कोई भी शब्द मुंह से बाहर न निकालें। एक भी कदम आगे न बढ़ाएं। अपनी आंखें बंद करें और 3 लंबी, गहरी सांसें लें। खुद से कहें, <em>"मैं अभी लाल बत्ती पर हूँ, मुझे शांत होना है।"</em></p>
+    </div>
+
+    <!-- पीली बत्ती -->
+    <div style="background-color: #fefde8; border-left: 5px solid #f1c40f; padding: 20px; border-radius: 0 8px 8px 0; margin-bottom: 20px;">
+        <h4 style="margin: 0 0 10px 0; color: #b7950b;">🟡 2. पीली बत्ती (Yellow Light): सोचें और असली वजह खोजें</h4>
+        <p style="margin: 0 0 5px 0;"><strong>जब क्या हो:</strong> जब आपकी सांसें सामान्य हो जाएं और आप बिना चिल्लाए बात करने की स्थिति में आएं।</p>
+        <p style="margin: 0;"><strong>आपको क्या करना है:</strong> परिस्थिति का आकलन करें। खुद से दो सवाल पूछें:
+            <br>1. <em>"असल समस्या क्या है? क्या मुझे सच में दूध न आने पर गुस्सा है, या मैं ऑफिस की भड़ास यहाँ निकाल रहा हूँ?"</em>
+            <br>2. <em>"गुस्से के इस मुखौटे के पीछे असली भावना क्या है? क्या मैं थका हुआ हूँ? क्या मैं उपेक्षित महसूस कर रहा हूँ?"</em> (अक्सर गुस्सा एक सेकेंडरी भावना होती है, जिसके नीचे थकान, डर या चोट छिपी होती है)।
+        </p>
+    </div>
+
+    <!-- हरी बत्ती -->
+    <div style="background-color: #f4fbf7; border-left: 5px solid #2ecc71; padding: 20px; border-radius: 0 8px 8px 0; margin-bottom: 25px;">
+        <h4 style="margin: 0 0 10px 0; color: #27ae60;">🟢 3. हरी बत्ती (Green Light): सही कदम उठाएं</h4>
+        <p style="margin: 0 0 5px 0;"><strong>जब क्या हो:</strong> जब आप पूरी तरह होश में आ जाएं और समझ जाएं कि सबसे बेहतर रास्ता क्या है।</p>
+        <p style="margin: 0;"><strong>आपको क्या करना है:</strong> अब रिएक्ट करने के बजाय <strong>रिस्पॉन्ड (Respond)</strong> करें। शांत आवाज में कहें, <em>"मैं आज ऑफिस के काम से बहुत थक गया हूँ और मेरा मूड थोड़ा परेशान है। मैं थोड़ी देर आराम करके दूध ले आता हूँ या फिर हम कल मंगा लेते हैं।"</em></p>
+    </div>
+
+    <!-- दैनिक टूलकिट (The Actionable Tool) -->
+    <div class="tool-box">
+        <h4>🛠️ आज का टूल: 'द पॉज बटन' (The Pause Button)</h4>
+        <p>इस हफ्ते जब भी आपको किसी बात पर तेज गुस्सा, चिढ़ या पैनिक महसूस हो, तो आपको अपने दिमाग का 'पॉज बटन' दबाना है। जैसे ही कोई ऐसी स्थिति आए, तुरंत ये तीन कदम उठाएं:</p>
+        <ol style="padding-left: 20px; margin-bottom: 15px;">
+            <li style="margin-bottom: 5px;">अपने हाथ की उंगलियों को आपस में भींचें (यह आपको वर्तमान में लाएगा)।</li>
+            <li style="margin-bottom: 5px;">मन में 10 से 1 तक उल्टी गिनती गिनें।</li>
+            <li style="margin-bottom: 0;">तुरंत उस जगह से 2 मिनट के लिए हट जाएं (पानी पीने चले जाएं या बालकनी में आ जाएं)।</li>
+        </ol>
+        <p style="margin: 0;"><strong>याद रखें:</strong> प्रतिक्रिया देने में थोड़ी देरी करना कमजोरी नहीं, बल्कि एक 'Self-Observer' (स्वयं के अवलोकनकर्ता) की सबसे बड़ी ताकत है।</p>
+    </div>
+
+    <!-- व्यावहारिक अभ्यास (Self-Reflection) -->
+    <div style="background-color: #fcf8e3; border: 1px solid #fbeed5; padding: 25px; border-radius: 8px; margin-top: 25px;">
+        <h4 style="margin-top: 0; color: #c09853;">📝 आपके लिए आज का अभ्यास (Self-Reflection)</h4>
+        <p>अपनी डायरी निकालें और पिछले एक हफ्ते की किसी ऐसी घटना को याद करें जहाँ आपने बहुत तेज रिएक्ट किया था। अब उस घटना को स्टॉपलाइट पद्धति के चश्मे से देखें और इनके जवाब लिखें:</p>
+        <ul style="padding-left: 20px; margin-bottom: 0; list-style-type: square;">
+            <li style="margin-bottom: 8px;">उस वक्त मेरी लाल बत्ती (Red Light) के शारीरिक संकेत क्या थे, जिन्हें मैं पहचान नहीं पाया?</li>
+            <li style="margin-bottom: 8px;">अगर मैं उस वक्त पीली बत्ती (Yellow Light) पर रुकता, तो मुझे अपने गुस्से के पीछे कौन सी असली भावना (थकान, डर, दुख) दिखाई देती?</li>
+            <li style="margin-bottom: 0;">अगली बार जब ऐसी स्थिति आएगी, तो मेरा हरे रंग का कदम (Green Action) क्या होगा?</li>
+        </ul>
+    </div>
+
+    <!-- अध्याय का सार -->
+    <div class="blockquote" style="border-left-color: var(--accent-color); background-color: #fff5f5; margin-top: 30px; font-weight: 600;">
+        🎯 अध्याय का सार: "उत्तेजना (Stimulus) और प्रतिक्रिया (Response) के बीच एक खाली जगह होती है। उस खाली जगह में ही हमारी चुनने की आजादी और हमारी तरक्की छिपी होती है। स्टॉपलाइट तकनीक उसी खाली जगह को बड़ा करने का नाम है।"
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================= -->
+<!-- सेक्शन 3: अध्याय 3                                      -->
+<!-- ======================================================= -->
+<section id="chapter3" class="card">
+    
+    <!-- अध्याय का शीर्षक -->
+    <div style="text-align: center; margin-bottom: 30px;">
+        <span style="color: var(--secondary-color); font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Module 3</span>
+        <h2 style="border-bottom: none; margin-top: 5px; font-size: 2rem;">अध्याय 3: उलझनों को सुलझाना</h2>
+        <p style="color: #7f8c8d; font-size: 1.2rem; margin-top: -5px;">"SOCS फॉर्मूला से सही निर्णय लेना"</p>
+    </div>
+
+    <!-- कहानी (The Hook) -->
+    <p>कल्पना कीजिए कि दोपहर के 2:00 बजे हैं। आपके पास आपके कलीग (सहकर्मी) का फोन आता है, जो बताता है कि जिस प्रोजेक्ट पर आपने हफ्तों मेहनत की थी, उसका क्रेडिट किसी और ने ले लिया है और बॉस ने उसकी तारीफ भी कर दी है।</p>
+    
+    <p>अचानक आपके दिमाग में विचारों का तूफान उठ खड़ा होता है:</p>
+    <ul style="padding-left: 20px; font-style: italic; color: #555;">
+        <li style="margin-bottom: 5px;">मन करता है कि अभी जाकर बॉस के केबिन में हंगामा कर दूँ!</li>
+        <li style="margin-bottom: 5px;">या फिर तुरंत अपना इस्तीफा (Resignation) टाइप करके भेज दूँ!</li>
+        <li style="margin-bottom: 5px;">या फिर अपनी सीट पर बैठकर चुपचाप आंसू बहाऊं कि मेरी तो किस्मत ही खराब है।</li>
+    </ul>
+    
+    <p>जब जीवन में कोई संकट या उलझन आती है, तो हमारा दिमाग पैनिक (Panic) मोड में चला जाता है। तनाव के ऐसे पलों में, हमारा दिमाग अक्सर सबसे घटिया फैसले लेता है, क्योंकि उस वक्त हम 'लॉजिक' (तर्क) से नहीं, बल्कि अपनी 'असुरक्षा और गुस्से' से सोच रहे होते हैं।</p>
+    
+    <p>ऐसे में हमें एक ऐसे सिस्टम की जरूरत होती है जो हमारे दिमाग को शांत करे और हमें सबसे सही रास्ता दिखाए। इस सिस्टम का नाम है—<strong>SOCS फॉर्मूला</strong>।</p>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+    <!-- मनोविज्ञान का विश्लेषण (The Concept) -->
+    <h3>🧭 निर्णय लेने का कंपास: SOCS विधि क्या है?</h3>
+    <p>SOCS (एस-ओ-सी-एस) एक चार-चरणों वाली वैज्ञानिक पद्धति है, जो आपको एक 'Self-Observer' (स्वयं का अवलोकन करने वाला) बनाकर जीवन के किसी भी कड़े फैसले को आसान बनाने में मदद करती है। आइए इसे ऊपर वाले उदाहरण (प्रोजेक्ट का क्रेडिट छिनने) पर लागू करके समझते हैं:</p>
+
+    <!-- SOCS Steps breakdown -->
+    <div style="margin-top: 25px;">
+        
+        <!-- S - Situation -->
+        <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-left: 4px solid var(--primary-color); border-radius: 0 6px 6px 0;">
+            <h4 style="margin: 0 0 8px 0; color: var(--primary-color);">🔍 1. S - Situation (परिस्थिति को तटस्थ होकर देखें)</h4>
+            <p style="margin: 0 0 8px 0; font-size: 0.95rem; color: #7f8c8d;"><strong>गलती क्या होती है:</strong> हम स्थिति को मिर्च-मसाला लगाकर देखते हैं—<em>"सब मेरे दुश्मन हैं, मेरे साथ हमेशा बुरा होता है!"</em></p>
+            <p style="margin: 0;"><strong>SOCS तरीका & उदाहरण:</strong> बिना किसी भावना के, सिर्फ सच को लिखें—<em>"सच यह है कि प्रोजेक्ट मैंने बनाया था, लेकिन बॉस के सामने इसे किसी और ने पेश किया और मुझे क्रेडिट नहीं मिला। इस वक्त मैं बहुत अपमानित और गुस्से में महसूस कर रहा हूँ।"</em></p>
+        </div>
+
+        <!-- O - Options -->
+        <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-left: 4px solid var(--secondary-color); border-radius: 0 6px 6px 0;">
+            <h4 style="margin: 0 0 8px 0; color: var(--secondary-color);">💡 2. O - Options (आपके पास क्या-क्या विकल्प हैं?)</h4>
+            <p style="margin: 0 0 8px 0; font-size: 0.95rem; color: #7f8c8d;"><strong>गलती क्या होती है:</strong> हमें लगता है कि हमारे पास सिर्फ एक ही रास्ता है (जैसे- नौकरी छोड़ना या लड़ना)।</p>
+            <p style="margin: 0;"><strong>SOCS तरीका:</strong> दिमाग खोलें और जितने विकल्प सोच सकते हैं, लिख डालें:
+                <br>• <strong>विकल्प A:</strong> तुरंत बॉस के केबिन में जाकर चिल्लाना और उस कलीग की पोल खोलना।
+                <br>• <strong>विकल्प B:</strong> चुप रहना, कुछ न बोलना और मन ही मन कुढ़ते रहना।
+                <br>• <strong>विकल्प C:</strong> अगले दिन शांत होकर, सबूतों (Emails, Drafts) के साथ बॉस से अपॉइंटमेंट लेना और प्रोफेशनल तरीके से अपनी बात रखना।
+            </p>
+        </div>
+
+        <!-- C - Consequences -->
+        <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-left: 4px solid var(--accent-color); border-radius: 0 6px 6px 0;">
+            <h4 style="margin: 0 0 8px 0; color: var(--accent-color);">⚖️ 3. C - Consequences (हर विकल्प का क्या नतीजा होगा?)</h4>
+            <p style="margin: 0 0 8px 0; font-size: 0.95rem; color: #7f8c8d;"><strong>SOCS तरीका:</strong> अब हर विकल्प के दूरगामी परिणाम (Result) के बारे में ठंडे दिमाग से सोचें:</p>
+            <p style="margin: 0;">
+                • <strong>विकल्प A का नतीजा:</strong> बॉस को लगेगा कि आपमें सब्र नहीं है और आप अनप्रोफेशनल हैं। बात बिगड़ेगी।
+                <br>• <strong>विकल्प B का नतीजा:</strong> आपका तनाव बढ़ेगा, कलीग का हौसला और बढ़ेगा, और आप आगे भी शोषित होते रहेंगे।
+                <br>• <strong>विकल्प C का नतीजा:</strong> बॉस को सच पता चलेगा, आपकी मैच्योरिटी (परिपक्वता) दिखेगी और कलीग की चालाकी भी पकड़ी जाएगी।
+            </p>
+        </div>
+
+        <!-- S - Solutions -->
+        <div style="margin-bottom: 25px; padding: 15px; background: #f4fbf7; border-left: 4px solid #2ecc71; border-radius: 0 6px 6px 0;">
+            <h4 style="margin: 0 0 8px 0; color: #27ae60;">🎯 4. S - Solutions (सबसे बेहतरीन समाधान चुनें और लागू करें)</h4>
+            <p style="margin: 0 0 8px 0; font-size: 0.95rem; color: #7f8c8d;"><strong>SOCS तरीका:</strong> बिना किसी हिचकिचाहट के उस विकल्प को चुन लें जिसका परिणाम सबसे अच्छा और गरिमापूर्ण है।</p>
+            <p style="margin: 0;"><strong>फैसला:</strong> हम <strong>विकल्प C</strong> को चुनेंगे। आज शाम को हम कोई रिएक्ट नहीं करेंगे, शांति से सबूत इकट्ठा करेंगे और कल सुबह बॉस से बात करेंगे।</p>
+        </div>
+
+    </div>
+
+    <!-- दैनिक टूलकिट (The Actionable Tool) -->
+    <div class="tool-box">
+        <h4>🛠️ आज का टूल: 'द SOCS जर्नल' (The SOCS Journal)</h4>
+        <p>जब तक कोई उलझन दिमाग में रहती है, वह बहुत बड़ी लगती है। लेकिन जैसे ही वह कागज पर आती है, वह छोटी हो जाती है।</p>
+        <p class="blockquote" style="margin: 15px 0; background-color: #ffffff;">
+            <strong>📌 नियम:</strong> आज के बाद जब भी आप किसी पर्सनल या प्रोफेशनल उलझन में फंसें—जैसे पार्टनर से कोई गंभीर अनबन, करियर का कोई बड़ा फैसला, या पैसों की कोई समस्या—तो तुरंत एक डायरी निकालें और चार कॉलम बनाएं: <strong>S, O, C, S</strong>। अपने विचारों को इन चार खानों में व्यवस्थित (Organize) करें। आप पाएंगे कि 10 मिनट के भीतर आपका दिमाग शांत हो चुका है और आपके पास एक स्पष्ट प्लान है।
+        </p>
+    </div>
+
+    <!-- व्यावहारिक अभ्यास (Self-Reflection) -->
+    <div style="background-color: #fcf8e3; border: 1px solid #fbeed5; padding: 25px; border-radius: 8px; margin-top: 25px;">
+        <h4 style="margin-top: 0; color: #c09853;">📝 आपके लिए आज का अभ्यास (Self-Reflection)</h4>
+        <p><strong>काल्पनिक स्थिति:</strong> मान लीजिए कि आपका एक पुराना दोस्त आपसे कुछ पैसे उधार मांग रहा है, जो वह पहले भी लेकर समय पर नहीं लौटा पाया था। आप उसे स्पष्ट मना भी नहीं कर पा रहे हैं और पैसे फंसाना भी नहीं चाहते।</p>
+        <p>इस उलझन को सुलझाने के लिए अपनी डायरी में <strong>SOCS फॉर्मूला का एक चार्ट</strong> बनाइए और इन चार बिंदुओं को भरिए:</p>
+        <ul style="padding-left: 20px; margin-bottom: 0; list-style-type: circle;">
+            <li style="margin-bottom: 5px;"><strong>Situation:</strong> परिस्थिति और अपनी वर्तमान भावना को लिखें।</li>
+            <li style="margin-bottom: 5px;"><strong>Options:</strong> कम से कम 3 अलग-अलग विकल्प (रास्ते) सोचकर लिखें।</li>
+            <li style="margin-bottom: 5px;"><strong>Consequences:</strong> उन तीनों रास्तों के अच्छे और बुरे व्यावहारिक नतीजे लिखें।</li>
+            <li style="margin-bottom: 0;"><strong>Solutions:</strong> अपने लिए सबसे बेस्ट और सुरक्षित समाधान चुनकर लिखें।</li>
+        </ul>
+    </div>
+
+    <!-- अध्याय का सार -->
+    <div class="blockquote" style="border-left-color: var(--accent-color); background-color: #fff5f5; margin-top: 30px; font-weight: 600;">
+        🎯 अध्याय का सार: "समझदारी का मतलब यह नहीं है कि आपकी जिंदगी में मुश्किलें नहीं आएंगी। समझदारी का मतलब यह है कि जब मुश्किलें आएंगी, तब आप अपनी भावनाओं के हाथों मजबूर होकर नहीं, बल्कि SOCS विधि के विवेक से अपनी जिंदगी के फैसले लेंगे।"
+    </div>
+
+</section>
+
+<!-- ======================================================= -->
+<!-- सेक्शन 4: अध्याय 4                                      -->
+<!-- ======================================================= -->
+<section id="chapter4" class="card">
+    
+    <!-- अध्याय का शीर्षक -->
+    <div style="text-align: center; margin-bottom: 30px;">
+        <span style="color: var(--secondary-color); font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Module 4</span>
+        <h2 style="border-bottom: none; margin-top: 5px; font-size: 2rem;">अध्याय 4: सहानुभूति (Empathy)</h2>
+        <p style="color: #7f8c8d; font-size: 1.2rem; margin-top: -5px;">" दूसरों के नजरिए से दुनिया देखना"</p>
+    </div>
+
+    <!-- कहानी (The Hook) -->
+    <p>याद कीजिए, पिछली बार जब आपका किसी से झगड़ा हुआ था, तो आपके दिमाग में क्या चल रहा था? शायद यही कि—<em>"सामने वाला इंसान कितना बदतमीज है, वह मेरी बात क्यों नहीं समझ रहा!"</em></p>
+    
+    <p>हम इंसानों की एक बहुत स्वाभाविक आदत है: हम खुद को अपने <strong>'इरादों' (Intentions)</strong> से जज करते हैं (कि मैं तो अच्छा ही सोच रहा था), लेकिन दूसरों को उनके <strong>'व्यवहार' (Behavior)</strong> से जज करते हैं (कि उसने मुझसे रूखे तरीके से बात की, इसलिए वह बुरा है)।</p>
+    
+    <p>लेकिन क्या आपने कभी सोचा है कि जिस वक्त आपका बॉस आप पर चिल्ला रहा था, शायद उसी सुबह उनके घर में कोई बड़ा संकट आया हो? या जिस दोस्त ने आपका फोन नहीं उठाया, वह शायद किसी गहरे मानसिक तनाव से जूझ रहा हो?</p>
+    
+    <p>भावनात्मक साक्षरता का चौथा स्तंभ है—<strong>सहानुभूति (Empathy)</strong>। इसका मतलब यह नहीं है कि आप सामने वाले की हर गलत बात को सही ठहराएं। इसका सीधा सा मतलब है—<strong>सामने वाले के जूतों में अपना पैर डालकर देखना कि उन्हें कहाँ चुभन हो रही है।</strong></p>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+    <!-- मनोविज्ञान का विश्लेषण (The Concept) -->
+    <h3>🎭 चेहरे के पीछे का सच: हाव-भाव पढ़ना</h3>
+    <p>अक्सर लोग जो कहते हैं, उनका असली मतलब उनके शब्दों में नहीं, बल्कि उनके चेहरे और शरीर की भाषा (Body Language) में छिपा होता है।</p>
+    
+    <p>अगर आपका पार्टनर थके हुए चेहरे and झुके हुए कंधों के साथ कहे, <em>"नहीं, मैं ठीक हूँ, कोई बात नहीं।"</em> तो एक भावनात्मक रूप से साक्षर (Emotionally Literate) व्यक्ति उनके शब्दों पर नहीं जाएगा। वह उनके शरीर के संकेतों को पढ़ेगा और समझ जाएगा कि 'सब कुछ ठीक नहीं है'।</p>
+    
+    <p>सहानुभूति का पहला कदम यही है: लोगों को सिर्फ सुनना बंद करें, उन्हें <strong>देखना</strong> शुरू करें। जब कोई आपसे बात कर रहा हो, तो ध्यान दें:</p>
+    
+    <ul style="padding-left: 20px; margin-bottom: 25px; list-style-type: square;">
+        <li style="margin-bottom: 8px;"><strong>क्या उनकी आंखें चुरा रही हैं?</strong> (शायद वे असहज या डरे हुए हैं)</li>
+        <li style="margin-bottom: 8px;"><strong>क्या उनके माथे पर लकीरें हैं?</strong> (शायद वे तनाव में हैं)</li>
+        <li style="margin-bottom: 8px;"><strong>क्या उनकी आवाज में एक कंपन है?</strong> (शायद वे दुखी हैं)</li>
+    </ul>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+    <!-- दैनिक टूलकिट (The Actionable Tool) -->
+    <div class="tool-box">
+        <h4>🎧 आज का टूल: 'एक्टिव लिसनिंग' (Active Listening) का जादू</h4>
+        <p>हम में से ज्यादातर लोग दूसरों की बात इसलिए नहीं सुनते कि हम उन्हें 'समझना' चाहते हैं, बल्कि इसलिए सुनते हैं कि हमें 'पलटकर जवाब' क्या देना है। इसे पैसिव लिसनिंग (Passive Listening) कहते हैं।</p>
+        <p>इस हफ्ते हमें <strong>सक्रिय श्रवण (Active Listening)</strong> का अभ्यास करना है। इसके 3 सरल नियम हैं:</p>
+        
+        <ol style="padding-left: 20px; margin-bottom: 15px;">
+            <li style="margin-bottom: 10px;"><strong>बिना टोके सुनना (No Interruption):</strong> जब सामने वाला अपनी बात कह रहा हो, तो बीच में अपनी कहानी शुरू न करें (जैसे: <em>"अरे यह तो कुछ भी नहीं, मेरे साथ तो इससे भी बुरा हुआ था..."</em>)। उन्हें अपनी बात पूरी करने दें।</li>
+            <li style="margin-bottom: 10px;"><strong>जज न करना (No Judgment):</strong> उनकी बात सुनते ही यह तय न करें कि वे सही हैं या गलत। बस यह समझने की कोशिश करें कि वे ऐसा क्यों महसूस कर रहे हैं।</li>
+            <li style="margin-bottom: 0;"><strong>भावनाओं को दोहराना (Reflecting):</strong> जब वे अपनी बात पूरी कर लें, तो कहें: <em>"तुम्हारी बातों से लग रहा है कि तुम इस वक्त काफी निराश/परेशान महसूस कर रहे हो।"</em></li>
+        </ol>
+        
+        <p style="margin-top: 15px; font-weight: bold; color: var(--primary-color);">💡 फायदा क्या होगा?</p>
+        <p style="margin: 0;">जब आप सामने वाले की भावना को इस तरह पहचान लेते हैं, तो उनका आधा गुस्सा और दुख तुरंत गायब हो जाता है, क्योंकि उन्हें लगता है कि उन्हें 'सुना और समझा' गया है।</p>
+    </div>
+
+    <!-- व्यावहारिक चुनौती -->
+    <div style="background-color: #f1f8ff; border: 1px solid #d4eafc; padding: 25px; border-radius: 8px; margin: 25px 0;">
+        <h4 style="margin-top: 0; color: var(--secondary-color);">🚀 एक व्यावहारिक चुनौती: '7-दिवसीय एम्पैथी चैलेंज'</h4>
+        <p style="margin: 0;">इस हफ्ते किसी भी एक ऐसे व्यक्ति को चुनें जिससे आपकी पटरी नहीं बैठती (कोई कलीग, रिश्तेदार या पड़ोसी)। जब भी वे आपके सामने कोई ऐसी बात कहें जो आपको पसंद न आए, तो तुरंत बहस करने के बजाय मन में कहें—<strong>"स्टॉप! मुझे इनके नजरिए से सोचना है।"</strong> खुद से पूछें: <em>"अगर मैं उनकी जगह होता, जिसने बचपन से वही सब झेला है जो उन्होंने झेला है, तो क्या मैं भी ऐसा ही व्यवहार नहीं करता?"</em> यह नजरिया आपको दूसरों की कड़वाहट को निजी तौर पर (Personally) लेने से बचाएगा।</p>
+    </div>
+
+    <!-- व्यावहारिक अभ्यास (Self-Reflection) -->
+    <div style="background-color: #fcf8e3; border: 1px solid #fbeed5; padding: 25px; border-radius: 8px; margin-top: 25px;">
+        <h4 style="margin-top: 0; color: #c09853;">📝 आपके लिए आज का अभ्यास (Self-Reflection)</h4>
+        <p>अपनी डायरी में किसी ऐसे हालिया विवाद के बारे में लिखें, जहाँ आप सामने वाले पर बहुत गुस्सा हुए थे। अब निष्पक्ष होकर इन सवालों के जवाब दें:</p>
+        <ul style="padding-left: 20px; margin-bottom: 0; list-style-type: circle;">
+            <li style="margin-bottom: 8px;">उस वक्त सामने वाला व्यक्ति असल में क्या महसूस कर रहा होगा? <em>(डर, असुरक्षा, अकेलापन या काम का भारी दबाव?)</em></li>
+            <li style="margin-bottom: 8px;">मैंने उनकी बात का जवाब देने में कितनी जल्दबाजी की? क्या मैंने उन्हें बिना टोके पूरी बात कहने का मौका दिया था?</li>
+            <li style="margin-bottom: 0;">अगर आज मुझे उस स्थिति को दोबारा संभालना हो, तो मैं 'एक्टिव लिसनिंग' का उपयोग कैसे करूँगा?</li>
+        </ul>
+    </div>
+
+    <!-- अध्याय का सार -->
+    <div class="blockquote" style="border-left-color: var(--accent-color); background-color: #fff5f5; margin-top: 30px; font-weight: 600;">
+        🎯 अध्याय का सार: "सहानुभूति का मतलब यह नहीं है कि आप दूसरों की हर बात से सहमत हों। इसका मतलब सिर्फ इतना है कि आप यह स्वीकार करते हैं कि इस दुनिया को देखने का उनका अपना एक अलग झरोखा है, जो आपके झरोखे से अलग हो सकता है।"
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================= -->
+<!-- सेक्शन 5: अध्याय 5                                      -->
+<!-- ======================================================= -->
+<section id="chapter5" class="card">
+    
+    <!-- अध्याय का शीर्षक -->
+    <div style="text-align: center; margin-bottom: 30px;">
+        <span style="color: var(--secondary-color); font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Module 5</span>
+        <h2 style="border-bottom: none; margin-top: 5px; font-size: 2rem;">अध्याय 5: संबंधों को संभालना (Handling Relationships)</h2>
+        <p style="color: #7f8c8d; font-size: 1.2rem; margin-top: -5px;">"बिना लड़े अपनी बात कहें"</p>
+    </div>
+
+    <!-- कहानी (The Hook) -->
+    <p>कल्पना कीजिए कि रात के 9:00 बजे हैं। आपका पार्टनर या परिवार का कोई सदस्य घर का एक जरूरी काम करना भूल गया है, जिसके लिए आपने सुबह याद दिलाया था।</p>
+    
+    <p>आपके भीतर झुंझलाहट का एक गुब्बारा फूलने लगता है। आप उनके पास जाते हैं और कहते हैं, <em>"तुम हमेशा ऐसा ही करते हो! तुम्हें कभी किसी बात की परवाह नहीं होती। तुम बेहद गैर-जिम्मेदार इंसान हो!"</em></p>
+    
+    <p>इसके बाद क्या होता? सामने वाला व्यक्ति अपनी गलती मानने के बजाय तुरंत <strong>'डिफेंसिव' (Defensive)</strong> हो जाता है और पलटकर आपकी पुरानी गलतियों की लिस्ट खोल देता है। देखते ही देखते बात इतनी बढ़ जाती है कि दोनों एक-दूसरे से मुंह फेरकर सो जाते हैं।</p>
+
+    <p style="font-weight: bold; color: var(--accent-color); font-size: 1.1rem; margin-top: 20px;">क्या आप जानते हैं कि यहाँ गड़बड़ कहाँ हुई?</p>
+
+    <p style="margin-bottom: 25px;">मुश्किल यह नहीं थी कि काम नहीं हुआ। मुश्किल यह थी कि आपने अपनी बात मुखरता (Assertiveness) से कहने के बजाय आक्रामकता (Aggression) से कही। जब हम दूसरों पर 'ब्लेम' (आरोप) लगाते हैं, तो उनका दिमाग हमारी समस्या को समझने के बजाय खुद को बचाने में लग जाता है। संबंधों को संभालने की कला का मतलब यह नहीं है कि हम कभी झगड़ा न करें, बल्कि यह है कि हम <strong>'रिश्ता तोड़े बिना विवाद को कैसे सुलझाएं'</strong>।</p>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+    <!-- मनोविज्ञान का विश्लेषण (The Concept) -->
+    <h3>💥 मुखरता (Assertiveness) बनाम आक्रामकता (Aggression)</h3>
+    <p>अक्सर लोग अपनी बात दो ही तरीकों से कहते हैं:</p>
+    
+    <div style="margin-left: 10px; margin-bottom: 20px;">
+        <p style="margin: 5px 0;">🔴 <strong>दब्बू होना (Passive):</strong> मन ही मन घुटते रहना, अपनी बात न कहना ताकि कोई विवाद न हो। (इससे आपके भीतर कड़वाहट जमा होती है)।</p>
+        <p style="margin: 5px 0;">⚫ <strong>आक्रामक होना (Aggressive):</strong> सामने वाले पर हमला करना, 'तुम हमेशा ऐसे हो' या 'तुम्हारी वजह से सब खराब हुआ' जैसे शब्दों का इस्तेमाल करना।</p>
+    </div>
+
+    <p>भावनात्मक साक्षरता हमें तीसरा और सबसे सही रास्ता सिखाती है—<strong>मुखर होना (Assertive बनना)</strong>। इसका मतलब है: अपनी बात को बिना डरे, पूरी ईमानदारी से, लेकिन सामने वाले का अपमान किए बिना सम्मानजनक तरीके से कहना।</p>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+    <!-- दैनिक टूलकिट (The Actionable Tool) -->
+    <div class="tool-box">
+        <h4>🔮 आज का टूल: 'I-Statements' का जादू</h4>
+        <p>आक्रामक बातचीत में हम हमेशा "तुम" (You-Statements) से शुरुआत करते हैं—<em>"तुमने ऐसा किया, तुम गलत हो।"</em> यह सामने वाले पर हमले जैसा है। इस हफ्ते से हमें <strong>"मैं" (I-Statements)</strong> का जादू सीखना है। इसके 3 सरल हिस्से हैं:</p>
+        
+        <ul style="padding-left: 20px; margin-bottom: 20px; list-style-type: circle;">
+            <li><strong>तथ्य (Fact):</strong> बिना मिर्च-मसाले के बताएं कि क्या हुआ।</li>
+            <li><strong>आपकी भावना (Your Feeling):</strong> बताएं कि आपको कैसा महसूस हुआ।</li>
+            <li><strong>आपकी जरूरत (Your Need):</strong> बताएं कि आप आगे क्या चाहते हैं।</li>
+        </ul>
+
+        <div style="background-color: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 6px;">
+            <p style="margin: 0 0 10px 0; color: var(--accent-color);">❌ <strong>आक्रामक तरीका (You-Statement):</strong> "तुम हमेशा काम भूल जाते हो, तुम बेहद गैर-जिम्मेदार हो।" (परिणाम: झगड़ा)</p>
+            <p style="margin: 0; color: #27ae60;">✅ <strong>मुखर तरीका (I-Statement):</strong> "जब सुबह तय हुआ काम शाम तक नहीं हो पाता <span style="color:#7f8c8d;">(तथ्य)</span>, तो मुझे बहुत तनाव महसूस होता है क्योंकि मुझे लगता है कि सारा बोझ मुझ पर है <span style="color:#7f8c8d;">(भावना)</span>। मैं चाहता हूँ कि आगे से अगर तुम व्यस्त हो, तो मुझे पहले बता दो ताकि हम मिलकर संभाल सकें <span style="color:#7f8c8d;">(जरूरत)</span>।"</p>
+        </div>
+        
+        <p style="margin-top: 15px; margin-bottom: 0;">जब आप "मैं महसूस करता हूँ" कहते हैं, तो सामने वाला आप पर हमला नहीं कर सकता, क्योंकि आप अपनी भावना बता रहे हैं, उन पर आरोप नहीं लगा रहे।</p>
+    </div>
+
+    <!-- विवाद सुलझाने की कला -->
+    <h3>🤝 विवाद सुलझाने की कला: 'द पियर मेडिएटर' (Peer Mediation)</h3>
+    <p>जब दो लोगों के बीच कोई बड़ा विवाद हो जाए और कोई रास्ता न सूझ रहा हो, तो एक 'Self-Observer' की तरह व्यवहार करें। चाहे आप खुद उस विवाद में हों या किसी और का झगड़ा सुलझा रहे हों, इन तीन चरणों को अपनाएं:</p>
+    
+    <ol style="padding-left: 20px; margin-bottom: 25px;">
+        <li style="margin-bottom: 8px;"><strong>दोनों पक्षों को सुनें (Both Sides):</strong> बिना बीच में टोके दोनों को अपनी बात और अपनी भावनाएं रखने का पूरा मौका दें।</li>
+        <li style="margin-bottom: 8px;"><strong>दृष्टिकोण को दोहराएं (Mirroring):</strong> एक-दूसरे से कहें, <em>"जो बात इन्होंने कही, क्या तुम उसे अपने शब्दों में दोहरा सकते हो कि इन्हें क्या बुरा लगा?"</em> (जब हम सामने वाले की बात को खुद दोहराते हैं, तो हमारा ईगो शांत होता है)।</li>
+        <li style="margin-bottom: 0;"><strong>जीत-जीत समाधान (Win-Win Solution):</strong> ऐसा रास्ता खोजें जहाँ किसी की हार न हो। खुद से पूछें—<em>"हम दोनों के लिए इस स्थिति में सबसे बेहतर और व्यावहारिक समझौता क्या हो सकता है?"</em></li>
+    </ol>
+
+    <!-- व्यावहारिक अभ्यास (Self-Reflection) -->
+    <div style="background-color: #fcf8e3; border: 1px solid #fbeed5; padding: 25px; border-radius: 8px; margin-top: 25px;">
+        <h4 style="margin-top: 0; color: #c09853;">📝 आपके लिए आज का अभ्यास (Self-Reflection)</h4>
+        <p>अपने किसी ऐसे करीबी रिश्ते (पार्टनर, माता-पिता, दोस्त या कलीग) के बारे में सोचें जहाँ अक्सर किसी बात पर अनबन होती है। अपनी डायरी में नीचे दिए गए सवालों के जवाब लिखें:</p>
+        <ul style="padding-left: 20px; margin-bottom: 0; list-style-type: square;">
+            <li style="margin-bottom: 8px;">उस रिश्ते में ऐसी कौन सी बात है जो मैं खुलकर नहीं कह पाता/पाती?</li>
+            <li style="margin-bottom: 8px;">मैं आमतौर पर उस स्थिति में कैसे रिएक्ट करता/करती हूँ—दब्बू (Passive) बनकर या आक्रामक (Aggressive) होकर?</li>
+            <li style="margin-bottom: 0;">अगर मुझे अपनी बात को 'I-Statement' (तथ्य + मेरी भावना + मेरी जरूरत) के फॉर्मूले में ढालकर कहना हो, तो मेरा सटीक वाक्य क्या होगा?</li>
+        </ul>
+    </div>
+
+    <!-- अध्याय का सार -->
+    <div class="blockquote" style="border-left-color: var(--accent-color); background-color: #fff5f5; margin-top: 30px; font-weight: 600;">
+        🎯 अध्याय का सार: "मजबूत रिश्तों की नींव इस बात पर नहीं टिकी होती कि आपमें कभी मतभेद नहीं होते। मजबूत रिश्ते इस बात से बनते हैं कि मतभेद होने पर भी आप एक-दूसरे का हाथ थामकर, सम्मान के साथ समाधान तक कैसे पहुँचते हैं।"
+    </div>
+
+</section>
+
+
+
+
+
+
+<!-- ======================================================= -->
+<!-- सेक्शन 6: उपसंहार एवं एक्शन प्लान                        -->
+<!-- ======================================================= -->
+<section id="conclusion" class="card">
+    
+    <!-- शीर्षक -->
+    <div style="text-align: center; margin-bottom: 35px;">
+        <span style="color: var(--accent-color); font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">The Final Leap</span>
+        <h2 style="border-bottom: none; margin-top: 5px; font-size: 2rem;">उपसंहार: जीवन ही अंतिम परीक्षा है</h2>
+        <p style="color: #7f8c8d; font-size: 1.2rem; margin-top: -5px;">"बधाई हो! आपका नया सफर यहाँ से शुरू होता है"</p>
+    </div>
+
+    <p>बधाई हो! आपने इस पुस्तक के सभी अध्यायों को पूरा कर लिया है। अब आप भावनाओं की भाषा को समझते हैं, जानते हैं कि दिमाग की 'लाल बत्ती' पर कैसे रुकना है, 'SOCS फॉर्मूला' से सही फैसले कैसे लेने हैं और 'I-Statements' से रिश्तों को कैसे बचाना है।</p>
+    
+    <p>लेकिन एक बात हमेशा याद रखिएगा—<strong>भावनात्मक साक्षरता कोई ऐसी डिग्री नहीं है जिसे एक बार हासिल कर लिया और काम खत्म हो गया।</strong></p>
+
+    <div class="blockquote" style="border-left-color: var(--primary-color); background-color: #f8f9fa;">
+        🎯 जैसा कि हमने शुरुआत में कहा था, इस विषय की कोई लिखित परीक्षा नहीं होती; <strong>आपका दैनिक जीवन ही इसकी अंतिम परीक्षा है।</strong> जिस दिन आप बहुत तनाव में होंगे और बिना चिल्लाए अपनी बात कह पाएंगे, उस दिन आप इस परीक्षा में पास हो जाएंगे। जिस दिन आपका किसी से विवाद होगा और आप शांत होकर सामने वाले का नजरिया सुनेंगे, उस दिन आपको इस किताब की असली कीमत समझ आएगी।
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
+
+    <!-- 30-दिन का चैलेंज -->
+    <h3 style="color: var(--primary-color); text-align: center; margin-bottom: 25px;">📅 आपका अगला कदम: 30-दिन का इमोशनल डिटॉक्स चैलेंज</h3>
+    <p style="text-align: center; margin-bottom: 30px; color: #555;">इस ज्ञान को अपनी आदत बनाने के लिए नीचे दिए गए 4 हफ्तों के प्लान को अपनाएं। हर हफ्ते केवल एक आदत पर ध्यान दें:</p>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
+        
+        <!-- हफ्ता 1 -->
+        <div style="padding: 20px; background: #f1f8ff; border: 1px solid #d4eafc; border-radius: 8px;">
+            <h4 style="margin: 0 0 10px 0; color: var(--secondary-color);">🗓️ हफ्ता 1: आत्म-जागरूकता (Self-Awareness Week)</h4>
+            <p style="margin: 0;"><strong>काम:</strong> दिन में 3 बार (सुबह, दोपहर, रात) अपने फोन में अलार्म लगाएं। अलार्म बजते ही 1 मिनट का ब्रेक लें और खुद को 1 से 10 के पैमाने पर <strong>'इमोशन स्कोर'</strong> दें। देखें कि आपका मूड कब और क्यों बदलता है।</p>
+        </div>
+
+        <!-- हफ्ता 2 -->
+        <div style="padding: 20px; background: #fff5f5; border: 1px solid #fcdede; border-radius: 8px;">
+            <h4 style="margin: 0 0 10px 0; color: var(--accent-color);">🗓️ हफ्ता 2: भावनाओं का प्रबंधन (Self-Management Week)</h4>
+            <p style="margin: 0;"><strong>काम:</strong> इस पूरे हफ्ते, जब भी किसी बात पर गुस्सा या चिढ़ आए, तो <strong>'स्टॉपलाइट तकनीक'</strong> अपनाएं। 90 सेकंड के लिए बिल्कुल चुप हो जाएं, 3 गहरी सांसें लें और मन में 10 से 1 तक उल्टी गिनती गिनें।</p>
+        </div>
+
+        <!-- हफ्ता 3 -->
+        <div style="padding: 20px; background: #f4fbf7; border: 1px solid #dcf7e9; border-radius: 8px;">
+            <h4 style="margin: 0 0 10px 0; color: #27ae60;">🗓️ हफ्ता 3: सहानुभूति और सुनना (Empathy Week)</h4>
+            <p style="margin: 0;"><strong>काम:</strong> इस हफ्ते जब भी कोई आपसे बात करे, तो उसे बीच में टोके बिना पूरी बात सुनें। पलटकर जवाब देने के बजाय सिर्फ यह कहें—<em>"मैं समझ सकता हूँ कि तुम ऐसा क्यों महसूस कर रहे हो।"</em></p>
+        </div>
+
+        <!-- हफ्ता 4 -->
+        <div style="padding: 20px; background: #fefde8; border: 1px solid #fbf9c7; border-radius: 8px;">
+            <h4 style="margin: 0 0 10px 0; color: #b7950b;">🗓️ हफ्ता 4: मुखर बातचीत (Relationship Week)</h4>
+            <p style="margin: 0;"><strong>काम:</strong> इस हफ्ते अपने करीबियों से बात करते समय "तुमने ऐसा किया" (You-Statement) की जगह <strong>"मुझे ऐसा महसूस हुआ" (I-Statement)</strong> फॉर्मूले का इस्तेमाल करें।</p>
+        </div>
+
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
+
+    <!-- इमोशनल फर्स्ट-एड किट -->
+    <div class="tool-box" style="background-color: #2c3e50; color: white; border: none;">
+        <h4 style="color: #3498db; text-align: center; font-size: 1.4rem; margin-bottom: 20px;">🧰 इमोशनल फर्स्ट-एड किट (Quick Reference)</h4>
+        <p style="text-align: center; opacity: 0.9; margin-bottom: 25px;">जब जिंदगी में अचानक भावनाओं का तूफ़ान आए, तो तुरंत इस गाइड को याद करें:</p>
+        
+        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+            <strong>😡 अगर बहुत तेज गुस्सा आ रहा हो:</strong> तुरंत उस जगह से हट जाएं, 90 सेकंड के लिए मौन (Silence) धारण करें और ठंडा पानी पीएं।
+        </div>
+        
+        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+            <strong>🤯 अगर कोई बड़ी उलझन हो और समझ न आए:</strong> एक कागज निकालें और तुरंत <strong>SOCS Chart</strong> (परिस्थिति, विकल्प, परिणाम, समाधान) बनाएं।
+        </div>
+        
+        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 6px;">
+            <strong>🤬 अगर किसी करीबी से बहस हो रही हो:</strong> आरोपों (Blaming) की जगह अपनी बात को <strong>'I-Statement'</strong> में ढालकर शांत व स्पष्ट आवाज में कहें।
+        </div>
+    </div>
+
+    <!-- अंतिम संदेश -->
+    <div class="blockquote" style="border-left-color: #2ecc71; background-color: #f4fbf7; margin-top: 35px; text-align: center; font-size: 1.1rem;">
+        ✨ <strong>अंतिम संदेश:</strong> "आप बाहर के मौसम और दुनिया के हालातों को नहीं बदल सकते, लेकिन आप अपने भीतर के मौसम के मालिक खुद बन सकते हैं। अपने 'Self-Observer' (स्वयं के अवलोकनकर्ता) को जगाए रखिए और मुस्कुराते रहिए।" ✨
+    </div>
+
+</section>
+
+
+
+
+
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 भावनात्मक साक्षरता डिजिटल पुस्तक। भारत के पाठकों के लिए एक सकारात्मक पहल।</p>
+    </footer>
+
+</body>
+</html>
