@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VBU GE Exam 2026 - Ultimate Visual Map & Portal Guide</title>
+    <!-- Tailwind CSS CDN for responsive and modern cards -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Poppins', 'Hind', sans-serif;
+            background-color: #f3f4f6;
+        }
+        
+        .accent-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+        }
+
+        .pulse-highlight {
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: pulse-green 2s infinite;
+        }
+
+        .pulse-warning {
+            box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+            animation: pulse-red 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1.03); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        @keyframes pulse-red {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { transform: scale(1.03); box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+
+        /* Interactive checklist logic */
+        input[type="checkbox"]:checked + label {
+            text-decoration: line-through;
+            color: #94a3b8;
+        }
+
+        /* Green highlighted circle similar to screenshot circles */
+        .green-highlight-circle {
+            border: 4px solid #10b981;
+            border-radius: 9999px;
+            animation: circle-pulse 2s infinite;
+        }
+
+        @keyframes circle-pulse {
+            0% { border-color: #10b981; }
+            50% { border-color: #059669; }
+            100% { border-color: #10b981; }
+        }
+
+        @media print {
+            body {
+                background-color: white !important;
+                color: black !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-border {
+                border: 1px solid #94a3b8 !important;
+                box-shadow: none !important;
+                border-radius: 8px !important;
+            }
+            .a4-container {
+                max-width: 100% !important;
+                width: 100% !important;
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body class="p-3 md:p-6">
+
+    <!-- Action Bar (Hidden when Printing) -->
+    <div class="max-w-6xl mx-auto mb-4 flex flex-wrap gap-3 justify-between items-center no-print bg-white p-3.5 rounded-xl shadow-sm border border-gray-200">
+        <div class="flex items-center gap-2.5">
+            <span class="flex h-3 w-3 relative">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-600"></span>
+            </span>
+            <p class="text-xs md:text-sm text-gray-700 font-bold">आधिकारिक 4-चरण विजुअल पोर्टल गाइड (अंतिम वर्ज़न)</p>
+        </div>
+        <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-bold text-xs md:text-sm transition-all flex items-center gap-1.5 shadow">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+            PDF सेव / प्रिंट करें
+        </button>
+    </div>
+
+    <!-- Main Container (A4 optimized layout) -->
+    <div class="a4-container max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
+        
+        <!-- Header Banner -->
+        <div class="accent-gradient text-white p-5 md:p-6 text-center relative">
+            <div class="inline-block bg-yellow-500 text-slate-950 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-1.5">
+                ✓ विनोबा भावे विश्वविद्यालय, हजारीबाग (VBU)
+            </div>
+            <h1 class="text-xl md:text-3xl font-extrabold tracking-tight">Generic Elective (GE) विशेष परीक्षा 2026</h1>
+            <p class="text-red-400 text-xs md:text-sm font-bold uppercase tracking-widest mt-1">⏳ फॉर्म भरने की विस्तारित अंतिम तिथि: 20.07.2026 (विलम्ब शुल्क के साथ)</p>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="p-4 md:p-6 space-y-6">
+            
+            <!-- SECTION 1: VISUAL PORTAL ROADMAP (Matching User Screenshots) -->
+            <div>
+                <h2 class="text-sm font-extrabold text-slate-800 uppercase tracking-wider border-b pb-2 mb-4 flex items-center gap-2">
+                    <span>🧭</span> स्क्रीनशॉट के अनुसार सही प्रवाह मार्गदर्शिका (Visual Portal Roadmap)
+                </h2>
+                
+                <!-- Steps Horizontal/Vertical Flow -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Card Step 1: Main Site -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between print-border">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">चरण 1 (Step 1)</span>
+                                <span class="text-xs text-gray-500 font-semibold">vbu.ac.in/login</span>
+                            </div>
+                            <h3 class="text-xs font-bold text-slate-900 mb-2">मुख्य वेबसाइट खोलें</h3>
+                            <p class="text-xxs text-gray-600 mb-4">यूनिवर्सिटी की मुख्य वेबसाइट पर जाएं और ऊपर गोल घेरे में दिख रहे <strong class="text-blue-900">"Examination"</strong> लिंक पर क्लिक करें।</p>
+                            
+                            <!-- Visual representation of screenshot 1 -->
+                            <div class="border border-gray-300 rounded-lg p-2.5 bg-white relative overflow-hidden h-32 flex flex-col justify-between">
+                                <div class="text-xxs font-bold text-gray-400 border-b pb-1">VBU Official Portal Wireframe</div>
+                                <div class="flex justify-center my-auto">
+                                    <span class="green-highlight-circle px-3 py-1 text-xxs font-extrabold text-emerald-700 bg-emerald-50">Examination Form ◯</span>
+                                </div>
+                                <div class="text-xxs text-gray-400 text-right">vbu.ac.in</div>
+                            </div>
+                        </div>
+                        <a href="https://www.vbu.ac.in/login" target="_blank" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white text-center py-2 rounded-lg font-bold text-xs no-print">
+                            मुख्य साइट पर जाएं ↗
+                        </a>
+                    </div>
+
+                    <!-- Card Step 2: Exam Portal -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between print-border">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">चरण 2 (Step 2)</span>
+                                <span class="text-xs text-gray-500 font-semibold">vbuuniv.in/login</span>
+                            </div>
+                            <h3 class="text-xs font-bold text-slate-900 mb-2">परीक्षा पोर्टल पर जाएं</h3>
+                            <p class="text-xxs text-gray-600 mb-4">Examination पर क्लिक करने के बाद आप परीक्षा पोर्टल पर पहुँचेंगे। यहाँ <strong class="text-blue-900">"Examination Form"</strong> बटन पर क्लिक करें।</p>
+                            
+                            <!-- Visual representation of screenshot 2 -->
+                            <div class="border border-gray-300 rounded-lg p-2.5 bg-white relative overflow-hidden h-32 flex flex-col justify-between">
+                                <div class="text-xxs font-bold text-gray-400 border-b pb-1">Examination Dashboard Wireframe</div>
+                                <div class="flex justify-center my-auto">
+                                    <span class="green-highlight-circle px-4 py-1 text-xxs font-extrabold text-emerald-700 bg-emerald-50">Examination Form ◯</span>
+                                </div>
+                                <div class="text-xxs text-gray-400 text-right">vbuuniv.in</div>
+                            </div>
+                        </div>
+                        <a href="https://www.vbuuniv.in/login" target="_blank" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white text-center py-2 rounded-lg font-bold text-xs no-print">
+                            परीक्षा पोर्टल खोलें ↗
+                        </a>
+                    </div>
+
+                    <!-- Card Step 3: Login Portal & Registration -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between print-border">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">चरण 3 (Step 3)</span>
+                                <span class="text-xs text-red-600 font-bold">आधिकारिक फॉर्म लिंक</span>
+                            </div>
+                            <h3 class="text-xs font-bold text-slate-900 mb-2">रजिस्ट्रेशन प्रक्रिया शुरू करें</h3>
+                            <p class="text-xxs text-gray-600 mb-4">अब आप सीधे लॉगिन गेटवे पर हैं। नए यूजर अकाउंट बनाने के लिए <strong class="text-red-600">"Registration for New User"</strong> पर क्लिक करें।</p>
+                            
+                            <!-- Visual representation of screenshot 3 -->
+                            <div class="border border-red-300 rounded-lg p-2.5 bg-red-50 relative overflow-hidden h-32 flex flex-col justify-between">
+                                <div class="text-xxs font-bold text-red-400 border-b pb-1">Exam Form Login Wireframe</div>
+                                <div class="flex justify-center my-auto">
+                                    <span class="green-highlight-circle px-3 py-1.5 text-xxs font-extrabold text-red-700 bg-white shadow-sm">Registration for New User ◯</span>
+                                </div>
+                                <div class="text-xxs text-red-400 text-right">Direct Gateway</div>
+                            </div>
+                        </div>
+                        <a href="https://www.vbuuniv.in/vbuexamform/login" target="_blank" class="mt-4 pulse-highlight bg-emerald-600 hover:bg-emerald-700 text-white text-center py-2 rounded-lg font-bold text-xs no-print">
+                            सीधे रजिस्ट्रेशन पर जाएं ⚡
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SECTION 2: CRITICAL CREATE USER WARNING & FORM FIELD MAP -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <!-- Field Mapping Form Box (Columns 1 & 2) -->
+                <div class="lg:col-span-2 bg-white p-5 rounded-xl border border-gray-200 shadow-sm print-border">
+                    <h3 class="text-xs font-extrabold text-slate-800 uppercase tracking-widest border-b pb-2 mb-4 flex items-center gap-1.5">
+                        <span>📝</span> चरण 4: "Create User" फॉर्म में सही फील्ड भरना (अति महत्वपूर्ण)
+                    </h3>
+                    <p class="text-xxs text-gray-500 mb-4">स्क्रीनशॉट के अनुसार रजिस्ट्रेशन पेज पर ये विवरण बिल्कुल सही ढंग से दर्ज होने चाहिए:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                        <div class="border border-gray-100 p-3 rounded-lg bg-gray-50">
+                            <label class="block font-bold text-gray-700 mb-1">Course <span class="text-red-500">*</span></label>
+                            <div class="p-2 bg-white border border-gray-300 rounded text-gray-700 font-semibold flex justify-between items-center">
+                                <span>UG(GE)</span>
+                                <span class="text-xxs bg-green-100 text-green-700 px-1.5 py-0.5 rounded font-bold">सही चयन ✓</span>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-100 p-3 rounded-lg bg-gray-50">
+                            <label class="block font-bold text-gray-700 mb-1">Semester <span class="text-red-500">*</span></label>
+                            <div class="p-2 bg-white border border-gray-300 rounded text-gray-700 font-semibold flex justify-between items-center">
+                                <span>1-4</span>
+                                <span class="text-xxs bg-green-100 text-green-700 px-1.5 py-0.5 rounded font-bold">सही चयन ✓</span>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-100 p-3 rounded-lg bg-gray-50">
+                            <label class="block font-bold text-gray-700 mb-1">Registration No. <span class="text-red-500">*</span></label>
+                            <div class="p-2 bg-white border border-gray-300 rounded text-gray-400 italic">
+                                अपना यूनिवर्सिटी रजिस्ट्रेशन नंबर भरें
+                            </div>
+                        </div>
+
+                        <div class="border border-red-200 p-3 rounded-lg bg-red-50 pulse-warning">
+                            <label class="block font-bold text-red-800 mb-1">Username (Uni. Reg. No.) <span class="text-red-500">*</span></label>
+                            <div class="p-2 bg-white border border-red-400 rounded text-red-600 font-bold flex justify-between items-center">
+                                <span>यूनिवर्सिटी रोल नंबर भरें!</span>
+                                <span class="text-xxs bg-red-600 text-white px-2 py-0.5 rounded font-bold animate-pulse">अति महत्वपूर्ण 🚨</span>
+                            </div>
+                            <span class="text-xxs text-red-600 font-medium block mt-1">*नोट: यहाँ अपना परीक्षा रोल नंबर भरें, रजिस्ट्रेशन नंबर नहीं!</span>
+                        </div>
+                    </div>
+
+                    <!-- Checklist below -->
+                    <div class="mt-4 pt-3 border-t border-gray-100 text-xxs text-gray-500 flex justify-between items-center">
+                        <span>✓ फोटो और हस्ताक्षर साइज: 20kb-50kb (JPG फॉर्मेट)</span>
+                        <span>✓ हस्ताक्षर काले बॉल पेन से होना अनिवार्य है</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Progress Checklist (Column 3) -->
+                <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-xl print-border flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xs font-extrabold text-yellow-900 uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                            <span>✓</span> स्व-सत्यापन एवं प्रगति ट्रैकर
+                        </h3>
+                        <p class="text-xxs text-yellow-800 mb-3 font-medium">फॉर्म पूरा करने के दौरान इन्हें टिक करके वेरिफाई करें:</p>
+                        
+                        <div class="space-y-3 text-xs text-yellow-950">
+                            <div class="flex items-start gap-2">
+                                <input type="checkbox" id="chk-step1" class="mt-0.5 rounded text-yellow-600 focus:ring-yellow-400">
+                                <label for="chk-step1" class="cursor-pointer select-none leading-relaxed">मैंने सही यूआरएल **vbuuniv.in/vbuexamform/login** खोला है।</label>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <input type="checkbox" id="chk-step2" class="mt-0.5 rounded text-yellow-600 focus:ring-yellow-400">
+                                <label for="chk-step2" class="cursor-pointer select-none leading-relaxed">मैंने रजिस्ट्रेशन में Course में **UG(GE)** चुना है।</label>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <input type="checkbox" id="chk-step3" class="mt-0.5 rounded text-yellow-600 focus:ring-yellow-400">
+                                <label for="chk-step3" class="cursor-pointer select-none leading-relaxed">मैंने Semester में **1-4** सिलेक्ट किया है।</label>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <input type="checkbox" id="chk-step4" class="mt-0.5 rounded text-yellow-600 focus:ring-yellow-400">
+                                <label for="chk-step4" class="cursor-pointer select-none font-bold text-red-700 leading-relaxed">मैंने 'Username' के बॉक्स में अपना यूनिवर्सिटी रोल नंबर डाला है।</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-yellow-200 text-center">
+                        <span class="inline-block bg-slate-900 text-yellow-400 font-bold text-xxs px-2.5 py-1 rounded shadow">
+                            अंतिम तिथि: 20.07.2026 तक
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Alumni / Former Student Career Reminder -->
+        <div class="bg-slate-100 px-5 py-4 border-t border-gray-200">
+            <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left justify-between">
+                <div>
+                    <h3 class="text-xs font-extrabold text-slate-800 uppercase flex items-center gap-1.5 justify-center sm:justify-start">
+                        <span>🎓</span> पूर्व छात्रों के लिए सलाह (ALUMNI BACKGROUND VERIFICATION ADVISORY)
+                    </h3>
+                    <p class="text-xxs text-gray-600 mt-0.5 max-w-2xl">
+                        भले ही आप वर्तमान में नौकरी कर रहे हों या रोजगार के नए अवसर तलाश रहे हों, भविष्य में किसी भी नौकरी के बैकग्राउंड वेरिफिकेशन (Background Check) के लिए स्नातक की पूर्ण डिग्री और जेनेरिक विषय का सही रिकॉर्ड आवश्यक है। इसे अधूरा न छोड़ें।
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer / Sharing Info -->
+        <div class="accent-gradient text-white px-5 py-3.5 flex flex-wrap gap-3 justify-between items-center text-xxs md:text-xs">
+            <div>
+                📢 <span class="font-bold">साझा करें, कोई भी साथी छूटने न पाए!</span> (SHARE TO PREVENT ANYONE MISSING OUT)
+            </div>
+            <div class="flex items-center gap-3">
+                <span>दिनांक: 17/07/2026</span>
+                <span class="opacity-30">|</span>
+                <span>VBU Hazaribagh</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Floating WhatsApp Share Button (No-Print) -->
+    <div class="max-w-6xl mx-auto mt-4 text-center no-print">
+        <a href="whatsapp://send?text=🚨 VBU Hazaribagh - सत्र 2015-18 से 2019-22 के पूर्व छात्रों के लिए परीक्षा फॉर्म का सीधा लिंक जारी! अंतिम तिथि 20.07.2026 है। कोई भी साथी छूटने न पाए! फॉर्म भरने का सीधा और सही लिंक: https://www.vbuuniv.in/vbuexamform/login" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-5 py-2.5 rounded-full shadow text-xs tracking-wide transition-all">
+            <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.503-5.739-1.45L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.528 2.01 14.069.99 11.503.99c-5.441 0-9.865 4.37-9.869 9.8-.001 1.77.472 3.497 1.371 5.03l-.946 3.454 3.588-.921zM18.23 15.11c-.342-.17-.2.2-2.013-.9-.17-.1-.332-.15-.453-.016-.123.134-.476.561-.584.67-.109.11-.217.124-.359.053-.14-.07-.59-.214-1.125-.684-.417-.367-.698-.82-.78-.962-.082-.14-.009-.216.061-.286.063-.063.14-.15.21-.225.07-.076.095-.13.14-.216.046-.086.023-.162-.01-.233-.033-.07-.332-.782-.454-1.071-.12-.284-.243-.243-.332-.243-.086 0-.184-.014-.284-.014-.1-.01-.264.03-.401.17-.137.14-.523.5-.523 1.21s.52 1.4 1.42 1.4c.09 0 1.785 1.085 4.316 2.1s3.385 1.258 3.856 1.18c.47-.074 1.51-.606 1.72-1.192.21-.587.21-1.09.14-1.192-.06-.11-.21-.17-.55-.34z"/></svg>
+            व्हाट्सएप ग्रुप्स में तुरंत साझा करें
+        </a>
+    </div>
+
+</body>
+</html>
+
