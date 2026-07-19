@@ -1,0 +1,956 @@
+
+<!DOCTYPE html>
+<html lang="hi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Emotional Literacy Blueprint - Interactive Hub</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            850: '#1e293b',
+                            950: '#0f172a',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-teal-500 selection:text-slate-950">
+
+    <!-- STICKY HEADER -->
+    <header class="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/80 backdrop-blur-md px-4 sm:px-6 py-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <!-- SVG BRAIN LOGO -->
+                <div class="bg-teal-500/10 p-2.5 rounded-xl border border-teal-500/30">
+                    <svg class="w-8 h-8 text-teal-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925-3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 002.25 6v.18a3.75 3.75 0 003.07 3.684 5.965 5.965 0 00-.407 2.386 3.75 3.75 0 003.52 3.75H12z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 01-.495-7.467 5.99 5.99 0 011.925-3.546 5.974 5.974 0 002.133-1A3.75 3.75 0 0121.75 6v.18a3.75 3.75 0 01-3.07 3.684 5.965 5.965 0 01.407 2.386 3.75 3.75 0 01-3.52 3.75H12z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-extrabold text-slate-100 flex items-center gap-2">
+                        भावनात्मक साक्षरता ब्लूप्रिंट
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-teal-400 bg-teal-950/60 px-2 py-0.5 rounded border border-teal-800/40">Interactive Hub</span>
+                    </h1>
+                    <p class="text-[11px] text-slate-400">आधुनिक युवा संकट के मनोवैज्ञानिक मूल कारणों की एक इंटरेक्टिव डायग्नोस्टिक रिपोर्ट</p>
+                </div>
+            </div>
+
+            <!-- TABS NAVIGATION -->
+            <nav class="flex flex-wrap gap-1 bg-slate-900 p-1 rounded-xl border border-slate-800">
+                <button onclick="switchTab('dashboard')" id="btn-dashboard" class="tab-btn px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg transition-all bg-teal-600 text-white shadow-md">
+                    📊 डैशबोर्ड
+                </button>
+                <button onclick="switchTab('pathologies')" id="btn-pathologies" class="tab-btn px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg transition-all text-slate-400 hover:bg-slate-800">
+                    🔬 5 प्रमुख विकृतियां
+                </button>
+                <button onclick="switchTab('timeline')" id="btn-timeline" class="tab-btn px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg transition-all text-slate-400 hover:bg-slate-800">
+                    🌱 विकास पथ
+                </button>
+                <button onclick="switchTab('cognitive')" id="btn-cognitive" class="tab-btn px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg transition-all text-slate-400 hover:bg-slate-800">
+                    💡 दृष्टिकोण परिवर्तक
+                </button>
+                <button onclick="switchTab('assessment')" id="btn-assessment" class="tab-btn px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg transition-all text-slate-400 hover:bg-slate-800">
+                    📝 स्व-मूल्यांकन
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN BODY CONTENT -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-8">
+
+        <!-- ==================== TAB 1: DASHBOARD ==================== -->
+        <section id="tab-dashboard" class="tab-content space-y-8">
+            <!-- HERO HERO BANNER -->
+            <div class="bg-gradient-to-br from-slate-900 via-slate-950 to-teal-950/20 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col lg:flex-row gap-8 items-center relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-80 h-80 bg-teal-500/5 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute bottom-0 left-0 w-80 h-80 bg-rose-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="flex-1 space-y-4">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold text-teal-400 bg-teal-950/60 rounded-full border border-teal-800/40">
+                        <span class="w-2 h-2 rounded-full bg-teal-400 animate-ping"></span>
+                        गहन मनोवैज्ञानिक विश्लेषण
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-black text-slate-100 leading-tight">
+                        भावनात्मक निरक्षरता की भारी सामाजिक और व्यक्तिगत कीमत
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl">
+                        क्या हमारे बच्चे सचमुच संकट में हैं? आधुनिक आँकड़े बचपन में घुल रहे एक अदृश्य, जहरीले संकट की ओर इशारा कर रहे हैं। इस हब के माध्यम से आप भावनात्मक साक्षरता की कमी से होने वाले मनोवैज्ञानिक नुकसानों और उनके समाधानों का गहराई से अन्वेषण कर सकते हैं।
+                    </p>
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <div class="bg-slate-900/80 border border-slate-800 rounded-xl px-4 py-2.5 text-center">
+                            <div class="text-xs text-slate-500 font-semibold">किशोर हत्या दर</div>
+                            <div class="text-xl font-bold text-rose-400 mt-0.5">$4$ गुना वृद्धि</div>
+                        </div>
+                        <div class="bg-slate-900/80 border border-slate-800 rounded-xl px-4 py-2.5 text-center">
+                            <div class="text-xs text-slate-500 font-semibold">किशोर आत्महत्या दर</div>
+                            <div class="text-xl font-bold text-rose-400 mt-0.5">$3$ गुना वृद्धि</div>
+                        </div>
+                        <div class="bg-slate-900/80 border border-slate-800 rounded-xl px-4 py-2.5 text-center">
+                            <div class="text-xs text-slate-500 font-semibold">विकलांगता का मुख्य कारण</div>
+                            <div class="text-xl font-bold text-amber-500 mt-0.5">अवसाद (Depression)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CANARY VISUAL -->
+                <div class="w-full lg:w-80 bg-slate-900/60 border border-slate-800 p-6 rounded-2xl text-center space-y-4">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest">कोयले की खदान में कैनरी</h3>
+                    <div class="relative py-2 flex justify-center">
+                        <!-- CANARY BIRD SVG IN CAGE -->
+                        <svg class="w-32 h-32 text-amber-500/80 animate-pulse-slow" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M5 12h14M7.5 6.5h9M6 16.5h12M12 3a9 9 0 00-9 9v9h18v-9a9 9 0 00-9-9z"></path>
+                            <circle cx="12" cy="12" r="3" fill="currentColor" class="opacity-75"></circle>
+                            <path d="M10 11.5l1.5-1 1.5 1M10 13h4" stroke="currentColor" stroke-width="1.5"></path>
+                        </svg>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed italic">
+                        "जैसे खदान में कैनरी की मौत जहरीली गैस का प्रारंभिक संकेत देती थी, वैसे ही युवाओं में बढ़ते ये आंकड़े बचपन के नए विषाक्त वातावरण का संकेत हैं।"
+                    </p>
+                </div>
+            </div>
+
+            <!-- PREVENTATIVE FENCE VS AMBULANCE -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- LEADING TEXT -->
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <span class="text-xs font-bold text-amber-500 uppercase tracking-wider block">रोकथाम का तर्क (The Logic of Prevention)</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-100">हम हमेशा नुकसान होने के बाद ही क्यों जागते हैं?</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            वर्तमान सामाजिक दृष्टिकोण केवल संकट प्रबंधन (Crisis Intervention) पर ध्यान केंद्रित करता है। किशोर गर्भावस्था, स्कूल छोड़ने वाले बच्चों और ड्रग्स के खिलाफ युद्ध की वर्तमान तकनीकें नुकसान होने के बाद ही सक्रिय होती हैं।
+                        </p>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            ज़रूरी यह है कि हम समस्या आने से पहले ही बच्चों को भावनात्मक रूप से प्रशिक्षित करें—ताकि वे खतरनाक आवेगों और उलझनों को स्वयं संभाल सकें।
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-800">
+                        <div class="p-3 bg-rose-950/20 border-l-4 border-rose-500 rounded">
+                            <h4 class="text-xs font-bold text-rose-300">एम्बुलेंस मॉडल (Crisis Intervention)</h4>
+                            <p class="text-[11px] text-slate-400 mt-1">घाटी के नीचे खड़ी एम्बुलेंस, जो नुकसान होने के बाद ही पहुंचती है।</p>
+                        </div>
+                        <div class="p-3 bg-emerald-950/20 border-l-4 border-emerald-500 rounded">
+                            <h4 class="text-xs font-bold text-emerald-300">टीकाकरण मॉडल (Active Prevention)</h4>
+                            <p class="text-[11px] text-slate-400 mt-1">पहाड़ की चोटी पर मजबूत बाड़ (Fence) लगाना ताकि बच्चे नीचे गिरें ही नहीं।</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DYNAMIC GRAPHIC FOR THE CLIFF -->
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between min-h-[300px] relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/40 to-slate-950 pointer-events-none"></div>
+                    
+                    <!-- Top Section of Cliff -->
+                    <div class="relative z-10 flex justify-between items-start">
+                        <div>
+                            <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2 py-0.5 rounded">पहाड़ की चोटी (Mental Safety)</span>
+                            <h4 class="text-sm font-bold text-slate-200 mt-1.5">भावनात्मक साक्षरता बाड़ (Fence)</h4>
+                            <p class="text-xs text-slate-400 max-w-[240px] mt-1">आत्म-जागरूकता, आवेग नियंत्रण, सहानुभूति, और सामाजिक कौशल की मजबूत बाड़।</p>
+                        </div>
+                        <div class="bg-emerald-950/80 text-emerald-300 border border-emerald-800 text-xs px-3 py-2 rounded-lg font-bold flex items-center gap-1.5 animate-pulse">
+                            🛡️ बाड़ सक्रिय
+                        </div>
+                    </div>
+
+                    <!-- Visual Drop Line -->
+                    <div class="relative z-10 my-4 flex items-center justify-center">
+                        <div class="w-full h-0.5 bg-gradient-to-r from-emerald-500 via-amber-500 to-rose-500 opacity-30"></div>
+                    </div>
+
+                    <!-- Bottom Section of Cliff -->
+                    <div class="relative z-10 flex justify-between items-end">
+                        <div>
+                            <span class="text-[10px] font-bold text-rose-400 bg-rose-950/60 border border-rose-800/50 px-2 py-0.5 rounded">घाटी का तल (Mental Distress)</span>
+                            <h4 class="text-sm font-bold text-slate-200 mt-1.5">संकट हस्तक्षेप (Crisis Intervention)</h4>
+                            <p class="text-xs text-slate-400 max-w-[240px] mt-1">अपराध, आत्महत्या, स्कूल ड्रॉपआउट, और ड्रग्स की भयंकर दलदल।</p>
+                        </div>
+                        <div class="bg-rose-950/80 text-rose-300 border border-rose-800 p-2.5 rounded-lg flex items-center gap-2">
+                            <span class="text-xl">🚑</span>
+                            <div>
+                                <h5 class="text-xs font-bold">एम्बुलेंस</h5>
+                                <p class="text-[9px] text-slate-400">बहुत देर से समाधान</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOUR PILLARS OF EMOTIONAL DECLINE -->
+            <div class="space-y-4">
+                <div class="border-b border-slate-800 pb-2">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-200 flex items-center gap-2">
+                        📊 भावनात्मक गिरावट के 4 मूल स्तंभ
+                    </h3>
+                    <p class="text-xs text-slate-400">1970 के दशक की तुलना में 1990 के दशक में आई भयंकर गिरावट का विश्लेषण</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Card 1 -->
+                    <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] font-bold text-indigo-400 bg-indigo-950/40 border border-indigo-900/40 px-2 py-0.5 rounded">स्तंभ 1</span>
+                            <span class="text-xs text-slate-500 font-bold">अलगाव</span>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-100">अलगाव (Withdrawal)</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            अकेले रहना पसंद करना, काम करने की ऊर्जा की भारी कमी, उदासी और अत्यधिक दूसरों पर निर्भर रहना।
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] font-bold text-rose-400 bg-rose-950/40 border border-rose-900/40 px-2 py-0.5 rounded">स्तंभ 2</span>
+                            <span class="text-xs text-slate-500 font-bold">चिंता</span>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-100">चिंता और अवसाद</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            हर काम में श्रेष्ठ (Perfect) होने का मानसिक दबाव, निरंतर घबराहट, और यह महसूस करना कि कोई प्यार नहीं करता।
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] font-bold text-amber-400 bg-amber-950/40 border border-amber-900/40 px-2 py-0.5 rounded">स्तंभ 3</span>
+                            <span class="text-xs text-slate-500 font-bold">ध्यान</span>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-100">ध्यान की कमी (Attention Deficit)</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            एकाग्रता में भारी गिरावट, बिना सोचे-समझे आवेगी व्यवहार करना, और जागते हुए दिन में सपने देखना।
+                        </p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] font-bold text-teal-400 bg-teal-950/40 border border-teal-900/40 px-2 py-0.5 rounded">स्तंभ 4</span>
+                            <span class="text-xs text-slate-500 font-bold">आक्रामकता</span>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-100">आक्रामकता (Aggression)</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            लगातार बहस करना, दूसरों को धोखा देना, अनावश्यक क्रोध करना, और दूसरों की चीज़ें नष्ट करना।
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 2: PATHOLOGIES EXPLORER ==================== -->
+        <section id="tab-pathologies" class="tab-content space-y-6 hidden">
+            <div class="border-b border-slate-800 pb-2">
+                <h2 class="text-xl sm:text-2xl font-bold text-slate-100">🔬 5 प्रमुख भावनात्मक विकृतियां (The 5 Pathologies)</h2>
+                <p class="text-xs text-slate-400">विभिन्न संकटों के मूल मनोवैज्ञानिक कारणों और उनके वैज्ञानिक समाधानों का अन्वेषण करें</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Left Menu Selector -->
+                <div class="lg:col-span-4 space-y-2" id="pathology-menu">
+                    <!-- Interactive Button 1 -->
+                    <button onclick="selectPathology('aggression')" id="path-aggression" class="path-btn w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between bg-teal-950/40 border-teal-600 text-teal-300 font-bold">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold tracking-wider opacity-60">विकृति 1</span>
+                            <h4 class="text-sm">आक्रामकता व शत्रुतापूर्ण दृष्टिकोण</h4>
+                        </div>
+                        <span class="text-lg">🎯</span>
+                    </button>
+                    <!-- Interactive Button 2 -->
+                    <button onclick="selectPathology('depression')" id="path-depression" class="path-btn w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold tracking-wider opacity-60">विकृति 2</span>
+                            <h4 class="text-sm">अवसाद और "उदासी का युग"</h4>
+                        </div>
+                        <span class="text-lg">😞</span>
+                    </button>
+                    <!-- Interactive Button 3 -->
+                    <button onclick="selectPathology('eating')" id="path-eating" class="path-btn w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold tracking-wider opacity-60">विकृति 3</span>
+                            <h4 class="text-sm">ईटिंग डिसऑर्डर व भावनात्मक भ्रम</h4>
+                        </div>
+                        <span class="text-lg">🍕</span>
+                    </button>
+                    <!-- Interactive Button 4 -->
+                    <button onclick="selectPathology('rejection')" id="path-rejection" class="path-btn w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold tracking-wider opacity-60">विकृति 4</span>
+                            <h4 class="text-sm">सामाजिक अस्वीकृति व ड्रॉपआउट</h4>
+                        </div>
+                        <span class="text-lg">🚪</span>
+                    </button>
+                    <!-- Interactive Button 5 -->
+                    <button onclick="selectPathology('addiction')" id="path-addiction" class="path-btn w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold tracking-wider opacity-60">विकृति 5</span>
+                            <h4 class="text-sm">नशा और "स्व-चिकित्सा" (Self-Medication)</h4>
+                        </div>
+                        <span class="text-lg">🧪</span>
+                    </button>
+                </div>
+
+                <!-- Right Detail Panel -->
+                <div class="lg:col-span-8 bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 relative overflow-hidden" id="pathology-details">
+                    <!-- Dynamic Content gets loaded here by JavaScript -->
+                    <div id="pathology-content" class="space-y-6">
+                        <!-- Default view: Aggression -->
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4 pb-4 border-b border-slate-800">
+                            <div>
+                                <span class="text-xs font-bold text-teal-400 uppercase tracking-widest">आक्रामकता (Aggression)</span>
+                                <h3 class="text-xl sm:text-2xl font-bold text-slate-100 mt-1">शत्रुतापूर्ण दृष्टिकोण (Hostile Attribution Bias)</h3>
+                            </div>
+                            <span class="text-xs bg-rose-950 text-rose-300 border border-rose-900/50 px-2.5 py-1 rounded font-bold">खतरनाक आवेग</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-400 uppercase">1. मूल कमी (The Root Deficiency)</h4>
+                                    <p class="text-sm text-rose-300 font-semibold mt-1 bg-rose-950/20 p-3 rounded border border-rose-900/30">तटस्थ घटनाओं को भी शत्रुता के रूप में देखना।</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-400 uppercase">2. भावनात्मक समाधान (The Emotional Solution)</h4>
+                                    <p class="text-sm text-emerald-300 font-semibold mt-1 bg-emerald-950/20 p-3 rounded border border-emerald-900/30">आवेग नियंत्रण (Impulse Control) और सहानुभूति का विकास।</p>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <h4 class="text-xs font-bold text-slate-400 uppercase">🔬 न्यूरोबायोलॉजिकल पृष्ठभूमि</h4>
+                                <p class="text-xs text-slate-300 leading-relaxed bg-slate-950 p-3 rounded border border-slate-800">
+                                    अति-संवेदनशील एमिग्डाला (Amygdala) जो किसी भी सामान्य घटना को तुरंत खतरा मान लेता है, जिससे प्रीफ्रंटल कॉर्टेक्स को स्थिति का विवेकपूर्ण विश्लेषण करने का समय ही नहीं मिलता।
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase">उदाहरण व केस स्टडी (Real World Case Study)</h4>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                <strong>थॉमस जेफरसन हाई स्कूल त्रासदी:</strong> गलियारे में तीन छात्रों के बीच मामूली धक्का-मुक्की हुई। खलील के शत्रुतापूर्ण पूर्वाग्रह के कारण उसे लगा कि इयान और टायरोन उसे मारने की योजना बना रहे हैं। इस काल्पनिक भय के कारण उसने स्कूल में दोनों की गोली मारकर हत्या कर दी।
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 3: TIMELINE SIMULATOR ==================== -->
+        <section id="tab-timeline" class="tab-content space-y-6 hidden">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-3">
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-100">🌱 अपराधी बनने की यात्रा: विजुअल पाथवे सिम्युलेटर</h2>
+                    <p class="text-xs text-slate-400">यह सिम्युलेटर दिखाता है कि कैसे बचपन के शुरुआती लक्षण भविष्य के अपराधी पथ को पूर्व-निर्धारित करते हैं।</p>
+                </div>
+                <!-- Interactive Toggle -->
+                <div class="flex items-center gap-3 bg-slate-900 border border-slate-800 px-4 py-2.5 rounded-xl">
+                    <span class="text-xs font-bold text-slate-300">भावनात्मक साक्षरता हस्तक्षेप:</span>
+                    <button onclick="toggleTimelineIntervention()" id="timeline-toggle-btn" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none bg-slate-700">
+                        <span id="timeline-toggle-dot" class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out translate-x-0"></span>
+                    </button>
+                    <span id="timeline-status-text" class="text-xs font-bold text-slate-500">निष्क्रिय (OFF)</span>
+                </div>
+            </div>
+
+            <!-- Visual Flowchart of Timeline -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+                <!-- Connecting Line for MD/LG Screens -->
+                <div class="hidden md:block absolute top-20 left-[10%] right-[10%] h-0.5 bg-slate-800 -z-10"></div>
+
+                <!-- Step 1 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between min-h-[280px] transition-all hover:border-slate-700">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-[10px] font-bold text-teal-400 bg-teal-950/60 border border-teal-800/50 px-2.5 py-0.5 rounded-full">कक्षा 1-2</span>
+                            <span class="text-xs text-slate-500 font-bold">चरण 1</span>
+                        </div>
+                        <h4 class="text-sm font-bold text-slate-200 mb-2">शुरुआती लक्षण</h4>
+                        <div id="timeline-step1-body">
+                            <p class="text-xs text-rose-400 leading-relaxed border-t border-slate-800 pt-2 font-medium">
+                                <strong>❌ खराब आवेग नियंत्रण:</strong> बच्चा भावनाओं और व्यवहार पर नियंत्रण नहीं रख पाता। शिक्षक उसे 'विद्रोही या क्लास का बागी' समझने लगते हैं।
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-[10px] text-slate-500 bg-slate-950 p-2.5 rounded border border-slate-800 mt-2">
+                        मुख्य समस्या: आवेगों को रोकने की असमर्थता।
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between min-h-[280px] transition-all hover:border-slate-700">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-[10px] font-bold text-teal-400 bg-teal-950/60 border border-teal-800/50 px-2.5 py-0.5 rounded-full">कक्षा 4-5</span>
+                            <span class="text-xs text-slate-500 font-bold">चरण 2</span>
+                        </div>
+                        <h4 class="text-sm font-bold text-slate-200 mb-2">सामाजिक पतन</h4>
+                        <div id="timeline-step2-body">
+                            <p class="text-xs text-rose-400 leading-relaxed border-t border-slate-800 pt-2 font-medium">
+                                <strong>❌ सहपाठियों द्वारा उपेक्षा:</strong> बच्चा क्लास के दोस्तों के साथ तालमेल नहीं बिठा पाता। सामाजिक अलगाव के कारण पढ़ाई में मन नहीं लगता और विफलता हाथ लगती है।
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-[10px] text-slate-500 bg-slate-950 p-2.5 rounded border border-slate-800 mt-2">
+                        मुख्य समस्या: सामाजिक संकेतों (Social Cues) को पढ़ने में नाकामी।
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between min-h-[280px] transition-all hover:border-slate-700">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-[10px] font-bold text-teal-400 bg-teal-950/60 border border-teal-800/50 px-2.5 py-0.5 rounded-full">कक्षा 8</span>
+                            <span class="text-xs text-slate-500 font-bold">चरण 3</span>
+                        </div>
+                        <h4 class="text-sm font-bold text-slate-200 mb-2">समूह निर्माण</h4>
+                        <div id="timeline-step3-body">
+                            <p class="text-xs text-rose-400 leading-relaxed border-t border-slate-800 pt-2 font-medium">
+                                <strong>❌ बहिष्कृत बच्चों का समूह:</strong> मुख्यधारा के बच्चों से बाहर होकर बच्चा अपने जैसे अन्य बहिष्कृत व विद्रोही बच्चों की संगति ढूंढता है। अपराध और नशे का जोखिम $5\times$ बढ़ जाता है।
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-[10px] text-slate-500 bg-slate-950 p-2.5 rounded border border-slate-800 mt-2">
+                        मुख्य समस्या: उपेक्षा के कारण गलत राह की ओर खिंचाव।
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between min-h-[280px] transition-all hover:border-slate-700">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-[10px] font-bold text-teal-400 bg-teal-950/60 border border-teal-800/50 px-2.5 py-0.5 rounded-full">हाई स्कूल</span>
+                            <span class="text-xs text-slate-500 font-bold">चरण 4</span>
+                        </div>
+                        <h4 class="text-sm font-bold text-slate-200 mb-2">अंतिम परिणाम</h4>
+                        <div id="timeline-step4-body">
+                            <p class="text-xs text-rose-400 leading-relaxed border-t border-slate-800 pt-2 font-semibold">
+                                <strong>🚨 गंभीर अपराधी:</strong> स्कूल बीच में ही छोड़ना (Dropout), गंभीर कानूनी पचड़ों में फंसना, या अत्यधिक हिंसक व्यवहार का शिकार हो जाना।
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-[10px] text-slate-500 bg-slate-950 p-2.5 rounded border border-slate-800 mt-2">
+                        अंतिम गंतव्य: आपराधिक रिकॉर्ड या मानसिक अवसाद।
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary of Intervention logic -->
+            <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="space-y-1">
+                    <h4 class="text-sm font-bold text-slate-200">क्या आपने दोनों मार्गों के अंतर पर गौर किया?</h4>
+                    <p class="text-xs text-slate-400">हस्तक्षेप को चालू/बंद करके देखें कि कैसे बच्चों की भावनाओं को सही रास्ता देने से उनकी पूरी जिंदगी का रुख बदला जा सकता है।</p>
+                </div>
+                <button onclick="toggleTimelineIntervention()" class="px-4 py-2 bg-teal-600 hover:bg-teal-500 transition-all font-bold text-xs rounded-xl text-white">
+                    हस्तक्षेप स्विच करें
+                </button>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 4: COGNITIVE EXPLAINER ==================== -->
+        <section id="tab-cognitive" class="tab-content space-y-6 hidden">
+            <div class="border-b border-slate-800 pb-2">
+                <h2 class="text-xl sm:text-2xl font-bold text-slate-100">💡 दृष्टिकोण परिवर्तक: निराशावाद बनाम आशावाद</h2>
+                <p class="text-xs text-slate-400">विपरीत परिस्थितियों में हमारा आत्म-संवाद (Self-Talk) ही यह तय करता है कि हम अवसाद की खाई में गिरेंगे या फिर उठ खड़े होंगे।</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Select Scenario Left -->
+                <div class="lg:col-span-4 bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-3">
+                    <span class="text-xs font-bold text-teal-400 uppercase tracking-widest block mb-1">परिस्थिति का चयन करें</span>
+                    
+                    <button onclick="selectScenario('exam')" id="scen-exam" class="scen-btn w-full text-left p-3.5 rounded-xl border transition-all text-xs font-medium bg-teal-950/40 border-teal-600 text-teal-300">
+                        📝 गणित की परीक्षा में बहुत कम अंक आना
+                    </button>
+                    
+                    <button onclick="selectScenario('birthday')" id="scen-birthday" class="scen-btn w-full text-left p-3.5 rounded-xl border transition-all text-xs font-medium bg-slate-950 border-slate-800 text-slate-400 hover:bg-slate-800">
+                        🎂 सहपाठियों द्वारा जन्मदिन की पार्टी में न बुलाया जाना
+                    </button>
+                    
+                    <button onclick="selectScenario('sports')" id="scen-sports" class="scen-btn w-full text-left p-3.5 rounded-xl border transition-all text-xs font-medium bg-slate-950 border-slate-800 text-slate-400 hover:bg-slate-800">
+                        🏀 बास्केटबॉल टीम के ट्रायल में बाहर कर दिया जाना
+                    </button>
+                </div>
+
+                <!-- Compare Panel Right -->
+                <div class="lg:col-span-8 bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <!-- Selected Trigger display -->
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                        <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">चयनित घटना</span>
+                        <h4 class="text-base font-bold text-slate-200 mt-1" id="selected-trigger-title">गणित की परीक्षा में बहुत कम अंक आना</h4>
+                    </div>
+
+                    <!-- Contrast Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Pessimistic loop -->
+                        <div class="bg-rose-950/10 border border-rose-900/30 p-5 rounded-2xl space-y-3 flex flex-col justify-between">
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-bold text-rose-400 bg-rose-950/60 border border-rose-900/50 px-2 py-0.5 rounded">निराशावादी सोच (Pessimistic)</span>
+                                </div>
+                                <blockquote class="text-xs sm:text-sm text-slate-300 italic font-semibold pt-2" id="pessimistic-quote">
+                                    "मैं एकदम बेवकूफ हूँ। मैं कभी भी गणित नहीं सीख पाऊंगा। यह हमेशा ऐसा ही रहेगा।"
+                                </blockquote>
+                                <p class="text-[11px] text-slate-400 pt-1">
+                                    🔴 <strong>विशेषता:</strong> इसे स्थायी (Permanent) और स्वयं की व्यक्तिगत कमजोरी (Personal) मान लेना।
+                                </p>
+                            </div>
+                            <div class="bg-rose-950/40 p-3 rounded border border-rose-900/20 mt-2">
+                                <span class="text-[10px] font-bold text-rose-300 uppercase block">परिणाम</span>
+                                <p class="text-xs text-slate-300 mt-1" id="pessimistic-result">लाचारी का एहसास, मेहनत करना बिल्कुल छोड़ देना, गहरे अवसाद का शिकार होना।</p>
+                            </div>
+                        </div>
+
+                        <!-- Optimistic loop -->
+                        <div class="bg-emerald-950/10 border border-emerald-900/30 p-5 rounded-2xl space-y-3 flex flex-col justify-between">
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-900/50 px-2 py-0.5 rounded">आशावादी सोच (Optimistic)</span>
+                                </div>
+                                <blockquote class="text-xs sm:text-sm text-slate-300 italic font-semibold pt-2" id="optimistic-quote">
+                                    "मुझे इस परीक्षा में समीकरण समझ नहीं आए। मुझे अगली बार गणित में अधिक मेहनत और अभ्यास करना होगा।"
+                                </blockquote>
+                                <p class="text-[11px] text-slate-400 pt-1">
+                                    🟢 <strong>विशेषता:</strong> इसे अस्थायी (Temporary) और परिस्थितियों के अनुसार बदलने वाला (Changeable) मानना।
+                                </p>
+                            </div>
+                            <div class="bg-emerald-950/40 p-3 rounded border border-emerald-900/20 mt-2">
+                                <span class="text-[10px] font-bold text-emerald-300 uppercase block">परिणाम</span>
+                                <p class="text-xs text-slate-300 mt-1" id="optimistic-result">परिस्थिति को सुधारने का ठोस प्रयास करना, आत्मविश्वास बने रहना, अवसाद से बचाव।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 5: SELF-EVALUATION ASSESSMENT ==================== -->
+        <section id="tab-assessment" class="tab-content space-y-6 hidden">
+            <div class="border-b border-slate-800 pb-2">
+                <h2 class="text-xl sm:text-2xl font-bold text-slate-100">📝 भावनात्मक साक्षरता स्व-मूल्यांकन क्विज़</h2>
+                <p class="text-xs text-slate-400">दिए गए परिदृश्यों में आपकी पहली स्वचालित प्रतिक्रिया क्या होगी? यह आपके मानसिक टीकाकरण स्तर को मापेगा।</p>
+            </div>
+
+            <div class="max-w-2xl mx-auto bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                <!-- Quiz Card Container -->
+                <div id="quiz-container" class="space-y-6">
+                    <!-- Dynamic rendering by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- EMOTIONAL LITERACY PILLARS HIGHLIGHT -->
+        <div class="bg-gradient-to-r from-teal-950/30 via-slate-900 to-teal-950/30 border border-slate-800 rounded-2xl p-6 text-center space-y-4">
+            <h3 class="text-base sm:text-lg font-bold text-teal-400 uppercase tracking-wider">RESILIENT YOUTH: मनोवैज्ञानिक टीकाकरण के 4 सक्रिय तत्व</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-850">
+                    <h4 class="text-xs font-bold text-teal-300 uppercase">1. आत्म-जागरूकता</h4>
+                    <p class="text-[11px] text-slate-400 mt-1.5 leading-relaxed">अपनी खुद की भावनाओं को वास्तविक समय में पहचानना और उनके पीछे के कारणों को ठीक से समझना।</p>
+                </div>
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-850">
+                    <h4 class="text-xs font-bold text-teal-300 uppercase">2. आवेग नियंत्रण</h4>
+                    <p class="text-[11px] text-slate-400 mt-1.5 leading-relaxed">अपनी तात्कालिक भावनाओं और प्रतिक्रियात्मक कार्यों के बीच अंतर करना; हिंसक प्रतिक्रिया देने से पहले कॉर्टेक्स को काम पर लगाना।</p>
+                </div>
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-850">
+                    <h4 class="text-xs font-bold text-teal-300 uppercase">3. सहानुभूति (Empathy)</h4>
+                    <p class="text-[11px] text-slate-400 mt-1.5 leading-relaxed">दूसरों के दृष्टिकोण और विचारों को सटीक रूप से समझना, बॉडी लैंग्वेज और अशाब्दिक सामाजिक संकेतों को पढ़ना।</p>
+                </div>
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-850">
+                    <h4 class="text-xs font-bold text-teal-300 uppercase">4. पारस्परिक कौशल</h4>
+                    <p class="text-[11px] text-slate-400 mt-1.5 leading-relaxed">सकारात्मक और शांतिपूर्ण ढंग से विवादों को आपस में सुलझाना और बिना आक्रामक हुए खुलकर रचनात्मक संवाद करना।</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-6 px-4 sm:px-6 text-center text-xs text-slate-500 mt-auto">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>© 2026 भावनात्मक साक्षरता डिजिटल अकादमी (The Emotional Literacy Blueprint). सभी अधिकार सुरक्षित।</p>
+            <div class="flex items-center gap-3">
+                <span class="text-teal-400 font-bold">W.T. Grant Foundation शोध पर आधारित संकल्पना</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT FOR DYNAMIC STATE MANAGEMENT -->
+    <script>
+        // --- 1. Tab Switching Logic ---
+        function switchTab(tabId) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            // Remove active classes from all nav buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-teal-600', 'text-white', 'shadow-md');
+                btn.classList.add('text-slate-400', 'hover:bg-slate-800');
+            });
+
+            // Show target tab
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            // Style active nav button
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('text-slate-400', 'hover:bg-slate-800');
+            activeBtn.classList.add('bg-teal-600', 'text-white', 'shadow-md');
+        }
+
+        // --- 2. 5 Pathologies Explorer Data & Logic ---
+        const pathologyData = {
+            aggression: {
+                title: "आक्रामकता (Aggression)",
+                subtitle: "शत्रुतापूर्ण दृष्टिकोण (Hostile Attribution Bias)",
+                badge: "खतरनाक आवेग",
+                badgeClass: "bg-rose-950 text-rose-300 border-rose-900/50",
+                deficiency: "तटस्थ घटनाओं को भी शत्रुता के रूप में देखना।",
+                solution: "आवेग नियंत्रण (Impulse Control) और सहानुभूति का विकास।",
+                neuro: "अति-संवेदनशील एमिग्डाला (Amygdala) जो किसी भी सामान्य घटना को तुरंत खतरा मान लेता है, जिससे प्रीफ्रंटल कॉर्टेक्स को स्थिति का विवेकपूर्ण विश्लेषण करने का समय ही नहीं मिलता।",
+                caseStudy: "<strong>थॉमस जेफरसन हाई स्कूल त्रासदी:</strong> गलियारे में तीन छात्रों के बीच मामूली धक्का-मुक्की हुई। खलील के शत्रुतापूर्ण पूर्वाग्रह के कारण उसे लगा कि इयान और टायरोन उसे मारने की योजना बना रहे हैं। इस काल्पनिक भय के कारण उसने स्कूल में दोनों की गोली मारकर हत्या कर दी।"
+            },
+            depression: {
+                title: "अवसाद (Depression)",
+                subtitle: "निराशावादी व्याख्या शैली (Pessimistic Explanatory Style)",
+                badge: "उदासी का युग",
+                badgeClass: "bg-indigo-950 text-indigo-300 border-indigo-900/50",
+                deficiency: "किसी भी विफलता को स्थायी, व्यक्तिगत और सार्वभौमिक मानना।",
+                solution: "आशावाद और संज्ञानात्मक पुनर्गठन (Cognitive Restructuring)।",
+                neuro: "सेरोटोनिन का गिरता स्तर, लाचारी का सीखी हुई प्रवृत्ति (Learned Helplessness) में बदल जाना और मस्तिष्क की अवसाद ग्रंथि चक्रों में फंसना।",
+                caseStudy: "<strong>डबल डिप्रेशन का चक्र:</strong> हल्के अवसाद को अनुपचारित छोड़ने पर वह गंभीर अवसाद (Major Depression) में बदल जाता है। इसके कारण बच्चों का सामाजिक जुड़ाव खत्म हो जाता है और अकादमिक प्रदर्शन पूरी तरह गिर जाता है।"
+            },
+            eating: {
+                title: "ईटिंग डिसऑर्डर (Eating Disorder)",
+                subtitle: "शारीरिक/भावनात्मक संकेतों में भ्रम (Interoceptive Confusion)",
+                badge: "भावनाओं की उलझन",
+                badgeClass: "bg-amber-950 text-amber-300 border-amber-900/50",
+                deficiency: "बोरियत, क्रोध या चिंता को भूलवश वास्तविक 'भूख' समझ बैठना।",
+                solution: "सटीक आत्म-जागरूकता (Emotional Self-Awareness)।",
+                neuro: "मस्तिष्क के उस हिस्से की उलझन जो शारीरिक संवेदनाओं और भावनात्मक ट्रिगर्स को डिकोड करता है। भोजन का उपयोग असहनीय भावनाओं को दबाने के साधन के रूप में किया जाता है।",
+                caseStudy: "<strong>एनोरेक्सिया और बुलिमिया संकट:</strong> सांस्कृतिक और पतलेपन के सामाजिक दबाव के साथ मिलकर यह भ्रम खतरनाक ईटिंग डिसऑर्डर को जन्म देता है, जहां भोजन भावनाओं को कृत्रिम रूप से नियंत्रित करने का साधन बन जाता है।"
+            },
+            rejection: {
+                title: "सामाजिक अस्वीकृति (Social Rejection)",
+                subtitle: "सामाजिक संकेतों को न पढ़ पाना (Misreading Social Cues)",
+                badge: "अलगाव का खतरा",
+                badgeClass: "bg-slate-800 text-slate-300 border-slate-700",
+                deficiency: "सहपाठियों के हाव-भाव, टोन और बॉडी लैंग्वेज को गलत समझना।",
+                solution: "पारस्परिक कौशल और गैर-मौखिक साक्षरता (Nonverbal Literacy)।",
+                neuro: "मिरर न्यूरॉन प्रणाली और सामाजिक पहचान केंद्रों में संवाद की कमी, जिससे दूसरों के इरादों को भांपने में भारी भूल होती है।",
+                caseStudy: "<strong>स्कूल छोड़ने की दर (Dropout Rates):</strong> जो बच्चे कक्षा 4-5 में दोस्तों के बीच बहिष्कृत (Rejected) हो जाते हैं, उनके हाई स्कूल बीच में ही छोड़ने की संभावना सामान्य बच्चों के मुकाबले $2$ से $8$ गुना अधिक होती है।"
+            },
+            addiction: {
+                title: "नशाखोरी (Drug Addiction)",
+                subtitle: "असहनीय भावनाओं को शांत करने में नाकामी (Inability to Self-Soothe)",
+                badge: "स्व-चिकित्सा",
+                badgeClass: "bg-purple-950 text-purple-300 border-purple-900/50",
+                deficiency: "चिंता, क्रोध या अवसाद को स्वस्थ तरीके से प्रबंधित न कर पाना।",
+                solution: "भावनाओं का सक्रिय प्रबंधन और मानसिक लचीलापन।",
+                neuro: "मस्तिष्क में चिंता शांत करने वाले GABA न्यूरोट्रांसमीटर की कमी या प्रीफ्रंटल लोब की शिथिलता, जिसके कारण रोमांच की अत्यधिक ललक (Impulsivity) पैदा होती है।",
+                caseStudy: "<strong>शैतान का सौदा (The Devil's Bargain):</strong> जैविक रूप से संवेदनशील और भावनात्मक रूप से प्रताड़ित युवाओं के लिए, पहली शराब या ड्रग्स उन्हें 'पहली बार सामान्य महसूस होने' का भ्रम कराती है, जिससे वे इसकी लत के भयंकर कुचक्र में फंस जाते हैं।"
+            }
+        };
+
+        function selectPathology(pathId) {
+            // Un-active all menu items
+            document.querySelectorAll('#pathology-menu button').forEach(btn => {
+                btn.className = "path-btn w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700";
+            });
+
+            // Set active target button
+            const activeBtn = document.getElementById('path-' + pathId);
+            activeBtn.className = "path-btn w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between bg-teal-950/40 border-teal-600 text-teal-300 font-bold";
+
+            // Populate content card
+            const content = pathologyData[pathId];
+            document.getElementById('pathology-details').innerHTML = `
+                <div class="space-y-6 animate-fadeIn">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4 pb-4 border-b border-slate-800">
+                        <div>
+                            <span class="text-xs font-bold text-teal-400 uppercase tracking-widest">${content.title}</span>
+                            <h3 class="text-xl sm:text-2xl font-bold text-slate-100 mt-1">${content.subtitle}</h3>
+                        </div>
+                        <span class="text-xs ${content.badgeClass} border px-2.5 py-1 rounded font-bold">${content.badge}</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="text-xs font-bold text-slate-400 uppercase">1. मूल कमी (The Root Deficiency)</h4>
+                                <p class="text-sm text-rose-300 font-semibold mt-1 bg-rose-950/20 p-3 rounded border border-rose-900/30">${content.deficiency}</p>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-slate-400 uppercase">2. भावनात्मक समाधान (The Emotional Solution)</h4>
+                                <p class="text-sm text-emerald-300 font-semibold mt-1 bg-emerald-950/20 p-3 rounded border border-emerald-900/30">${content.solution}</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase">🔬 न्यूरोबायोलॉजिकल पृष्ठभूमि</h4>
+                            <p class="text-xs text-slate-300 leading-relaxed bg-slate-950 p-3 rounded border border-slate-800">
+                                ${content.neuro}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                        <h4 class="text-xs font-bold text-slate-400 uppercase">उदाहरण व केस स्टडी (Real World Case Study)</h4>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            ${content.caseStudy}
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- 3. Timeline Interactive Pathway Logic ---
+        let timelineInterventionActive = false;
+
+        function toggleTimelineIntervention() {
+            timelineInterventionActive = !timelineInterventionActive;
+            const toggleDot = document.getElementById('timeline-toggle-dot');
+            const toggleBtn = document.getElementById('timeline-toggle-btn');
+            const statusText = document.getElementById('timeline-status-text');
+
+            if (timelineInterventionActive) {
+                toggleDot.className = "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out translate-x-5";
+                toggleBtn.className = "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none bg-teal-600";
+                statusText.innerText = "सक्रिय (ON)";
+                statusText.className = "text-xs font-bold text-teal-400";
+
+                // Update timeline text nodes with positive emotional literacy path
+                document.getElementById('timeline-step1-body').innerHTML = `
+                    <p class="text-xs text-emerald-400 leading-relaxed border-t border-slate-800 pt-2 font-medium">
+                        <strong>✅ आवेग प्रबंधन प्रशिक्षण:</strong> बच्चों को आवेगी उत्तेजनाओं से निपटना सिखाया जाता है। शिक्षक उन्हें विद्रोही घोषित करने के बजाय मदद करते हैं।
+                    </p>
+                `;
+                document.getElementById('timeline-step2-body').innerHTML = `
+                    <p class="text-xs text-emerald-400 leading-relaxed border-t border-slate-800 pt-2 font-medium">
+                        <strong>✅ सामाजिक कौशल विकास:</strong> बच्चा दूसरों के हाव-भाव और अशाब्दिक सामाजिक इशारों को आसानी से समझता है। उसके दोस्त बनते हैं और पढ़ाई मजबूत होती है।
+                    </p>
+                `;
+                document.getElementById('timeline-step3-body').innerHTML = `
+                    <p class="text-xs text-emerald-400 leading-relaxed border-t border-slate-800 pt-2 font-medium">
+                        <strong>✅ स्वस्थ संगति व नेतृत्व:</strong> बच्चा मुख्यधारा की गतिविधियों में सक्रिय रूप से भाग लेता है। उसका आत्मविश्वास बना रहता है, नशा और अपराध का कोई स्थान नहीं रहता।
+                    </p>
+                `;
+                document.getElementById('timeline-step4-body').innerHTML = `
+                    <p class="text-xs text-emerald-400 leading-relaxed border-t border-slate-800 pt-2 font-semibold">
+                        <strong>🏆 लचीला युवा (Resilient Youth):</strong> हाई स्कूल की परीक्षा सफलतापूर्वक पास करता है। खुद की भावनाओं और दूसरों के साथ गहरा मजबूत सामंजस्य स्थापित करता है।
+                    </p>
+                `;
+
+            } else {
+                toggleDot.className = "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out translate-x-0";
+                toggleBtn.className = "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none bg-slate-700";
+                statusText.innerText = "निष्क्रिय (OFF)";
+                statusText.className = "text-xs font-bold text-slate-500";
+
+                // Return to negative original pathway
+                document.getElementById('timeline-step1-body').innerHTML = `
+                    <p class="text-xs text-rose-400 leading-relaxed border-t border-slate-800 pt-2 font-medium">
+                        <strong>❌ खराब आवेग नियंत्रण:</strong> बच्चा भावनाओं और व्यवहार पर नियंत्रण नहीं रख पाता। शिक्षक उसे 'विद्रोही या क्लास का बागी' समझने लगते हैं।
+                    </p>
+                `;
+                document.getElementById('timeline-step2-body').innerHTML = `
+                    <p class="text-xs text-rose-400 leading-relaxed border-t border-slate-800 pt-2 font-medium">
+                        <strong>❌ सहपाठियों द्वारा उपेक्षा:</strong> बच्चा क्लास के दोस्तों के साथ तालमेल नहीं बिठा पाता। सामाजिक अलगाव के कारण पढ़ाई में मन नहीं लगता और विफलता हाथ लगती है।
+                    </p>
+                `;
+                document.getElementById('timeline-step3-body').innerHTML = `
+                    <p class="text-xs text-rose-400 leading-relaxed border-t border-slate-800 pt-2 font-medium">
+                        <strong>❌ बहिष्कृत बच्चों का समूह:</strong> मुख्यधारा के बच्चों से बाहर होकर बच्चा अपने जैसे अन्य बहिष्कृत व विद्रोही बच्चों की संगति ढूंढता है। अपराध और नशे का जोखिम $5\times$ बढ़ जाता है।
+                    </p>
+                `;
+                document.getElementById('timeline-step4-body').innerHTML = `
+                    <p class="text-xs text-rose-400 leading-relaxed border-t border-slate-800 pt-2 font-semibold">
+                        <strong>🚨 गंभीर अपराधी:</strong> स्कूल बीच में ही छोड़ना (Dropout), गंभीर कानूनी पचड़ों में फंसना, या अत्यधिक हिंसक व्यवहार का शिकार हो जाना।
+                    </p>
+                `;
+            }
+        }
+
+        // --- 4. Cognitive Scenario Attribution Loops ---
+        const scenarioData = {
+            exam: {
+                title: "गणित की परीक्षा में बहुत कम अंक आना",
+                pessQuote: '"मैं एकदम बेवकूफ हूँ। मैं कभी भी गणित नहीं सीख पाऊंगा। यह हमेशा ऐसा ही रहेगा।"',
+                pessResult: "लाचारी का भयंकर एहसास होना, आगे मेहनत करना पूरी तरह छोड़ देना, अंततः गहरे अवसाद की ओर बढ़ना।",
+                optQuote: '"मुझे इस विशेष परीक्षा में समीकरण समझ नहीं आए। मुझे अगली बार तैयारी का तरीका बदलना होगा और अधिक अभ्यास करना होगा।"',
+                optResult: "परिस्थिति को बदलने की चुनौती के रूप में लेना, बेहतर सुधार का प्रयास करना और खुद को टूटने से बचाना।"
+            },
+            birthday: {
+                title: "सहपाठियों द्वारा जन्मदिन की पार्टी में न बुलाया जाना",
+                pessQuote: '"कोई भी मुझसे बात करना पसंद नहीं करता। मैं एक अजीब लड़का हूँ, भविष्य में भी मेरे कभी कोई दोस्त नहीं बनेंगे।"',
+                pessResult: "सामाजिक मेलजोल से खुद को दूर कर लेना (Withdrawal), खुद में भारी कमियां महसूस करना और गहरे अलगाव में जाना।",
+                optQuote: '"शायद वे केवल अपने बेहद पास रहने वाले पड़ोसियों को ही आमंत्रित कर रहे थे। मैं कल स्कूल में उनसे सामान्य संवाद करूँगा।"',
+                optResult: "अनावश्यक व्यक्तिगत आरोप न लेना, दोस्तों से सामान्य संबंध बने रहना और खुद को अलग-थलग न करना।"
+            },
+            sports: {
+                title: "बास्केटबॉल टीम के ट्रायल में बाहर कर दिया जाना",
+                pessQuote: '"मैं खेल के योग्य ही नहीं हूँ। मैं किसी भी खेल में कभी आगे नहीं बढ़ सकता। मेरी तकदीर ही पूरी तरह ख़राब है।"',
+                pessResult: "सक्रिय खेल गतिविधियों में फिर कभी भाग न लेना, हीनभावना का घर कर जाना और स्वयं को पूरी तरह लाचार मान बैठना।",
+                optQuote: '"इस बार मेरी कूदने और ड्रिब्लिंग की तैयारी कम थी। मैं कोच से फीडबैक लेकर अगले महीने के ट्रायल के लिए विशेष तैयारी करूँगा।"',
+                optResult: "कमियों को विशिष्ट और सुधारने योग्य मानकर उन पर काम करना, अगली बार टीम में चुने जाने की मजबूत संभावना।"
+            }
+        };
+
+        function selectScenario(scenKey) {
+            // style inactive buttons
+            document.querySelectorAll('.scen-btn').forEach(btn => {
+                btn.className = "scen-btn w-full text-left p-3.5 rounded-xl border transition-all text-xs font-medium bg-slate-950 border-slate-800 text-slate-400 hover:bg-slate-800";
+            });
+
+            // style active button
+            document.getElementById('scen-' + scenKey).className = "scen-btn w-full text-left p-3.5 rounded-xl border transition-all text-xs font-medium bg-teal-950/40 border-teal-600 text-teal-300";
+
+            // populate compares
+            const data = scenarioData[scenKey];
+            document.getElementById('selected-trigger-title').innerText = data.title;
+            document.getElementById('pessimistic-quote').innerText = data.pessQuote;
+            document.getElementById('pessimistic-result').innerText = data.pessResult;
+            document.getElementById('optimistic-quote').innerText = data.optQuote;
+            document.getElementById('optimistic-result').innerText = data.optResult;
+        }
+
+        // --- 5. Interactive Assessment Quiz Logic ---
+        const quizQuestions = [
+            {
+                question: "गलियारे या भीड़ में कोई व्यक्ति अचानक आपसे टकरा जाता है। आपके मन में आने वाला पहला तात्कालिक विचार क्या होता है?",
+                options: [
+                    { text: "उसने जानबूझकर ऐसा किया! वह मुझे नीचा दिखाने की कोशिश कर रहा है।", points: 1 },
+                    { text: "शायद उसका ध्यान भटक गया था या वह किसी बात से जल्दी में था। मैं शांति से आगे बढ़ता हूँ।", points: 3 },
+                    { text: "मैं इतना बेकार हूँ कि लोग भी मुझसे बिना सोचे-समझे टकराते चले जाते हैं।", points: 2 }
+                ]
+            },
+            {
+                question: "यदि आप किसी महत्वपूर्ण कार्य में पूरी तरह विफल हो जाते हैं, तो आप उसे अपने मन में किस प्रकार परिभाषित करते हैं?",
+                options: [
+                    { text: "मैं जीवन में किसी काम के लायक नहीं हूँ, मैं हमेशा सब कुछ खराब ही करूँगा।", points: 1 },
+                    { text: "यह विशेष कार्य कठिन था और मेरी तैयारी में कुछ कमियां थीं। मैं इन्हें सुधारूंगा।", points: 3 },
+                    { text: "दूसरों ने जानबूझकर कठिन परिस्थिति बनाई ताकि मैं असफल हो जाऊं।", points: 2 }
+                ]
+            },
+            {
+                question: "जब आपको अचानक बहुत तेज़ गुस्सा या मानसिक तनाव महसूस होता है, तो आप खुद को शांत करने के लिए क्या करते हैं?",
+                options: [
+                    { text: "मैं बहुत अधिक जंक फूड या खाना खाना शुरू कर देता हूँ ताकि ध्यान भटके।", points: 1 },
+                    { text: "चीजों को फेंकता हूँ, दूसरों पर चिल्लाता हूँ या तुरंत बहस में उलझ जाता हूँ।", points: 2 },
+                    { text: "लंबी और गहरी सांस लेता हूँ, खुद से विचार करता हूँ और भावना के पीछे के कारण को डिकोड करता हूँ।", points: 3 }
+                ]
+            },
+            {
+                question: "सामने खड़े किसी मित्र के चेहरे पर भारी चिंता या नाराजगी देखकर आपकी तात्कालिक क्रिया क्या होती है?",
+                options: [
+                    { text: "मुझे कोई फर्क नहीं पड़ता। हर कोई अपने दुख का नाटक कर रहा है।", points: 1 },
+                    { text: "मैं समझता हूँ कि वह तकलीफ में है, मैं शांति से उसके करीब जाकर बातचीत की कोशिश करता हूँ।", points: 3 },
+                    { text: "मुझे तुरंत डर लगता है कि कहीं वह मुझसे नाराज तो नहीं है, और मैं खुद को उससे दूर कर लेता हूँ।", points: 2 }
+                ]
+            }
+        ];
+
+        let currentQuestionIdx = 0;
+        let cumulativeScore = 0;
+
+        function renderQuizQuestion() {
+            const container = document.getElementById('quiz-container');
+            if (currentQuestionIdx < quizQuestions.length) {
+                const q = quizQuestions[currentQuestionIdx];
+                let optionsHtml = '';
+                q.options.forEach((opt, idx) => {
+                    optionsHtml += `
+                        <button onclick="handleQuizAnswer(${opt.points})" class="w-full text-left p-4 rounded-xl border border-slate-800 bg-slate-950 text-slate-300 text-xs sm:text-sm hover:border-teal-800 hover:bg-slate-900 hover:text-teal-400 transition-all active:scale-[0.99]">
+                            ${opt.text}
+                        </button>
+                    `;
+                });
+
+                container.innerHTML = `
+                    <div class="space-y-4 animate-fadeIn">
+                        <div class="flex justify-between items-center text-xs text-slate-500">
+                            <span>प्रश्न ${currentQuestionIdx + 1} / ${quizQuestions.length}</span>
+                            <div class="w-24 bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-teal-500 h-full transition-all" style="width: ${((currentQuestionIdx + 1) / quizQuestions.length) * 100}%"></div>
+                            </div>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-slate-200 leading-relaxed">
+                            ${q.question}
+                        </h3>
+                        <div class="space-y-2 pt-2">
+                            ${optionsHtml}
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Render Result
+                let resultMessage = '';
+                let resultClass = '';
+                if (cumulativeScore >= 10) {
+                    resultClass = "text-emerald-400";
+                    resultMessage = "🏆 <strong>शानदार भावनात्मक साक्षरता:</strong> आप अपने आवेगों को अच्छे से पहचानते हैं, दूसरों के दृष्टिकोण को समझते हैं और लाचारी के बजाय हमेशा रचनात्मक आशावादी दृष्टिकोण अपनाते हैं। आप एक लचीले (Resilient) युवा का आदर्श उदाहरण हैं।";
+                } else if (cumulativeScore >= 7) {
+                    resultClass = "text-amber-400";
+                    resultMessage = "⚠️ <strong>मध्यम स्तर (सुधार की आवश्यकता):</strong> आप कभी-कभी विपरीत परिस्थितियों में आवेगी निर्णय ले लेते हैं या नकारात्मक व्याख्या चक्र में फंस जाते हैं। आवेग नियंत्रण और संज्ञानात्मक पुनर्गठन का निरंतर अभ्यास आपको श्रेष्ठ बनाएगा।";
+                } else {
+                    resultClass = "text-rose-400";
+                    resultMessage = "🚨 <strong>कमजोर भावनात्मक सुरक्षा चक्र:</strong> आप अक्सर तटस्थ क्रियाओं को शत्रुतापूर्ण समझने लगते हैं या भावनाओं के उलझाव में फंस जाते हैं। आपको आत्म-जागरूकता और गैर-मौखिक सामाजिक संकेतों को पढ़ने पर विशेष ध्यान देना चाहिए।";
+                }
+
+                container.innerHTML = `
+                    <div class="text-center space-y-6 py-4 animate-fadeIn">
+                        <div class="inline-flex bg-teal-950/40 p-4 rounded-full border border-teal-800 mb-2">
+                            <svg class="w-8 h-8 text-teal-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-100">स्व-मूल्यांकन पूर्ण हुआ!</h3>
+                        <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl max-w-md mx-auto space-y-2">
+                            <span class="text-[10px] uppercase font-bold text-slate-500 block">कुल प्राप्तांक स्तर</span>
+                            <div class="text-3xl font-extrabold text-teal-400">${cumulativeScore} / ${quizQuestions.length * 3}</div>
+                            <p class="text-xs ${resultClass} leading-relaxed pt-3 border-t border-slate-850 mt-2">
+                                ${resultMessage}
+                            </p>
+                        </div>
+                        <button onclick="resetQuiz()" class="px-5 py-2.5 bg-teal-600 hover:bg-teal-500 transition-all font-bold text-xs rounded-xl text-white">
+                            🔄 दोबारा जांचें
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        function handleQuizAnswer(points) {
+            cumulativeScore += points;
+            currentQuestionIdx++;
+            renderQuizQuestion();
+        }
+
+        function resetQuiz() {
+            currentQuestionIdx = 0;
+            cumulativeScore = 0;
+            renderQuizQuestion();
+        }
+
+        // --- Init Function ---
+        window.onload = function() {
+            renderQuizQuestion();
+        };
+    </script>
+</body>
+</html>
+
