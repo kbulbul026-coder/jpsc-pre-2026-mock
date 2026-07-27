@@ -1,88 +1,55 @@
-
 <!DOCTYPE html>
 <html lang="hi" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RTO मास्टर गाइड - यातायात नियम, सड़क संकेत व ड्राइविंग लाइसेंस की संपूर्ण अध्ययन सामग्री">
+    <meta name="theme-color" content="#1e293b">
     <title>यातायात नियम एवं संकेत - RTO मास्टर अध्ययन गाइड</title>
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom Styles -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Noto Sans Devanagari', 'Hind', sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
-        }
-
-        .sign-card {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .sign-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Flashcard Flip Effect */
-        .perspective-1000 {
-            perspective: 1000px;
-        }
-        .transform-style-3d {
-            transform-style: preserve-3d;
-        }
-        .backface-hidden {
-            backface-visibility: hidden;
-        }
-        .rotate-y-180 {
-            transform: rotateY(180deg);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #94a3b8;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #64748b;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" defer>
+    
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-50 min-h-screen flex flex-col">
+<body class="bg-slate-50 min-h-screen flex flex-col" role="document">
 
     <!-- TOP HEADER / NAVIGATION BAR -->
-    <header class="sticky top-0 z-40 bg-slate-900 text-white shadow-md border-b border-slate-800">
+    <header class="sticky top-0 z-40 bg-slate-900 text-white shadow-md border-b border-slate-800" role="banner">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none">
+                <button 
+                    id="mobile-menu-btn" 
+                    class="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    aria-label="साइडबार खोलें"
+                    aria-expanded="false"
+                    aria-controls="sidebar">
                     <i class="fa-solid fa-bars text-xl"></i>
                 </button>
                 <div class="flex items-center space-x-2">
-                    <span class="bg-amber-500 text-slate-900 font-bold p-2 rounded-lg text-lg flex items-center justify-center w-10 h-10">
+                    <span class="bg-amber-500 text-slate-900 font-bold p-2 rounded-lg text-lg flex items-center justify-center w-10 h-10" aria-hidden="true">
                         <i class="fa-solid fa-traffic-light"></i>
                     </span>
                     <div>
                         <h1 class="text-lg font-bold leading-tight text-amber-400 sm:text-xl">RTO मास्टर गाइड</h1>
-                        <p class="text-xs text-slate-400 hidden sm:block">यातायात नियम, सड़क संकेत व ड्राइविंग लाइसेंस परीक्षा तैयारी</p>
+                        <p class="text-xs text-slate-400 hidden sm:block">यातायात नियम, सड़क संकेत व ड्राइविंग लाइसेंस</p>
                     </div>
                 </div>
             </div>
 
             <!-- SEARCH BAR -->
             <div class="relative w-48 sm:w-72">
-                <input type="text" id="global-search" placeholder="संकेत या नियम खोजें..." 
-                    class="w-full bg-slate-800 text-sm text-slate-100 placeholder-slate-400 rounded-full pl-9 pr-4 py-1.5 focus:outline-none focus:ring-2 focus:ring-amber-500 border border-slate-700">
-                <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-xs"></i>
+                <input 
+                    type="search" 
+                    id="global-search" 
+                    placeholder="संकेत या नियम खोजें... (Ctrl+K)" 
+                    class="w-full bg-slate-800 text-sm text-slate-100 placeholder-slate-400 rounded-full pl-9 pr-4 py-1.5 focus:outline-none focus:ring-2 focus:ring-amber-500 border border-slate-700"
+                    aria-label="संकेत और नियम खोजें">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-xs" aria-hidden="true"></i>
             </div>
         </div>
     </header>
@@ -91,23 +58,49 @@
     <div class="flex-1 max-w-7xl w-full mx-auto flex flex-col md:flex-row">
 
         <!-- SIDEBAR INDEX NAVIGATION -->
-        <aside id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 z-30 w-72 bg-slate-900 text-slate-300 p-5 overflow-y-auto transition-transform duration-300 ease-in-out border-r border-slate-800 shrink-0">
+        <aside 
+            id="sidebar" 
+            class="fixed inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 z-30 w-72 bg-slate-900 text-slate-300 p-5 overflow-y-auto transition-transform duration-300"
+            role="navigation"
+            aria-label="विषय सूची">
+            
             <div class="flex justify-between items-center md:hidden mb-4 pb-2 border-b border-slate-800">
                 <span class="font-semibold text-white">विषय सूची (Index)</span>
-                <button id="close-sidebar-btn" class="text-slate-400 hover:text-white">
+                <button 
+                    id="close-sidebar-btn" 
+                    class="text-slate-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-500 rounded"
+                    aria-label="साइडबार बंद करें">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
 
             <!-- TAB SWITCHERS -->
-            <div class="mb-6 bg-slate-800 p-1 rounded-xl flex">
-                <button onclick="switchTab('study')" id="tab-btn-study" class="flex-1 py-1.5 text-xs font-semibold rounded-lg bg-amber-500 text-slate-900 shadow transition-all">
+            <div class="mb-6 bg-slate-800 p-1 rounded-xl flex" role="tablist">
+                <button 
+                    onclick="switchTab('study')" 
+                    id="tab-btn-study" 
+                    class="flex-1 py-1.5 text-xs font-semibold rounded-lg bg-amber-500 text-slate-900 shadow transition-all"
+                    role="tab"
+                    aria-selected="true"
+                    aria-controls="tab-content-study">
                     <i class="fa-solid fa-book-open mr-1"></i> अध्ययन
                 </button>
-                <button onclick="switchTab('quiz')" id="tab-btn-quiz" class="flex-1 py-1.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all">
+                <button 
+                    onclick="switchTab('quiz')" 
+                    id="tab-btn-quiz" 
+                    class="flex-1 py-1.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="tab-content-quiz">
                     <i class="fa-solid fa-circle-question mr-1"></i> मॉक टेस्ट
                 </button>
-                <button onclick="switchTab('flashcards')" id="tab-btn-flashcards" class="flex-1 py-1.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all">
+                <button 
+                    onclick="switchTab('flashcards')" 
+                    id="tab-btn-flashcards" 
+                    class="flex-1 py-1.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="tab-content-flashcards">
                     <i class="fa-solid fa-clone mr-1"></i> कार्ड्स
                 </button>
             </div>
@@ -115,53 +108,53 @@
             <nav class="space-y-1 text-sm font-medium" id="sidebar-nav">
                 <p class="text-xs uppercase font-bold text-slate-500 px-3 pt-2 pb-1">अध्यायों की सूची</p>
                 <a href="#section1" class="sidebar-link flex items-center px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400 transition-colors">
-                    <i class="fa-solid fa-ban w-6 text-red-400"></i>
+                    <i class="fa-solid fa-ban w-6 text-red-400" aria-hidden="true"></i>
                     <span>1. अनिवार्य संकेत (Mandatory)</span>
                 </a>
                 <a href="#section2" class="sidebar-link flex items-center px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400 transition-colors">
-                    <i class="fa-solid fa-triangle-exclamation w-6 text-amber-400"></i>
+                    <i class="fa-solid fa-triangle-exclamation w-6 text-amber-400" aria-hidden="true"></i>
                     <span>2. चेतावनी संकेत (Cautionary)</span>
                 </a>
                 <a href="#section3" class="sidebar-link flex items-center px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400 transition-colors">
-                    <i class="fa-solid fa-circle-info w-6 text-blue-400"></i>
+                    <i class="fa-solid fa-circle-info w-6 text-blue-400" aria-hidden="true"></i>
                     <span>3. सूचनात्मक संकेत (Informative)</span>
                 </a>
                 <a href="#section4" class="sidebar-link flex items-center px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400 transition-colors">
-                    <i class="fa-solid fa-road w-6 text-emerald-400"></i>
+                    <i class="fa-solid fa-road w-6 text-emerald-400" aria-hidden="true"></i>
                     <span>4. सड़क के निशान व लाइट्स</span>
                 </a>
                 <a href="#section5" class="sidebar-link flex items-center px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400 transition-colors">
-                    <i class="fa-solid fa-hand-paper w-6 text-purple-400"></i>
+                    <i class="fa-solid fa-hand-paper w-6 text-purple-400" aria-hidden="true"></i>
                     <span>5. हाथ के इशारे (Hand Signals)</span>
                 </a>
                 <a href="#section6" class="sidebar-link flex items-center px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400 transition-colors">
-                    <i class="fa-solid fa-gauge-high w-6 text-cyan-400"></i>
+                    <i class="fa-solid fa-gauge-high w-6 text-cyan-400" aria-hidden="true"></i>
                     <span>6. गति सीमा व ओवरटेकिंग</span>
                 </a>
                 <a href="#section7" class="sidebar-link flex items-center px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400 transition-colors">
-                    <i class="fa-solid fa-scale-balanced w-6 text-rose-400"></i>
+                    <i class="fa-solid fa-scale-balanced w-6 text-rose-400" aria-hidden="true"></i>
                     <span>7. नए नियम, धाराएँ व जुर्माना</span>
                 </a>
             </nav>
 
             <div class="mt-8 p-4 bg-slate-800/80 rounded-xl border border-slate-700/60 text-xs text-slate-400">
                 <div class="flex items-center space-x-2 text-amber-400 font-semibold mb-1">
-                    <i class="fa-solid fa-lightbulb text-sm"></i>
+                    <i class="fa-solid fa-lightbulb text-sm" aria-hidden="true"></i>
                     <span>RTO परीक्षा टिप</span>
                 </div>
-                RTO टेस्ट उत्तीर्ण करने के लिए कम से कम 60% अंक आवश्यक होते हैं। सभी संकेतों और उनकी आकृतियों (Shapes) को ध्यान से समझें।
+                RTO टेस्ट उत्तीर्ण करने के लिए कम से कम 60% अंक आवश्यक होते हैं। सभी संकेतों को ध्यान से सीखें।
             </div>
         </aside>
 
         <!-- MAIN CONTENT AREA -->
-        <main class="flex-1 p-4 sm:p-6 lg:p-8 overflow-x-hidden">
+        <main class="flex-1 p-4 sm:p-6 lg:p-8 overflow-x-hidden" role="main">
 
             <!-- TAB 1: STUDY GUIDE (CONTENT) -->
-            <div id="tab-content-study" class="space-y-8">
+            <div id="tab-content-study" role="tabpanel" aria-labelledby="tab-btn-study" class="space-y-8">
 
                 <!-- HERO BANNER -->
                 <div class="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 rounded-2xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden border border-slate-800">
-                    <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl text-white">
+                    <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl text-white" aria-hidden="true">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
                     <div class="relative z-10 max-w-2xl">
@@ -170,7 +163,7 @@
                         </span>
                         <h2 class="text-2xl sm:text-3xl font-bold mb-2 text-white">ड्राइविंग लाइसेंस परीक्षा हेतु संपूर्ण स्टडी गाइड</h2>
                         <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                            सड़क सुरक्षा, ट्रैफिक सिग्नल्स, ड्राइविंग शिष्टाचार और मोटर वाहन संशोधन अधिनियम (MV Act) के सभी महत्वपूर्ण नियमों का सचित्र विवरण।
+                            सड़क सुरक्षा, ट्रैफिक सिग्नल्स, ड्राइविंग शिष्टाचार और मोटर वाहन अधिनियम की विस्तृत जानकारी।
                         </p>
                     </div>
                 </div>
@@ -179,21 +172,21 @@
                 <section id="section1" class="scroll-mt-20">
                     <div class="flex items-center justify-between border-b-2 border-red-500 pb-3 mb-6">
                         <div class="flex items-center space-x-3">
-                            <span class="bg-red-100 text-red-600 p-2.5 rounded-xl font-bold text-lg">
+                            <span class="bg-red-100 text-red-600 p-2.5 rounded-xl font-bold text-lg" aria-hidden="true">
                                 <i class="fa-solid fa-ban"></i>
                             </span>
                             <div>
                                 <h3 class="text-xl font-bold text-slate-900">1. अनिवार्य / नियामक संकेत (Mandatory / Regulatory Signs)</h3>
-                                <p class="text-xs text-slate-500">इन संकेतों का पालन करना कानूनन अनिवार्य है। उल्लंघन करने पर चालान या सजा का प्रावधान है।</p>
+                                <p class="text-xs text-slate-500">इन संकेतों का पालन करना कानूनन अनिवार्य है। उल्लंघन पर जुर्माना लगाया जाता है।</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-xl mb-6 text-xs sm:text-sm text-red-900 flex items-start space-x-3">
-                        <i class="fa-solid fa-triangle-exclamation text-red-600 text-lg mt-0.5"></i>
+                        <i class="fa-solid fa-triangle-exclamation text-red-600 text-lg mt-0.5" aria-hidden="true"></i>
                         <div>
-                            <strong>विशेष पहचान:</strong> ये संकेत मुख्य रूप से <strong>वृत्ताकार (Circular)</strong> आकार में लाल बॉर्डर के साथ होते हैं।<br>
-                            <span class="text-red-700 font-medium">अपवाद:</span> <strong>STOP</strong> (अष्टकोण / Octagon) और <strong>GIVE WAY</strong> (उल्टा त्रिभुज / Inverted Triangle)।
+                            <strong>विशेष पहचान:</strong> ये संकेत मुख्य रूप से <strong>वृत्ताकार (Circular)</strong> आकार में होते हैं।
+                            <span class="text-red-700 font-medium">अपवाद:</span> <strong>STOP</strong> (अष्टकोण / Octagon) और <strong>GIVE WAY</strong> (उल्टा त्रिभुज)
                         </div>
                     </div>
 
@@ -203,7 +196,7 @@
                         <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
                             <div class="flex items-center space-x-4 mb-3">
                                 <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
+                                    <svg width="56" height="56" viewBox="0 0 100 100" aria-label="STOP संकेत">
                                         <polygon points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30" fill="#dc2626" />
                                         <text x="50" y="62" font-size="22" fill="white" font-weight="bold" text-anchor="middle" font-family="sans-serif">STOP</text>
                                     </svg>
@@ -213,14 +206,14 @@
                                     <span class="text-xs text-red-600 font-semibold bg-red-50 px-2 py-0.5 rounded">आकृति: अष्टकोण</span>
                                 </div>
                             </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">वाहनों को स्टॉप लाइन से पहले पूरी तरह रोकें। सड़क सुरक्षित होने पर ही आगे बढ़ें।</p>
+                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">वाहनों को स्टॉप लाइन से पहले पूरी तरह रोकना अनिवार्य है।</p>
                         </div>
 
                         <!-- GIVE WAY -->
                         <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
                             <div class="flex items-center space-x-4 mb-3">
                                 <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
+                                    <svg width="56" height="56" viewBox="0 0 100 100" aria-label="GIVE WAY संकेत">
                                         <polygon points="10,12 90,12 50,88" stroke="#dc2626" stroke-width="12" fill="white" />
                                     </svg>
                                 </div>
@@ -229,14 +222,14 @@
                                     <span class="text-xs text-red-600 font-semibold bg-red-50 px-2 py-0.5 rounded">आकृति: उल्टा त्रिभुज</span>
                                 </div>
                             </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">मुख्य मार्ग या दाहिनी ओर से आ रहे यातायात को प्राथमिकता दें।</p>
+                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">मुख्य मार्ग या दाहिनी ओर से आ रहे यातायात को रास्ता देना चाहिए।</p>
                         </div>
 
                         <!-- NO ENTRY -->
                         <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
                             <div class="flex items-center space-x-4 mb-3">
                                 <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
+                                    <svg width="56" height="56" viewBox="0 0 100 100" aria-label="No Entry संकेत">
                                         <circle cx="50" cy="50" r="42" stroke="#dc2626" stroke-width="10" fill="white" />
                                         <line x1="20" y1="80" x2="80" y2="20" stroke="#dc2626" stroke-width="10" />
                                     </svg>
@@ -246,14 +239,14 @@
                                     <span class="text-xs text-slate-500 font-medium">No Entry</span>
                                 </div>
                             </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">इस मार्ग पर किसी भी प्रकार के वाहन का जाना मना है।</p>
+                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">इस मार्ग पर किसी भी प्रकार के वाहन का जाना प्रतिबंधित है।</p>
                         </div>
 
                         <!-- NO OVERTAKING -->
                         <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
                             <div class="flex items-center space-x-4 mb-3">
                                 <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
+                                    <svg width="56" height="56" viewBox="0 0 100 100" aria-label="No Overtaking संकेत">
                                         <circle cx="50" cy="50" r="42" stroke="#dc2626" stroke-width="10" fill="white" />
                                         <path d="M 35,70 L 35,30 M 35,30 L 25,40" stroke="#dc2626" stroke-width="6" fill="none"/>
                                         <path d="M 65,70 L 65,30 M 65,30 L 55,40" stroke="black" stroke-width="6" fill="none"/>
@@ -265,14 +258,14 @@
                                     <span class="text-xs text-slate-500 font-medium">No Overtaking</span>
                                 </div>
                             </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">आगे चल रहे वाहन को किसी भी दिशा से ओवरटेक न करें।</p>
+                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">आगे चल रहे वाहन को किसी भी दिशा से ओवरटेक नहीं कर सकते।</p>
                         </div>
 
                         <!-- HORN PROHIBITED -->
                         <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
                             <div class="flex items-center space-x-4 mb-3">
                                 <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
+                                    <svg width="56" height="56" viewBox="0 0 100 100" aria-label="Horn Prohibited संकेत">
                                         <circle cx="50" cy="50" r="42" stroke="#dc2626" stroke-width="10" fill="white" />
                                         <path d="M 25,55 L 40,55 L 55,70 L 55,30 L 40,45 L 25,45 Z" fill="black" />
                                         <line x1="20" y1="80" x2="80" y2="20" stroke="#dc2626" stroke-width="10" />
@@ -283,14 +276,14 @@
                                     <span class="text-xs text-slate-500 font-medium">Silence Zone</span>
                                 </div>
                             </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">अस्पताल, न्यायालय या साइलेंस ज़ोन में हॉर्न बजाना प्रतिबंधित है।</p>
+                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">अस्पताल, न्यायालय या साइलेंस ज़ोन में हॉर्न बजाना मना है।</p>
                         </div>
 
                         <!-- NO PARKING -->
                         <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
                             <div class="flex items-center space-x-4 mb-3">
                                 <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
+                                    <svg width="56" height="56" viewBox="0 0 100 100" aria-label="No Parking संकेत">
                                         <circle cx="50" cy="50" r="42" stroke="#dc2626" stroke-width="10" fill="#2563eb" />
                                         <line x1="20" y1="80" x2="80" y2="20" stroke="#dc2626" stroke-width="10" />
                                     </svg>
@@ -300,14 +293,14 @@
                                     <span class="text-xs text-slate-500 font-medium">No Parking</span>
                                 </div>
                             </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">वाहन खड़ा करना मना है। (केवल सवारी उतारने/चढ़ाने की अनुमति)</p>
+                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">वाहन खड़ा करना मना है। (केवल सवारी उतारने के लिए)।</p>
                         </div>
 
                         <!-- NO STOPPING / STANDING -->
                         <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
                             <div class="flex items-center space-x-4 mb-3">
                                 <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
+                                    <svg width="56" height="56" viewBox="0 0 100 100" aria-label="No Stopping संकेत">
                                         <circle cx="50" cy="50" r="42" stroke="#dc2626" stroke-width="10" fill="#2563eb" />
                                         <line x1="20" y1="80" x2="80" y2="20" stroke="#dc2626" stroke-width="10" />
                                         <line x1="20" y1="20" x2="80" y2="80" stroke="#dc2626" stroke-width="10" />
@@ -318,14 +311,14 @@
                                     <span class="text-xs text-slate-500 font-medium">Clearway Zone</span>
                                 </div>
                             </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">यहाँ थोड़ी देर के लिए भी गाड़ी रोकना पूरी तरह से मना है।</p>
+                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">यहाँ थोड़ी देर के लिए भी गाड़ी रोकना पूरी तरह मना है।</p>
                         </div>
 
                         <!-- SPEED LIMIT 50 -->
                         <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
                             <div class="flex items-center space-x-4 mb-3">
                                 <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
+                                    <svg width="56" height="56" viewBox="0 0 100 100" aria-label="Speed Limit 50">
                                         <circle cx="50" cy="50" r="42" stroke="#dc2626" stroke-width="10" fill="white" />
                                         <text x="50" y="62" font-size="34" fill="black" font-weight="bold" text-anchor="middle" font-family="sans-serif">50</text>
                                     </svg>
@@ -338,11 +331,11 @@
                             <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">वाहनों की अधिकतम चाल 50 किमी/घंटा से अधिक नहीं होनी चाहिए।</p>
                         </div>
 
-                        <!-- COMPULSORY AHEAD OR TURN RIGHT -->
+                        <!-- COMPULSORY AHEAD -->
                         <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
                             <div class="flex items-center space-x-4 mb-3">
                                 <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
+                                    <svg width="56" height="56" viewBox="0 0 100 100" aria-label="Compulsory Ahead">
                                         <circle cx="50" cy="50" r="45" fill="#2563eb" />
                                         <path d="M 50,75 L 50,30 M 50,30 L 35,45 M 50,30 L 65,45" stroke="white" stroke-width="8" stroke-linecap="round" fill="none" />
                                     </svg>
@@ -352,361 +345,9 @@
                                     <span class="text-xs text-blue-600 font-semibold bg-blue-50 px-2 py-0.5 rounded">अनिवार्य निर्देश</span>
                                 </div>
                             </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">नीले घेरे में दिए गए तीर की दिशा में ही वाहन ले जाना अनिवार्य है।</p>
+                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">नीले घेरे में दिए गए तीर की दिशा में ही वाहन चलाना है।</p>
                         </div>
 
-                    </div>
-                </section>
-
-                <!-- SECTION 2: CAUTIONARY SIGNS -->
-                <section id="section2" class="scroll-mt-20">
-                    <div class="flex items-center justify-between border-b-2 border-amber-500 pb-3 mb-6">
-                        <div class="flex items-center space-x-3">
-                            <span class="bg-amber-100 text-amber-600 p-2.5 rounded-xl font-bold text-lg">
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                            </span>
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-900">2. चेतावनी संकेत (Cautionary / Warning Signs)</h3>
-                                <p class="text-xs text-slate-500">ये संकेत आगे आने वाले संभावित खतरों और सड़क की स्थिति के बारे में सचेत करते हैं।</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl mb-6 text-xs sm:text-sm text-amber-900 flex items-start space-x-3">
-                        <i class="fa-solid fa-circle-info text-amber-600 text-lg mt-0.5"></i>
-                        <div>
-                            <strong>विशेष पहचान:</strong> ये संकेत हमेशा <strong>त्रिभुज (Equilateral Triangle)</strong> आकार में लाल बॉर्डर और सफेद बैकग्राउंड के साथ बने होते हैं।
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="cautionary-signs-grid">
-                        
-                        <!-- RIGHT HAND CURVE -->
-                        <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
-                            <div class="flex items-center space-x-4 mb-3">
-                                <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
-                                        <polygon points="50,8 92,85 8,85" stroke="#dc2626" stroke-width="9" fill="white" stroke-linejoin="round"/>
-                                        <path d="M 40,70 L 40,55 C 40,40 60,40 60,30" stroke="black" stroke-width="7" fill="none"/>
-                                        <polygon points="60,22 48,35 68,35" fill="black" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-sm">दाहिना मोड़ (Right Curve)</h4>
-                                    <span class="text-xs text-slate-500 font-medium">Right Curve</span>
-                                </div>
-                            </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">आगे सड़क दाहिनी ओर मुड़ रही है। वाहन की गति कम करें।</p>
-                        </div>
-
-                        <!-- RIGHT HAIRPIN BEND -->
-                        <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
-                            <div class="flex items-center space-x-4 mb-3">
-                                <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
-                                        <polygon points="50,8 92,85 8,85" stroke="#dc2626" stroke-width="9" fill="white" stroke-linejoin="round"/>
-                                        <path d="M 35,70 L 35,45 C 35,28 65,28 65,45 L 65,65" stroke="black" stroke-width="7" fill="none"/>
-                                        <polygon points="65,75 55,60 75,60" fill="black" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-sm">तीखा यू-मोड़ (Hairpin Bend)</h4>
-                                    <span class="text-xs text-slate-500 font-medium">Hairpin Bend</span>
-                                </div>
-                            </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">आगे दाहिनी ओर बहुत तीखा यू-आकार का मोड़ है। निचले गियर का प्रयोग करें।</p>
-                        </div>
-
-                        <!-- NARROW BRIDGE -->
-                        <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
-                            <div class="flex items-center space-x-4 mb-3">
-                                <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
-                                        <polygon points="50,8 92,85 8,85" stroke="#dc2626" stroke-width="9" fill="white" stroke-linejoin="round"/>
-                                        <path d="M 30,72 L 42,50 L 42,32 M 70,72 L 58,50 L 58,32" stroke="black" stroke-width="6" fill="none"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-sm">संकरा पुल (Narrow Bridge)</h4>
-                                    <span class="text-xs text-slate-500 font-medium">Narrow Bridge Ahead</span>
-                                </div>
-                            </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">आगे पुल की चौड़ाई सड़क से कम है। ओवरटेक न करें।</p>
-                        </div>
-
-                        <!-- PEDESTRIAN CROSSING -->
-                        <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
-                            <div class="flex items-center space-x-4 mb-3">
-                                <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
-                                        <polygon points="50,8 92,85 8,85" stroke="#dc2626" stroke-width="9" fill="white" stroke-linejoin="round"/>
-                                        <circle cx="50" cy="38" r="5" fill="black"/>
-                                        <path d="M 50,43 L 50,60 M 42,50 L 58,50 M 50,60 L 40,75 M 50,60 L 60,75" stroke="black" stroke-width="5"/>
-                                        <line x1="25" y1="78" x2="75" y2="78" stroke="black" stroke-width="4" stroke-dasharray="6 4"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-sm">पैदल यात्री क्रॉसिंग</h4>
-                                    <span class="text-xs text-slate-500 font-medium">Pedestrian Crossing</span>
-                                </div>
-                            </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">आगे ज़ेब्रा क्रॉसिंग है। पैदल यात्रियों को प्राथमिकता देने हेतु गति धीमी करें।</p>
-                        </div>
-
-                        <!-- SCHOOL AHEAD -->
-                        <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
-                            <div class="flex items-center space-x-4 mb-3">
-                                <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
-                                        <polygon points="50,8 92,85 8,85" stroke="#dc2626" stroke-width="9" fill="white" stroke-linejoin="round"/>
-                                        <circle cx="45" cy="36" r="4" fill="black"/>
-                                        <path d="M 45,40 L 45,55 M 38,46 L 52,46 M 45,55 L 38,68 M 45,55 L 52,68" stroke="black" stroke-width="4"/>
-                                        <rect x="52" y="45" width="8" height="12" fill="black"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-sm">स्कूल आगे है (School Ahead)</h4>
-                                    <span class="text-xs text-slate-500 font-medium">School Zone</span>
-                                </div>
-                            </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">आगे विद्यालय है। बच्चे सड़क पार कर सकते हैं, अतः सतर्क रहकर धीरे चलाएं।</p>
-                        </div>
-
-                        <!-- GUARDED RAILWAY CROSSING -->
-                        <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
-                            <div class="flex items-center space-x-4 mb-3">
-                                <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
-                                        <polygon points="50,8 92,85 8,85" stroke="#dc2626" stroke-width="9" fill="white" stroke-linejoin="round"/>
-                                        <line x1="28" y1="48" x2="72" y2="48" stroke="black" stroke-width="5"/>
-                                        <line x1="28" y1="65" x2="72" y2="65" stroke="black" stroke-width="5"/>
-                                        <line x1="38" y1="38" x2="38" y2="75" stroke="black" stroke-width="3"/>
-                                        <line x1="62" y1="38" x2="62" y2="75" stroke="black" stroke-width="3"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-sm">संरक्षित रेलवे क्रॉसिंग</h4>
-                                    <span class="text-xs text-slate-500 font-medium">Guarded Level Crossing</span>
-                                </div>
-                            </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">आगे बैरियर/गेट वाला रेलवे क्रॉसिंग है। सिग्नल व गेट बंद होने पर रुकें।</p>
-                        </div>
-
-                    </div>
-                </section>
-
-                <!-- SECTION 3: INFORMATIVE SIGNS -->
-                <section id="section3" class="scroll-mt-20">
-                    <div class="flex items-center justify-between border-b-2 border-blue-500 pb-3 mb-6">
-                        <div class="flex items-center space-x-3">
-                            <span class="bg-blue-100 text-blue-600 p-2.5 rounded-xl font-bold text-lg">
-                                <i class="fa-solid fa-circle-info"></i>
-                            </span>
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-900">3. सूचनात्मक संकेत (Informative Signs)</h3>
-                                <p class="text-xs text-slate-500">दिशा, मार्ग, दूरी एवं आसपास उपलब्ध जनसुविधाओं की जानकारी देने वाले बोर्ड।</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        
-                        <!-- HOSPITAL -->
-                        <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
-                            <div class="flex items-center space-x-4 mb-3">
-                                <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
-                                        <rect x="8" y="8" width="84" height="84" fill="#2563eb" rx="10"/>
-                                        <text x="50" y="68" font-size="52" fill="white" font-weight="bold" text-anchor="middle" font-family="sans-serif">H</text>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-sm">अस्पताल (Hospital)</h4>
-                                    <span class="text-xs text-blue-600 font-semibold bg-blue-50 px-2 py-0.5 rounded">आयताकार बोर्ड</span>
-                                </div>
-                            </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">निकट में अस्पताल उपलब्ध है। बेवजह हॉर्न न बजाएं।</p>
-                        </div>
-
-                        <!-- FIRST AID POST -->
-                        <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
-                            <div class="flex items-center space-x-4 mb-3">
-                                <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
-                                        <rect x="8" y="8" width="84" height="84" fill="#2563eb" rx="10"/>
-                                        <rect x="18" y="18" width="64" height="64" fill="white" rx="6"/>
-                                        <rect x="42" y="28" width="16" height="44" fill="#dc2626"/>
-                                        <rect x="28" y="42" width="44" height="16" fill="#dc2626"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-sm">प्राथमिक चिकित्सा केंद्र</h4>
-                                    <span class="text-xs text-slate-500 font-medium">First Aid Post</span>
-                                </div>
-                            </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">आपातकालीन स्थिति में प्राथमिक उपचार की सुविधा उपलब्ध है।</p>
-                        </div>
-
-                        <!-- PETROL PUMP -->
-                        <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
-                            <div class="flex items-center space-x-4 mb-3">
-                                <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
-                                        <rect x="8" y="8" width="84" height="84" fill="#2563eb" rx="10"/>
-                                        <path d="M 30,30 L 52,30 L 52,70 L 30,70 Z M 52,40 L 68,40 L 68,55 C 68,62 60,62 60,55" stroke="white" stroke-width="6" fill="none"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-sm">पेट्रोल पंप (Fuel Station)</h4>
-                                    <span class="text-xs text-slate-500 font-medium">Petrol Pump</span>
-                                </div>
-                            </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">आगे ईंधन/पेट्रोल पंप उपलब्ध है।</p>
-                        </div>
-
-                        <!-- PARKING -->
-                        <div class="sign-card bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between shadow-sm">
-                            <div class="flex items-center space-x-4 mb-3">
-                                <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                                    <svg width="56" height="56" viewBox="0 0 100 100">
-                                        <rect x="8" y="8" width="84" height="84" fill="#2563eb" rx="10"/>
-                                        <text x="50" y="68" font-size="52" fill="white" font-weight="bold" text-anchor="middle" font-family="sans-serif">P</text>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-sm">पार्किंग स्थल (Parking)</h4>
-                                    <span class="text-xs text-slate-500 font-medium">Parking Zone</span>
-                                </div>
-                            </div>
-                            <p class="text-xs text-slate-600 border-t border-slate-100 pt-2">यहाँ वाहन पार्क करने के लिए अधिकृत जगह उपलब्ध है।</p>
-                        </div>
-
-                    </div>
-                </section>
-
-                <!-- SECTION 4: ROAD MARKINGS & TRAFFIC LIGHTS -->
-                <section id="section4" class="scroll-mt-20">
-                    <div class="flex items-center justify-between border-b-2 border-emerald-500 pb-3 mb-6">
-                        <div class="flex items-center space-x-3">
-                            <span class="bg-emerald-100 text-emerald-600 p-2.5 rounded-xl font-bold text-lg">
-                                <i class="fa-solid fa-road"></i>
-                            </span>
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-900">4. सड़क के निशान व ट्रैफिक लाइट्स (Road Markings & Signals)</h3>
-                                <p class="text-xs text-slate-500">सड़क पर बनी पट्टियाँ और चौराहे की लाइटों का अर्थ</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        
-                        <!-- TRAFFIC LIGHTS EXPLANATION -->
-                        <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
-                            <h4 class="font-bold text-slate-900 mb-4 flex items-center space-x-2">
-                                <i class="fa-solid fa-traffic-light text-amber-500"></i>
-                                <span>ट्रैफिक सिग्नल लाइट के नियम</span>
-                            </h4>
-                            <div class="space-y-3 text-xs sm:text-sm">
-                                <div class="flex items-start space-x-3 bg-red-50 p-2.5 rounded-lg border border-red-100">
-                                    <span class="w-4 h-4 rounded-full bg-red-600 inline-block shrink-0 mt-0.5"></span>
-                                    <div>
-                                        <strong class="text-red-700">लाल लाइट (Red Light):</strong> वाहन को स्टॉप लाइन से पहले पूरी तरह रोकें।
-                                    </div>
-                                </div>
-                                <div class="flex items-start space-x-3 bg-amber-50 p-2.5 rounded-lg border border-amber-100">
-                                    <span class="w-4 h-4 rounded-full bg-amber-500 inline-block shrink-0 mt-0.5"></span>
-                                    <div>
-                                        <strong class="text-amber-800">पीली लाइट (Amber/Yellow Light):</strong> रुकने की तैयारी करें। यदि आप चौराहा पार कर चुके हैं तो सावधानी से आगे निकलें।
-                                    </div>
-                                </div>
-                                <div class="flex items-start space-x-3 bg-emerald-50 p-2.5 rounded-lg border border-emerald-100">
-                                    <span class="w-4 h-4 rounded-full bg-emerald-600 inline-block shrink-0 mt-0.5"></span>
-                                    <div>
-                                        <strong class="text-emerald-700">हरी लाइट (Green Light):</strong> रास्ता साफ़ होने पर सुरक्षित रूप से आगे बढ़ें।
-                                    </div>
-                                </div>
-                                <div class="flex items-start space-x-3 bg-amber-50/50 p-2.5 rounded-lg border border-amber-200">
-                                    <span class="w-4 h-4 rounded-full bg-amber-500 animate-pulse inline-block shrink-0 mt-0.5"></span>
-                                    <div>
-                                        <strong class="text-amber-800">झपकती पीली लाइट (Flashing Yellow):</strong> अपनी गति धीमी करें और चौराहे को सावधानीपूर्वक देखकर पार करें।
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- ROAD MARKINGS EXPLANATION -->
-                        <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-3">
-                            <h4 class="font-bold text-slate-900 mb-2 flex items-center space-x-2">
-                                <i class="fa-solid fa-lines-leaning text-emerald-600"></i>
-                                <span>सड़क की पट्टियों (Line Markings) के अर्थ</span>
-                            </h4>
-                            
-                            <div class="border-b border-slate-100 pb-2">
-                                <div class="flex items-center space-x-2 font-semibold text-slate-800 text-xs sm:text-sm">
-                                    <span class="w-8 h-1.5 bg-slate-400 inline-block border-dashed border-b-2 border-white"></span>
-                                    <span>टूटी हुई सफ़ेद पट्टी (Broken White Line)</span>
-                                </div>
-                                <p class="text-xs text-slate-600 mt-1">सुरक्षित होने पर लेन बदलना और ओवरटेक करना अनुमत है।</p>
-                            </div>
-
-                            <div class="border-b border-slate-100 pb-2">
-                                <div class="flex items-center space-x-2 font-semibold text-slate-800 text-xs sm:text-sm">
-                                    <span class="w-8 h-1.5 bg-slate-700 inline-block"></span>
-                                    <span>ठोस सफ़ेद पट्टी (Continuous Solid White Line)</span>
-                                </div>
-                                <p class="text-xs text-slate-600 mt-1">लेन बदलना या ओवरटेक करना सख्त मना है। अपनी ही लेन में रहें।</p>
-                            </div>
-
-                            <div>
-                                <div class="flex items-center space-x-2 font-semibold text-slate-800 text-xs sm:text-sm">
-                                    <span class="w-8 h-1.5 bg-amber-400 inline-block"></span>
-                                    <span>डबल पीली लाइन (Double Yellow Line)</span>
-                                </div>
-                                <p class="text-xs text-slate-600 mt-1">किसी भी परिस्थिति में इस पट्टी को पार न करें और ओवरटेक न करें।</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
-                <!-- SECTION 5: HAND SIGNALS -->
-                <section id="section5" class="scroll-mt-20">
-                    <div class="flex items-center justify-between border-b-2 border-purple-500 pb-3 mb-6">
-                        <div class="flex items-center space-x-3">
-                            <span class="bg-purple-100 text-purple-600 p-2.5 rounded-xl font-bold text-lg">
-                                <i class="fa-solid fa-hand-paper"></i>
-                            </span>
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-900">5. चालक द्वारा हाथ के इशारे (Driver Hand Signals)</h3>
-                                <p class="text-xs text-slate-500">इंडिकेटर खराब होने या अतिरिक्त सुरक्षा हेतु ड्राइवर द्वारा दिए जाने वाले संकेत</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="bg-white border border-slate-200 rounded-xl p-4 text-center shadow-sm">
-                            <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">
-                                <i class="fa-solid fa-hand-point-left"></i>
-                            </div>
-                            <h4 class="font-bold text-slate-900 text-sm mb-1">दाहिने मुड़ने का इशारा</h4>
-                            <p class="text-xs text-slate-600">दाहिने हाथ को खिड़की से बाहर निकालकर एकदम सीधा फैलाएं।</p>
-                        </div>
-
-                        <div class="bg-white border border-slate-200 rounded-xl p-4 text-center shadow-sm">
-                            <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">
-                                <i class="fa-solid fa-rotate-right"></i>
-                            </div>
-                            <h4 class="font-bold text-slate-900 text-sm mb-1">बाईं ओर मुड़ने का इशारा</h4>
-                            <p class="text-xs text-slate-600">दाहिने हाथ को बाहर निकालकर एंटी-क्लॉकवाइज़ (घड़ी की उल्टी दिशा) गोल घुमाएं।</p>
-                        </div>
-
-                        <div class="bg-white border border-slate-200 rounded-xl p-4 text-center shadow-sm">
-                            <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">
-                                <i class="fa-solid fa-hand"></i>
-                            </div>
-                            <h4 class="font-bold text-slate-900 text-sm mb-1">गाड़ी धीमी करने / रोकने हेतु</h4>
-                            <p class="text-xs text-slate-600">हाथ की हथेली को नीचे की तरफ रखते हुए हाथ को ऊपर-नीचे हिलाएं।</p>
-                        </div>
                     </div>
                 </section>
 
@@ -714,45 +355,14 @@
                 <section id="section6" class="scroll-mt-20">
                     <div class="flex items-center justify-between border-b-2 border-cyan-500 pb-3 mb-6">
                         <div class="flex items-center space-x-3">
-                            <span class="bg-cyan-100 text-cyan-600 p-2.5 rounded-xl font-bold text-lg">
+                            <span class="bg-cyan-100 text-cyan-600 p-2.5 rounded-xl font-bold text-lg" aria-hidden="true">
                                 <i class="fa-solid fa-gauge-high"></i>
                             </span>
                             <div>
                                 <h3 class="text-xl font-bold text-slate-900">6. गति सीमा व ओवरटेकिंग नियम (Speed Limits & Overtaking)</h3>
-                                <p class="text-xs text-slate-500">विभिन्न क्षेत्रों में गाड़ियों की स्पीड लिमिट और ओवरटेक करने का सही तरीका</p>
+                                <p class="text-xs text-slate-500">विभिन्न क्षेत्रों में गाड़ियों की स्पीड लिमिट और ओवरटेकिंग के नियम</p>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- OVERTAKING DIAGRAM -->
-                    <div class="bg-slate-900 rounded-2xl p-5 mb-6 text-white border border-slate-800 shadow-md">
-                        <h4 class="text-amber-400 font-bold text-sm mb-3 flex items-center space-x-2">
-                            <i class="fa-solid fa-car-side"></i>
-                            <span>सही ओवरटेकिंग नियम (Right Side Rule)</span>
-                        </h4>
-                        <div class="overflow-x-auto">
-                            <svg width="100%" height="120" viewBox="0 0 600 120" class="min-w-[500px]">
-                                <!-- Road lines -->
-                                <rect x="0" y="0" width="600" height="120" fill="#334155"/>
-                                <line x1="0" y1="60" x2="600" y2="60" stroke="#f59e0b" stroke-width="3" stroke-dasharray="15 10"/>
-                                <line x1="0" y1="10" x2="600" y2="10" stroke="white" stroke-width="3"/>
-                                <line x1="0" y1="110" x2="600" y2="110" stroke="white" stroke-width="3"/>
-                                
-                                <!-- Slow Car -->
-                                <rect x="260" y="70" width="55" height="25" rx="4" fill="#ef4444"/>
-                                <text x="287" y="86" fill="white" font-size="10" text-anchor="middle" font-weight="bold">धीमी कार</text>
-
-                                <!-- Overtaking Trajectory -->
-                                <path d="M 80,82 C 140,82 170,25 280,25 C 380,25 410,82 480,82" stroke="#38bdf8" stroke-width="3" stroke-dasharray="6 4" fill="none"/>
-                                
-                                <!-- Overtaking Car -->
-                                <rect x="260" y="15" width="55" height="25" rx="4" fill="#0284c7"/>
-                                <text x="287" y="31" fill="white" font-size="10" text-anchor="middle" font-weight="bold">ओवरटेक</text>
-                            </svg>
-                        </div>
-                        <p class="text-xs text-slate-300 mt-2">
-                            <strong class="text-amber-400">गोल्डन रूल:</strong> हमेशा आगे चल रहे वाहन के <strong>दाहिनी (Right) ओर</strong> से ही ओवरटेक करें। मोड़, ढलान और पुल पर ओवरटेक करना सख्त मना है।
-                        </p>
                     </div>
 
                     <!-- SPEED LIMIT TABLE -->
@@ -796,107 +406,43 @@
                     </div>
                 </section>
 
-                <!-- SECTION 7: PENALTIES & MV ACT -->
-                <section id="section7" class="scroll-mt-20">
-                    <div class="flex items-center justify-between border-b-2 border-rose-500 pb-3 mb-6">
-                        <div class="flex items-center space-x-3">
-                            <span class="bg-rose-100 text-rose-600 p-2.5 rounded-xl font-bold text-lg">
-                                <i class="fa-solid fa-scale-balanced"></i>
-                            </span>
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-900">7. नए मोटर वाहन अधिनियम के तहत जुर्माना व धाराएँ (MV Act & Penalties)</h3>
-                                <p class="text-xs text-slate-500">नवीनतम संशोधित मोटर वाहन अधिनियम (2019/2020s) के तहत प्रमुख चालान राशि</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="overflow-x-auto bg-white border border-slate-200 rounded-xl shadow-sm">
-                        <table class="w-full text-left border-collapse text-xs sm:text-sm">
-                            <thead>
-                                <tr class="bg-rose-50 border-b border-rose-100 text-rose-900">
-                                    <th class="p-3 font-semibold">अपराध (Traffic Offense)</th>
-                                    <th class="p-3 font-semibold">संबंधित धारा (Section)</th>
-                                    <th class="p-3 font-semibold">नया जुर्माना / कानूनी कार्रवाई</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-100 text-slate-700">
-                                <tr>
-                                    <td class="p-3 font-semibold text-slate-900">बिना लाइसेंस के गाड़ी चलाना</td>
-                                    <td class="p-3">Section 181</td>
-                                    <td class="p-3 text-red-600 font-medium">₹5,000 जुर्माना</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 font-semibold text-slate-900">शराब पीकर गाड़ी चलाना (Drunken Driving)</td>
-                                    <td class="p-3">Section 185</td>
-                                    <td class="p-3 text-red-600 font-medium">₹10,000 जुर्माना एवं/या 6 महीने जेल</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 font-semibold text-slate-900">बिना हेलमेट दोपहिया चलाना</td>
-                                    <td class="p-3">Section 129 / 194D</td>
-                                    <td class="p-3 text-red-600 font-medium">₹1,000 चालान + 3 महीने DL निलंबन</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 font-semibold text-slate-900">सीट बेल्ट न लगाना</td>
-                                    <td class="p-3">Section 194B</td>
-                                    <td class="p-3 text-red-600 font-medium">₹1,000 जुर्माना</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 font-semibold text-slate-900">ओवरस्पीडिंग (Over Speeding)</td>
-                                    <td class="p-3">Section 183</td>
-                                    <td class="p-3 text-red-600 font-medium">₹1,000 से ₹2,000 (LMV) / ₹4,000 (Medium/Heavy)</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 font-semibold text-slate-900">एम्बुलेंस/इमरजेंसी वाहन को रास्ता न देना</td>
-                                    <td class="p-3">Section 194E</td>
-                                    <td class="p-3 text-red-600 font-medium">₹10,000 जुर्माना</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 font-semibold text-slate-900">ड्राइविंग के दौरान मोबाइल फोन का उपयोग</td>
-                                    <td class="p-3">Section 184(c)</td>
-                                    <td class="p-3 text-red-600 font-medium">₹1,000 - ₹5,000 जुर्माना</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
             </div>
 
             <!-- TAB 2: INTERACTIVE QUIZ -->
-            <div id="tab-content-quiz" class="hidden space-y-6">
+            <div id="tab-content-quiz" role="tabpanel" aria-labelledby="tab-btn-quiz" class="hidden space-y-6">
                 <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
                     <div class="flex justify-between items-center mb-4 pb-3 border-b border-slate-100">
                         <div>
                             <h3 class="text-xl font-bold text-slate-900">RTO लर्नर्स लाइसेंस मॉक टेस्ट</h3>
                             <p class="text-xs text-slate-500">10 प्रश्नों का अभ्यास टेस्ट - अपनी तैयारी जाँचें</p>
                         </div>
-                        <span id="quiz-score" class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1.5 rounded-full">
+                        <span id="quiz-score" class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1.5 rounded-full" aria-live="polite">
                             स्कोर: 0 / 10
                         </span>
                     </div>
 
-                    <div id="quiz-container" class="space-y-6">
+                    <div id="quiz-container" class="space-y-6" role="region" aria-label="प्रश्नोत्तरी">
                         <!-- Questions will be injected via JavaScript -->
                     </div>
 
-                    <div id="quiz-result" class="hidden mt-6 p-6 bg-slate-900 text-white rounded-xl text-center">
+                    <div id="quiz-result" class="hidden mt-6 p-6 bg-slate-900 text-white rounded-xl text-center" role="alert">
                         <h4 class="text-2xl font-bold text-amber-400 mb-2">परीक्षण परिणाम</h4>
                         <p id="result-text" class="text-lg mb-4"></p>
                         <button onclick="resetQuiz()" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-6 py-2 rounded-lg text-sm transition-colors">
-                            <i class="fa-solid fa-rotate-right mr-2"></i>पुनः परीक्षा दें
+                            <i class="fa-solid fa-rotate-right mr-2" aria-hidden="true"></i>पुनः परीक्षा दें
                         </button>
                     </div>
                 </div>
             </div>
 
             <!-- TAB 3: FLASHCARDS -->
-            <div id="tab-content-flashcards" class="hidden space-y-6">
+            <div id="tab-content-flashcards" role="tabpanel" aria-labelledby="tab-btn-flashcards" class="hidden space-y-6">
                 <div class="text-center max-w-xl mx-auto">
                     <h3 class="text-xl font-bold text-slate-900 mb-1">संकेत रिवीजन फ्लैशकार्ड्स</h3>
                     <p class="text-xs text-slate-500 mb-6">कार्ड पर क्लिक करके उसका उत्तर देखें</p>
                     
-                    <div id="flashcard" onclick="flipFlashcard()" class="perspective-1000 w-full h-72 cursor-pointer mx-auto">
-                        <div id="flashcard-inner" class="relative w-full h-full duration-500 transform-style-3d bg-white border-2 border-slate-200 rounded-2xl shadow-md flex items-center justify-center p-6 text-center">
+                    <div id="flashcard" onclick="flipFlashcard()" class="perspective-1000 w-full h-72 cursor-pointer mx-auto" role="button" tabindex="0" aria-label="फ्लैशकार्ड - क्लिक करके फ्लिप करें">
+                        <div id="flashcard-inner" class="relative w-full h-full duration-500 transform-style-3d bg-white border-2 border-slate-200 rounded-2xl shadow-md flex items-center justify-center">
                             
                             <!-- FRONT -->
                             <div class="absolute inset-0 backface-hidden flex flex-col items-center justify-center p-6">
@@ -904,13 +450,13 @@
                                 <div id="flashcard-front-content" class="text-lg font-bold text-slate-800">
                                     <!-- Dynamic Front -->
                                 </div>
-                                <span class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-hand-pointer mr-1"></i> उत्तर देखने के लिए क्लिक करें</span>
+                                <span class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-hand-pointer mr-1" aria-hidden="true"></i> उत्तर देखने के लिए क्लिक करें</span>
                             </div>
 
                             <!-- BACK -->
                             <div class="absolute inset-0 backface-hidden rotate-y-180 bg-slate-900 text-white rounded-2xl flex flex-col items-center justify-center p-6">
                                 <span class="text-xs font-semibold text-amber-400 bg-amber-950/80 px-2.5 py-1 rounded-full mb-4">सही उत्तर / अर्थ</span>
-                                <div id="flashcard-back-content" class="text-sm leading-relaxed text-slate-200">
+                                <div id="flashcard-back-content" class="text-sm leading-relaxed text-slate-200 whitespace-pre-line">
                                     <!-- Dynamic Back -->
                                 </div>
                             </div>
@@ -919,12 +465,12 @@
                     </div>
 
                     <div class="flex justify-center space-x-4 mt-6">
-                        <button onclick="prevFlashcard()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold px-4 py-2 rounded-lg text-sm">
-                            <i class="fa-solid fa-arrow-left mr-1"></i> पिछला
+                        <button onclick="prevFlashcard()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold px-4 py-2 rounded-lg text-sm transition-colors" aria-label="पिछला फ्लैशकार्ड">
+                            <i class="fa-solid fa-arrow-left mr-1" aria-hidden="true"></i> पिछला
                         </button>
-                        <span id="flashcard-counter" class="text-sm font-bold text-slate-600 my-auto">1 / 6</span>
-                        <button onclick="nextFlashcard()" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-4 py-2 rounded-lg text-sm">
-                            अगला <i class="fa-solid fa-arrow-right ml-1"></i>
+                        <span id="flashcard-counter" class="text-sm font-bold text-slate-600 my-auto" aria-live="polite">1 / 6</span>
+                        <button onclick="nextFlashcard()" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-4 py-2 rounded-lg text-sm transition-colors" aria-label="अगला फ्लैशकार्ड">
+                            अगला <i class="fa-solid fa-arrow-right ml-1" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
@@ -934,255 +480,13 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-900 text-slate-400 text-xs text-center py-4 border-t border-slate-800 mt-auto">
+    <footer class="bg-slate-900 text-slate-400 text-xs text-center py-4 border-t border-slate-800 mt-auto" role="contentinfo">
         <div class="max-w-7xl mx-auto px-4">
             <p>© 2026 RTO मास्टर गाइड - सड़क सुरक्षा एवं ड्राइविंग जागरूकता पहल</p>
         </div>
     </footer>
 
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        // Sidebar Toggle Mobile
-        const sidebar = document.getElementById('sidebar');
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const closeBtn = document.getElementById('close-sidebar-btn');
-
-        mobileBtn?.addEventListener('click', () => {
-            sidebar.classList.remove('-translate-x-full');
-        });
-        closeBtn?.addEventListener('click', () => {
-            sidebar.classList.add('-translate-x-full');
-        });
-
-        // Close sidebar when clicking links on mobile
-        document.querySelectorAll('.sidebar-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth < 768) {
-                    sidebar.classList.add('-translate-x-full');
-                }
-            });
-        });
-
-        // Tab Switcher
-        function switchTab(tab) {
-            const studyTab = document.getElementById('tab-content-study');
-            const quizTab = document.getElementById('tab-content-quiz');
-            const flashcardTab = document.getElementById('tab-content-flashcards');
-
-            const btnStudy = document.getElementById('tab-btn-study');
-            const btnQuiz = document.getElementById('tab-btn-quiz');
-            const btnFlashcards = document.getElementById('tab-btn-flashcards');
-
-            // Hide all
-            studyTab.classList.add('hidden');
-            quizTab.classList.add('hidden');
-            flashcardTab.classList.add('hidden');
-
-            // Reset button styles
-            [btnStudy, btnQuiz, btnFlashcards].forEach(b => {
-                b.className = "flex-1 py-1.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all";
-            });
-
-            if (tab === 'study') {
-                studyTab.classList.remove('hidden');
-                btnStudy.className = "flex-1 py-1.5 text-xs font-semibold rounded-lg bg-amber-500 text-slate-900 shadow transition-all";
-            } else if (tab === 'quiz') {
-                quizTab.classList.remove('hidden');
-                btnQuiz.className = "flex-1 py-1.5 text-xs font-semibold rounded-lg bg-amber-500 text-slate-900 shadow transition-all";
-            } else if (tab === 'flashcards') {
-                flashcardTab.classList.remove('hidden');
-                btnFlashcards.className = "flex-1 py-1.5 text-xs font-semibold rounded-lg bg-amber-500 text-slate-900 shadow transition-all";
-                renderFlashcard();
-            }
-        }
-
-        // Global Search Filter
-        const searchInput = document.getElementById('global-search');
-        searchInput?.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase().trim();
-            const cards = document.querySelectorAll('.sign-card');
-
-            cards.forEach(card => {
-                const text = card.innerText.toLowerCase();
-                if (text.includes(query)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-
-        // QUIZ DATA & ENGINE
-        const quizQuestions = [
-            {
-                question: "अष्टकोणीय (Octagonal) आकार का सड़क संकेत क्या दर्शाता है?",
-                options: ["रास्ता दें (Give Way)", "रुको (STOP)", "प्रवेश वर्जित", "गति सीमा"],
-                correct: 1,
-                explanation: "'STOP' का संकेत अकेला ऐसा अनिवार्य संकेत है जो अष्टकोणीय (8 भुजाओं वाला) होता है।"
-            },
-            {
-                question: "यदि कोई एम्बुलेंस आपके पीछे आ रही है तो आपको क्या करना चाहिए?",
-                options: ["अपनी गति बढ़ा देनी चाहिए", "हॉर्न बजाकर आगे निकलना चाहिए", "वाहन को किनारे करके तुरंत रास्ता देना चाहिए", "उसे ओवरटेक करने का प्रयास करना चाहिए"],
-                correct: 2,
-                explanation: "आपातकालीन वाहनों (एम्बुलेंस/फायर ब्रिगेड) को बिना किसी रुकावट के तुरंत रास्ता देना अनिवार्य है (Section 194E)।"
-            },
-            {
-                question: "सड़क पर बनी 'डबल पीली लाइन' का क्या अर्थ है?",
-                options: ["सुरक्षित रूप से ओवरटेक कर सकते हैं", "ओवरटेक करना एवं लाइन पार करना सख्त मना है", "केवल रात में लाइन पार कर सकते हैं", "पार्किंग की अनुमति है"],
-                correct: 1,
-                explanation: "डबल पीली लाइन का अर्थ है कि किसी भी स्थिति में लेन बदलना या ओवरटेक करना सख्त वर्जित है।"
-            },
-            {
-                question: "शराब पीकर गाड़ी चलाने पर न्यूनतम जुर्माना कितना है?",
-                options: ["₹1,000", "₹2,000", "₹10,000", "₹500"],
-                correct: 2,
-                explanation: "संशोधित मोटर वाहन अधिनियम (Section 185) के तहत प्रथम अपराध पर ₹10,000 का जुर्माना या 6 महीने तक की जेल का प्रावधान है।"
-            },
-            {
-                question: "पैदल यात्रियों को सड़क पार करने के लिए किसका प्रयोग करना चाहिए?",
-                options: ["रेड लाइट पर कहीं से भी", "ज़ेब्रा क्रॉसिंग", "सड़क के बीच से", "कहीं से भी जहाँ जगह मिले"],
-                correct: 1,
-                explanation: "सुरक्षित सड़क पार करने हेतु हमेशा ज़ेब्रा क्रॉसिंग या पेडेस्ट्रियन सबवे का उपयोग करें।"
-            },
-            {
-                question: "त्रिभुजाकार (Triangular) बोर्ड में बने संकेत कौन-से होते हैं?",
-                options: ["अनिवार्य संकेत", "सूचनात्मक संकेत", "चेतावनी संकेत", "दिशा निर्देश संकेत"],
-                correct: 2,
-                explanation: "त्रिभुज आकार वाले संकेत चालकों को आगे आने वाले संभावित खतरों के प्रति सचेत करते हैं।"
-            }
-        ];
-
-        let userAnswers = {};
-
-        function renderQuiz() {
-            const container = document.getElementById('quiz-container');
-            if (!container) return;
-
-            container.innerHTML = quizQuestions.map((q, idx) => `
-                <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50">
-                    <p class="font-bold text-slate-800 text-sm mb-3">${idx + 1}. ${q.question}</p>
-                    <div class="space-y-2">
-                        ${q.options.map((opt, oIdx) => `
-                            <label class="flex items-center space-x-3 bg-white p-2.5 rounded-lg border border-slate-200 cursor-pointer hover:bg-amber-50/50 text-xs sm:text-sm">
-                                <input type="radio" name="q_${idx}" value="${oIdx}" onchange="selectAnswer(${idx}, ${oIdx})" class="text-amber-500 focus:ring-amber-400">
-                                <span class="text-slate-700">${opt}</span>
-                            </label>
-                        `).join('')}
-                    </div>
-                    <div id="explain_${idx}" class="hidden mt-3 p-2.5 rounded-lg text-xs font-medium"></div>
-                </div>
-            `).join('');
-        }
-
-        function selectAnswer(qIdx, optionIdx) {
-            userAnswers[qIdx] = optionIdx;
-            const q = quizQuestions[qIdx];
-            const explainDiv = document.getElementById(`explain_${qIdx}`);
-
-            if (explainDiv) {
-                explainDiv.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-red-100', 'text-red-800');
-                if (optionIdx === q.correct) {
-                    explainDiv.classList.add('bg-emerald-100', 'text-emerald-800');
-                    explainDiv.innerHTML = `<i class="fa-solid fa-circle-check mr-1"></i> <strong>सही उत्तर!</strong> ${q.explanation}`;
-                } else {
-                    explainDiv.classList.add('bg-red-100', 'text-red-800');
-                    explainDiv.innerHTML = `<i class="fa-solid fa-circle-xmark mr-1"></i> <strong>गलत उत्तर।</strong> सही उत्तर: "${q.options[q.correct]}". ${q.explanation}`;
-                }
-            }
-
-            // Update Score
-            let correctCount = 0;
-            Object.keys(userAnswers).forEach(key => {
-                if (userAnswers[key] === quizQuestions[key].correct) correctCount++;
-            });
-
-            document.getElementById('quiz-score').innerText = `स्कोर: ${correctCount} / ${quizQuestions.length}`;
-        }
-
-        function resetQuiz() {
-            userAnswers = {};
-            renderQuiz();
-            document.getElementById('quiz-score').innerText = `स्कोर: 0 / ${quizQuestions.length}`;
-        }
-
-        // FLASHCARDS ENGINE
-        const flashcardsData = [
-            {
-                front: "STOP (रुको) संकेत किस आकृति में होता है?",
-                back: "अष्टकोण (Octagon) - 8 भुजाओं वाला लाल रंग का बोर्ड।"
-            },
-            {
-                front: "Give Way (रास्ता दें) का क्या अर्थ है?",
-                back: "मुख्य सड़क या दाहिनी ओर से आ रहे ट्रैफिक को प्राथमिकता दें।"
-            },
-            {
-                front: "बिना लाइसेंस गाड़ी चलाने पर कितना जुर्माना है?",
-                back: "Section 181 के तहत ₹5,000 का चालान।"
-            },
-            {
-                front: "नीले आयताकार बोर्ड का क्या अर्थ है?",
-                back: "सूचनात्मक संकेत (Informative Signs) जैसे अस्पताल, पेट्रोल पंप या पार्किंग।"
-            },
-            {
-                front: "ओवरटेक हमेशा किस तरफ से करना चाहिए?",
-                back: "हमेशा आगे चल रहे वाहन के दाहिनी (Right) तरफ से।"
-            },
-            {
-                front: "हेलमेट न पहनने पर क्या कार्रवाई होती है?",
-                back: "₹1,000 जुर्माना तथा 3 महीने के लिए ड्राइविंग लाइसेंस निलंबन।"
-            }
-        ];
-
-        let currentFlashcard = 0;
-        let isFlipped = false;
-
-        function renderFlashcard() {
-            const front = document.getElementById('flashcard-front-content');
-            const back = document.getElementById('flashcard-back-content');
-            const counter = document.getElementById('flashcard-counter');
-            const inner = document.getElementById('flashcard-inner');
-
-            if (isFlipped) {
-                inner.classList.remove('rotate-y-180');
-                isFlipped = false;
-            }
-
-            if (front && back && counter) {
-                front.innerText = flashcardsData[currentFlashcard].front;
-                back.innerText = flashcardsData[currentFlashcard].back;
-                counter.innerText = `${currentFlashcard + 1} / ${flashcardsData.length}`;
-            }
-        }
-
-        function flipFlashcard() {
-            const inner = document.getElementById('flashcard-inner');
-            isFlipped = !isFlipped;
-            if (isFlipped) {
-                inner.classList.add('rotate-y-180');
-            } else {
-                inner.classList.remove('rotate-y-180');
-            }
-        }
-
-        function nextFlashcard() {
-            if (currentFlashcard < flashcardsData.length - 1) {
-                currentFlashcard++;
-                renderFlashcard();
-            }
-        }
-
-        function prevFlashcard() {
-            if (currentFlashcard > 0) {
-                currentFlashcard--;
-                renderFlashcard();
-            }
-        }
-
-        // Initialize App
-        window.addEventListener('DOMContentLoaded', () => {
-            renderQuiz();
-        });
-    </script>
+    <!-- External JavaScript -->
+    <script src="script.js" defer></script>
 </body>
 </html>
-
