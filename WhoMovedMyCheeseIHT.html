@@ -1,0 +1,714 @@
+
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>मेरा मक्खन किसने हटाया? (भारतीय संदर्भ एवं सचित्र संस्करण)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Hindi (Noto Sans Devanagari) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cheese: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans Devanagari', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .sepia-mode {
+            background-color: #fbf0d9 !important;
+            color: #433422 !important;
+        }
+        .sepia-mode .bg-card {
+            background-color: #f3e5c8 !important;
+            border-color: #e2cca6 !important;
+        }
+        .sepia-mode header {
+            background-color: #f3e5c8 !important;
+        }
+        .wall-card {
+            background: linear-gradient(135deg, #fffbeb 0%, #fde68a 100%);
+        }
+        .dark .wall-card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col antialiased">
+
+    <!-- Reading Progress Bar -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1.5 bg-cheese-500 z-50 transition-all duration-150 w-0"></div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-b border-slate-200 dark:border-slate-800 transition-colors shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 font-black text-lg sm:text-xl text-cheese-600 dark:text-cheese-400">
+                <i data-lucide="sun" class="w-7 h-7 text-cheese-500"></i>
+                <span>मेरा "मक्खन" किसने हटाया?</span>
+            </a>
+            
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Theme Selectors -->
+                <button onclick="setTheme('light')" title="लाइट मोड" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    <i data-lucide="sun" class="w-5 h-5"></i>
+                </button>
+                <button onclick="setTheme('sepia')" title="सेपिया मोड" class="text-xs font-bold px-2.5 py-1.5 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300">
+                    सेपिया
+                </button>
+                <button onclick="setTheme('dark')" title="डार्क मोड" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    <i data-lucide="moon" class="w-5 h-5"></i>
+                </button>
+
+                <!-- Font Size Adjustment -->
+                <div class="hidden sm:flex items-center border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
+                    <button onclick="changeFontSize(-1)" class="px-2.5 py-1 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-bold" title="अक्षर छोटे करें">-A</button>
+                    <button onclick="changeFontSize(1)" class="px-2.5 py-1 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-bold" title="अक्षर बड़े करें">+A</button>
+                </div>
+
+                <a href="#index" class="bg-cheese-500 hover:bg-cheese-600 text-slate-900 font-bold text-xs sm:text-sm px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-sm">
+                    <i data-lucide="list" class="w-4 h-4"></i>
+                    <span>अनुक्रम</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div id="content-container" class="max-w-4xl mx-auto px-4 py-8 flex-1 text-base sm:text-lg leading-relaxed">
+
+        <!-- HERO BANNER WITH SVG ARTWORK -->
+        <section class="bg-gradient-to-br from-cheese-100 via-amber-50 to-orange-100 dark:from-slate-800 dark:via-slate-800 dark:to-slate-900 rounded-3xl p-6 sm:p-10 border border-cheese-200 dark:border-slate-700 mb-12 text-center shadow-lg relative overflow-hidden">
+            
+            <span class="inline-block px-4 py-1.5 bg-cheese-200 dark:bg-cheese-900/60 text-cheese-800 dark:text-cheese-300 font-black text-xs sm:text-sm rounded-full mb-4 uppercase tracking-wider border border-cheese-300">
+                डॉ. स्पेंसर जॉनसन की अमर कृति • भारतीय सचित्र रूपांतरण
+            </span>
+
+            <!-- Hero Illustration -->
+            <div class="my-6 flex justify-center">
+                <svg class="w-full max-w-md h-auto" viewBox="0 0 400 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background Maze Pattern -->
+                    <rect x="10" y="10" width="380" height="160" rx="16" fill="#FEF3C7" stroke="#F59E0B" stroke-width="3" stroke-dasharray="6 6"/>
+                    <path d="M 50 10 V 90 H 130 V 160 M 200 10 V 120 H 280 V 50 H 350" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+                    <!-- Butter Pot / Makhan Matki -->
+                    <path d="M 170 120 C 170 80 230 80 230 120 C 230 145 170 145 170 120 Z" fill="#D97706"/>
+                    <ellipse cx="200" cy="95" rx="32" ry="12" fill="#FBBF24"/>
+                    <ellipse cx="200" cy="90" rx="28" ry="8" fill="#FFFBEB"/>
+                    <text x="200" y="132" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-weight="bold" font-size="12">मक्खन (Cheese)</text>
+                    <!-- Small Runner Figure -->
+                    <circle cx="90" cy="55" r="12" fill="#10B981"/>
+                    <path d="M 90 67 V 90 M 90 75 L 78 85 M 90 75 L 102 85 M 90 90 L 80 105 M 90 90 L 100 105" stroke="#10B981" stroke-width="4" stroke-linecap="round"/>
+                    <!-- Text Badge -->
+                    <rect x="270" y="115" width="100" height="35" rx="8" fill="#F59E0B"/>
+                    <text x="320" y="137" text-anchor="middle" fill="#1E293B" font-family="sans-serif" font-weight="extrabold" font-size="13">नया अवसर!</text>
+                </svg>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white mb-4 leading-tight">
+                मेरा "मक्खन" किसने हटाया? <br/>
+                <span class="text-cheese-600 dark:text-cheese-400 text-2xl sm:text-4xl font-bold">(Who Moved My Cheese? - भारतीय परिवेश)</span>
+            </h1>
+            <p class="text-base sm:text-xl text-slate-700 dark:text-slate-300 max-w-2xl mx-auto mb-8 font-medium">
+                "काम, व्यापार, पढ़ाई और परिवार में आने वाले बदलावों से कैसे निपटें, डर को कैसे हराएं और नई सफलताएं कैसे पाएं!"
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#part-1" class="bg-cheese-500 hover:bg-cheese-600 text-slate-900 font-extrabold px-6 py-3 rounded-xl shadow-md transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                    <i data-lucide="book-open" class="w-5 h-5"></i>
+                    <span>पढ़ना शुरू करें</span>
+                </a>
+                <a href="#indian-cases" class="bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-600 transition flex items-center gap-2">
+                    <i data-lucide="users" class="w-5 h-5 text-cheese-500"></i>
+                    <span>भारतीय सचित्र उदाहरण</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- INDIAN METAPHOR EXPLANATION -->
+        <section id="introduction" class="mb-14 scroll-mt-20">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2.5 bg-cheese-100 dark:bg-cheese-900/40 rounded-xl text-cheese-600 dark:text-cheese-400">
+                    <i data-lucide="lightbulb" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold">कहानी के मुख्य प्रतीकों का भारतीय अर्थ</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 my-6">
+                <!-- Cheese Metaphor Card -->
+                <div class="bg-card bg-white dark:bg-slate-800 p-6 rounded-2xl border border-amber-200 dark:border-slate-700 shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center gap-3 mb-3 text-cheese-600 dark:text-cheese-400 font-bold text-xl">
+                        <span class="text-3xl">🧈</span>
+                        <h3>1. "मक्खन" (Cheese) का क्या अर्थ है?</h3>
+                    </div>
+                    <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 mb-3">
+                        'मक्खन' उस हर चीज़ का प्रतीक है जिसे हम अपने जीवन में पाना चाहते हैं और जिससे हमें सुरक्षा व खुशी मिलती है—जैसे:
+                    </p>
+                    <ul class="list-disc list-inside text-xs sm:text-sm text-slate-600 dark:text-slate-300 space-y-1 pl-2">
+                        <li><strong>विद्यार्थियों के लिए:</strong> अच्छे अंक, ड्रीम कॉलेज या सरकारी नौकरी।</li>
+                        <li><strong>व्यापारियों के लिए:</strong> चलती हुई दुकान, वफादार ग्राहक और बढ़िया आमदनी।</li>
+                        <li><strong>कर्मचारियों के लिए:</strong> प्रमोशन, अच्छी तनख्वाह और नौकरी की सुरक्षा।</li>
+                        <li><strong>परिवार के लिए:</strong> उत्तम स्वास्थ्य, आपसी प्रेम और मन की शांति।</li>
+                    </ul>
+                </div>
+
+                <!-- Maze Metaphor Card -->
+                <div class="bg-card bg-white dark:bg-slate-800 p-6 rounded-2xl border border-amber-200 dark:border-slate-700 shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center gap-3 mb-3 text-amber-700 dark:text-amber-400 font-bold text-xl">
+                        <span class="text-3xl">🌀</span>
+                        <h3>2. "भूल-भुलैया" (The Maze) का क्या अर्थ है?</h3>
+                    </div>
+                    <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 mb-3">
+                        'भूल-भुलैया' वह परिवेश है जहाँ हम अपने मक्खन (सफलता) को खोजते हैं—जैसे:
+                    </p>
+                    <ul class="list-disc list-inside text-xs sm:text-sm text-slate-600 dark:text-slate-300 space-y-1 pl-2">
+                        <li>हमारा बदलता हुआ बाजार (UPI, ऐप्स, AI का दौर)।</li>
+                        <li>कोचिंग मंडी, स्कूल, कॉलेज और कॉम्पिटिटिव माहौल।</li>
+                        <li>हमारा दफ़्तर, कंपनी, समाज या हमारा अपना मन।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- INDEX / TABLE OF CONTENTS -->
+        <section id="index" class="mb-14 scroll-mt-20 bg-amber-50/70 dark:bg-slate-800/70 p-6 sm:p-8 rounded-2xl border border-amber-200 dark:border-slate-700">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2.5 bg-cheese-500 text-slate-900 rounded-xl font-bold">
+                    <i data-lucide="list-ordered" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold">विषय-सूची (अनुक्रम)</h2>
+            </div>
+
+            <div class="space-y-3 font-medium">
+                <a href="#part-1" class="flex items-center justify-between p-3.5 bg-white dark:bg-slate-800 rounded-xl hover:bg-cheese-100 dark:hover:bg-slate-700 transition border border-slate-200 dark:border-slate-700">
+                    <span class="flex items-center gap-3">
+                        <span class="text-cheese-600 font-extrabold">भाग 1:</span>
+                        <span>कहानी के 4 पात्र - हमारे अंदर के चार स्वभाव</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400"></i>
+                </a>
+
+                <a href="#part-2" class="flex items-center justify-between p-3.5 bg-white dark:bg-slate-800 rounded-xl hover:bg-cheese-100 dark:hover:bg-slate-700 transition border border-slate-200 dark:border-slate-700">
+                    <span class="flex items-center gap-3">
+                        <span class="text-cheese-600 font-extrabold">भाग 2:</span>
+                        <span>चाय पर चर्चा - पुराने दोस्तों की बैठक</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400"></i>
+                </a>
+
+                <a href="#part-3-1" class="flex items-center justify-between p-3.5 bg-white dark:bg-slate-800 rounded-xl hover:bg-cheese-100 dark:hover:bg-slate-700 transition border border-slate-200 dark:border-slate-700">
+                    <span class="flex items-center gap-3">
+                        <span class="text-cheese-600 font-extrabold">भाग 3.1:</span>
+                        <span>मूल कथा: मक्खन स्टेशन 'C' और आरामपसंद जीवन</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400"></i>
+                </a>
+
+                <a href="#part-3-2" class="flex items-center justify-between p-3.5 bg-white dark:bg-slate-800 rounded-xl hover:bg-cheese-100 dark:hover:bg-slate-700 transition border border-slate-200 dark:border-slate-700">
+                    <span class="flex items-center gap-3">
+                        <span class="text-cheese-600 font-extrabold">भाग 3.2:</span>
+                        <span>जब अचानक मक्खन खत्म हो गया!</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400"></i>
+                </a>
+
+                <a href="#part-3-3" class="flex items-center justify-between p-3.5 bg-white dark:bg-slate-800 rounded-xl hover:bg-cheese-100 dark:hover:bg-slate-700 transition border border-slate-200 dark:border-slate-700">
+                    <span class="flex items-center gap-3">
+                        <span class="text-cheese-600 font-extrabold">भाग 3.3:</span>
+                        <span>डर पर विजय और हॉ (Haw) का नया कदम</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400"></i>
+                </a>
+
+                <a href="#part-3-4" class="flex items-center justify-between p-3.5 bg-white dark:bg-slate-800 rounded-xl hover:bg-cheese-100 dark:hover:bg-slate-700 transition border border-slate-200 dark:border-slate-700">
+                    <span class="flex items-center gap-3">
+                        <span class="text-cheese-600 font-extrabold">भाग 3.4:</span>
+                        <span>स्टेशन 'N' की खोज - नया मक्खन मिल गया!</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400"></i>
+                </a>
+
+                <a href="#handwriting" class="flex items-center justify-between p-3.5 bg-white dark:bg-slate-800 rounded-xl hover:bg-cheese-100 dark:hover:bg-slate-700 transition border border-slate-200 dark:border-slate-700">
+                    <span class="flex items-center gap-3">
+                        <span class="text-cheese-600 font-extrabold">विशेष:</span>
+                        <span>दीवार पर लिखे जीवन-मंत्र (Handwriting on the Wall)</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400"></i>
+                </a>
+
+                <a href="#indian-cases" class="flex items-center justify-between p-3.5 bg-white dark:bg-slate-800 rounded-xl hover:bg-cheese-100 dark:hover:bg-slate-700 transition border border-slate-200 dark:border-slate-700">
+                    <span class="flex items-center gap-3">
+                        <span class="text-cheese-600 font-extrabold">भारतीय उदाहरण:</span>
+                        <span>किराना, UPI, नौकरी व परिवार के वास्तविक किस्से</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400"></i>
+                </a>
+
+                <a href="#quiz" class="flex items-center justify-between p-3.5 bg-cheese-200 dark:bg-cheese-900/50 rounded-xl hover:bg-cheese-300 transition border border-cheese-300 dark:border-cheese-700">
+                    <span class="flex items-center gap-3 text-slate-900 dark:text-cheese-200 font-bold">
+                        <span>💡 आत्म-मूल्यांकन क्विज़:</span>
+                        <span>आप इस कहानी में कौन सा पात्र हैं?</span>
+                    </span>
+                    <i data-lucide="help-circle" class="w-5 h-5 text-cheese-800 dark:text-cheese-300"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- BOOK CONTENT AREA -->
+        <div class="space-y-16">
+
+            <!-- PART 1: CHARACTERS WITH SVG ILLUSTRATIONS -->
+            <article id="part-1" class="scroll-mt-20 border-b border-slate-200 dark:border-slate-800 pb-12">
+                <span class="text-cheese-600 font-bold text-xs sm:text-sm tracking-widest uppercase">भाग 1</span>
+                <h2 class="text-3xl font-extrabold mb-6 mt-1">कहानी के 4 पात्र - हमारे अंदर के चार स्वभाव</h2>
+                
+                <div class="bg-card bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm mb-6">
+                    <p class="mb-6">
+                        इस कहानी में चार काल्पनिक पात्र हैं: दो चूहे - <strong>स्निफ़ (सूक्ष्मदृष्टा)</strong> और <strong>स्करी (सक्रिय)</strong>, तथा दो छोटे इंसान - <strong>हेम (अड़ियल)</strong> और <strong>हॉ (समझदार)</strong>। ये चारों हमारे ही स्वभाव के अलग-अलग पहलुओं को दर्शाते हैं:
+                    </p>
+
+                    <!-- SVG Illustration Cards for All 4 Characters -->
+                    <div class="grid sm:grid-cols-2 gap-6 mt-6">
+                        <!-- Sniff Card -->
+                        <div class="p-5 bg-amber-50/80 dark:bg-slate-900/60 rounded-2xl border border-amber-200 dark:border-slate-700 flex flex-col items-center text-center">
+                            <div class="w-24 h-24 mb-3">
+                                <svg viewBox="0 0 100 100" class="w-full h-full">
+                                    <circle cx="50" cy="50" r="45" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+                                    <!-- Mouse Nose/Sniffing -->
+                                    <ellipse cx="50" cy="55" rx="18" ry="14" fill="#D97706"/>
+                                    <circle cx="50" cy="45" r="5" fill="#1E293B"/>
+                                    <ellipse cx="38" cy="35" rx="10" ry="15" fill="#FBBF24"/>
+                                    <ellipse cx="62" cy="35" rx="10" ry="15" fill="#FBBF24"/>
+                                    <!-- Sniffing waves -->
+                                    <path d="M 50 35 C 50 25 45 20 50 15 M 55 35 C 58 28 55 22 58 18" stroke="#D97706" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-extrabold text-xl text-amber-800 dark:text-amber-300 mb-1">1. स्निफ़ (Sniff) - भांपने वाला</h3>
+                            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                                जो बदलाव को बहुत शुरुआत में ही सूँघ (Sniff) लेता है। जैसे वे दुकानदार जो ग्राहकों के आने से पहले ही समझ गए कि QR Code व ऑनलाइन ऑर्डर रखना ज़रूरी है।
+                            </p>
+                        </div>
+
+                        <!-- Scurry Card -->
+                        <div class="p-5 bg-amber-50/80 dark:bg-slate-900/60 rounded-2xl border border-amber-200 dark:border-slate-700 flex flex-col items-center text-center">
+                            <div class="w-24 h-24 mb-3">
+                                <svg viewBox="0 0 100 100" class="w-full h-full">
+                                    <circle cx="50" cy="50" r="45" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+                                    <!-- Running Mouse -->
+                                    <ellipse cx="45" cy="50" rx="22" ry="14" fill="#D97706"/>
+                                    <circle cx="65" cy="45" r="10" fill="#D97706"/>
+                                    <!-- Motion Lines -->
+                                    <path d="M 10 50 H 20 M 12 40 H 22 M 15 60 H 25" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+                                    <path d="M 40 64 L 30 78 M 55 64 L 65 78" stroke="#1E293B" stroke-width="3"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-extrabold text-xl text-amber-800 dark:text-amber-300 mb-1">2. स्करी (Scurry) - तेजी से काम करने वाला</h3>
+                            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                                जो बदलाव देखते ही बिना ज्यादा सोचे-विचारे तुरंत एक्शन में जुट जाता है और नए रास्ते पर दौड़ पड़ता है।
+                            </p>
+                        </div>
+
+                        <!-- Hem Card -->
+                        <div class="p-5 bg-rose-50/80 dark:bg-slate-900/60 rounded-2xl border border-rose-200 dark:border-slate-700 flex flex-col items-center text-center">
+                            <div class="w-24 h-24 mb-3">
+                                <svg viewBox="0 0 100 100" class="w-full h-full">
+                                    <circle cx="50" cy="50" r="45" fill="#FFE4E6" stroke="#F43F5E" stroke-width="2"/>
+                                    <!-- Angry/Stubborn Figure -->
+                                    <circle cx="50" cy="40" r="14" fill="#E11D48"/>
+                                    <path d="M 38 65 Q 50 55 62 65 V 85 H 38 Z" fill="#E11D48"/>
+                                    <!-- Crossed Arms -->
+                                    <path d="M 35 68 H 65" stroke="#FFF" stroke-width="4" stroke-linecap="round"/>
+                                    <!-- Angry Eyebrows -->
+                                    <path d="M 42 36 L 48 40 M 58 36 L 52 40" stroke="#FFF" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-extrabold text-xl text-rose-800 dark:text-rose-300 mb-1">3. हेम (Hem) - पुरानी जिद में अड़ा रहने वाला</h3>
+                            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                                जो बदलाव का विरोध करता है और कहता है: "मेरा पुराना तरीका ही सही था, नया तरीका खराब है!" और पुरानी जगह ही हाथ पर हाथ धरे बैठा रहता है।
+                            </p>
+                        </div>
+
+                        <!-- Haw Card -->
+                        <div class="p-5 bg-emerald-50/80 dark:bg-slate-900/60 rounded-2xl border border-emerald-200 dark:border-slate-700 flex flex-col items-center text-center">
+                            <div class="w-24 h-24 mb-3">
+                                <svg viewBox="0 0 100 100" class="w-full h-full">
+                                    <circle cx="50" cy="50" r="45" fill="#D1FAE5" stroke="#10B981" stroke-width="2"/>
+                                    <!-- Smiling Runner Figure -->
+                                    <circle cx="50" cy="38" r="14" fill="#059669"/>
+                                    <!-- Smile -->
+                                    <path d="M 44 42 Q 50 48 56 42" stroke="#FFF" stroke-width="2" fill="none"/>
+                                    <path d="M 50 52 L 40 70 M 50 52 L 65 65 M 40 70 L 30 85 M 40 70 L 50 85" stroke="#059669" stroke-width="4" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-extrabold text-xl text-emerald-800 dark:text-emerald-300 mb-1">4. हॉ (Haw) - समझदारी से बदलने वाला</h3>
+                            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                                जो शुरू में डरता है, लेकिन बाद में अपनी मूर्खता पर हँसता है, दिमाग लगाता है और नए अवसर (New Cheese) खोजने निकल पड़ता है!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PART 2 -->
+            <article id="part-2" class="scroll-mt-20 border-b border-slate-200 dark:border-slate-800 pb-12">
+                <span class="text-cheese-600 font-bold text-xs sm:text-sm tracking-widest uppercase">भाग 2</span>
+                <h2 class="text-3xl font-extrabold mb-6 mt-1">चाय पर चर्चा - पुराने दोस्तों की बैठक</h2>
+                
+                <p class="mb-4">
+                    स्कूल के कई पुराने दोस्त सालों बाद दिल्ली में एक गेट-टुगेदर में मिले। शाम को चाय-समोसे के साथ सभी अपने-अपने करियर और जीवन के अनुभवों पर बातें करने लगे।
+                </p>
+                <p class="mb-4">
+                    <strong>अंजली:</strong> "यार, स्कूल के बाद ज़िंदगी वैसी बिल्कुल नहीं रही जैसा हमने सोचा था। कितना कुछ बदल गया!"
+                </p>
+                <p class="mb-4">
+                    <strong>नितिन (पारंपरिक दुकान का संचालक):</strong> "सही कहा! हमारे खानदानी बिजनेस में भी बड़ी चुनौती आ गई। पहले दुकान पर पैर रखने की जगह नहीं होती थी, अब लोग घर बैठे मोबाइल ऐप से सामान मँगवा लेते हैं। हमने समय पर बदलाव नहीं किया, इसलिए घाटा हुआ।"
+                </p>
+                <p class="mb-4">
+                    <strong>करन:</strong> "सच तो यह है कि हम बदलाव से डरते हैं। लगता है कि जो थोड़ा-बहुत अभी हाथ में है, वह भी छिन न जाए।"
+                </p>
+                <p class="mb-4">
+                    तभी <strong>मनीष</strong> ने मुस्कुराते हुए कहा, "मैं भी बहुत डरता था। हमारी आईटी कंपनी बंद होने की कगार पर पहुँच गई थी क्योंकि हम नई टेक्नोलॉजी नहीं सीख रहे थे। लेकिन फिर मुझे एक छोटी सी कहानी सुनने को मिली—'मेरा मक्खन किसने हटाया?'—और उसने मेरी सोच ही बदल दी!"
+                </p>
+                <div class="p-5 bg-amber-100 dark:bg-slate-800 border-l-4 border-cheese-500 rounded-r-2xl my-6">
+                    <p class="font-bold text-slate-900 dark:text-white">
+                        "उस कहानी ने सिखाया कि बदलाव से डरना नहीं चाहिए, क्योंकि बदलाव नुकसान का नहीं बल्कि 'नया अवसर' पाने का नाम है!"
+                    </p>
+                </div>
+            </article>
+
+            <!-- PART 3.1 -->
+            <article id="part-3-1" class="scroll-mt-20 border-b border-slate-200 dark:border-slate-800 pb-12">
+                <span class="text-cheese-600 font-bold text-xs sm:text-sm tracking-widest uppercase">भाग 3.1 (मूल कहानी)</span>
+                <h2 class="text-3xl font-extrabold mb-6 mt-1">मक्खन स्टेशन 'C' और आराम का दौर</h2>
+
+                <p class="mb-4">
+                    बहुत समय पहले, एक बड़ी भूल-भुलैया (Maze) में दो चूहे (स्निफ़ और स्करी) तथा दो छोटे इंसान (हेम और हॉ) रहते थे।
+                </p>
+                <p class="mb-4">
+                    चूहे स्निफ़ और स्करी रोज़ सुबह जल्दी उठते, अपने रनिंग शूज़ पहनते और भूल-भुलैया की गलियों में मक्खन ढूँढने निकल पड़ते।
+                </p>
+                <p class="mb-4">
+                    एक दिन चारों को <strong>'मक्खन स्टेशन C' (Station C)</strong> पर ताज़े मक्खन का बहुत बड़ा भंडार मिल गया!
+                </p>
+
+                <!-- Visual Artwork of Station C -->
+                <div class="my-6 p-4 bg-amber-50 dark:bg-slate-800 rounded-2xl border border-amber-200 dark:border-slate-700 flex justify-center">
+                    <svg class="w-full max-w-sm h-auto" viewBox="0 0 300 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="300" height="120" rx="12" fill="#FEF3C7"/>
+                        <text x="150" y="30" text-anchor="middle" fill="#B45309" font-family="sans-serif" font-weight="extrabold" font-size="16">मक्खन स्टेशन 'C'</text>
+                        <path d="M 80 90 C 80 60 220 60 220 90 Z" fill="#F59E0B"/>
+                        <ellipse cx="150" cy="65" rx="60" ry="15" fill="#FFFBEB"/>
+                        <text x="150" y="70" text-anchor="middle" fill="#D97706" font-family="sans-serif" font-weight="bold" font-size="12">विशाल मटका (प्रचुरता)</text>
+                    </svg>
+                </div>
+
+                <p class="mb-4">
+                    धीरे-धीरे हेम और हॉ आरामपसंद हो गए:
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-slate-700 dark:text-slate-300 pl-4 mb-6">
+                    <li>हेम और हॉ अब रोज़ देर से सोकर उठते।</li>
+                    <li>उन्होंने अपने दौड़ने वाले जूते उतारकर दीवार पर टांग दिए और आरामदेह चप्पलें पहन लीं।</li>
+                    <li>वे सोचने लगे कि यह मक्खन उनका पक्का अधिकार है और यह कभी खत्म नहीं होगा।</li>
+                </ul>
+
+                <div class="wall-card p-6 rounded-2xl border border-cheese-300 dark:border-slate-700 text-center my-6 shadow-sm">
+                    <span class="text-4xl block mb-2">🧈</span>
+                    <h3 class="text-2xl font-black text-slate-900 dark:text-amber-300">
+                        "मक्खन का होना आपको खुशियाँ और सुरक्षा देता है।"
+                    </h3>
+                    <span class="text-xs text-slate-500 uppercase tracking-wider block mt-2">दीवार पर लिखा पहला नियम</span>
+                </div>
+            </article>
+
+            <!-- PART 3.2 -->
+            <article id="part-3-2" class="scroll-mt-20 border-b border-slate-200 dark:border-slate-800 pb-12">
+                <span class="text-cheese-600 font-bold text-xs sm:text-sm tracking-widest uppercase">भाग 3.2</span>
+                <h2 class="text-3xl font-extrabold mb-6 mt-1">जब अचानक मक्खन खत्म हो गया!</h2>
+
+                <p class="mb-4">
+                    एक दिन सुबह जब चूहे (स्निफ़ और स्करी) स्टेशन C पहुँचे, तो उन्होंने देखा कि <strong>वहाँ कोई मक्खन नहीं बचा था!</strong>
+                </p>
+                <p class="mb-4">
+                    चूहे हैरान नहीं हुए! उन्होंने रोज़ ध्यान दिया था कि मक्खन का भंडार धीरे-धीरे कम हो रहा था। उन्होंने बिना समय गंवाए तुरंत जूते पहने और नए मक्खन की तलाश में भूल-भुलैया में दौड़ पड़े।
+                </p>
+                <p class="mb-4">
+                    लेकिन जब हेम और हॉ देर से पहुँचे, तो वे स्तब्ध रह गए!
+                </p>
+
+                <div class="p-6 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900 rounded-2xl my-6">
+                    <p class="text-xl font-extrabold text-rose-800 dark:text-rose-300 mb-2">
+                        "क्या! मक्खन नहीं है?!" हेम ज़ोर-ज़ोर से चिल्लाया।
+                    </p>
+                    <p class="text-rose-700 dark:text-rose-400 font-medium">
+                        "मेरा मक्खन किसने हटाया? यह मेरे साथ ही क्यों हुआ? यह बिल्कुल अन्याय है!" हेम गुस्से से लाल-पीला हो गया।
+                    </p>
+                </div>
+
+                <p class="mb-4">
+                    हेम और हॉ दिनों तक उसी खाली जगह पर बैठकर रोते और गुस्सा करते रहे। उन्होंने इस सच को स्वीकार करने से इनकार कर दिया कि जमाना बदल चुका है।
+                </p>
+            </article>
+
+            <!-- PART 3.3 -->
+            <article id="part-3-3" class="scroll-mt-20 border-b border-slate-200 dark:border-slate-800 pb-12">
+                <span class="text-cheese-600 font-bold text-xs sm:text-sm tracking-widest uppercase">भाग 3.3</span>
+                <h2 class="text-3xl font-extrabold mb-6 mt-1">डर पर विजय और हॉ (Haw) का नया कदम</h2>
+
+                <p class="mb-4">
+                    कई दिनों तक भूखे रहने के बाद, एक दिन हॉ (Haw) को अपनी मूर्खता पर हँसी आ गई।
+                </p>
+                <p class="mb-4">
+                    "अरे भाई! हम रोज़ यहीं आकर चिल्ला रहे हैं और सोच रहे हैं कि पुराना मक्खन अपने आप वापस आ जाएगा! यह कितनी बड़ी बेवकूफी है!"
+                </p>
+                <p class="mb-4">
+                    हॉ ने अपने दौड़ने वाले जूते पहन लिए। हेम ने रोकते हुए कहा, "बाहर मत जाओ! अंधेरा है, तुम भटक जाओगे!"
+                </p>
+                <p class="mb-4">
+                    हॉ ने जवाब दिया, "पुराना मक्खन कभी वापस नहीं आएगा, हेम! नया मक्खन ढूँढने बाहर निकलना ही पड़ेगा!"
+                </p>
+
+                <div class="wall-card p-6 rounded-2xl border border-cheese-300 dark:border-slate-700 text-center my-6 shadow-sm">
+                    <h3 class="text-2xl font-extrabold text-slate-900 dark:text-amber-300">
+                        "यदि आप खुद को नहीं बदलेंगे, तो आप पीछे छूट जाएंगे (Extinct हो जाएंगे)!"
+                    </h3>
+                    <span class="text-xs text-slate-500 uppercase tracking-wider block mt-2">If You Do Not Change, You Can Become Extinct.</span>
+                </div>
+
+                <p class="mb-4">
+                    हॉ ने नए रास्ते पर पहला कदम बढ़ाते हुए खुद से पूछा:
+                </p>
+
+                <div class="wall-card p-6 rounded-2xl border border-cheese-300 dark:border-slate-700 text-center my-6 shadow-sm">
+                    <h3 class="text-2xl font-extrabold text-slate-900 dark:text-amber-300">
+                        "यदि आप डरे हुए न होते, तो आप क्या करते?"
+                    </h3>
+                    <span class="text-xs text-slate-500 uppercase tracking-wider block mt-2">What Would You Do If You Weren't Afraid?</span>
+                </div>
+
+                <p class="mb-4">
+                    जैसे ही हॉ ने डर को छोड़कर आगे कदम बढ़ाया, उसे एक नई ताज़गी और आज़ादी महसूस हुई! उसे समझ आया कि **अनिश्चितता का डर, असली परिस्थिति से कहीं ज्यादा डरावना होता है।**
+                </p>
+            </article>
+
+            <!-- PART 3.4 -->
+            <article id="part-3-4" class="scroll-mt-20 border-b border-slate-200 dark:border-slate-800 pb-12">
+                <span class="text-cheese-600 font-bold text-xs sm:text-sm tracking-widest uppercase">भाग 3.4</span>
+                <h2 class="text-3xl font-extrabold mb-6 mt-1">स्टेशन 'N' की खोज - नया मक्खन मिल गया!</h2>
+
+                <p class="mb-4">
+                    रास्ते में हॉ को थोड़े-थोड़े मक्खन के टुकड़े मिले। उसे विश्वास होने लगा कि आगे कुछ बड़ा और अच्छा उसका इंतजार कर रहा है।
+                </p>
+                <p class="mb-4">
+                    आखिरकार, हॉ एक नए मोड़ पर पहुँचा—<strong>'मक्खन स्टेशन N' (Station N)</strong>!
+                </p>
+                <p class="mb-4">
+                    अंदर जाते ही उसकी आँखें फटी की फटी रह गईं। वहाँ तरह-तरह के स्वादिष्ट और नए मक्खन का विशाल पहाड़ लगा हुआ था!
+                </p>
+                <p class="mb-4">
+                    उसके पुराने साथी **स्निफ़ और स्करी** पहले से ही वहाँ मजे से खा रहे थे। हॉ ने तुरंत अपने जूते गले में लटकाए (ताकि कभी फिर से आलसी न बने) और नए मक्खन का स्वाद लिया!
+                </p>
+            </article>
+
+            <!-- HANDWRITING ON THE WALL -->
+            <article id="handwriting" class="scroll-mt-20 border-b border-slate-200 dark:border-slate-800 pb-12">
+                <span class="text-cheese-600 font-bold text-xs sm:text-sm tracking-widest uppercase">सीख</span>
+                <h2 class="text-3xl font-extrabold mb-6 mt-1">दीवार पर लिखे जीवन-मंत्र (Handwriting on the Wall)</h2>
+                
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="p-5 bg-card bg-white dark:bg-slate-800 rounded-2xl border-l-4 border-cheese-500 shadow-sm">
+                        <span class="text-xs font-bold text-cheese-600 uppercase">1. बदलाव होकर रहेगा</span>
+                        <h3 class="font-bold text-base mt-1">वे हमेशा मक्खन को हटाते रहते हैं।</h3>
+                        <p class="text-xs text-slate-500 mt-1">Change Happens: They Keep Moving The Cheese.</p>
+                    </div>
+
+                    <div class="p-5 bg-card bg-white dark:bg-slate-800 rounded-2xl border-l-4 border-cheese-500 shadow-sm">
+                        <span class="text-xs font-bold text-cheese-600 uppercase">2. पहले से तैयार रहें</span>
+                        <h3 class="font-bold text-base mt-1">मक्खन के हटने का पहले से अनुमान लगाएं।</h3>
+                        <p class="text-xs text-slate-500 mt-1">Anticipate Change: Get Ready For The Cheese To Move.</p>
+                    </div>
+
+                    <div class="p-5 bg-card bg-white dark:bg-slate-800 rounded-2xl border-l-4 border-cheese-500 shadow-sm">
+                        <span class="text-xs font-bold text-cheese-600 uppercase">3. ध्यान रखें</span>
+                        <h3 class="font-bold text-base mt-1">मक्खन को अक्सर सूँघते रहें ताकि पता चले कि यह कब पुराना हो रहा है।</h3>
+                        <p class="text-xs text-slate-500 mt-1">Monitor Change: Smell The Cheese Often.</p>
+                    </div>
+
+                    <div class="p-5 bg-card bg-white dark:bg-slate-800 rounded-2xl border-l-4 border-cheese-500 shadow-sm">
+                        <span class="text-xs font-bold text-cheese-600 uppercase">4. जल्दी अपनाएं</span>
+                        <h3 class="font-bold text-base mt-1">जितनी जल्दी आप पुराना मक्खन छोड़ेंगे, उतनी ही जल्दी नया मक्खन पाएंगे।</h3>
+                        <p class="text-xs text-slate-500 mt-1">Adapt Quickly: Let Go Of Old Cheese To Enjoy New Cheese.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- INDIAN REAL LIFE EXAMPLES WITH VISUAL ILLUSTRATIONS -->
+            <article id="indian-cases" class="scroll-mt-20 border-b border-slate-200 dark:border-slate-800 pb-12">
+                <span class="text-cheese-600 font-bold text-xs sm:text-sm tracking-widest uppercase">भारतीय परिवेश</span>
+                <h2 class="text-3xl font-extrabold mb-6 mt-1">भारतीय जीवन के वास्तविक उदाहरण (Indian Case Studies)</h2>
+
+                <div class="space-y-6">
+                    <!-- Case 1: Kirana Shop vs Digital Payments -->
+                    <div class="p-6 bg-card bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="p-2.5 bg-amber-100 text-amber-800 rounded-xl font-bold">🛒 1. रमेश जी की किराना दुकान (UPI व डिजिटल क्रांति)</span>
+                        </div>
+                        <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300">
+                            <strong>किस्सा:</strong> रमेश जी 20 साल से पुराने बही-खाते और केवल कैश पर दुकान चलाते थे। जब पास में सुपरमार्केट खुला और लोग मोबाइल पेमेंट्स मांगने लगे, तो रमेश जी शुरू में <em>हेम (Hem)</em> की तरह गुस्सा हुए कि "लोग नकद देना क्यों छोड़ रहे हैं?"<br/>
+                            लेकिन जब उनके बेटे ने <em>हॉ (Haw)</em> की तरह दुकान पर QR-Code स्कैनर लगाया, व्हाट्सएप पर आर्डर लेना शुरू किया और 10 मिनट में होम डिलीवरी दी, तो उनकी बिक्री दोगुनी हो गई!
+                        </p>
+                    </div>
+
+                    <!-- Case 2: Coaching & Digital Exams -->
+                    <div class="p-6 bg-card bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="p-2.5 bg-emerald-100 text-emerald-800 rounded-xl font-bold">💻 2. राहुल की पढ़ाई (रट्टा-मार बनाम डिजिटल स्किल्स व AI)</span>
+                        </div>
+                        <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300">
+                            <strong>किस्सा:</strong> राहुल 3 साल से एक ही पुरानी किताब से कॉम्पिटिटिव एग्जाम की रट्टा-मार तैयारी कर रहा था। जब परीक्षा का पैटर्न बदला और ऑनलाइन टेस्ट व कंप्यूटर-बेस्ड सवाल आए, तो वह परेशान हो गया। जब उसने यूट्यूब, ऑनलाइन कोर्सेज और AI टूल्स से पढ़ना शुरू किया (नया मक्खन), तो उसका सिलेक्शन हो गया!
+                        </p>
+                    </div>
+
+                    <!-- Case 3: Grandparents & Smartphones -->
+                    <div class="p-6 bg-card bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="p-2.5 bg-indigo-100 text-indigo-800 rounded-xl font-bold">📱 3. दादाजी और स्मार्टफोन की नई सीख</span>
+                        </div>
+                        <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300">
+                            <strong>किस्सा:</strong> दादाजी पहले कहते थे "मुझे यह टच-स्क्रीन फोन नहीं चाहिए, मेरा बटन वाला फोन ही अच्छा है!"। लेकिन जब पोते-पोतियों ने उन्हें व्हाट्सएप पर वीडियो कॉल करना और धार्मिक भजन सुनना सिखाया, तो दादाजी बहुत खुश हुए। उन्होंने अपना डर दूर किया और तकनीक के नए मक्खन का आनंद लिया!
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- INTERACTIVE QUIZ SECTION -->
+            <article id="quiz" class="scroll-mt-20 bg-gradient-to-br from-amber-100 to-cheese-100 dark:from-slate-800 dark:to-slate-900 p-6 sm:p-8 rounded-3xl border border-cheese-300 dark:border-slate-700 shadow-md">
+                <div class="text-center mb-6">
+                    <span class="text-xs font-extrabold text-cheese-700 dark:text-cheese-300 uppercase tracking-wider">आत्म-मूल्यांकन</span>
+                    <h3 class="text-2xl sm:text-3xl font-bold mt-1">आप इस कहानी में कौन सा पात्र हैं?</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">नीचे दिए गए सवाल का अपना ईमानदार जवाब चुनें:</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+                    <p class="font-bold text-lg mb-4 text-slate-900 dark:text-white">
+                        सवाल: जब आपके काम, नौकरी या पढ़ाई में कोई अचानक बदलाव आता है, तो आपकी पहली प्रतिक्रिया क्या होती है?
+                    </p>
+
+                    <div class="space-y-3">
+                        <button onclick="showQuizResult('Sniff')" class="w-full text-left p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-cheese-50 dark:hover:bg-slate-700 transition flex items-center justify-between">
+                            <span>A. मैं पहले से ही बदलाव भांप लेता हूँ और नई तैयारी शुरू कर देता हूँ।</span>
+                            <span class="text-xs font-bold px-2 py-1 bg-amber-100 text-amber-800 rounded">स्निफ़ (Sniff)</span>
+                        </button>
+
+                        <button onclick="showQuizResult('Scurry')" class="w-full text-left p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-cheese-50 dark:hover:bg-slate-700 transition flex items-center justify-between">
+                            <span>B. मैं ज़्यादा सोचता नहीं, तुरंत नया तरीका ट्राई करने लगता हूँ।</span>
+                            <span class="text-xs font-bold px-2 py-1 bg-amber-100 text-amber-800 rounded">स्करी (Scurry)</span>
+                        </button>
+
+                        <button onclick="showQuizResult('Hem')" class="w-full text-left p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-cheese-50 dark:hover:bg-slate-700 transition flex items-center justify-between">
+                            <span>C. मैं गुस्सा होता हूँ और कहता हूँ "पुराना तरीका ही सही था, यह गलत हो रहा है!"</span>
+                            <span class="text-xs font-bold px-2 py-1 bg-rose-100 text-rose-800 rounded">हेम (Hem)</span>
+                        </button>
+
+                        <button onclick="showQuizResult('Haw')" class="w-full text-left p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-cheese-50 dark:hover:bg-slate-700 transition flex items-center justify-between">
+                            <span>D. शुरू में डरता हूँ, पर फिर अपनी बेवकूफी पर हँसता हूँ और नया रास्ता ढूँढता हूँ।</span>
+                            <span class="text-xs font-bold px-2 py-1 bg-emerald-100 text-emerald-800 rounded">हॉ (Haw)</span>
+                        </button>
+                    </div>
+
+                    <div id="quiz-modal" class="hidden mt-6 p-4 rounded-xl bg-cheese-200 dark:bg-slate-700 border border-cheese-400 font-medium text-slate-900 dark:text-slate-100">
+                        <!-- Result text will appear here -->
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 mt-12 text-center text-sm">
+        <div class="max-w-4xl mx-auto px-4">
+            <p class="mb-2 font-bold text-slate-200">भारतीय परिवेश सचित्र डिजिटल संस्करण</p>
+            <p class="text-xs text-slate-500">"बदलाव से डरिए मत, उसके साथ आगे बढ़िए और नया मक्खन पाइए!"</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Theme Switcher
+        function setTheme(mode) {
+            document.body.classList.remove('sepia-mode', 'dark');
+            if (mode === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else if (mode === 'sepia') {
+                document.body.classList.add('sepia-mode');
+                document.documentElement.classList.remove('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        // Font Size Adjuster
+        let currentFontSize = 18;
+        function changeFontSize(delta) {
+            currentFontSize = Math.min(Math.max(currentFontSize + delta, 14), 26);
+            document.getElementById('content-container').style.fontSize = currentFontSize + 'px';
+        }
+
+        // Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + '%';
+        });
+
+        // Quiz Result Logic
+        function showQuizResult(character) {
+            const modal = document.getElementById('quiz-modal');
+            modal.classList.remove('hidden');
+            
+            let message = "";
+            if (character === 'Sniff') {
+                message = "<strong>आप स्निफ़ (Sniff) की तरह हैं!</strong> आप दूरदर्शी हैं और बदलाव को सबसे पहले समझ लेते हैं। यह एक बहुत बड़ा गुण है!";
+            } else if (character === 'Scurry') {
+                message = "<strong>आप स्करी (Scurry) की तरह हैं!</strong> आप कर्मठ हैं और बिना समय गंवाए तुरंत नए काम में लग जाते हैं।";
+            } else if (character === 'Hem') {
+                message = "<strong>आप अभी हेम (Hem) जैसा महसूस कर रहे हैं।</strong> घबराइए मत! अधिकांश लोग शुरू में हेम ही होते हैं। बस याद रखिए कि पुराने ढर्रे से चिपके रहने से नुकसान आपका ही होगा। 'हॉ' बनने की कोशिश कीजिए!";
+            } else if (character === 'Haw') {
+                message = "<strong>आप हॉ (Haw) की तरह हैं!</strong> आपके पास डर को हराने और नए अवसर (नया मक्खन) ढूँढने की समझदारी है। आप जीवन में ज़रूर सफल होंगे!";
+            }
+            
+            modal.innerHTML = message;
+        }
+    </script>
+</body>
+</html>
+
