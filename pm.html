@@ -1,0 +1,512 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>जन सुरक्षा - भारत सरकार की सामाजिक सुरक्षा योजनाएं</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Hind & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        saffron: '#FF9933',
+                        indiaGreen: '#138808',
+                        navyBlue: '#000080',
+                        warmRed: '#E63946',
+                        skySoft: '#F0F9FF',
+                    },
+                    fontFamily: {
+                        sans: ['Hind', 'Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Hind', sans-serif;
+            background-color: #f8fafc;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
+        }
+        .pulse-button {
+            animation: pulse-animation 2s infinite;
+        }
+        @keyframes pulse-animation {
+            0% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(230, 57, 70, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0); }
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-orange-500 selection:text-white">
+
+    <!-- टॉप हेडर / सरकारी उपक्रम पट्टी -->
+    <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>भारत सरकार द्वारा जनहित में जारी सामाजिक सुरक्षा अभियान</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#eligibility" class="hover:text-amber-400 transition">पात्रता जांचें</a>
+                <span>•</span>
+                <a href="#enroll" class="hover:text-amber-400 transition">आवेदन लिंक</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- नेविगेशन बार -->
+    <nav class="bg-white border-b border-slate-100 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-tr from-amber-500 to-orange-600 text-white p-2.5 rounded-2xl shadow-md">
+                    <i class="fa-solid fa-hands-holding-child text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-xl text-slate-900 leading-tight">जन सुरक्षा बीमा</h1>
+                    <p class="text-xs text-slate-500 font-medium">हर परिवार की सुरक्षा का ढाल</p>
+                </div>
+            </div>
+            <a href="https://jansuraksha.in/Customer/custNewEnrollment" target="_blank" rel="noopener noreferrer" 
+               class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-4 py-2 rounded-xl text-sm transition duration-200 flex items-center space-x-2 shadow-sm">
+                <span>अभी आवेदन करें</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- हीरो सेक्शन - भावुक अपील -->
+    <section class="hero-gradient text-white relative overflow-hidden py-16 md:py-24 px-4">
+        <!-- बैकग्राउंड डेकोरेशन -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/15 text-orange-300 text-sm">
+                        <i class="fa-solid fa-heart text-rose-400"></i>
+                        <span>सुरक्षा है, परिवार के लिए हमारा उपहार</span>
+                    </div>
+
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+                        आपकी उपस्थिति में... <br>
+                        या अनुपस्थिति में, <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-300 to-rose-300">
+                            उनकी खुशियां सुरक्षित रहें!
+                        </span>
+                    </h2>
+
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
+                        इंसुरेंस है, सभी के लिए जरूरी! यह सिर्फ एक योजना नहीं, बल्कि आपके न रहने या काम न कर पाने की स्थिति में आपके परिवार की सबसे बड़ी संपत्ति है। मात्र <strong>₹456 प्रति वर्ष</strong> में पाएँ <strong>₹4 लाख</strong> का सुरक्षा कवच।
+                    </p>
+
+                    <!-- मुख्य बटन और लिंक -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="https://jansuraksha.in/Customer/custNewEnrollment" target="_blank" rel="noopener noreferrer" 
+                           class="pulse-button bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-orange-500/30 transition text-lg w-full sm:w-auto text-center flex items-center justify-center space-x-3">
+                            <i class="fa-solid fa-shield-heart text-xl"></i>
+                            <span>ऑनलाइन नामांकित करें</span>
+                        </a>
+                        <a href="#schemes" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-4 rounded-2xl backdrop-blur-md border border-white/20 transition w-full sm:w-auto text-center">
+                            योजनाएं समझें <i class="fa-solid fa-chevron-down ml-2 text-xs"></i>
+                        </a>
+                    </div>
+
+                    <!-- छोटी खूबियां -->
+                    <div class="pt-6 border-t border-white/10 grid grid-cols-3 gap-2 text-center lg:text-left">
+                        <div>
+                            <p class="text-2xl font-bold text-amber-300">₹4 लाख</p>
+                            <p class="text-xs text-slate-400">कुल बीमा राशि</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-amber-300">₹456/वर्ष</p>
+                            <p class="text-xs text-slate-400">दोनों योजनाओं का प्रीमियम</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-amber-300">100% सहज</p>
+                            <p class="text-xs text-slate-400">ऑटो-डेबिट की सुविधा</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- विजुअल कार्ड -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 sm:p-8 rounded-3xl text-slate-800 shadow-2xl relative">
+                        <!-- परिवार का चित्र कार्ड -->
+                        <div class="bg-gradient-to-br from-amber-50 to-orange-100 rounded-2xl p-6 text-center border border-orange-200/50 mb-6">
+                            <div class="w-20 h-20 mx-auto bg-orange-500 text-white rounded-full flex items-center justify-center shadow-lg mb-3">
+                                <i class="fa-solid fa-people-roof text-3xl"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-xl">सुरक्षित परिवार, निश्चिंत भविष्य</h3>
+                            <p class="text-xs text-slate-600 mt-1">बैंक खाते से सीधी सुरक्षा प्रणाली</p>
+                        </div>
+
+                        <!-- हाइलाइट्स -->
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3 bg-white/10 p-3 rounded-xl text-white text-sm">
+                                <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+                                <span><strong>PMJJBY:</strong> जीवन बीमा - ₹2,00,000 (मृत्यु पर)</span>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-white/10 p-3 rounded-xl text-white text-sm">
+                                <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+                                <span><strong>PMSBY:</strong> दुर्घटना बीमा - ₹2,00,000 (दुर्घटना/विकलांगता)</span>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-white/10 p-3 rounded-xl text-white text-sm">
+                                <i class="fa-solid fa-clock text-amber-300 text-lg"></i>
+                                <span><strong>कवरेज अवधि:</strong> 1 जून से 31 मई तक</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- तुलनात्मक योजना कार्ड्स -->
+    <section id="schemes" class="py-16 px-4 max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-orange-600 font-bold tracking-wider text-sm uppercase bg-orange-100 px-3 py-1 rounded-full">योजना विवरण</span>
+            <h2 class="text-3xl font-extrabold text-slate-900 mt-3">भारत सरकार की दो मुख्य बीमा योजनाएं</h2>
+            <p class="text-slate-600 mt-2">आपकी ज़रूरतों के हिसाब से तैयार की गई नाममात्र प्रीमियम वाली योजनाएं</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- PMJJBY कार्ड -->
+            <div class="bg-white rounded-3xl p-8 border border-emerald-100 card-shadow hover:border-emerald-500 transition-all duration-300 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 bg-emerald-600 text-white text-xs font-bold px-4 py-1 rounded-bl-xl uppercase tracking-wider">
+                    जीवन बीमा
+                </div>
+                
+                <div class="flex items-center space-x-4 mb-6">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-emerald-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900">PMJJBY</h3>
+                        <p class="text-sm text-slate-500">प्रधानमंत्री जीवन ज्योति बीमा योजना</p>
+                    </div>
+                </div>
+
+                <div class="bg-emerald-50/70 rounded-2xl p-4 mb-6 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-slate-500 font-medium">वार्षिक प्रीमियम</p>
+                        <p class="text-3xl font-extrabold text-emerald-700">₹436 <span class="text-xs font-normal text-slate-600">/ प्रति वर्ष</span></p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-xs text-slate-500 font-medium">बीमा कवरेज</p>
+                        <p class="text-xl font-bold text-slate-900">₹2,00,000</p>
+                    </div>
+                </div>
+
+                <ul class="space-y-4 text-sm text-slate-700 mb-8">
+                    <li class="flex items-start space-x-3">
+                        <i class="fa-solid fa-user-check text-emerald-500 mt-1"></i>
+                        <span><strong>पात्रता उम्र:</strong> 18 से 50 वर्ष की आयु वाले बैंक खाताधारक।</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <i class="fa-solid fa-hand-holding-heart text-emerald-500 mt-1"></i>
+                        <span><strong>सुरक्षा लाभ:</strong> किसी भी कारण से मृत्यु होने की स्थिति में नॉमिनी को ₹2 लाख।</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <i class="fa-solid fa-calendar-days text-emerald-500 mt-1"></i>
+                        <span><strong>कवरेज अवधि:</strong> 1 जून से 31 मई तक (वार्षिक नवीनीकरण)।</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <i class="fa-solid fa-credit-card text-emerald-500 mt-1"></i>
+                        <span><strong>भुगतान:</strong> बैंक खाते से स्वतः ऑटो-डेबिट।</span>
+                    </li>
+                </ul>
+
+                <a href="https://jansuraksha.in/Customer/custNewEnrollment" target="_blank" rel="noopener noreferrer" 
+                   class="block w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl transition">
+                    PMJJBY के लिए आवेदन करें
+                </a>
+            </div>
+
+            <!-- PMSBY कार्ड -->
+            <div class="bg-white rounded-3xl p-8 border border-orange-100 card-shadow hover:border-orange-500 transition-all duration-300 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 bg-orange-500 text-white text-xs font-bold px-4 py-1 rounded-bl-xl uppercase tracking-wider">
+                    दुर्घटना बीमा
+                </div>
+
+                <div class="flex items-center space-x-4 mb-6">
+                    <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-orange-500 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900">PMSBY</h3>
+                        <p class="text-sm text-slate-500">प्रधानमंत्री सुरक्षा बीमा योजना</p>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50/70 rounded-2xl p-4 mb-6 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-slate-500 font-medium">वार्षिक प्रीमियम</p>
+                        <p class="text-3xl font-extrabold text-orange-600">₹20 <span class="text-xs font-normal text-slate-600">/ प्रति वर्ष</span></p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-xs text-slate-500 font-medium">बीमा कवरेज</p>
+                        <p class="text-xl font-bold text-slate-900">₹2,00,000 तक</p>
+                    </div>
+                </div>
+
+                <ul class="space-y-4 text-sm text-slate-700 mb-8">
+                    <li class="flex items-start space-x-3">
+                        <i class="fa-solid fa-user-check text-orange-500 mt-1"></i>
+                        <span><strong>पात्रता उम्र:</strong> 18 से 70 वर्ष की आयु वाले सभी नागरिक।</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <i class="fa-solid fa-wheelchair text-orange-500 mt-1"></i>
+                        <span><strong>सुरक्षा लाभ:</strong> दुर्घटना में मृत्यु या पूर्ण विकलांगता पर ₹2 लाख, आंशिक विकलांगता पर ₹1 लाख।</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <i class="fa-solid fa-calendar-days text-orange-500 mt-1"></i>
+                        <span><strong>कवरेज अवधि:</strong> 1 जून से 31 मई तक।</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <i class="fa-solid fa-credit-card text-orange-500 mt-1"></i>
+                        <span><strong>भुगतान:</strong> बैंक बचत खाते से स्वतः कटौति।</span>
+                    </li>
+                </ul>
+
+                <a href="https://jansuraksha.in/Customer/custNewEnrollment" target="_blank" rel="noopener noreferrer" 
+                   class="block w-full text-center bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl transition">
+                    PMSBY के लिए आवेदन करें
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- पात्रता एवं कैलकुलेटर सेक्शन -->
+    <section id="eligibility" class="bg-slate-100 py-16 px-4">
+        <div class="max-w-4xl mx-auto bg-white rounded-3xl p-6 sm:p-10 card-shadow">
+            <div class="text-center mb-8">
+                <i class="fa-solid fa-calculator text-3xl text-sky-600 mb-2"></i>
+                <h3 class="text-2xl font-bold text-slate-900">आपकी पात्रता एवं प्रीमियम कैलकुलेटर</h3>
+                <p class="text-slate-600 text-sm">अपनी उम्र दर्ज करें और जानें कि आप किस बीमा योजना के योग्य हैं</p>
+            </div>
+
+            <div class="max-w-md mx-auto space-y-6">
+                <div>
+                    <label for="userAge" class="block text-sm font-semibold text-slate-700 mb-2">आपकी वर्तमान उम्र (वर्षों में):</label>
+                    <div class="relative">
+                        <input type="number" id="userAge" min="10" max="100" placeholder="उदाहरण: 28" 
+                               class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none text-lg">
+                        <span class="absolute right-4 top-3 text-slate-400">वर्ष</span>
+                    </div>
+                </div>
+
+                <button onclick="calculateEligibility()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl transition">
+                    पात्रता की जांच करें
+                </button>
+
+                <!-- रिज़ल्ट बॉक्स -->
+                <div id="resultBox" class="hidden p-6 rounded-2xl border transition-all duration-300"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ऑनलाइन आवेदन लिंक बैनर -->
+    <section id="enroll" class="py-16 px-4 max-w-6xl mx-auto">
+        <div class="bg-gradient-to-r from-orange-600 via-amber-600 to-emerald-700 rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <div class="lg:col-span-8 space-y-4 text-center lg:text-left">
+                    <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full font-semibold uppercase tracking-wider">आसान ऑनलाइन प्रक्रिया</span>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold leading-tight">
+                        आज ही नामांकन करें और अपने परिवार का भविष्य सुरक्षित बनाएं!
+                    </h3>
+                    <p class="text-orange-100 text-base max-w-xl">
+                        आप इंटरनेट/मोबाइल बैंकिंग या अपने नजदीकी बैंक शाखा/डाकघर के माध्यम से केवल एक बैंक खाते से तुरंत नामांकन करा सकते हैं।
+                    </p>
+                    
+                    <!-- यूआरएल डिस्प्ले एवं कॉपी ऑप्शन -->
+                    <div class="bg-black/20 backdrop-blur-md p-3 rounded-xl flex items-center justify-between border border-white/20 text-xs sm:text-sm font-mono max-w-xl">
+                        <span id="linkText" class="truncate mr-2">https://jansuraksha.in/Customer/custNewEnrollment</span>
+                        <button onclick="copyLink()" class="bg-white text-slate-900 hover:bg-orange-100 px-3 py-1.5 rounded-lg font-sans font-semibold transition shrink-0 flex items-center space-x-1">
+                            <i class="fa-regular fa-copy"></i>
+                            <span id="copyBtnText">कॉपी करें</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 text-center">
+                    <a href="https://jansuraksha.in/Customer/custNewEnrollment" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center space-x-3 bg-white hover:bg-orange-50 text-orange-700 font-extrabold px-8 py-5 rounded-2xl shadow-2xl transition duration-300 transform hover:-translate-y-1 text-lg">
+                        <span>जन सुरक्षा पोर्टल खोलें</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- आवेदन प्रक्रिया के 3 आसान चरण -->
+    <section class="py-12 px-4 max-w-6xl mx-auto">
+        <h3 class="text-2xl font-bold text-center text-slate-900 mb-10">आवेदन की आसान 3-चरणीय प्रक्रिया</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                <div class="w-12 h-12 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">1</div>
+                <h4 class="font-bold text-slate-900 mb-2">लिंक पर जाएं या बैंक पहुंचें</h4>
+                <p class="text-sm text-slate-600">जन सुरक्षा पोर्टल पर ऑनलाइन जाएं अथवा अपने बचत बैंक खाते की शाखा या डाकघर से संपर्क करें।</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">2</div>
+                <h4 class="font-bold text-slate-900 mb-2">ऑटो-डेबिट सहमति दें</h4>
+                <p class="text-sm text-slate-600">सालाना प्रीमियम भुगतान हेतु अपने बचत बैंक खाते से ऑटो-डेबिट (Auto-Debit) की अनुमति दें।</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">3</div>
+                <h4 class="font-bold text-slate-900 mb-2">सुरक्षा कवच सक्रिय</h4>
+                <p class="text-sm text-slate-600">नामांकन पूर्ण होते ही आपका बीमा कवच सक्रिय हो जाएगा और आपका परिवार सुरक्षित रहेगा।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- प्रश्नोत्तर (FAQ) -->
+    <section class="py-12 px-4 max-w-4xl mx-auto">
+        <h3 class="text-2xl font-bold text-center text-slate-900 mb-8">अक्सर पूछे जाने वाले सवाल (FAQs)</h3>
+        
+        <div class="space-y-4">
+            <details class="bg-white p-5 rounded-2xl border border-slate-200 cursor-pointer">
+                <summary class="font-bold text-slate-800">क्या दोनों योजनाओं को एक साथ लिया जा सकता है?</summary>
+                <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                    जी हां! यदि आपकी आयु 18 से 50 वर्ष के बीच है, तो आप <strong>PMJJBY (₹436)</strong> और <strong>PMSBY (₹20)</strong> दोनों योजनाएं ले सकते हैं। इस प्रकार मात्र ₹456 प्रति वर्ष में आपको कुल ₹4 लाख का सुरक्षा कवच मिलता है।
+                </p>
+            </details>
+
+            <details class="bg-white p-5 rounded-2xl border border-slate-200 cursor-pointer">
+                <summary class="font-bold text-slate-800">प्रीमियम का भुगतान कैसे होता है?</summary>
+                <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                    प्रीमियम की राशि हर साल मई महीने में आपके पंजीकृत बैंक खाते से ऑटो-डेबिट (स्वचालित रूप से कटौति) के माध्यम से काट ली जाती है।
+                </p>
+            </details>
+
+            <details class="bg-white p-5 rounded-2xl border border-slate-200 cursor-pointer">
+                <summary class="font-bold text-slate-800">क्या एक व्यक्ति एक से अधिक बैंक खातों से नामांकन कर सकता है?</summary>
+                <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                    नहीं, एक व्यक्ति केवल एक ही बैंक खाते से इस योजना का लाभ प्राप्त कर सकता है। यदि बहु-खाता नामांकन होता है तो क्लेम केवल एक ही खाते पर देय होगा।
+                </p>
+            </details>
+        </div>
+    </section>
+
+    <!-- फुटर -->
+    <footer class="bg-slate-900 text-slate-400 py-10 px-4 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto text-center space-y-4">
+            <div class="flex items-center justify-center space-x-2 text-white font-bold text-lg">
+                <i class="fa-solid fa-hands-holding-child text-orange-500"></i>
+                <span>जन सुरक्षा अभियान</span>
+            </div>
+            <p class="text-xs max-w-2xl mx-auto leading-relaxed">
+                यह वेब पृष्ठ भारत सरकार की सामाजिक सुरक्षा योजनाओं (PMJJBY एवं PMSBY) की जागरूकता हेतु निर्मित है। आधिकारिक नामांकन और नियमों के लिए कृपया Jan Suraksha पोर्टल पर जाएं।
+            </p>
+            <div class="text-xs text-slate-500 pt-4 border-t border-slate-800">
+                आधिकारिक पोर्टल लिंक: <a href="https://jansuraksha.in/Customer/custNewEnrollment" target="_blank" class="text-orange-400 underline">jansuraksha.in</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- जावास्क्रिप्ट तर्क -->
+    <script>
+        // पात्रता जांच फंक्शन
+        function calculateEligibility() {
+            const ageInput = document.getElementById('userAge').value;
+            const age = parseInt(ageInput);
+            const resultBox = document.getElementById('resultBox');
+
+            if (!age || age < 1 || age > 110) {
+                resultBox.className = "p-6 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-center";
+                resultBox.innerHTML = `<strong>कृपया एक वैध उम्र दर्ज करें (18 से 70 वर्ष)।</strong>`;
+                resultBox.classList.remove('hidden');
+                return;
+            }
+
+            if (age < 18) {
+                resultBox.className = "p-6 rounded-2xl bg-amber-50 border border-amber-200 text-amber-800 text-center";
+                resultBox.innerHTML = `<i class="fa-solid fa-circle-exclamation text-2xl mb-2"></i><br>आपकी आयु अभी 18 वर्ष से कम है। योजना में शामिल होने के लिए न्यूनतम आयु 18 वर्ष होनी चाहिए।`;
+            } else if (age >= 18 && age <= 50) {
+                resultBox.className = "p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900";
+                resultBox.innerHTML = `
+                    <div class="text-center">
+                        <i class="fa-solid fa-circle-check text-4xl text-emerald-600 mb-2"></i>
+                        <h4 class="text-xl font-bold">बधाई हो! आप दोनों योजनाओं के लिए पात्र हैं!</h4>
+                        <div class="mt-4 text-left space-y-2 text-sm bg-white p-4 rounded-xl border border-emerald-100">
+                            <p>✔️ <strong>PMJJBY (जीवन बीमा):</strong> ₹436/वर्ष (₹2 लाख सुरक्षा)</p>
+                            <p>✔️ <strong>PMSBY (दुर्घटना बीमा):</strong> ₹20/वर्ष (₹2 लाख सुरक्षा)</p>
+                            <hr class="my-2">
+                            <p class="font-bold text-base text-emerald-800">कुल प्रीमियम: ₹456 / प्रति वर्ष | कुल सुरक्षा: ₹4,00,000</p>
+                        </div>
+                        <a href="https://jansuraksha.in/Customer/custNewEnrollment" target="_blank" class="inline-block mt-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-2.5 rounded-xl text-sm transition">
+                            अभी ऑनलाइन आवेदन करें
+                        </a>
+                    </div>
+                `;
+            } else if (age > 50 && age <= 70) {
+                resultBox.className = "p-6 rounded-2xl bg-orange-50 border border-orange-200 text-orange-900";
+                resultBox.innerHTML = `
+                    <div class="text-center">
+                        <i class="fa-solid fa-shield-halved text-4xl text-orange-500 mb-2"></i>
+                        <h4 class="text-xl font-bold">आप PMSBY (दुर्घटना बीमा) के लिए पात्र हैं!</h4>
+                        <div class="mt-4 text-left space-y-2 text-sm bg-white p-4 rounded-xl border border-orange-100">
+                            <p>✔️ <strong>PMSBY (दुर्घटना बीमा):</strong> ₹20/वर्ष (₹2 लाख तक दुर्घटना/विकलांगता सुरक्षा)</p>
+                            <p class="text-xs text-slate-500">नोट: PMJJBY योजना की अधिकतम प्रवेश आयु 50 वर्ष है।</p>
+                        </div>
+                        <a href="https://jansuraksha.in/Customer/custNewEnrollment" target="_blank" class="inline-block mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-2.5 rounded-xl text-sm transition">
+                            PMSBY के लिए आवेदन करें
+                        </a>
+                    </div>
+                `;
+            } else {
+                resultBox.className = "p-6 rounded-2xl bg-slate-100 border border-slate-300 text-slate-700 text-center";
+                resultBox.innerHTML = `<i class="fa-solid fa-circle-info text-2xl mb-2"></i><br>आपकी आयु 70 वर्ष से अधिक है। PMSBY की अधिकतम आयु सीमा 70 वर्ष है।`;
+            }
+
+            resultBox.classList.remove('hidden');
+        }
+
+        // लिंक कॉपी करने का फंक्शन
+        function copyLink() {
+            const linkText = "https://jansuraksha.in/Customer/custNewEnrollment";
+            
+            // execCommand की मदद से कॉपी
+            const tempInput = document.createElement("input");
+            tempInput.value = linkText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            const copyBtnText = document.getElementById("copyBtnText");
+            copyBtnText.innerText = "कॉपी हो गया!";
+            setTimeout(() => {
+                copyBtnText.innerText = "कॉपी करें";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
+
