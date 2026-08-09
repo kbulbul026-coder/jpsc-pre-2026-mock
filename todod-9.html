@@ -1,0 +1,1306 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI स्मार्ट एप्लीकेशन और इवेंट ट्रैकर</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            900: '#0B0F19',
+                            800: '#111827',
+                            700: '#1F2937',
+                            600: '#374151'
+                        }
+                    },
+                    animation: {
+                        'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes redGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(239, 68, 68, 0.9); }
+        }
+        .urgent-glow {
+            animation: redGlow 1.5s infinite;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1F2937;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+    <!-- ऊपर का Sticky Urgent Banner (सबसे पास बंद होने वाला Event) -->
+    <div id="urgentBanner" class="sticky top-0 z-40 transition-all duration-300"></div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-indigo-600 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2 border border-indigo-400/30">
+        <i class="fa-solid fa-circle-check text-lg"></i>
+        <span id="toastMsg" class="text-sm font-medium"></span>
+    </div>
+
+    <!-- Main Container -->
+    <div class="max-w-6xl w-full mx-auto px-4 py-6 flex-grow">
+
+        <!-- Header -->
+        <header class="flex flex-col lg:flex-row lg:items-center justify-between pb-6 mb-6 border-b border-slate-800 gap-4">
+            <div>
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-white flex items-center gap-3">
+                    <span class="p-2 bg-indigo-600/20 text-indigo-400 rounded-xl border border-indigo-500/30">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </span>
+                    AI स्मार्ट कार्ड & डेडलाइन ट्रैकर
+                </h1>
+                <p class="text-slate-400 text-xs sm:text-sm mt-1">
+                    फोटो, पीडीएफ या टेक्स्ट डालें - AI अपने-आप योग्यता, फ़ायदे, तारीख़ें और लिंक के साथ कार्ड बना देगा!
+                </p>
+            </div>
+            
+            <div class="flex flex-wrap items-center gap-3">
+                <!-- AI Smart Card Button -->
+                <button id="openAiModalBtn" class="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold px-4 py-2.5 rounded-xl shadow-lg shadow-indigo-600/20 flex items-center gap-2 text-sm transition active:scale-95 border border-indigo-400/30">
+                    <i class="fa-solid fa-robot text-yellow-300"></i> AI से कार्ड बनाएं (फोटो/टेक्स्ट)
+                </button>
+                <!-- Manual Add Button -->
+                <button id="openAddModalBtn" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold px-4 py-2.5 rounded-xl border border-slate-700 text-sm transition active:scale-95 flex items-center gap-2">
+                    <i class="fa-solid fa-plus"></i> मैन्युअल फॉर्म
+                </button>
+            </div>
+        </header>
+
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-dark-800/80 border border-slate-800 p-4 rounded-xl">
+                <div class="text-slate-400 text-xs font-semibold uppercase">कुल कार्ड्स</div>
+                <div id="statTotal" class="text-2xl font-bold text-white mt-1">0</div>
+            </div>
+            <div class="bg-red-950/30 border border-red-800/40 p-4 rounded-xl">
+                <div class="text-red-400 text-xs font-semibold uppercase flex items-center gap-1">
+                    <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span> क्रिटिकल (< 24 घंटे)
+                </div>
+                <div id="statCritical" class="text-2xl font-bold text-red-400 mt-1">0</div>
+            </div>
+            <div class="bg-amber-950/30 border border-amber-800/40 p-4 rounded-xl">
+                <div class="text-amber-400 text-xs font-semibold uppercase">चेतावनी (< 3 दिन)</div>
+                <div id="statWarning" class="text-2xl font-bold text-amber-400 mt-1">0</div>
+            </div>
+            <div class="bg-emerald-950/30 border border-emerald-800/40 p-4 rounded-xl">
+                <div class="text-emerald-400 text-xs font-semibold uppercase">पूर्ण</div>
+                <div id="statCompleted" class="text-2xl font-bold text-emerald-400 mt-1">0</div>
+            </div>
+        </div>
+
+        <!-- Filter & Search Bar -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 bg-dark-800/60 p-3 rounded-2xl border border-slate-800">
+            <div class="flex items-center gap-1 bg-dark-900 p-1 rounded-xl w-full sm:w-auto overflow-x-auto">
+                <button data-filter="all" class="filter-btn active px-3.5 py-1.5 rounded-lg text-xs font-medium transition bg-indigo-600 text-white whitespace-nowrap">
+                    सभी कार्ड्स
+                </button>
+                <button data-filter="active" class="filter-btn px-3.5 py-1.5 rounded-md text-xs font-medium text-slate-400 hover:text-white transition whitespace-nowrap">
+                    लंबित
+                </button>
+                <button data-filter="critical" class="filter-btn px-3.5 py-1.5 rounded-md text-xs font-medium text-slate-400 hover:text-red-400 transition flex items-center gap-1 whitespace-nowrap">
+                    <i class="fa-solid fa-circle text-[8px] text-red-500"></i> बहुत पास (लाल)
+                </button>
+                <button data-filter="completed" class="filter-btn px-3.5 py-1.5 rounded-md text-xs font-medium text-slate-400 hover:text-emerald-400 transition whitespace-nowrap">
+                    पूर्ण
+                </button>
+                <button data-filter="awareness" class="filter-btn px-3.5 py-1.5 rounded-md text-xs font-medium text-slate-400 hover:text-sky-400 transition flex items-center gap-1 whitespace-nowrap">
+                    <i class="fa-solid fa-lightbulb text-[10px] text-sky-400"></i> जागरूकता
+                </button>
+            </div>
+
+            <div class="relative w-full sm:w-64">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+                <input type="text" id="searchInput" placeholder="खोजें (लिंक, योग्यता, फॉर्म)..." class="w-full bg-dark-900 border border-slate-700 text-xs sm:text-sm pl-9 pr-3 py-1.5 rounded-xl text-slate-200 focus:outline-none focus:border-indigo-500">
+            </div>
+        </div>
+
+        <!-- Sorting Info Notice -->
+        <div class="flex items-center justify-between text-xs text-slate-400 px-1 mb-4">
+            <span class="flex items-center gap-1.5">
+                <i class="fa-solid fa-bolt text-yellow-400"></i>
+                ऑटो-सॉर्टिंग एल्गोरिथम: <strong class="text-slate-200">जिस कार्ड की क्लोज़िंग डेट सबसे पास है, वह सबसे ऊपर दिखेगा</strong>
+            </span>
+            <span id="itemCount" class="text-slate-400">0 कार्ड्स</span>
+        </div>
+
+        <!-- Cards List Container -->
+        <div id="eventList" class="space-y-4"></div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="hidden text-center py-16 bg-dark-800/30 border border-dashed border-slate-800 rounded-2xl my-6">
+            <div class="w-16 h-16 bg-dark-800 rounded-2xl flex items-center justify-center mx-auto text-slate-500 text-2xl mb-3 border border-slate-700/50">
+                <i class="fa-solid fa-file-invoice"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-300">कोई कार्ड नहीं मिला</h3>
+            <p class="text-slate-500 text-xs sm:text-sm mt-1 max-w-sm mx-auto">फोटो, पीडीएफ या टेक्स्ट से अपने-आप कार्ड बनाने के लिए <strong>"AI से कार्ड बनाएं"</strong> बटन पर क्लिक करें!</p>
+        </div>
+
+    </div>
+
+    <!-- AI CARD GENERATOR MODAL (Photo/Text/PDF Input) -->
+    <div id="aiModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-200">
+        <div class="bg-dark-800 border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-200 flex flex-col max-h-[90vh]">
+            <div class="p-5 border-b border-slate-700 flex justify-between items-center bg-dark-800">
+                <div class="flex items-center gap-2">
+                    <span class="p-2 bg-purple-500/20 text-purple-400 rounded-lg">
+                        <i class="fa-solid fa-robot"></i>
+                    </span>
+                    <div>
+                        <h3 class="text-base font-bold text-white">AI डॉक्यूमेंट और फोटो एक्सट्रैक्टर</h3>
+                        <p class="text-xs text-slate-400">डॉक्यूमेंट, सर्कुलर, फोटो या टेक्स्ट पेस्ट करके कार्ड बनाएं</p>
+                    </div>
+                </div>
+                <button id="closeAiModalBtn" class="text-slate-400 hover:text-white text-xl w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-700 transition">
+                    &times;
+                </button>
+            </div>
+
+            <div class="p-5 space-y-4 overflow-y-auto flex-grow">
+
+                <!-- Jaagrukta (Awareness) Mode Toggle -->
+                <div class="flex items-center justify-between bg-sky-950/30 border border-sky-700/40 rounded-xl px-3 py-2.5">
+                    <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-lightbulb text-sky-400"></i>
+                        <div>
+                            <div class="text-xs font-semibold text-sky-200">जागरूकता मोड</div>
+                            <div class="text-[10px] text-slate-400">इसमें तारीख़ का ज़िक्र नहीं होगा — सिर्फ़ आवेदन प्रक्रिया और लिंक निकाला जाएगा</div>
+                        </div>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer shrink-0">
+                        <input type="checkbox" id="aiAwarenessMode" class="sr-only peer">
+                        <div class="w-9 h-5 bg-slate-700 rounded-full peer peer-checked:bg-sky-600 transition-colors"></div>
+                        <div class="absolute left-0.5 top-0.5 bg-white w-4 h-4 rounded-full transition-transform peer-checked:translate-x-4"></div>
+                    </label>
+                </div>
+
+                <!-- Option 1: Paste Text/Notice -->
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">
+                        1. सूचना / पीडीएफ / सर्कुलर का टेक्स्ट यहाँ पेस्ट करें:
+                    </label>
+                    <textarea id="aiRawText" rows="5" placeholder="यहाँ किसी भी सरकारी अधिसूचना, स्कॉलरशिप, परीक्षा नोटिफिकेशन या वेबसाइट का टेक्स्ट पेस्ट करें..." class="w-full bg-dark-900 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 resize-none"></textarea>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="h-px bg-slate-700 flex-grow"></div>
+                    <span class="text-xs text-slate-500 font-bold uppercase">या फोटो अपलोड करें</span>
+                    <div class="h-px bg-slate-700 flex-grow"></div>
+                </div>
+
+                <!-- Option 2: Upload Photo / Screenshot -->
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">
+                        2. सूचना की फोटो / स्क्रीनशॉट अपलोड करें:
+                    </label>
+                    <div class="flex items-center gap-3">
+                        <input type="file" id="aiImageInput" accept="image/*" class="block w-full text-xs text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-indigo-600/20 file:text-indigo-300 hover:file:bg-indigo-600/30 border border-slate-700 rounded-xl bg-dark-900 cursor-pointer">
+                    </div>
+                    <div id="imagePreviewContainer" class="hidden mt-3 relative w-32 h-32 rounded-lg overflow-hidden border border-slate-700">
+                        <img id="imagePreview" class="w-full h-full object-cover" alt="Uploaded Preview">
+                        <button id="removeImgBtn" class="absolute top-1 right-1 bg-red-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">&times;</button>
+                    </div>
+                </div>
+
+                <!-- Status Indicator -->
+                <div id="aiLoadingStatus" class="hidden p-3 bg-indigo-950/50 border border-indigo-500/40 rounded-xl flex items-center gap-3">
+                    <i class="fa-solid fa-spinner animate-spin text-indigo-400 text-lg"></i>
+                    <div class="text-xs text-indigo-200">
+                        <div class="font-bold">AI डॉक्यूमेंट पढ़ रहा है...</div>
+                        <div class="text-[11px] opacity-80">तारीख़ें, पात्रता, फ़ायदे और लिंक निकाले जा रहे हैं।</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="p-4 border-t border-slate-700 bg-dark-800 flex justify-end gap-3">
+                <button id="cancelAiModalBtn" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-xl text-xs font-medium text-slate-200 transition">
+                    रद्द करें
+                </button>
+                <button id="processAiBtn" class="px-5 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 rounded-xl text-xs font-semibold text-white shadow-lg shadow-indigo-600/30 transition flex items-center gap-2">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> कार्ड जनरेट करें
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MANUAL FORM MODAL -->
+    <div id="eventModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-200">
+        <div class="bg-dark-800 border border-slate-700 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-200" id="modalBox">
+            <div class="p-5 border-b border-slate-700 flex justify-between items-center bg-dark-800">
+                <h3 id="modalTitle" class="text-base font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-calendar-plus text-indigo-400"></i> इवेंट / आवेदन फॉर्म
+                </h3>
+                <button id="closeModalBtn" class="text-slate-400 hover:text-white text-xl w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-700 transition">
+                    &times;
+                </button>
+            </div>
+
+            <form id="eventForm" class="p-5 space-y-4 max-h-[80vh] overflow-y-auto">
+                <input type="hidden" id="eventId">
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">शीर्षक / फॉर्म का नाम <span class="text-red-400">*</span></label>
+                    <input type="text" id="eventTitle" required placeholder="उदा: SSC CGL 2026 भर्ती" class="w-full bg-dark-900 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">श्रेणी</label>
+                    <select id="eventCategory" class="w-full bg-dark-900 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500">
+                        <option value="Sarkari Form">🎓 सरकारी फॉर्म / नौकरी</option>
+                        <option value="Scholarship">💰 छात्रवृत्ति / अनुदान</option>
+                        <option value="Exam / Admit Card">📝 परीक्षा / एडमिट कार्ड</option>
+                        <option value="Admission">🏫 स्कूल / कॉलेज एडमिशन</option>
+                        <option value="Event">🎉 इवेंट / प्रतियोगिता</option>
+                        <option value="Other">📌 अन्य डेडलाइन</option>
+                        <option value="Jaagrukta">🧠 जागरूकता जानकारी (कोई डेडलाइन नहीं)</option>
+                    </select>
+                </div>
+
+                <div id="dateFieldsContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-emerald-400 mb-1">शुरुआत की तारीख़</label>
+                        <input type="datetime-local" id="eventStartDate" required class="w-full bg-dark-900 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-red-400 mb-1">अंतिम तिथि (क्लोज़िंग डेट) <span class="text-red-400">*</span></label>
+                        <input type="datetime-local" id="eventDeadline" required class="w-full bg-dark-900 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500">
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label class="block text-xs font-semibold text-purple-300 mb-1">परीक्षा / कार्यक्रम की तिथि (यदि हो तो)</label>
+                        <input type="datetime-local" id="eventExamDate" class="w-full bg-dark-900 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-sky-300 mb-1">आवेदन प्रक्रिया</label>
+                    <textarea id="eventAppProcess" rows="3" placeholder="उदा: 1) वेबसाइट खोलें 2) रजिस्टर करें 3) दस्तावेज़ अपलोड करें 4) सबमिट करें" class="w-full bg-dark-900 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 resize-none"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-indigo-300 mb-1">किसके लिए है? (पात्रता)</label>
+                    <input type="text" id="eventEligibleFor" placeholder="उदा: 10वीं/12वीं पास, आयु 18-27, कोई भी ग्रेजुएट" class="w-full bg-dark-900 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-emerald-300 mb-1">क्या फ़ायदा है? (लाभ)</label>
+                    <input type="text" id="eventBenefits" placeholder="उदा: ₹50,000/माह वेतन, पूरी ट्यूशन फीस माफ़ी" class="w-full bg-dark-900 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-amber-300 mb-1">महत्वपूर्ण तथ्य (कॉमा से अलग करें)</label>
+                    <input type="text" id="eventFacts" placeholder="उदा: आयु में छूट, निगेटिव मार्किंग, ऑनलाइन परीक्षा" class="w-full bg-dark-900 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-blue-400 mb-1">आधिकारिक लिंक (वेबसाइट/अप्लाई लिंक)</label>
+                    <input type="text" id="eventLinks" placeholder="उदा: https://ssc.gov.in" class="w-full bg-dark-900 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500">
+                </div>
+
+                <div class="pt-2 flex justify-end gap-3">
+                    <button type="button" id="cancelModalBtn" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-xl text-xs sm:text-sm font-medium text-slate-200 transition">
+                        रद्द करें
+                    </button>
+                    <button type="submit" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs sm:text-sm font-semibold text-white shadow-lg shadow-indigo-600/30 transition">
+                        कार्ड सेव करें
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        const apiKey = "AQ.Ab8RN6K-exEd_84xzN2wN_0fZbm6nCU7ZEaf6PASwJzl3ICu6Q"; // Gemini API runtime key
+        const STORAGE_KEY = 'ai_deadline_cards_v1';
+
+        let events = [];
+        let currentFilter = 'all';
+        let searchQuery = '';
+        let base64ImageData = null;
+
+        // Elements
+        const urgentBanner = document.getElementById('urgentBanner');
+        const eventList = document.getElementById('eventList');
+        const emptyState = document.getElementById('emptyState');
+        const eventModal = document.getElementById('eventModal');
+        const aiModal = document.getElementById('aiModal');
+        const eventForm = document.getElementById('eventForm');
+        const searchInput = document.getElementById('searchInput');
+
+        // Stats Elements
+        const statTotal = document.getElementById('statTotal');
+        const statCritical = document.getElementById('statCritical');
+        const statWarning = document.getElementById('statWarning');
+        const statCompleted = document.getElementById('statCompleted');
+        const itemCount = document.getElementById('itemCount');
+
+        // Toast
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').textContent = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Default Sample Events
+        function getInitialEvents() {
+            const now = new Date();
+            const addTime = (hours) => new Date(now.getTime() + hours * 3600 * 1000).toISOString().slice(0, 16);
+            const subTime = (hours) => new Date(now.getTime() - hours * 3600 * 1000).toISOString().slice(0, 16);
+
+            return [
+                {
+                    id: '1',
+                    title: 'National Merit Scholarship 2026',
+                    category: 'Scholarship',
+                    startDate: subTime(72),
+                    deadline: addTime(14), // 14 Hours Left -> RED URGENT
+                    eligibleFor: '10th & 12th Pass Students (Minimum 60% marks)',
+                    benefits: 'Rs. 48,000 per year for 4 years undergraduate study',
+                    importantFacts: ['Family income less than 2.5 Lakhs', 'Direct Bank Transfer (DBT)', 'Aadhaar linking required'],
+                    links: ['https://scholarships.gov.in'],
+                    completed: false,
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    id: '2',
+                    title: 'Railway Recruitment Board (RRB) Technician',
+                    category: 'Sarkari Form',
+                    startDate: subTime(24),
+                    deadline: addTime(48), // 48 Hours Left -> AMBER WARNING
+                    eligibleFor: 'ITI Diploma holders or 10+2 with PCM',
+                    benefits: 'Starting Salary: Rs. 35,400/month (Level 5 Grade)',
+                    importantFacts: ['Computer Based Test (CBT)', 'Negative Marking 1/3rd', 'Age 18 to 33 Years'],
+                    links: ['https://rrbcdg.gov.in'],
+                    completed: false,
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    id: '3',
+                    title: 'आयुष्मान भारत - PMJAY योजना',
+                    category: 'Jaagrukta',
+                    startDate: '',
+                    deadline: '',
+                    eligibleFor: 'गरीब और कमज़ोर परिवार (SECC डेटाबेस के अनुसार)',
+                    benefits: '₹5 लाख तक का मुफ़्त इलाज हर साल, प्रत्येक परिवार के लिए',
+                    applicationProcess: '1) नज़दीकी CSC या आयुष्मान मित्र केंद्र जाएं\n2) आधार और राशन कार्ड से पात्रता जांच कराएं\n3) आयुष्मान कार्ड बनवाएं\n4) किसी भी सूचीबद्ध (empanelled) अस्पताल में कार्ड दिखाकर इलाज कराएं',
+                    importantFacts: ['कोई प्रीमियम नहीं देना होता', 'कैशलेस इलाज', 'पहले से मौजूद बीमारी भी कवर होती है'],
+                    links: ['https://pmjay.gov.in'],
+                    completed: false,
+                    createdAt: new Date().toISOString()
+                }
+            ];
+        }
+
+        function loadEvents() {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (stored) {
+                try {
+                    events = JSON.parse(stored);
+                } catch (e) {
+                    events = getInitialEvents();
+                }
+            } else {
+                events = getInitialEvents();
+                saveEvents();
+            }
+        }
+
+        function saveEvents() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
+        }
+
+        // Jaagrukta / Awareness cards have no deadline
+        function isAwarenessCard(e) {
+            return e.category === 'Jaagrukta';
+        }
+
+        // ==========================================
+        // ALGORITHM: Sort by Uppermost Closing Date
+        // (Jaagrukta cards have no date, so they sort
+        //  after all active deadline cards, newest first)
+        // ==========================================
+        function getSortedEvents() {
+            const now = new Date().getTime();
+
+            return [...events].sort((a, b) => {
+                if (a.completed !== b.completed) {
+                    return a.completed ? 1 : -1;
+                }
+
+                const awarenessA = isAwarenessCard(a);
+                const awarenessB = isAwarenessCard(b);
+
+                if (awarenessA !== awarenessB) {
+                    return awarenessA ? 1 : -1;
+                }
+
+                if (awarenessA && awarenessB) {
+                    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+                }
+
+                // Effective time: agar deadline abhi bhi baaki hai to deadline istemal hogi,
+                // warna (deadline nikal chuki ho par exam date baaki ho) to exam date istemal hogi
+                const effTime = (ev) => {
+                    const dTime = ev.deadline ? new Date(ev.deadline).getTime() : null;
+                    if (dTime !== null && dTime - now > 0) return dTime;
+                    const examTime = ev.examDate ? new Date(ev.examDate).getTime() : null;
+                    if (examTime !== null && examTime - now > 0) return examTime;
+                    return dTime !== null ? dTime : examTime;
+                };
+
+                const timeA = effTime(a);
+                const timeB = effTime(b);
+
+                const diffA = timeA - now;
+                const diffB = timeB - now;
+
+                if (diffA > 0 && diffB > 0) {
+                    return diffA - diffB; // Closest deadline comes FIRST
+                } else if (diffA <= 0 && diffB <= 0) {
+                    return diffB - diffA; 
+                } else {
+                    return diffA > 0 ? -1 : 1;
+                }
+            });
+        }
+
+        function getTimeRemaining(deadlineStr) {
+            const total = new Date(deadlineStr).getTime() - new Date().getTime();
+            if (total <= 0) {
+                return { total: 0, days: 0, hours: 0, minutes: 0, seconds: 0, isExpired: true };
+            }
+
+            const seconds = Math.floor((total / 1000) % 60);
+            const minutes = Math.floor((total / 1000 / 60) % 60);
+            const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+            const days = Math.floor(total / (1000 * 60 * 60 * 24));
+
+            return { total, days, hours, minutes, seconds, isExpired: false };
+        }
+
+        function getUrgencyLevel(deadlineStr, completed) {
+            if (completed) return 'completed';
+            
+            const remaining = getTimeRemaining(deadlineStr);
+            if (remaining.isExpired) return 'expired';
+
+            const hoursLeft = remaining.total / (1000 * 60 * 60);
+            if (hoursLeft <= 24) return 'critical'; // < 24 Hours -> RED
+            if (hoursLeft <= 72) return 'warning';  // < 3 Days -> AMBER
+            return 'normal';                         // > 3 Days -> GREEN
+        }
+
+        // Exam/Karyakram tithi ki apni alag urgency (log bhool jaate hain, isliye alag se track hoti hai)
+        function getExamUrgencyLevel(examDateStr) {
+            if (!examDateStr) return null;
+            const remaining = getTimeRemaining(examDateStr);
+            if (remaining.isExpired) return null; // Exam ho chuka, ab dikhane ki zaroorat nahi
+            const hoursLeft = remaining.total / (1000 * 60 * 60);
+            if (hoursLeft <= 72) return 'critical';  // < 3 Din -> RED
+            if (hoursLeft <= 168) return 'warning';  // < 7 Din -> AMBER
+            return 'normal';
+        }
+
+        // Card ke liye sabse zaroori "agla" countdown tay karta hai:
+        // Agar deadline abhi bhi active hai to deadline dikhega, warna (deadline nikal chuki ho par
+        // exam abhi baaki ho) to exam-date ka countdown continue rahega, taki tayyari na chuke.
+        function getPrimaryCountdown(e) {
+            const deadlineRem = e.deadline ? getTimeRemaining(e.deadline) : null;
+            const examRem = e.examDate ? getTimeRemaining(e.examDate) : null;
+
+            if (deadlineRem && !deadlineRem.isExpired) {
+                return { rem: deadlineRem, mode: 'deadline' };
+            }
+            if (examRem && !examRem.isExpired) {
+                return { rem: examRem, mode: 'exam' };
+            }
+            return { rem: deadlineRem || examRem || { isExpired: true }, mode: 'deadline' };
+        }
+
+        // Category ke internal (English) values ko Devanagari label mein dikhane ke liye
+        const CATEGORY_LABELS = {
+            'Sarkari Form': '🎓 सरकारी फॉर्म / नौकरी',
+            'Scholarship': '💰 छात्रवृत्ति / अनुदान',
+            'Exam / Admit Card': '📝 परीक्षा / एडमिट कार्ड',
+            'Admission': '🏫 स्कूल / कॉलेज एडमिशन',
+            'Event': '🎉 इवेंट / प्रतियोगिता',
+            'Other': '📌 अन्य डेडलाइन',
+            'Jaagrukta': '🧠 जागरूकता जानकारी'
+        };
+
+        function getCategoryLabel(category) {
+            return CATEGORY_LABELS[category] || category;
+        }
+
+        function formatDate(dateStr) {
+            if (!dateStr) return 'उपलब्ध नहीं';
+            const date = new Date(dateStr);
+            return date.toLocaleString('en-IN', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        function formatCountdownText(rem) {
+            if (rem.isExpired) return 'बंद हो चुका है';
+            let parts = [];
+            if (rem.days > 0) parts.push(`${rem.days}दि`);
+            parts.push(`${String(rem.hours).padStart(2, '0')}घं`);
+            parts.push(`${String(rem.minutes).padStart(2, '0')}मि`);
+            parts.push(`${String(rem.seconds).padStart(2, '0')}से`);
+            return parts.join(' ') + ' बचे हैं';
+        }
+
+        // Render Top Urgent Banner
+        function renderUrgentBanner() {
+            const activeEvents = getSortedEvents().filter(e => !e.completed && !isAwarenessCard(e));
+            const closestEvent = activeEvents[0];
+
+            if (!closestEvent) {
+                urgentBanner.innerHTML = '';
+                return;
+            }
+
+            const primary = getPrimaryCountdown(closestEvent);
+            const rem = primary.rem;
+            const examUrgency = getExamUrgencyLevel(closestEvent.examDate);
+            const urgency = primary.mode === 'exam' && examUrgency ? examUrgency : getUrgencyLevel(closestEvent.deadline, closestEvent.completed);
+
+            let bgClass = 'bg-dark-800 border-slate-700 text-slate-200';
+            let icon = 'fa-bell text-indigo-400';
+            let badgeText = primary.mode === 'exam' ? 'अगली परीक्षा/कार्यक्रम तिथि' : 'अगली क्लोज़िंग डेडलाइन';
+            let animateClass = '';
+
+            if (urgency === 'critical') {
+                bgClass = primary.mode === 'exam' ? 'bg-purple-950/95 border-purple-600 text-purple-100 urgent-glow' : 'bg-red-950/95 border-red-600 text-red-100 urgent-glow';
+                icon = primary.mode === 'exam' ? 'fa-graduation-cap text-purple-300 animate-bounce' : 'fa-triangle-exclamation text-red-400 animate-bounce';
+                badgeText = primary.mode === 'exam' ? '🎓 परीक्षा बहुत नज़दीक है - तैयारी पूरी करें' : '🚨 अर्जेंट रेड अलर्ट - जल्दी बंद हो रहा है';
+                animateClass = primary.mode === 'exam' ? 'text-purple-200 font-black' : 'text-red-300 font-black';
+            } else if (urgency === 'warning') {
+                bgClass = primary.mode === 'exam' ? 'bg-purple-950/70 border-purple-700 text-purple-100' : 'bg-amber-950/90 border-amber-600 text-amber-100';
+                icon = primary.mode === 'exam' ? 'fa-graduation-cap text-purple-300' : 'fa-clock text-amber-400';
+                badgeText = primary.mode === 'exam' ? '🎓 परीक्षा नज़दीक आ रही है' : '⚡ आने वाली क्लोज़िंग डेट';
+                animateClass = primary.mode === 'exam' ? 'text-purple-200 font-bold' : 'text-amber-300 font-bold';
+            } else if (urgency === 'expired') {
+                // Bita hua samay — banner ko jaan-bujhkar dabaa hua rakha gaya hai
+                bgClass = 'bg-dark-900/70 border-slate-800 text-slate-400';
+                icon = 'fa-clock-rotate-left text-slate-500';
+                badgeText = '⏳ समय निकल चुका है';
+                animateClass = 'text-slate-500';
+            }
+
+            urgentBanner.innerHTML = `
+                <div class="${bgClass} border-b px-4 py-3 shadow-2xl backdrop-blur-md transition-all">
+                    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
+                        <div class="flex items-center gap-3">
+                            <span class="p-2 bg-dark-900/60 rounded-full flex items-center justify-center w-10 h-10 shrink-0 border border-white/10">
+                                <i class="fa-solid ${icon} text-lg"></i>
+                            </span>
+                            <div>
+                                <div class="flex items-center gap-2 justify-center md:justify-start">
+                                    <span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-dark-900/80 text-white">
+                                        ${badgeText}
+                                    </span>
+                                    <span class="text-xs opacity-80 font-medium">${getCategoryLabel(closestEvent.category)}</span>
+                                </div>
+                                <h4 class="font-bold text-sm sm:text-base mt-0.5 text-white">
+                                    ${escapeHtml(closestEvent.title)}
+                                </h4>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 sm:gap-4 bg-dark-900/80 px-4 py-2 rounded-xl border border-white/10 text-xs sm:text-sm">
+                            <div class="text-right">
+                                <div class="text-[10px] text-slate-400 uppercase">${primary.mode === 'exam' ? 'परीक्षा/कार्यक्रम तिथि' : 'क्लोज़िंग डेट'}</div>
+                                <div class="font-semibold text-slate-200">${formatDate(primary.mode === 'exam' ? closestEvent.examDate : closestEvent.deadline)}</div>
+                            </div>
+                            <div class="h-8 w-px bg-slate-700"></div>
+                            <div>
+                                <div class="text-[10px] text-slate-400 uppercase">${primary.mode === 'exam' ? 'परीक्षा में बचा समय' : 'बचा हुआ समय'}</div>
+                                <div class="font-mono text-sm sm:text-base ${animateClass}">
+                                    ${formatCountdownText(rem)}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateStats() {
+            const total = events.length;
+            let criticalCount = 0;
+            let warningCount = 0;
+            let completedCount = 0;
+
+            events.forEach(e => {
+                if (e.completed) {
+                    completedCount++;
+                } else if (!isAwarenessCard(e)) {
+                    const primary = getPrimaryCountdown(e);
+                    const examUrgency = getExamUrgencyLevel(e.examDate);
+                    const level = (primary.mode === 'exam' && examUrgency) ? examUrgency : getUrgencyLevel(e.deadline, false);
+                    if (level === 'critical') criticalCount++;
+                    if (level === 'warning') warningCount++;
+                }
+            });
+
+            statTotal.textContent = total;
+            statCritical.textContent = criticalCount;
+            statWarning.textContent = warningCount;
+            statCompleted.textContent = completedCount;
+        }
+
+        // Copy / Share Card Information
+        function shareCard(id) {
+            const ev = events.find(e => e.id === id);
+            if (!ev) return;
+
+            const isAware = isAwarenessCard(ev);
+
+            // Sabse zaroori aane wali tithi (deadline ya exam date, jo bhi abhi relevant hai) —
+            // ise sabse upar, prominently dikhaya jaayega
+            let upcomingLine = '';
+            if (!isAware) {
+                const primary = getPrimaryCountdown(ev);
+                if (!primary.rem.isExpired) {
+                    if (primary.mode === 'exam') {
+                        upcomingLine = `🎓 *परीक्षा/कार्यक्रम तिथि नज़दीक है: ${formatDate(ev.examDate)}*\n⏳ *${formatCountdownText(primary.rem)}*\n\n`;
+                    } else {
+                        upcomingLine = `🚨 *बंद होने की तारीख़ नज़दीक है: ${formatDate(ev.deadline)}*\n⏳ *${formatCountdownText(primary.rem)}*\n\n`;
+                    }
+                } else {
+                    upcomingLine = `⏳ समय निकल चुका है\n\n`;
+                }
+            }
+
+            const text = `📌 *${ev.title.toUpperCase()}*\n` +
+                         `📂 श्रेणी: ${getCategoryLabel(ev.category)}\n\n` +
+                         upcomingLine +
+                         (isAware
+                            ? `🧠 जागरूकता जानकारी — कोई डेडलाइन नहीं (हमेशा चालू)\n\n`
+                            : `📅 आवेदन अवधि: ${formatDate(ev.startDate)} से ${formatDate(ev.deadline)} तक\n` + (ev.examDate ? `🎓 परीक्षा/कार्यक्रम तिथि: ${formatDate(ev.examDate)}\n\n` : `\n`)) +
+                         `👥 *किसके लिए है (पात्रता):*\n${ev.eligibleFor || 'उपलब्ध नहीं'}\n\n` +
+                         `🎁 *क्या फ़ायदा है (लाभ):*\n${ev.benefits || 'उपलब्ध नहीं'}\n\n` +
+                         (ev.applicationProcess ? `📝 *आवेदन प्रक्रिया:*\n${ev.applicationProcess}\n\n` : '') +
+                         `⚡ *महत्वपूर्ण तथ्य:*\n${ev.importantFacts ? ev.importantFacts.join('\n• ') : 'उपलब्ध नहीं'}\n\n` +
+                         `🔗 *आधिकारिक लिंक:* ${ev.links && ev.links.length > 0 ? ev.links[0] : 'उपलब्ध नहीं'}\n\n` +
+                         `_Smart Deadline Tracker App के ज़रिए शेयर किया गया_`;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: ev.title,
+                    text: text
+                }).catch(() => {});
+            } else {
+                // Fallback to Clipboard
+                const dummy = document.createElement('textarea');
+                document.body.appendChild(dummy);
+                dummy.value = text;
+                dummy.select();
+                document.execCommand('copy');
+                document.body.removeChild(dummy);
+                showToast("कार्ड की सारी जानकारी कॉपी हो गई है! WhatsApp पर पेस्ट करें।");
+            }
+        }
+
+        // Render Card List
+        function renderList() {
+            const sorted = getSortedEvents();
+
+            const filtered = sorted.filter(e => {
+                const matchesSearch = e.title.toLowerCase().includes(searchQuery) ||
+                                      e.category.toLowerCase().includes(searchQuery) ||
+                                      (e.eligibleFor && e.eligibleFor.toLowerCase().includes(searchQuery)) ||
+                                      (e.benefits && e.benefits.toLowerCase().includes(searchQuery));
+                if (!matchesSearch) return false;
+
+                const level = getUrgencyLevel(e.deadline, e.completed);
+                if (currentFilter === 'active') return !e.completed;
+                if (currentFilter === 'completed') return e.completed;
+                if (currentFilter === 'critical') return level === 'critical' && !e.completed;
+                return true;
+            });
+
+            itemCount.textContent = `${filtered.length} कार्ड्स दिखाए गए`;
+
+            if (filtered.length === 0) {
+                eventList.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            eventList.innerHTML = filtered.map(e => {
+                const isAware = isAwarenessCard(e);
+                const primary = isAware ? null : getPrimaryCountdown(e);
+                const rem = isAware ? null : primary.rem;
+                const urgency = isAware ? 'awareness' : getUrgencyLevel(e.deadline, e.completed);
+                const examUrgency = !isAware && !e.completed ? getExamUrgencyLevel(e.examDate) : null;
+                // Jab deadline nikal chuki ho par exam date baaki ho, to poore card ka rang
+                // exam-date ki urgency se tay hoga (taki tayyari na chuke)
+                const effectiveUrgency = (!isAware && !e.completed && primary.mode === 'exam' && examUrgency) ? examUrgency : urgency;
+
+                let cardStyle = "bg-dark-800 border-slate-800 hover:border-slate-700";
+                let badgeStyle = "bg-slate-700 text-slate-300";
+                let countdownStyle = "text-slate-200";
+                let priorityTag = null;
+
+                if (isAware) {
+                    cardStyle = "bg-sky-950/20 border-sky-800/60 hover:border-sky-600";
+                    badgeStyle = "bg-sky-900/60 text-sky-300 border border-sky-600/50";
+                } else if (e.completed) {
+                    cardStyle = "bg-dark-900/60 border-slate-800 opacity-60";
+                    badgeStyle = "bg-emerald-950 text-emerald-400 border border-emerald-800/50";
+                    countdownStyle = "text-slate-400 line-through";
+                } else if (effectiveUrgency === 'critical') {
+                    cardStyle = "bg-red-950/20 border-red-600/80 shadow-xl shadow-red-950/20 hover:border-red-500";
+                    badgeStyle = "bg-red-900/80 text-red-200 border border-red-500/80 animate-pulse";
+                    countdownStyle = "text-red-400 font-extrabold";
+                    priorityTag = primary.mode === 'exam' ? `
+                        <span class="inline-flex items-center gap-1 text-[10px] bg-purple-600 text-white font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow">
+                            <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span> 🎓 परीक्षा बहुत पास है
+                        </span>
+                    ` : `
+                        <span class="inline-flex items-center gap-1 text-[10px] bg-red-600 text-white font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow">
+                            <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span> रेड अलर्ट - बहुत पास
+                        </span>
+                    `;
+                } else if (effectiveUrgency === 'warning') {
+                    cardStyle = "bg-amber-950/20 border-amber-700/60 hover:border-amber-500";
+                    badgeStyle = "bg-amber-900/50 text-amber-300 border border-amber-600/50";
+                    countdownStyle = "text-amber-400 font-bold";
+                    priorityTag = primary.mode === 'exam' ? `
+                        <span class="inline-flex items-center gap-1 text-[10px] bg-purple-600/30 text-purple-300 border border-purple-500/40 font-bold px-2 py-0.5 rounded-full">
+                            🎓 परीक्षा नज़दीक आ रही है
+                        </span>
+                    ` : `
+                        <span class="inline-flex items-center gap-1 text-[10px] bg-amber-600/30 text-amber-300 border border-amber-500/40 font-bold px-2 py-0.5 rounded-full">
+                            ⚡ डेडलाइन नज़दीक आ रही है
+                        </span>
+                    `;
+                } else if (effectiveUrgency === 'normal') {
+                    // Aane wala samay (future) — spasht roop se highlight, taaki aasani se dikhe
+                    cardStyle = "bg-dark-800 border-emerald-800/40 hover:border-emerald-600/60";
+                    badgeStyle = "bg-emerald-950/50 text-emerald-300 border border-emerald-700/40";
+                    countdownStyle = "text-emerald-300 font-semibold";
+                } else if (effectiveUrgency === 'expired') {
+                    // Bita hua samay — jaan-bujhkar dabaa hua / kam mahatva wala dikhega
+                    cardStyle = "bg-dark-900/30 border-slate-800/60 opacity-50 hover:opacity-80";
+                    badgeStyle = "bg-slate-800/60 text-slate-500 border border-slate-700/40";
+                    countdownStyle = "text-slate-500 line-through";
+                    priorityTag = `
+                        <span class="inline-flex items-center gap-1 text-[10px] bg-slate-700/50 text-slate-400 border border-slate-600/40 font-medium px-2 py-0.5 rounded-full">
+                            ⏳ समय निकल चुका है
+                        </span>
+                    `;
+                }
+
+                // Exam-date ka apna alag, hamesha-dikhne-wala countdown badge (deadline chahe active ho ya nikal chuki ho)
+                const examRemForBadge = (!isAware && e.examDate && !e.completed) ? getTimeRemaining(e.examDate) : null;
+                const examBadge = (examRemForBadge && !examRemForBadge.isExpired) ? `
+                    <div class="inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-md border ${examUrgency === 'critical' ? 'bg-purple-950/60 border-purple-500 text-purple-200 animate-pulse' : examUrgency === 'warning' ? 'bg-purple-950/40 border-purple-600/60 text-purple-300' : 'bg-purple-950/20 border-purple-700/40 text-purple-300'}">
+                        <i class="fa-solid fa-graduation-cap"></i> परीक्षा में: ${formatCountdownText(examRemForBadge)}
+                    </div>
+                ` : '';
+
+                return `
+                    <div class="rounded-2xl border p-5 transition-all duration-200 ${cardStyle} shadow-lg">
+                        
+                        <!-- Header Row -->
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+                            <div class="flex items-start gap-3">
+                                <button onclick="toggleComplete('${e.id}')" title="Complete Status" class="mt-1 text-lg transition text-slate-500 hover:text-emerald-400 focus:outline-none">
+                                    ${e.completed 
+                                        ? '<i class="fa-solid fa-circle-check text-emerald-400 text-2xl"></i>' 
+                                        : '<i class="fa-regular fa-circle text-slate-500 text-2xl hover:text-slate-300"></i>'}
+                                </button>
+                                <div>
+                                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                                        <span class="text-[11px] px-2.5 py-0.5 rounded-md font-semibold ${badgeStyle}">
+                                            ${escapeHtml(getCategoryLabel(e.category))}
+                                        </span>
+                                        ${priorityTag ? priorityTag : ''}
+                                    </div>
+                                    <h3 class="font-bold text-base sm:text-lg text-white ${e.completed ? 'line-through text-slate-400' : ''}">
+                                        ${escapeHtml(e.title)}
+                                    </h3>
+                                    ${examBadge ? `<div class="mt-2">${examBadge}</div>` : ''}
+                                </div>
+                            </div>
+
+                            <!-- Countdown Box (or No-Deadline badge for Jaagrukta) -->
+                            <div class="flex items-center justify-between md:justify-end gap-3 bg-dark-900/80 px-3.5 py-2 rounded-xl border border-slate-700/60">
+                                <div class="text-left md:text-right">
+                                    ${isAware ? `
+                                        <div class="text-[10px] uppercase text-sky-400 font-semibold">स्थिति</div>
+                                        <div class="text-xs sm:text-sm font-mono text-sky-300">
+                                            <i class="fa-solid fa-infinity"></i> कोई डेडलाइन नहीं
+                                        </div>
+                                    ` : `
+                                        <div class="text-[10px] uppercase text-slate-400 font-semibold">${primary.mode === 'exam' ? 'परीक्षा में बचा समय' : 'बचा हुआ समय'}</div>
+                                        <div class="text-xs sm:text-sm font-mono ${countdownStyle}">
+                                            ${formatCountdownText(rem)}
+                                        </div>
+                                    `}
+                                </div>
+                                <button onclick="shareCard('${e.id}')" title="Share Card" class="bg-indigo-600/20 hover:bg-indigo-600/40 text-indigo-300 p-2 rounded-lg border border-indigo-500/30 text-xs flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-share-nodes"></i> Share
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Card Template Body (Details Grid) -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 my-4 text-xs">
+                            
+                            <!-- Kiske Liye Hai (Eligibility) -->
+                            <div class="bg-dark-900/60 p-3 rounded-xl border border-slate-800">
+                                <div class="font-bold text-indigo-400 flex items-center gap-1.5 mb-1">
+                                    <i class="fa-solid fa-user-check"></i> किसके लिए है? (पात्रता)
+                                </div>
+                                <p class="text-slate-300 leading-relaxed">${escapeHtml(e.eligibleFor || 'उपलब्ध नहीं')}</p>
+                            </div>
+
+                            <!-- Kya Fayda Hai (Benefits) -->
+                            <div class="bg-dark-900/60 p-3 rounded-xl border border-slate-800">
+                                <div class="font-bold text-emerald-400 flex items-center gap-1.5 mb-1">
+                                    <i class="fa-solid fa-gift"></i> क्या फ़ायदा है? (लाभ)
+                                </div>
+                                <p class="text-slate-300 leading-relaxed">${escapeHtml(e.benefits || 'उपलब्ध नहीं')}</p>
+                            </div>
+
+                        </div>
+
+                        <!-- Aavedan Prakriya / Application Process (Jaagrukta cards) -->
+                        ${e.applicationProcess ? `
+                            <div class="bg-dark-900/40 p-3 rounded-xl border border-sky-800/50 text-xs mb-4">
+                                <div class="font-bold text-sky-300 flex items-center gap-1.5 mb-1.5">
+                                    <i class="fa-solid fa-list-check"></i> आवेदन प्रक्रिया
+                                </div>
+                                <p class="text-slate-300 leading-relaxed whitespace-pre-line">${escapeHtml(e.applicationProcess)}</p>
+                            </div>
+                        ` : ''}
+
+                        <!-- Important Facts -->
+                        ${e.importantFacts && e.importantFacts.length > 0 ? `
+                            <div class="bg-dark-900/40 p-3 rounded-xl border border-slate-800/80 text-xs mb-4">
+                                <div class="font-bold text-amber-400 flex items-center gap-1.5 mb-1.5">
+                                    <i class="fa-solid fa-star"></i> महत्वपूर्ण तथ्य
+                                </div>
+                                <ul class="list-disc list-inside space-y-1 text-slate-300">
+                                    ${e.importantFacts.map(fact => `<li>${escapeHtml(fact)}</li>`).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
+
+                        <!-- Dates & Footer Actions -->
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-slate-800/80 text-xs">
+                            <div class="flex flex-wrap items-center gap-3 text-slate-400">
+                                ${isAware ? `
+                                    <span><i class="fa-solid fa-circle-info text-sky-400"></i> <strong class="text-sky-300">जागरूकता जानकारी — हमेशा चालू योजना</strong></span>
+                                ` : `
+                                    <span><i class="fa-regular fa-calendar-check text-emerald-400"></i> शुरुआत: <strong class="text-slate-200">${formatDate(e.startDate)}</strong></span>
+                                    <span><i class="fa-regular fa-calendar-xmark text-red-400"></i> बंद होने की तारीख़: <strong class="text-slate-200">${formatDate(e.deadline)}</strong></span>
+                                    ${e.examDate ? `<span><i class="fa-solid fa-graduation-cap text-purple-400"></i> परीक्षा/कार्यक्रम तिथि: <strong class="text-purple-300">${formatDate(e.examDate)}</strong></span>` : ''}
+                                `}
+                            </div>
+
+                            <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+                                ${e.links && e.links.length > 0 && e.links[0] ? `
+                                    <a href="${escapeHtml(e.links[0])}" target="_blank" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition">
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> अप्लाई / आधिकारिक लिंक
+                                    </a>
+                                ` : ''}
+
+                                <button onclick="editEvent('${e.id}')" class="p-1.5 text-slate-400 hover:text-indigo-400 bg-slate-800/60 rounded-lg">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <button onclick="deleteEvent('${e.id}')" class="p-1.5 text-slate-400 hover:text-red-400 bg-slate-800/60 rounded-lg">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function startLiveTimer() {
+            setInterval(() => {
+                renderUrgentBanner();
+                renderList();
+                updateStats();
+            }, 1000);
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str).replace(/[&<>"']/g, function(m) {
+                return {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#039;'
+                }[m];
+            });
+        }
+
+        // ==========================================
+        // AI EXTRACTION WITH GEMINI API
+        // ==========================================
+        async function processAiDocument() {
+            const textInput = document.getElementById('aiRawText').value.trim();
+            const loadingStatus = document.getElementById('aiLoadingStatus');
+            const processBtn = document.getElementById('processAiBtn');
+
+            if (!textInput && !base64ImageData) {
+                showToast("कृपया टेक्स्ट पेस्ट करें या फोटो अपलोड करें!");
+                return;
+            }
+
+            loadingStatus.classList.remove('hidden');
+            processBtn.disabled = true;
+
+            const promptText = `
+                Analyze the provided document text or image notice carefully.
+                Extract all relevant details into structured JSON format with these key fields:
+                - title: Event or application name. Write this in Hindi (Devanagari script). Keep official scheme/exam names, proper nouns, and abbreviations as commonly written (e.g. "SSC CGL 2026 भर्ती", "आयुष्मान भारत योजना") — translate/transliterate the rest into Hindi.
+                - category: Choose the exact matching enum value from ["Sarkari Form", "Scholarship", "Exam / Admit Card", "Admission", "Event", "Other", "Jaagrukta"]. Keep this field exactly as one of these English strings — do NOT translate it, it is an internal code value.
+                  Use "Jaagrukta" ONLY when the content is general awareness information about an ongoing government scheme, benefit, or facility with NO specific opening/closing date mentioned anywhere (e.g. Ayushman Bharat, Ration Card benefits, a permanent scholarship-like scheme). Do not invent or guess a date for this content.
+                - startDate: ISO 8601 local date-time string (YYYY-MM-DDTHH:mm) when application opens. Leave this as an empty string if category is "Jaagrukta" or no date is mentioned. Otherwise default to today if missing.
+                - deadline: ISO 8601 local date-time string (YYYY-MM-DDTHH:mm) when application closes. Leave this as an empty string if category is "Jaagrukta" or no closing date is mentioned anywhere in the source. Never fabricate a deadline that isn't in the source text.
+                - examDate: ISO 8601 local date-time string (YYYY-MM-DDTHH:mm) for the actual exam date or event/programme date (e.g. "पेपर 1 परीक्षा तिथि", written test date, interview date, or the date of the event itself) — this is DIFFERENT from the application deadline. Leave this as an empty string if no such date is mentioned in the source, or if category is "Jaagrukta". Never fabricate this date.
+                - applicationProcess: For "Jaagrukta" category, a numbered step-by-step string in Hindi (e.g. "1) ... 2) ... 3) ...") describing how a person can access or apply for this scheme/benefit. Leave empty for other categories unless clearly described.
+                - eligibleFor: Who is this for? Qualification, age limit, or target audience. Write in Hindi (Devanagari script).
+                - benefits: What are the benefits? Salary, scholarship amount, certificate, or opportunity. Write in Hindi (Devanagari script).
+                - importantFacts: Array of 3 key points or bullet facts, each written in Hindi (Devanagari script).
+                - links: Array containing any URL mentioned for official apply/website. Keep URLs exactly as-is, do not translate.
+
+                IMPORTANT: Regardless of what language the source document/image is written in (English, Hindi, or any other language), write ALL descriptive text output (title, applicationProcess, eligibleFor, benefits, importantFacts) in Hindi using Devanagari script, so a Hindi reader can read the card easily. Numbers, dates, URLs, and the "category" field are the only exceptions and must stay as specified above. Common English technical/official terms (e.g. exam names, form codes, department names) may be kept in Latin script within the Hindi text where that is how they are normally written, but full sentences and descriptions must be in Hindi.
+            `;
+
+
+            let contents = [];
+            if (base64ImageData) {
+                contents.push({
+                    parts: [
+                        { text: promptText + "\nDocument Content Text:\n" + textInput },
+                        { inlineData: { mimeType: "image/png", data: base64ImageData } }
+                    ]
+                });
+            } else {
+                contents.push({
+                    parts: [{ text: promptText + "\nDocument Content Text:\n" + textInput }]
+                });
+            }
+
+            const payload = {
+                contents: contents,
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "OBJECT",
+                        properties: {
+                            title: { type: "STRING" },
+                            category: { type: "STRING" },
+                            startDate: { type: "STRING" },
+                            deadline: { type: "STRING" },
+                            examDate: { type: "STRING" },
+                            applicationProcess: { type: "STRING" },
+                            eligibleFor: { type: "STRING" },
+                            benefits: { type: "STRING" },
+                            importantFacts: { type: "ARRAY", items: { type: "STRING" } },
+                            links: { type: "ARRAY", items: { type: "STRING" } }
+                        },
+                        required: ["title", "eligibleFor", "benefits"]
+                    }
+                }
+            };
+
+            // Exponential backoff
+            const delays = [1000, 2000, 4000];
+            let responseData = null;
+
+            for (let i = 0; i < delays.length; i++) {
+                try {
+                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${apiKey}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+                        const rawJson = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                        if (rawJson) {
+                            responseData = JSON.parse(rawJson);
+                            break;
+                        }
+                    }
+                } catch (err) {
+                    // Retry
+                }
+                await new Promise(r => setTimeout(r, delays[i]));
+            }
+
+            loadingStatus.classList.add('hidden');
+            processBtn.disabled = false;
+
+            if (responseData) {
+                // Add extracted card
+                const isAwareCategory = responseData.category === 'Jaagrukta';
+                const newEv = {
+                    id: Date.now().toString(),
+                    title: responseData.title || "बिना शीर्षक का आवेदन",
+                    category: responseData.category || "Sarkari Form",
+                    startDate: isAwareCategory ? '' : (responseData.startDate || new Date().toISOString().slice(0, 16)),
+                    deadline: isAwareCategory ? '' : (responseData.deadline || new Date(Date.now() + 86400000 * 2).toISOString().slice(0, 16)),
+                    examDate: isAwareCategory ? '' : (responseData.examDate || ''),
+                    applicationProcess: responseData.applicationProcess || '',
+                    eligibleFor: responseData.eligibleFor || "उपलब्ध नहीं",
+                    benefits: responseData.benefits || "उपलब्ध नहीं",
+                    importantFacts: responseData.importantFacts || [],
+                    links: responseData.links || [],
+                    completed: false,
+                    createdAt: new Date().toISOString()
+                };
+
+                events.push(newEv);
+                saveEvents();
+                closeAiModal();
+                renderUrgentBanner();
+                renderList();
+                updateStats();
+                showToast("✨ AI ने सफलतापूर्वक कार्ड जनरेट कर दिया!");
+            } else {
+                showToast("AI एक्सट्रैक्शन में समस्या आई। कृपया मैन्युअल फॉर्म से जोड़ें।");
+            }
+        }
+
+        // Image Preview Handler
+        document.getElementById('aiImageInput').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (evt) => {
+                    document.getElementById('imagePreview').src = evt.target.result;
+                    document.getElementById('imagePreviewContainer').classList.remove('hidden');
+                    base64ImageData = evt.target.result.split(',')[1];
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        document.getElementById('removeImgBtn').addEventListener('click', () => {
+            document.getElementById('aiImageInput').value = '';
+            document.getElementById('imagePreviewContainer').classList.add('hidden');
+            base64ImageData = null;
+        });
+
+        // AI Modal Handlers
+        function openAiModal() {
+            document.getElementById('aiRawText').value = '';
+            document.getElementById('aiImageInput').value = '';
+            document.getElementById('imagePreviewContainer').classList.add('hidden');
+            base64ImageData = null;
+            aiModal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeAiModal() {
+            aiModal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // Show/hide date fields depending on category (Jaagrukta = no dates)
+        function toggleDateFieldsForCategory() {
+            const category = document.getElementById('eventCategory').value;
+            const dateFieldsContainer = document.getElementById('dateFieldsContainer');
+            const deadlineInput = document.getElementById('eventDeadline');
+
+            if (category === 'Jaagrukta') {
+                dateFieldsContainer.classList.add('hidden');
+                deadlineInput.removeAttribute('required');
+            } else {
+                dateFieldsContainer.classList.remove('hidden');
+                deadlineInput.setAttribute('required', 'required');
+            }
+        }
+
+        // Manual Modal Handlers
+        function openModal(isEdit = false, eventData = null) {
+            if (isEdit && eventData) {
+                document.getElementById('eventId').value = eventData.id;
+                document.getElementById('eventTitle').value = eventData.title;
+                document.getElementById('eventCategory').value = eventData.category;
+                document.getElementById('eventStartDate').value = eventData.startDate || '';
+                document.getElementById('eventDeadline').value = eventData.deadline || '';
+                document.getElementById('eventExamDate').value = eventData.examDate || '';
+                document.getElementById('eventAppProcess').value = eventData.applicationProcess || '';
+                document.getElementById('eventEligibleFor').value = eventData.eligibleFor || '';
+                document.getElementById('eventBenefits').value = eventData.benefits || '';
+                document.getElementById('eventFacts').value = eventData.importantFacts ? eventData.importantFacts.join(', ') : '';
+                document.getElementById('eventLinks').value = eventData.links ? eventData.links.join(', ') : '';
+            } else {
+                eventForm.reset();
+                document.getElementById('eventId').value = '';
+                const now = new Date();
+                const tomorrow = new Date(Date.now() + 24 * 3600 * 1000);
+                document.getElementById('eventStartDate').value = now.toISOString().slice(0, 16);
+                document.getElementById('eventDeadline').value = tomorrow.toISOString().slice(0, 16);
+            }
+
+            toggleDateFieldsForCategory();
+            eventModal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeModal() {
+            eventModal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function toggleComplete(id) {
+            events = events.map(e => e.id === id ? { ...e, completed: !e.completed } : e);
+            saveEvents();
+            renderUrgentBanner();
+            renderList();
+            updateStats();
+        }
+
+        function editEvent(id) {
+            const ev = events.find(e => e.id === id);
+            if (ev) openModal(true, ev);
+        }
+
+        function deleteEvent(id) {
+            if (confirm('क्या आप इस कार्ड को हटाना चाहते हैं?')) {
+                events = events.filter(e => e.id !== id);
+                saveEvents();
+                renderUrgentBanner();
+                renderList();
+                updateStats();
+                showToast("कार्ड हटा दिया गया है।");
+            }
+        }
+
+        // Manual Form Submit
+        eventForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const id = document.getElementById('eventId').value;
+            const title = document.getElementById('eventTitle').value.trim();
+            const category = document.getElementById('eventCategory').value;
+            const isAwareness = category === 'Jaagrukta';
+            const startDate = isAwareness ? '' : document.getElementById('eventStartDate').value;
+            const deadline = isAwareness ? '' : document.getElementById('eventDeadline').value;
+            const examDate = isAwareness ? '' : document.getElementById('eventExamDate').value;
+            const applicationProcess = document.getElementById('eventAppProcess').value.trim();
+            const eligibleFor = document.getElementById('eventEligibleFor').value.trim();
+            const benefits = document.getElementById('eventBenefits').value.trim();
+            const factsRaw = document.getElementById('eventFacts').value.trim();
+            const linksRaw = document.getElementById('eventLinks').value.trim();
+
+            const importantFacts = factsRaw ? factsRaw.split(',').map(f => f.trim()) : [];
+            const links = linksRaw ? linksRaw.split(',').map(l => l.trim()) : [];
+
+            if (id) {
+                events = events.map(e => e.id === id ? { ...e, title, category, startDate, deadline, examDate, applicationProcess, eligibleFor, benefits, importantFacts, links } : e);
+            } else {
+                const newEv = {
+                    id: Date.now().toString(),
+                    title,
+                    category,
+                    startDate,
+                    deadline,
+                    examDate,
+                    applicationProcess,
+                    eligibleFor,
+                    benefits,
+                    importantFacts,
+                    links,
+                    completed: false,
+                    createdAt: new Date().toISOString()
+                };
+                events.push(newEv);
+            }
+
+            saveEvents();
+            closeModal();
+            renderUrgentBanner();
+            renderList();
+            updateStats();
+            showToast("कार्ड सफलतापूर्वक सेव हो गया!");
+        });
+
+        // Event Listeners
+        document.getElementById('eventCategory').addEventListener('change', toggleDateFieldsForCategory);
+
+        document.getElementById('openAddModalBtn').addEventListener('click', () => openModal(false));
+        document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+        document.getElementById('cancelModalBtn').addEventListener('click', closeModal);
+
+        document.getElementById('openAiModalBtn').addEventListener('click', openAiModal);
+        document.getElementById('closeAiModalBtn').addEventListener('click', closeAiModal);
+        document.getElementById('cancelAiModalBtn').addEventListener('click', closeAiModal);
+        document.getElementById('processAiBtn').addEventListener('click', processAiDocument);
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('bg-indigo-600', 'text-white');
+                    b.classList.add('text-slate-400');
+                });
+                
+                const target = e.currentTarget;
+                target.classList.add('bg-indigo-600', 'text-white');
+                target.classList.remove('text-slate-400');
+
+                currentFilter = target.getAttribute('data-filter');
+                renderList();
+            });
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase().trim();
+            renderList();
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loadEvents();
+            renderUrgentBanner();
+            renderList();
+            updateStats();
+            startLiveTimer();
+        });
+    </script>
+</body>
+</html>
+
