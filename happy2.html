@@ -1,0 +1,1110 @@
+
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>सच्ची संपत्ति और खुशी की कुंजी — जिम रोन (Comprehensive Master Guide)</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Yantramanav for crisp Hindi/English typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800;900&family=Yantramanav:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Yantramanav"', 'sans-serif'],
+            hindi: ['"Yantramanav"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              yellow: '#FFE047',
+              pink: '#FF70A6',
+              purple: '#A06CD5',
+              cyan: '#47E5BC',
+              orange: '#FF8652',
+              dark: '#161925',
+              cream: '#FCF9F2',
+              card: '#FFFFFF',
+            }
+          },
+          boxShadow: {
+            'brutal': '5px 5px 0px 0px #161925',
+            'brutal-sm': '3px 3px 0px 0px #161925',
+            'brutal-lg': '8px 8px 0px 0px #161925',
+            'brutal-xl': '12px 12px 0px 0px #161925',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FCF9F2;
+      color: #161925;
+    }
+    .neobrutal-border {
+      border: 3.5px solid #161925;
+    }
+    .neobrutal-border-sm {
+      border: 2px solid #161925;
+    }
+    .interactive-card {
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .interactive-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 8px 8px 0px 0px #161925;
+    }
+    /* Checklist style */
+    .checkbox-custom:checked + label {
+      text-decoration: line-through;
+      color: #94a3b8;
+    }
+    /* Print optimizations for emailing or saving as clean PDF */
+    @media print {
+      .no-print { display: none !important; }
+      body { background-color: #ffffff !important; }
+      .neobrutal-border, .interactive-card {
+        box-shadow: none !important;
+        border: 1.5px solid #161925 !important;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body class="selection:bg-brand-yellow selection:text-brand-dark antialiased">
+
+  <!-- Sticky Top Quick Navigation & Progress -->
+  <header class="no-print sticky top-0 z-50 bg-white neobrutal-border-sm border-x-0 border-t-0 px-4 py-3 shadow-sm flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <span class="w-9 h-9 bg-brand-yellow rounded-xl neobrutal-border-sm flex items-center justify-center font-black text-lg shadow-brutal-sm">
+        💡
+      </span>
+      <div>
+        <span class="text-[11px] font-black uppercase tracking-wider text-brand-purple block leading-none">Beginner’s Action Guide</span>
+        <h1 class="text-sm md:text-base font-black text-brand-dark tracking-tight leading-snug">The Key to True Wealth & Happiness</h1>
+      </div>
+    </div>
+
+    <!-- Quick action buttons -->
+    <div class="flex items-center gap-2">
+      <a href="#highLevelOutline" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 neobrutal-border-sm text-xs font-black transition shadow-brutal-sm">
+        <i class="fa-solid fa-list-check"></i> रूपरेखा (Outline)
+      </a>
+      <button onclick="window.print()" class="px-3.5 py-1.5 rounded-xl bg-brand-yellow hover:bg-yellow-400 neobrutal-border-sm text-xs font-black transition shadow-brutal-sm flex items-center gap-1.5">
+        <i class="fa-solid fa-file-pdf"></i> <span class="hidden md:inline">ईमेल / PDF सेव करें</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Reading Progress Bar -->
+  <div class="no-print w-full bg-slate-200 h-1.5 sticky top-[57px] z-50">
+    <div id="scrollProgress" class="bg-brand-pink h-1.5 w-0 transition-all duration-150"></div>
+  </div>
+
+  <main class="max-w-4xl mx-auto px-4 py-8 md:py-12 space-y-12">
+
+    <!-- HERO SECTION: BOLD & PLAYFUL INTRO -->
+    <section class="bg-brand-yellow neobrutal-border rounded-3xl p-6 md:p-10 shadow-brutal-xl relative overflow-hidden">
+      <!-- Playful Decorative Badges -->
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 bg-white text-brand-dark neobrutal-border-sm rounded-full text-xs font-black uppercase shadow-brutal-sm">
+          🌟 मास्टरक्लास गाइड
+        </span>
+        <span class="px-3 py-1 bg-brand-pink text-white neobrutal-border-sm rounded-full text-xs font-black uppercase shadow-brutal-sm">
+          ⏱️ कुल अवधि: 13:36 मिनट
+        </span>
+        <span class="px-3 py-1 bg-brand-cyan text-brand-dark neobrutal-border-sm rounded-full text-xs font-black uppercase shadow-brutal-sm">
+          🎯 बिगिनर्स फ्रेंडली
+        </span>
+      </div>
+
+      <h1 class="text-3xl md:text-5xl font-black text-brand-dark leading-tight tracking-tight mb-4">
+        सच्ची संपत्ति और खुशी की कुंजी <br class="hidden sm:block">
+        <span class="text-white text-stroke-dark bg-brand-dark px-3 py-0.5 rounded-2xl inline-block mt-2 sm:mt-1 shadow-brutal-sm">
+          Jim Rohn Master Guide
+        </span>
+      </h1>
+
+      <p class="text-base md:text-lg font-bold text-slate-900 leading-relaxed max-w-2xl mb-6">
+        यह संपूर्ण मार्गदर्शिका जिम रोन के विश्वप्रसिद्ध सेमिनार के 11 प्रमुख चरणों को सरल, व्यावहारिक और कदम-दर-कदम (Step-by-Step) निर्देशों में प्रस्तुत करती है। इसे आप सीधे पढ़ सकते हैं, किसी को ईमेल के रूप में भेज सकते हैं या दैनिक जीवन में बदलाव के लिए प्रिंट कर सकते हैं।
+      </p>
+
+      <!-- Video Meta info badge box -->
+      <div class="bg-white/90 neobrutal-border-sm rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-brand-pink rounded-xl neobrutal-border-sm flex items-center justify-center text-white text-xl shadow-brutal-sm shrink-0">
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+          <div>
+            <h4 class="font-black text-sm text-brand-dark">स्रोत व्याख्यान (Source Seminar)</h4>
+            <p class="text-xs font-bold text-slate-600">The Key to True Wealth and Happiness… — Jim Rohn</p>
+          </div>
+        </div>
+        <a href="https://youtu.be/jmopKBXIR5k" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-brand-cyan hover:bg-emerald-300 neobrutal-border-sm rounded-xl text-xs font-black transition shadow-brutal-sm flex items-center gap-2">
+          मूल वीडियो देखें <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION: HIGH-LEVEL OUTLINE (रूपरेखा एवं नेविगेशन) -->
+    <section id="highLevelOutline" class="bg-white neobrutal-border rounded-3xl p-6 md:p-8 shadow-brutal-lg">
+      <div class="border-b-4 border-brand-dark pb-4 mb-6 flex items-center justify-between flex-wrap gap-2">
+        <div>
+          <span class="text-xs font-black uppercase tracking-widest text-brand-purple">Quick Navigation Index</span>
+          <h2 class="text-2xl font-black text-brand-dark">उच्च-स्तरीय रूपरेखा (High-Level Outline)</h2>
+        </div>
+        <span class="px-3 py-1 bg-brand-cream neobrutal-border-sm rounded-xl text-xs font-black">
+          11 चरण + 1 चेकलिस्ट
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+        <a href="#step1" class="p-3 bg-amber-50 hover:bg-brand-yellow neobrutal-border-sm rounded-2xl transition shadow-brutal-sm flex items-center gap-2.5 group">
+          <span class="w-7 h-7 rounded-lg bg-brand-dark text-white font-black text-xs flex items-center justify-center group-hover:scale-105 transition">01</span>
+          <span class="text-xs font-black text-slate-800">देने की कला (The Art of Giving)</span>
+        </a>
+        <a href="#step2" class="p-3 bg-emerald-50 hover:bg-brand-cyan neobrutal-border-sm rounded-2xl transition shadow-brutal-sm flex items-center gap-2.5 group">
+          <span class="w-7 h-7 rounded-lg bg-brand-dark text-white font-black text-xs flex items-center justify-center group-hover:scale-105 transition">02</span>
+          <span class="text-xs font-black text-slate-800">सच्ची सफलता योगदान है</span>
+        </a>
+        <a href="#step3" class="p-3 bg-rose-50 hover:bg-brand-pink hover:text-white neobrutal-border-sm rounded-2xl transition shadow-brutal-sm flex items-center gap-2.5 group">
+          <span class="w-7 h-7 rounded-lg bg-brand-dark text-white font-black text-xs flex items-center justify-center group-hover:scale-105 transition">03</span>
+          <span class="text-xs font-black text-slate-800 group-hover:text-white">धन से परे संपत्ति</span>
+        </a>
+        <a href="#step4" class="p-3 bg-purple-50 hover:bg-brand-purple hover:text-white neobrutal-border-sm rounded-2xl transition shadow-brutal-sm flex items-center gap-2.5 group">
+          <span class="w-7 h-7 rounded-lg bg-brand-dark text-white font-black text-xs flex items-center justify-center group-hover:scale-105 transition">04</span>
+          <span class="text-xs font-black text-slate-800 group-hover:text-white">छोटी दयालुता की शक्ति</span>
+        </a>
+        <a href="#step5" class="p-3 bg-orange-50 hover:bg-brand-orange hover:text-white neobrutal-border-sm rounded-2xl transition shadow-brutal-sm flex items-center gap-2.5 group">
+          <span class="w-7 h-7 rounded-lg bg-brand-dark text-white font-black text-xs flex items-center justify-center group-hover:scale-105 transition">05</span>
+          <span class="text-xs font-black text-slate-800 group-hover:text-white">बिना हिसाब रखे देना</span>
+        </a>
+        <a href="#step6" class="p-3 bg-sky-50 hover:bg-sky-200 neobrutal-border-sm rounded-2xl transition shadow-brutal-sm flex items-center gap-2.5 group">
+          <span class="w-7 h-7 rounded-lg bg-brand-dark text-white font-black text-xs flex items-center justify-center group-hover:scale-105 transition">06</span>
+          <span class="text-xs font-black text-slate-800">समय का अनमोल उपहार</span>
+        </a>
+        <a href="#step7" class="p-3 bg-lime-50 hover:bg-lime-200 neobrutal-border-sm rounded-2xl transition shadow-brutal-sm flex items-center gap-2.5 group">
+          <span class="w-7 h-7 rounded-lg bg-brand-dark text-white font-black text-xs flex items-center justify-center group-hover:scale-105 transition">07</span>
+          <span class="text-xs font-black text-slate-800">ज्ञान और अनुभव बांटना</span>
+        </a>
+        <a href="#step8" class="p-3 bg-fuchsia-50 hover:bg-fuchsia-200 neobrutal-border-sm rounded-2xl transition shadow-brutal-sm flex items-center gap-2.5 group">
+          <span class="w-7 h-7 rounded-lg bg-brand-dark text-white font-black text-xs flex items-center justify-center group-hover:scale-105 transition">08</span>
+          <span class="text-xs font-black text-slate-800">प्रोत्साहन और आशा की शक्ति</span>
+        </a>
+        <a href="#step9" class="p-3 bg-teal-50 hover:bg-teal-200 neobrutal-border-sm rounded-2xl transition shadow-brutal-sm flex items-center gap-2.5 group">
+          <span class="w-7 h-7 rounded-lg bg-brand-dark text-white font-black text-xs flex items-center justify-center group-hover:scale-105 transition">09</span>
+          <span class="text-xs font-black text-slate-800">क्षमा और दैनिक कृतज्ञता</span>
+        </a>
+        <a href="#step10" class="p-3 bg-yellow-50 hover:bg-amber-200 neobrutal-border-sm rounded-2xl transition shadow-brutal-sm flex items-center gap-2.5 group">
+          <span class="w-7 h-7 rounded-lg bg-brand-dark text-white font-black text-xs flex items-center justify-center group-hover:scale-105 transition">10</span>
+          <span class="text-xs font-black text-slate-800">स्वस्थ सीमाएं (Boundaries)</span>
+        </a>
+        <a href="#step11" class="p-3 bg-red-50 hover:bg-rose-200 neobrutal-border-sm rounded-2xl transition shadow-brutal-sm flex items-center gap-2.5 group">
+          <span class="w-7 h-7 rounded-lg bg-brand-dark text-white font-black text-xs flex items-center justify-center group-hover:scale-105 transition">11</span>
+          <span class="text-xs font-black text-slate-800">आज आप क्या दे सकते हैं?</span>
+        </a>
+        <a href="#checklist" class="p-3 bg-brand-purple text-white hover:bg-purple-700 neobrutal-border-sm rounded-2xl transition shadow-brutal-sm flex items-center gap-2.5">
+          <span class="w-7 h-7 rounded-lg bg-white text-brand-dark font-black text-xs flex items-center justify-center">🎯</span>
+          <span class="text-xs font-black">21-दिवसीय एक्शन चेकलिस्ट</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- DETAILED STEP-BY-STEP CARDS (THE 11 STEPS) -->
+    <section class="space-y-8">
+
+      <!-- STEP 1 -->
+      <article id="step1" class="interactive-card bg-white neobrutal-border rounded-3xl p-6 md:p-8 shadow-brutal-lg">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3 border-b-2 border-slate-100 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-brand-yellow text-brand-dark neobrutal-border-sm rounded-full text-xs font-black uppercase shadow-brutal-sm">
+              STEP 01
+            </span>
+            <span class="text-xs font-bold text-slate-500">⏱️ [00:00 - 01:12]</span>
+          </div>
+          <span class="text-xs font-black tracking-wider text-slate-400 uppercase">Mindset Transformation</span>
+        </div>
+
+        <h3 class="text-2xl md:text-3xl font-black text-brand-dark mb-2">
+          देने की कला और सच्ची संपत्ति (The Art of Giving)
+        </h3>
+        <p class="text-sm md:text-base font-bold text-brand-orange mb-4">
+          “सच्ची दौलत बैंक बैलेंस में नहीं, आपके दिल की प्रचुरता में वास करती है।”
+        </p>
+
+        <!-- Detailed 2-Column Explanation -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 mb-5">
+          <div class="md:col-span-7 bg-amber-50/70 neobrutal-border-sm rounded-2xl p-4">
+            <h4 class="text-xs font-black uppercase text-amber-900 mb-1.5 flex items-center gap-1.5">
+              <i class="fa-solid fa-book-open"></i> गहन विश्लेषण (Full Explanation)
+            </h4>
+            <p class="text-xs md:text-sm text-slate-800 leading-relaxed font-hindi">
+              जिम रोन व्याख्यान की शुरुआत एक कड़े सत्य से करते हैं: एक अर्थपूर्ण जीवन का सबसे बड़ा पैमाना यह नहीं है कि आपने कितना धन या पद एकत्र किया, बल्कि यह है कि आप दूसरों को क्या और कितना दे पाते हैं। जब तक व्यक्ति केवल <em>"मुझे क्या मिलेगा?"</em> के भाव में जीता है, वह अरबपति होकर भी आंतरिक रूप से दरिद्र रहता है। सच्ची संपत्ति प्रचुरता की मानसिकता (Abundance Mindset) से शुरू होती है।
+            </p>
+          </div>
+
+          <div class="md:col-span-5 bg-slate-50 neobrutal-border-sm rounded-2xl p-4 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-black uppercase text-slate-700 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-quote-left text-brand-pink"></i> जिम रोन के मूल शब्द
+              </h4>
+              <p class="text-xs font-bold italic text-slate-700 leading-snug">
+                "True wealth is not just about financial abundance; it is a state of heart and spirit defined by generosity."
+              </p>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-200 text-[11px] font-bold text-slate-500">
+              💡 <strong>शुरुआती सूत्र:</strong> पहले 'देने वाला' बनें, परिणाम खुद-ब-खुद आएंगे।
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Instructions for Beginners -->
+        <div class="bg-emerald-50 neobrutal-border-sm rounded-2xl p-4">
+          <h4 class="text-xs font-black uppercase text-emerald-900 mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-list-ol"></i> शुरुआती व्यक्ति के लिए चरण-दर-चरण निर्देश (Step-by-Step Instructions)
+          </h4>
+          <ul class="space-y-2 text-xs md:text-sm text-slate-800">
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">1</span>
+              <span><strong>दैनिक मानसिक बदलाव:</strong> सुबह बिस्तर छोड़ते ही स्वयं से कहें: <em>"आज मैं किसी के जीवन में क्या बेहतर योगदान दे सकता हूँ?"</em></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">2</span>
+              <span><strong>कमी का भय हटाएं:</strong> यह समझना शुरू करें कि बांटने से ज्ञान, प्यार और शक्ति कम नहीं होती बल्कि दोगुनी होती है।</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">3</span>
+              <span><strong>पहली क्रिया:</strong> आज बिना किसी कारण के किसी सहकर्मी या मित्र को एक सच्चा कॉम्प्लिमेंट दें।</span>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- STEP 2 -->
+      <article id="step2" class="interactive-card bg-white neobrutal-border rounded-3xl p-6 md:p-8 shadow-brutal-lg">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3 border-b-2 border-slate-100 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-brand-cyan text-brand-dark neobrutal-border-sm rounded-full text-xs font-black uppercase shadow-brutal-sm">
+              STEP 02
+            </span>
+            <span class="text-xs font-bold text-slate-500">⏱️ [01:12 - 02:25]</span>
+          </div>
+          <span class="text-xs font-black tracking-wider text-slate-400 uppercase">Service & Success</span>
+        </div>
+
+        <h3 class="text-2xl md:text-3xl font-black text-brand-dark mb-2">
+          सच्ची सफलता योगदान है (True Success is Contribution)
+        </h3>
+        <p class="text-sm md:text-base font-bold text-brand-purple mb-4">
+          “यदि आप बहुत से लोगों की समस्याओं का समाधान करते हैं, तो महानता आपकी दासी बन जाती है।”
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 mb-5">
+          <div class="md:col-span-7 bg-teal-50/70 neobrutal-border-sm rounded-2xl p-4">
+            <h4 class="text-xs font-black uppercase text-teal-900 mb-1.5 flex items-center gap-1.5">
+              <i class="fa-solid fa-book-open"></i> गहन विश्लेषण
+            </h4>
+            <p class="text-xs md:text-sm text-slate-800 leading-relaxed font-hindi">
+              सच्ची सफलता का पैमाना आपका व्यक्तिगत बैंक खाता नहीं, बल्कि आपके द्वारा समाज के जीवन में किया गया सकारात्मक बदलाव है। जिम रोन का अचूक सिद्धांत है: <em>"Service to many leads to greatness."</em> यदि आप समृद्धि चाहते हैं, तो संचय करने के बजाय दूसरों की सेवा और समस्या समाधान (Problem-solving) में अग्रणी बनें।
+            </p>
+          </div>
+
+          <div class="md:col-span-5 bg-slate-50 neobrutal-border-sm rounded-2xl p-4 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-black uppercase text-slate-700 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-quote-left text-brand-cyan"></i> जिम रोन का कथन
+              </h4>
+              <p class="text-xs font-bold italic text-slate-700 leading-snug">
+                "Success is not a destination of hoarding; it is measured by contribution. If you want to make a fortune, solve problems and serve people."
+              </p>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-200 text-[11px] font-bold text-slate-500">
+              💡 <strong>व्यावसायिक नियम:</strong> आपका पारिश्रमिक आपकी सेवा के अनुपात में बढ़ता है।
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-emerald-50 neobrutal-border-sm rounded-2xl p-4">
+          <h4 class="text-xs font-black uppercase text-emerald-900 mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-list-ol"></i> चरण-दर-चरण निर्देश
+          </h4>
+          <ul class="space-y-2 text-xs md:text-sm text-slate-800">
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">1</span>
+              <span><strong>दिक्कतें खोजें:</strong> अपने कार्यक्षेत्र या परिवार में ऐसी 3 परेशानियां नोट करें जिन्हें आप आसान बना सकते हैं।</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">2</span>
+              <span><strong>अतिरिक्त मूल्य (Extra Mile):</strong> अपने काम में हमेशा उतनी ही सेवा न दें जितने के पैसे मिलते हैं, 10% अतिरिक्त मूल्य जोड़ें।</span>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- STEP 3 -->
+      <article id="step3" class="interactive-card bg-white neobrutal-border rounded-3xl p-6 md:p-8 shadow-brutal-lg">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3 border-b-2 border-slate-100 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-brand-pink text-white neobrutal-border-sm rounded-full text-xs font-black uppercase shadow-brutal-sm">
+              STEP 03
+            </span>
+            <span class="text-xs font-bold text-slate-500">⏱️ [02:25 - 03:38]</span>
+          </div>
+          <span class="text-xs font-black tracking-wider text-slate-400 uppercase">Non-Monetary Capital</span>
+        </div>
+
+        <h3 class="text-2xl md:text-3xl font-black text-brand-dark mb-2">
+          देना केवल धन तक सीमित नहीं है (Giving is More Than Money)
+        </h3>
+        <p class="text-sm md:text-base font-bold text-brand-pink mb-4">
+          “दान करने के लिए अमीर होने की प्रतीक्षा मत कीजिए—आपकी उपस्थिति ही सबसे बड़ा धन है।”
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 mb-5">
+          <div class="md:col-span-7 bg-rose-50/70 neobrutal-border-sm rounded-2xl p-4">
+            <h4 class="text-xs font-black uppercase text-rose-900 mb-1.5 flex items-center gap-1.5">
+              <i class="fa-solid fa-book-open"></i> गहन विश्लेषण
+            </h4>
+            <p class="text-xs md:text-sm text-slate-800 leading-relaxed font-hindi">
+              अधिकांश शुरुआती लोग सोचते हैं कि "जब मेरे पास लाखों रुपये होंगे तब मैं दान करूँगा।" जिम रोन इसे एक बड़ा भ्रम बताते हैं। जो व्यक्ति $1 में से 10 सेंट नहीं दे सकता, वह $1,000,000 होने पर भी कुछ नहीं देगा। आपके पास मौजूद सबसे अमूल्य संपत्तियां हैं: आपका **अविभाजित ध्यान (Attention), उपस्थिति (Presence), धैर्य (Patience) और सच्ची परवाह**।
+            </p>
+          </div>
+
+          <div class="md:col-span-5 bg-slate-50 neobrutal-border-sm rounded-2xl p-4 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-black uppercase text-slate-700 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-quote-left text-brand-pink"></i> जिम रोन का कथन
+              </h4>
+              <p class="text-xs font-bold italic text-slate-700 leading-snug">
+                "You do not need to wait until you are wealthy to give. The most valuable assets you possess are your attention, presence, patience, and sincere care."
+              </p>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-200 text-[11px] font-bold text-slate-500">
+              💡 <strong>गोल्डन रूल:</strong> 10% का नियम आज से ही अपनी जेब खर्च पर लागू करें।
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-emerald-50 neobrutal-border-sm rounded-2xl p-4">
+          <h4 class="text-xs font-black uppercase text-emerald-900 mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-list-ol"></i> चरण-दर-चरण निर्देश
+          </h4>
+          <ul class="space-y-2 text-xs md:text-sm text-slate-800">
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">1</span>
+              <span><strong>10 सेंट सिद्धांत:</strong> यदि आप ₹100 कमाते हैं, तो ₹10 किसी अच्छे कार्य के लिए अलग गुल्लक में डालें। आदत रकम से अधिक महत्वपूर्ण है।</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">2</span>
+              <span><strong>उपस्थिति का उपहार:</strong> जब कोई अपनी परेशानी साझा करे, तो फोन जेब में रख दें और सिर्फ सहानुभूति से सुनें।</span>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- STEP 4 -->
+      <article id="step4" class="interactive-card bg-white neobrutal-border rounded-3xl p-6 md:p-8 shadow-brutal-lg">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3 border-b-2 border-slate-100 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-brand-purple text-white neobrutal-border-sm rounded-full text-xs font-black uppercase shadow-brutal-sm">
+              STEP 04
+            </span>
+            <span class="text-xs font-bold text-slate-500">⏱️ [03:38 - 04:50]</span>
+          </div>
+          <span class="text-xs font-black tracking-wider text-slate-400 uppercase">Ripple Effect</span>
+        </div>
+
+        <h3 class="text-2xl md:text-3xl font-black text-brand-dark mb-2">
+          सहानुभूति और छोटी दयालुता की शक्ति (Small Acts of Kindness)
+        </h3>
+        <p class="text-sm md:text-base font-bold text-brand-purple mb-4">
+          “एक मीठा शब्द किसी को आत्महत्या या हार मानने से बचा सकता है।”
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 mb-5">
+          <div class="md:col-span-7 bg-purple-50/70 neobrutal-border-sm rounded-2xl p-4">
+            <h4 class="text-xs font-black uppercase text-purple-900 mb-1.5 flex items-center gap-1.5">
+              <i class="fa-solid fa-book-open"></i> गहन विश्लेषण
+            </h4>
+            <p class="text-xs md:text-sm text-slate-800 leading-relaxed font-hindi">
+              जीवन में कोई भी नेकी नगण्य नहीं होती। दैनिक जीवन में किया गया एक साधारण सा दयालु व्यवहार—जैसे किसी निराश व्यक्ति को संबल देना, लिफ्टमैन का आभार मानना, या मुस्कुराकर बात करना—सामने वाले के पूरे दिन की दिशा बदल सकता है। दयालुता का प्रभाव पानी में उठने वाली तरंगों की तरह अनपेक्षित दूरी तक जाता है।
+            </p>
+          </div>
+
+          <div class="md:col-span-5 bg-slate-50 neobrutal-border-sm rounded-2xl p-4 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-black uppercase text-slate-700 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-quote-left text-brand-purple"></i> जिम रोन का कथन
+              </h4>
+              <p class="text-xs font-bold italic text-slate-700 leading-snug">
+                "Never underestimate the ripple effect of a small act of kindness. A gentle word or warm smile can be the exact reason someone decides not to give up."
+              </p>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-200 text-[11px] font-bold text-slate-500">
+              💡 <strong>वैज्ञानिक तथ्य:</strong> दयालुता आपके शरीर में डोपामाइन और सेरोटोनिन को बढ़ाती है।
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-emerald-50 neobrutal-border-sm rounded-2xl p-4">
+          <h4 class="text-xs font-black uppercase text-emerald-900 mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-list-ol"></i> चरण-दर-चरण निर्देश
+          </h4>
+          <ul class="space-y-2 text-xs md:text-sm text-slate-800">
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">1</span>
+              <span><strong>'एक नेकी' नियम:</strong> रोजाना सुबह उठकर संकल्प लें कि आज कम से कम एक अजनबी के चेहरे पर मुस्कान लाएंगे।</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">2</span>
+              <span><strong>सच्चा आभार:</strong> डिलीवरी बॉय, कैब ड्राइवर या सफाईकर्मी को सिर्फ पैसे देने के बजाय आँखों में देखकर धन्यवाद कहें।</span>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- STEP 5 -->
+      <article id="step5" class="interactive-card bg-white neobrutal-border rounded-3xl p-6 md:p-8 shadow-brutal-lg">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3 border-b-2 border-slate-100 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-brand-orange text-white neobrutal-border-sm rounded-full text-xs font-black uppercase shadow-brutal-sm">
+              STEP 05
+            </span>
+            <span class="text-xs font-bold text-slate-500">⏱️ [04:50 - 06:02]</span>
+          </div>
+          <span class="text-xs font-black tracking-wider text-slate-400 uppercase">Pure Generosity</span>
+        </div>
+
+        <h3 class="text-2xl md:text-3xl font-black text-brand-dark mb-2">
+          बिना हिसाब रखे या अपेक्षा के देना (Give Without Keeping Score)
+        </h3>
+        <p class="text-sm md:text-base font-bold text-brand-orange mb-4">
+          “अगर आप एहसानों का खाता रखते हैं, तो आप दानी नहीं, व्यापारी हैं।”
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 mb-5">
+          <div class="md:col-span-7 bg-orange-50/70 neobrutal-border-sm rounded-2xl p-4">
+            <h4 class="text-xs font-black uppercase text-orange-900 mb-1.5 flex items-center gap-1.5">
+              <i class="fa-solid fa-book-open"></i> गहन विश्लेषण
+            </h4>
+            <p class="text-xs md:text-sm text-slate-800 leading-relaxed font-hindi">
+              यदि आप इस गुप्त आशा से किसी की सहायता करते हैं कि वह भी भविष्य में आपका काम करेगा, तो यह उदारता नहीं बल्कि एक व्यापारिक सौदा (Transaction) है। जब अपेक्षा टूटती है, तो क्रोध और कड़वाहट जन्म लेती है। वास्तविक आंतरिक शांति और आनंद केवल तभी मिलता है जब आप खुले हाथों से देते हैं और देने के बाद उस बात को तुरंत भूल जाते हैं।
+            </p>
+          </div>
+
+          <div class="md:col-span-5 bg-slate-50 neobrutal-border-sm rounded-2xl p-4 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-black uppercase text-slate-700 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-quote-left text-brand-orange"></i> जिम रोन का कथन
+              </h4>
+              <p class="text-xs font-bold italic text-slate-700 leading-snug">
+                "Give with an open hand. If you give while keeping a ledger of debts, it is not generosity—it is a transaction. True peace comes when you give expecting nothing."
+              </p>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-200 text-[11px] font-bold text-slate-500">
+              💡 <strong>मानसिक शांति का रहस्य:</strong> शून्य अपेक्षा = शून्य निराशा।
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-emerald-50 neobrutal-border-sm rounded-2xl p-4">
+          <h4 class="text-xs font-black uppercase text-emerald-900 mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-list-ol"></i> चरण-दर-चरण निर्देश
+          </h4>
+          <ul class="space-y-2 text-xs md:text-sm text-slate-800">
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">1</span>
+              <span><strong>खाता जलाएं:</strong> अपने दिमाग से यह सोचना बंद करें कि <em>"मैंने उसके लिए इतना किया, उसने मेरे लिए क्या किया?"</em></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">2</span>
+              <span><strong>गुप्त मदद:</strong> कभी किसी मित्र के लिए कोई काम ऐसे करें कि उसे पता भी न चले कि यह किसने किया।</span>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- STEP 6 -->
+      <article id="step6" class="interactive-card bg-white neobrutal-border rounded-3xl p-6 md:p-8 shadow-brutal-lg">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3 border-b-2 border-slate-100 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-sky-300 text-brand-dark neobrutal-border-sm rounded-full text-xs font-black uppercase shadow-brutal-sm">
+              STEP 06
+            </span>
+            <span class="text-xs font-bold text-slate-500">⏱️ [06:02 - 07:15]</span>
+          </div>
+          <span class="text-xs font-black tracking-wider text-slate-400 uppercase">Non-Renewable Asset</span>
+        </div>
+
+        <h3 class="text-2xl md:text-3xl font-black text-brand-dark mb-2">
+          समय का अनमोल उपहार (The Priceless Value of Your Time)
+        </h3>
+        <p class="text-sm md:text-base font-bold text-sky-700 mb-4">
+          “समय वह एकमात्र मुद्रा है जिसे दोबारा कभी कमाया नहीं जा सकता।”
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 mb-5">
+          <div class="md:col-span-7 bg-sky-50/70 neobrutal-border-sm rounded-2xl p-4">
+            <h4 class="text-xs font-black uppercase text-sky-900 mb-1.5 flex items-center gap-1.5">
+              <i class="fa-solid fa-book-open"></i> गहन विश्लेषण
+            </h4>
+            <p class="text-xs md:text-sm text-slate-800 leading-relaxed font-hindi">
+              खोया हुआ धन वापस कमाया जा सकता है, लेकिन बीता हुआ एक सेकंड भी पूरी दुनिया की दौलत खर्च करके नहीं लौटाया जा सकता। जब आप अपने बच्चों, जीवनसाथी या सहकर्मियों को बिना मोबाइल या सोशल मीडिया के अपना समय देते हैं, तो वास्तव में आप उन्हें अपनी ज़िंदगी का वह अंश भेंट कर रहे होते हैं जो कभी वापस नहीं आएगा।
+            </p>
+          </div>
+
+          <div class="md:col-span-5 bg-slate-50 neobrutal-border-sm rounded-2xl p-4 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-black uppercase text-slate-700 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-quote-left text-sky-500"></i> जिम रोन का कथन
+              </h4>
+              <p class="text-xs font-bold italic text-slate-700 leading-snug">
+                "Time is our ultimate non-renewable currency. When you invest your uninterrupted time into someone, you give a portion of your life you can never get back."
+              </p>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-200 text-[11px] font-bold text-slate-500">
+              💡 <strong>रिश्तों का नियम:</strong> प्यार की स्पेलिंग वास्तव में T-I-M-E होती है।
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-emerald-50 neobrutal-border-sm rounded-2xl p-4">
+          <h4 class="text-xs font-black uppercase text-emerald-900 mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-list-ol"></i> चरण-दर-चरण निर्देश
+          </h4>
+          <ul class="space-y-2 text-xs md:text-sm text-slate-800">
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">1</span>
+              <span><strong>डिनर पर नो-फोन जोन:</strong> परिवार के साथ खाना खाते समय फोन दूसरे कमरे में रखें।</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">2</span>
+              <span><strong>100% ध्यान:</strong> किसी से बात करते समय उसकी आँखों में देखें और बीच में टोके बिना पूरी बात सुनें।</span>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- STEP 7 -->
+      <article id="step7" class="interactive-card bg-white neobrutal-border rounded-3xl p-6 md:p-8 shadow-brutal-lg">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3 border-b-2 border-slate-100 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-lime-300 text-brand-dark neobrutal-border-sm rounded-full text-xs font-black uppercase shadow-brutal-sm">
+              STEP 07
+            </span>
+            <span class="text-xs font-bold text-slate-500">⏱️ [07:15 - 08:28]</span>
+          </div>
+          <span class="text-xs font-black tracking-wider text-slate-400 uppercase">Wisdom & Mentorship</span>
+        </div>
+
+        <h3 class="text-2xl md:text-3xl font-black text-brand-dark mb-2">
+          ज्ञान और अनुभव साझा करना (Share Knowledge and Experience)
+        </h3>
+        <p class="text-sm md:text-base font-bold text-lime-800 mb-4">
+          “अगर बुद्धिमानी दिमाग के बक्से में बंद रहे, तो वह सड़ जाती है।”
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 mb-5">
+          <div class="md:col-span-7 bg-lime-50/70 neobrutal-border-sm rounded-2xl p-4">
+            <h4 class="text-xs font-black uppercase text-lime-900 mb-1.5 flex items-center gap-1.5">
+              <i class="fa-solid fa-book-open"></i> गहन विश्लेषण
+            </h4>
+            <p class="text-xs md:text-sm text-slate-800 leading-relaxed font-hindi">
+              आपने जीवन में जिन ठोकरों, संघर्षों और गलतियों से सीख ली है, वह ज्ञान केवल आपके लिए नहीं है। एक मार्गदर्शक (Mentor) बनकर किसी नए व्यक्ति को उन गड्ढों से बचाना जिनमें आप कभी गिरे थे, नेतृत्व का सबसे सच्चा रूप है। ज्ञान बांटने से कभी घटता नहीं, बल्कि वह आपके अपने दिमाग में भी और अधिक स्पष्ट हो जाता है।
+            </p>
+          </div>
+
+          <div class="md:col-span-5 bg-slate-50 neobrutal-border-sm rounded-2xl p-4 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-black uppercase text-slate-700 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-quote-left text-lime-600"></i> जिम रोन का कथन
+              </h4>
+              <p class="text-xs font-bold italic text-slate-700 leading-snug">
+                "What good is wisdom if it remains locked in your head? Share your lessons, your mistakes, and your insights. Helping someone avoid a pitfall you fell into is true leadership."
+              </p>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-200 text-[11px] font-bold text-slate-500">
+              💡 <strong>लीडरशिप सिद्धांत:</strong> एक मोमबत्ती दूसरी को जलाकर अपनी लौ कभी कम नहीं करती।
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-emerald-50 neobrutal-border-sm rounded-2xl p-4">
+          <h4 class="text-xs font-black uppercase text-emerald-900 mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-list-ol"></i> चरण-दर-चरण निर्देश
+          </h4>
+          <ul class="space-y-2 text-xs md:text-sm text-slate-800">
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">1</span>
+              <span><strong>गलतियों की डायरी:</strong> अपने करियर की 3 बड़ी गलतियों को लिखें और उनसे मिली सीख को किसी जूनियर साथी के साथ साझा करें।</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">2</span>
+              <span><strong>एक व्यक्ति के मेंटर बनें:</strong> अपने आसपास किसी ऐसे व्यक्ति को खोजें जो आगे बढ़ना चाहता है, और महीने में एक बार उसे मार्गदर्शन दें।</span>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- STEP 8 -->
+      <article id="step8" class="interactive-card bg-white neobrutal-border rounded-3xl p-6 md:p-8 shadow-brutal-lg">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3 border-b-2 border-slate-100 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-fuchsia-300 text-brand-dark neobrutal-border-sm rounded-full text-xs font-black uppercase shadow-brutal-sm">
+              STEP 08
+            </span>
+            <span class="text-xs font-bold text-slate-500">⏱️ [08:28 - 09:42]</span>
+          </div>
+          <span class="text-xs font-black tracking-wider text-slate-400 uppercase">Power of Words</span>
+        </div>
+
+        <h3 class="text-2xl md:text-3xl font-black text-brand-dark mb-2">
+          प्रोत्साहन और आशा की शक्ति (Give Encouragement and Hope)
+        </h3>
+        <p class="text-sm md:text-base font-bold text-fuchsia-700 mb-4">
+          “जब कोई संदेह के सागर में डूब रहा हो, तो आपके विश्वास का एक शब्द उसे नई जिंदगी दे सकता है।”
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 mb-5">
+          <div class="md:col-span-7 bg-fuchsia-50/70 neobrutal-border-sm rounded-2xl p-4">
+            <h4 class="text-xs font-black uppercase text-fuchsia-900 mb-1.5 flex items-center gap-1.5">
+              <i class="fa-solid fa-book-open"></i> गहन विश्लेषण
+            </h4>
+            <p class="text-xs md:text-sm text-slate-800 leading-relaxed font-hindi">
+              संसार में अधिकांश लोग संसाधनों की कमी से नहीं, बल्कि प्रोत्साहन की कमी से असफल होते हैं। जब कोई व्यक्ति खुद पर से विश्वास खो बैठता है, तो आपके दो सच्चे और सकारात्मक शब्द उसके बुझते हुए आत्मविश्वास में जान फूंक सकते हैं। दूसरों की क्षमता पर विश्वास जताना और उन्हें प्रोत्साहित करना सबसे बड़ा मानवीय धर्म है।
+            </p>
+          </div>
+
+          <div class="md:col-span-5 bg-slate-50 neobrutal-border-sm rounded-2xl p-4 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-black uppercase text-slate-700 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-quote-left text-fuchsia-500"></i> जिम रोन का कथन
+              </h4>
+              <p class="text-xs font-bold italic text-slate-700 leading-snug">
+                "Words have the power to create or destroy. When someone is drowning in doubt, a genuine word of belief and encouragement can breathe life back into their aspirations."
+              </p>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-200 text-[11px] font-bold text-slate-500">
+              💡 <strong>मानव मनोविज्ञान:</strong> हर व्यक्ति अपनी पीठ पर यह अदृश्य तख्ती लेकर घूमता है: "मुझे महत्वपूर्ण महसूस कराएं।"
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-emerald-50 neobrutal-border-sm rounded-2xl p-4">
+          <h4 class="text-xs font-black uppercase text-emerald-900 mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-list-ol"></i> चरण-दर-चरण निर्देश
+          </h4>
+          <ul class="space-y-2 text-xs md:text-sm text-slate-800">
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">1</span>
+              <span><strong>तुरंत तारीफ करें:</strong> जब कोई अच्छा काम करे, तो प्रशंसा करने में संकोच न करें। तुरंत कहें: <em>"तुम्हारा यह काम वाकई शानदार था!"</em></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">2</span>
+              <span><strong>विश्वास जगाएं:</strong> निराश व्यक्ति से कहें: <em>"मुझे तुम्हारी काबिलियत पर पूरा भरोसा है, तुम इससे कहीं बेहतर कर सकते हो।"</em></span>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- STEP 9 -->
+      <article id="step9" class="interactive-card bg-white neobrutal-border rounded-3xl p-6 md:p-8 shadow-brutal-lg">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3 border-b-2 border-slate-100 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-teal-300 text-brand-dark neobrutal-border-sm rounded-full text-xs font-black uppercase shadow-brutal-sm">
+              STEP 09
+            </span>
+            <span class="text-xs font-bold text-slate-500">⏱️ [09:42 - 10:55]</span>
+          </div>
+          <span class="text-xs font-black tracking-wider text-slate-400 uppercase">Mental Detox</span>
+        </div>
+
+        <h3 class="text-2xl md:text-3xl font-black text-brand-dark mb-2">
+          माफी और कृतज्ञता की शक्ति (Forgiveness and Gratitude)
+        </h3>
+        <p class="text-sm md:text-base font-bold text-teal-800 mb-4">
+          “माफी बदले की भावना त्यागना है; यह दोषी से ज्यादा आपको अपनी ही नफरत से मुक्त करती है।”
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 mb-5">
+          <div class="md:col-span-7 bg-teal-50/70 neobrutal-border-sm rounded-2xl p-4">
+            <h4 class="text-xs font-black uppercase text-teal-900 mb-1.5 flex items-center gap-1.5">
+              <i class="fa-solid fa-book-open"></i> गहन विश्लेषण
+            </h4>
+            <p class="text-xs md:text-sm text-slate-800 leading-relaxed font-hindi">
+              क्रोध और शिकायतें आपके दिमाग की ऊर्जा को निचोड़ लेती हैं। जब आप किसी को क्षमा करते हैं, तो आप यह नहीं कह रहे कि उसका काम सही था; बल्कि आप यह कह रहे हैं कि <em>"मैं उस व्यक्ति को अपने वर्तमान की शांति छीनने की अनुमति नहीं दूँगा।"</em> इसके साथ जब आप रोज़ाना कृतज्ञता (Gratitude) का अभ्यास करते हैं, तो मन का सारा तनाव मिट जाता है।
+            </p>
+          </div>
+
+          <div class="md:col-span-5 bg-slate-50 neobrutal-border-sm rounded-2xl p-4 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-black uppercase text-slate-700 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-quote-left text-teal-600"></i> जिम रोन का कथन
+              </h4>
+              <p class="text-xs font-bold italic text-slate-700 leading-snug">
+                "Forgiveness is giving up the desire for revenge; it frees you more than the offender. Combine forgiveness with daily gratitude, and you cleanse your mind of toxicity."
+              </p>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-200 text-[11px] font-bold text-slate-500">
+              💡 <strong>आंतरिक शुद्धि:</strong> कृतज्ञ मन में कभी निराशा या कमी का वास नहीं हो सकता।
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-emerald-50 neobrutal-border-sm rounded-2xl p-4">
+          <h4 class="text-xs font-black uppercase text-emerald-900 mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-list-ol"></i> चरण-दर-चरण निर्देश
+          </h4>
+          <ul class="space-y-2 text-xs md:text-sm text-slate-800">
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">1</span>
+              <span><strong>मन से रिहा करें:</strong> आंखें बंद करें और उस व्यक्ति का चेहरा याद करें जिससे आपको नाराजगी है। मन में कहें: <em>"मैंने तुम्हें माफ किया और खुद को आजाद किया।"</em></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">2</span>
+              <span><strong>3 आभार रोज़ रात:</strong> सोने से पहले 3 ऐसी साधारण बातें डायरी में लिखें जिनके लिए आप आभारी हैं (जैसे अच्छी नींद, स्वादिष्ट भोजन, स्वच्छ पानी)।</span>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- STEP 10 -->
+      <article id="step10" class="interactive-card bg-white neobrutal-border rounded-3xl p-6 md:p-8 shadow-brutal-lg">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3 border-b-2 border-slate-100 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-amber-300 text-brand-dark neobrutal-border-sm rounded-full text-xs font-black uppercase shadow-brutal-sm">
+              STEP 10
+            </span>
+            <span class="text-xs font-bold text-slate-500">⏱️ [10:55 - 12:05]</span>
+          </div>
+          <span class="text-xs font-black tracking-wider text-slate-400 uppercase">Sustainability & Balance</span>
+        </div>
+
+        <h3 class="text-2xl md:text-3xl font-black text-brand-dark mb-2">
+          स्वयं को खोए बिना देना (Giving Without Losing Yourself)
+        </h3>
+        <p class="text-sm md:text-base font-bold text-amber-800 mb-4">
+          “खाली बर्तन से दूसरों को नहीं परोसा जा सकता—उदारता में विवेक का होना अनिवार्य है।”
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 mb-5">
+          <div class="md:col-span-7 bg-amber-50/70 neobrutal-border-sm rounded-2xl p-4">
+            <h4 class="text-xs font-black uppercase text-amber-900 mb-1.5 flex items-center gap-1.5">
+              <i class="fa-solid fa-book-open"></i> गहन विश्लेषण
+            </h4>
+            <p class="text-xs md:text-sm text-slate-800 leading-relaxed font-hindi">
+              देने का अर्थ यह कदापि नहीं है कि आप खुद को शारीरिक व मानसिक रूप से बीमार (Burnout) कर लें या दूसरों को अपना शोषण करने की खुली छूट दे दें। सच्ची उदारता हमेशा विवेक और स्वस्थ सीमाओं (Healthy Boundaries) से बंधी होती है। पहले अपने स्वयं के पात्र को ऊर्जा, आत्म-सम्मान और ज्ञान से भरें, ताकि आप प्रचुरता के उफान (Overflow) से दूसरों को दे सकें।
+            </p>
+          </div>
+
+          <div class="md:col-span-5 bg-slate-50 neobrutal-border-sm rounded-2xl p-4 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-black uppercase text-slate-700 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-quote-left text-amber-600"></i> जिम रोन का कथन
+              </h4>
+              <p class="text-xs font-bold italic text-slate-700 leading-snug">
+                "Generosity must be guided by wisdom. You cannot pour from an empty cup. Establish healthy boundaries so that you give from abundance rather than resentment."
+              </p>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-200 text-[11px] font-bold text-slate-500">
+              💡 <strong>आत्म-देखभाल:</strong> अपनी ऊर्जा की रक्षा करना स्वार्थ नहीं, बल्कि दीर्घकालिक सेवा की पूर्व शर्त है।
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-emerald-50 neobrutal-border-sm rounded-2xl p-4">
+          <h4 class="text-xs font-black uppercase text-emerald-900 mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-list-ol"></i> चरण-दर-चरण निर्देश
+          </h4>
+          <ul class="space-y-2 text-xs md:text-sm text-slate-800">
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">1</span>
+              <span><strong>सम्मानपूर्वक 'ना' कहें:</strong> जब आपका मानसिक स्वास्थ्य या समय अनुमति न दे, तो अपराधबोध के बिना विनम्रता से मना करना सीखें।</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">2</span>
+              <span><strong>स्वयं को रिचार्ज करें:</strong> पर्याप्त नींद, पौष्टिक आहार और कुछ समय एकांत में बिताना आपकी पहली ज़िम्मेदारी है।</span>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- STEP 11 -->
+      <article id="step11" class="interactive-card bg-white neobrutal-border rounded-3xl p-6 md:p-8 shadow-brutal-lg">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3 border-b-2 border-slate-100 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-brand-pink text-white neobrutal-border-sm rounded-full text-xs font-black uppercase shadow-brutal-sm">
+              STEP 11
+            </span>
+            <span class="text-xs font-bold text-slate-500">⏱️ [12:05 - 13:36]</span>
+          </div>
+          <span class="text-xs font-black tracking-wider text-slate-400 uppercase">Immediate Action</span>
+        </div>
+
+        <h3 class="text-2xl md:text-3xl font-black text-brand-dark mb-2">
+          अंतिम आह्वान: आज आप क्या दे सकते हैं? (What Can You Give Today?)
+        </h3>
+        <p class="text-sm md:text-base font-bold text-brand-pink mb-4">
+          “कल का इंतज़ार मत कीजिए; आज ही अपनी ज़िंदगी को सेवा और प्रेम का मास्टरपीस बनाएं।”
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 mb-5">
+          <div class="md:col-span-7 bg-rose-50/70 neobrutal-border-sm rounded-2xl p-4">
+            <h4 class="text-xs font-black uppercase text-rose-900 mb-1.5 flex items-center gap-1.5">
+              <i class="fa-solid fa-book-open"></i> गहन विश्लेषण
+            </h4>
+            <p class="text-xs md:text-sm text-slate-800 leading-relaxed font-hindi">
+              जिम रोन व्याख्यान का समापन एक निर्णायक प्रश्न के साथ करते हैं: <em>"आज आप दुनिया को क्या दे सकते हैं?"</em> सही समय, अधिक धन या परिस्थितियों के सुधरने की प्रतीक्षा मत कीजिए। एक मुस्कान, एक हौसला बढ़ाने वाला फोन कॉल या किसी की छोटी सी मदद—आज ही से देना शुरू करें। जब आप लेने के बजाय देने पर ध्यान केंद्रित करते हैं, तो सच्ची खुशी और प्रचुरता स्वतः ही आपके जीवन में खिंची चली आती है।
+            </p>
+          </div>
+
+          <div class="md:col-span-5 bg-slate-50 neobrutal-border-sm rounded-2xl p-4 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-black uppercase text-slate-700 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-quote-left text-brand-pink"></i> जिम रोन का अंतिम आह्वान
+              </h4>
+              <p class="text-xs font-bold italic text-slate-700 leading-snug">
+                "Do not wait for tomorrow or for perfect conditions. Ask yourself right now: 'What can I give today?' Make your life a masterpiece of contribution, love, and service."
+              </p>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-200 text-[11px] font-bold text-slate-500">
+              💡 <strong>अंतिम निष्कर्ष:</strong> महान जीवन का निर्माण 'आज' लिए गए छोटे निर्णयों से होता है।
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-emerald-50 neobrutal-border-sm rounded-2xl p-4">
+          <h4 class="text-xs font-black uppercase text-emerald-900 mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-list-ol"></i> तुरंत लागू करने योग्य निर्देश
+          </h4>
+          <ul class="space-y-2 text-xs md:text-sm text-slate-800">
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">1</span>
+              <span><strong>अभी एक्शन लें:</strong> इस पेज को बंद करने से पहले किसी एक प्रियजन को संदेश भेजकर कहें: <em>"आज मुझे तुम्हारी याद आई, आशा है तुम्हारा दिन अच्छा बीत रहा होगा!"</em></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 bg-emerald-300 text-emerald-950 rounded-full flex items-center justify-center font-black text-xs shrink-0 mt-0.5">2</span>
+              <span><strong>दैनिक आदत:</strong> हर रात सोने से पहले खुद से यह सवाल पूछने की आदत डालें: <em>"आज मैंने दुनिया को क्या दिया?"</em></span>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- SECTION: INTERACTIVE CHECKLIST FOR BEGINNERS -->
+    <section id="checklist" class="bg-brand-yellow neobrutal-border rounded-3xl p-6 md:p-8 shadow-brutal-xl">
+      <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+        <div>
+          <span class="text-xs font-black uppercase tracking-wider text-brand-dark px-2.5 py-0.5 bg-white neobrutal-border-sm rounded-lg shadow-brutal-sm inline-block mb-1">
+            21-Day Transformation
+          </span>
+          <h2 class="text-2xl md:text-3xl font-black text-brand-dark">
+            शुरुआती पाठक के लिए दैनिक एक्शन चेकलिस्ट
+          </h2>
+        </div>
+        <button onclick="resetChecklist()" class="text-xs font-black underline hover:text-brand-pink transition">
+          चेकलिस्ट रीसेट करें
+        </button>
+      </div>
+
+      <p class="text-sm font-bold text-slate-900 mb-6">
+        जिम रोन के इन 7 दैनिक कार्यों को अपनी दिनचर्या में शामिल करें और अपनी प्रगति पर टिक लगाएं:
+      </p>
+
+      <div class="space-y-3 bg-white neobrutal-border-sm rounded-2xl p-5">
+        <div class="flex items-center gap-3 p-2 hover:bg-slate-50 rounded-xl transition">
+          <input type="checkbox" id="check1" class="checkbox-custom w-5 h-5 accent-brand-pink rounded cursor-pointer">
+          <label for="check1" class="text-xs md:text-sm font-bold text-slate-800 cursor-pointer select-none">
+            दिन की शुरुआत में 'मुझे क्या मिलेगा' के बजाय 'मैं क्या योगदान दे सकता हूँ' सोचा।
+          </label>
+        </div>
+
+        <div class="flex items-center gap-3 p-2 hover:bg-slate-50 rounded-xl transition">
+          <input type="checkbox" id="check2" class="checkbox-custom w-5 h-5 accent-brand-pink rounded cursor-pointer">
+          <label for="check2" class="text-xs md:text-sm font-bold text-slate-800 cursor-pointer select-none">
+            कम से कम एक व्यक्ति को बिना किसी स्वार्थ या औपचारिकता के दिल से प्रोत्साहित किया।
+          </label>
+        </div>
+
+        <div class="flex items-center gap-3 p-2 hover:bg-slate-50 rounded-xl transition">
+          <input type="checkbox" id="check3" class="checkbox-custom w-5 h-5 accent-brand-pink rounded cursor-pointer">
+          <label for="check3" class="text-xs md:text-sm font-bold text-slate-800 cursor-pointer select-none">
+            बिना फोन देखे किसी परिवारजन या सहकर्मी को 15 मिनट का 100% निर्बाध समय और ध्यान दिया।
+          </label>
+        </div>
+
+        <div class="flex items-center gap-3 p-2 hover:bg-slate-50 rounded-xl transition">
+          <input type="checkbox" id="check4" class="checkbox-custom w-5 h-5 accent-brand-pink rounded cursor-pointer">
+          <label for="check4" class="text-xs md:text-sm font-bold text-slate-800 cursor-pointer select-none">
+            अपनी आय का एक छोटा सा अंश (चाहे ₹10 या ₹50) किसी नेक काम या दान के लिए अलग रखा।
+          </label>
+        </div>
+
+        <div class="flex items-center gap-3 p-2 hover:bg-slate-50 rounded-xl transition">
+          <input type="checkbox" id="check5" class="checkbox-custom w-5 h-5 accent-brand-pink rounded cursor-pointer">
+          <label for="check5" class="text-xs md:text-sm font-bold text-slate-800 cursor-pointer select-none">
+            किसी की मदद करने के बाद मन में किसी एहसान या वापसी की उम्मीद का हिसाब नहीं रखा।
+          </label>
+        </div>
+
+        <div class="flex items-center gap-3 p-2 hover:bg-slate-50 rounded-xl transition">
+          <input type="checkbox" id="check6" class="checkbox-custom w-5 h-5 accent-brand-pink rounded cursor-pointer">
+          <label for="check6" class="text-xs md:text-sm font-bold text-slate-800 cursor-pointer select-none">
+            अतीत की किसी गलती या कड़वाहट के लिए किसी को मन ही मन माफ कर खुद को हल्का महसूस कराया।
+          </label>
+        </div>
+
+        <div class="flex items-center gap-3 p-2 hover:bg-slate-50 rounded-xl transition">
+          <input type="checkbox" id="check7" class="checkbox-custom w-5 h-5 accent-brand-pink rounded cursor-pointer">
+          <label for="check7" class="text-xs md:text-sm font-bold text-slate-800 cursor-pointer select-none">
+            सोने से पहले 3 ऐसी बातों को डायरी में लिखकर ईश्वर और प्रकृति के प्रति कृतज्ञता व्यक्त की।
+          </label>
+        </div>
+      </div>
+
+      <!-- Live progress score -->
+      <div class="mt-5 flex items-center justify-between font-black text-xs md:text-sm text-brand-dark">
+        <span>दैनिक लक्ष्य पूर्ति: <span id="checkedCount">0</span> / 7</span>
+        <span id="encouragementMsg" class="text-slate-800 font-bold">शुरुआत कीजिए!</span>
+      </div>
+    </section>
+
+    <!-- SECTION: SUMMARY CHEAT-SHEET FOR EMAILING & PRINT -->
+    <section class="bg-white neobrutal-border rounded-3xl p-6 md:p-8 shadow-brutal-lg">
+      <div class="border-b-4 border-brand-dark pb-3 mb-6 flex items-center justify-between flex-wrap gap-2">
+        <div>
+          <span class="text-xs font-black uppercase tracking-widest text-brand-cyan bg-brand-dark px-2 py-0.5 rounded">
+            Cheat Sheet
+          </span>
+          <h2 class="text-2xl font-black text-brand-dark mt-1">ईमेल व त्वरित पुनरावृत्ति सारांश (Quick Summary)</h2>
+        </div>
+        <button onclick="copySummaryText()" id="copyBtn" class="px-3.5 py-1.5 bg-brand-cyan hover:bg-emerald-300 neobrutal-border-sm rounded-xl text-xs font-black transition shadow-brutal-sm flex items-center gap-1.5">
+          <i class="fa-solid fa-copy"></i> <span>टेक्स्ट कॉपी करें</span>
+        </button>
+      </div>
+
+      <div id="summaryTextContent" class="space-y-4 text-xs md:text-sm text-slate-800 font-medium leading-relaxed bg-slate-50 neobrutal-border-sm rounded-2xl p-5">
+        <p><strong>विषय:</strong> सच्ची संपत्ति और खुशी की कुंजी — जिम रोन (Jim Rohn Seminar Summary)</p>
+        <p><strong>1. Shift from 'Get' to 'Give':</strong> जीवन की सार्थकता भौतिक संचय में नहीं, बल्कि आपके द्वारा किए गए योगदान में है।</p>
+        <p><strong>2. More Than Money:</strong> ध्यान, धैर्य, उपस्थिति और सच्ची परवाह पैसे से भी अधिक मूल्यवान संपत्तियां हैं।</p>
+        <p><strong>3. Service Leads to Greatness:</strong> धन कमाने के पीछे मत भागिए; लोगों की समस्याओं का समाधान करने और सेवा करने पर ध्यान दीजिए।</p>
+        <p><strong>4. Burn the Ledger:</strong> बिना किसी गुप्त अपेक्षा या एहसान के हिसाब-किताब के खुले दिल से मदद कीजिए।</p>
+        <p><strong>5. Guard Your Cup:</strong> खाली बर्तन से दूसरों की प्यास नहीं बुझाई जा सकती; स्वस्थ सीमाएं रखें और स्वयं को भी ऊर्जावान बनाए रखें।</p>
+        <p><strong>6. The Question for Today:</strong> कल का इंतज़ार मत कीजिए; आज ही किसी एक व्यक्ति के जीवन में सकारात्मकता जोड़ें।</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="no-print bg-white neobrutal-border-sm border-x-0 border-b-0 py-8 px-4 text-center mt-12">
+    <div class="max-w-xl mx-auto space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-yellow neobrutal-border-sm rounded-full text-xs font-black shadow-brutal-sm">
+        ✨ Jim Rohn Educational Series
+      </div>
+      <p class="text-xs font-bold text-slate-600">
+        यह पेज जिम रोन के व्याख्यान "The Key to True Wealth and Happiness" के अध्ययन व स्वाध्याय हेतु तैयार किया गया है।
+      </p>
+      <div class="text-[11px] font-bold text-slate-400">
+        आसानी से पढ़ने, ईमेल करने और प्रिंट करने के लिए पूर्णतः अनुकूलित।
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notification Toast (for copy text) -->
+  <div id="toast" class="fixed bottom-6 right-6 bg-brand-dark text-white font-bold text-xs px-4 py-3 rounded-2xl neobrutal-border-sm shadow-brutal transition-all duration-300 opacity-0 pointer-events-none translate-y-4 z-50 flex items-center gap-2">
+    <i class="fa-solid fa-circle-check text-brand-cyan"></i>
+    <span id="toastMsg">टेक्स्ट सफलतापूर्वक कॉपी हो गया!</span>
+  </div>
+
+  <!-- JAVASCRIPT: Scroll Progress, Checkbox Counter & Copy to Clipboard -->
+  <script>
+    // 1. Scroll Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('scrollProgress').style.width = scrolled + '%';
+    });
+
+    // 2. Checklist Tracker
+    const checkboxes = document.querySelectorAll('.checkbox-custom');
+    const checkedCountElem = document.getElementById('checkedCount');
+    const encouragementMsg = document.getElementById('encouragementMsg');
+
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', updateChecklistScore);
+    });
+
+    function updateChecklistScore() {
+      const checked = document.querySelectorAll('.checkbox-custom:checked').length;
+      checkedCountElem.innerText = checked;
+
+      if (checked === 0) {
+        encouragementMsg.innerText = "शुरुआत कीजिए!";
+        encouragementMsg.className = "text-slate-800 font-bold";
+      } else if (checked < 4) {
+        encouragementMsg.innerText = "बढ़िया शुरुआत! जारी रखें 👍";
+        encouragementMsg.className = "text-brand-purple font-black";
+      } else if (checked < 7) {
+        encouragementMsg.innerText = "अद्भुत प्रगति! आप लक्ष्य के करीब हैं 🚀";
+        encouragementMsg.className = "text-brand-orange font-black";
+      } else {
+        encouragementMsg.innerText = "शानदार! आज आपने सच्ची संपत्ति का जीवन जिया 🎉";
+        encouragementMsg.className = "text-emerald-700 font-black";
+      }
+    }
+
+    function resetChecklist() {
+      checkboxes.forEach(cb => cb.checked = false);
+      updateChecklistScore();
+    }
+
+    // 3. Robust Copy to Clipboard
+    function copySummaryText() {
+      const text = document.getElementById('summaryTextContent').innerText;
+      
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      
+      try {
+        document.execCommand('copy');
+        showToast('सारांश ईमेल या नोट्स के लिए कॉपी हो गया!');
+      } catch (err) {
+        showToast('कॉपी करने में त्रुटि हुई');
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.innerText = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
