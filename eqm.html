@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>भावनात्मक बुद्धिमत्ता: सफलता और खुशहाली की असली कुंजी</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Noto Sans Devanagari -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans Devanagari"', '"Inter"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              900: '#0b192e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background-color: #f3f4f6;
+    }
+    .traffic-housing {
+      background: linear-gradient(180deg, #374151 0%, #1f2937 100%);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+    }
+    .light-glow-red {
+      box-shadow: 0 0 25px #ef4444, inset 0 -4px 8px rgba(0,0,0,0.3);
+    }
+    .light-glow-yellow {
+      box-shadow: 0 0 25px #facc15, inset 0 -4px 8px rgba(0,0,0,0.3);
+    }
+    .light-glow-green {
+      box-shadow: 0 0 25px #22c55e, inset 0 -4px 8px rgba(0,0,0,0.3);
+    }
+    /* Curved bottom tabs for the 5 Pillars */
+    .pillar-card {
+      border-bottom-left-radius: 2.2rem;
+      border-bottom-right-radius: 2.2rem;
+    }
+  </style>
+</head>
+<body class="p-2 sm:p-4 md:p-8 flex justify-center text-slate-800">
+
+  <!-- Main Infographic Canvas Container -->
+  <div class="w-full max-w-[1400px] bg-white rounded-2xl shadow-2xl border border-slate-200/80 p-5 sm:p-8 md:p-10 relative overflow-hidden">
+    
+    <!-- Top Bar Controls (Language Switcher & Print/Export) -->
+    <div class="flex justify-between items-center mb-6 pb-4 border-b border-slate-100 text-xs sm:text-sm">
+      <div class="flex items-center gap-2 text-slate-500 font-medium">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Interactive Poster & Infographic Sheet</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="langToggleBtn" onclick="toggleLanguage()" class="px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold border border-indigo-200 transition-colors flex items-center gap-1.5 shadow-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+          <span id="langBtnText">Switch to English</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="text-center mb-10">
+      <h1 class="text-2xl sm:text-4xl md:text-[2.75rem] font-extrabold tracking-tight text-slate-900 leading-tight">
+        <span class="lang-hi">भावनात्मक बुद्धिमत्ता: सफलता और खुशहाली की असली कुंजी</span>
+        <span class="lang-en hidden">Emotional Intelligence: The Real Key to Success & Happiness</span>
+      </h1>
+    </header>
+
+    <!-- SECTION 1: TOP GRID (Crisis vs Solution) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+      
+      <!-- LEFT TOP: CRISIS SECTION (5 cols) -->
+      <div class="lg:col-span-5 flex flex-col justify-between">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900 mb-5 flex items-center gap-2">
+            <span class="lang-hi">संकट: भावनात्मक निरक्षरता की बढ़ती कीमत</span>
+            <span class="lang-en hidden">Crisis: The Growing Cost of Emotional Illiteracy</span>
+          </h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+            <!-- Box 1: Mental Stress -->
+            <div class="bg-sky-50/70 border border-sky-200 rounded-2xl p-3.5 flex flex-col items-center text-center shadow-sm">
+              <!-- Illustration: Stressed head with thunder and cloud -->
+              <div class="w-20 h-20 mb-2 flex items-center justify-center">
+                <svg viewBox="0 0 100 100" class="w-full h-full">
+                  <ellipse cx="50" cy="24" rx="22" ry="12" fill="#94a3b8" />
+                  <path d="M50 20 L44 30 L52 30 L46 42 L60 28 L50 28 Z" fill="#eab308" stroke="#ca8a04" stroke-width="1.5" />
+                  <circle cx="50" cy="62" r="20" fill="#fed7aa" />
+                  <path d="M38 52 C38 40 62 40 62 52" fill="#475569" />
+                  <!-- sad face -->
+                  <circle cx="43" cy="60" r="2.5" fill="#334155"/>
+                  <circle cx="57" cy="60" r="2.5" fill="#334155"/>
+                  <path d="M44 70 Q50 64 56 70" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                  <!-- shoulders -->
+                  <path d="M30 88 C30 76 70 76 70 88" fill="#60a5fa"/>
+                </svg>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm mb-1 leading-snug">
+                <span class="lang-hi">बढ़ता मानसिक तनाव और अवसाद</span>
+                <span class="lang-en hidden">Rising Mental Stress & Depression</span>
+              </h3>
+              <p class="text-[11px] text-slate-600 leading-relaxed">
+                <span class="lang-hi">पिछली पीढ़ियों की तुलना में आज के बच्चे अधिक अकेले, चिंतित और उदास हैं; युवाओं में अवसाद तेजी से बढ़ा है।</span>
+                <span class="lang-en hidden">Compared to past generations, youth today feel more isolated, anxious, and sad; depression rates have surged.</span>
+              </p>
+            </div>
+
+            <!-- Box 2: Behavioral Issues -->
+            <div class="bg-indigo-50/70 border border-indigo-200 rounded-2xl p-3.5 flex flex-col items-center text-center shadow-sm">
+              <!-- Illustration: Tangled yarn & fighting figures -->
+              <div class="w-20 h-20 mb-2 flex items-center justify-center">
+                <svg viewBox="0 0 100 100" class="w-full h-full">
+                  <!-- Tangled scribble -->
+                  <path d="M22 25 Q30 10 40 25 T60 20 T40 40 T20 25" stroke="#ef4444" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                  <!-- Conflict figures -->
+                  <circle cx="34" cy="55" r="7" fill="#1e293b"/>
+                  <path d="M34 62 L34 78 M34 68 L24 64 M34 70 L44 65 M34 78 L26 92 M34 78 L40 92" stroke="#1e293b" stroke-width="3" stroke-linecap="round"/>
+                  <circle cx="66" cy="55" r="7" fill="#1e293b"/>
+                  <path d="M66 62 L66 78 M66 68 L76 64 M66 70 L56 65 M66 78 L74 92 M66 78 L60 92" stroke="#1e293b" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M47 50 L53 58 M53 50 L47 58" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm mb-1 leading-snug">
+                <span class="lang-hi">व्यवहारिक समस्याएं और हिंसा</span>
+                <span class="lang-en hidden">Behavioral Issues & Violence</span>
+              </h3>
+              <p class="text-[11px] text-slate-600 leading-relaxed">
+                <span class="lang-hi">कम आत्म-नियंत्रण के कारण किशोरों में आक्रामकता, नशीली दवाओं का दुरुपयोग और हिंसक घटनाओं में वृद्धि हुई है।</span>
+                <span class="lang-en hidden">Poor self-regulation triggers adolescent aggression, substance misuse, and increased conflict incidents.</span>
+              </p>
+            </div>
+
+            <!-- Box 3: Workplace / IQ Not Enough -->
+            <div class="bg-amber-50/70 border border-amber-200 rounded-2xl p-3.5 flex flex-col items-center text-center shadow-sm">
+              <!-- Illustration: Brain + IQ Gear / Workplace Stress -->
+              <div class="w-20 h-20 mb-2 flex items-center justify-center">
+                <svg viewBox="0 0 100 100" class="w-full h-full">
+                  <rect x="20" y="65" width="60" height="26" rx="4" fill="#cbd5e1"/>
+                  <path d="M35 65 L45 42 L55 42 L65 65" fill="#f87171"/>
+                  <!-- brain shape -->
+                  <circle cx="50" cy="32" r="16" fill="#f43f5e" opacity="0.8"/>
+                  <circle cx="42" cy="30" r="10" fill="#fb7185"/>
+                  <circle cx="58" cy="30" r="10" fill="#fb7185"/>
+                  <!-- gear / warning sign -->
+                  <polygon points="50,6 58,16 42,16" fill="#f59e0b"/>
+                  <rect x="49" y="10" width="2" height="3" fill="#1e293b"/>
+                  <circle cx="50" cy="14" r="0.8" fill="#1e293b"/>
+                  <!-- Graph lines -->
+                  <rect x="70" y="25" width="4" height="15" fill="#10b981"/>
+                  <rect x="76" y="20" width="4" height="20" fill="#6366f1"/>
+                </svg>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm mb-1 leading-snug">
+                <span class="lang-hi">कार्यस्थल व IQ की सीमाएं</span>
+                <span class="lang-en hidden">Workplace Impact & IQ Limits</span>
+              </h3>
+              <p class="text-[11px] text-slate-600 leading-relaxed">
+                <span class="lang-hi">उच्च IQ वाले लोग भी असफल हो सकते हैं यदि उनमें आत्म-संयम, टीमवर्क और निर्णय क्षमता (EQ) का अभाव हो।</span>
+                <span class="lang-en hidden">High IQ individuals often falter without emotional resilience, team coordination, and empathetic decision-making.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT TOP: 5 PILLARS OF EMOTIONAL INTELLIGENCE (7 cols) -->
+      <div class="lg:col-span-7">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 mb-5 flex items-center gap-2">
+          <span class="lang-hi">समाधान: भावनात्मक बुद्धिमत्ता के 5 मुख्य स्तंभ</span>
+          <span class="lang-en hidden">Solution: The 5 Pillars of Emotional Intelligence</span>
+        </h2>
+
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5 sm:gap-3">
+          
+          <!-- Pillar 1: Self-Awareness -->
+          <div class="pillar-card bg-sky-50 border border-sky-300 flex flex-col items-center p-3 text-center shadow-sm hover:shadow-md transition">
+            <!-- Icon Avatar -->
+            <div class="w-14 h-14 rounded-full bg-white border-2 border-sky-400 p-1 mb-2.5 flex items-center justify-center shadow-inner">
+              <svg viewBox="0 0 60 60" class="w-full h-full">
+                <!-- Mirror / reflection avatar -->
+                <circle cx="30" cy="30" r="24" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2"/>
+                <circle cx="30" cy="24" r="9" fill="#fbcfe8"/>
+                <path d="M19 46 C20 38 40 38 41 46" fill="#0284c7"/>
+                <!-- floating thought elements -->
+                <circle cx="16" cy="18" r="2.5" fill="#f43f5e"/>
+                <text x="43" y="20" font-size="12" font-weight="bold" fill="#0369a1">?</text>
+              </svg>
+            </div>
+            <h4 class="font-extrabold text-xs sm:text-sm text-sky-950 mb-1">
+              <span class="lang-hi">स्व-जागरूकता</span>
+              <span class="lang-en hidden">Self-Awareness</span>
+            </h4>
+            <p class="text-[10px] text-slate-700 leading-tight mb-3">
+              <span class="lang-hi">अपनी भावनाओं को पहचानना और नाम देना; जैसे क्रोध के पीछे छिपे दुख को समझना।</span>
+              <span class="lang-en hidden">Recognizing and labeling emotions; realizing hurt hidden behind anger.</span>
+            </p>
+            <div class="mt-auto w-full text-left bg-white/80 rounded-xl p-2 border border-sky-200/80 text-[10px] text-slate-800 space-y-1">
+              <div class="flex items-start gap-1">
+                <span class="text-sky-600 font-bold">•</span>
+                <span class="lang-hi leading-tight">जर्नल लिखना</span>
+                <span class="lang-en hidden leading-tight">Journal writing</span>
+              </div>
+              <div class="flex items-start gap-1">
+                <span class="text-sky-600 font-bold">•</span>
+                <span class="lang-hi leading-tight">चिंतन करना</span>
+                <span class="lang-en hidden leading-tight">Self-reflection</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 2: Self-Regulation -->
+          <div class="pillar-card bg-amber-50 border border-amber-300 flex flex-col items-center p-3 text-center shadow-sm hover:shadow-md transition">
+            <!-- Icon Avatar -->
+            <div class="w-14 h-14 rounded-full bg-white border-2 border-amber-400 p-1 mb-2.5 flex items-center justify-center shadow-inner">
+              <svg viewBox="0 0 60 60" class="w-full h-full">
+                <!-- Scale of balance -->
+                <line x1="30" y1="12" x2="30" y2="48" stroke="#b45309" stroke-width="3" stroke-linecap="round"/>
+                <line x1="14" y1="20" x2="46" y2="20" stroke="#b45309" stroke-width="2.5" stroke-linecap="round"/>
+                <polygon points="12,22 18,36 6,36" fill="#fde68a" stroke="#d97706" stroke-width="1.5"/>
+                <polygon points="48,22 54,36 42,36" fill="#fde68a" stroke="#d97706" stroke-width="1.5"/>
+                <path d="M22 50 L38 50" stroke="#b45309" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h4 class="font-extrabold text-xs sm:text-sm text-amber-950 mb-1">
+              <span class="lang-hi">भावनाओं का प्रबंधन</span>
+              <span class="lang-en hidden">Managing Emotions</span>
+            </h4>
+            <p class="text-[10px] text-slate-700 leading-tight mb-3">
+              <span class="lang-hi">तनाव, चिंता और क्रोध को संभालना ताकि आवेग हमारे निर्णयों पर हावी न हों।</span>
+              <span class="lang-en hidden">Handling anxiety, stress, and rage so impulses don't override logic.</span>
+            </p>
+            <div class="mt-auto w-full text-left bg-white/80 rounded-xl p-2 border border-amber-200/80 text-[10px] text-slate-800 space-y-1">
+              <div class="flex items-start gap-1">
+                <span class="text-amber-600 font-bold">•</span>
+                <span class="lang-hi leading-tight">सक्रिय शांत होना</span>
+                <span class="lang-en hidden leading-tight">Mindful pause</span>
+              </div>
+              <div class="flex items-start gap-1">
+                <span class="text-amber-600 font-bold">•</span>
+                <span class="lang-hi leading-tight">गहरी सांस विधि</span>
+                <span class="lang-en hidden leading-tight">Deep breathing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 3: Self-Motivation -->
+          <div class="pillar-card bg-orange-50 border border-orange-300 flex flex-col items-center p-3 text-center shadow-sm hover:shadow-md transition">
+            <!-- Icon Avatar -->
+            <div class="w-14 h-14 rounded-full bg-white border-2 border-orange-400 p-1 mb-2.5 flex items-center justify-center shadow-inner">
+              <svg viewBox="0 0 60 60" class="w-full h-full">
+                <!-- Rocket launching -->
+                <path d="M30 10 C38 18 40 32 36 40 L24 40 C20 32 22 18 30 10 Z" fill="#f97316"/>
+                <circle cx="30" cy="24" r="4" fill="#ffffff"/>
+                <path d="M22 34 L14 42 L24 40 Z" fill="#ea580c"/>
+                <path d="M38 34 L46 42 L36 40 Z" fill="#ea580c"/>
+                <!-- flame -->
+                <polygon points="26,42 34,42 30,52" fill="#eab308"/>
+              </svg>
+            </div>
+            <h4 class="font-extrabold text-xs sm:text-sm text-orange-950 mb-1">
+              <span class="lang-hi">आत्म-प्रेरणा</span>
+              <span class="lang-en hidden">Internal Motivation</span>
+            </h4>
+            <p class="text-[10px] text-slate-700 leading-tight mb-3">
+              <span class="lang-hi">लक्ष्यों के प्रति निष्ठा, असफलताओं के बावजूद उत्साह बनाए रखना व आगे बढ़ना।</span>
+              <span class="lang-en hidden">Persevering toward goals, staying resilient and passionate past failures.</span>
+            </p>
+            <div class="mt-auto w-full text-left bg-white/80 rounded-xl p-2 border border-orange-200/80 text-[10px] text-slate-800 space-y-1">
+              <div class="flex items-start gap-1">
+                <span class="text-orange-600 font-bold">•</span>
+                <span class="lang-hi leading-tight">लक्ष्य निर्धारण</span>
+                <span class="lang-en hidden leading-tight">Goal setting</span>
+              </div>
+              <div class="flex items-start gap-1">
+                <span class="text-orange-600 font-bold">•</span>
+                <span class="lang-hi leading-tight">दृढ़ता व आशावाद</span>
+                <span class="lang-en hidden leading-tight">Optimism & grit</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 4: Empathy -->
+          <div class="pillar-card bg-rose-50 border border-rose-300 flex flex-col items-center p-3 text-center shadow-sm hover:shadow-md transition">
+            <!-- Icon Avatar -->
+            <div class="w-14 h-14 rounded-full bg-white border-2 border-rose-400 p-1 mb-2.5 flex items-center justify-center shadow-inner">
+              <svg viewBox="0 0 60 60" class="w-full h-full">
+                <!-- Two connected minds -->
+                <circle cx="20" cy="30" r="10" fill="#fecdd3"/>
+                <circle cx="40" cy="30" r="10" fill="#bae6fd"/>
+                <path d="M20 28 Q30 20 40 28" stroke="#e11d48" stroke-width="2" fill="none"/>
+                <!-- pulse waveform -->
+                <path d="M25 32 L27 28 L30 35 L33 29 L35 32" stroke="#e11d48" stroke-width="2" fill="none" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h4 class="font-extrabold text-xs sm:text-sm text-rose-950 mb-1">
+              <span class="lang-hi">सहानुभूति</span>
+              <span class="lang-en hidden">Empathy</span>
+            </h4>
+            <p class="text-[10px] text-slate-700 leading-tight mb-3">
+              <span class="lang-hi">दूसरों की भावनाओं व दृष्टिकोण को समझना; यह सामाजिक सद्भाव की जड़ है।</span>
+              <span class="lang-en hidden">Understanding perspectives of others; root of altruism and kindness.</span>
+            </p>
+            <div class="mt-auto w-full text-left bg-white/80 rounded-xl p-2 border border-rose-200/80 text-[10px] text-slate-800 space-y-1">
+              <div class="flex items-start gap-1">
+                <span class="text-rose-600 font-bold">•</span>
+                <span class="lang-hi leading-tight">सक्रिय सुनना</span>
+                <span class="lang-en hidden leading-tight">Active listening</span>
+              </div>
+              <div class="flex items-start gap-1">
+                <span class="text-rose-600 font-bold">•</span>
+                <span class="lang-hi leading-tight">दृष्टिकोण सम्मान</span>
+                <span class="lang-en hidden leading-tight">Respecting view</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 5: Social Skills / Global Citizenship -->
+          <div class="pillar-card bg-emerald-50 border border-emerald-300 col-span-2 sm:col-span-1 flex flex-col items-center p-3 text-center shadow-sm hover:shadow-md transition">
+            <!-- Icon Avatar -->
+            <div class="w-14 h-14 rounded-full bg-white border-2 border-emerald-400 p-1 mb-2.5 flex items-center justify-center shadow-inner">
+              <svg viewBox="0 0 60 60" class="w-full h-full">
+                <!-- Group interconnected nodes -->
+                <circle cx="30" cy="18" r="5" fill="#10b981"/>
+                <circle cx="16" cy="38" r="5" fill="#059669"/>
+                <circle cx="44" cy="38" r="5" fill="#059669"/>
+                <line x1="30" y1="18" x2="16" y2="38" stroke="#6ee7b7" stroke-width="2"/>
+                <line x1="30" y1="18" x2="44" y2="38" stroke="#6ee7b7" stroke-width="2"/>
+                <line x1="16" y1="38" x2="44" y2="38" stroke="#6ee7b7" stroke-width="2"/>
+                <circle cx="30" cy="30" r="3" fill="#34d399"/>
+              </svg>
+            </div>
+            <h4 class="font-extrabold text-xs sm:text-sm text-emerald-950 mb-1">
+              <span class="lang-hi">सामाजिक कौशल</span>
+              <span class="lang-en hidden">Social Skills</span>
+            </h4>
+            <p class="text-[10px] text-slate-700 leading-tight mb-3">
+              <span class="lang-hi">मतभेदों को शांतिपूर्ण सुलझाना, टीमवर्क व वैश्विक नागरिकता का सम्मान करना।</span>
+              <span class="lang-en hidden">Conflict resolution, teamwork, tolerance, and building healthy bonds.</span>
+            </p>
+            <div class="mt-auto w-full text-left bg-white/80 rounded-xl p-2 border border-emerald-200/80 text-[10px] text-slate-800 space-y-1">
+              <div class="flex items-start gap-1">
+                <span class="text-emerald-600 font-bold">•</span>
+                <span class="lang-hi leading-tight">पारस्परिक संवाद</span>
+                <span class="lang-en hidden leading-tight">Mutual dialogue</span>
+              </div>
+              <div class="flex items-start gap-1">
+                <span class="text-emerald-600 font-bold">•</span>
+                <span class="lang-hi leading-tight">सहयोगात्मक कार्य</span>
+                <span class="lang-en hidden leading-tight">Team collaboration</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: BOTTOM GRID (Practical Technique & Proven Results) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8 border-t-2 border-dashed border-slate-200">
+      
+      <!-- BOTTOM LEFT: PRACTICAL TECHNIQUE - STOPLIGHT METHOD (6 cols) -->
+      <div class="lg:col-span-6">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 mb-6 flex items-center gap-2">
+          <span class="lang-hi">व्यावहारिक तकनीक: 'स्टॉपलाइट' (Stoplight) विधि</span>
+          <span class="lang-en hidden">Practical Technique: The 'Stoplight' Method</span>
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-5 items-center bg-slate-50 border border-slate-200/80 rounded-3xl p-5 shadow-inner">
+          
+          <!-- Column 1: Emotional Mirroring (4 cols) -->
+          <div class="sm:col-span-5 flex flex-col items-center text-center pr-0 sm:pr-3 sm:border-r border-slate-200">
+            <!-- Mirror Icon & Person Illustration -->
+            <div class="relative w-28 h-28 mb-3">
+              <svg viewBox="0 0 100 100" class="w-full h-full">
+                <!-- Person face with hand up -->
+                <circle cx="58" cy="50" r="22" fill="#fde047" opacity="0.3"/>
+                <circle cx="58" cy="50" r="18" fill="#fed7aa"/>
+                <circle cx="52" cy="48" r="2" fill="#1e293b"/>
+                <circle cx="64" cy="48" r="2" fill="#1e293b"/>
+                <path d="M54 58 Q58 62 62 58" stroke="#1e293b" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <!-- Hand in stop / pause gesture -->
+                <rect x="76" y="52" width="8" height="18" rx="4" fill="#fdba74"/>
+                <!-- Handheld mirror -->
+                <ellipse cx="28" cy="50" rx="14" ry="20" fill="#e0f2fe" stroke="#3b82f6" stroke-width="3"/>
+                <line x1="28" y1="70" x2="22" y2="92" stroke="#3b82f6" stroke-width="4" stroke-linecap="round"/>
+                <!-- Thought elements -->
+                <circle cx="36" cy="20" r="6" fill="#f43f5e" opacity="0.9"/>
+                <text x="36" y="24" font-size="10" text-anchor="middle" fill="#fff">❤</text>
+                <circle cx="70" cy="22" r="6" fill="#0284c7"/>
+                <text x="70" y="26" font-size="10" text-anchor="middle" font-weight="bold" fill="#fff">?</text>
+              </svg>
+            </div>
+            
+            <h4 class="font-extrabold text-sm text-slate-900 mb-1 leading-snug">
+              <span class="lang-hi">इमोशनल मिरर तकनीक<br>(Emotional Mirroring)</span>
+              <span class="lang-en hidden">Emotional Mirroring Technique</span>
+            </h4>
+            <p class="text-xs text-slate-600 mb-2 leading-relaxed">
+              <span class="lang-hi">दूसरों की भावनाओं को पहचानें और सम्मान दें। उनकी स्थिति को प्रतिबिंबित करने का अभ्यास करें।</span>
+              <span class="lang-en hidden">Recognize and validate others' emotional state before reacting.</span>
+            </p>
+            <div class="bg-indigo-50 text-indigo-900 text-[11px] font-semibold p-2 rounded-xl border border-indigo-200">
+              <span class="lang-hi">उदाहरण: "मुझे समझ आ रहा है कि आप परेशान क्यों हैं।"</span>
+              <span class="lang-en hidden">Example: "I can understand why you feel upset right now."</span>
+            </div>
+          </div>
+
+          <!-- Column 2: The Physical Stoplight + Step Directions (7 cols) -->
+          <div class="sm:col-span-7 flex items-center gap-4">
+            <!-- 3D Stoplight Device -->
+            <div class="traffic-housing w-16 sm:w-20 py-4 px-2 rounded-2xl flex flex-col items-center gap-3 shrink-0">
+              <!-- Red Light Button -->
+              <button onclick="highlightStep('red')" class="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-red-500 light-glow-red flex items-center justify-center text-white text-xs font-black border-2 border-red-300 focus:outline-none transition-transform active:scale-95" title="Red Light: Stop">
+                ❚❚
+              </button>
+              <!-- Yellow Light Button -->
+              <button onclick="highlightStep('yellow')" class="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-yellow-400 light-glow-yellow flex items-center justify-center text-yellow-950 text-xs font-black border-2 border-yellow-200 focus:outline-none transition-transform active:scale-95" title="Yellow Light: Think">
+                ?
+              </button>
+              <!-- Green Light Button -->
+              <button onclick="highlightStep('green')" class="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-emerald-500 light-glow-green flex items-center justify-center text-white text-xs font-black border-2 border-emerald-200 focus:outline-none transition-transform active:scale-95" title="Green Light: Go">
+                ▶
+              </button>
+            </div>
+
+            <!-- Descriptive Steps -->
+            <div class="flex flex-col gap-3 text-left">
+              <!-- Red Step -->
+              <div id="step-red" class="p-2 rounded-xl transition duration-200 border border-transparent hover:border-red-200 hover:bg-red-50/50">
+                <div class="flex items-center gap-1.5 font-black text-xs sm:text-sm text-red-600 mb-0.5">
+                  <span class="inline-block w-3 h-3 rounded-full bg-red-500"></span>
+                  <span class="lang-hi">लाल बत्ती: रुकें और शांत हों</span>
+                  <span class="lang-en hidden">Red Light: Stop & Calm Down</span>
+                </div>
+                <p class="text-[11px] text-slate-600 leading-snug">
+                  <span class="lang-hi">कोई भी प्रतिक्रिया देने से पहले रुकें, गहरी सांस लें और अपनी भावनाओं को नियंत्रित करें।</span>
+                  <span class="lang-en hidden">Pause before reacting, take deep breaths, and regain control over raw emotions.</span>
+                </p>
+              </div>
+
+              <!-- Yellow Step -->
+              <div id="step-yellow" class="p-2 rounded-xl transition duration-200 border border-transparent hover:border-amber-200 hover:bg-amber-50/50">
+                <div class="flex items-center gap-1.5 font-black text-xs sm:text-sm text-amber-600 mb-0.5">
+                  <span class="inline-block w-3 h-3 rounded-full bg-amber-400"></span>
+                  <span class="lang-hi">पीली बत्ती: सोचें और योजना बनाएं</span>
+                  <span class="lang-en hidden">Yellow Light: Think & Plan</span>
+                </div>
+                <p class="text-[11px] text-slate-600 leading-snug">
+                  <span class="lang-hi">समस्या को समझें, सकारात्मक लक्ष्य तय करें और विभिन्न समाधानों के परिणामों पर विचार करें।</span>
+                  <span class="lang-en hidden">Clarify the challenge, formulate positive outcomes, and evaluate consequences.</span>
+                </p>
+              </div>
+
+              <!-- Green Step -->
+              <div id="step-green" class="p-2 rounded-xl transition duration-200 border border-transparent hover:border-emerald-200 hover:bg-emerald-50/50">
+                <div class="flex items-center gap-1.5 font-black text-xs sm:text-sm text-emerald-600 mb-0.5">
+                  <span class="inline-block w-3 h-3 rounded-full bg-emerald-500"></span>
+                  <span class="lang-hi">हरी बत्ती: आगे बढ़ें</span>
+                  <span class="lang-en hidden">Green Light: Go & Execute</span>
+                </div>
+                <p class="text-[11px] text-slate-600 leading-snug">
+                  <span class="lang-hi">सबसे अच्छी योजना चुनें और पूरे साहस व सूझबूझ के साथ उसे लागू करें।</span>
+                  <span class="lang-en hidden">Select the optimal constructive solution and execute it with calm confidence.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BOTTOM RIGHT: RESULTS - BENEFITS OF EMOTIONAL EDUCATION (6 cols) -->
+      <div class="lg:col-span-6 flex flex-col justify-between">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900 mb-6 flex items-center gap-2">
+            <span class="lang-hi">परिणाम: भावनात्मक शिक्षा के लाभ</span>
+            <span class="lang-en hidden">Results: The Proven Benefits of Emotional Education</span>
+          </h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            
+            <!-- Benefit 1: Academic Scores -->
+            <div class="bg-gradient-to-b from-emerald-50 to-white border border-emerald-200 rounded-2xl p-4 flex flex-col items-center text-center shadow-sm">
+              <!-- Illustration: Growing graph + A+ badge -->
+              <div class="w-20 h-20 mb-2 flex items-center justify-center">
+                <svg viewBox="0 0 100 100" class="w-full h-full">
+                  <!-- Bar chart -->
+                  <rect x="18" y="65" width="8" height="20" fill="#a7f3d0" rx="1"/>
+                  <rect x="30" y="52" width="8" height="33" fill="#6ee7b7" rx="1"/>
+                  <rect x="42" y="38" width="8" height="47" fill="#34d399" rx="1"/>
+                  <rect x="54" y="24" width="8" height="61" fill="#10b981" rx="1"/>
+                  <!-- Arrow upwards -->
+                  <path d="M16 70 L58 20 M58 20 L44 20 M58 20 L58 34" stroke="#059669" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- A+ badge -->
+                  <circle cx="78" cy="24" r="14" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+                  <text x="78" y="29" font-size="12" font-weight="bold" fill="#b91c1c" text-anchor="middle">A+</text>
+                  <!-- Base books -->
+                  <rect x="62" y="72" width="28" height="6" fill="#3b82f6" rx="1"/>
+                  <rect x="60" y="78" width="32" height="7" fill="#1d4ed8" rx="1"/>
+                </svg>
+              </div>
+              <h3 class="font-extrabold text-sm text-slate-900 mb-1">
+                <span class="lang-hi">बेहतर शैक्षणिक प्रदर्शन</span>
+                <span class="lang-en hidden">Better Academic Scores</span>
+              </h3>
+              <p class="text-[11px] text-slate-600 leading-relaxed">
+                <span class="lang-hi">भावनात्मक कौशल सीखने वाले बच्चों के उपलब्धि परीक्षण (Achievement Tests) के अंकों में उल्लेखनीय सुधार देखा गया है।</span>
+                <span class="lang-en hidden">Students trained in SEL show +11-14 percentile gains on standardized achievement test marks.</span>
+              </p>
+            </div>
+
+            <!-- Benefit 2: Decrease in Suspensions -->
+            <div class="bg-gradient-to-b from-rose-50 to-white border border-rose-200 rounded-2xl p-4 flex flex-col items-center text-center shadow-sm">
+              <!-- Illustration: Sharp decrease arrow + suspension board -->
+              <div class="w-20 h-20 mb-2 flex items-center justify-center">
+                <svg viewBox="0 0 100 100" class="w-full h-full">
+                  <!-- Suspension label plate -->
+                  <rect x="22" y="16" width="56" height="16" rx="4" fill="#ef4444"/>
+                  <text x="50" y="28" font-size="9" font-weight="bold" fill="#ffffff" text-anchor="middle">Suspension</text>
+                  <!-- Steep downward plunge chart -->
+                  <path d="M18 42 L48 42 L80 82" stroke="#ef4444" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polygon points="82,86 68,82 78,72" fill="#ef4444"/>
+                  <!-- Hand pointing/restraint -->
+                  <rect x="12" y="76" width="18" height="10" rx="2" fill="#1e293b"/>
+                  <path d="M30 76 L40 76 L44 82 L30 84 Z" fill="#fdba74"/>
+                </svg>
+              </div>
+              <h3 class="font-extrabold text-sm text-slate-900 mb-1">
+                <span class="lang-hi">अनुशासनहीनता में कमी</span>
+                <span class="lang-en hidden">Reduced Indiscipline</span>
+              </h3>
+              <p class="text-[11px] text-slate-600 leading-relaxed">
+                <span class="lang-hi">स्कूलों में निलंबन (Suspensions), आक्रामकता और हिंसक झगड़ों के मामलों में भारी गिरावट आती है।</span>
+                <span class="lang-en hidden">Dramatically reduced school suspensions, fewer conduct citations, and lower campus conflicts.</span>
+              </p>
+            </div>
+
+            <!-- Benefit 3: Conflict Resolution & Strong Bonds -->
+            <div class="bg-gradient-to-b from-indigo-50 to-white border border-indigo-200 rounded-2xl p-4 flex flex-col items-center text-center shadow-sm">
+              <!-- Illustration: Hands holding heart with people inside -->
+              <div class="w-20 h-20 mb-2 flex items-center justify-center">
+                <svg viewBox="0 0 100 100" class="w-full h-full">
+                  <!-- Hands cradling heart -->
+                  <path d="M20 62 C20 45 40 40 50 56 C60 40 80 45 80 62 C80 74 50 88 50 88 C50 88 20 74 20 62 Z" fill="#f43f5e" opacity="0.9"/>
+                  <!-- Two little figures inside heart -->
+                  <circle cx="44" cy="58" r="4" fill="#ffffff"/>
+                  <circle cx="56" cy="58" r="4" fill="#ffffff"/>
+                  <path d="M40 68 C40 64 48 64 48 68" fill="#ffffff"/>
+                  <path d="M52 68 C52 64 60 64 60 68" fill="#ffffff"/>
+                  <!-- Supporting hands -->
+                  <path d="M12 45 C20 40 28 55 35 68" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" fill="none"/>
+                  <path d="M88 45 C80 40 72 55 65 68" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" fill="none"/>
+                </svg>
+              </div>
+              <h3 class="font-extrabold text-sm text-slate-900 mb-1">
+                <span class="lang-hi">समस्या समाधान व मजबूत संबंध</span>
+                <span class="lang-en hidden">Conflict Resolution & Bonds</span>
+              </h3>
+              <p class="text-[11px] text-slate-600 leading-relaxed">
+                <span class="lang-hi">बच्चे अधिक लोकप्रिय, मिलनसार बनते हैं और दूसरों की मदद करते हैं, जिससे उनके भविष्य के रिश्ते सफल होते हैं।</span>
+                <span class="lang-en hidden">Students develop high social competence, empathetic conflict resolution, and healthy long-term relationships.</span>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER NOTE & BRANDING -->
+    <footer class="mt-10 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-slate-700">Source Framework:</span>
+        <span>Daniel Goleman's Emotional Intelligence & CASEL SEL Models</span>
+      </div>
+      <div class="flex items-center gap-1.5 font-bold text-slate-700">
+        <svg class="w-4 h-4 text-indigo-600" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+        <span>Gemini Notebook Visualization</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Simple state toggle for language
+    let isEnglish = false;
+    function toggleLanguage() {
+      isEnglish = !isEnglish;
+      const hiElements = document.querySelectorAll('.lang-hi');
+      const enElements = document.querySelectorAll('.lang-en');
+      const btnText = document.getElementById('langBtnText');
+
+      if (isEnglish) {
+        hiElements.forEach(el => el.classList.add('hidden'));
+        enElements.forEach(el => el.classList.remove('hidden'));
+        btnText.textContent = "हिंदी में देखें (Switch to Hindi)";
+      } else {
+        hiElements.forEach(el => el.classList.remove('hidden'));
+        enElements.forEach(el => el.classList.add('hidden'));
+        btnText.textContent = "Switch to English";
+      }
+    }
+
+    // Interactive step highlighter on traffic light button click
+    function highlightStep(color) {
+      const steps = ['red', 'yellow', 'green'];
+      steps.forEach(s => {
+        const el = document.getElementById('step-' + s);
+        if (s === color) {
+          el.classList.add('scale-105', 'bg-white', 'shadow-md');
+          setTimeout(() => {
+            el.classList.remove('scale-105', 'shadow-md');
+          }, 1200);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+
