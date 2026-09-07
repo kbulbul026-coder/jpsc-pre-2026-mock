@@ -1,0 +1,1328 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>भावनात्मक बुद्धिमत्ता: व्यावहारिक जीवन मार्गदर्शिका एवं स्व-सुधार टूलकिट</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Noto Sans Devanagari, Inter, Rozha One, Fira Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Rozha+One&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+    }
+    .serif-title {
+      font-family: 'Rozha One', 'Noto Sans Devanagari', serif;
+    }
+    .code-font {
+      font-family: 'Fira Code', monospace;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    .tab-view {
+      display: none;
+    }
+    .tab-view.active {
+      display: block;
+      animation: tabFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes tabFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .interactive-card {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .interactive-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
+    }
+    /* Breathing animation for Calm timer */
+    @keyframes breathPulse {
+      0% { transform: scale(0.92); opacity: 0.7; }
+      50% { transform: scale(1.12); opacity: 1; }
+      100% { transform: scale(0.92); opacity: 0.7; }
+    }
+    .breathing-circle {
+      animation: breathPulse 8s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased min-h-screen flex flex-col selection:bg-rose-100 selection:text-rose-900">
+
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- App Identity -->
+        <div class="flex items-center space-x-3 cursor-pointer" onclick="switchMainTab('toolkit')">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-600 via-indigo-600 to-amber-500 flex items-center justify-center text-white shadow-md flex-shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 class="text-sm sm:text-base font-bold text-slate-900 leading-tight">भावनात्मक बुद्धिमत्ता: जीवन संजीवनी टूलकिट</h1>
+              <span class="text-[10px] uppercase font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">उपयोगी संस्करण</span>
+            </div>
+            <p class="text-[11px] text-slate-500 font-medium">डैनियल गोलमैन कृत सिद्धांतानुसार • दैनिक आत्म-नियंत्रण, मानसिक स्वास्थ्य व मुखर संवाद</p>
+          </div>
+        </div>
+
+        <!-- Quick Emergency Action Trigger -->
+        <div class="hidden sm:flex items-center gap-2">
+          <button onclick="switchMainTab('firstaid'); openFirstAidSub('calm')" class="px-3.5 py-1.5 rounded-xl bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-100 text-xs font-bold transition-all flex items-center gap-1.5 shadow-2xs">
+            <span class="w-2 h-2 rounded-full bg-rose-600 animate-ping"></span>
+            🚨 तात्कालिक शांति प्राथमिक उपचार (SOS)
+          </button>
+          <button onclick="switchMainTab('diagnostic')" class="px-3.5 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1.5">
+            📊 स्व-परीक्षण (EQ Audit)
+          </button>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <div class="flex md:hidden">
+          <button id="mobile-menu-btn" type="button" class="p-2 rounded-lg bg-slate-100 text-slate-700 hover:text-slate-900" aria-label="मेन्यू खोलें">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="border-t border-slate-200 bg-white shadow-2xs hidden md:block">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex space-x-1.5 overflow-x-auto py-2" id="desktop-tab-nav">
+          <button onclick="switchMainTab('toolkit')" class="main-tab-btn px-3.5 py-1.5 text-xs font-bold rounded-xl transition-all bg-indigo-50 text-indigo-700 border border-indigo-200 shadow-2xs" data-target="toolkit">
+            🩺 1. व्यावहारिक टूलकिट (First-Aid)
+          </button>
+          <button onclick="switchMainTab('scriptmaker')" class="main-tab-btn px-3.5 py-1.5 text-xs font-bold rounded-xl transition-all text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-target="scriptmaker">
+            💬 2. 'I-संदेश' संवाद जनरेटर
+          </button>
+          <button onclick="switchMainTab('diagnostic')" class="main-tab-btn px-3.5 py-1.5 text-xs font-bold rounded-xl transition-all text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-target="diagnostic">
+            📊 3. EQ आत्म-मूल्यांकन व 21-दिन योजना
+          </button>
+          <button onclick="switchMainTab('stoplight')" class="main-tab-btn px-3.5 py-1.5 text-xs font-bold rounded-xl transition-all text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-target="stoplight">
+            🚦 4. स्टॉपलाइट व SOCS निर्णय इंजन
+          </button>
+          <button onclick="switchMainTab('parenting')" class="main-tab-btn px-3.5 py-1.5 text-xs font-bold rounded-xl transition-all text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-target="parenting">
+            👨‍👩‍👧 5. पेरेंटिंग व शिक्षण व्यावहारिक गाइड
+          </button>
+          <button onclick="switchMainTab('theory')" class="main-tab-btn px-3.5 py-1.5 text-xs font-bold rounded-xl transition-all text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-target="theory">
+            🧠 6. वैज्ञानिक आधार (न्यूरो-सिद्धांत व लूप्स)
+          </button>
+          <button onclick="switchMainTab('dilemma')" class="main-tab-btn px-3.5 py-1.5 text-xs font-bold rounded-xl transition-all text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-target="dilemma">
+            ⚖️ 7. अरिस्तू निर्णय प्रयोगशाला
+          </button>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Nav -->
+    <div id="mobile-nav-panel" class="hidden md:hidden bg-white border-b border-slate-200 px-4 py-3 space-y-1 shadow-lg text-xs font-semibold">
+      <button onclick="switchMainTab('toolkit'); toggleMobileNav();" class="block w-full text-left px-3 py-2 rounded-lg text-slate-800 hover:bg-indigo-50 hover:text-indigo-700">🩺 1. व्यावहारिक टूलकिट (First-Aid)</button>
+      <button onclick="switchMainTab('scriptmaker'); toggleMobileNav();" class="block w-full text-left px-3 py-2 rounded-lg text-slate-800 hover:bg-indigo-50 hover:text-indigo-700">💬 2. 'I-संदेश' संवाद जनरेटर</button>
+      <button onclick="switchMainTab('diagnostic'); toggleMobileNav();" class="block w-full text-left px-3 py-2 rounded-lg text-slate-800 hover:bg-indigo-50 hover:text-indigo-700">📊 3. EQ आत्म-मूल्यांकन व 21-दिन योजना</button>
+      <button onclick="switchMainTab('stoplight'); toggleMobileNav();" class="block w-full text-left px-3 py-2 rounded-lg text-slate-800 hover:bg-indigo-50 hover:text-indigo-700">🚦 4. स्टॉपलाइट व SOCS निर्णय इंजन</button>
+      <button onclick="switchMainTab('parenting'); toggleMobileNav();" class="block w-full text-left px-3 py-2 rounded-lg text-slate-800 hover:bg-indigo-50 hover:text-indigo-700">👨‍👩‍👧 5. पेरेंटिंग व शिक्षण व्यावहारिक गाइड</button>
+      <button onclick="switchMainTab('theory'); toggleMobileNav();" class="block w-full text-left px-3 py-2 rounded-lg text-slate-800 hover:bg-indigo-50 hover:text-indigo-700">🧠 6. वैज्ञानिक आधार (न्यूरो-सिद्धांत व लूप्स)</button>
+      <button onclick="switchMainTab('dilemma'); toggleMobileNav();" class="block w-full text-left px-3 py-2 rounded-lg text-slate-800 hover:bg-indigo-50 hover:text-indigo-700">⚖️ 7. अरिस्तू निर्णय प्रयोगशाला</button>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- Quick Daily Emotional Energy Bar -->
+    <div class="mb-6 p-4 rounded-2xl bg-white border border-slate-200 shadow-2xs flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-700 flex items-center justify-center font-bold text-sm">
+          🧘
+        </div>
+        <div>
+          <span class="text-xs font-bold text-slate-900 block">आज आपकी भावनात्मक ऊर्जा क्या है? (सेल्फ-साइंस रोल-कॉल)</span>
+          <span id="mood-status-label" class="text-[11px] text-slate-500">पैमाने पर क्लिक करें: 1 (अत्यंत खिन्न) से 10 (सजग व संतुलित)</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-1.5 flex-wrap justify-center" id="quick-mood-selector">
+        <!-- Generated by JS -->
+      </div>
+    </div>
+
+    <!-- ==========================================
+         TAB 1: BENEFICIAL FIRST-AID TOOLKIT (SOS)
+         ========================================== -->
+    <section id="view-toolkit" class="tab-view active space-y-6">
+      <!-- Section Header -->
+      <div class="bg-gradient-to-r from-rose-950 via-slate-900 to-indigo-950 p-6 sm:p-8 rounded-3xl text-white shadow-xl relative overflow-hidden">
+        <div class="relative z-10 max-w-3xl space-y-2">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold uppercase tracking-wider border border-rose-500/30">
+            तत्कालिक भावनात्मक प्राथमिक उपचार • Immediate Emotional First-Aid
+          </div>
+          <h2 class="serif-title text-2xl sm:text-3xl font-normal text-slate-100">
+            जब भावनाएं अनियंत्रित हों: 4 व्यावहारिक आपातकालीन प्रोटोकॉल
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            जब एमीग्डाला हाईजैक होता है, तो 6 सेकंड के भीतर शरीर में एड्रेनालाईन का प्रपात बहने लगता है। उस समय लंबे उपदेश काम नहीं आते—केवल ठोस दैहिक व संज्ञानात्मक तकनीकें ही कॉर्टेक्स को पुनः नियंत्रण सौंप सकती हैं:
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-2 border-b border-slate-200 pb-3">
+        <button onclick="openFirstAidSub('calm')" id="btn-fa-calm" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white shadow-xs transition-all">
+          🔥 1. उग्र क्रोध व आवेग शांति (60s श्वास टाइमर)
+        </button>
+        <button onclick="openFirstAidSub('ground')" id="btn-fa-ground" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all">
+          ⚡ 2. चिंता व पैनिक का 5-4-3-2-1 ग्राउंडिंग
+        </button>
+        <button onclick="openFirstAidSub('dep')" id="btn-fa-dep" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all">
+          🌧️ 3. अवसाद व आत्म-ग्लानि का 3P एंटीडोट
+        </button>
+        <button onclick="openFirstAidSub('jealousy')" id="btn-fa-jealousy" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all">
+          💔 4. अपमान व आहत भावना का विखंडन
+        </button>
+      </div>
+
+      <!-- Sub-Tab 1: 60s Breathing & Impulse Cooler -->
+      <div id="fa-pane-calm" class="p-6 bg-white rounded-3xl border border-slate-200 shadow-xs space-y-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-5 flex flex-col items-center justify-center p-6 bg-slate-950 rounded-3xl text-center text-white space-y-4">
+            <span class="text-xs font-mono uppercase text-cyan-400 tracking-widest">डायफ्रामिक शांति चक्र</span>
+            
+            <div id="breath-bubble" class="w-44 h-44 rounded-full bg-gradient-to-tr from-cyan-600 via-indigo-600 to-rose-600 flex flex-col items-center justify-center shadow-2xl breathing-circle transition-all">
+              <span id="breath-text" class="text-lg font-bold text-white">श्वास अंदर लें</span>
+              <span id="breath-timer-count" class="text-2xl font-black mt-1">4s</span>
+            </div>
+
+            <div class="flex gap-2 pt-2">
+              <button onclick="startBreathingExercise()" id="btn-breath-toggle" class="px-5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs transition-all shadow-md">
+                शुरू करें (Start 60s)
+              </button>
+              <button onclick="resetBreathingExercise()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition-all">
+                रीसेट ↺
+              </button>
+            </div>
+            <p class="text-[11px] text-slate-400">4s श्वास लें • 4s रोकें • 6s धीरे-धीरे छोड़ें</p>
+          </div>
+
+          <div class="lg:col-span-7 space-y-4">
+            <h3 class="text-lg font-bold text-slate-900">एमीग्डाला को शांत करने का वैज्ञानिक सिद्धांत</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              क्रोध के क्षण में हृदय गति 100+ बीट्स प्रति मिनट तक चली जाती है। जब आप सांस छोड़ते समय अवधि लंबी करते हैं, तो वेगस नर्व (Vagus Nerve) सक्रिय होकर एसिटाइलकोलीन स्रावित करती है, जो हृदय गति और रक्तचाप को तुरंत नीचे लाती है।
+            </p>
+
+            <div class="space-y-2.5">
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs flex items-start gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-rose-100 text-rose-700 font-bold flex items-center justify-center text-[10px] flex-shrink-0">1</span>
+                <div>
+                  <strong class="text-slate-900">शरीर को ढीला छोड़ें:</strong> अपने जबड़ों, कंधों और मुट्ठियों को ढीला करें। दांत पीसना बंद करें।
+                </div>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs flex items-start gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-[10px] flex-shrink-0">2</span>
+                <div>
+                  <strong class="text-slate-900">10 सेकंड का नियम:</strong> किसी भी जवाब, मैसेज या प्रहार से पहले मन में 10 से 1 तक उल्टी गिनती गिनें।
+                </div>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs flex items-start gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center text-[10px] flex-shrink-0">3</span>
+                <div>
+                  <strong class="text-slate-900">स्थान परिवर्तन (Pattern Interrupt):</strong> यदि संभव हो, तो कमरे से 2 मिनट के लिए बाहर निकलें या हाथ-मुंह पर ठंडा पानी डालें।
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Sub-Tab 2: 5-4-3-2-1 Sensory Grounding -->
+      <div id="fa-pane-ground" class="p-6 bg-white rounded-3xl border border-slate-200 shadow-xs space-y-5 hidden">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full">चिंता एवं पैनिक का तात्कालिक उपचार</span>
+          <h3 class="text-xl font-bold text-slate-900 mt-2">5-4-3-2-1 सोमैटिक ग्राउंडिंग प्रोटोकॉल (Grounding Technique)</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1">
+            जब मस्तिष्क काल्पनिक भविष्य के खतरों से घिरकर पैनिक करने लगे, तो अपनी चेतना को तुरंत वर्तमान भौतिक जगत में वापस लाने हेतु इस 5-चरणीय अभ्यास को पूरा करें:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-3 text-xs">
+          <div class="p-4 rounded-2xl bg-indigo-50/70 border border-indigo-200 space-y-2">
+            <span class="text-2xl font-black text-indigo-600 block">5</span>
+            <strong class="text-slate-900 block font-bold">👀 5 वस्तुएं देखें</strong>
+            <p class="text-slate-600 text-[11px]">अपने चारों ओर देखें और 5 चीजों के नाम मन में दोहराएं (उदा. मेज, घड़ी, पंखा, पेड़, कलम)।</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200 space-y-2">
+            <span class="text-2xl font-black text-emerald-600 block">4</span>
+            <strong class="text-slate-900 block font-bold">✋ 4 वस्तुएं छुएं</strong>
+            <p class="text-slate-600 text-[11px]">अपनी उंगलियों से 4 अलग-अलग सतहों को महसूस करें (उदा. कपड़ों की बनावट, कुर्सी की लकड़ी, ठंडी बोतल)।</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-amber-50/70 border border-amber-200 space-y-2">
+            <span class="text-2xl font-black text-amber-600 block">3</span>
+            <strong class="text-slate-900 block font-bold">👂 3 आवाजें सुनें</strong>
+            <p class="text-slate-600 text-[11px]">आँखें बंद कर पृष्ठभूमि की 3 ध्वनियों पर ध्यान केंद्रित करें (उदा. हवा की सरसराहट, ट्रैफिक, सांस)।</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-rose-50/70 border border-rose-200 space-y-2">
+            <span class="text-2xl font-black text-rose-600 block">2</span>
+            <strong class="text-slate-900 block font-bold">👃 2 गंध सूंघें</strong>
+            <p class="text-slate-600 text-[11px]">हवा में मौजूद 2 गंधों को पहचानें (उदा. कॉफी, साबुन, मिट्टी या कमरे की हवा)।</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-cyan-50/70 border border-cyan-200 space-y-2">
+            <span class="text-2xl font-black text-cyan-600 block">1</span>
+            <strong class="text-slate-900 block font-bold">👅 1 स्वाद महसूस करें</strong>
+            <p class="text-slate-600 text-[11px]">अपनी जीभ पर कोई स्वाद अनुभव करें या एक घूंट ठंडा पानी पीकर उसके स्वाद को परखें।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-Tab 3: Depression 3P Reframer -->
+      <div id="fa-pane-dep" class="p-6 bg-white rounded-3xl border border-slate-200 shadow-xs space-y-5 hidden">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full">मार्टिन सेलिगमैन का आशावाद टीका</span>
+          <h3 class="text-xl font-bold text-slate-900 mt-2">3P अवसादजनक विचारों का लाइव निवारक (Cognitive Reframing Machine)</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1">
+            जब कोई विफलता या झटका लगे, तो मस्तिष्क स्वतः 3P (Personal, Permanent, Pervasive) के जाल में फंस जाता है। नीचे अपने नकारात्मक विचार दर्ज करें और देखें कि भावनात्मक बुद्धिमत्ता इसे कैसे सशक्त बनाती है:
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 text-xs">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">वर्तमान निराशा या विफलता की स्थिति दर्ज करें:</label>
+            <div class="flex flex-col sm:flex-row gap-2">
+              <input id="input-reframer-thought" type="text" value="मैं इंटरव्यू में फेल हो गया, मुझसे कभी कोई काम ठीक से नहीं होता।" class="flex-grow px-3.5 py-2.5 bg-white rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs">
+              <button onclick="runCognitiveReframer()" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all shadow-xs flex-shrink-0">
+                तार्किक रिफ्रेम करें (3P Antidote)
+              </button>
+            </div>
+          </div>
+
+          <div id="output-reframer-box" class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-3">
+            <div class="p-3.5 bg-white rounded-xl border border-rose-200">
+              <span class="font-bold text-rose-700 block mb-1">❌ 1. Personal (आंतरिक दोष)</span>
+              <p class="text-slate-500 text-[11px]">पुराना विचार: "मैं ही मूर्ख और अक्षम हूँ।"</p>
+              <div class="mt-2 p-2 bg-emerald-50 rounded-lg text-emerald-900 font-semibold text-[11px] border border-emerald-100">
+                🌱 नया सत्य: "यह सिर्फ एक इंटरव्यू था; इसमें अन्य उम्मीदवार भी थे और मेरी तैयारी विशिष्ट सवालों के लिए अधूरी थी।"
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-white rounded-xl border border-rose-200">
+              <span class="font-bold text-rose-700 block mb-1">❌ 2. Permanent (स्थायी निराशा)</span>
+              <p class="text-slate-500 text-[11px]">पुराना विचार: "मुझे कभी नौकरी नहीं मिलेगी।"</p>
+              <div class="mt-2 p-2 bg-emerald-50 rounded-lg text-emerald-900 font-semibold text-[11px] border border-emerald-100">
+                🌱 नया सत्य: "यह असफलता अस्थायी है। कमियों को सुधारकर अगले 2 सप्ताह में नए अवसर तलाशे जा सकते हैं।"
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-white rounded-xl border border-rose-200">
+              <span class="font-bold text-rose-700 block mb-1">❌ 3. Pervasive (सार्वभौमिक पतन)</span>
+              <p class="text-slate-500 text-[11px]">पुराना विचार: "मेरा पूरा जीवन ही बर्बाद हो चुका है।"</p>
+              <div class="mt-2 p-2 bg-emerald-50 rounded-lg text-emerald-900 font-semibold text-[11px] border border-emerald-100">
+                🌱 नया सत्य: "यह केवल पेशेवर जीवन का एक बिंदु है; मेरा स्वास्थ्य, परिवार, मित्र और अन्य कौशल पूरी तरह सुरक्षित हैं।"
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-Tab 4: Hurt to Anger Dissection -->
+      <div id="fa-pane-jealousy" class="p-6 bg-white rounded-3xl border border-slate-200 shadow-xs space-y-5 hidden">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-purple-600 bg-purple-50 px-2.5 py-1 rounded-full">न्युएवा सेल्फ-साइंस सिद्धांत</span>
+          <h3 class="text-xl font-bold text-slate-900 mt-2">क्रोध के नीचे छिपे प्राथमिक भाव का विखंडन (The Onion of Anger)</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1">
+            डैनियल गोलमैन के अनुसार: <em>"क्रोध लगभग हमेशा एक द्वितीयक भावना (Secondary Emotion) होती है।"</em> जब तक आप क्रोध के नीचे छिपे प्राथमिक घाव को नहीं पहचानते, तब तक आग नहीं बुझती:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <span class="text-rose-600 font-bold text-sm block">1. क्या यह 'ठेस' (Hurt) है?</span>
+            <p class="text-slate-600 text-[11px]">"उसने मेरी मेहनत का श्रेय नहीं दिया, जिससे मुझे अपनी उपेक्षा का गहरा दुख हुआ।"</p>
+            <span class="text-[10px] font-mono bg-rose-100 text-rose-800 px-2 py-0.5 rounded inline-block">उपचार: आहत भाव स्वीकारना</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <span class="text-amber-600 font-bold text-sm block">2. क्या यह 'भय' (Fear) है?</span>
+            <p class="text-slate-600 text-[11px]">"अगर इस व्यक्ति ने मुझे नीचा दिखाया, तो अन्य लोग भी मेरा सम्मान करना बंद कर देंगे।"</p>
+            <span class="text-[10px] font-mono bg-amber-100 text-amber-800 px-2 py-0.5 rounded inline-block">उपचार: वास्तविक जोखिम परखना</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <span class="text-indigo-600 font-bold text-sm block">3. क्या यह 'शर्म' (Shame) है?</span>
+            <p class="text-slate-600 text-[11px]">"उसने सबके सामने मेरी गलती पकड़ी, जिससे मुझे खुद की अक्षमता पर शर्मिंदगी महसूस हुई।"</p>
+            <span class="text-[10px] font-mono bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded inline-block">उपचार: आत्म-स्वीकार्यता</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <span class="text-emerald-600 font-bold text-sm block">4. क्या यह 'ईर्ष्या' (Envy) है?</span>
+            <p class="text-slate-600 text-[11px]">"उसे वह सफलता आसानी से मिल गई जिसके लिए मैं वर्षों से संघर्ष कर रहा था।"</p>
+            <span class="text-[10px] font-mono bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded inline-block">उपचार: अपनी प्रगति पर ध्यान</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 2: ASSERTIVE 'I-MESSAGE' SCRIPT GENERATOR
+         ========================================== -->
+    <section id="view-scriptmaker" class="tab-view space-y-6">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-6">
+        <div class="max-w-3xl">
+          <span class="text-xs font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-2.5 py-1 rounded-full">न्युएवा व ट्रूप स्कूल पद्धति</span>
+          <h2 class="text-2xl font-bold text-slate-900 tracking-tight mt-2">मुखर 'I-संदेश' संवाद जनरेटर (Assertive Communication Generator)</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5">
+            जब हम "तुम हमेशा ऐसा करते हो..." कहते हैं, तो सामने वाले का एमीग्डाला रक्षात्मक होकर बंद हो जाता है। इसके विपरीत, 'I-संदेश' बिना आरोप लगाए गरिमा के साथ सीमाएं तय करता है:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Input Form -->
+          <div class="lg:col-span-6 space-y-4 p-5 rounded-2xl bg-slate-50 border border-slate-200 text-xs">
+            <div>
+              <label class="block font-bold text-slate-800 mb-1">1. व्यक्ति का नाम या रिश्ता:</label>
+              <input id="input-script-person" type="text" value="सहकर्मी (रोहित)" class="w-full px-3 py-2 bg-white rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <div>
+              <label class="block font-bold text-slate-800 mb-1">2. विशिष्ट तटस्थ घटना (बिना आरोप के केवल तथ्य):</label>
+              <input id="input-script-event" type="text" value="मीटिंग में जब तुमने मेरी बात बीच में ही काट दी" class="w-full px-3 py-2 bg-white rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <div>
+              <label class="block font-bold text-slate-800 mb-1">3. आपकी आंतरिक सच्ची भावना:</label>
+              <select id="input-script-feeling" class="w-full px-3 py-2 bg-white rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 font-medium">
+                <option value="उपेक्षा और असम्मान">उपेक्षा और असम्मान (Disrespected)</option>
+                <option value="गहरी निराशा और दुख">गहरी निराशा और दुख (Disappointed)</option>
+                <option value="तनाव और घबराहट">तनाव और घबराहट (Anxious)</option>
+                <option value="क्रोध और असमंजस">क्रोध और असमंजस (Frustrated)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block font-bold text-slate-800 mb-1">4. आप भविष्य में क्या सकारात्मक बदलाव चाहते हैं:</label>
+              <input id="input-script-need" type="text" value="कृपया मुझे अपना बिंदु पूरा रखने दें, फिर आप अपनी राय साझा करें" class="w-full px-3 py-2 bg-white rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <button onclick="generateAssertiveScript()" class="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl transition-all shadow-xs">
+              तैयार करें: गरिमापूर्ण मुखर संवाद ⚡
+            </button>
+          </div>
+
+          <div class="lg:col-span-6 flex flex-col justify-between p-5 rounded-2xl bg-indigo-50/50 border-2 border-indigo-200 text-xs">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between border-b border-indigo-200 pb-2">
+                <span class="font-bold text-indigo-950 uppercase">तैयार संवाद स्क्रिप्ट (I-Message Script):</span>
+                <button onclick="copyGeneratedScript()" id="btn-copy-script" class="px-2.5 py-1 bg-white hover:bg-slate-100 border border-indigo-200 rounded-lg text-[11px] font-bold text-indigo-700 shadow-2xs">
+                  📋 कॉपी करें
+                </button>
+              </div>
+
+              <div id="output-script-text" class="p-4 bg-white rounded-xl border border-indigo-100 text-slate-800 font-medium leading-relaxed shadow-2xs text-xs sm:text-sm">
+                "रोहित, <strong>जब मीटिंग में मेरी बात बीच में ही कट गई</strong>, तो मुझे <strong>उपेक्षा और असम्मान</strong> महसूस हुआ, क्योंकि मुझे लगा कि मेरा सुझाव महत्वपूर्ण था। भविष्य में, <strong>कृपया मुझे अपना बिंदु पूरा रखने दें, फिर आप अपनी राय साझा करें</strong> ताकि हम दोनों मिलकर बेहतर निर्णय ले सकें।"
+              </div>
+
+              <div class="p-3 bg-amber-50 border border-amber-200 rounded-xl space-y-1 text-[11px] text-amber-900">
+                <strong class="block">🗣️ डिलीवरी निर्देश (Body Language & Voice Tone):</strong>
+                <ul class="list-disc list-inside space-y-0.5">
+                  <li>आवाज की पिच नीची व शांत रखें (चीखना या व्यंग्य न करें)।</li>
+                  <li>आंखों में सीधा, स्थिर व सौम्य संपर्क बनाएं।</li>
+                  <li>कंधे सीधे रखें लेकिन तनावमुक्त रहें।</li>
+                  <li>बोलने के बाद 3 सेकंड शांत रहकर सामने वाले की बात सक्रिय रूप से सुनें।</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-indigo-200/60 text-[11px] text-slate-500">
+              * यह तकनीक रहमान-टकर विवाद समाधान (Nueva Self-Science) पर आधारित है।
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 3: EQ SELF-ASSESSMENT & 21-DAY PLAN
+         ========================================== -->
+    <section id="view-diagnostic" class="tab-view space-y-6">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-6">
+        <div class="max-w-3xl">
+          <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full">W.T. ग्रांट कंसोर्टियम आधारित</span>
+          <h2 class="text-2xl font-bold text-slate-900 tracking-tight mt-2">12-सूत्रीय भावनात्मक बुद्धिमत्ता आत्म-परीक्षण (EQ Diagnostic)</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5">
+            ईमानदारी से आकलन करें कि आप वास्तविक जीवन की परिस्थितियों में कैसा आचरण करते हैं (1: कभी नहीं, 5: हमेशा):
+          </p>
+        </div>
+
+        <div id="eq-quiz-container" class="space-y-3 text-xs">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="pt-4 flex justify-end">
+          <button onclick="calculateEQScore()" class="px-6 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md transition-all">
+            मेरा स्कोर व 21-दिवसीय सुधार योजना देखें 📈
+          </button>
+        </div>
+
+        <!-- Diagnostic Results Container -->
+        <div id="eq-results-container" class="hidden p-6 rounded-3xl bg-slate-50 border border-slate-200 space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            
+            <div class="md:col-span-4 p-6 bg-white rounded-2xl border border-slate-200 text-center space-y-2 shadow-2xs">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block">समग्र भावनात्मक बुद्धिमत्ता स्कोर</span>
+              <div id="eq-total-badge" class="text-4xl font-black text-indigo-600">48 / 60</div>
+              <span id="eq-level-tag" class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+                सशक्त भावनात्मक साक्षरता
+              </span>
+            </div>
+
+            <div class="md:col-span-8 space-y-3 text-xs">
+              <div>
+                <div class="flex justify-between font-bold mb-1">
+                  <span>आत्म-जागरूकता (Self-Awareness)</span>
+                  <span id="score-sa-val">80%</span>
+                </div>
+                <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                  <div id="bar-sa" class="h-full bg-indigo-600 rounded-full" style="width: 80%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-bold mb-1">
+                  <span>आवेग नियंत्रण व शांति (Impulse Control)</span>
+                  <span id="score-ic-val">75%</span>
+                </div>
+                <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                  <div id="bar-ic" class="h-full bg-rose-500 rounded-full" style="width: 75%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-bold mb-1">
+                  <span>सहानुभूति व सामाजिक बोध (Empathy)</span>
+                  <span id="score-em-val">85%</span>
+                </div>
+                <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                  <div id="bar-em" class="h-full bg-emerald-500 rounded-full" style="width: 85%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-bold mb-1">
+                  <span>मुखरता व विवाद समाधान (Conflict Resolution)</span>
+                  <span id="score-cr-val">70%</span>
+                </div>
+                <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                  <div id="bar-cr" class="h-full bg-amber-500 rounded-full" style="width: 70%"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 21-Day Personalized Action Plan -->
+          <div class="p-5 bg-white rounded-2xl border border-slate-200 space-y-4">
+            <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span>📅</span> आपकी व्यक्तिगत 21-दिवसीय न्यूरो-रीवायरिंग योजना (Neuroplasticity Plan)
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+              <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+                <span class="font-bold text-indigo-700 block mb-1">सप्ताह 1: नामकरण और श्वास</span>
+                <p class="text-slate-600 text-[11px] leading-relaxed">दिन में 3 बार रुकें। अपनी शारीरिक संवेदना को परखें और भावना को नाम दें (उदा. "मुझे इस समय हल्का भय महसूस हो रहा है")।</p>
+              </div>
+              <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+                <span class="font-bold text-rose-700 block mb-1">सप्ताह 2: 6-सेकंड स्टॉपलाइट</span>
+                <p class="text-slate-600 text-[11px] leading-relaxed">जब भी कोई उकसाए या अपमानित महसूस हो, प्रतिक्रिया से पहले अनिवार्य 3 गहरी सांसें लें और 1 से 10 गिनें।</p>
+              </div>
+              <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+                <span class="font-bold text-emerald-700 block mb-1">सप्ताह 3: 'I-संदेश' का अभ्यास</span>
+                <p class="text-slate-600 text-[11px] leading-relaxed">किसी भी असहमति में "तुमने ऐसा किया" कहने के बजाय "मुझे ऐसा लगा" का प्रयोग करें और एक जीत-जीत समाधान प्रस्तावित करें।</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 4: STOPLIGHT & SOCS DECISION ENGINE
+         ========================================== -->
+    <section id="view-stoplight" class="tab-view space-y-6">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-6">
+        <div class="max-w-3xl">
+          <span class="text-xs font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-2.5 py-1 rounded-full">कक्षा एवं सड़क का सिद्ध निर्णय ढांचा</span>
+          <h2 class="text-2xl font-bold text-slate-900 tracking-tight mt-2">स्टॉपलाइट (Stoplight) एवं SOCS निर्णय इंजन</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5">
+            न्यू हेवन पब्लिक स्कूल में जब इसे लागू किया गया, तो निलंबन दर 106 से घटकर 26 पर आ गई। नीचे अपने संकट का विश्लेषण करें:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          
+          <!-- Stoplight Interactive Signals -->
+          <div class="lg:col-span-4 bg-slate-950 p-6 rounded-3xl flex flex-col items-center justify-center text-center shadow-lg">
+            <span class="text-[11px] font-mono uppercase text-slate-400 mb-4 tracking-wider">सिग्नल स्टेट मशीन</span>
+            
+            <div class="w-24 bg-slate-900 p-3 rounded-3xl border-4 border-slate-800 flex flex-col gap-3 items-center">
+              <button onclick="setStoplightState(1)" id="lamp-btn-red" class="w-16 h-16 rounded-full bg-rose-600 border-4 border-rose-400 shadow-lg shadow-rose-600/50 flex items-center justify-center text-2xl transition-all" aria-label="लाल बत्ती">
+                🛑
+              </button>
+              <button onclick="setStoplightState(2)" id="lamp-btn-yellow" class="w-16 h-16 rounded-full bg-amber-950/40 border-4 border-amber-900/40 opacity-30 flex items-center justify-center text-2xl transition-all" aria-label="पीली बत्ती">
+                ⚠️
+              </button>
+              <button onclick="setStoplightState(6)" id="lamp-btn-green" class="w-16 h-16 rounded-full bg-emerald-950/40 border-4 border-emerald-900/40 opacity-30 flex items-center justify-center text-2xl transition-all" aria-label="हरी बत्ती">
+                ✅
+              </button>
+            </div>
+
+            <div class="mt-4">
+              <span id="lamp-phase-badge" class="px-3 py-1 rounded-full text-[11px] font-bold uppercase bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                लाल: रुकें व शांत हों
+              </span>
+            </div>
+          </div>
+
+          <!-- Step Details Card -->
+          <div class="lg:col-span-8 bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between text-xs">
+            <div id="stoplight-detail-box" class="space-y-3">
+              <!-- Populated by JS -->
+            </div>
+
+            <!-- SOCS Fast Simulator -->
+            <div class="mt-6 pt-4 border-t border-slate-200 space-y-3">
+              <span class="font-bold text-slate-900 text-xs uppercase block">टिम श्राइवर व लामोंट का 4-चरणीय SOCS समाधान:</span>
+              <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 text-[11px]">
+                <div class="p-2.5 bg-white rounded-xl border border-slate-200">
+                  <strong class="text-indigo-700 block">S (Situation):</strong>
+                  <span>तटस्थ तथ्य क्या हैं?</span>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-slate-200">
+                  <strong class="text-indigo-700 block">O (Options):</strong>
+                  <span>कम से कम 3 विकल्प बनाएं।</span>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-slate-200">
+                  <strong class="text-indigo-700 block">C (Consequences):</strong>
+                  <span>दूरगामी परिणाम क्या होंगे?</span>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-slate-200">
+                  <strong class="text-indigo-700 block">S (Solutions):</strong>
+                  <span>जीत-जीत मार्ग चुनें।</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 5: PARENTING & TEACHING ACTION SCRIPTS
+         ========================================== -->
+    <section id="view-parenting" class="tab-view space-y-6">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-6">
+        <div class="max-w-3xl">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">अध्याय 15 व 16 • व्यावहारिक गाइड</span>
+          <h2 class="text-2xl font-bold text-slate-900 tracking-tight mt-2">माता-पिता एवं शिक्षकों हेतु वास्तविक संवाद पटकथा (Action Scripts)</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5">
+            बच्चे उपदेशों से नहीं, बल्कि तनाव के पलों में बड़ों के व्यवहार को देखकर सीखते हैं। नीचे दी गई पटकथाएं डैनियल गोलमैन के शोध पर आधारित हैं:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+          
+          <!-- Scenario 1: Child throwing Tantrum -->
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 concept-card">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+              <span class="font-bold text-slate-900 text-sm">परिदृश्य 1: बच्चा चिल्ला रहा है / नखरे (Tantrum)</span>
+              <span class="text-[10px] bg-rose-100 text-rose-800 font-bold px-2 py-0.5 rounded">आवेग शमन</span>
+            </div>
+            <div class="p-2.5 bg-rose-50 rounded-xl text-rose-950 border border-rose-200">
+              ❌ <strong>विषाक्त प्रतिक्रिया:</strong> "चुप हो जाओ! रोना बंद करो वरना और मार पड़ेगी!" (यह बच्चे के एमीग्डाला को और खौफजदा करता है)।
+            </div>
+            <div class="p-2.5 bg-emerald-50 rounded-xl text-emerald-950 border border-emerald-200 leading-relaxed">
+              ✅ <strong>भावनात्मक साक्षर प्रतिक्रिया:</strong> "मैं देख रहा हूँ कि तुम बहुत गुस्सा और परेशान हो क्योंकि खिलौना नहीं मिला। गुस्सा होना ठीक है, लेकिन चीजें फेंकना ठीक नहीं। जब तुम शांत हो जाओगे, हम बैठकर बात करेंगे।"
+            </div>
+          </div>
+
+          <!-- Scenario 2: Sibling Rivalry -->
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 concept-card">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+              <span class="font-bold text-slate-900 text-sm">परिदृश्य 2: भाई-बहनों में छीना-झपटी (Dispute)</span>
+              <span class="text-[10px] bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded">मध्यस्थता</span>
+            </div>
+            <div class="p-2.5 bg-rose-50 rounded-xl text-rose-950 border border-rose-200">
+              ❌ <strong>विषाक्त प्रतिक्रिया:</strong> "तुम बड़े हो, तुम्हें समझ नहीं है? हमेशा तुम ही तंग करते हो!" (यह स्थायी ईर्ष्या व हीनभावना बोता है)।
+            </div>
+            <div class="p-2.5 bg-emerald-50 rounded-xl text-emerald-950 border border-emerald-200 leading-relaxed">
+              ✅ <strong>चाइल्ड डेवलपमेंट प्रोजेक्ट मॉडल:</strong> "दोनों रुकें। रोहन, पहले बताओ तुम क्या चाहते हो? रिया, अब तुम बताओ। दोनों को यह खेल खेलना है—क्या कोई ऐसा उपाय है जिससे दोनों बारी-बारी 10-10 मिनट खेल सकें?"
+            </div>
+          </div>
+
+          <!-- Scenario 3: Bad Grades & Failure -->
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 concept-card">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+              <span class="font-bold text-slate-900 text-sm">परिदृश्य 3: परीक्षा में कम अंक (Setback)</span>
+              <span class="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded">3P अवसाद रोकथाम</span>
+            </div>
+            <div class="p-2.5 bg-rose-50 rounded-xl text-rose-950 border border-rose-200">
+              ❌ <strong>विषाक्त प्रतिक्रिया:</strong> "तुम्हारा पढ़ाई में कभी मन नहीं लगता, तुम जिंदगी में कुछ नहीं कर पाओगे!" (Personal & Permanent Trap)।
+            </div>
+            <div class="p-2.5 bg-emerald-50 rounded-xl text-emerald-950 border border-emerald-200 leading-relaxed">
+              ✅ <strong>आशावाद टीका:</strong> "इस टेस्ट में अंक कम आए हैं और मैं समझ सकता हूँ कि तुम्हें बुरा लग रहा है। इसका मतलब यह नहीं कि तुम कमजोर हो; इसका मतलब है कि गणित के इन 2 अध्यायों की तैयारी की विधि बदलनी होगी। चलो साथ मिलकर अभ्यास करते हैं।"
+            </div>
+          </div>
+
+          <!-- Scenario 4: Ostracized / No Friends (Ben's Case) -->
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 concept-card">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+              <span class="font-bold text-slate-900 text-sm">परिदृश्य 4: स्कूल में अकेलापन / कोई दोस्त नहीं</span>
+              <span class="text-[10px] bg-purple-100 text-purple-800 font-bold px-2 py-0.5 rounded">स्टीवन अशर कोचिंग</span>
+            </div>
+            <div class="p-2.5 bg-rose-50 rounded-xl text-rose-950 border border-rose-200">
+              ❌ <strong>विषाक्त प्रतिक्रिया:</strong> "कोई बात नहीं, तुम्हें किसी की जरूरत नहीं है, बस अपनी पढ़ाई पर ध्यान दो।" (यह सामाजिक अलगाव को पक्का करता है)।
+            </div>
+            <div class="p-2.5 bg-emerald-50 rounded-xl text-emerald-950 border border-emerald-200 leading-relaxed">
+              ✅ <strong>फ्रेंडशिप कोचिंग:</strong> "जब दूसरे बच्चे खेल रहे हों, तो सीधे 'मुझे खिलाओ' कहने या गुस्सा करने के बजाय उनके पास जाएं, देखें खेल क्या है और कहें: 'शानदार शॉट! क्या मैं बॉल पकड़ने में मदद कर सकता हूँ?' खेल में तारीफ और मदद सबसे आसान पुल है।"
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 6: THEORETICAL DEEP-DIVE & NEURO-CIRCUITRY
+         ========================================== -->
+    <section id="view-theory" class="tab-view space-y-6">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-6">
+        <div class="max-w-3xl">
+          <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full">परिशिष्ट A, B, C एवं अध्याय 15</span>
+          <h2 class="text-2xl font-bold text-slate-900 tracking-tight mt-2">द्वि-मार्गी भय परिपथ एवं 4 मनो-व्यावहारिक दुष्चक्र</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5">
+            न्यूरोसाइंटिस्ट जोसेफ लेडू द्वारा खोजा गया थैलेमस-एमीग्डाला सब-कॉर्टिकल बाईपास (~12ms) और 4 घातक सामाजिक चक्र:
+          </p>
+        </div>
+
+        <!-- LeDoux Simulation Visual -->
+        <div class="p-6 bg-slate-950 rounded-3xl text-white space-y-5">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-slate-800 pb-3 text-xs">
+            <span class="font-mono text-cyan-400">सिमुलेटर: संवेदी इनपुट → थैलेमस स्विचबोर्ड → दोहरा प्रक्षेप्य</span>
+            <div class="flex gap-2">
+              <button onclick="runNeuralSimMode('fast')" class="px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold transition-all shadow-xs">
+                ⚡ लो-रोड बाईपास (~12ms)
+              </button>
+              <button onclick="runNeuralSimMode('slow')" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all shadow-xs">
+                🧠 हाई-रोड कॉर्टिकल मूल्यांकन (~35ms)
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
+            <div id="sim-box-thalamus" class="p-3.5 bg-slate-900 rounded-2xl border border-slate-800 transition-all">
+              <span class="text-amber-400 font-bold block mb-1">1. थैलेमस</span>
+              <p class="text-slate-300 text-[11px]">कच्ची संवेदी तरंगों को ग्रहण कर तुरंत दो दिशाओं में प्रेषित करता है।</p>
+            </div>
+            <div id="sim-box-amygdala" class="p-3.5 bg-slate-900 rounded-2xl border border-slate-800 transition-all">
+              <span class="text-rose-400 font-bold block mb-1">2. एमीग्डाला</span>
+              <p class="text-slate-300 text-[11px]">लो-रोड: बिना कॉर्टेक्स की अनुमति के खतरे का सायरन बजा देता है।</p>
+            </div>
+            <div id="sim-box-cortex" class="p-3.5 bg-slate-900 rounded-2xl border border-slate-800 transition-all">
+              <span class="text-cyan-400 font-bold block mb-1">3. प्रीफ्रॉन्टल कॉर्टेक्स</span>
+              <p class="text-slate-300 text-[11px]">हाई-रोड: स्मृति व तथ्यों से जांचता है: "यह खतरा नहीं, खिड़की की हवा है।"</p>
+            </div>
+            <div id="sim-box-body" class="p-3.5 bg-slate-900 rounded-2xl border border-slate-800 transition-all">
+              <span class="text-emerald-400 font-bold block mb-1">4. दैहिक प्रतिक्रिया</span>
+              <p class="text-slate-300 text-[11px]">CRH व एड्रेनालाईन का स्राव; नाड़ी तेज या कॉर्टिकल दमन द्वारा शांति।</p>
+            </div>
+          </div>
+
+          <div id="sim-neural-log" class="p-3 rounded-xl bg-slate-900 border border-slate-800 font-mono text-xs text-emerald-400">
+            सिस्टम मॉनिटर: परीक्षण हेतु ऊपर दिए गए बटन दबाएं।
+          </div>
+        </div>
+
+        <!-- 4 Causal Loops Quick Matrix -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-200 space-y-1">
+            <span class="font-bold text-rose-950 block">1. शत्रुता का पूर्वाग्रह चक्र</span>
+            <p class="text-slate-600 text-[11px]">तटस्थ घटना → जानबूझकर हमला मानना → पूर्व-आक्रामक प्रहार → बहिष्कार → विश्वास पक्का।</p>
+          </div>
+          <div class="p-4 bg-blue-50/50 rounded-2xl border border-blue-200 space-y-1">
+            <span class="font-bold text-blue-950 block">2. 3P अवसाद चक्र</span>
+            <p class="text-slate-600 text-[11px]">विफलता → "दोष मेरा है, कभी नहीं बदलेगा, सब नष्ट हुआ" → लाचारी → पतन।</p>
+          </div>
+          <div class="p-4 bg-emerald-50/50 rounded-2xl border border-emerald-200 space-y-1">
+            <span class="font-bold text-emerald-950 block">3. रासायनिक आत्म-चिकित्सा</span>
+            <p class="text-slate-600 text-[11px]">जन्मजात GABA/सेरोटोनिन कमी → नशा द्वारा कृत्रिम शांति → रिसेप्टर संकुचन → लत।</p>
+          </div>
+          <div class="p-4 bg-purple-50/50 rounded-2xl border border-purple-200 space-y-1">
+            <span class="font-bold text-purple-950 block">4. सामाजिक अलगाव सर्पिल</span>
+            <p class="text-slate-600 text-[11px]">चेहरे के भाव न समझना → अनगढ़ व्यवहार → सहपाठी बहिष्कार → स्कूल छोड़ना व अपराध।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 7: ARISTOTLE'S DECISION LAB (DILEMMAS)
+         ========================================== -->
+    <section id="view-dilemma" class="tab-view space-y-6">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-6">
+        <div class="max-w-3xl">
+          <span class="text-xs font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-2.5 py-1 rounded-full">अरिस्तू का सदगुण समीकरण</span>
+          <h2 class="text-2xl font-bold text-slate-900 tracking-tight mt-2">अरिस्तू निर्णय प्रयोगशाला: 5 वास्तविक नैदानिक मामले</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5">
+            <em>"सही व्यक्ति पर, सही मात्रा में, सही समय पर, सही उद्देश्य हेतु, और सही तरीके से क्रोधित होना आसान नहीं है।"</em>—परखें कि आपका निर्णय सदगुण समीकरण को संतुष्ट करता है या नहीं:
+          </p>
+        </div>
+
+        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 space-y-4 text-xs">
+          <div class="flex justify-between items-center border-b border-slate-200 pb-2.5">
+            <span id="dilemma-step-tag" class="font-bold text-indigo-700 uppercase">केस 1 / 5</span>
+            <span id="dilemma-topic-tag" class="text-slate-500 font-mono">थीम: शत्रुता का पूर्वाग्रह (जिमी का केस)</span>
+          </div>
+
+          <div>
+            <h3 id="dilemma-title-text" class="text-base font-bold text-slate-900 mb-1"></h3>
+            <p id="dilemma-body-text" class="text-slate-700 leading-relaxed"></p>
+          </div>
+
+          <!-- Options Buttons -->
+          <div id="dilemma-choices-box" class="space-y-2 pt-2">
+            <!-- Dynamic Buttons -->
+          </div>
+
+          <!-- Feedback Box -->
+          <div id="dilemma-feedback-box" class="hidden p-4 rounded-xl leading-relaxed text-xs">
+            <!-- Populated by JS -->
+          </div>
+
+          <div class="flex justify-end pt-2">
+            <button id="dilemma-btn-next" onclick="nextDilemmaScenario()" class="hidden px-5 py-2.5 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition-all shadow-xs">
+              अगला केस देखें →
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 py-6 mt-12 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 space-y-1.5">
+      <p class="font-bold text-slate-800">डैनियल गोलमैन: <em>Emotional Intelligence</em> (Part Five & Appendices A–F)</p>
+      <p>व्यावहारिक आत्म-सुधार, मानसिक स्वास्थ्य, पेरेंटिंग और तनाव मुक्ति हेतु संकलित संस्करण।</p>
+    </div>
+  </footer>
+
+  <script>
+    /* Tab Navigation Logic */
+    function switchMainTab(tabId) {
+      const views = document.querySelectorAll('.tab-view');
+      views.forEach(v => v.classList.remove('active'));
+
+      const btns = document.querySelectorAll('.main-tab-btn');
+      btns.forEach(b => {
+        b.classList.remove('bg-indigo-50', 'text-indigo-700', 'border', 'border-indigo-200', 'shadow-2xs');
+        b.classList.add('text-slate-600');
+        if (b.getAttribute('data-target') === tabId) {
+          b.classList.add('bg-indigo-50', 'text-indigo-700', 'border', 'border-indigo-200', 'shadow-2xs');
+          b.classList.remove('text-slate-600');
+        }
+      });
+
+      const activeView = document.getElementById('view-' + tabId);
+      if (activeView) {
+        activeView.classList.add('active');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileNav() {
+      const p = document.getElementById('mobile-nav-panel');
+      p.classList.toggle('hidden');
+    }
+    document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileNav);
+
+    /* Quick Mood Selector */
+    const moodBox = document.getElementById('quick-mood-selector');
+    const moodLabel = document.getElementById('mood-status-label');
+    const moodLabels = {
+      1: "1/10 (अत्यधिक अवसादग्रस्त व असहाय)",
+      2: "2/10 (खिन्न व विचलित)",
+      3: "3/10 (थका हुआ व चिड़चिड़ा)",
+      4: "4/10 (असहज व आशंकित)",
+      5: "5/10 (तटस्थ स्थिति)",
+      6: "6/10 (शांत व स्थिर)",
+      7: "7/10 (सकारात्मक स्पष्टता)",
+      8: "8/10 (सक्रिय एकाग्रता व ऊर्जा)",
+      9: "9/10 (गहन अंतर्दृष्टि व उत्साह)",
+      10: "10/10 (परम संतुलन व भावनात्मक प्रवाह!)"
+    };
+
+    for (let i = 1; i <= 10; i++) {
+      const btn = document.createElement('button');
+      btn.className = `w-6 h-6 rounded-full text-[10px] font-bold transition-all flex items-center justify-center ${
+        i === 8 ? 'bg-indigo-600 text-white ring-2 ring-indigo-300 scale-110' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+      }`;
+      btn.innerText = i;
+      btn.onclick = () => {
+        Array.from(moodBox.children).forEach(c => {
+          c.className = 'w-6 h-6 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all flex items-center justify-center';
+        });
+        btn.className = 'w-6 h-6 rounded-full text-[10px] font-bold bg-indigo-600 text-white ring-2 ring-indigo-300 scale-110 transition-all flex items-center justify-center';
+        moodLabel.innerText = "आपकी स्थिति: " + moodLabels[i];
+      };
+      moodBox.appendChild(btn);
+    }
+
+    /* First-Aid Sub-tabs */
+    function openFirstAidSub(sub) {
+      ['calm', 'ground', 'dep', 'jealousy'].forEach(k => {
+        document.getElementById('fa-pane-' + k).classList.add('hidden');
+        const b = document.getElementById('btn-fa-' + k);
+        if (b) {
+          b.className = "px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all";
+        }
+      });
+      document.getElementById('fa-pane-' + sub).classList.remove('hidden');
+      const activeBtn = document.getElementById('btn-fa-' + sub);
+      if (activeBtn) {
+        activeBtn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white shadow-xs transition-all";
+      }
+    }
+
+    /* 60s Breathing Timer Engine */
+    let breathInterval = null;
+    let breathSecondsRemaining = 60;
+    let breathPhase = 'inhale'; // inhale (4s), hold (4s), exhale (6s)
+    let phaseSec = 4;
+
+    function startBreathingExercise() {
+      const btn = document.getElementById('btn-breath-toggle');
+      if (breathInterval) {
+        clearInterval(breathInterval);
+        breathInterval = null;
+        btn.innerText = "जारी रखें (Resume)";
+        return;
+      }
+
+      btn.innerText = "रोकें (Pause)";
+      const bText = document.getElementById('breath-text');
+      const bCount = document.getElementById('breath-timer-count');
+      const bubble = document.getElementById('breath-bubble');
+
+      breathInterval = setInterval(() => {
+        phaseSec--;
+        breathSecondsRemaining--;
+
+        if (phaseSec <= 0) {
+          if (breathPhase === 'inhale') {
+            breathPhase = 'hold';
+            phaseSec = 4;
+            bText.innerText = "रोक कर रखें";
+            bubble.style.transform = "scale(1.15)";
+          } else if (breathPhase === 'hold') {
+            breathPhase = 'exhale';
+            phaseSec = 6;
+            bText.innerText = "धीरे छोड़ें";
+            bubble.style.transform = "scale(0.9)";
+          } else {
+            breathPhase = 'inhale';
+            phaseSec = 4;
+            bText.innerText = "श्वास अंदर लें";
+            bubble.style.transform = "scale(1.15)";
+          }
+        }
+        bCount.innerText = `${phaseSec}s (${breathSecondsRemaining}s शेष)`;
+
+        if (breathSecondsRemaining <= 0) {
+          clearInterval(breathInterval);
+          breathInterval = null;
+          bText.innerText = "शांति चक्र पूर्ण!";
+          bCount.innerText = "✓ सामान्य";
+          btn.innerText = "पुनः शुरू करें";
+          breathSecondsRemaining = 60;
+          phaseSec = 4;
+          breathPhase = 'inhale';
+        }
+      }, 1000);
+    }
+
+    function resetBreathingExercise() {
+      if (breathInterval) {
+        clearInterval(breathInterval);
+        breathInterval = null;
+      }
+      breathSecondsRemaining = 60;
+      phaseSec = 4;
+      breathPhase = 'inhale';
+      document.getElementById('breath-text').innerText = "श्वास अंदर लें";
+      document.getElementById('breath-timer-count').innerText = "4s";
+      document.getElementById('btn-breath-toggle').innerText = "शुरू करें (Start 60s)";
+      document.getElementById('breath-bubble').style.transform = "scale(1)";
+    }
+
+    /* Cognitive Reframer (3P Antidote) */
+    function runCognitiveReframer() {
+      const thought = document.getElementById('input-reframer-thought').value.trim();
+      const out = document.getElementById('output-reframer-box');
+      if (!thought) return;
+
+      out.innerHTML = `
+        <div class="p-3.5 bg-white rounded-xl border border-rose-200">
+          <span class="font-bold text-rose-700 block mb-1">❌ 1. Personal (दोषारोपण)</span>
+          <p class="text-slate-500 text-[11px]">मूल विचार: "${thought}"</p>
+          <div class="mt-2 p-2 bg-emerald-50 rounded-lg text-emerald-900 font-semibold text-[11px] border border-emerald-100">
+            🌱 नया कॉर्टिकल सत्य: "परिणाम हमेशा बहु-कारकीय (Multi-factorial) होते हैं। यह मेरी संपूर्ण पहचान नहीं, बल्कि इस एक घटना की परिस्थिति है।"
+          </div>
+        </div>
+        <div class="p-3.5 bg-white rounded-xl border border-rose-200">
+          <span class="font-bold text-rose-700 block mb-1">❌ 2. Permanent (स्थायित्व)</span>
+          <p class="text-slate-500 text-[11px]">भय: "यह स्थिति कभी नहीं बदलेगी।"</p>
+          <div class="mt-2 p-2 bg-emerald-50 rounded-lg text-emerald-900 font-semibold text-[11px] border border-emerald-100">
+            🌱 नया कॉर्टिकल सत्य: "हर झटका समय के साथ मंद पड़ता है। नए प्रयास व अभ्यास से इस परिणाम को अगले 30 दिनों में बदला जा सकता है।"
+          </div>
+        </div>
+        <div class="p-3.5 bg-white rounded-xl border border-rose-200">
+          <span class="font-bold text-rose-700 block mb-1">❌ 3. Pervasive (सार्वभौमिकता)</span>
+          <p class="text-slate-500 text-[11px]">भय: "सब कुछ बर्बाद हो गया।"</p>
+          <div class="mt-2 p-2 bg-emerald-50 rounded-lg text-emerald-900 font-semibold text-[11px] border border-emerald-100">
+            🌱 नया कॉर्टिकल सत्य: "यह असफलता केवल एक विशिष्ट बिंदु तक सीमित है। मेरा स्वास्थ्य, परिवार, क्षमताएं और आत्म-मूल्य अक्षुण्ण हैं।"
+          </div>
+        </div>
+      `;
+    }
+
+    /* Assertive Script Generator */
+    function generateAssertiveScript() {
+      const person = document.getElementById('input-script-person').value.trim() || "साथी";
+      const event = document.getElementById('input-script-event').value.trim() || "जब ऐसी बात हुई";
+      const feeling = document.getElementById('input-script-feeling').value;
+      const need = document.getElementById('input-script-need').value.trim() || "हम शांति से समाधान निकालें";
+
+      const script = `"${person}, <strong>${event}</strong>, तो मुझे <strong>${feeling}</strong> महसूस हुआ, क्योंकि यह मेरे लिए महत्वपूर्ण है। भविष्य में, <strong>${need}</strong> ताकि हम दोनों का सम्मान बना रहे और काम बेहतर हो सके।"`;
+      document.getElementById('output-script-text').innerHTML = script;
+    }
+
+    function copyGeneratedScript() {
+      const el = document.getElementById('output-script-text');
+      const text = el.innerText || el.textContent;
+      const dummy = document.createElement('textarea');
+      dummy.value = text;
+      document.body.appendChild(dummy);
+      dummy.select();
+      document.execCommand('copy');
+      document.body.removeChild(dummy);
+
+      const btn = document.getElementById('btn-copy-script');
+      btn.innerText = "✓ कॉपीड!";
+      setTimeout(() => { btn.innerText = "📋 कॉपी करें"; }, 2000);
+    }
+
+    /* 12-Item EQ Diagnostic Quiz */
+    const eqQuestions = [
+      { id: 1, cat: 'sa', q: "1. जब मुझे गुस्सा या तनाव होता है, तो मैं तुरंत समझ जाता हूँ कि मेरे शरीर में क्या घट रहा है (जैसे धड़कन तेज होना या जबड़ा भींचना)।" },
+      { id: 2, cat: 'sa', q: "2. मैं केवल 'क्रोध' महसूस करने के बजाय उसके नीचे छिपी ठेस, भय या ईर्ष्या को स्पष्ट नाम दे सकता हूँ।" },
+      { id: 3, cat: 'sa', q: "3. मैं जानता हूँ कि मेरी व्यक्तिगत कमजोरियां क्या हैं और कौन सी बातें मुझे तुरंत भड़का देती हैं।" },
+      
+      { id: 4, cat: 'ic', q: "4. जब कोई मुझे उकसाता है, तो मैं तुरंत गाली देने या प्रहार करने के बजाय रुककर गहरी सांस लेता हूँ।" },
+      { id: 5, cat: 'ic', q: "5. किसी गंभीर असफलता के बाद मैं खुद को 'मूर्ख' कहने के बजाय तार्किक आशावाद से विश्लेषण करता हूँ।" },
+      { id: 6, cat: 'ic', q: "6. मैं तनाव मिटाने के लिए नशे, अत्यधिक भोजन या आक्रामक पलायन का सहारा नहीं लेता।" },
+
+      { id: 7, cat: 'em', q: "7. बातचीत के दौरान मैं सामने वाले के चेहरे के भाव और आवाज की टोन से उसकी भीतरी परेशानी भांप लेता हूँ।" },
+      { id: 8, cat: 'em', q: "8. विवाद होने पर मैं सामने वाले के दृष्टिकोण को निष्पक्ष रूप से समझने का प्रयास करता हूँ।" },
+      { id: 9, cat: 'em', q: "9. जब कोई आहत होता है, तो मैं उपदेश देने के बजाय पहले ध्यानपूर्वक उसकी बात सुनता हूँ।" },
+
+      { id: 10, cat: 'cr', q: "10. जब किसी से मतभेद हो, तो मैं 'तुमने ऐसा किया' कहने के बजाय 'मुझे ऐसा लगा' (I-संदेश) का उपयोग करता हूँ।" },
+      { id: 11, cat: 'cr', q: "11. मैं अपनी सीमाओं (Boundaries) का सम्मान कराने हेतु दृढ़ता से 'ना' कह सकता हूँ।" },
+      { id: 12, cat: 'cr', q: "12. टकराव में मैं केवल अपनी जीत चाहने के बजाय दोनों पक्षों के लिए 'जीत-जीत' (Win-Win) समाधान खोजता हूँ।" }
+    ];
+
+    const quizBox = document.getElementById('eq-quiz-container');
+    quizBox.innerHTML = eqQuestions.map(item => `
+      <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <span class="text-slate-800 font-medium">${item.q}</span>
+        <div class="flex items-center gap-1.5 flex-shrink-0">
+          ${[1, 2, 3, 4, 5].map(v => `
+            <label class="cursor-pointer">
+              <input type="radio" name="q_${item.id}" value="${v}" ${v === 3 ? 'checked' : ''} class="hidden peer">
+              <span class="w-7 h-7 rounded-lg border border-slate-300 peer-checked:bg-indigo-600 peer-checked:text-white peer-checked:border-indigo-600 flex items-center justify-center text-xs font-bold hover:bg-slate-200 transition-all">
+                ${v}
+              </span>
+            </label>
+          `).join('')}
+        </div>
+      </div>
+    `).join('');
+
+    function calculateEQScore() {
+      let scores = { sa: 0, ic: 0, em: 0, cr: 0, total: 0 };
+      eqQuestions.forEach(item => {
+        const checked = document.querySelector(`input[name="q_${item.id}"]:checked`);
+        const val = checked ? parseInt(checked.value) : 3;
+        scores[item.cat] += val;
+        scores.total += val;
+      });
+
+      document.getElementById('eq-results-container').classList.remove('hidden');
+      document.getElementById('eq-total-badge').innerText = `${scores.total} / 60`;
+
+      const pSa = Math.round((scores.sa / 15) * 100);
+      const pIc = Math.round((scores.ic / 15) * 100);
+      const pEm = Math.round((scores.em / 15) * 100);
+      const pCr = Math.round((scores.cr / 15) * 100);
+
+      document.getElementById('score-sa-val').innerText = `${pSa}%`;
+      document.getElementById('bar-sa').style.width = `${pSa}%`;
+
+      document.getElementById('score-ic-val').innerText = `${pIc}%`;
+      document.getElementById('bar-ic').style.width = `${pIc}%`;
+
+      document.getElementById('score-em-val').innerText = `${pEm}%`;
+      document.getElementById('bar-em').style.width = `${pEm}%`;
+
+      document.getElementById('score-cr-val').innerText = `${pCr}%`;
+      document.getElementById('bar-cr').style.width = `${pCr}%`;
+
+      const badge = document.getElementById('eq-level-tag');
+      if (scores.total >= 48) {
+        badge.className = "inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800";
+        badge.innerText = "सशक्त भावनात्मक साक्षरता (उच्च लचीलापन)";
+      } else if (scores.total >= 36) {
+        badge.className = "inline-block px-3 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-800";
+        badge.innerText = "मध्यम स्तर: विशिष्ट कौशलों पर कार्य आवश्यक";
+      } else {
+        badge.className = "inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-800";
+        badge.innerText = "सुधार की तत्काल आवश्यकता (एमीग्डाला हाईजैक का जोखिम)";
+      }
+
+      document.getElementById('eq-results-container').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* Stoplight Engine State */
+    const stoplightData = [
+      { step: 1, light: 'red', badge: "लाल बत्ती: रुकें व शांत हों", title: "1. रुकें, शांत हों और सोचें", desc: "शारीरिक उत्तेजना को पहचानें। 3 गहरी पेट की सांसें लेकर एमीग्डाला के तात्कालिक आवेग को रोकें।" },
+      { step: 2, light: 'yellow', badge: "पीली बत्ती: समस्या व भावना", title: "2. समस्या और अपनी भावना को नाम दें", desc: "तथ्य और आरोप में अंतर करें। पहचानें कि आपके भीतर क्या चल रहा है (क्रोध, भय या अपमान)।" },
+      { step: 3, light: 'yellow', badge: "पीली बत्ती: सकारात्मक लक्ष्य", title: "3. एक सकारात्मक लक्ष्य तय करें", desc: "आप क्या हासिल करना चाहते हैं? संबंध बचाना? सत्य स्पष्ट करना? या बिना लड़ाई के गरिमा बनाए रखना?" },
+      { step: 4, light: 'yellow', badge: "पीली बत्ती: बहु-विकल्प खोज", title: "4. बहुत सारे समाधान सोचें", desc: "कम से कम 3 अलग रास्ते खोजें। केवल मारना या भागना ही विकल्प नहीं है; मध्यमार्ग भी संभव है।" },
+      { step: 5, light: 'yellow', badge: "पीली बत्ती: परिणाम की गणना", title: "5. परिणामों की पूर्व-गणना करें", desc: "यदि मैं यह करूँगा, तो 10 मिनट बाद क्या होगा? कल क्या होगा? क्या यह समस्या सुलझाएगा या बढ़ाएगा?" },
+      { step: 6, light: 'green', badge: "हरी बत्ती: क्रियान्वयन", title: "6. आगे बढ़ें और सर्वश्रेष्ठ योजना लागू करें", desc: "शांत, दृढ़ और मुखर मुद्रा में 'I' संदेश का उपयोग करते हुए अपनी बात रखें।" }
+    ];
+
+    function setStoplightState(num) {
+      const item = stoplightData.find(s => s.step === num) || stoplightData[0];
+      const r = document.getElementById('lamp-btn-red');
+      const y = document.getElementById('lamp-btn-yellow');
+      const g = document.getElementById('lamp-btn-green');
+      const badge = document.getElementById('lamp-phase-badge');
+      const box = document.getElementById('stoplight-detail-box');
+
+      r.className = "w-16 h-16 rounded-full bg-rose-950/40 border-4 border-rose-900/40 opacity-30 flex items-center justify-center text-2xl transition-all";
+      y.className = "w-16 h-16 rounded-full bg-amber-950/40 border-4 border-amber-900/40 opacity-30 flex items-center justify-center text-2xl transition-all";
+      g.className = "w-16 h-16 rounded-full bg-emerald-950/40 border-4 border-emerald-900/40 opacity-30 flex items-center justify-center text-2xl transition-all";
+
+      if (item.light === 'red') {
+        r.className = "w-16 h-16 rounded-full bg-rose-600 border-4 border-rose-400 shadow-lg shadow-rose-600/50 flex items-center justify-center text-2xl scale-105 transition-all";
+        badge.className = "px-3 py-1 rounded-full text-[11px] font-bold uppercase bg-rose-500/20 text-rose-300 border border-rose-500/30";
+      } else if (item.light === 'yellow') {
+        y.className = "w-16 h-16 rounded-full bg-amber-500 border-4 border-amber-300 shadow-lg shadow-amber-500/50 flex items-center justify-center text-2xl scale-105 transition-all";
+        badge.className = "px-3 py-1 rounded-full text-[11px] font-bold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30";
+      } else {
+        g.className = "w-16 h-16 rounded-full bg-emerald-600 border-4 border-emerald-400 shadow-lg shadow-emerald-600/50 flex items-center justify-center text-2xl scale-105 transition-all";
+        badge.className = "px-3 py-1 rounded-full text-[11px] font-bold uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+      }
+      badge.innerText = item.badge;
+
+      box.innerHTML = `
+        <div class="border-l-4 ${item.light === 'red' ? 'border-rose-500' : item.light === 'yellow' ? 'border-amber-500' : 'border-emerald-500'} pl-3 py-1">
+          <h4 class="text-sm font-bold text-slate-900">${item.title}</h4>
+        </div>
+        <p class="text-slate-700 leading-relaxed text-xs">${item.desc}</p>
+        <div class="flex flex-wrap gap-1 pt-2">
+          ${stoplightData.map(s => `
+            <button onclick="setStoplightState(${s.step})" class="px-2 py-1 rounded-lg text-xs font-bold ${s.step === num ? 'bg-slate-900 text-white' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}">
+              चरण ${s.step}
+            </button>
+          `).join('')}
+        </div>
+      `;
+    }
+    setStoplightState(1);
+
+    /* Neural Circuitry Simulation */
+    function runNeuralSimMode(mode) {
+      const th = document.getElementById('sim-box-thalamus');
+      const am = document.getElementById('sim-box-amygdala');
+      const cx = document.getElementById('sim-box-cortex');
+      const bd = document.getElementById('sim-box-body');
+      const log = document.getElementById('sim-neural-log');
+
+      [th, am, cx, bd].forEach(el => el.classList.remove('ring-4', 'ring-rose-500', 'ring-cyan-400', 'ring-amber-400', 'bg-slate-800'));
+
+      if (mode === 'fast') {
+        th.classList.add('ring-4', 'ring-amber-400');
+        log.innerText = "[+12ms: लो-रोड सक्रिय] थैलेमस ने कच्चा संवेदी संकेत सीधे एमीग्डाला भेजा!";
+
+        setTimeout(() => {
+          am.classList.add('ring-4', 'ring-rose-500', 'bg-slate-800');
+          log.innerText = "[+18ms: एमीग्डाला हाईजैक] सेंट्रल न्यूक्लियस सक्रिय; कॉर्टेक्स को पता चलने से पहले ही अलार्म!";
+        }, 200);
+
+        setTimeout(() => {
+          bd.classList.add('ring-4', 'ring-rose-500');
+          log.innerText = "[+30ms: दैहिक प्रपात] CRH व नॉर-एड्रेनालाईन स्राव; नाड़ी तीव्र, पेशियां तनीं (लड़ो या भागो)!";
+        }, 400);
+
+      } else {
+        th.classList.add('ring-4', 'ring-amber-400');
+        log.innerText = "[+12ms: हाई-रोड संचरण] थैलेमस ने ऑडिटरी कॉर्टेक्स और हिप्पोकैम्पस को संकेत भेजा...";
+
+        setTimeout(() => {
+          cx.classList.add('ring-4', 'ring-cyan-400', 'bg-slate-800');
+          log.innerText = "[+35ms: कॉर्टिकल मूल्यांकन] नियोकॉर्टेक्स ने स्मृतियों से जांचा: 'यह कोई हमला नहीं, मात्र संयोग है।'";
+        }, 250);
+
+        setTimeout(() => {
+          am.classList.add('ring-4', 'ring-emerald-500');
+          bd.classList.add('ring-4', 'ring-emerald-500');
+          log.innerText = "[+50ms: टॉप-डाउन दमन] प्रीफ्रॉन्टल कॉर्टेक्स ने एमीग्डाला को शांत किया; शरीर सामान्य हुआ!";
+        }, 500);
+      }
+    }
+
+    /* Aristotle Dilemma Scenarios */
+    const dilemmaScenarios = [
+      {
+        topic: "शत्रुता का पूर्वाग्रह (जिमी का केस)",
+        title: "गलियारे में अनजाने में धक्का लगना",
+        desc: "भीड़ भरे गलियारे में एक छात्र आपसे टकरा जाता है। आपकी किताबें जमीन पर बिखर जाती हैं और आसपास के छात्र हंस पड़ते हैं।",
+        options: [
+          { text: "मान लें कि उसने जानबूझकर बेइज्जत करने के लिए ऐसा किया; तुरंत कॉलर पकड़कर दीवार पर दे मारें।", correct: false, feed: "❌ शत्रुता का पूर्वाग्रह। यह एमीग्डाला हाईजैक है जिससे हिंसा और निलंबन का दुष्चक्र शुरू होता है।" },
+          { text: "स्टॉपलाइट स्टेट 0 लागू करें: 3 गहरी सांसें लें, खड़े हों और शांत स्वर में कहें: 'भाई संभल कर चलो, किताबें गिर गईं।'", correct: true, feed: "✓ सटीक उत्तर! कॉर्टिकल नियंत्रण व मुखरता (Assertiveness)। यह बिना लड़ाई के आत्मसम्मान की रक्षा करता है।" },
+          { text: "सिर झुकाकर भाग जाएं, बाथरूम में रोएं और पूरे दिन खुद को कोसें।", correct: false, feed: "❌ निष्क्रिय पलायन। यह बेन के केस की तरह सामाजिक अलगाव को गहरा करता है।" }
+        ]
+      },
+      {
+        topic: "3P अवसाद सोच (सेलिगमैन व कोवाक्स)",
+        title: "कठिन परीक्षा या इंटरव्यू में विफलता",
+        desc: "महीनों की कड़ी मेहनत के बाद भी आप महत्वपूर्ण परीक्षा में असफल हो जाते हैं और आपका मन निराशा में डूबने लगता है।",
+        options: [
+          { text: "सोचें: 'मैं कभी सफल नहीं हो सकता, मुझमें ही कोई बड़ी कमी है।' (Personal, Permanent, Pervasive)", correct: false, feed: "❌ 3P अवसादजनक सोच। विफलता को स्थायी मानना क्लिनिकल डिप्रेशन का मूल स्रोत है।" },
+          { text: "संज्ञानात्मक पुनर्मूल्यांकन: 'यह परीक्षा कठिन थी और मेरी तैयारी की रणनीति गलत थी। मैं कमियों को सुधारकर फिर प्रयास करूँगा।'", correct: true, feed: "✓ उत्कृष्ट! सीखा हुआ आशावाद (Learned Optimism)। यह अवसाद के जोखिम को 50% तक कम करता है।" },
+          { text: "तनाव मिटाने के लिए शराब या नशीली दवाओं का सहारा लें।", correct: false, feed: "❌ आत्म-चिकित्सा ट्रैप (Tarter)। नशा प्राकृतिक रिसेप्टर्स को सुन्न कर स्थायी लत में बदल देता है।" }
+        ]
+      },
+      {
+        topic: "रचनात्मक सुलह (रहमान-टकर विवाद)",
+        title: "सामूहिक कार्य में आहत करने वाला लेबल",
+        desc: "प्रोजेक्ट मीटिंग में सहकर्मी ने आपकी फाइल पर 'लापरवाह' लिख दिया, जबकि आप केवल तनाव कम करने के लिए हल्का मजाक कर रहे थे।",
+        options: [
+          { text: "चिल्लाएं 'तुम सबसे घटिया इंसान हो!' और उसकी फाइल फाड़कर फेंक दें।", correct: false, feed: "❌ आहत भावना को विध्वंसक क्रोध में बदल देना सहयोग को नष्ट करता है।" },
+          { text: "'I' संदेश का उपयोग करें: 'जब तुमने मुझे लापरवाह लिखा तो मुझे ठेस लगी, क्योंकि मेरी नीयत केवल तनाव हल्का करने की थी। तुम्हारा क्या मतलब था?'", correct: true, feed: "✓ न्युएवा सेल्फ-साइंस मॉडल! आरोप लगाने के बजाय नीयत और प्रभाव को स्पष्ट करने से दोनों पक्ष बिना कटुता के सुलह कर लेते हैं।" }
+        ]
+      },
+      {
+        topic: "सीमा निर्धारण (डाना का केस)",
+        title: "संबंधों में अवांछित दबाव",
+        desc: "एक नया मित्र या साथी आप पर ऐसे अनुचित कदम का दबाव बना रहा है जिसके लिए आप तैयार नहीं हैं। डर है कि मना करने पर वह रिश्ता तोड़ देगा।",
+        options: [
+          { text: "दबाव चुपचाप स्वीकार लें ताकि रिश्ता बचा रहे।", correct: false, feed: "❌ डाना का ट्रैप। अपनी सीमाओं को मिटाना आत्मसम्मान को नष्ट कर गहरे अवसाद की ओर ले जाता है।" },
+          { text: "दृढ़ता और शांति से कहें: 'मैं तुम्हारी मित्रता की कद्र करता हूँ, लेकिन मैं इसके लिए तैयार नहीं हूँ। मेरी सीमाओं का सम्मान होना चाहिए।'", correct: true, feed: "✓ संपूर्ण मुखरता (Assertive Limit Setting)। स्पष्ट सीमाएं ही स्वस्थ रिश्तों का आधार हैं।" }
+        ]
+      },
+      {
+        topic: "परिणाम गणना (लामोंट व SOCS)",
+        title: "सड़क पर अपमानजनक उकसावा",
+        desc: "सार्वजनिक स्थान पर कोई व्यक्ति आपको ललकारता है और धक्का देकर कहता है: 'हिम्मत है तो लड़कर दिखा!'",
+        options: [
+          { text: "भीड़ के सामने प्रतिष्ठा बचाने के लिए तुरंत हाथापाई शुरू कर दें।", correct: false, feed: "❌ विनाशकारी आवेग। लामोंट को ऐसी ही सड़क की ईर्ष्या में 9 गोलियां लगी थीं। इसका अंत सिर्फ अस्पताल या जेल है।" },
+          { text: "SOCS लागू करें: परिणाम पहचानें (लड़ाई से केवल चोट या कानूनी संकट होगा)। शांत स्वर में कहें: 'मुझे तुमसे कोई झगड़ा नहीं है' और सुरक्षित हट जाएं।", correct: true, feed: "✓ जीवन रक्षक निर्णय! उत्तेजना से सुरक्षित बाहर निकलना ही वास्तविक भावनात्मक बुद्धिमत्ता है।" }
+        ]
+      }
+    ];
+
+    let currentDilemmaIdx = 0;
+
+    function renderDilemma(idx) {
+      const item = dilemmaScenarios[idx];
+      document.getElementById('dilemma-step-tag').innerText = `केस ${idx + 1} / ${dilemmaScenarios.length}`;
+      document.getElementById('dilemma-topic-tag').innerText = `थीम: ${item.topic}`;
+      document.getElementById('dilemma-title-text').innerText = item.title;
+      document.getElementById('dilemma-body-text').innerText = item.desc;
+
+      const optBox = document.getElementById('dilemma-choices-box');
+      const feedBox = document.getElementById('dilemma-feedback-box');
+      const nextBtn = document.getElementById('dilemma-btn-next');
+
+      feedBox.classList.add('hidden');
+      nextBtn.classList.add('hidden');
+
+      const letters = ['क', 'ख', 'ग'];
+      optBox.innerHTML = item.options.map((opt, oIdx) => `
+        <button onclick="handleDilemmaChoice(${idx}, ${oIdx})" class="w-full text-left p-3 bg-white rounded-xl border border-slate-200 hover:border-slate-400 hover:bg-slate-100 font-medium text-slate-800 transition-all flex items-start gap-2 text-xs">
+          <span class="font-bold text-slate-400">(${letters[oIdx]})</span>
+          <span>${opt.text}</span>
+        </button>
+      `).join('');
+    }
+
+    function handleDilemmaChoice(sIdx, oIdx) {
+      const choice = dilemmaScenarios[sIdx].options[oIdx];
+      const feed = document.getElementById('dilemma-feedback-box');
+      const nextBtn = document.getElementById('dilemma-btn-next');
+
+      feed.classList.remove('hidden');
+      if (choice.correct) {
+        feed.className = "p-3.5 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-950 text-xs leading-relaxed";
+      } else {
+        feed.className = "p-3.5 rounded-xl bg-rose-50 border border-rose-300 text-rose-950 text-xs leading-relaxed";
+      }
+      feed.innerHTML = choice.feed;
+
+      nextBtn.classList.remove('hidden');
+      if (sIdx < dilemmaScenarios.length - 1) {
+        nextBtn.innerText = "अगला केस देखें →";
+      } else {
+        nextBtn.innerText = "प्रयोगशाला पुनः शुरू करें ↺";
+      }
+    }
+
+    function nextDilemmaScenario() {
+      if (currentDilemmaIdx < dilemmaScenarios.length - 1) {
+        currentDilemmaIdx++;
+        renderDilemma(currentDilemmaIdx);
+      } else {
+        currentDilemmaIdx = 0;
+        renderDilemma(0);
+      }
+    }
+
+    renderDilemma(0);
+  </script>
+</body>
+</html>
+
