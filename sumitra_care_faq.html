@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>प्राइमकेयर डेंटल – दांत निकलवाने के बाद के निर्देश (विस्तृत)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Noto Serif Devanagari', Arial, sans-serif;
+      background: #f4f6f9;
+      color: #1e272e;
+      line-height: 1.6;
+      padding: 20px 12px 40px;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0F2027, #203A43);
+      color: white;
+      padding: 28px 24px 22px;
+      text-align: center;
+    }
+
+    .clinic-name {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .main-title {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      margin-top: 4px;
+    }
+
+    .date {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      margin-top: 10px;
+    }
+
+    /* Content */
+    .content {
+      padding: 24px 22px 10px;
+    }
+
+    .item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 22px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #edf2f7;
+    }
+
+    .item:last-of-type {
+      border-bottom: none;
+      margin-bottom: 10px;
+    }
+
+    .number {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: #c0392b;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .item:nth-child(1) .number { background: #e67e22; }
+    .item:nth-child(2) .number { background: #c0392b; }
+    .item:nth-child(3) .number { background: #2980b9; }
+    .item:nth-child(4) .number { background: #27ae60; }
+    .item:nth-child(5) .number { background: #8e44ad; }
+    .item:nth-child(6) .number { background: #e74c3c; }
+
+    .text h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1e272e;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .cause {
+      font-size: 0.95rem;
+      color: #2f3542;
+      background: #f8fafc;
+      border-left: 4px solid #cbd5e0;
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .cause strong {
+      color: #c0392b;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 10px 22px 28px;
+      border-top: 1px solid #edf2f7;
+    }
+
+    .faq-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0F2027;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .faq-item {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      background: #f8fafc;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 14px 16px;
+      background: #f1f5f9;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: #1e272e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+      background: #e2e8f0;
+    }
+
+    .faq-question.active {
+      background: #e2e8f0;
+      color: #c0392b;
+    }
+
+    .faq-icon {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #64748b;
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+
+    .faq-question.active .faq-icon {
+      transform: rotate(45deg);
+      color: #c0392b;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      background: #ffffff;
+      font-size: 0.94rem;
+      color: #2f3542;
+      line-height: 1.55;
+    }
+
+    .faq-answer.open {
+      max-height: 300px;
+      padding: 14px 16px 16px;
+    }
+
+    /* Footer */
+    footer {
+      background: #f1f5f9;
+      text-align: center;
+      padding: 16px 20px;
+      font-size: 0.82rem;
+      color: #64748b;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    @media (max-width: 500px) {
+      .clinic-name { font-size: 1.35rem; }
+      .main-title { font-size: 1.05rem; }
+      .item { gap: 12px; }
+      .number { width: 32px; height: 32px; font-size: 1rem; }
+      .faq-question { font-size: 0.92rem; padding: 12px 14px; }
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .container { box-shadow: none; border-radius: 0; }
+      .faq-answer { max-height: none !important; padding: 14px 16px !important; }
+      .faq-icon { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="clinic-name">प्राइमकेयर डेंटल</div>
+      <div class="main-title">दांत निकलवाने के बाद निम्न बातों का ध्यान रखें<br>(विस्तृत निर्देश + कारण)</div>
+      <div class="date">सुमित्रा देवी के लिए • 10 सितम्बर 2026</div>
+    </header>
+
+    <div class="content">
+
+      <!-- 1 -->
+      <div class="item">
+        <div class="number">1</div>
+        <div class="text">
+          <h3>दांत निकलने की जगह पर रूई को जोर से दबाकर रखें। इससे खून निकलना बंद हो जाता है।</h3>
+          <div class="cause">
+            <strong>कारण:</strong> दबाव से खून का थक्का (blood clot) जल्दी बनता है। यही थक्का घाव को ढकता है और संक्रमण तथा सूखा सॉकेट (Dry Socket) होने से बचाता है। लगभग 30–45 मिनट तक लगातार दबाए रखें।
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="item">
+        <div class="number">2</div>
+        <div class="text">
+          <h3>45 मिनट के बाद रूई को निकाल दें। 24 घंटे तक बाहर थूकें नहीं।</h3>
+          <div class="cause">
+            <strong>कारण:</strong> 45 मिनट बाद थक्का स्थिर हो चुका होता है। थूकने से मुंह में दबाव बनता है जो थक्का हटा सकता है। थक्का निकलने पर तेज दर्द होता है और घाव भरने में बहुत देर लगती है। लार या खून को धीरे-धीरे निगलें।
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="item">
+        <div class="number">3</div>
+        <div class="text">
+          <h3>रूई को निकालने के बाद चम्मच वाली आइसक्रीम खाएँ।</h3>
+          <div class="cause">
+            <strong>कारण:</strong> ठंडक सूजन और दर्द को कम करती है। नरम और ठंडी होने से घाव पर कोई दबाव नहीं पड़ता। ध्यान रहे – स्ट्रॉ से न पिएँ, क्योंकि चूसने से थक्का निकल सकता है।
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="item">
+        <div class="number">4</div>
+        <div class="text">
+          <h3>24 घंटे तक गरम खाना नहीं खाना है। जो भी खाएँगे ठंडा और मुलायम खाएँगे जैसे दलिया, दूध-ब्रेड।</h3>
+          <div class="cause">
+            <strong>कारण:</strong> गरम भोजन थक्का पिघला सकता है जिससे दोबारा खून बहने लगता है। इसलिए केवल ठंडा या गुनगुना और मुलायम आहार लें (दलिया, दूध-ब्रेड, दही, मैश आलू आदि)।
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="item">
+        <div class="number">5</div>
+        <div class="text">
+          <h3>दांत निकलवाने के 24 घंटे बाद गुनगुने पानी में नमक मिलाकर हल्के प्रेशर से कुल्ला करें।</h3>
+          <div class="cause">
+            <strong>कारण:</strong> नमक का पानी बैक्टीरिया कम करता है और घाव की सफाई करता है। जोर से कुल्ला न करें – हल्के दबाव से ही पर्याप्त है। 1 गिलास गुनगुने पानी में आधा चम्मच नमक मिलाएँ। दिन में 3–4 बार कर सकते हैं।
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="item">
+        <div class="number">6</div>
+        <div class="text">
+          <h3>जब तक जख्म ठीक नहीं हो जाता सिगरेट, शराब अथवा तम्बाकू का इस्तेमाल न करें।</h3>
+          <div class="cause">
+            <strong>कारण:</strong> धूम्रपान थक्का हटा देता है और Dry Socket का खतरा बहुत बढ़ा देता है। शराब खून को पतला करती है जिससे घाव भरने में देरी होती है। तम्बाकू संक्रमण का खतरा बढ़ाता है। कम से कम 7–10 दिन पूरी तरह परहेज रखें।
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Interactive FAQ Section -->
+    <div class="faq-section">
+      <div class="faq-title">❓ अक्सर पूछे जाने वाले प्रश्न (FAQ)</div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>क्या दर्द बहुत ज्यादा हो तो क्या करें?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          डॉक्टर द्वारा बताई गई दर्द निवारक दवा ही लें। <strong>Enzoflam / Diclofenac</strong> जैसी दवाएँ हृदय संबंधी इतिहास के कारण वर्जित हैं। अगर दर्द बहुत तेज हो या 2–3 दिन बाद भी बढ़ रहा हो तो तुरंत डॉक्टर से संपर्क करें।
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>सूजन कितने दिन तक रह सकती है?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          हल्की सूजन 2–3 दिन सामान्य है। ठंडी आइसक्रीम या ठंडे कपड़े से राहत मिलती है। अगर सूजन बहुत ज्यादा बढ़ जाए, चेहरा टेढ़ा हो जाए या बुखार आ जाए तो तुरंत डॉक्टर को दिखाएँ।
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>कब तक नरम आहार लेना चाहिए?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          कम से कम 3–5 दिन नरम और ठंडा/गुनगुना आहार लें। घाव पूरी तरह ठीक होने तक (आमतौर पर 7–10 दिन) बहुत सख्त, कुरकुरे या गरम खाने से बचें।
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Dry Socket क्या होता है और कैसे पता चले?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Dry Socket तब होता है जब खून का थक्का निकल जाता है। इसमें तेज दर्द होता है जो कान तक जा सकता है, और घाव में खाली जगह दिखती है। अगर 2–3 दिन बाद अचानक तेज दर्द शुरू हो तो तुरंत डॉक्टर के पास जाएँ।
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>नमक के पानी से कुल्ला कब शुरू करें?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          दांत निकलवाने के <strong>24 घंटे बाद</strong> से शुरू करें। पहले 24 घंटे में कुल्ला या थूकना मना है। 1 गिलास गुनगुने पानी में आधा चम्मच नमक मिलाकर हल्के दबाव से दिन में 3–4 बार कुल्ला करें।
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>ब्लड प्रेशर की दवा कब लें?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Cetanil-T को रोज सुबह नाश्ते के बाद एक ही निश्चित समय पर लें। कभी न छोड़ें। दांत निकलवाने के बाद भी नियमित रूप से जारी रखें।
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      यह विस्तृत निर्देश मूल प्राइमकेयर डेंटल पर्ची पर आधारित है।<br>
+      कोई भी बदलाव डॉक्टर की सलाह के बिना न करें।
+    </footer>
+
+  </div>
+
+  <script>
+    function toggleFaq(button) {
+      const answer = button.nextElementSibling;
+      const isOpen = answer.classList.contains('open');
+
+      // Close all other FAQs
+      document.querySelectorAll('.faq-answer').forEach(el => {
+        el.classList.remove('open');
+      });
+      document.querySelectorAll('.faq-question').forEach(el => {
+        el.classList.remove('active');
+      });
+
+      // Toggle current one
+      if (!isOpen) {
+        answer.classList.add('open');
+        button.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
