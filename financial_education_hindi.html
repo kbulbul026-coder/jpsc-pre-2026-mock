@@ -1,0 +1,911 @@
+
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>स्कूल और पैसों की असली समझ - कक्षा 9 वित्तीय शिक्षा महाग्रंथ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for crisp Hindi & English typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Hind', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                        },
+                        navy: {
+                            800: '#111827',
+                            900: '#0b0f19',
+                            950: '#05070d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar and reading line animation */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d97706;
+            border-radius: 4px;
+        }
+        .glossary-card:hover {
+            transform: translateY(-4px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-amber-500 selection:text-black">
+
+    <!-- Reading Progress Bar -->
+    <div id="progressBarContainer" class="fixed top-0 left-0 w-full h-1.5 bg-slate-900 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-amber-500 via-yellow-400 to-orange-500 w-0 transition-all duration-150"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-1.5 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-yellow-300 flex items-center justify-center text-slate-950 font-bold text-xl shadow-lg shadow-amber-500/20">
+                    ₹
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-bold text-white tracking-wide flex items-center gap-2">
+                        वित्तीय साक्षरता <span class="text-xs bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full border border-amber-500/30">कक्षा 9 & युवा</span>
+                    </h1>
+                    <p class="text-xs text-slate-400 hidden sm:block">रॉबर्ट कियोसाकी के सिद्धांतों का भारतीय संदर्भ में रूपांतरण</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2 sm:space-x-4">
+                <a href="#quick-quiz" class="text-xs sm:text-sm font-semibold bg-amber-500 hover:bg-amber-400 text-slate-950 px-3.5 py-1.5 rounded-lg transition shadow">
+                    स्वयं-जांच क्विज़ ✍️
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="relative overflow-hidden py-16 sm:py-24 border-b border-slate-800 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-5xl mx-auto px-4 relative z-10 text-center">
+            <span class="inline-block py-1 px-3 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 mb-5 tracking-wider uppercase">
+                📖 सम्पूर्ण मार्गदर्शिका • व्यावहारिक वित्तीय शिक्षा
+            </span>
+            <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                स्कूल, परीक्षा और <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-orange-400">पैसों का असली सच</span>
+            </h2>
+            <p class="text-slate-300 text-base sm:text-xl max-w-3xl mx-auto leading-relaxed mb-8">
+                स्कूल हमें 95% नंबर लाना और त्रिकोणमिति (Trigonometry) के सूत्र रटना तो सिखाते हैं, लेकिन यह कभी नहीं सिखाते कि पैसे कैसे काम करते हैं, संपत्ति (Asset) क्या होती है और भारतीय टैक्स व बैंकिंग प्रणाली का लाभ कैसे उठाया जाए।
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-slate-400">
+                <span class="flex items-center gap-1.5 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-md">
+                    ⏱️ पढ़ने का समय: ~20 मिनट
+                </span>
+                <span class="flex items-center gap-1.5 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-md">
+                    🇮🇳 विशुद्ध भारतीय परिप्रेक्ष्य (FD, सोना, टैक्स, बिज़नेस)
+                </span>
+                <span class="flex items-center gap-1.5 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-md">
+                    💡 आसान हिंदी रूपांतरण
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table of Contents Section -->
+    <section class="max-w-5xl mx-auto px-4 py-8">
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-xl">
+            <h3 class="text-lg font-bold text-amber-400 mb-4 flex items-center gap-2">
+                📑 इस महाग्रंथ के प्रमुख अध्याय (Table of Contents)
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+                <a href="#ch1" class="p-2.5 rounded-lg bg-slate-800/60 hover:bg-amber-500/10 hover:text-amber-300 transition border border-slate-800 flex items-center gap-2">
+                    <span class="text-amber-500 font-bold">1.</span> स्कूल की कमी व असली पढ़ाई
+                </a>
+                <a href="#ch2" class="p-2.5 rounded-lg bg-slate-800/60 hover:bg-amber-500/10 hover:text-amber-300 transition border border-slate-800 flex items-center gap-2">
+                    <span class="text-amber-500 font-bold">2.</span> पैसों के 3 प्रकार (सोना vs रुपया)
+                </a>
+                <a href="#ch3" class="p-2.5 rounded-lg bg-slate-800/60 hover:bg-amber-500/10 hover:text-amber-300 transition border border-slate-800 flex items-center gap-2">
+                    <span class="text-amber-500 font-bold">3.</span> कैशफ्लो क्वाड्रेंट (E-S-B-I)
+                </a>
+                <a href="#ch4" class="p-2.5 rounded-lg bg-slate-800/60 hover:bg-amber-500/10 hover:text-amber-300 transition border border-slate-800 flex items-center gap-2">
+                    <span class="text-amber-500 font-bold">4.</span> रियल एस्टेट और लिक्विडिटी
+                </a>
+                <a href="#ch5" class="p-2.5 rounded-lg bg-slate-800/60 hover:bg-amber-500/10 hover:text-amber-300 transition border border-slate-800 flex items-center gap-2">
+                    <span class="text-amber-500 font-bold">5.</span> कर्ज (Debt) और टैक्स का खेल
+                </a>
+                <a href="#ch6" class="p-2.5 rounded-lg bg-slate-800/60 hover:bg-amber-500/10 hover:text-amber-300 transition border border-slate-800 flex items-center gap-2">
+                    <span class="text-amber-500 font-bold">6.</span> दिखावे की अमीरियत (Fake Rich)
+                </a>
+                <a href="#ch7" class="p-2.5 rounded-lg bg-slate-800/60 hover:bg-amber-500/10 hover:text-amber-300 transition border border-slate-800 flex items-center gap-2">
+                    <span class="text-amber-500 font-bold">7.</span> कमाई के 3 प्रकार & टैक्स छूट
+                </a>
+                <a href="#ch8" class="p-2.5 rounded-lg bg-slate-800/60 hover:bg-amber-500/10 hover:text-amber-300 transition border border-slate-800 flex items-center gap-2">
+                    <span class="text-amber-500 font-bold">8.</span> बी-आई ट्रायंगल (B-I Triangle)
+                </a>
+                <a href="#ch9" class="p-2.5 rounded-lg bg-slate-800/60 hover:bg-amber-500/10 hover:text-amber-300 transition border border-slate-800 flex items-center gap-2">
+                    <span class="text-amber-500 font-bold">9.</span> शून्य से संपत्ति: अनंत रिटर्न
+                </a>
+                <a href="#ch10" class="p-2.5 rounded-lg bg-slate-800/60 hover:bg-amber-500/10 hover:text-amber-300 transition border border-slate-800 flex items-center gap-2">
+                    <span class="text-amber-500 font-bold">10.</span> शेयर बाज़ार, कैसीनो और मंदी
+                </a>
+                <a href="#ch11" class="p-2.5 rounded-lg bg-slate-800/60 hover:bg-amber-500/10 hover:text-amber-300 transition border border-slate-800 flex items-center gap-2">
+                    <span class="text-amber-500 font-bold">11.</span> 10X सोच और बुककीपिंग
+                </a>
+                <a href="#ch12" class="p-2.5 rounded-lg bg-slate-800/60 hover:bg-amber-500/10 hover:text-amber-300 transition border border-slate-800 flex items-center gap-2">
+                    <span class="text-amber-500 font-bold">12.</span> संकट काल का लीडर & चैरिटी
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-5xl mx-auto px-4 py-8 space-y-16">
+
+        <!-- Chapter 1 -->
+        <article id="ch1" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+                <span class="text-xs font-semibold px-3 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-full">अध्याय 01</span>
+                <span class="text-xs text-slate-400">कक्षा 9 दृष्टिकोण</span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6">
+                स्कूल और पैसों की असली समझ: क्या स्कूल हमें जीवन के लिए तैयार कर रहे हैं?
+            </h3>
+
+            <div class="space-y-5 text-slate-300 text-base sm:text-lg leading-relaxed">
+                <p>
+                    सबसे पहले एक बात साफ़ समझ लीजिए: <strong class="text-white">शिक्षा (Education) मनुष्य के जीवन का सबसे महत्वपूर्ण अस्त्र है।</strong> लेकिन आज की पारंपरिक स्कूली व्यवस्था (Traditional Schooling) के साथ एक अत्यंत गंभीर संकट खड़ा हो चुका है। 
+                </p>
+                
+                <div class="bg-slate-950/70 p-5 rounded-2xl border-l-4 border-amber-500 my-6">
+                    <h4 class="font-bold text-amber-400 text-base mb-2">भारतीय संदर्भ में सोचिए:</h4>
+                    <p class="text-sm text-slate-300">
+                        कक्षा 9 में आते ही हम पर बोर्ड परीक्षा का तनाव, कोचिंग संस्थानों की भारी फीस और आगे चलकर कॉलेज के लिए एजुकेशन लोन का बोझ लाद दिया जाता है। बच्चे सालों तक त्रिकोणमिति (Trigonometry), कैलकुलस और इतिहास की तारीखें रटते हैं, लेकिन 12 साल स्कूल में बिताने के बाद भी किसी 18 साल के छात्र को यह नहीं पता होता कि बैंक में चेक कैसे भरते हैं, जीएसटी (GST) क्या है, टैक्स कैसे बचता है, या खुद का छोटा व्यवसाय कैसे खड़ा किया जाता है!
+                    </p>
+                </div>
+
+                <p>
+                    लेखक अपने बचपन का अनुभव बताते हुए कहते हैं कि जब किसी बच्चे का क्लास में ध्यान नहीं लगता, तो स्कूल वाले झट से उस पर <em>'ADD' (ध्यान न भटकने की बीमारी)</em> या <em>'डिस्लेक्सिया'</em> का ठप्पा लगा देते हैं। लेकिन क्या यह सचमुच बच्चे की बीमारी है? नहीं! यह असल में <strong>अत्यधिक बोरियत (Extreme Boredom)</strong> है। 
+                </p>
+
+                <p>
+                    जब शिक्षक कक्षा में आकर सिर्फ किताबी थ्योरी को उबाऊ तरीके से बोलते हैं, जिसका व्यावहारिक जीवन में कोई उपयोग नहीं दिखता, तो किसी भी उत्सुक मस्तिष्क का सोना स्वाभाविक है। 
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-4 pt-4">
+                    <div class="bg-red-950/30 border border-red-800/40 p-5 rounded-2xl">
+                        <h5 class="text-red-400 font-bold mb-2 flex items-center gap-2">❌ दुनिया का इकलौता बिज़नेस</h5>
+                        <p class="text-sm text-slate-300">
+                            शिक्षा जगत ऐसा अनोखा क्षेत्र है जहाँ अगर सेवा देने वाला (शिक्षक/स्कूल) पढ़ाने में असफल रहता है, तो उसका दोष ग्राहक (विद्यार्थी) पर मढ़ दिया जाता है कि "यह बच्चा ही नालायक या बेवकूफ है।"
+                        </p>
+                    </div>
+                    <div class="bg-emerald-950/30 border border-emerald-800/40 p-5 rounded-2xl">
+                        <h5 class="text-emerald-400 font-bold mb-2 flex items-center gap-2">✅ असली दुनिया की सच्चाई</h5>
+                        <p class="text-sm text-slate-300">
+                            लेखक 15 और 17 वर्ष की उम्र में हाई स्कूल में फेल हो गए थे क्योंकि वे स्कूल के तरीके से निबंध नहीं लिख पाते थे। लेकिन आज वे दुनिया भर में करोड़ों किताबें बेच चुके हैं। इसलिए स्कूल के अंक आपकी असली बुद्धिमत्ता का पैमाना नहीं हैं!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Chapter 2 -->
+        <article id="ch2" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+                <span class="text-xs font-semibold px-3 py-1 bg-amber-500/10 text-amber-400 border border-amber-500/20 rounded-full">अध्याय 02</span>
+                <span class="text-xs text-slate-400">मुद्रा का विज्ञान</span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6">
+                पैसों के तीन प्रकार: भगवान का पैसा, सरकार का पैसा और नकली संपत्ति
+            </h3>
+
+            <p class="text-slate-300 text-base sm:text-lg mb-6 leading-relaxed">
+                यदि आप जीवन भर केवल कागज़ी नोटों (रुपयों या डॉलर) के पीछे भागते रहेंगे, तो आप उस चूहा-दौड़ (Rat Race) में फँस जाएँगे जहाँ से निकलना नामुमकिन है। आर्थिक आज़ादी के लिए इन 3 प्रकार के पैसों को गहराई से समझें:
+            </p>
+
+            <div class="space-y-6">
+                <!-- Type 1 -->
+                <div class="bg-slate-950 border border-amber-500/30 rounded-2xl p-6 flex flex-col sm:flex-row gap-5 items-start">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-3xl shrink-0">
+                        🥇
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-amber-400 mb-2">1. भगवान का पैसा (God's Money) - सोना और चाँदी</h4>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            यह वह धन है जिसे प्रकृति (ईश्वर) ने बनाया है। भारत में हमारी दादी-नानी हमेशा सोने-चाँदी (Gold & Silver) के आभूषण या सिक्के सहेज कर रखती थीं—वे अनजाने में दुनिया का सबसे बड़ा आर्थिक सच जानती थीं! सोने को कोई सरकार अपनी मर्जी से प्रिंटिंग प्रेस में नहीं छाप सकती। जब धरती बनी थी, तब भी सोना मूल्यवान था, और जब कागज़ी नोट कचरा बन जाएँगे, तब भी सोना-चाँदी अपनी क्रय-शक्ति (Purchasing Power) बनाए रखेंगे।
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Type 2 -->
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 flex flex-col sm:flex-row gap-5 items-start">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-3xl shrink-0">
+                        💵
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-blue-400 mb-2">2. सरकार का पैसा (Government Money / Fiat Currency)</h4>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            इसे 'फिएट करेंसी' कहते हैं—जैसे रुपया, अमेरिकी डॉलर, यूरो आदि। यह पैसा किसी सोने या चाँदी के समर्थन पर नहीं टिका है, बल्कि केवल सरकार के वादे पर टिका है। सरकारें जब चाहें, जितनी चाहें उतनी करेंसी प्रिंट कर सकती हैं। जब बहुत सारे नए नोट छापे जाते हैं, तो बाज़ार में <strong>महंगाई (Inflation)</strong> बढ़ती है और आपके गुल्लक या बैंक खाते में रखे पैसों की क्रय शक्ति घट जाती है।
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Type 3 -->
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 flex flex-col sm:flex-row gap-5 items-start">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-3xl shrink-0">
+                        📉
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-purple-400 mb-2">3. नकली संपत्तियां (Fake Assets)</h4>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            आजकल लोग ऐसे कागज़ी वादों, जटिल डेरिवेटिव्स या बिना किसी वास्तविक मूल्य वाली स्कीमों में पैसा लगाते हैं जो असल में संपत्ति हैं ही नहीं। संकट आते ही इनका मूल्य शून्य हो जाता है।
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-sm">
+                💡 <strong>9वीं के छात्र के लिए मुख्य सीख:</strong> बैंक खाते में चुपचाप पैसे जमा रखना (Idle Savings) कोई बहादुरी नहीं है, क्योंकि 6% की महंगाई आपके पैसे की ताकत को हर साल निगल रही है!
+            </div>
+        </article>
+
+        <!-- Chapter 3 -->
+        <article id="ch3" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+                <span class="text-xs font-semibold px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full">अध्याय 03</span>
+                <span class="text-xs text-slate-400">वित्तीय नक्शा</span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+                कैशफ्लो क्वाड्रेंट (Cashflow Quadrant): आप किस तरफ खड़े हैं?
+            </h3>
+            <p class="text-slate-300 text-base sm:text-lg mb-8">
+                दुनिया में पैसा कमाने वाले हर इंसान को चार खानों में बाँटा जा सकता है। हमारे भारतीय समाज में 90% माता-पिता अपने बच्चों को केवल 'E' और 'S' बनने की सलाह देते हैं:
+            </p>
+
+            <!-- Quadrant UI Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <!-- E Quadrant -->
+                <div class="bg-slate-950 p-6 rounded-2xl border border-rose-900/40 hover:border-rose-500 transition duration-300">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-3xl font-black text-rose-500">E</span>
+                        <span class="text-xs bg-rose-500/20 text-rose-300 px-2 py-1 rounded">Employee (कर्मचारी)</span>
+                    </div>
+                    <h5 class="font-bold text-white text-lg mb-2">"मुझे एक सुरक्षित नौकरी और फिक्स सैलरी चाहिए"</h5>
+                    <p class="text-sm text-slate-400 mb-3">
+                        ये लोग अपने समय के बदले पैसा कमाते हैं। यदि वे ऑफिस न जाएँ या बीमार पड़ जाएँ, तो कमाई बंद।
+                    </p>
+                    <div class="text-xs font-semibold text-rose-400">
+                        टैक्स का बोझ: सबसे अधिक (30% से 40% तक आयकर/TDS)
+                    </div>
+                </div>
+
+                <!-- S Quadrant -->
+                <div class="bg-slate-950 p-6 rounded-2xl border border-orange-900/40 hover:border-orange-500 transition duration-300">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-3xl font-black text-orange-500">S</span>
+                        <span class="text-xs bg-orange-500/20 text-orange-300 px-2 py-1 rounded">Self-Employed (स्व-व्यवसायी)</span>
+                    </div>
+                    <h5 class="font-bold text-white text-lg mb-2">"अगर कोई काम सही से करना है, तो मुझे खुद करना होगा"</h5>
+                    <p class="text-sm text-slate-400 mb-3">
+                        जैसे मोहल्ले के डॉक्टर, वकील या छोटी दुकान के मालिक। वे किसी के नौकर नहीं हैं, लेकिन वे खुद ही अपने काम के बंधक हैं। छुट्टी का मतलब शून्य आय!
+                    </p>
+                    <div class="text-xs font-semibold text-orange-400">
+                        मानसिक तनाव: अत्यधिक, पूरा दारोमदार खुद पर
+                    </div>
+                </div>
+
+                <!-- B Quadrant -->
+                <div class="bg-slate-950 p-6 rounded-2xl border border-emerald-900/40 hover:border-emerald-500 transition duration-300">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-3xl font-black text-emerald-400">B</span>
+                        <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-1 rounded">Big Business (बड़ा बिज़नेस)</span>
+                    </div>
+                    <h5 class="font-bold text-white text-lg mb-2">"मैं बेहतरीन लोगों और सिस्टम की टीम बनाता हूँ"</h5>
+                    <p class="text-sm text-slate-400 mb-3">
+                        जैसे टाटा, रिलायंस या इन्फोसिस। मालिक 6 महीने छुट्टी पर रहे तब भी कंपनी और सिस्टम काम करता रहता है और पैसा आता रहता है (OPT - Other People's Time)।
+                    </p>
+                    <div class="text-xs font-semibold text-emerald-400">
+                        टैक्स: भारी सरकारी छूट एवं इन्सेन्टिव्स (0% - 15%)
+                    </div>
+                </div>
+
+                <!-- I Quadrant -->
+                <div class="bg-slate-950 p-6 rounded-2xl border border-amber-900/40 hover:border-amber-500 transition duration-300">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-3xl font-black text-amber-400">I</span>
+                        <span class="text-xs bg-amber-500/20 text-amber-300 px-2 py-1 rounded">Investor (सच्चा निवेशक)</span>
+                    </div>
+                    <h5 class="font-bold text-white text-lg mb-2">"पैसा मेरे लिए 24 घंटे दिन-रात मेहनत करता है"</h5>
+                    <p class="text-sm text-slate-400 mb-3">
+                        ये रियल एस्टेट, लाभदायक कम्पनियों और संपत्तियों में पूँजी लगाते हैं। इन्हें काम करने की आवश्यकता नहीं होती, इनकी संपत्ति इनके लिए नकदी (Cashflow) लाती है (OPM - Other People's Money)।
+                    </p>
+                    <div class="text-xs font-semibold text-amber-400">
+                        परिणाम: असली वित्तीय स्वतंत्रता और मनचाहा समय
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 bg-slate-800/60 rounded-xl border border-slate-700 text-sm text-slate-300">
+                👉 <strong>लक्ष्य:</strong> कक्षा 9 के छात्र के तौर पर आपकी सोच बाईं ओर (E व S) तक सीमित न रहे, बल्कि आपको अपने जीवन को दाईं ओर (B व I) ले जाने की रणनीति बनानी चाहिए!
+            </div>
+        </article>
+
+        <!-- Chapter 4 -->
+        <article id="ch4" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+                <span class="text-xs font-semibold px-3 py-1 bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 rounded-full">अध्याय 04 & 05</span>
+                <span class="text-xs text-slate-400">संपत्ति बनाम देनदारी</span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6">
+                एसेट, लायबिलिटी और लिक्विडिटी: अमीर बनने की सबसे सरल परिभाषा
+            </h3>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-emerald-950/20 border border-emerald-500/30 p-6 rounded-2xl">
+                    <div class="text-emerald-400 text-2xl font-black mb-2">सच्चा एसेट (Asset) 📈</div>
+                    <p class="text-slate-200 text-lg font-semibold mb-3">"जो आपकी जेब में बिना आपके काम किए पैसा डाले।"</p>
+                    <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside">
+                        <li>किराये पर दिया गया मकान/दुकान जिससे हर माह किराया (Rent) आता है।</li>
+                        <li>कोई बिज़नेस या यूट्यूब चैनल जिससे लगातार विज्ञापन/रॉयल्टी आए।</li>
+                        <li>किताब का कॉपीराइट या कोई पेटेंट।</li>
+                    </ul>
+                </div>
+
+                <div class="bg-rose-950/20 border border-rose-500/30 p-6 rounded-2xl">
+                    <div class="text-rose-400 text-2xl font-black mb-2">लायबिलिटी (Liability) 📉</div>
+                    <p class="text-slate-200 text-lg font-semibold mb-3">"जो आपकी जेब से लगातार पैसा बाहर निकाले।"</p>
+                    <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside">
+                        <li>ईएमआई (EMI) पर ली गई महंगी कार (पेट्रोल, सर्विसिंग, बीमा)।</li>
+                        <li>ऋण पर लिया गया बड़ा निजी बंगला जिसका भारी ब्याज भरना पड़े।</li>
+                        <li>महंगे क्रेडिट कार्ड के बिल और दिखावे के गैजेट्स।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Liquidity Concept -->
+            <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl mb-8">
+                <h4 class="text-xl font-bold text-cyan-400 mb-3 flex items-center gap-2">
+                    💧 लिक्विडिटी (Liquidity - तरलता) क्या है?
+                </h4>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+                    लिक्विडिटी का अर्थ है: <em>आप अपनी किसी संपत्ति को कितनी जल्दी नकदी (Cash) में बदल सकते हैं बिना भारी घाटा खाए।</em>
+                </p>
+                <div class="grid sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+                    <div class="p-4 bg-slate-900 rounded-xl border border-slate-800">
+                        <span class="text-amber-400 font-bold block mb-1">हाई लिक्विडिटी (शेयर/सोना):</span>
+                        अगर आपने किसी कंपनी का शेयर खरीदा और वह गिरने लगा, तो आप मोबाइल पर एक क्लिक से तुरंत बेचकर बाहर निकल सकते हैं।
+                    </div>
+                    <div class="p-4 bg-slate-900 rounded-xl border border-slate-800">
+                        <span class="text-indigo-400 font-bold block mb-1">कम लिक्विडिटी (रियल एस्टेट/ज़मीन):</span>
+                        अगर आपने कोई गलत प्लॉट या फ्लैट खरीद लिया, तो उसे एक दिन या एक महीने में बेचना संभव नहीं होता। इसलिए ज़मीन-जायदाद में सही वित्तीय ज्ञान होना सबसे ज़्यादा आवश्यक है!
+                    </div>
+                </div>
+            </div>
+
+            <!-- Debt and Taxes -->
+            <h4 class="text-xl font-bold text-white mb-3">कर्ज (Debt) और टैक्स का अनोखा खेल:</h4>
+            <div class="space-y-4 text-slate-300 text-base leading-relaxed">
+                <p>
+                    एक आम भारतीय परिवार में सिखाया जाता है: <em>"कर्ज बुरी बला है, कभी लोन मत लो।"</em> लेकिन यह केवल <strong>बुरे कर्ज (Bad Debt)</strong> के लिए सही है! 
+                </p>
+                <div class="bg-slate-950 p-5 rounded-2xl border-l-4 border-emerald-500">
+                    <div class="text-emerald-400 font-bold mb-1">अच्छा कर्ज (Good Debt) बनाम बुरा कर्ज (Bad Debt):</div>
+                    <p class="text-sm text-slate-300">
+                        • <strong>बुरा कर्ज:</strong> जब आप क्रेडिट कार्ड से आईफोन खरीदते हैं या पर्सनल लोन लेकर पार्टी करते हैं। इसका ब्याज आपको गरीब बनाता है।<br>
+                        • <strong>अच्छा कर्ज:</strong> जब आप बैंक से लोन लेकर ऐसा कमर्शियल कॉम्प्लेक्स या दुकान खरीदते हैं जिसका आने वाला किराया बैंक की किश्त (EMI) चुकाने के बाद भी हर महीने आपकी जेब में ₹25,000 शुद्ध मुनाफा छोड़ देता है! यहाँ बैंक का लोन आपको और अमीर बना रहा है, और सबसे बड़ी बात: <strong>कर्ज पर सरकार कोई आयकर (Income Tax) नहीं लेती!</strong>
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Chapter 6 & 7 -->
+        <article id="ch6" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+                <span class="text-xs font-semibold px-3 py-1 bg-purple-500/10 text-purple-400 border border-purple-500/20 rounded-full">अध्याय 06 & 07</span>
+                <span class="text-xs text-slate-400">दिखावा vs यथार्थ</span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6">
+                दिखावे की अमीरियत (Fake Rich Trap) और कमाई के 3 प्रकार
+            </h3>
+
+            <!-- Fake Rich Callout -->
+            <div class="bg-gradient-to-r from-rose-950/40 to-slate-950 border border-rose-800/40 p-6 rounded-2xl mb-8">
+                <h4 class="text-xl font-bold text-rose-400 mb-3 flex items-center gap-2">
+                    🛍️ 'The Bling Generation' - इंस्टाग्राम पर अमीर, बैंक में फकीर!
+                </h4>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+                    आजकल युवाओं में यह रोग फैल गया है कि ₹50,000 का जूता पहनना है, ₹1,20,000 का मोबाइल ईएमआई पर लेना है और ब्रांडेड कपड़े पहनकर सोशल मीडिया पर रील बनानी है। लेकिन जब उनके बैंक अकाउंट की हकीकत देखें, तो महीने के अंत में ₹5,000 भी नहीं बचते!
+                </p>
+                <div class="bg-slate-900/90 p-4 rounded-xl text-xs sm:text-sm text-slate-300 border border-slate-800">
+                    ⭐ <strong>लेखक का सुनहरा नियम:</strong> <span class="text-amber-300 font-semibold">"मैं ज़िंदगी की हर महंगी कार या लग्ज़री खरीद सकता हूँ, लेकिन अपनी जेब से नहीं—पहले मैं एक ऐसा एसेट बनाऊँगा जिससे होने वाली कमाई मेरी उस लग्ज़री की किस्त चुकाएगी!"</span>
+                </div>
+            </div>
+
+            <!-- 3 Kinds of Income Table -->
+            <h4 class="text-xl font-bold text-amber-400 mb-4">कमाई के तीन प्रकार (Income Streams):</h4>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm border-collapse">
+                    <thead>
+                        <tr class="bg-slate-950 text-slate-300 border-b border-slate-800">
+                            <th class="p-3 font-bold">आय का प्रकार</th>
+                            <th class="p-3 font-bold">यह कैसे मिलती है?</th>
+                            <th class="p-3 font-bold">टैक्स की मार</th>
+                            <th class="p-3 font-bold">भारतीय उदाहरण</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800 text-slate-400">
+                        <tr class="hover:bg-slate-800/40">
+                            <td class="p-3 font-semibold text-rose-400">1. अर्जित आय (Earned Income)</td>
+                            <td class="p-3">8-10 घंटे रोज़ नौकरी करके समय बेचना।</td>
+                            <td class="p-3 text-rose-400 font-bold">सबसे ज़्यादा (~30% तक टैक्स)</td>
+                            <td class="p-3">सैलरीड कर्मचारी का वेतन।</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/40">
+                            <td class="p-3 font-semibold text-yellow-400">2. पोर्टफोलियो आय (Portfolio Income)</td>
+                            <td class="p-3">कम में खरीदकर अधिक में बेचना (Capital Gain)।</td>
+                            <td class="p-3 text-yellow-400 font-bold">मध्यम (10% - 20% LTCG/STCG)</td>
+                            <td class="p-3">शेयर ₹100 में खरीदा और ₹200 में बेच दिया।</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/40">
+                            <td class="p-3 font-semibold text-emerald-400">3. निष्क्रिय आय (Passive Cashflow)</td>
+                            <td class="p-3">बिज़नेस या प्रॉपर्टी खड़ी कर देना, जो सोते हुए भी पैसे दे।</td>
+                            <td class="p-3 text-emerald-400 font-bold">न्यूनतम या 0% (विधिक छूट)</td>
+                            <td class="p-3">मकान का किराया, सॉफ्टवेयर लाइसेंस, बुक रॉयल्टी।</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p class="text-xs text-slate-400 mt-4">
+                *सरकार बिज़नेसमैन और रियल एस्टेट निवेशकों पर इसलिए कम टैक्स लगाती है क्योंकि वे समाज को घर और रोज़गार (Jobs) मुहैया कराते हैं!
+            </p>
+        </article>
+
+        <!-- Chapter 8 -->
+        <article id="ch8" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+                <span class="text-xs font-semibold px-3 py-1 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full">अध्याय 08</span>
+                <span class="text-xs text-slate-400">व्यावसायिक ढांचा</span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6">
+                मोनोपॉली (Monopoly) का खेल और बिज़नेस का 'B-I Triangle'
+            </h3>
+
+            <div class="space-y-5 text-slate-300 text-base leading-relaxed mb-8">
+                <p>
+                    स्कूल हमें सिखाता है कि दूसरे से मदद मांगना या उसके साथ मिलकर काम करना 'चीटिंग' (नकल) है। लेकिन वास्तविक दुनिया में इसे <strong>सहयोग (Cooperation & Teamwork)</strong> कहते हैं। कोई भी बड़ा बिज़नेस अकेला व्यक्ति नहीं चला सकता। उसके पास वकील, चार्टर्ड अकाउंटेंट (CA), सेल्समैन और इंजीनियरों की एक कुशल टीम होती है।
+                </p>
+                <p>
+                    एक सफल और टिकाऊ बिज़नेस खड़ा करने के लिए अमीर डैड ने <strong>'बी-आई ट्रायंगल' (B-I Triangle)</strong> का सिद्धांत दिया, जिसके 8 मुख्य आधार स्तंभ हैं:
+                </p>
+            </div>
+
+            <!-- B-I Triangle Visual Representation -->
+            <div class="bg-slate-950 p-6 sm:p-8 rounded-3xl border border-indigo-500/30">
+                <h4 class="text-lg font-bold text-center text-indigo-300 mb-6">
+                    📐 B-I ट्रायंगल के 8 मजबूत खंभे (अंदर से बाहर तक)
+                </h4>
+                
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                    <div class="p-4 bg-slate-900 rounded-xl border border-slate-800">
+                        <div class="text-2xl mb-1">🎯</div>
+                        <h5 class="font-bold text-white text-sm">1. मिशन (Mission)</h5>
+                        <p class="text-xs text-slate-400 mt-1">आप समाज की कौन सी बड़ी समस्या हल कर रहे हैं?</p>
+                    </div>
+                    <div class="p-4 bg-slate-900 rounded-xl border border-slate-800">
+                        <div class="text-2xl mb-1">🤝</div>
+                        <h5 class="font-bold text-white text-sm">2. टीम (Team)</h5>
+                        <p class="text-xs text-slate-400 mt-1">माहिर लोगों का समूह जो आपसे भी ज़्यादा चतुर हों।</p>
+                    </div>
+                    <div class="p-4 bg-slate-900 rounded-xl border border-slate-800">
+                        <div class="text-2xl mb-1">🧭</div>
+                        <h5 class="font-bold text-white text-sm">3. लीडरशिप (Leadership)</h5>
+                        <p class="text-xs text-slate-400 mt-1">कठिन समय में दिशा न खोने और प्रेरणा देने की क्षमता।</p>
+                    </div>
+                    <div class="p-4 bg-slate-900 rounded-xl border border-slate-800">
+                        <div class="text-2xl mb-1">💰</div>
+                        <h5 class="font-bold text-white text-sm">4. कैशफ्लो (Cash Flow)</h5>
+                        <p class="text-xs text-slate-400 mt-1">पैसे का दैनिक बहाव—कमाई और खर्च का सटीक संतुलन।</p>
+                    </div>
+                    <div class="p-4 bg-slate-900 rounded-xl border border-slate-800">
+                        <div class="text-2xl mb-1">📱</div>
+                        <h5 class="font-bold text-white text-sm">5. कम्युनिकेशन (Communication)</h5>
+                        <p class="text-xs text-slate-400 mt-1">ग्राहकों को अपनी बात समझाने और बेचने (Sales) की कला।</p>
+                    </div>
+                    <div class="p-4 bg-slate-900 rounded-xl border border-slate-800">
+                        <div class="text-2xl mb-1">⚙️</div>
+                        <h5 class="font-bold text-white text-sm">6. सिस्टम (Systems)</h5>
+                        <p class="text-xs text-slate-400 mt-1">प्रक्रिया जो आपके बिना भी स्वचालित काम करे।</p>
+                    </div>
+                    <div class="p-4 bg-slate-900 rounded-xl border border-slate-800">
+                        <div class="text-2xl mb-1">⚖️</div>
+                        <h5 class="font-bold text-white text-sm">7. लीगल (Legal)</h5>
+                        <p class="text-xs text-slate-400 mt-1">कंपनी का रजिस्ट्रेशन, ट्रेडमार्क, पेटेंट और अनुबंध।</p>
+                    </div>
+                    <div class="p-4 bg-slate-900 rounded-xl border border-slate-800 border-amber-500/40">
+                        <div class="text-2xl mb-1">📦</div>
+                        <h5 class="font-bold text-amber-400 text-sm">8. प्रोडक्ट (Product)</h5>
+                        <p class="text-xs text-slate-400 mt-1">सामान या सेवा। याद रखें: यह इस सूची में सबसे अंत में है!</p>
+                    </div>
+                </div>
+
+                <p class="text-xs text-slate-400 mt-6 text-center italic">
+                    *ज्यादातर नए स्टार्टअप इसलिए डूबते हैं क्योंकि वे सिर्फ 'प्रोडक्ट' पर ध्यान देते हैं और बाकी के 7 आधार स्तंभों को नजरअंदाज कर देते हैं!
+                </p>
+            </div>
+        </article>
+
+        <!-- Chapter 9 & 10 -->
+        <article id="ch9" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+                <span class="text-xs font-semibold px-3 py-1 bg-amber-500/10 text-amber-400 border border-amber-500/20 rounded-full">अध्याय 09 & 10</span>
+                <span class="text-xs text-slate-400">निवेश का रहस्य</span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6">
+                अनंत रिटर्न (Infinite Return) और मंदी (Crash) में छिपे सोने के अवसर
+            </h3>
+
+            <div class="space-y-6 text-slate-300 text-base leading-relaxed">
+                <div class="bg-slate-950 p-6 rounded-2xl border border-amber-500/30">
+                    <h4 class="text-xl font-bold text-amber-400 mb-3">
+                        ♾️ अनंत रिटर्न (Infinite Return) क्या होता है?
+                    </h4>
+                    <p class="mb-4">
+                        कभी यह मत कहिए कि <em>"मेरे पास पैसे नहीं हैं, मैं यह नहीं खरीद सकता।"</em> इसके बजाय अपने मस्तिष्क को सक्रिय करें: <em>"मैं ऐसा क्या करूँ जिससे मैं इसे खरीद सकूँ?"</em>
+                    </p>
+                    <p class="text-sm bg-slate-900 p-4 rounded-xl border border-slate-800 text-slate-300">
+                        <strong>सरल उदाहरण:</strong> मान लीजिए आपने एक दुकान खरीदने के लिए बैंक और निवेशकों से 100% फंड की व्यवस्था की। उस दुकान से हर महीने ₹30,000 किराया आता है, जिसमें से ₹20,000 बैंक लोन की ईएमआई में जाता है और ₹10,000 शुद्ध बचत हर माह आपकी जेब में आती है। 
+                        चूँकि इस पूरे सौदे में आपका <strong>खुद का ₹0</strong> लगा था, इसलिए आपका रिटर्न गणितीय रूप से <strong>अनंत (Infinite)</strong> है! जब आप दिमाग से एसेट बनाते हैं (जैसे किताब लिखना, यूट्यूब चैनल बनाना या सॉफ्टवेयर कोड करना), तो वह आपको जीवनभर अनंत रिटर्न देता है।
+                    </p>
+                </div>
+
+                <!-- Stock Market vs Crash -->
+                <div class="grid md:grid-cols-2 gap-6 pt-2">
+                    <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800">
+                        <h5 class="text-lg font-bold text-red-400 mb-2 flex items-center gap-2">🎰 शेयर बाज़ार: जब वह कैसीनो बन जाए</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            जब लोग बिना किसी कंपनी के फंडामेंटल समझे केवल दूसरों को देखकर सट्टेबाज़ी करते हैं या हाई-फ्रीक्वेंसी ट्रेडिंग वाले एल्गो के सामने अपनी जीवन भर की पूंजी दांव पर लगाते हैं, तो वे जुए के जाल में फँस जाते हैं।
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800">
+                        <h5 class="text-lg font-bold text-emerald-400 mb-2 flex items-center gap-2">🏷️ मार्केट क्रैश = सबसे बड़ी सेल!</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            जब मॉल में आपके मनपसंद ब्रांड के कपड़ों पर 60% की 'सेल' लगती है, तो आप रोते नहीं बल्कि खुश होते हैं! लेकिन जब शेयर या रियल एस्टेट का बाज़ार गिरता है, तो आम लोग डरकर भाग जाते हैं। समझदार निवेशक क्रैश के समय बेहतरीन संपत्तियों को कौड़ियों के भाव खरीदकर अरबपति बनते हैं।
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Chapter 11 & 12 -->
+        <article id="ch11" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+                <span class="text-xs font-semibold px-3 py-1 bg-teal-500/10 text-teal-400 border border-teal-500/20 rounded-full">अध्याय 11 & 12</span>
+                <span class="text-xs text-slate-400">दृष्टिकोण एवं नेतृत्व</span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6">
+                10X सोच, स्मार्टफोन की असली शक्ति और संकट काल का लीडर
+            </h3>
+
+            <div class="space-y-6 text-slate-300 text-base leading-relaxed">
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800">
+                        <h4 class="text-lg font-bold text-amber-400 mb-2">🚀 2X बनाम 10X की सोच</h4>
+                        <p class="text-sm text-slate-300">
+                            जब आप केवल अपनी आय 'दोगुनी' (2X) करने की सोचते हैं, तो आप सिर्फ ज़्यादा मेहनत और ओवरटाइम करने लगते हैं, जिससे आप बीमार पड़ जाते हैं। लेकिन जब आप <strong>10X (दस गुना बड़ा)</strong> लक्ष्य तय करते हैं, तो आपका दिमाग नए मॉडल, तकनीक और सिस्टम की खोज करने पर विवश हो जाता है!
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800">
+                        <h4 class="text-lg font-bold text-teal-400 mb-2">📱 आपके हाथ में इतिहास का सबसे बड़ा हथियार</h4>
+                        <p class="text-sm text-slate-300">
+                            कक्षा 9 के एक छात्र के पास जो स्मार्टफोन और 5G इंटरनेट है, वह 30 साल पहले अमेरिका के राष्ट्रपति के पास भी नहीं था! इसका उपयोग केवल रील्स देखने या गेम खेलने के लिए न करें—कोडिंग सीखें, कंटेंट बनाएँ, वित्तीय किताबें पढ़ें और दुनिया भर से ग्राहक खोजें।
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Wartime Leader and Giving Back -->
+                <div class="bg-slate-950 p-6 rounded-2xl border-l-4 border-amber-500">
+                    <h4 class="text-lg font-bold text-white mb-2">
+                        युद्धकालीन लीडर (Wartime Leader) बनें & बुककीपिंग (Bookkeeping) सीखें
+                    </h4>
+                    <p class="text-sm text-slate-300 leading-relaxed mb-3">
+                        एक अच्छा लीडर वह नहीं होता जो सिर्फ तब मुस्कुराए जब सब कुछ बढ़िया चल रहा हो। असली लीडर संकट के समय अपनी टीम का हौसला बढ़ाता है और समाधान निकालता है। साथ ही, बिज़नेस में सिर्फ 'आइडिया' नहीं चलता—आपको अपने एक-एक रुपये का हिसाब-किताब (Bookkeeping & Numbers) रखना आना चाहिए।
+                    </p>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        <strong>चैरिटी और ट्रस्ट (Giving Back):</strong> धन कमाने का अंतिम उद्देश्य केवल खुद उपभोग करना नहीं है, बल्कि समाज, पर्यावरण और बेजुबान जानवरों के लिए धर्मार्थ ट्रस्ट (Charitable Trust) बनाकर दुनिया को एक बेहतर जगह बनाना है।
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Interactive Asset vs Liability Game/Tool -->
+        <section class="bg-gradient-to-tr from-slate-900 via-slate-950 to-slate-900 border-2 border-amber-500/40 rounded-3xl p-6 sm:p-10 shadow-2xl">
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <span class="text-xs bg-amber-500/20 text-amber-300 px-3 py-1 rounded-full border border-amber-500/30 uppercase tracking-wider font-bold">
+                    🎮 इंटरएक्टिव गतिविधि
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-black text-white mt-3">
+                    पहचानिए: यह एसेट (Asset) है या लायबिलिटी (Liability)?
+                </h3>
+                <p class="text-slate-400 text-sm mt-2">
+                    नीचे दी गई किसी भी चीज़ पर क्लिक करें और देखें कि असली वित्तीय दुनिया में वह आपकी जेब में पैसा डालती है या निकालती है!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-sm mb-6" id="itemsContainer">
+                <button onclick="checkItem('car')" class="p-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl border border-slate-700 text-center font-medium transition">
+                    🚗 ईएमआई पर ली गई कार
+                </button>
+                <button onclick="checkItem('rentalShop')" class="p-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl border border-slate-700 text-center font-medium transition">
+                    🏪 किराये पर दी गई दुकान
+                </button>
+                <button onclick="checkItem('iphone')" class="p-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl border border-slate-700 text-center font-medium transition">
+                    📱 लोन पर नया आईफोन
+                </button>
+                <button onclick="checkItem('gold')" class="p-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl border border-slate-700 text-center font-medium transition">
+                    🪙 असली सोने का सिक्का
+                </button>
+                <button onclick="checkItem('youtube')" class="p-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl border border-slate-700 text-center font-medium transition">
+                    🎥 मोनेटाइज्ड यूट्यूब चैनल
+                </button>
+                <button onclick="checkItem('creditCard')" class="p-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl border border-slate-700 text-center font-medium transition">
+                    💳 क्रेडिट कार्ड का पेंडिंग बिल
+                </button>
+                <button onclick="checkItem('book')" class="p-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl border border-slate-700 text-center font-medium transition">
+                    📚 खुद की लिखी बेस्टसेलर किताब
+                </button>
+                <button onclick="checkItem('bigHouse')" class="p-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl border border-slate-700 text-center font-medium transition">
+                    🏠 30 साल के होम लोन पर बंगला
+                </button>
+            </div>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="p-5 rounded-2xl bg-slate-950 border border-slate-800 text-center transition-all min-h-[100px] flex items-center justify-center">
+                <p class="text-slate-400 text-sm italic">ऊपर किसी भी विकल्प पर क्लिक करके उसका वित्तीय सच जानें...</p>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quick-quiz" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
+            <div class="border-b border-slate-800 pb-4 mb-6">
+                <span class="text-xs font-semibold px-3 py-1 bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 rounded-full">कक्षा 9 परीक्षा</span>
+                <h3 class="text-2xl sm:text-3xl font-bold text-white mt-3">
+                    🧠 कक्षा 9 वित्तीय समझ स्वयं-मूल्यांकन क्विज़
+                </h3>
+                <p class="text-slate-400 text-sm mt-1">जांचिए कि आपने इस महाग्रंथ से कितना सीखा!</p>
+            </div>
+
+            <!-- Questions -->
+            <div class="space-y-6" id="quizQuestions">
+                <!-- Q1 -->
+                <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800">
+                    <p class="font-bold text-white text-base mb-3">
+                        प्र. 1: इनमें से किसे लेखक ने 'भगवान का पैसा' (God's Money) कहा है?
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-2 text-sm">
+                        <button onclick="answerQuiz(1, false, this)" class="quiz-btn p-3 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 text-left text-slate-300">A. 2000 या 500 रुपये का नया नोट</button>
+                        <button onclick="answerQuiz(1, true, this)" class="quiz-btn p-3 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 text-left text-slate-300">B. असली सोना और चाँदी</button>
+                        <button onclick="answerQuiz(1, false, this)" class="quiz-btn p-3 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 text-left text-slate-300">C. बैंक का फिक्स डिपॉजिट (FD)</button>
+                        <button onclick="answerQuiz(1, false, this)" class="quiz-btn p-3 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 text-left text-slate-300">D. क्रिप्टोकरेंसी</button>
+                    </div>
+                    <div id="q1-expl" class="hidden mt-3 text-xs p-3 rounded-lg"></div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800">
+                    <p class="font-bold text-white text-base mb-3">
+                        प्र. 2: कैशफ्लो क्वाड्रेंट में 'I' का सही अर्थ क्या है?
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-2 text-sm">
+                        <button onclick="answerQuiz(2, false, this)" class="quiz-btn p-3 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 text-left text-slate-300">A. इंटरनेट यूजर (Internet User)</button>
+                        <button onclick="answerQuiz(2, false, this)" class="quiz-btn p-3 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 text-left text-slate-300">B. इनकम टैक्स ऑफिसर</button>
+                        <button onclick="answerQuiz(2, true, this)" class="quiz-btn p-3 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 text-left text-slate-300">C. निवेशक (Investor - जिसका पैसा उसके लिए काम करे)</button>
+                        <button onclick="answerQuiz(2, false, this)" class="quiz-btn p-3 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 text-left text-slate-300">D. इंस्पेक्टर (Inspector)</button>
+                    </div>
+                    <div id="q2-expl" class="hidden mt-3 text-xs p-3 rounded-lg"></div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800">
+                    <p class="font-bold text-white text-base mb-3">
+                        प्र. 3: बी-आई ट्रायंगल (B-I Triangle) में लेखक के अनुसार सबसे कम महत्वपूर्ण खंभा कौन सा है?
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-2 text-sm">
+                        <button onclick="answerQuiz(3, false, this)" class="quiz-btn p-3 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 text-left text-slate-300">A. मिशन (Mission)</button>
+                        <button onclick="answerQuiz(3, false, this)" class="quiz-btn p-3 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 text-left text-slate-300">B. टीम (Team)</button>
+                        <button onclick="answerQuiz(3, true, this)" class="quiz-btn p-3 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 text-left text-slate-300">C. केवल अकेला प्रोडक्ट (Product)</button>
+                        <button onclick="answerQuiz(3, false, this)" class="quiz-btn p-3 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 text-left text-slate-300">D. कैशफ्लो (Cash Flow)</button>
+                    </div>
+                    <div id="q3-expl" class="hidden mt-3 text-xs p-3 rounded-lg"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Student Manifesto -->
+        <section class="bg-gradient-to-r from-amber-500/10 via-slate-900 to-amber-500/10 border border-amber-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl">
+            <h3 class="text-2xl sm:text-3xl font-black text-amber-400 mb-4 text-center">
+                📜 9वीं कक्षा के छात्र के 5 स्वर्णिम नियम (Manifesto)
+            </h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm mt-6">
+                <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
+                    <span class="text-amber-400 font-bold block mb-1">1. सीखने के लिए काम करें:</span>
+                    पैसे के पीछे भागने के बजाय बेचने की कला (Sales), बातचीत (Communication) और कोडिंग सीखें।
+                </div>
+                <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
+                    <span class="text-amber-400 font-bold block mb-1">2. दिखावे से दूर रहें:</span>
+                    जब तक आपके एसेट्स आपकी लग्ज़री का खर्च न उठा सकें, तब तक दिखावे में एक रुपया भी बर्बाद न करें।
+                </div>
+                <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
+                    <span class="text-amber-400 font-bold block mb-1">3. गलतियों से मत डरिए:</span>
+                    स्कूल में गलतियों पर लाल पेन चलता है, लेकिन जीवन में गलतियाँ ही सफलता की सबसे बड़ी सीढ़ी हैं।
+                </div>
+                <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
+                    <span class="text-amber-400 font-bold block mb-1">4. फोन को एसेट बनाएँ:</span>
+                    स्मार्टफोन को मनोरंजन का खिलौना नहीं, बल्कि वैश्विक ज्ञान और व्यवसाय का टूल बनाएँ।
+                </div>
+                <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
+                    <span class="text-amber-400 font-bold block mb-1">5. 10X सोचें और हिसाब रखें:</span>
+                    अपने हर खर्च का हिसाब रखें और जीवन में असंभव लगने वाले बड़े लक्ष्य तय करें।
+                </div>
+                <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
+                    <span class="text-amber-400 font-bold block mb-1">6. समाज को वापस लौटाएँ:</span>
+                    सच्ची अमीरी वही है जो समाज, देश और ज़रूरतमंदों के कल्याण के काम आ सके।
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-20 border-t border-slate-800 bg-slate-950 py-10 px-4 text-center text-slate-500 text-xs sm:text-sm">
+        <p class="max-w-xl mx-auto mb-2 text-slate-400">
+            कक्षा 9 और भारतीय छात्रों के लिए ज्ञानवर्धक रूपांतरण • आर्थिक रूप से सजग भारत के निर्माण की दिशा में एक विनम्र प्रयास।
+        </p>
+        <p>© 2026 वित्तीय साक्षरता महाग्रंथ | ज्ञान ही असली धन है।</p>
+    </footer>
+
+    <!-- Interactive Logic Script -->
+    <script>
+        // Reading Progress Bar
+        window.onscroll = function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+
+        // Asset vs Liability Item Explanations
+        const itemDatabase = {
+            car: {
+                type: "लायबिलिटी (Liability) 📉",
+                color: "text-rose-400",
+                bg: "bg-rose-950/40",
+                border: "border-rose-500/40",
+                desc: "ईएमआई पर ली गई कार हर महीने किस्त, पेट्रोल, सर्विस और इंश्योरेंस के रूप में आपकी जेब से पैसे निकालती है। यह एसेट नहीं है!"
+            },
+            rentalShop: {
+                type: "सच्चा एसेट (Asset) 📈",
+                color: "text-emerald-400",
+                bg: "bg-emerald-950/40",
+                border: "border-emerald-500/40",
+                desc: "किराये पर दी गई दुकान हर महीने बिना आपके काम किए आपकी जेब में किराया (Passive Cashflow) डालती है।"
+            },
+            iphone: {
+                type: "लायबिलिटी (Liability) 📉",
+                color: "text-rose-400",
+                bg: "bg-rose-950/40",
+                border: "border-rose-500/40",
+                desc: "लोन पर लिया गया महंगा फोन केवल दिखावे के लिए हर महीने ईएमआई कटवाता है और समय के साथ इसका मूल्य भी घटता जाता है।"
+            },
+            gold: {
+                type: "भगवान का पैसा / एसेट 🥇",
+                color: "text-amber-400",
+                bg: "bg-amber-950/40",
+                border: "border-amber-500/40",
+                desc: "सोना सदियों से अपनी क्रय शक्ति बनाए हुए है और महंगाई (Inflation) के विरुद्ध सबसे सुरक्षित ढाल है।"
+            },
+            youtube: {
+                type: "डिजिटल एसेट (Digital Asset) 🎥",
+                color: "text-emerald-400",
+                bg: "bg-emerald-950/40",
+                border: "border-emerald-500/40",
+                desc: "एक बार बनाया गया उपयोगी वीडियो साल दर साल आपको विज्ञापन और एफिलिएट से रॉयल्टी कमाकर दे सकता है।"
+            },
+            creditCard: {
+                type: "अत्यधिक खतरनाक लायबिलिटी ⚠️",
+                color: "text-rose-500",
+                bg: "bg-rose-950/50",
+                border: "border-rose-500",
+                desc: "क्रेडिट कार्ड का बकाया बिल 36% से 42% तक सालाना ब्याज लेता है। यह इंसान को हमेशा के लिए कर्जदार बना सकता है!"
+            },
+            book: {
+                type: "अनंत रिटर्न वाला एसेट 📚",
+                color: "text-emerald-400",
+                bg: "bg-emerald-950/40",
+                border: "border-emerald-500/40",
+                desc: "किताब लिखने में सिर्फ एक बार समय लगता है, लेकिन उसकी रॉयल्टी जीवनभर बिना काम किए आती रहती है।"
+            },
+            bigHouse: {
+                type: "पारंपरिक भ्रम (लायबिलिटी) 🏠",
+                color: "text-orange-400",
+                bg: "bg-orange-950/40",
+                border: "border-orange-500/40",
+                desc: "जब तक आप खुद उस घर में रह रहे हैं और 30 साल की बैंक ईएमआई, मेंटेनेंस व प्रॉपर्टी टैक्स भर रहे हैं, वह एसेट नहीं बल्कि लायबिलिटी है।"
+            }
+        };
+
+        function checkItem(key) {
+            const data = itemDatabase[key];
+            const box = document.getElementById("resultBox");
+            box.className = `p-5 rounded-2xl ${data.bg} border ${data.border} text-center transition-all animate-fade-in`;
+            box.innerHTML = `
+                <div>
+                    <span class="font-bold text-lg ${data.color} block mb-1">${data.type}</span>
+                    <p class="text-sm text-slate-200 leading-relaxed max-w-xl mx-auto">${data.desc}</p>
+                </div>
+            `;
+        }
+
+        // Quiz Logic
+        const quizExplanations = {
+            1: "शाबाश! लेखक के अनुसार सोना और चाँदी ही असली 'God's Money' हैं क्योंकि इन्हें सरकारें मनमर्जी से नहीं छाप सकतीं।",
+            2: "बिल्कुल सही! 'I' का मतलब Investor (निवेशक) है, जहाँ पैसा आपके लिए 24 घंटे काम करता है।",
+            3: "सटीक उत्तर! अमीर डैड के अनुसार सबसे ज़्यादा ध्यान मिशन, टीम और कैशफ्लो पर होना चाहिए; सिर्फ अकेला प्रोडक्ट बिज़नेस को नहीं चला सकता।"
+        };
+
+        function answerQuiz(qNum, isCorrect, btnElement) {
+            const parent = btnElement.parentElement;
+            const buttons = parent.querySelectorAll('.quiz-btn');
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                btn.classList.add('opacity-50', 'cursor-not-allowed');
+            });
+
+            const explDiv = document.getElementById(`q${qNum}-expl`);
+            explDiv.classList.remove('hidden');
+
+            if (isCorrect) {
+                btnElement.classList.remove('opacity-50');
+                btnElement.classList.add('bg-emerald-900', 'border-emerald-500', 'text-white');
+                explDiv.className = "mt-3 text-xs p-3 rounded-lg bg-emerald-950/80 border border-emerald-500/40 text-emerald-300";
+                explDiv.innerHTML = `✅ <strong>सही उत्तर!</strong> ${quizExplanations[qNum]}`;
+            } else {
+                btnElement.classList.remove('opacity-50');
+                btnElement.classList.add('bg-rose-900', 'border-rose-500', 'text-white');
+                explDiv.className = "mt-3 text-xs p-3 rounded-lg bg-rose-950/80 border border-rose-500/40 text-rose-300";
+                explDiv.innerHTML = `❌ <strong>गलत उत्तर!</strong> पुनः विचार करें। सही तथ्य: ${quizExplanations[qNum]}`;
+            }
+        }
+    </script>
+</body>
+</html>
+
+
