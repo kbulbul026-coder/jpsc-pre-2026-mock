@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕰️ अपना Chronotype खोजें | Interactive Self-Assessment</title>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0284c7;
+            --border: #334155;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Devanagari", sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px 12px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding: 20px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .notice {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: 10px 14px;
+            margin: 16px 0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #fde68a;
+        }
+
+        .section-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+        }
+
+        .question-block {
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .options-list {
+            display: grid;
+            gap: 8px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 10px 14px;
+            background: #0f172a;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option-label:hover {
+            border-color: var(--accent);
+            background: #1a2639;
+        }
+
+        .option-label input[type="radio"] {
+            margin-right: 12px;
+            accent-color: var(--accent);
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: var(--accent);
+            color: #0f172a;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin: 20px 0;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .result-box {
+            display: none;
+            background: var(--bg-card);
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .score-display {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 10px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        /* Tracker Table */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 14px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: #0f172a;
+            color: var(--accent);
+        }
+
+        input[type="number"], input[type="text"] {
+            width: 100%;
+            background: #0f172a;
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 6px;
+            border-radius: 4px;
+        }
+
+        input[type="number"]:focus, input[type="text"]:focus {
+            border-color: var(--accent);
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🕰️ अपना Chronotype खोजें</h1>
+        <p>आपकी जैविक घड़ी किस समय सबसे अधिक सक्रिय रहती है?</p>
+        <div class="notice">
+            ⚠️ <strong>महत्वपूर्ण:</strong> यह कोई clinical diagnosis नहीं है। यह आपकी नींद और ऊर्जा पैटर्न का स्व-मूल्यांकन है।
+        </div>
+    </header>
+
+    <form id="quizForm">
+        <!-- भाग 1 -->
+        <div class="section-card">
+            <h2 class="section-title">भाग 1 — अपनी प्राकृतिक नींद को समझें</h2>
+            
+            <div class="question-block">
+                <p class="question-text">Q1. यदि अगले दिन कोई काम/अलार्म न हो, तो आप सामान्यतः किस समय सोने लगते हैं?</p>
+                <div class="options-list">
+                    <label class="option-label"><input type="radio" name="q1" value="1" required> A. 9:00–10:00 PM</label>
+                    <label class="option-label"><input type="radio" name="q1" value="2"> B. 10:00–11:00 PM</label>
+                    <label class="option-label"><input type="radio" name="q1" value="3"> C. 11:00 PM–12:00 AM</label>
+                    <label class="option-label"><input type="radio" name="q1" value="4"> D. 12:00–1:00 AM</label>
+                    <label class="option-label"><input type="radio" name="q1" value="5"> E. 1:00 AM के बाद</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p class="question-text">Q2. यदि आपको बिना अलार्म के उठना हो, तो आप सामान्यतः किस समय जागेंगे?</p>
+                <div class="options-list">
+                    <label class="option-label"><input type="radio" name="q2" value="1" required> A. 5:00–6:00 AM</label>
+                    <label class="option-label"><input type="radio" name="q2" value="2"> B. 6:00–7:00 AM</label>
+                    <label class="option-label"><input type="radio" name="q2" value="3"> C. 7:00–8:00 AM</label>
+                    <label class="option-label"><input type="radio" name="q2" value="4"> D. 8:00–9:00 AM</label>
+                    <label class="option-label"><input type="radio" name="q2" value="5"> E. 9:00 AM के बाद</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p class="question-text">Q3. सुबह उठने के बाद आप कितनी जल्दी mentally alert महसूस करते हैं?</p>
+                <div class="options-list">
+                    <label class="option-label"><input type="radio" name="q3" value="1" required> A. लगभग तुरंत</label>
+                    <label class="option-label"><input type="radio" name="q3" value="2"> B. 15–30 मिनट में</label>
+                    <label class="option-label"><input type="radio" name="q3" value="3"> C. 30–60 मिनट में</label>
+                    <label class="option-label"><input type="radio" name="q3" value="4"> D. 1–2 घंटे में</label>
+                    <label class="option-label"><input type="radio" name="q3" value="5"> E. 2 घंटे से अधिक समय लगता है</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- भाग 2 -->
+        <div class="section-card">
+            <h2 class="section-title">भाग 2 — दिन के दौरान आपकी ऊर्जा</h2>
+            
+            <div class="question-block">
+                <p class="question-text">Q4. कठिन पढ़ाई/analytical काम के लिए आपको कौन-सा समय सबसे अच्छा लगता है?</p>
+                <div class="options-list">
+                    <label class="option-label"><input type="radio" name="q4" value="1" required> A. सुबह 6–9 बजे</label>
+                    <label class="option-label"><input type="radio" name="q4" value="2"> B. सुबह 9–11 बजे</label>
+                    <label class="option-label"><input type="radio" name="q4" value="3"> C. दोपहर 12–3 बजे</label>
+                    <label class="option-label"><input type="radio" name="q4" value="4"> D. शाम 4–7 बजे</label>
+                    <label class="option-label"><input type="radio" name="q4" value="5"> E. रात 8 बजे के बाद</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p class="question-text">Q5. शाम 8–10 बजे के आसपास आपकी मानसिक स्थिति सामान्यतः कैसी होती है?</p>
+                <div class="options-list">
+                    <label class="option-label"><input type="radio" name="q5" value="1" required> A. बहुत नींद आती है</label>
+                    <label class="option-label"><input type="radio" name="q5" value="2"> B. धीरे-धीरे energy कम होती है</label>
+                    <label class="option-label"><input type="radio" name="q5" value="3"> C. सामान्य</label>
+                    <label class="option-label"><input type="radio" name="q5" value="4"> D. काफी alert</label>
+                    <label class="option-label"><input type="radio" name="q5" value="5"> E. बहुत productive / creative</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p class="question-text">Q6. सुबह 6–8 बजे आपको कैसा महसूस होता है?</p>
+                <div class="options-list">
+                    <label class="option-label"><input type="radio" name="q6" value="1" required> A. बहुत energetic</label>
+                    <label class="option-label"><input type="radio" name="q6" value="2"> B. अच्छा</label>
+                    <label class="option-label"><input type="radio" name="q6" value="3"> C. सामान्य</label>
+                    <label class="option-label"><input type="radio" name="q6" value="4"> D. सुस्ती रहती है</label>
+                    <label class="option-label"><input type="radio" name="q6" value="5"> E. बहुत ज्यादा नींद/सुस्ती</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- भाग 3 -->
+        <div class="section-card">
+            <h2 class="section-title">भाग 3 — आपकी प्राकृतिक preference</h2>
+            
+            <div class="question-block">
+                <p class="question-text">Q7. महत्वपूर्ण project पर काम करने के लिए पूरा दिन स्वतंत्र हो, तो कब शुरू करेंगे?</p>
+                <div class="options-list">
+                    <label class="option-label"><input type="radio" name="q7" value="1" required> A. 5–6 AM</label>
+                    <label class="option-label"><input type="radio" name="q7" value="2"> B. 6–8 AM</label>
+                    <label class="option-label"><input type="radio" name="q7" value="3"> C. 8–10 AM</label>
+                    <label class="option-label"><input type="radio" name="q7" value="4"> D. 10 AM–12 PM</label>
+                    <label class="option-label"><input type="radio" name="q7" value="5"> E. दोपहर/शाम</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p class="question-text">Q8. छुट्टी के दिन आपका sleep schedule कितना बदलता है?</p>
+                <div class="options-list">
+                    <label class="option-label"><input type="radio" name="q8" value="1" required> A. लगभग बिल्कुल नहीं</label>
+                    <label class="option-label"><input type="radio" name="q8" value="2"> B. 30 मिनट तक</label>
+                    <label class="option-label"><input type="radio" name="q8" value="3"> C. 1 घंटा</label>
+                    <label class="option-label"><input type="radio" name="q8" value="4"> D. 1–2 घंटे</label>
+                    <label class="option-label"><input type="radio" name="q8" value="5"> E. 2 घंटे से अधिक</label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p class="question-text">Q9. रात में सोने का समय आने पर आपकी natural sleepiness कैसी होती है?</p>
+                <div class="options-list">
+                    <label class="option-label"><input type="radio" name="q9" value="1" required> A. बहुत जल्दी नींद आ जाती है</label>
+                    <label class="option-label"><input type="radio" name="q9" value="2"> B. आसानी से नींद आती है</label>
+                    <label class="option-label"><input type="radio" name="q9" value="3"> C. सामान्य</label>
+                    <label class="option-label"><input type="radio" name="q9" value="4"> D. देर तक नींद नहीं आती</label>
+                    <label class="option-label"><input type="radio" name="q9" value="5"> E. रात में काफी देर तक बहुत alert रहता हूँ</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- भाग 4 -->
+        <div class="section-card">
+            <h2 class="section-title">भाग 4 — “अगर कोई मजबूरी न हो”</h2>
+            
+            <div class="question-block">
+                <p class="question-text">Q10. 7 दिनों तक कोई अलार्म/बाध्यता न हो, तो कौन-सा Schedule सबसे सहज लगेगा?</p>
+                <div class="options-list">
+                    <label class="option-label"><input type="radio" name="q10" value="1" required> A. 9:30 PM → 5:30 AM</label>
+                    <label class="option-label"><input type="radio" name="q10" value="2"> B. 10:30 PM → 6:30 AM</label>
+                    <label class="option-label"><input type="radio" name="q10" value="3"> C. 11:30 PM → 7:30 AM</label>
+                    <label class="option-label"><input type="radio" name="q10" value="4"> D. 12:30 AM → 8:30 AM</label>
+                    <label class="option-label"><input type="radio" name="q10" value="5"> E. 1:30 AM → 9:30 AM या बाद में</label>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn">📊 अपना Chronotype Score निकालें</button>
+    </form>
+
+    <!-- Result Box -->
+    <div id="resultBox" class="result-box">
+        <h2>आपका मूल्यांकन परिणाम</h2>
+        <div class="score-display" id="totalScore">-- / 50</div>
+        <div id="typeBadge" class="badge">--</div>
+        <p id="typeDesc" style="color: var(--text-muted); font-size: 1rem;"></p>
+        <div style="margin-top: 16px; padding: 12px; background: #0f172a; border-radius: 8px; text-align: left;">
+            <h4 style="color: var(--accent); margin-bottom: 6px;">💡 कार्यप्रणाली सुझाव:</h4>
+            <p id="typeAdvice" style="font-size: 0.95rem;"></p>
+        </div>
+    </div>
+
+    <!-- 14-Day Tracker Tool -->
+    <div class="section-card">
+        <h2 class="section-title">🧪 14-Day Chronotype Tracker Log</h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">
+            1 से 10 के पैमाने पर अपनी दैनिक स्थिति ट्रैक करें। यह डेटा आपके ब्राउज़र में ऑटो-सेव रहता है।
+        </p>
+        
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>समय Window</th>
+                        <th>Energy (1-10)</th>
+                        <th>Focus (1-10)</th>
+                        <th>Sleepiness (1-10)</th>
+                    </tr>
+                </thead>
+                <tbody id="trackerBody">
+                    <!-- Dynamic JS Rows -->
+                </tbody>
+            </table>
+        </div>
+        <button class="btn" onclick="saveTrackerData()" style="margin-top: 14px; padding: 10px; font-size: 0.95rem;">💾 Log Save करें</button>
+    </div>
+</div>
+
+<script>
+    // Quiz Calculation
+    document.getElementById('quizForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        let score = 0;
+        for (let i = 1; i <= 10; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) {
+                score += parseInt(selected.value);
+            }
+        }
+
+        const resBox = document.getElementById('resultBox');
+        const scoreDisp = document.getElementById('totalScore');
+        const badge = document.getElementById('typeBadge');
+        const desc = document.getElementById('typeDesc');
+        const advice = document.getElementById('typeAdvice');
+
+        scoreDisp.textContent = score + " / 50";
+        resBox.style.display = 'block';
+
+        if (score <= 20) {
+            badge.textContent = "🟢 Morning-Oriented (Lark)";
+            badge.style.background = "#14532d";
+            badge.style.color = "#86efac";
+            desc.textContent = "आपकी प्राकृतिक जैविक लय सुबह जल्दी सक्रिय होने की है।";
+            advice.textContent = "सुबह 6 से 10 बजे का समय सबसे कठिन Deep Work, analytical tasks और जटिल प्लानिंग के लिए आरक्षित रखें।";
+        } else if (score <= 30) {
+            badge.textContent = "🟡 Intermediate / Balanced (Bear)";
+            badge.style.background = "#78350f";
+            badge.style.color = "#fde68a";
+            desc.textContent = "आपकी ऊर्जा दिन के मध्य भाग में और सामाजिक शेड्यूल के सबसे अनुकूल रहती है।";
+            advice.textContent = "सुबह 9:30 से 1:30 बजे के बीच कठिन कार्य शेड्यूल करें। दोपहर के लंच के बाद 2-4 PM हल्का एडमिन वर्क रखें।";
+        } else if (score <= 40) {
+            badge.textContent = "🟠 Evening-Oriented (Owl)";
+            badge.style.background = "#7c2d12";
+            badge.style.color = "#fdba74";
+            desc.textContent = "आपकी ऊर्जा दिन के दूसरे पहर में सक्रिय होती है। सुबह कम ऊर्जा महसूस होना सामान्य है।";
+            advice.textContent = "जटिल कार्य दोपहर 3:00 से 7:00 बजे या शाम को शेड्यूल करें। सुबह की शुरुआत हल्की वॉक या लो-मेंटल लोड वाले कामों से करें।";
+        } else {
+            badge.textContent = "🔴 Strongly Evening-Oriented";
+            badge.style.background = "#7f1d1d";
+            badge.style.color = "#fca5a5";
+            desc.textContent = "आप रात के समय सबसे अधिक सतर्क और उत्पादक महसूस करते हैं।";
+            advice.textContent = "यदि कार्य वातावरण अनुमति दे, तो अपनी मुख्य प्रोडक्टिविटी विंडो शाम 5 से रात 10 बजे के आसपास रखें। Social Jetlag से बचने के लिए नियमित सोने का समय तय करें।";
+        }
+
+        resBox.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Tracker Rows Generator
+    const slots = [
+        "6–8 AM", "8–10 AM", "10 AM–12 PM", 
+        "12–2 PM", "2–4 PM", "4–6 PM", 
+        "6–8 PM", "8–10 PM"
+    ];
+
+    const tbody = document.getElementById('trackerBody');
+    slots.forEach((slot, idx) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td><strong>${slot}</strong></td>
+            <td><input type="number" min="1" max="10" id="e_${idx}" placeholder="1-10"></td>
+            <td><input type="number" min="1" max="10" id="f_${idx}" placeholder="1-10"></td>
+            <td><input type="number" min="1" max="10" id="s_${idx}" placeholder="1-10"></td>
+        `;
+        tbody.appendChild(tr);
+    });
+
+    function saveTrackerData() {
+        const data = {};
+        slots.forEach((_, idx) => {
+            data[`e_${idx}`] = document.getElementById(`e_${idx}`).value;
+            data[`f_${idx}`] = document.getElementById(`f_${idx}`).value;
+            data[`s_${idx}`] = document.getElementById(`s_${idx}`).value;
+        });
+        localStorage.setItem('chrono_tracker_data', JSON.stringify(data));
+        alert('डेटा सुरक्षित कर लिया गया है!');
+    }
+
+    // Load Saved Tracker Data
+    window.addEventListener('load', () => {
+        const saved = localStorage.getItem('chrono_tracker_data');
+        if (saved) {
+            const data = JSON.parse(saved);
+            Object.keys(data).forEach(id => {
+                const input = document.getElementById(id);
+                if (input) input.value = data[id];
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
+
