@@ -1,265 +1,181 @@
 <!DOCTYPE html>
 <html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gender in Indian History | M.A. History Semester-2 | Paper VIII</title>
-    <style>
-        :root {
-            --primary: #1a365d;
-            --secondary: #2c5282;
-            --accent: #c53030;
-            --bg: #f7fafc;
-            --card-bg: #ffffff;
-            --text: #2d3748;
-            --muted: #4a5568;
-            --border: #e2e8f0;
-            --gold: #d69e2e;
-        }
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gender in Indian History | M.A. History Semester-2 | Paper VIII</title>
+<style>
+/* ============ Gender in Indian History - Modern Study Theme ============ */
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+:root{
+  --ink:#1f2937; --muted:#5b6472; --paper:#f8f6f1; --card:#ffffff;
+  --maroon:#7f1d2e; --maroon-d:#5c1220; --gold:#c99a2e; --gold-soft:#f7ead0;
+  --teal:#0f766e; --line:#e8e2d5; --radius:16px;
+  --shadow-sm:0 1px 3px rgba(31,41,55,.08),0 4px 14px rgba(31,41,55,.06);
+  --shadow-lg:0 10px 40px rgba(31,41,55,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{font-family:'Noto Serif Devanagari','Hind',Georgia,serif;background:var(--paper);color:var(--ink);font-size:17px;line-height:1.85;-webkit-font-smoothing:antialiased}
 
-        body {
-            font-family: 'Noto Serif Devanagari', 'Georgia', 'Times New Roman', serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            font-size: 17px;
-        }
+/* ---------- top bar ---------- */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:1200;background:rgba(92,18,32,.96);color:#fff;box-shadow:0 2px 16px rgba(0,0,0,.25)}
+.topbar-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:.9rem;padding:.65rem 1.1rem}
+.menu-btn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:1.05rem;padding:.45rem .9rem;border-radius:10px;cursor:pointer;display:flex;align-items:center;gap:.5rem;transition:.2s;font-family:'Hind',sans-serif}
+.menu-btn:hover{background:rgba(255,255,255,.22)}
+.topbar-title{font-family:'Hind',sans-serif;font-weight:600;font-size:1rem;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topbar-title small{opacity:.75;font-weight:400;display:block;font-size:.72rem;letter-spacing:.6px}
+.progress-track{height:3px;background:rgba(255,255,255,.15)}
+.progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--gold),#f5d67b)}
 
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: #fff;
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
+/* ---------- drawer ---------- */
+.overlay{position:fixed;inset:0;background:rgba(20,10,12,.55);opacity:0;pointer-events:none;transition:opacity .3s;z-index:1290}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;left:0;height:100vh;width:min(340px,86vw);background:#fffdf9;z-index:1300;transform:translateX(-105%);transition:transform .35s cubic-bezier(.32,.72,.35,1);box-shadow:var(--shadow-lg);display:flex;flex-direction:column;border-right:1px solid var(--line)}
+.drawer.open{transform:translateX(0)}
+.drawer-head{padding:1.3rem 1.4rem;background:linear-gradient(135deg,var(--maroon) 0%,var(--maroon-d) 100%);color:#fff;position:relative}
+.drawer-head h2{font-family:'Hind',sans-serif;font-size:1.15rem;margin:0;display:flex;align-items:center;gap:.5rem}
+.drawer-head p{font-size:.82rem;opacity:.85;margin-top:.25rem;font-family:'Hind',sans-serif}
+.drawer-close{position:absolute;top:.8rem;right:1rem;background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer;line-height:1}
+.drawer-body{overflow-y:auto;padding:1rem}
+.drawer .index-card{border:none;box-shadow:none;background:none;padding:0;margin:0;border-top:none}
+.drawer .index-card h2{margin-bottom:.8rem}
+.drawer .index-list a{border:1px solid var(--line);background:#fff;margin-bottom:.55rem;border-radius:12px}
+.drawer .index-list a:hover,.drawer .index-list a.active{background:var(--maroon);border-color:var(--maroon);color:#fff}
+.drawer .index-list a:hover::before,.drawer .index-list a.active::before{color:var(--gold)}
 
-        .header .university {
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            opacity: 0.9;
-            margin-bottom: 0.4rem;
-            font-weight: 500;
-        }
+/* ---------- hero header ---------- */
+.hero{margin-top:64px;background:radial-gradient(1200px 500px at 50% -10%,#a1263b 0%,var(--maroon-d) 60%,#3f0d18 100%);color:#fff;text-align:center;padding:3.6rem 1.5rem 3rem;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:820px;margin:0 auto}
+.hero .kicker{font-family:'Hind',sans-serif;font-size:.8rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.hero h1{font-family:'Hind',sans-serif;font-size:clamp(1.7rem,4.5vw,2.6rem);font-weight:700;line-height:1.35;margin-bottom:.8rem}
+.hero .meta{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin:1.1rem 0}
+.hero .meta span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:.28rem .95rem;border-radius:999px;font-size:.82rem;font-family:'Hind',sans-serif}
+.hero .desc{font-size:1rem;opacity:.92;line-height:1.8;max-width:720px;margin:0 auto}
 
-        .header .semester {
-            font-size: 0.95rem;
-            opacity: 0.85;
-            margin-bottom: 1rem;
-        }
+/* ---------- layout ---------- */
+.wrap{max-width:1000px;margin:0 auto;padding:2.4rem 1.25rem 4rem}
 
-        .header h1 {
-            font-size: clamp(1.6rem, 4vw, 2.2rem);
-            font-weight: 700;
-            margin-bottom: 0.6rem;
-            letter-spacing: 0.5px;
-        }
+/* ---------- index card ---------- */
+.index-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:2rem 1.9rem;margin-bottom:2.4rem;border:1px solid var(--line);border-top:5px solid var(--maroon)}
+.index-card h2{font-family:'Hind',sans-serif;font-size:1.4rem;color:var(--maroon);margin-bottom:1.2rem;padding-bottom:.7rem;border-bottom:2px solid var(--line);display:flex;align-items:center;gap:.6rem}
+.index-card h2::before{content:"\1F4D1";font-size:1.25rem}
+.index-list{list-style:none;counter-reset:unit-counter}
+.index-list li{counter-increment:unit-counter;margin-bottom:.55rem}
+.index-list a{display:flex;align-items:flex-start;text-decoration:none;color:var(--ink);padding:.75rem 1rem;border-radius:10px;border:1px solid transparent;transition:.22s;background:#fbf9f5}
+.index-list a::before{content:"\0907\0915\093E\0908 " counter(unit-counter,devanagari);font-weight:700;color:var(--maroon);min-width:4.2rem;margin-right:.8rem;font-size:.92rem;font-family:'Hind',sans-serif;flex-shrink:0}
+.index-list a:hover{background:#fdf3e3;border-color:var(--gold);transform:translateX(5px)}
+.unit-title{flex:1;font-size:1rem;line-height:1.55}
 
-        .header .paper-code {
-            display: inline-block;
-            background: rgba(255,255,255,0.15);
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
+/* ---------- unit sections ---------- */
+.unit-section{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:2.6rem 2.1rem;margin-bottom:2.4rem;border:1px solid var(--line);position:relative;overflow:hidden}
+.unit-section::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--maroon),var(--gold))}
+.unit-section h2{font-family:'Hind',sans-serif;font-size:1.5rem;color:var(--maroon-d);margin-bottom:1.4rem;padding-bottom:.7rem;border-bottom:2px solid var(--line);line-height:1.45}
+.unit-section h3{font-family:'Hind',sans-serif;font-size:1.22rem;color:#0f4c5c;margin:1.9rem 0 .8rem;padding-left:.7rem;border-left:4px solid var(--gold);line-height:1.5}
+.unit-section h4{font-family:'Hind',sans-serif;font-size:1.05rem;color:var(--ink);margin:1.3rem 0 .55rem;font-weight:600}
+.unit-section p{margin-bottom:1rem;text-align:justify}
+.unit-section ul,.unit-section ol{margin:.8rem 0 1.2rem 1.4rem;padding-left:.4rem}
+.unit-section li{margin-bottom:.5rem;text-align:justify}
+.unit-section li::marker{color:var(--maroon);font-weight:700}
 
-        .header .desc {
-            max-width: 720px;
-            margin: 0 auto;
-            font-size: 0.95rem;
-            opacity: 0.92;
-            line-height: 1.6;
-        }
+/* ---------- note / highlight / quote cards ---------- */
+.note-card{background:linear-gradient(135deg,#fff8e6 0%,#fdf3dd 100%);border:1px solid var(--gold);border-radius:12px;padding:1.35rem 1.5rem;margin:1.6rem 0;position:relative;box-shadow:var(--shadow-sm)}
+.note-card::before{content:"\1F4CC \092E\0942\0932 \0905\0935\0927\093E\0930\0923\093E";position:absolute;top:-.75rem;left:1rem;background:var(--maroon);color:#fff;font-size:.78rem;font-family:'Hind',sans-serif;padding:.2rem .8rem;border-radius:999px;font-weight:600;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.note-card p{margin:.35rem 0 0;font-size:1rem}
+.highlight-box{background:#fef6f6;border:1px solid #f3b4b4;border-left:6px solid var(--maroon);border-radius:10px;padding:1.3rem 1.5rem;margin:1.8rem 0;box-shadow:var(--shadow-sm)}
+.highlight-box h4{color:var(--maroon);margin:0 0 .6rem;font-family:'Hind',sans-serif}
+.highlight-box p{margin-bottom:.7rem}
+.highlight-box ul{margin:.4rem 0 0 1.2rem}
+.quote-box{background:#f6f2fa;border-left:5px solid #7c3aed;border-radius:0 12px 12px 0;padding:1.1rem 1.35rem;margin:1.25rem 0;font-style:italic;color:#4c1d95;box-shadow:var(--shadow-sm)}
+.quote-box cite{display:block;margin-top:.55rem;font-style:normal;font-size:.88rem;color:#6d28d9;text-align:right;font-family:'Hind',sans-serif}
 
-        /* Container */
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 2rem 1.25rem;
-        }
+/* ---------- tables ---------- */
+.table-wrap{overflow-x:auto;margin:1.5rem 0;border-radius:12px;box-shadow:var(--shadow-sm)}
+.unit-section table{width:100%;border-collapse:collapse;font-size:.93rem;min-width:560px;margin:0}
+.unit-section thead th{background:linear-gradient(135deg,var(--maroon),var(--maroon-d));color:#fff;padding:.85rem 1rem;text-align:left;font-weight:600;font-family:'Hind',sans-serif;white-space:nowrap}
+.unit-section thead th:first-child{border-top-left-radius:12px}.unit-section thead th:last-child{border-top-right-radius:12px}
+.unit-section td{padding:.75rem 1rem;border-bottom:1px solid var(--line);vertical-align:top}
+.unit-section tbody tr:nth-child(even){background:#faf7f0}
+.unit-section tbody tr:hover{background:#fdf3e3}
 
-        /* Master Index Card */
-        .index-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            padding: 2rem 1.75rem;
-            margin-bottom: 2.5rem;
-            border-top: 5px solid var(--accent);
-        }
+/* ---------- footer ---------- */
+.footer{background:linear-gradient(160deg,#2c0f16 0%,var(--maroon-d) 100%);color:#e9e2d4;padding:3rem 1.5rem 2rem;margin-top:1rem}
+.footer-inner{max-width:1000px;margin:0 auto}
+.footer h3{font-family:'Hind',sans-serif;font-size:1.25rem;color:#fff;margin-bottom:1.3rem;padding-bottom:.6rem;border-bottom:1px solid rgba(255,255,255,.18);display:flex;align-items:center;gap:.5rem}
+.readings-list{list-style:none;columns:1;gap:1.5rem}
+@media(min-width:640px){.readings-list{columns:2}}
+.readings-list li{break-inside:avoid;margin-bottom:.7rem;padding-left:1.2rem;position:relative;font-size:.92rem;line-height:1.6}
+.readings-list li::before{content:"\25AA";position:absolute;left:0;color:var(--gold);font-size:1rem}
+.footer-bottom{text-align:center;margin-top:2rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.15);font-size:.83rem;opacity:.8}
 
-        .index-card h2 {
-            font-size: 1.45rem;
-            color: var(--primary);
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.6rem;
-            border-bottom: 2px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+/* ---------- floating button ---------- */
+#toTop{position:fixed;right:1.1rem;bottom:1.4rem;width:50px;height:50px;border:none;cursor:pointer;border-radius:50%;background:var(--maroon);color:#fff;font-size:1.3rem;z-index:1100;box-shadow:0 6px 18px rgba(0,0,0,.25);transition:.25s;opacity:0;pointer-events:none;transform:translateY(12px)}
+#toTop.show{opacity:1;pointer-events:auto;transform:none}
+#toTop:hover{background:var(--maroon-d)}
 
-        .index-card h2::before {
-            content: "📑";
-            font-size: 1.3rem;
-        }
+/* ---------- responsive / print ---------- */
+@media(max-width:640px){
+  body{font-size:16px}
+  .unit-section{padding:1.8rem 1.15rem}
+  .index-card{padding:1.6rem 1.1rem}
+  .index-list a::before{min-width:auto;margin-right:.5rem}
+  .hero{padding:2.6rem 1rem 2.2rem}
+  .topbar-title small{display:none}
+}
+@media print{
+  .topbar,.drawer,.overlay,#toTop{display:none}
+  .hero{margin-top:0;background:#fff;color:#000}
+  .hero::after{display:none}
+  .hero .meta span{border-color:#ccc;color:#000}
+  .unit-section,.index-card{box-shadow:none}
+}
 
-        .index-list {
-            list-style: none;
-            counter-reset: unit-counter;
-        }
-
-        .index-list li {
-            counter-increment: unit-counter;
-            margin-bottom: 0.65rem;
-        }
-
-        .index-list a {
-            display: flex;
-            align-items: flex-start;
-            text-decoration: none;
-            color: var(--text);
-            padding: 0.7rem 1rem;
-            border-radius: 8px;
-            transition: all 0.25s ease;
-            border: 1px solid transparent;
-        }
-
-        .index-list a:hover {
-            background: #edf2f7;
-            border-color: var(--border);
-            color: var(--primary);
-            transform: translateX(4px);
-        }
-
-        .index-list a::before {
-            content: "इकाई " counter(unit-counter, devanagari);
-            font-weight: 700;
-            color: var(--accent);
-            min-width: 4.5rem;
-            margin-right: 0.75rem;
-            font-size: 0.95rem;
-        }
-
-        .index-list .unit-title {
-            flex: 1;
-            font-size: 1.02rem;
-        }
-
-        /* Placeholder note */
-        .placeholder-note {
-            background: #fffaf0;
-            border: 2px dashed #ed8936;
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            color: #744210;
-            font-size: 0.95rem;
-            margin: 2rem 0;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--primary);
-            color: #e2e8f0;
-            padding: 2.5rem 1.5rem 2rem;
-            margin-top: 3rem;
-        }
-
-        .footer-inner {
-            max-width: 960px;
-            margin: 0 auto;
-        }
-
-        .footer h3 {
-            font-size: 1.25rem;
-            color: #fff;
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .readings-list {
-            list-style: none;
-            columns: 1;
-            gap: 1.5rem;
-        }
-
-        @media (min-width: 640px) {
-            .readings-list {
-                columns: 2;
-            }
-        }
-
-        .readings-list li {
-            break-inside: avoid;
-            margin-bottom: 0.7rem;
-            padding-left: 1.1rem;
-            position: relative;
-            font-size: 0.92rem;
-            line-height: 1.5;
-        }
-
-        .readings-list li::before {
-            content: "▪";
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 1.25rem;
-            border-top: 1px solid rgba(255,255,255,0.15);
-            font-size: 0.85rem;
-            opacity: 0.8;
-        }
-
-        /* Responsive tweaks */
-        @media (max-width: 600px) {
-            .header {
-                padding: 1.75rem 1rem;
-            }
-            .index-card {
-                padding: 1.5rem 1.1rem;
-            }
-            .index-list a {
-                flex-direction: column;
-                gap: 0.25rem;
-            }
-            .index-list a::before {
-                margin-right: 0;
-            }
-        }
-    </style>
+</style>
 </head>
 <body>
 
-    <!-- ========== HEADER ========== -->
-    <header class="header">
-        <div class="university">SKMU दुमका</div>
-        <div class="semester">स्नातकोत्तर पाठ्यक्रम (M.A. History) • सेमेस्टर–2 • सी.बी.सी.एस.</div>
-        <div class="paper-code">Paper VIII • Core Paper</div>
-        <h1>भारतीय इतिहास में लिंग (Gender in Indian History)</h1>
-        <p class="desc">
-            यह पेपर महिलाओं के ऐतिहासिक अनुभवों, स्रोतों, धर्म, शिक्षा, कानूनी स्थिति, सुधार आंदोलनों, राजनीतिक भूमिका एवं आदिवासी महिलाओं की स्थिति का गहन अध्ययन प्रस्तुत करता है। 
-            स्नातकोत्तर एवं प्रतियोगी परीक्षाओं (UGC-NET / UPSC) के विद्यार्थियों के लिए प्रामाणिक एवं परीक्षा-उपयोगी सामग्री।
-        </p>
-    </header>
+<!-- ======= STICKY TOP BAR ======= -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <button class="menu-btn" onclick="openNav()" aria-label="विषय-सूची खोलें">&#9776; <span>इंडेक्स</span></button>
+    <div class="topbar-title">भारतीय इतिहास में लिंग <small>M.A. HISTORY &bull; SEMESTER-2 &bull; PAPER VIII</small></div>
+  </div>
+  <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+</div>
 
-    <!-- ========== MAIN CONTAINER ========== -->
-    <main class="container">
-
-        <!-- Master Index -->
-        <section class="index-card">
+<!-- ======= DRAWER NAV ======= -->
+<div class="overlay" id="drawerOverlay" onclick="closeNav()"></div>
+<aside class="drawer" id="sideDrawer" aria-label="विषय-सूची">
+  <div class="drawer-head">
+    <button class="drawer-close" onclick="closeNav()" aria-label="बंद करें">&times;</button>
+    <h2>&#128196; मास्टर विषय-सूची</h2>
+    <p>नौ इकाइयाँ &bull; परीक्षा-उपयोगी सामग्री</p>
+  </div>
+  <div class="drawer-body">
+<section class="index-card" id="master-index">
             <h2>मास्टर विषय-सूची (Master Index)</h2>
             <ul class="index-list">
                 <li>
@@ -309,123 +225,56 @@
                 </li>
             </ul>
         </section>
+  </div>
+</aside>
 
-        <!-- PLACEHOLDER FOR NEXT CONTENT -->
-        <!-- YAHAN AGLA CODE PASTE KAREIN (Unit 1) -->
+<!-- ======= HERO ======= -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">SKMU दुमका &bull; स्नातकोत्तर पाठ्यक्रम</div>
+    <h1>भारतीय इतिहास में लिंग<br>(Gender in Indian History)</h1>
+    <div class="meta">
+      <span>सेमेस्टर&ndash;2 &bull; सी.बी.सी.एस.</span>
+      <span>Paper VIII &bull; Core Paper</span>
+      <span>UGC-NET / UPSC हेतु उपयोगी</span>
+    </div>
+    <p class="desc">यह पेपर महिलाओं के ऐतिहासिक अनुभवों, स्रोतों, धर्म, शिक्षा, कानूनी स्थिति, सुधार आंदोलनों, राजनीतिक भूमिका एवं आदिवासी महिलाओं की स्थिति का गहन अध्ययन प्रस्तुत करता है &mdash; स्नातकोत्तर एवं प्रतियोगी परीक्षाओं के विद्यार्थियों के लिए प्रामाणिक एवं परीक्षा-उपयोगी सामग्री।</p>
+  </div>
+</header>
+
+<!-- ======= CONTENT ======= -->
+<main class="wrap">
 
 
-<style>
-    /* Unit-specific styles (paste into <head> if not already present) */
-    .unit-section {
-        background: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 4px 18px rgba(0,0,0,0.07);
-        padding: 2.25rem 1.75rem;
-        margin-bottom: 2.5rem;
-        border-left: 6px solid #c53030;
-    }
-    .unit-section h2 {
-        font-size: 1.55rem;
-        color: #1a365d;
-        margin-bottom: 1.5rem;
-        padding-bottom: 0.6rem;
-        border-bottom: 2px solid #e2e8f0;
-        line-height: 1.4;
-    }
-    .unit-section h3 {
-        font-size: 1.25rem;
-        color: #2c5282;
-        margin: 1.75rem 0 0.85rem;
-        padding-left: 0.6rem;
-        border-left: 4px solid #d69e2e;
-    }
-    .unit-section h4 {
-        font-size: 1.08rem;
-        color: #2d3748;
-        margin: 1.3rem 0 0.6rem;
-        font-weight: 600;
-    }
-    .unit-section p {
-        margin-bottom: 1rem;
-        text-align: justify;
-        line-height: 1.75;
-    }
-    .note-card {
-        background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
-        border: 1px solid #90cdf4;
-        border-radius: 10px;
-        padding: 1.25rem 1.4rem;
-        margin: 1.5rem 0;
-        position: relative;
-    }
-    .note-card::before {
-        content: "📌 मूल अवधारणा";
-        position: absolute;
-        top: -0.7rem;
-        left: 1rem;
-        background: #2b6cb0;
-        color: #fff;
-        font-size: 0.78rem;
-        padding: 0.15rem 0.7rem;
-        border-radius: 12px;
-        font-weight: 600;
-    }
-    .note-card p {
-        margin: 0.4rem 0 0;
-        font-size: 1.02rem;
-    }
-    .highlight-box {
-        background: #fff5f5;
-        border: 1px solid #feb2b2;
-        border-left: 5px solid #c53030;
-        border-radius: 8px;
-        padding: 1.2rem 1.4rem;
-        margin: 1.75rem 0;
-    }
-    .highlight-box h4 {
-        color: #c53030;
-        margin-top: 0;
-        margin-bottom: 0.6rem;
-    }
-    .unit-section table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 1.4rem 0;
-        font-size: 0.95rem;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    .unit-section th {
-        background: #1a365d;
-        color: #fff;
-        padding: 0.75rem 0.9rem;
-        text-align: left;
-        font-weight: 600;
-    }
-    .unit-section td {
-        padding: 0.7rem 0.9rem;
-        border-bottom: 1px solid #e2e8f0;
-        vertical-align: top;
-    }
-    .unit-section tr:nth-child(even) {
-        background: #f7fafc;
-    }
-    .quote-box {
-        background: #faf5ff;
-        border-left: 4px solid #805ad5;
-        padding: 1rem 1.25rem;
-        margin: 1.2rem 0;
-        font-style: italic;
-        color: #44337a;
-    }
-    .quote-box cite {
-        display: block;
-        margin-top: 0.5rem;
-        font-style: normal;
-        font-size: 0.9rem;
-        color: #6b46c1;
-        text-align: right;
-    }
-</style>
+    
+    <header id ="index-card"  class="header">
+        <div class="university">SKMU दुमका</div>
+        <div class="semester">स्नातकोत्तर पाठ्यक्रम (M.A. History) • सेमेस्टर–2 • सी.बी.सी.एस.</div>
+        <div class="paper-code">Paper VIII • Core Paper</div>
+        <h1>भारतीय इतिहास में लिंग (Gender in Indian History)</h1>
+        <p class="desc">
+            यह पेपर महिलाओं के ऐतिहासिक अनुभवों, स्रोतों, धर्म, शिक्षा, कानूनी स्थिति, सुधार आंदोलनों, राजनीतिक भूमिका एवं आदिवासी महिलाओं की स्थिति का गहन अध्ययन प्रस्तुत करता है। 
+            स्नातकोत्तर एवं प्रतियोगी परीक्षाओं (UGC-NET / UPSC) के विद्यार्थियों के लिए प्रामाणिक एवं परीक्षा-उपयोगी सामग्री।
+        </p>
+    </header>
+
+    
+    <main class="container">
+
+
+  <!-- 1. बैकग्राउंड को धुंधला करने वाला पर्दा (Overlay) -->
+  
+
+  <!-- 2. साइड ड्रॉवर (Side Drawer Container) -->
+ 
+
+
+
+        
+        
+
+
+
 
 <div id="unit1" class="unit-section">
     <h2>इकाई–1 : महिलाओं के इतिहास के स्रोत : अभिलेखीय एवं गैर-अभिलेखीय</h2>
@@ -463,7 +312,7 @@
         अभिलेखीय स्रोत वे दस्तावेज हैं जो किसी संस्था, सरकार या न्यायालय द्वारा व्यवस्थित रूप से संरक्षित किए गए हैं। ये अपेक्षाकृत अधिक प्रामाणिक माने जाते हैं, परंतु इनमें भी पितृसत्तात्मक पूर्वाग्रह मौजूद रहता है।
     </p>
     <h4>3.1 सरकारी अभिलेख एवं प्रशासनिक दस्तावेज</h4>
-    <ul style="margin: 0.8rem 0 1rem 1.5rem;">
+    <ul>
         <li>जनगणना रिपोर्ट (Census Reports) — 1872 से प्रारंभ, महिलाओं की साक्षरता, वैवाहिक स्थिति, व्यवसाय एवं स्वास्थ्य संबंधी आँकड़े।</li>
         <li>गजेटियर (District Gazetteers) — जिला स्तर पर महिलाओं की सामाजिक स्थिति, रीति-रिवाज एवं सुधार-आंदोलनों का वर्णन।</li>
         <li>कोर्ट रिकॉर्ड एवं फौजदारी/दीवानी मुकदमे — दहेज, तलाक, उत्तराधिकार, व्यभिचार एवं सती संबंधी मामले।</li>
@@ -484,7 +333,7 @@
         ये स्रोत पारंपरिक अभिलेखागारों के बाहर स्थित हैं और महिलाओं के अनुभव को अधिक जीवंत एवं बहुआयामी बनाते हैं।
     </p>
     <h4>4.1 साहित्यिक स्रोत</h4>
-    <ul style="margin: 0.8rem 0 1rem 1.5rem;">
+    <ul>
         <li><strong>प्राचीन</strong> — ऋग्वेद की स्त्रियाँ (लोपामुद्रा, गार्गी, मैत्रेयी), उपनिषद, स्मृतियाँ (मनुस्मृति, याज्ञवल्क्य स्मृति), बौद्ध जातक कथाएँ, जैन आगम।</li>
         <li><strong>मध्यकालीन</strong> — भक्ति कविताएँ (मीराबाई, अक्कमहादेवी, लाल देद), सूफी साहित्य, दरबारी इतिहास (अकबरनामा में महिलाओं का उल्लेख)।</li>
         <li><strong>आधुनिक</strong> — उपन्यास, कहानियाँ एवं आत्मकथाएँ (रबींद्रनाथ टैगोर, शरत्चंद्र, महादेवी वर्मा, अमृता प्रीतम)।</li>
@@ -516,7 +365,7 @@
     </p>
 
     <h3>6. तुलनात्मक तालिका : अभिलेखीय बनाम गैर-अभिलेखीय स्रोत</h3>
-    <table>
+    <div class="table-wrap"><table>
         <thead>
             <tr>
                 <th>पहलू</th>
@@ -556,7 +405,7 @@
                 <td>काल निर्धारण एवं सामान्यीकरण कठिन</td>
             </tr>
         </tbody>
-    </table>
+    </table></div>
 
     <div class="highlight-box">
         <h4>आलोचनात्मक मूल्यांकन / सीमाएँ</h4>
@@ -579,9 +428,11 @@
     <p>
         महिलाओं के इतिहास के स्रोतों का अध्ययन यह स्पष्ट करता है कि इतिहास केवल ‘क्या हुआ’ का वर्णन नहीं, बल्कि ‘किसकी दृष्टि से देखा गया’ का प्रश्न भी है। अभिलेखीय स्रोत हमें संस्थागत परिवर्तनों एवं राज्य की नीति का ज्ञान कराते हैं, जबकि गैर-अभिलेखीय स्रोत हमें महिलाओं के अनुभव, प्रतिरोध एवं दैनिक संघर्ष की गहराई प्रदान करते हैं। दोनों को एक-दूसरे के पूरक के रूप में देखने पर ही भारतीय समाज में जेंडर-संबंधों का संतुलित चित्र उभरता है। आगामी इकाइयों में हम देखेंगे कि इन्हीं स्रोतों के आधार पर इतिहासकारों ने धर्म, शिक्षा, कानून, सुधार आंदोलनों एवं राजनीतिक भूमिका में महिलाओं की स्थिति का पुनर्निर्माण किया है। स्रोत-समस्या का समाधान केवल नई सामग्री खोजने में नहीं, बल्कि पुरानी सामग्री को नए प्रश्नों के साथ पढ़ने में निहित है — यही जेंडर-इतिहास की सबसे महत्वपूर्ण पद्धतिगत उपलब्धि है।
     </p>
+<p><a href="#index-card">↑ सूची पर वापस जाएँ</a></p>
+
 </div>
 
-<!-- YAHAN AGLA CODE PASTE KAREIN (Unit 2) -->
+
 <div id="unit2" class="unit-section">
     <h2>इकाई–2 : गैर-अभिलेखीय स्रोत (Non-Archival Sources) – महिलाओं के इतिहास का पुनर्निर्माण</h2>
 
@@ -616,7 +467,7 @@
     <p>
         साहित्य महिलाओं की आंतरिक दुनिया का सबसे समृद्ध स्रोत है।
     </p>
-    <ul style="margin: 0.8rem 0 1rem 1.5rem;">
+    <ul>
         <li><strong>वैदिक एवं उत्तर-वैदिक साहित्य</strong> — ऋग्वेद की स्त्रियाँ (लोपामुद्रा, अपाला, घोषा), बृहदारण्यक उपनिषद में गार्गी-याज्ञवल्क्य संवाद, मनुस्मृति एवं याज्ञवल्क्य स्मृति में स्त्री-धर्म के निर्देश।</li>
         <li><strong>बौद्ध एवं जैन साहित्य</strong> — थेरीगाथा (Therigatha) में भिक्षुणियों की आत्मकथात्मक गाथाएँ, जातक कथाएँ, जैन आगम ग्रंथ।</li>
         <li><strong>भक्ति साहित्य</strong> — मीराबाई, अक्कमहादेवी, लाल देद, आंडाल, बहिणाबाई की रचनाएँ। ये स्त्रियाँ पितृसत्ता के विरुद्ध अपनी आवाज को काव्य के माध्यम से दर्ज करती हैं।</li>
@@ -658,7 +509,7 @@
     </div>
 
     <h3>5. तुलनात्मक तालिका : विभिन्न गैर-अभिलेखीय स्रोतों की विशेषताएँ</h3>
-    <table>
+    <div class="table-wrap"><table>
         <thead>
             <tr>
                 <th>स्रोत प्रकार</th>
@@ -699,7 +550,7 @@
                 <td>सांस्कृतिक पूर्वाग्रह एवं सतही अवलोकन</td>
             </tr>
         </tbody>
-    </table>
+    </table></div>
 
     <div class="highlight-box">
         <h4>आलोचनात्मक मूल्यांकन / सीमाएँ</h4>
@@ -722,9 +573,11 @@
     <p>
         गैर-अभिलेखीय स्रोत महिलाओं के इतिहास को केवल पूरक नहीं बनाते, बल्कि उसे मूल रूप से पुनर्परिभाषित करते हैं। वे यह सिद्ध करते हैं कि इतिहास केवल राज्य की घटनाओं का नहीं, बल्कि घर, शरीर, भावना एवं प्रतिरोध का भी है। मीराबाई का नृत्य, अक्कमहादेवी का विद्रोह, थेरीगाथा की गाथाएँ एवं अनगिनत लोकगीत मिलकर एक वैकल्पिक ऐतिहासिक कथा का निर्माण करते हैं — जिसमें महिलाएँ केवल पीड़ित नहीं, बल्कि सक्रिय कर्ता भी हैं। आगामी इकाइयों में हम देखेंगे कि इन्हीं स्रोतों के आधार पर धर्म, शिक्षा, कानून एवं राजनीतिक क्षेत्र में महिलाओं की स्थिति का विश्लेषण कैसे किया गया है। गैर-अभिलेखीय स्रोतों की सबसे बड़ी देन यह है कि उन्होंने इतिहास को ‘ऊपर से’ नहीं, ‘नीचे से’ और ‘अंदर से’ देखने का मार्ग प्रशस्त किया है।
     </p>
+<p><a href="#index-card">↑ सूची पर वापस जाएँ</a></p>
+
 </div>
 
-<!-- YAHAN AGLA CODE PASTE KAREIN (Unit 3) -->
+
 
 <div id="unit3" class="unit-section">
     <h2>इकाई–3 : धर्म में महिलाओं का चित्रण : ब्राह्मणवादी, जैन, बौद्ध, इस्लाम एवं ईसाई धर्म</h2>
@@ -760,7 +613,7 @@
     <p>
         वैदिक काल में स्त्रियों की अपेक्षाकृत बेहतर स्थिति थी (लोपामुद्रा, गार्गी, मैत्रेयी)। परंतु उत्तर-वैदिक काल एवं स्मृति-ग्रंथों (विशेषकर मनुस्मृति) में स्थिति में तीव्र गिरावट आई।
     </p>
-    <ul style="margin: 0.8rem 0 1rem 1.5rem;">
+    <ul>
         <li>मनुस्मृति में स्त्री को स्वतंत्रता से वंचित माना गया — “पिता रक्षति कौमारे, भर्ता रक्षति यौवने…”।</li>
         <li>सती, बाल-विवाह, विधवा-अविवाह एवं पर्दा प्रथा को धर्मसम्मत ठहराया गया।</li>
         <li>स्त्री का धर्म ‘पति-सेवा’ एवं पुत्र-प्राप्ति तक सीमित कर दिया गया।</li>
@@ -806,7 +659,7 @@
     </div>
 
     <h3>5. तुलनात्मक तालिका : विभिन्न धर्मों में महिलाओं की स्थिति</h3>
-    <table>
+    <div class="table-wrap"><table>
         <thead>
             <tr>
                 <th>पहलू</th>
@@ -853,7 +706,7 @@
                 <td>पंडिता रमाबाई</td>
             </tr>
         </tbody>
-    </table>
+    </table></div>
 
     <div class="highlight-box">
         <h4>आलोचनात्मक मूल्यांकन / सीमाएँ</h4>
@@ -876,9 +729,11 @@
     <p>
         धर्म में महिलाओं का चित्रण एक जटिल एवं बहुपरती प्रक्रिया है। यह एक साथ उत्पीड़न एवं सशक्तिकरण दोनों का स्रोत रहा है। ब्राह्मणवादी परंपरा ने स्त्री को जाति की शुद्धता का प्रतीक बनाकर कठोर नियंत्रण स्थापित किया; बौद्ध-जैन परंपराओं ने आध्यात्मिक द्वार खोले परंतु मठीय पदानुक्रम में उन्हें अधीन रखा; इस्लाम ने कानूनी अधिकार दिए परंतु सामाजिक व्याख्याओं ने उन्हें सीमित किया; तथा ईसाई धर्म ने शिक्षा का मार्ग खोला परंतु सांस्कृतिक वर्चस्व भी थोपा। नारीवादी इतिहास-लेखन की सबसे बड़ी उपलब्धि यह रही है कि उसने धार्मिक ग्रंथों को पवित्र मानकर नहीं, बल्कि जेंडर-सत्ता के दस्तावेज के रूप में पढ़ना सिखाया। आगामी इकाइयों में हम देखेंगे कि शिक्षा, कानून एवं सुधार आंदोलनों ने इन धार्मिक चित्रणों को कैसे चुनौती दी और महिलाओं के लिए नए सामाजिक-राजनीतिक अवसर कैसे सृजित किए।
     </p>
+<p><a href="#index-card">↑ सूची पर वापस जाएँ</a></p>
+
 </div>
 
-<!-- YAHAN AGLA CODE PASTE KAREIN (Unit 4) -->
+
 <div id="unit4" class="unit-section">
     <h2>इकाई–4 : महिलाएँ और शिक्षा : प्राचीन, मध्यकालीन, औपनिवेशिक एवं उत्तर-औपनिवेशिक काल</h2>
 
@@ -910,7 +765,7 @@
     <h3>3. कालक्रम के अनुसार महिलाओं की शिक्षा</h3>
 
     <h4>3.1 प्राचीन काल</h4>
-    <ul style="margin: 0.8rem 0 1rem 1.5rem;">
+    <ul>
         <li><strong>वैदिक काल</strong> — लोपामुद्रा, गार्गी, मैत्रेयी, विश्ववारा जैसी विदुषी स्त्रियाँ। उपनयन संस्कार स्त्रियों के लिए भी प्रचलित था। वे वेद, उपनिषद एवं दर्शन का अध्ययन करती थीं।</li>
         <li><strong>उत्तर-वैदिक एवं स्मृति काल</strong> — मनुस्मृति एवं अन्य स्मृतियों ने स्त्री-शिक्षा को निरुत्साहित किया। बाल-विवाह एवं पर्दा ने शिक्षा के अवसर समाप्त कर दिए।</li>
         <li><strong>बौद्ध एवं जैन काल</strong> — भिक्षुणी संघ एवं आर्यिकाओं के माध्यम से स्त्रियों को शिक्षा एवं आध्यात्मिक ज्ञान का अवसर मिला। थेरीगाथा इसका प्रमाण है।</li>
@@ -926,7 +781,7 @@
     <p>
         आधुनिक स्त्री-शिक्षा का वास्तविक आरंभ औपनिवेशिक काल में हुआ।
     </p>
-    <ul style="margin: 0.8rem 0 1rem 1.5rem;">
+    <ul>
         <li><strong>मिशनरी प्रयास</strong> — 1818 में विलियम कैरे, मार्शमैन आदि ने बंगाल में बालिका विद्यालय प्रारंभ किए।</li>
         <li><strong>भारतीय सुधारक</strong> — राजा राममोहन रॉय, ईश्वरचंद्र विद्यासागर, ज्योतिबा फुले, सावित्रीबाई फुले, पंडिता रमाबाई, डी.के. कर्वे ने स्त्री-शिक्षा को सामाजिक सुधार का अभिन्न अंग बनाया।</li>
         <li><strong>सरकारी नीति</strong> — वुड्स डिस्पैच (1854) ने स्त्री-शिक्षा की आवश्यकता स्वीकार की। हंटर आयोग (1882) ने भी इसकी अनुशंसा की।</li>
@@ -953,7 +808,7 @@
     </div>
 
     <h3>5. तुलनात्मक तालिका : विभिन्न कालों में महिलाओं की शिक्षा</h3>
-    <table>
+    <div class="table-wrap"><table>
         <thead>
             <tr>
                 <th>काल</th>
@@ -988,7 +843,7 @@
                 <td>लैंगिक पूर्वाग्रह, ग्रामीण-शहरी विषमता</td>
             </tr>
         </tbody>
-    </table>
+    </table></div>
 
     <div class="highlight-box">
         <h4>आलोचनात्मक मूल्यांकन / सीमाएँ</h4>
@@ -1011,9 +866,11 @@
     <p>
         महिलाओं की शिक्षा का इतिहास केवल विद्यालयों एवं साक्षरता दर का इतिहास नहीं, बल्कि ज्ञान, सत्ता एवं स्वतंत्रता के संघर्ष का इतिहास है। वैदिक काल की विदुषी स्त्रियों से लेकर सावित्रीबाई फुले एवं पंडिता रमाबाई तक, तथा स्वतंत्रता के बाद की पीढ़ियों तक, शिक्षा ने महिलाओं को अपना स्थान बनाने का सबसे सशक्त माध्यम दिया है। फिर भी, शिक्षा की पहुँच एवं उसकी गुणवत्ता में लैंगिक, जातीय एवं क्षेत्रीय असमानताएँ आज भी मौजूद हैं। आगामी इकाइयों में हम देखेंगे कि शिक्षा के साथ-साथ कानूनी अधिकार, सुधार आंदोलनों एवं राजनीतिक भागीदारी ने मिलकर महिलाओं की स्थिति को कैसे प्रभावित किया। स्त्री-शिक्षा का वास्तविक उद्देश्य केवल साक्षर बनाना नहीं, बल्कि उन्हें अपने जीवन का निर्णायक बनाना है — यही इसकी सबसे बड़ी ऐतिहासिक चुनौती एवं संभावना दोनों है।
     </p>
+<p><a href="#index-card">↑ सूची पर वापस जाएँ</a></p>
+
 </div>
 
-<!-- YAHAN AGLA CODE PASTE KAREIN (Unit 5) -->
+
 
 <div id="unit5" class="unit-section">
     <h2>इकाई–5 : कानूनी एवं संवैधानिक स्थिति : प्राचीन से स्वतंत्रोत्तर भारत तक</h2>
@@ -1050,7 +907,7 @@
     <h3>3. कालक्रम के अनुसार कानूनी स्थिति</h3>
 
     <h4>3.1 प्राचीन भारत</h4>
-    <ul style="margin: 0.8rem 0 1rem 1.5rem;">
+    <ul>
         <li>वैदिक काल में स्त्रियों को संपत्ति में सीमित अधिकार (स्त्रीधन) प्राप्त थे।</li>
         <li>मनुस्मृति एवं अन्य स्मृतियों ने स्त्री को स्वतंत्र कानूनी व्यक्ति नहीं माना — “न स्त्री स्वातन्त्र्यमर्हति”।</li>
         <li>विवाह, तलाक एवं उत्तराधिकार में पुरुष की प्रधानता रही। विधवा को संपत्ति का सीमित अधिकार मिला, परंतु पुनर्विवाह निषिद्ध रहा।</li>
@@ -1066,7 +923,7 @@
     <p>
         ब्रिटिश शासन ने कई महत्वपूर्ण अधिनियम पारित किए —
     </p>
-    <ul style="margin: 0.8rem 0 1rem 1.5rem;">
+    <ul>
         <li>सती निषेध अधिनियम, 1829</li>
         <li>विधवा पुनर्विवाह अधिनियम, 1856</li>
         <li>एज ऑफ कंसेंट अधिनियम, 1891</li>
@@ -1081,7 +938,7 @@
     <p>
         भारतीय संविधान ने ऐतिहासिक परिवर्तन किया —
     </p>
-    <ul style="margin: 0.8rem 0 1rem 1.5rem;">
+    <ul>
         <li>अनुच्छेद 14 — समानता का अधिकार</li>
         <li>अनुच्छेद 15 — लिंग के आधार पर भेदभाव का निषेध</li>
         <li>अनुच्छेद 16 — अवसर की समानता</li>
@@ -1107,7 +964,7 @@
     </div>
 
     <h3>5. तुलनात्मक तालिका : विभिन्न कालों में कानूनी स्थिति</h3>
-    <table>
+    <div class="table-wrap"><table>
         <thead>
             <tr>
                 <th>काल</th>
@@ -1142,7 +999,7 @@
                 <td>कानून एवं सामाजिक व्यवहार में अंतर</td>
             </tr>
         </tbody>
-    </table>
+    </table></div>
 
     <div class="highlight-box">
         <h4>आलोचनात्मक मूल्यांकन / सीमाएँ</h4>
@@ -1165,9 +1022,12 @@
     <p>
         महिलाओं की कानूनी एवं संवैधानिक स्थिति का सफर प्राचीन धर्मशास्त्रीय अधीनता से आधुनिक संवैधानिक समानता तक का सफर है। यह सफर आसान नहीं रहा — इसमें सुधारकों, राष्ट्रवादियों, संविधान निर्माताओं एवं नारीवादी आंदोलनों का लंबा संघर्ष शामिल है। संविधान ने सिद्धांततः पूर्ण समानता स्थापित की, परंतु सामाजिक संरचना ने उसे पूर्णतः साकार नहीं होने दिया। कानून अब महिलाओं के पक्ष में है, परंतु उसकी प्रभावी क्रियान्विति, जागरूकता एवं सामाजिक स्वीकृति अभी भी चुनौती बनी हुई है। आगामी इकाइयों में हम देखेंगे कि सामाजिक-धार्मिक सुधार आंदोलनों एवं महिला आंदोलनों ने कानूनी अधिकारों को सामाजिक वास्तविकता में बदलने का कैसे प्रयास किया। कानूनी समानता केवल शुरुआत है; वास्तविक समानता तब होगी जब कानून और समाज दोनों एक ही दिशा में चलेंगे।
     </p>
+
+<p><a href="#index-card">↑ सूची पर वापस जाएँ</a></p>
+
 </div>
 
-<!-- YAHAN AGLA CODE PASTE KAREIN (Unit 6) -->
+
 
 <div id="unit6" class="unit-section">
     <h2>इकाई–6 : महिलाएँ और सामाजिक-धार्मिक सुधार आंदोलन</h2>
@@ -1252,7 +1112,7 @@
     </div>
 
     <h3>5. तुलनात्मक तालिका : प्रमुख सुधार आंदोलनों में महिलाओं से संबंधित दृष्टिकोण</h3>
-    <table>
+    <div class="table-wrap"><table>
         <thead>
             <tr>
                 <th>आंदोलन / सुधारक</th>
@@ -1293,7 +1153,7 @@
                 <td>ब्राह्मण विरोध से जुड़ाव</td>
             </tr>
         </tbody>
-    </table>
+    </table></div>
 
     <div class="highlight-box">
         <h4>आलोचनात्मक मूल्यांकन / सीमाएँ</h4>
@@ -1316,9 +1176,11 @@
     <p>
         सामाजिक-धार्मिक सुधार आंदोलन महिलाओं के आधुनिक इतिहास के प्रथम अध्याय हैं। इन्होंने पितृसत्ता की सबसे दृश्य कुरीतियों को चुनौती दी और शिक्षा तथा कानूनी सुधार का मार्ग खोला। परंतु ये आंदोलन अपनी वर्ग एवं जाति सीमाओं से पूर्णतः मुक्त नहीं हो सके। उन्होंने स्त्री को मुक्ति का वचन दिया, किंतु साथ ही नए घरेलू आदर्शों में बाँधने का प्रयास भी किया। फिर भी, इन आंदोलनों ने सार्वजनिक क्षेत्र में स्त्री-प्रश्न को स्थापित कर दिया। आगामी इकाई में हम देखेंगे कि इन्हीं सुधारवादी चेतना से आगे बढ़ते हुए बीसवीं शताब्दी में संगठित महिला आंदोलनों ने राजनीतिक स्वतंत्रता एवं सामाजिक न्याय के प्रश्नों को कैसे जोड़ा। सुधार आंदोलन अधूरे अवश्य थे, परंतु उन्होंने वह नींव रखी जिस पर बाद का महिला आंदोलन खड़ा हो सका।
     </p>
+<p><a href="#index-card">↑ सूची पर वापस जाएँ</a></p>
+
 </div>
 
-<!-- YAHAN AGLA CODE PASTE KAREIN (Unit 7) -->
+
 <div id="unit7" class="unit-section">
     <h2>इकाई–7 : महिला आंदोलन : स्वतंत्रता-पूर्व एवं स्वतंत्रोत्तर भारत – मुद्दे एवं चुनौतियाँ</h2>
 
@@ -1346,7 +1208,7 @@
     <h3>3. स्वतंत्रता-पूर्व महिला आंदोलन</h3>
 
     <h4>3.1 प्रारंभिक संगठन</h4>
-    <ul style="margin: 0.8rem 0 1rem 1.5rem;">
+    <ul>
         <li>भारतीय महिला परिषद (1915–1917)</li>
         <li>अखिल भारतीय महिला सम्मेलन (All India Women’s Conference – AIWC), 1927</li>
         <li>राष्ट्रीय महिला परिषद</li>
@@ -1376,7 +1238,7 @@
     <p>
         मथुरा बलात्कार कांड (1972) एवं उसके विरुद्ध अभियान ने आंदोलन को नया मोड़ दिया। दहेज मृत्यु विरोधी अभियान, घरेलू हिंसा के विरुद्ध संघर्ष, कार्यस्थल उत्पीड़न (विशाखा केस) एवं सती विरोधी आंदोलन (1987, रूपकुंवर) प्रमुख मुद्दे बने।
     </p>
-    <ul style="margin: 0.8rem 0 1rem 1.5rem;">
+    <ul>
         <li>संगठन — साक्षा, मन्त्र, जोलीवुड, नारी मुक्ति संघ, प्रगतिशील महिला संगठन आदि।</li>
         <li>मुद्दे — बलात्कार कानून सुधार, दहेज, घरेलू हिंसा, जनसंख्या नीति, विकास परियोजनाओं से विस्थापन, दलित एवं आदिवासी महिलाओं के अधिकार।</li>
     </ul>
@@ -1401,7 +1263,7 @@
     </div>
 
     <h3>6. तुलनात्मक तालिका : स्वतंत्रता-पूर्व एवं स्वतंत्रोत्तर महिला आंदोलन</h3>
-    <table>
+    <div class="table-wrap"><table>
         <thead>
             <tr>
                 <th>पहलू</th>
@@ -1436,7 +1298,7 @@
                 <td>संगठनात्मक विभाजन, संसाधनों की कमी</td>
             </tr>
         </tbody>
-    </table>
+    </table></div>
 
     <div class="highlight-box">
         <h4>आलोचनात्मक मूल्यांकन / सीमाएँ</h4>
@@ -1459,9 +1321,11 @@
     <p>
         भारतीय महिला आंदोलन ने एक लंबा और जटिल सफर तय किया है — सुधारवादी चेतना से राष्ट्रवादी भागीदारी तक, तथा कल्याणकारी दृष्टिकोण से स्वायत्त लैंगिक न्याय तक। स्वतंत्रता-पूर्व आंदोलन ने महिलाओं को सार्वजनिक क्षेत्र में प्रतिष्ठित किया, जबकि स्वतंत्रोत्तर आंदोलन ने पितृसत्ता की जड़ों पर प्रहार किया। फिर भी, चुनौतियाँ समाप्त नहीं हुई हैं। लैंगिक हिंसा, राजनीतिक प्रतिनिधित्व की कमी, आर्थिक असमानता एवं अंतर्धार्मिक-अंतर्जातीय विभाजन आज भी मौजूद हैं। आगामी इकाई में हम राजनीतिक क्षेत्र में महिलाओं की भूमिका — प्राचीन शासिकाओं से लेकर समकालीन राजनीति तक — का विश्लेषण करेंगे। महिला आंदोलन की सबसे बड़ी देन यह है कि उसने यह स्थापित कर दिया कि स्त्री-प्रश्न किसी अन्य आंदोलन का गौण मुद्दा नहीं, बल्कि सामाजिक परिवर्तन का केंद्रीय प्रश्न है।
     </p>
+<p><a href="#index-card">↑ सूची पर वापस जाएँ</a></p>
+
 </div>
 
-<!-- YAHAN AGLA CODE PASTE KAREIN (Unit 8) -->
+
 <div id="unit8" class="unit-section">
     <h2>इकाई–8 : राजनीतिक क्षेत्र में महिलाएँ : शासिकाएँ, गाँधीवादी सत्याग्रह, क्रांतिकारी आंदोलन, आई.एन.ए. एवं स्वतंत्रोत्तर राजनीति</h2>
 
@@ -1491,7 +1355,7 @@
     </p>
 
     <h3>3. प्राचीन एवं मध्यकालीन शासिकाएँ</h3>
-    <ul style="margin: 0.8rem 0 1rem 1.5rem;">
+    <ul>
         <li><strong>प्राचीन काल</strong> — रानी नयनिका (सातवाहन), प्रभावती गुप्ता (वाकाटक), रानी दिद्दा (कश्मीर)।</li>
         <li><strong>मध्यकाल</strong> — रजिया सुल्तान (दिल्ली सल्तनत की एकमात्र महिला शासक), चांद बीबी (अहमदनगर), अहिल्याबाई होल्कर (इंदौर), रानी दुर्गावती (गोंडवाना), रानी लक्ष्मीबाई (झाँसी)।</li>
     </ul>
@@ -1503,7 +1367,7 @@
     <p>
         गाँधीजी ने महिलाओं को सत्याग्रह का नैतिक आधार माना। असहयोग आंदोलन (1920-22), नमक सत्याग्रह (1930) एवं भारत छोड़ो आंदोलन (1942) में महिलाओं ने अभूतपूर्व भागीदारी की।
     </p>
-    <ul style="margin: 0.8rem 0 1rem 1.5rem;">
+    <ul>
         <li>सरोजिनी नायडू — नमक सत्याग्रह में धरना नेतृत्व, बाद में संयुक्त प्रांत की राज्यपाल।</li>
         <li>कमलादेवी चट्टोपाध्याय — नमक सत्याग्रह, हस्तशिल्प एवं सहकारी आंदोलन।</li>
         <li>अरुणा आसफ अली — भारत छोड़ो आंदोलन में भूमिगत नेतृत्व।</li>
@@ -1552,7 +1416,7 @@
     </div>
 
     <h3>8. तुलनात्मक तालिका : विभिन्न चरणों में राजनीतिक भूमिका</h3>
-    <table>
+    <div class="table-wrap"><table>
         <thead>
             <tr>
                 <th>चरण</th>
@@ -1593,7 +1457,7 @@
                 <td>संख्या एवं प्रभाव दोनों में कमी</td>
             </tr>
         </tbody>
-    </table>
+    </table></div>
 
     <div class="highlight-box">
         <h4>आलोचनात्मक मूल्यांकन / सीमाएँ</h4>
@@ -1616,9 +1480,11 @@
     <p>
         राजनीतिक क्षेत्र में महिलाओं की यात्रा व्यक्तिगत शासिकाओं के अपवाद से शुरू होकर जनआंदोलनों की व्यापक भागीदारी तक पहुँची है, और आज स्थानीय स्तर पर संख्यात्मक सशक्तिकरण के चरण में है। गाँधीवादी सत्याग्रह ने उन्हें सार्वजनिक क्षेत्र में प्रतिष्ठित किया, क्रांतिकारी धारा एवं आई.एन.ए. ने उनकी साहसिकता को प्रमाणित किया, तथा संविधान एवं आरक्षण ने संस्थागत अवसर प्रदान किए। फिर भी, वास्तविक राजनीतिक शक्ति एवं निर्णय-निर्माण में महिलाओं की हिस्सेदारी अभी भी अधूरी है। आगामी एवं अंतिम इकाई में हम आदिवासी महिलाओं की स्थिति एवं उनकी ऐतिहासिक भूमिका — विशेषकर झारखंड के संदर्भ में — का विश्लेषण करेंगे। राजनीतिक समानता केवल आरक्षण या उच्च पदों से नहीं, बल्कि सत्ता की पितृसत्तात्मक संस्कृति को बदलने से संभव होगी।
     </p>
+<p><a href="#index-card">↑ सूची पर वापस जाएँ</a></p>
+
 </div>
 
-<!-- YAHAN AGLA CODE PASTE KAREIN (Unit 9) -->
+
 
 <div id="unit9" class="unit-section">
     <h2>इकाई–9 : आदिवासी महिलाओं की स्थिति एवं ऐतिहासिक भूमिका – झारखंड के विशेष संदर्भ में</h2>
@@ -1649,7 +1515,7 @@
     </p>
 
     <h3>3. आदिवासी समाज में महिलाओं की पारंपरिक स्थिति</h3>
-    <ul style="margin: 0.8rem 0 1rem 1.5rem;">
+    <ul>
         <li><strong>आर्थिक भूमिका</strong> — कृषि, वनोपज संग्रहण, पशुपालन एवं घरेलू उद्योग में समान भागीदारी। कई समाजों में स्त्रियाँ बाजार में भी सक्रिय थीं।</li>
         <li><strong>संपत्ति एवं उत्तराधिकार</strong> — कुछ जनजातियों में स्त्रीधन एवं सीमित भूमि अधिकार। विवाह के बाद भी मायके से संबंध बने रहते थे।</li>
         <li><strong>विवाह एवं यौनिकता</strong> — अपेक्षाकृत लचीली यौन नैतिकता, घरेलू विवाह, प्रणय-विवाह एवं तलाक की प्रथा। दहेज के स्थान पर वधू-मूल्य (Bride Price) प्रचलित।</li>
@@ -1674,7 +1540,7 @@
     </p>
 
     <h3>5. स्वतंत्रता के बाद की स्थिति एवं चुनौतियाँ</h3>
-    <ul style="margin: 0.8rem 0 1rem 1.5rem;">
+    <ul>
         <li><strong>विकास परियोजनाएँ</strong> — बाँध, खदान एवं उद्योगों से विस्थापन का सर्वाधिक भार स्त्रियों पर पड़ा। वन अधिकारों की हानि ने उनकी आर्थिक स्वायत्तता को क्षति पहुँचाई।</li>
         <li><strong>हिंदूकरण एवं संस्कृतिकरण</strong> — दहेज प्रथा, पर्दा एवं बाल-विवाह जैसी प्रथाओं का प्रवेश।</li>
                 <li><strong>उत्पीड़न एवं हिंसा</strong> — माओवादी संघर्ष क्षेत्र में सुरक्षा बलों एवं उग्रवादियों दोनों पक्षों से हिंसा का शिकार।</li>
@@ -1696,7 +1562,7 @@
     </div>
 
     <h3>7. तुलनात्मक तालिका : आदिवासी एवं गैर-आदिवासी महिलाओं की स्थिति (झारखंड संदर्भ)</h3>
-    <table>
+    <div class="table-wrap"><table>
         <thead>
             <tr>
                 <th>पहलू</th>
@@ -1731,7 +1597,7 @@
                 <td>घरेलू हिंसा, दहेज, कार्यस्थल उत्पीड़न</td>
             </tr>
         </tbody>
-    </table>
+    </table></div>
 
     <div class="highlight-box">
         <h4>आलोचनात्मक मूल्यांकन / सीमाएँ</h4>
@@ -1756,35 +1622,58 @@
     </p>
 </div>
 
-<!-- YAHAN AGLA CODE PASTE KAREIN (End of Content / References or Conclusion y
-Section) -->
+
 
 
     </main>
 
-    <!-- ========== FOOTER : SUGGESTED READINGS ========== -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <h3>📚 अनुशंसित प्रामाणिक पुस्तकें (Suggested Readings)</h3>
-            <ul class="readings-list">
-                <li>A. S. Altekar — The Position of Women in Hindu Society</li>
-                <li>Prof. Indra — Status of Women in Ancient India</li>
-                <li>Clarisse Bader — Women in Ancient India</li>
-                <li>M. H. Zaidi — Position of Women under Islam</li>
-                <li>Y. B. Mathur — Women’s Education in India</li>
-                <li>B. A. Gupta — Position of Women among Hindus, Muslims, Buddhists &amp; Jains</li>
-                <li>Meera Desai — Women in Modern India</li>
-                <li>J. Krishnamurty (ed.) — Women in Colonial India</li>
-                <li>Bharati Ray &amp; Aparna Basu (ed.) — From Freedom to Independence</li>
-                <li>Radha Kumar — The History of Doing</li>
-                <li>Janaki Nair — Women and Law in Colonial India</li>
-                <li>Renu Dewan (ed.) — झारखंड की नारी</li>
-            </ul>
-            <div class="footer-bottom">
-                © M.A. History • Gender in Indian History • केवल शैक्षिक उपयोग हेतु
-            </div>
-        </div>
-    </footer>
+    
+    
 
-</body>
+  
+
+
+</main>
+
+<!-- ======= FOOTER : SUGGESTED READINGS ======= -->
+<footer class="footer">
+  <div class="footer-inner">
+    <h3>&#128218; अनुशंसित प्रामाणिक पुस्तकें (Suggested Readings)</h3>
+    <ul class="readings-list">
+      <li>A. S. Altekar &mdash; The Position of Women in Hindu Society</li>
+      <li>Prof. Indra &mdash; Status of Women in Ancient India</li>
+      <li>Clarisse Bader &mdash; Women in Ancient India</li>
+      <li>M. H. Zaidi &mdash; Position of Women under Islam</li>
+      <li>Y. B. Mathur &mdash; Women&rsquo;s Education in India</li>
+      <li>B. A. Gupta &mdash; Position of Women among Hindus, Muslims, Buddhists &amp; Jains</li>
+      <li>Meera Desai &mdash; Women in Modern India</li>
+      <li>J. Krishnamurty (ed.) &mdash; Women in Colonial India</li>
+      <li>Bharati Ray &amp; Aparna Basu (ed.) &mdash; From Freedom to Independence</li>
+      <li>Radha Kumar &mdash; The History of Doing</li>
+      <li>Janaki Nair &mdash; Women and Law in Colonial India</li>
+      <li>Renu Dewan (ed.) &mdash; झारखंड की नारी</li>
+    </ul>
+    <div class="footer-bottom">&copy; M.A. History &bull; Gender in Indian History &bull; केवल शैक्षिक उपयोग हेतु</div>
+  </div>
+</footer>
+
+<button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="ऊपर जाएँ">&uarr;</button>
+
+<script>
+function openNav(){document.getElementById("sideDrawer").classList.add("open");document.getElementById("drawerOverlay").classList.add("show");document.body.style.overflow="hidden";}
+function closeNav(){document.getElementById("sideDrawer").classList.remove("open");document.getElementById("drawerOverlay").classList.remove("show");document.body.style.overflow="";}
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeNav();});
+window.addEventListener("scroll",function(){
+  var h=document.documentElement;
+  var max=h.scrollHeight-h.clientHeight;
+  document.getElementById("progressBar").style.width=(max>0?h.scrollTop/max*100:0)+"%";
+  document.getElementById("toTop").classList.toggle("show",h.scrollTop>600);
+},{passive:true});
+document.querySelectorAll(".index-list a").forEach(function(a){a.addEventListener("click",closeNav);});
+var links=Array.prototype.slice.call(document.querySelectorAll(".index-list a"));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute("href"));}).filter(Boolean);
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id);});}});},{rootMargin:"-30% 0px -60% 0px"});
+secs.forEach(function(s){obs.observe(s);});
+</script>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
 </html>
