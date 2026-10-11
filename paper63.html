@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paper VI: Medieval Europe (800–1600 A.D.) | विस्तृत अध्ययन सामग्री</title>
-    <style>
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paper VI: Medieval Europe (800–1600 A.D.) | विस्तृत अध्ययन सामग्री</title>
+<style>
         :root {
             --primary: #831843;          /* गहरा वाइन/मरून रंग - मध्यकालीन थीम */
             --primary-light: #be185d;
@@ -239,17 +260,54 @@
             .index-grid { grid-template-columns: 1fr; }
         }
     </style>
+<style>
+/* ====== Modern chrome additions (topbar, drawer, progress, FAB) ====== */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:1200;background:rgba(131,24,67,.96);color:#fff;box-shadow:0 2px 16px rgba(0,0,0,.28)}
+.topbar-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:.9rem;padding:.62rem 1.1rem}
+.menu-btn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:1.02rem;padding:.42rem .9rem;border-radius:10px;cursor:pointer;display:flex;align-items:center;gap:.5rem;font-family:system-ui,sans-serif;transition:.2s}
+.menu-btn:hover{background:rgba(255,255,255,.24)}
+.topbar-title{font-family:system-ui,sans-serif;font-weight:600;font-size:.98rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topbar-title small{opacity:.72;font-weight:400;display:block;font-size:.7rem;letter-spacing:.08em}
+.progress-track{height:3px;background:rgba(255,255,255,.16)}
+.progress-bar{height:100%;width:0;background:linear-gradient(90deg,#d97706,#fcd34d)}
+.overlay{position:fixed;inset:0;background:rgba(28,20,24,.55);opacity:0;pointer-events:none;transition:opacity .3s;z-index:1290}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;left:0;height:100vh;width:min(350px,86vw);background:#fffdf9;z-index:1300;transform:translateX(-105%);transition:transform .35s cubic-bezier(.32,.72,.35,1);box-shadow:0 10px 40px rgba(0,0,0,.2);display:flex;flex-direction:column}
+.drawer.open{transform:translateX(0)}
+.drawer-head{padding:1.25rem 1.4rem;background:linear-gradient(135deg,#831843,#4c0519);color:#fff;position:relative}
+.drawer-head h2{font-size:1.12rem;margin:0;font-family:system-ui,sans-serif}
+.drawer-head p{font-size:.8rem;opacity:.85;margin:.25rem 0 0;font-family:system-ui,sans-serif}
+.drawer-close{position:absolute;top:.75rem;right:1rem;background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer;line-height:1}
+.drawer-body{overflow-y:auto;padding:1rem}
+.drawer .index-container{margin:0;box-shadow:none;background:none;border:none;padding:0}
+.drawer .index-header{margin-bottom:.8rem}
+.drawer .index-title{font-size:1.05rem}
+.drawer .index-grid{list-style:none;margin:0;padding:0;display:block}
+.drawer .index-item{display:block;margin-bottom:.5rem}
+.drawer .index-item a{display:flex;align-items:flex-start;text-decoration:none;color:#1c1917;padding:.6rem .85rem;border-radius:10px;border:1px solid #e7e5e4;background:#fff;transition:.2s;font-size:.92rem;line-height:1.5}
+.drawer .index-item .index-num{font-weight:700;color:#831843;min-width:1.7rem;margin-right:.5rem;flex-shrink:0}
+.drawer .index-item a:hover,.drawer .index-item a.active{background:#831843;border-color:#831843;color:#fff}
+.drawer .index-item a:hover .index-num,.drawer .index-item a.active .index-num{color:#fcd34d}
+.hero-top-offset{margin-top:58px}
+.table-wrap{overflow-x:auto;margin:1.4rem 0;border-radius:12px}
+.table-wrap table{min-width:560px}
+#toTop{position:fixed;right:1.1rem;bottom:1.4rem;width:50px;height:50px;border:none;cursor:pointer;border-radius:50%;background:#831843;color:#fff;font-size:1.3rem;z-index:1100;box-shadow:0 6px 18px rgba(0,0,0,.28);transition:.25s;opacity:0;pointer-events:none;transform:translateY(12px)}
+#toTop.show{opacity:1;pointer-events:auto;transform:none}
+#toTop:hover{background:#4c0519}
+@media(max-width:640px){.topbar-title small{display:none}}
+@media print{.topbar,.drawer,.overlay,#toTop{display:none}.hero-top-offset{margin-top:0}}
+html{scroll-padding-top:110px}
+
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <span class="badge">SKMU दुमका | M.A. इतिहास सेमेस्टर-2 (CBCS)</span>
-            <h1>Paper VI: Medieval Europe (800 A.D. – 1600 A.D.)</h1>
-            <p class="subtitle">मध्यकालीन यूरोप का इतिहास — संपूर्ण 15 अध्यायों के प्रामाणिक अध्ययन नोट्स</p>
-        </header>
 
-        <!-- मास्टर इंडेक्स (Master Index) -->
-        <div class="index-container">
+<div class="topbar"><div class="topbar-inner"><button class="menu-btn" onclick="openNav()" aria-label="विषय-सूची खोलें">&#9776; <span>इंडेक्स</span></button><div class="topbar-title">Paper VI: Medieval Europe <small>M.A. HISTORY &bull; SEMESTER-2 &bull; 800&ndash;1600 A.D.</small></div></div><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div></div>
+
+<div class="overlay" id="drawerOverlay" onclick="closeNav()"></div>
+<aside class="drawer" id="sideDrawer" aria-label="विषय-सूची"><div class="drawer-head"><button class="drawer-close" onclick="closeNav()" aria-label="बंद करें">&times;</button><h2>&#128196; मास्टर विषय-सूची</h2><p>कुल 15 अध्याय &bull; परीक्षा-उपयोगी सामग्री</p></div><div class="drawer-body">
+<!-- मास्टर इंडेक्स (Master Index) -->
+        <div class="index-container" id="drawerIndex">
             <div class="index-header">
                 <h3 class="index-title">विषय-सूची (Master Index)</h3>
                 <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">कुल 15 अध्याय</span>
@@ -272,6 +330,17 @@
                 <li class="index-item"><span class="index-num">15.</span><a href="#unit15">आधुनिक पूंजीवाद (Capitalism) के बीज और उदय</a></li>
             </ul>
         </div>
+</div></aside>
+
+
+    <div class="container">
+        <div class="hero-top-offset"></div><header>
+            <span class="badge">SKMU दुमका | M.A. इतिहास सेमेस्टर-2 (CBCS)</span>
+            <h1>Paper VI: Medieval Europe (800 A.D. – 1600 A.D.)</h1>
+            <p class="subtitle">मध्यकालीन यूरोप का इतिहास — संपूर्ण 15 अध्यायों के प्रामाणिक अध्ययन नोट्स</p>
+        </header>
+
+        
 
         <!-- ==================== CONTENT AREA ==================== -->
         <!-- आगामी यूनिट्स का कोड इस टिप्पणी के ठीक नीचे क्रमवार जोड़ा जाएगा -->
@@ -896,7 +965,7 @@
 <td style="padding: 10px; border: 1px solid var(--border);">सूर्य-चंद्रमा सिद्धांत, इंग्लैंड व फ्रांस के राजाओं को जागीरदार बनाना, चतुर्थ लैटरन परिषद (1215 ई.)।</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 ​<h4>पोपतंत्र के चरमोत्कर्ष में ही पतन के बीज:</h4>
 <p>यद्यपि इनोसेंट तृतीय के काल में पोप संपूर्ण यूरोप का अघोषित सम्राट बन गया, परंतु इसी अत्यधिक सांसारिक शक्ति ने पतन का मार्ग भी खोल दिया:</p>
 <ul>
@@ -968,7 +1037,7 @@
 <td style="padding: 8px; border: 1px solid var(--border);">वर्ष में 40 दिन की अनिवार्य सैन्य सेवा और दुर्ग की रक्षा।</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 ​<h4>1. सामंती अनुबंध और औपचारिक संस्कार (Feudal Rituals):</h4>
 <p>सामंती संबंध कानूनी अनुबंध से अधिक एक पवित्र धार्मिक और व्यक्तिगत बंधन था, जो तीन चरणों में संपन्न होता था:</p>
 <ul>
@@ -1055,7 +1124,7 @@
 <td style="padding: 8px; border: 1px solid var(--border);">विभिन्न क्षेत्रों में वर्ग-संघर्ष और किसानों की राजनीतिक सौदेबाजी की शक्ति ने तय किया कि कहाँ पूंजीवाद उभरेगा और कहाँ सर्फडम जारी रहेगा।</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 ​<!-- ---------------- निष्कर्ष ---------------- -->
 <h3>निष्कर्ष:</h3>
 <p>सामंतवाद मध्यकालीन यूरोपीय इतिहास की एक अनिवार्य ऐतिहासिक आवश्यकता थी। 9वीं शताब्दी के अराजक और बर्बर अंधकार युग में इसने समाज को न्यूनतम सुरक्षा, स्थानीय प्रशासनिक व्यवस्था और कृषि उत्पादन की निरंतरता प्रदान की। यद्यपि यह व्यवस्था किसानों के घोर शोषण, राजनीतिक विखंडन और अंतहीन सामंती युद्धों पर आधारित थी, परंतु इसी के गर्भ से आधुनिक यूरोप की संसद प्रणाली (सामंती परिषदों से), वैधानिक अनुबंध की अवधारणा, और अंततः पूंजीवादी अर्थव्यवस्था व राष्ट्रीय राष्ट्र-राज्यों (Modern Nation-States) का जन्म हुआ।</p>
@@ -1118,7 +1187,7 @@
 <td style="padding: 8px; border: 1px solid var(--border);">दक्षिणी फ्रांस की बैस्टाइड्स (Montauban), जर्मनी के न्यूस्टैड (Neustadt)।</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 ​<h4>यूरोप के दो प्रमुख व्यापारिक ध्रुव:</h4>
 <ul>
 <li><strong>दक्षिणी ध्रुव (भूमध्यसागरीय व्यापार):</strong> वेनिस और जेनोआ के नेतृत्व में, जिनका सीधा व्यापार बीजान्टियम, मिस्र और लेवांत से था। यहाँ बैंकिंग, जहाजरानी और विलासिता की वस्तुओं का एकाधिकार था।</li>
@@ -1244,7 +1313,7 @@
 <td style="padding: 8px; border: 1px solid var(--border);">इंग्लैंड, जर्मनी और उत्तरी यूरोप (ऑक्सफोर्ड, कैम्ब्रिज, प्राग, हीडलबर्ग)।</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 ​<!-- ---------------- भाग 3 ---------------- -->
 <h3>भाग 3: यूरोप के प्रमुख प्रारंभिक विश्वविद्यालय (Major University Centers)</h3>
 <ul>
@@ -1512,7 +1581,7 @@
 <td style="padding: 8px; border: 1px solid var(--border);">चर्च द्वारा ब्याज लेने (Usury) पर लगे मध्यकालीन प्रतिबंध समाप्त हो गए। काल्विनवादी कार्य-संस्कृति और भौतिक समृद्धि की लालसा ने वाणिज्यिक क्रांति और आधुनिक पूंजीवाद को जबरदस्त गति प्रदान की (यूनिट 13, 14 और 15 का आधार)।</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 ​<!-- ---------------- निष्कर्ष ---------------- -->
 <h3>निष्कर्ष:</h3>
 <p>पुनर्जागरण और धर्म-सुधार आंदोलन मध्यकालीन सभ्यता के संकीर्ण कोकून से आधुनिक दुनिया के तितली के रूप में बाहर आने की गाथा हैं। पुनर्जागरण ने मनुष्य को उसकी बौद्धिक और सौंदर्यपरक शक्तियों से परिचित कराया, तो धर्म-सुधार ने उसे आध्यात्मिक दासता से मुक्त कर आत्म-निर्णय का संबल दिया। इन दोनों महा-आंदोलनों के सम्मिलन ने मध्यकालीन यूरोप के सामंती, मठवादी और अंधविश्वासी ढांचे को ध्वस्त कर दिया। इसी बौद्धिक और सामाजिक क्रांति की छाती पर पैर रखकर 17वीं सदी की 'वैज्ञानिक क्रांति' और 18वीं सदी का 'प्रबोधन काल' (Age of Enlightenment) साकार हुआ।</p>
@@ -1591,7 +1660,7 @@
 <td style="padding: 8px; border: 1px solid var(--border);">शाही दरबार, प्रशासनिक केंद्रीकरण, विशाल घरेलू उपभोग का बाजार और धर्मशास्त्र/विधि के विश्वविद्यालय।</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 ​<h4>1. वेनिस (Venice — 'ला सेरेनिस्सिमा' / The Queen of the Adriatic):</h4>
 <ul>
 <li>लगून (Lagoon) के द्वीपों पर बसा वेनिस मध्यकाल का सबसे संपन्न समुद्री साम्राज्य (Thalassocracy) था।</li>
@@ -1741,7 +1810,7 @@
 <td style="padding: 8px; border: 1px solid var(--border);">राजकीय खजाने (Kammer) की सुदृढ़ता, कुशल प्रशासनिक नौकरशाही, कृषि सुधार, और स्थानीय उत्पादकता पर बल देने वाला वैज्ञानिक लोक-प्रशासन।</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 ​<h4>1. फ्रांस में कोलबर्टवाद (Colbertism in France):</h4>
 <ul>
 <li>फ्रांस के सम्राट लुई चौदहवें (Louis XIV) के प्रसिद्ध वित्त मंत्री <strong>जीन-बैप्टिस्ट कोलबर्ट (Jean-Baptiste Colbert, 1619–1683 ई.)</strong> ने वाणिज्यवाद को अपने चरमोत्कर्ष पर पहुँचाया।</li>
@@ -1851,7 +1920,7 @@
 <td style="padding: 8px; border: 1px solid var(--border);">कंपनियों के शेयरों और सरकारी ऋणपत्रों की सार्वजनिक खुली खरीद-बिक्री; पूंजी की उच्च तरलता (Liquidity)।</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 ​<h4>1. महान बैंकिंग घरानों का युग:</h4>
 <ul>
 <li>मध्यकाल के अंत में इटली के <strong>मेदिची (Medici)</strong> और जर्मनी के ऑग्सबर्ग के <strong>फुगर (Fugger)</strong> परिवार ने अंतरराष्ट्रीय वित्त पर आधिपत्य जमाया। जैकब फुगर 'द रिच' (Jakob Fugger) ने हैब्सबर्ग सम्राट चार्ल्स पंचम के चुनाव को वित्तपोषित किया और यूरोपीय तांबे व चांदी के खनन पर एकाधिकार किया।</li>
@@ -1952,7 +2021,7 @@
 <td style="padding: 8px; border: 1px solid var(--border);">16वीं सदी में एक अंतर-महाद्वीपीय श्रम-विभाजन बना, जिसमें पश्चिमी यूरोप 'कोर' बना और उपनिवेशों की लूट ने पूंजी संचय को संभव बनाया।</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 ​<!-- ---------------- भाग 2 ---------------- -->
 <h3>भाग 2: कृषि पूंजीवाद की नींव एवं बाड़ाबंदी आंदोलन (Agrarian Capitalism & Enclosures)</h3>
 <p>पूंजीवाद का जन्म केवल शहरों की व्यापारिक दुकानों में नहीं हुआ, बल्कि इसकी सबसे गहरी और प्रारंभिक जड़ें <strong>ग्रामीण अर्थव्यवस्था</strong> में जमीं। पूंजीवादी औद्योगिक विकास की पूर्व-शर्त यह थी कि कृषि उत्पादन का व्यवसायीकरण हो:</p>
@@ -2067,5 +2136,22 @@
         </div>
 
     </div>
-</body>
-</html>
+
+<button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="ऊपर जाएँ">&uarr;</button>
+<script>
+function openNav(){document.getElementById("sideDrawer").classList.add("open");document.getElementById("drawerOverlay").classList.add("show");document.body.style.overflow="hidden";}
+function closeNav(){document.getElementById("sideDrawer").classList.remove("open");document.getElementById("drawerOverlay").classList.remove("show");document.body.style.overflow="";}
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeNav();});
+window.addEventListener("scroll",function(){
+  var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;
+  document.getElementById("progressBar").style.width=(max>0?h.scrollTop/max*100:0)+"%";
+  document.getElementById("toTop").classList.toggle("show",h.scrollTop>600);
+},{passive:true});
+document.querySelectorAll("#drawerIndex a").forEach(function(a){a.addEventListener("click",closeNav);});
+var links=Array.prototype.slice.call(document.querySelectorAll("#drawerIndex a"));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute("href"));}).filter(Boolean);
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id);});}});},{rootMargin:"-30% 0px -60% 0px"});
+secs.forEach(function(s){obs.observe(s);});
+</script>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
+    </html>
