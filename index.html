@@ -5,225 +5,349 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Digital Office • Paresh Kumar Hansda</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            /* Light Theme Variables */
             --bg: #f8fafc;
             --surface: #ffffff;
             --surface-soft: #f1f5f9;
+            --surface-card: #ffffff;
             --text: #0f172a;
             --muted: #64748b;
             --border: #e2e8f0;
             --primary: #2563eb;
-            --accent: #e8b84b;
-            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-            
-            /* Category Colors */
-            --c-emergency: #dc2626;
-            --c-finance: #c58b2a;
-            --c-tech: #7c3aed;
-            --c-study: #2563eb;
-            --c-philosophy: #b91c1c;
-            --c-stoic: #475569;
+            --primary-hover: #1d4ed8;
+            --accent: #d97706;
+            --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+            --shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
+            --shadow-hover: 0 20px 35px -8px rgba(15, 23, 42, 0.12);
         }
 
         [data-theme="dark"] {
-            --bg: #0b0f1a;
-            --surface: #131927;
+            --bg: #090d16;
+            --surface: #0f172a;
             --surface-soft: #1e293b;
-            --text: #f1f5f9;
+            --surface-card: #111827;
+            --text: #f8fafc;
             --muted: #94a3b8;
-            --border: #2d3748;
-            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            --border: #1f293d;
+            --primary: #3b82f6;
+            --primary-hover: #60a5fa;
+            --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.45);
+            --shadow-hover: 0 20px 40px -5px rgba(0, 0, 0, 0.65);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
-            font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+            font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', system-ui, sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.6;
-            transition: background 0.3s ease;
+            line-height: 1.65;
+            transition: background 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
         }
 
         /* Reading Progress */
         .progress-wrap { position: fixed; top: 0; left: 0; width: 100%; height: 4px; z-index: 1000; }
-        .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), var(--accent)); transition: width 0.1s; }
+        .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #2563eb, #d97706, #10b981); transition: width 0.1s linear; }
 
-        /* Header & Hero */
+        /* Hero Header */
         .hero {
-            padding: 100px 20px 60px;
+            padding: 90px 20px 55px;
             text-align: center;
-            background: var(--surface);
+            background: radial-gradient(circle at 50% 10%, rgba(37, 99, 235, 0.07), transparent 60%), var(--surface);
             border-bottom: 1px solid var(--border);
             position: relative;
-            overflow: hidden;
+        }
+        .hero-badge {
+            background: var(--surface-soft);
+            color: var(--primary);
+            border: 1px solid var(--border);
+            padding: 8px 20px;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 22px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow-sm);
         }
         .hero h1 {
             font-family: 'Rajdhani', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.4rem, 6.5vw, 4.4rem);
             color: var(--text);
             margin-bottom: 15px;
-            line-height: 1.1;
+            letter-spacing: -0.02em;
+            line-height: 1.12;
+            font-weight: 700;
         }
-        .hero span { color: var(--accent); }
+        .hero h1 span {
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         .hero p {
-            max-width: 800px;
+            max-width: 780px;
             margin: auto;
             color: var(--muted);
-            font-size: 1.1rem;
+            font-size: 1.08rem;
+            line-height: 1.7;
         }
 
-        /* Navigation */
+        /* Sticky Navigation */
         .top-nav {
             position: sticky;
             top: 0;
             z-index: 999;
-            background: rgba(var(--surface), 0.8);
-            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
-            padding: 10px 0;
+            padding: 8px 0;
+            transition: background 0.3s;
+        }
+        [data-theme="dark"] .top-nav {
+            background: rgba(15, 23, 42, 0.85);
         }
         .nav-inner {
-            max-width: 1200px;
+            max-width: 1240px;
             margin: auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
+            gap: 15px;
         }
         .nav-links {
             display: flex;
-            gap: 15px;
+            gap: 8px;
             overflow-x: auto;
             white-space: nowrap;
-            padding-bottom: 5px;
+            padding: 4px 0;
+            scrollbar-width: none;
         }
+        .nav-links::-webkit-scrollbar { display: none; }
         .nav-links a {
             text-decoration: none;
             color: var(--muted);
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 8px 15px;
-            border-radius: 20px;
-            transition: 0.2s;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 12px;
+            transition: all 0.2s ease;
         }
-        .nav-links a:hover { background: var(--surface-soft); color: var(--primary); }
-
+        .nav-links a:hover {
+            background: var(--surface-soft);
+            color: var(--primary);
+        }
         .theme-toggle {
             background: var(--surface-soft);
-            border: none;
-            padding: 10px 15px;
+            border: 1px solid var(--border);
+            padding: 8px 16px;
             border-radius: 12px;
             cursor: pointer;
             color: var(--text);
             font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .theme-toggle:hover {
+            border-color: var(--primary);
+            color: var(--primary);
         }
 
-        /* Layout */
-        .container { max-width: 1200px; margin: auto; padding: 60px 20px; }
-        
-        .section-header { margin-bottom: 40px; }
-        .section-header h2 { font-size: 2.2rem; margin-bottom: 10px; font-family: 'Rajdhani', sans-serif; }
-        .section-header p { color: var(--muted); max-width: 700px; }
+        /* Main Container */
+        .container { max-width: 1240px; margin: auto; padding: 45px 20px 80px; }
 
-        /* Grid & Cards */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 60px;
-        }
-
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--border);
+        /* Calm Banner */
+        .calm-banner {
+            background: linear-gradient(135deg, var(--surface), var(--surface-soft));
             border-radius: 24px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 35px 30px;
+            margin-bottom: 60px;
+            border: 1px solid var(--border);
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .calm-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        .calm-text h2 { margin-bottom: 6px; font-size: 1.45rem; font-weight: 700; color: var(--text); }
+        .calm-text p { color: var(--muted); font-size: 0.98rem; }
+
+        /* Section Headings */
+        .section-header {
+            margin-bottom: 30px;
+            margin-top: 40px;
             display: flex;
             flex-direction: column;
+            gap: 6px;
+        }
+        .section-header:first-of-type { margin-top: 0; }
+        .section-header h2 {
+            font-size: 2rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+        .section-header h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+            margin-left: 10px;
+        }
+        .section-header p { color: var(--muted); font-size: 0.98rem; max-width: 750px; }
+
+        /* Uniform Card Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 45px;
+        }
+
+        /* Card System */
+        .card {
+            background: var(--surface-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 26px;
+            box-shadow: var(--shadow);
+            transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             position: relative;
         }
-        .card:hover { transform: translateY(-8px); border-color: var(--primary); }
-
-        .card-badge {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 5px 12px;
-            border-radius: 10px;
-            width: fit-content;
-            margin-bottom: 20px;
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
         }
 
-        .card h3 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.3; }
-        .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 25px; flex-grow: 1; }
+        .badge, .card-badge {
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding: 6px 14px;
+            border-radius: 10px;
+            width: fit-content;
+            margin-bottom: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card h2, .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+            line-height: 1.35;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .card p {
+            color: var(--muted);
+            font-size: 0.94rem;
+            line-height: 1.65;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
 
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 12px 20px;
-            border-radius: 14px;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: 600;
-            transition: 0.2s;
+            font-weight: 700;
+            font-size: 0.92rem;
+            transition: all 0.2s ease;
             gap: 8px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
         }
-        .btn:hover { opacity: 0.9; transform: scale(1.02); }
+        .btn:hover {
+            opacity: 0.94;
+            transform: translateY(-1px);
+        }
 
-        /* Color Variations */
-        .c-red { border-top: 5px solid var(--c-emergency); }
+        /* Semantic Accent Classes */
+        .c-red { border-top: 4px solid #ef4444; }
         .c-red .card-badge { background: #fee2e2; color: #b91c1c; }
-        .c-red .btn { background: var(--c-emergency); color: white; }
+        .c-red .btn { background: #dc2626; color: #fff; }
 
-        .c-gold { border-top: 5px solid var(--c-finance); }
+        .c-gold { border-top: 4px solid #f59e0b; }
         .c-gold .card-badge { background: #fef3c7; color: #92400e; }
-        .c-gold .btn { background: var(--c-finance); color: white; }
+        .c-gold .btn { background: #d97706; color: #fff; }
 
-        .c-blue { border-top: 5px solid var(--c-study); }
+        .c-blue { border-top: 4px solid #3b82f6; }
         .c-blue .card-badge { background: #dbeafe; color: #1e40af; }
-        .c-blue .btn { background: var(--c-study); color: white; }
+        .c-blue .btn { background: #2563eb; color: #fff; }
 
-        .c-purple { border-top: 5px solid var(--c-tech); }
+        .c-purple { border-top: 4px solid #8b5cf6; }
         .c-purple .card-badge { background: #ede9fe; color: #5b21b6; }
-        .c-purple .btn { background: var(--c-tech); color: white; }
+        .c-purple .btn { background: #7c3aed; color: #fff; }
 
-        .c-dark { border-top: 5px solid var(--c-stoic); }
+        .c-dark { border-top: 4px solid #64748b; }
         .c-dark .card-badge { background: #f1f5f9; color: #334155; }
-        .c-dark .btn { background: var(--c-stoic); color: white; }
+        .c-dark .btn { background: #475569; color: #fff; }
 
-        /* Calm Note Block */
-        .calm-banner {
-            background: var(--surface-soft);
-            border-radius: 30px;
-            padding: 40px;
-            margin-bottom: 80px;
-            border: 1px solid var(--border);
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-        .calm-text h2 { margin-bottom: 10px; color: var(--primary); }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .calm-banner { flex-direction: column; text-align: center; padding: 30px 20px; }
-            .nav-inner { flex-direction: column; gap: 15px; }
+        /* Pulse animation */
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
         }
 
+        /* Footer */
         footer {
             background: var(--surface);
-            padding: 60px 20px;
+            padding: 60px 20px 40px;
             text-align: center;
             border-top: 1px solid var(--border);
+            margin-top: 60px;
+        }
+        .footer-counter {
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        /* Responsive Tweaks */
+        @media (max-width: 768px) {
+            .hero { padding: 65px 16px 40px; }
+            .nav-inner { flex-direction: column; align-items: stretch; gap: 12px; }
+            .theme-toggle { align-self: flex-end; }
+            .calm-banner { flex-direction: column; text-align: center; padding: 25px 20px; }
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -232,7 +356,9 @@
 <div class="progress-wrap"><div class="progress-bar" id="pBar"></div></div>
 
 <header class="hero">
-    <div class="badge" style="background:var(--surface-soft); padding:8px 20px; border-radius:50px; font-weight:600; font-size:0.9rem; margin-bottom:20px; display:inline-block;">🌿 शिक्षा • विवेक • Root Cause Analysis</div>
+    <div class="hero-badge">
+        <i class="fa-solid fa-seedling"></i> शिक्षा • विवेक • Root Cause Analysis
+    </div>
     <h1>Digital Office:<br><span>Paresh Kumar Hansda</span></h1>
     <p>एक शांत डिजिटल मंच जहाँ ज्ञान, आत्मचिंतन और आधुनिक तकनीक का संगम होता है। यहाँ हम तर्क और विवेक के साथ अपनी शिक्षा बाँटते हैं।</p>
 </header>
@@ -240,577 +366,679 @@
 <nav class="top-nav">
     <div class="nav-inner">
         <div class="nav-links">
-            <a href="#emergency">आपातकाल</a>
-            <a href="#finance">वित्तीय समझ</a>
-            <a href="#education">पढ़ाई एवं परीक्षा</a>
-            <a href="#ai-tech">तकनीकी एवं AI</a>
-            <a href="#philosophy">आत्मचिंतन</a>
-            <a href="#stoic">दैनिक ध्यान</a>
+            <a href="#emergency"><i class="fa-solid fa-triangle-exclamation"></i> आपातकाल व जनसेवा</a>
+            <a href="#finance"><i class="fa-solid fa-coins"></i> वित्तीय समझ व रणनीति</a>
+            <a href="#education"><i class="fa-solid fa-graduation-cap"></i> उच्च शिक्षा व परीक्षा</a>
+            <a href="#ai-tech"><i class="fa-solid fa-microchip"></i> तकनीक व AI</a>
+            <a href="#philosophy"><i class="fa-solid fa-compass"></i> आत्मचिंतन व दर्शन</a>
+            <a href="#stoic"><i class="fa-solid fa-landmark"></i> दैनिक स्टोइक ध्यान</a>
         </div>
-        <button class="theme-toggle" id="themeBtn">🌙 Dark Mode</button>
+        <button class="theme-toggle" id="themeBtn">
+            <i class="fa-solid fa-moon"></i> <span>Dark Mode</span>
+        </button>
     </div>
 </nav>
 
 <main class="container">
 
     <section class="calm-banner">
+        <div class="calm-icon">
+            <i class="fa-solid fa-feather-pointed"></i>
+        </div>
         <div class="calm-text">
             <h2>धीरे पढ़ें • जल्दी नहीं</h2>
             <p>जीवन की भागदौड़ के बीच, यह स्थान आपको रुकने और सोचने की जगह देता है। यदि मन भारी हो, तो एक-एक सेक्शन को गहराई से समझें। जानकारी सिर्फ डेटा नहीं, वह आपका सहारा बन सकती है।</p>
-            <p style="margin-top:15px; font-style:italic; color:var(--muted);">"शांति जगह में नहीं, मन में होती है।"</p>
+            <p style="margin-top:8px; font-style:italic; color:var(--muted);">"शांति जगह में नहीं, मन में होती है।"</p>
         </div>
     </section>
 
+    <!-- SECTION 1: EMERGENCY & PUBLIC ASSISTANCE -->
     <section id="emergency" class="section-header">
-        <h2>आपातकालीन सहायता</h2>
-        <p>कठिन समय में सही जानकारी और तेज़ सहायता के लिए तैयार किए गए डिजिटल टूल्स।</p>
+        <h2>आपातकाल व जनसेवा सहायता</h2>
+        <p>कठिन समय में सही जानकारी, त्वरित कानूनी सहायता और जनकल्याणकारी योजनाओं के लिए डिजिटल टूल्स।</p>
     </section>
-
-
-      <!-- Chronotype Self-Assessment & 14-Day Tracker Card -->
-  <div class="card" style="border-color: #38bdf8; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.15); background: #1e293b; color: #f8fafc;">
-    <div class="badge" style="color: #38bdf8; background: rgba(56, 189, 248, 0.15); font-weight: bold;">🕰️ जैविक घड़ी व उत्पादकता</div>
-    <h2 style="color: #ffffff;">अपना Chronotype खोजें<br><span style="font-size: 1.1rem; color: #38bdf8;">(Biological Peak Tracker)</span></h2>
-    <p style="color: #94a3b8;">10-प्रश्नीय जैविक घड़ी स्व-मूल्यांकन क्विज़, प्राकृतिक ऊर्जा विंडो का विश्लेषण और ऑटो-सेव 14-दिवसीय क्रोनोटाइप लॉग ट्रैकर।</p>
-    <a href="chronotype.html" class="btn" style="background: linear-gradient(135deg, #0284c7, #38bdf8); color: #0f172a; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(56, 189, 248, 0.25);">जैविक स्कोर जानें ➔</a>
-  </div>
-
-
-
-    
-
-      <!-- Financial Education & Cashflow Quadrant Master Guide Card -->
-  <div class="card" style="border-color: #f59e0b; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15); background: #0b0f19; color: #f8fafc;">
-    <div class="badge" style="color: #f59e0b; background: rgba(245, 158, 11, 0.15); font-weight: bold;">💰 वित्तीय साक्षरता महाग्रंथ</div>
-    <h2 style="color: #ffffff;">स्कूल और पैसों का असली सच<br><span style="font-size: 1.1rem; color: #fbbf24;">(Financial Education Guide)</span></h2>
-    <p style="color: #94a3b8;">रॉबर्ट कियोसाकी के सिद्धांतों का भारतीय रूपांतरण, कैशफ्लो क्वाड्रेंट (E-S-B-I), एसेट बनाम लायबिलिटी गेम और इंटरएक्टिव क्विज़!</p>
-    <a href="financial_education_hindi.html" class="btn" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: #000000; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);">महाग्रंथ पढ़ें ➔</a>
-  </div>
-
-      <!-- Winner vs Loser Mindset (Andrew Huberman Framework) Card -->
-  <div class="card" style="border-color: #5b4bdb; box-shadow: 0 4px 15px rgba(91, 75, 219, 0.15); background: #ffffff;">
-    <div class="badge" style="color: #5b4bdb; background: rgba(91, 75, 219, 0.12); font-weight: bold;">🧠 न्यूरोसाइंस व मानसिक दृढ़ता</div>
-    <h2 style="color: #18202a;">विजेता बनाम हारने वाली<br><span style="font-size: 1.1rem; color: #5b4bdb;">मानसिकता (Mindset)</span></h2>
-    <p style="color: #657080;">एंड्रयू ह्यूबर्मन के सिद्धांतों पर आधारित व्यवहारिक ढांचा, जेनेरेटिव ड्राइव (Generative Drive), दर्द को रचनात्मक दिशा देने की कला और दैनिक 5 आत्म-विश्लेषण प्रश्न!</p>
-    <a href="winnervslosser.html" class="btn" style="background: linear-gradient(135deg, #5b4bdb, #7c6ee6); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(91, 75, 219, 0.25);">माइंडसेट गाइड पढ़ें ➔</a>
-  </div>
-
-    
-
-  <div class="card" style="border-color: #6366f1; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2); background: #0b0f19; color: #f8fafc;">
-    <div class="badge" style="color: #6366f1; background: rgba(99, 102, 241, 0.15); font-weight: bold;">🤖 AI ऑटोमेशन टूल</div>
-    <h2 style="color: #ffffff;">AI स्मार्ट एप्लीकेशन<br><span style="font-size: 1.1rem; color: #818cf8;">एवं इवेंट ट्रैकर</span></h2>
-    <p style="color: #94a3b8;">फॉर्म डेडलाइन्स, परीक्षाओं और बिल भुगतान का लाइव काउंटडाउन। AI स्कैनर, फिल्टर और अर्जेंट रेड-ग्लो अलर्ट के साथ स्मार्ट ऑटोमेशन।</p>
-    <a href="todod-9.html" class="btn" style="background: linear-gradient(135deg, #4f46e5, #06b6d4); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);">ट्रैकर डैशबोर्ड खोलें ➔</a>
-  </div>
-
-    
-  <!-- PrimeCare Dental Post-Extraction Care Guide Card -->
-  <div class="card" style="border-color: #203A43; box-shadow: 0 4px 15px rgba(15, 32, 39, 0.12); background: #ffffff;">
-    <div class="badge" style="color: #0F2027; background: rgba(32, 58, 67, 0.12); font-weight: bold;">🦷 दंत स्वास्थ्य व देखभाल</div>
-    <h2 style="color: #0F2027;">दांत निकलवाने के बाद<br><span style="font-size: 1.1rem; color: #c0392b;">विस्तृत देखभाल गाइड</span></h2>
-    <p style="color: #475569;">प्राइमकेयर डेंटल के विस्तृत निर्देश[span_0](start_span)[span_0](end_span), घाव भरने के वैज्ञानिक कारण[span_1](start_span)[span_1](end_span), ड्राई सॉकेट से बचाव[span_2](start_span)[span_2](end_span), आहार नियम[span_3](start_span)[span_3](end_span) और अक्सर पूछे जाने वाले सवालों (FAQ) की संपूर्ण मार्गदर्शिका[span_4](start_span)[span_4](end_span)!</p>
-    <a href="sumitra_care_faq.html" class="btn" style="background: linear-gradient(135deg, #0F2027, #203A43); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(15, 32, 39, 0.25);">देखभाल निर्देश देखें ➔</a>
-  </div>
-
-
-
-    
     <div class="grid">
+
+        <!-- Missing Report Card -->
         <div class="card c-red">
-            <div class="card-badge">Emergency</div>
-            <h3>गुमशुदगी रिपोर्ट पोस्टर जेनरेटर</h3>
-            <p>मात्र 1 मिनट में पुलिस और सोशल मीडिया के लिए प्रोफेशनल प्रिंट-रेडी डिजिटल पोस्टर तैयार करें।</p>
+            <div>
+                <div class="card-badge">Emergency Tool</div>
+                <h3>गुमशुदगी रिपोर्ट पोस्टर जेनरेटर</h3>
+                <p>मात्र 1 मिनट में पुलिस और सोशल मीडिया के लिए प्रोफेशनल प्रिंट-रेडी डिजिटल पोस्टर तैयार करें।</p>
+            </div>
             <a href="missing-report.html" class="btn">टूल का उपयोग करें ➔</a>
         </div>
+
+        <!-- Ghanashyam Kol Help Card -->
+        <div class="card" style="border-color: #B54A2C; box-shadow: 0 4px 15px rgba(181, 74, 44, 0.1);">
+            <div>
+                <div class="badge" style="color: #B54A2C; background: rgba(181, 74, 44, 0.15);">सामाजिक सहयोग (Public Appeal)</div>
+                <h2>सहयोग की अपील<br><span style="font-size: 1.1rem; color: #12666E;">घनश्याम कोल जी</span></h2>
+                <p>वर्षों से समाज सेवा में समर्पित घनश्याम कोल जी के गंभीर इलाज हेतु समस्त कोल समाज एवं शुभचिंतकों से स्वैच्छिक आर्थिक सहयोग की विनम्र अपील।</p>
+            </div>
+            <a href="ghanashyam-help2.html" class="btn" style="background: linear-gradient(135deg, #B54A2C, #0B4A50); color: #ffffff; border: none; font-weight: bold;">पोस्टर / बैंक विवरण देखें ➔</a>
+        </div>
+
+        <!-- MACT Legal Claim Card -->
+        <div class="card" style="border-color: #0d47a1; box-shadow: 0 4px 15px rgba(13, 71, 161, 0.15);">
+            <div>
+                <div class="badge" style="color: #0d47a1; background: rgba(13, 71, 161, 0.12); font-weight: bold;">⚖️ विधिक साक्षरता एवं अधिकार</div>
+                <h2>सड़क दुर्घटना मुआवजा<br><span style="font-size: 1.1rem; color: #ff6f00;">(MACT दावा प्रक्रिया)</span></h2>
+                <p>मोटर वाहन दुर्घटना में दावा दर्ज करने की पूरी कानूनी प्रक्रिया। एफआईआर, DAR रिपोर्ट, हिट-एंड-रन मुआवजा और ट्रिब्यूनल से अधिकार पाने की स्टेप-बाय-स्टेप गाइड।</p>
+            </div>
+            <a href="MACT_Muavza_Prakriya_Hindi.html" class="btn" style="background: linear-gradient(135deg, #0d47a1, #1565c0); color: #ffffff; border: none; font-weight: bold;">कानूनी प्रक्रिया जानें ➔</a>
+        </div>
+
+        <!-- RTO Driving Exam Card -->
+        <div class="card" style="border-color: #dc2626; box-shadow: 0 4px 15px rgba(220, 38, 38, 0.15);">
+            <div>
+                <div class="badge" style="color: #dc2626; background: rgba(220, 38, 38, 0.15); font-weight: bold;">🚦 RTO परीक्षा हब</div>
+                <h2>यातायात नियम एवं<br><span style="font-size: 1.1rem; color: #d97706;">RTO मास्टर गाइड</span></h2>
+                <p>ड्राइविंग लाइसेंस परीक्षा की 100% तैयारी। अनिवार्य संकेत, नियम, लाइव प्रैक्टिस क्विज़ और 3D फ़्लैशकार्ड्स के साथ पहली बार में परीक्षा पास करें।</p>
+            </div>
+            <a href="driver51.html" class="btn" style="background: linear-gradient(135deg, #dc2626, #b91c1c); color: #ffffff; border: none; font-weight: bold;">लाइव टेस्ट शुरू करें ➔</a>
+        </div>
+
+        <!-- PM Jan Suraksha Card -->
+        <div class="card" style="border-color: #FF9933; box-shadow: 0 4px 15px rgba(255, 153, 51, 0.15);">
+            <div>
+                <div class="badge" style="color: #000080; background: rgba(255, 153, 51, 0.15); font-weight: bold;">🇮🇳 सामाजिक सुरक्षा कवच</div>
+                <h2>जन सुरक्षा योजनाएं<br><span style="font-size: 1.1rem; color: #138808;">(PMJJBY, PMSBY, APY)</span></h2>
+                <p>प्रधानमंत्री जीवन ज्योति बीमा, सुरक्षा बीमा एवं अटल पेंशन योजना का संपूर्ण विवरण, लाइव आयु पात्रता कैलकुलेटर और ऑनलाइन नामांकन लिंक।</p>
+            </div>
+            <a href="pm.html" class="btn" style="background: linear-gradient(135deg, #FF9933, #138808); color: #ffffff; border: none; font-weight: bold;">योजनाएं देखें / आवेदन करें ➔</a>
+        </div>
+
+        <!-- PrimeCare Dental Card -->
+        <div class="card" style="border-color: #203A43; box-shadow: 0 4px 15px rgba(15, 32, 39, 0.12);">
+            <div>
+                <div class="badge" style="color: #0F2027; background: rgba(32, 58, 67, 0.12); font-weight: bold;">🦷 दंत स्वास्थ्य व देखभाल</div>
+                <h2>दांत निकलवाने के बाद<br><span style="font-size: 1.1rem; color: #c0392b;">विस्तृत देखभाल गाइड</span></h2>
+                <p>प्राइमकेयर डेंटल के विस्तृत निर्देश, घाव भरने के वैज्ञानिक कारण, ड्राई सॉकेट से बचाव, आहार नियम और अक्सर पूछे जाने वाले सवालों (FAQ) की संपूर्ण मार्गदर्शिका!</p>
+            </div>
+            <a href="sumitra_care_faq.html" class="btn" style="background: linear-gradient(135deg, #0F2027, #203A43); color: #ffffff; border: none; font-weight: bold;">देखभाल निर्देश देखें ➔</a>
+        </div>
+
+        <!-- Free JPSC Coaching Card -->
+        <div class="card" style="border-color: #047857; box-shadow: 0 4px 15px rgba(4, 120, 87, 0.15);">
+            <div>
+                <div class="badge" style="color: #064e3b; background: rgba(4, 120, 87, 0.15); font-weight: bold;">📚 निःशुल्क JPSC/JSSC कोचिंग</div>
+                <h2>मुख्यमंत्री अल्पसंख्यक<br><span style="font-size: 1.1rem; color: #047857;">कोचिंग योजना 2024</span></h2>
+                <p>झारखंड राज्य के अल्पसंख्यक छात्रों के लिए निःशुल्क JPSC व JSSC कोचिंग। लाइव पात्रता जांच टूल, सीटों का विवरण और ऑनलाइन आवेदन गाइड।</p>
+            </div>
+            <a href="jpsc.html" class="btn" style="background: linear-gradient(135deg, #064e3b, #047857); color: #ffffff; border: none; font-weight: bold;">पात्रता जांचें / विवरण देखें ➔</a>
+        </div>
+
     </div>
 
-
-    
-  <div class="card" style="border-color: #B54A2C; box-shadow: 0 4px 15px rgba(181, 74, 44, 0.1);">
-    <div class="badge" style="color: #B54A2C; background: rgba(181, 74, 44, 0.15);">सामाजिक सहयोग (Public Appeal)</div>
-    <h2>सहयोग की अपील<br><span style="font-size: 1.1rem; color: #12666E;">घनश्याम कोल जी</span></h2>
-    <p>वर्षों से समाज सेवा में समर्पित घनश्याम कोल जी के गंभीर इलाज हेतु समस्त कोल समाज एवं शुभचिंतकों से स्वैच्छिक आर्थिक सहयोग की विनम्र अपील।</p>
-    <a href="ghanashyam-help2.html" class="btn" style="background: linear-gradient(135deg, #B54A2C, #0B4A50); color: #ffffff; border: none; font-weight: bold;">पोस्टर / बैंक विवरण देखें ➔</a>
-  </div>
-
-
-  <!-- Jim Rohn: True Wealth & Happiness Card -->
-  <div class="card" style="border-color: #161925; box-shadow: 5px 5px 0px 0px #161925; background: #ffffff;">
-    <div class="badge" style="color: #161925; background: #FFE047; font-weight: 800; border: 1.5px solid #161925;">💡 जीवन दर्शन व समृद्धि</div>
-    <h2 style="color: #161925;">सच्ची संपत्ति और<br><span style="font-size: 1.1rem; color: #FF70A6;">खुशी की कुंजी</span></h2>
-    <p style="color: #334155;">जिम रोन के विश्वप्रसिद्ध व्याख्यान के 11 व्यावहारिक चरण[span_0](start_span)[span_0](end_span), निस्वार्थ योगदान का सिद्धांत[span_1](start_span)[span_1](end_span), और 21-दिवसीय दैनिक एक्शन चेकलिस्ट[span_2](start_span)[span_2](end_span)।</p>
-    <a href="happy2.html" class="btn" style="background: #FFE047; color: #161925; border: 2px solid #161925; font-weight: 800; box-shadow: 3px 3px 0px 0px #161925;">मास्टर गाइड पढ़ें ➔</a>
-  </div>
-
-
-
-      <div class="card" style="border-color: #0d47a1; box-shadow: 0 4px 15px rgba(13, 71, 161, 0.15); background: #ffffff;">
-    <div class="badge" style="color: #0d47a1; background: rgba(13, 71, 161, 0.12); font-weight: bold;">⚖️ विधिक साक्षरता एवं अधिकार</div>
-    <h2>सड़क दुर्घटना मुआवजा<br><span style="font-size: 1.1rem; color: #ff6f00;">(MACT दावा प्रक्रिया)</span></h2>
-    <p>मोटर वाहन दुर्घटना में दावा दर्ज करने की पूरी कानूनी प्रक्रिया। एफआईआर, DAR रिपोर्ट, हिट-एंड-रन मुआवजा और ट्रिब्यूनल से अधिकार पाने की स्टेप-बाय-स्टेप गाइड।</p>
-    <a href="MACT_Muavza_Prakriya_Hindi.html" class="btn" style="background: linear-gradient(135deg, #0d47a1, #1565c0); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(13, 71, 161, 0.25);">कानूनी प्रक्रिया जानें ➔</a>
-  </div>
-
-
-
-    
-    
-  <div class="card" style="border-color: #dc2626; box-shadow: 0 4px 15px rgba(220, 38, 38, 0.15);">
-    <div class="badge" style="color: #dc2626; background: rgba(220, 38, 38, 0.15); font-weight: bold;">🚦 RTO परीक्षा हब</div>
-    <h2>यातायात नियम एवं<br><span style="font-size: 1.1rem; color: #d97706;">RTO मास्टर गाइड</span></h2>
-    <p>ड्राइविंग लाइसेंस परीक्षा की 100% तैयारी। अनिवार्य संकेत, नियम, लाइव प्रैक्टिस क्विज़ और 3D फ़्लैशकार्ड्स के साथ पहली बार में परीक्षा पास करें।</p>
-    <a href="driver51.html" class="btn" style="background: linear-gradient(135deg, #dc2626, #b91c1c); color: #ffffff; border: none; font-weight: bold;">लाइव टेस्ट शुरू करें ➔</a>
-  </div>
-
-
-  <div class="card" style="border-color: #FF9933; box-shadow: 0 4px 15px rgba(255, 153, 51, 0.15); background: #ffffff;">
-    <div class="badge" style="color: #000080; background: rgba(255, 153, 51, 0.15); font-weight: bold;">🇮🇳 सामाजिक सुरक्षा कवच</div>
-    <h2>जन सुरक्षा योजनाएं<br><span style="font-size: 1.1rem; color: #138808;">(PMJJBY, PMSBY, APY)</span></h2>
-    <p>प्रधानमंत्री जीवन ज्योति बीमा, सुरक्षा बीमा एवं अटल पेंशन योजना का संपूर्ण विवरण, लाइव आयु पात्रता कैलकुलेटर और ऑनलाइन नामांकन लिंक।</p>
-    <a href="pm.html" class="btn" style="background: linear-gradient(135deg, #FF9933, #138808); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(19, 136, 8, 0.25);">योजनाएं देखें / आवेदन करें ➔</a>
-  </div>
-
-    
-
-
-      <div class="card" style="border-color: #047857; box-shadow: 0 4px 15px rgba(4, 120, 87, 0.15); background: #ffffff;">
-    <div class="badge" style="color: #064e3b; background: rgba(4, 120, 87, 0.15); font-weight: bold;">📚 निःशुल्क JPSC/JSSC कोचिंग</div>
-    <h2>मुख्यमंत्री अल्पसंख्यक<br><span style="font-size: 1.1rem; color: #047857;">कोचिंग योजना 2024</span></h2>
-    <p>झारखंड राज्य के अल्पसंख्यक छात्रों के लिए निःशुल्क JPSC व JSSC कोचिंग। लाइव पात्रता जांच टूल, सीटों का विवरण और ऑनलाइन आवेदन गाइड।</p>
-    <a href="jpsc.html" class="btn" style="background: linear-gradient(135deg, #064e3b, #047857); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(4, 120, 87, 0.25);">पात्रता जांचें / विवरण देखें ➔</a>
-  </div>
-
-    
-
-    
+    <!-- SECTION 2: FINANCIAL INTELLIGENCE & WEALTH -->
     <section id="finance" class="section-header">
-        <h2>वित्तीय समझ और भविष्य</h2>
-        <p>लोन, निवेश और बचत के असली गणित को अपनी भाषा में समझें।</p>
+        <h2>वित्तीय समझ और भविष्य निर्माण</h2>
+        <p>लोन, निवेश, बचत, व्यापार और बैंकिंग के असली गणित को अपनी भाषा में समझें।</p>
     </section>
     <div class="grid">
+
+        <!-- Financial Education Master Guide -->
+        <div class="card" style="border-color: #f59e0b; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15); background: #0b0f19; color: #f8fafc;">
+            <div>
+                <div class="badge" style="color: #f59e0b; background: rgba(245, 158, 11, 0.15); font-weight: bold;">💰 वित्तीय साक्षरता महाग्रंथ</div>
+                <h2 style="color: #ffffff;">स्कूल और पैसों का असली सच<br><span style="font-size: 1.1rem; color: #fbbf24;">(Financial Education Guide)</span></h2>
+                <p style="color: #94a3b8;">रॉबर्ट कियोसाकी के सिद्धांतों का भारतीय रूपांतरण, कैशफ्लो क्वाड्रेंट (E-S-B-I), एसेट बनाम लायबिलिटी गेम और इंटरएक्टिव क्विज़!</p>
+            </div>
+            <a href="financial_education_hindi.html" class="btn" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: #000000; border: none; font-weight: bold;">महाग्रंथ पढ़ें ➔</a>
+        </div>
+
+        <!-- Bank Deduction & Internet Banking Solution Card -->
+        <div class="card" style="border-color: #1b3f8b; box-shadow: 0 4px 15px rgba(27, 63, 139, 0.15);">
+            <div>
+                <div class="badge" style="color: #1b3f8b; background: rgba(27, 63, 139, 0.12); font-weight: bold;">💳 बैंकिंग साक्षरता व समाधान</div>
+                <h2 style="color: #0c2356;">बैंक कटौती का सच<br><span style="font-size: 1.1rem; color: #1b3f8b;">(Pending AMC & Net Banking)</span></h2>
+                <p>डिविडेंड या UPI से आई छोटी रकम अचानक क्यों कट जाती है? जानिए Pending AMC का पूरा हिसाब-किताब, वास्तविक केस स्टडी और YONO नेट बैंकिंग से समाधान।</p>
+            </div>
+            <a href="ded2.html" class="btn" style="background: linear-gradient(135deg, #1b3f8b, #0c2356); color: #ffffff; border: none; font-weight: bold;">पूरी सच्चाई जानें ➔</a>
+        </div>
+
+        <!-- The Gold Lender of Babylon -->
+        <div class="card" style="border-color: #D4AF37; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.18);">
+            <div>
+                <div class="badge" style="color: #997A15; background: rgba(212, 175, 55, 0.15); font-weight: bold; border: 1px solid rgba(212, 175, 55, 0.3);">🏺 वित्तीय बुद्धिमत्ता व नीति-कथा</div>
+                <h2 style="color: #2B1B10;">बेबीलोन का स्वर्ण ऋणदाता<br><span style="font-size: 1.1rem; color: #A0522D;">(The Gold Lender of Babylon)</span></h2>
+                <p>रोदान के 50 सिक्के, माथोन की संदूकची, किसान-बैल-गधे की प्रेरक कथा और इंटरएक्टिव 4-प्रश्नीय बोध प्रश्नोत्तरी!</p>
+            </div>
+            <a href="6_2.html" class="btn" style="background: linear-gradient(135deg, #B45309, #78350F); color: #ffffff; border: none; font-weight: bold;">अमर कथा पढ़ें ➔</a>
+        </div>
+
+        <!-- Who Moved My Cheese -->
+        <div class="card" style="border-color: #f59e0b; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15);">
+            <div>
+                <div class="badge" style="color: #b45309; background: rgba(245, 158, 11, 0.15); font-weight: bold;">🧀 माइंडसेट एवं परिवर्तन</div>
+                <h2>मेरा मक्खन किसने हटाया?<br><span style="font-size: 1.1rem; color: #d97706;">(Who Moved My Cheese?)</span></h2>
+                <p>बदलाव के डर को कैसे हराएं? डॉ. स्पेंसर जॉनसन की कालजयी किताब का भारतीय संदर्भ, चित्रमयी कहानी और लाइव 'कैरेक्टर टेस्ट' क्विज़।</p>
+            </div>
+            <a href="WhoMovedMyCheeseIHT.html" class="btn" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: #ffffff; border: none; font-weight: bold;">नया मक्खन ढूँढें ➔</a>
+        </div>
+
+        <!-- EMI Calculator Digital CA -->
         <div class="card c-gold">
-            <div class="card-badge">Financial Tool</div>
-            <h3>EMI कैलकुलेटर: डिजिटल CA</h3>
-            <p>लोन की EMI, ब्याज और नेगोशिएशन से होने वाली बचत को सरल हिंदी में समझें।</p>
+            <div>
+                <div class="card-badge">Financial Tool</div>
+                <h3>EMI कैलकुलेटर: डिजिटल CA</h3>
+                <p>लोन की EMI, ब्याज और नेगोशिएशन से होने वाली बचत को सरल हिंदी में समझें।</p>
+            </div>
             <a href="emi-calculator-2.html" class="btn">कैलकुलेटर देखें ➔</a>
         </div>
+
+        <!-- EMI vs SIP Smart Calc -->
         <div class="card c-gold">
-            <div class="card-badge">Financial Tool</div>
-            <h3>EMI vs SIP: Smart Calc</h3>
-            <p>लोन जल्दी चुकाना बेहतर है या निवेश करना? लंबी अवधि के वित्तीय प्रभाव की तुलना करें।</p>
+            <div>
+                <div class="card-badge">Financial Tool</div>
+                <h3>EMI vs SIP: Smart Calc</h3>
+                <p>लोन जल्दी चुकाना बेहतर है या निवेश करना? लंबी अवधि के वित्तीय प्रभाव की तुलना करें।</p>
+            </div>
             <a href="emi_vs_sip2.html" class="btn">तुलना देखें ➔</a>
         </div>
+
+        <!-- Wedding Savings Calc -->
         <div class="card c-gold">
-            <div class="card-badge">Wealth Building</div>
-            <h3>शादी बचत कैलकुलेटर</h3>
-            <p>दिखावे के खर्च और Compounding के बीच के अंतर को समझें। भविष्य के करोड़ों का हिसाब करें।</p>
+            <div>
+                <div class="card-badge">Wealth Building</div>
+                <h3>शादी बचत कैलकुलेटर</h3>
+                <p>दिखावे के खर्च और Compounding के बीच के अंतर को समझें। भविष्य के करोड़ों का हिसाब करें।</p>
+            </div>
             <a href="shadi-bachat-calculator.html" class="btn">हिसाब देखें ➔</a>
         </div>
+
+        <!-- Gold Purity & Hallmark Guide -->
         <div class="card c-gold">
-            <div class="card-badge">Awareness</div>
-            <h3>सोना कितना सोना है?</h3>
-            <p>BIS कोड, हॉलमार्क और सोना खरीदते समय होने वाली ठगी से बचने की पूरी जानकारी।</p>
+            <div>
+                <div class="card-badge">Awareness</div>
+                <h3>सोना कितना सोना है?</h3>
+                <p>BIS कोड, हॉलमार्क और सोना खरीदते समय होने वाली ठगी से बचने की पूरी जानकारी।</p>
+            </div>
             <a href="sona-kitna-sona.html" class="btn">पूरी सच्चाई ➔</a>
         </div>
+
+        <!-- Business Ideas Guide -->
         <div class="card c-purple">
-            <div class="card-badge">Startup</div>
-            <h3>बिज़नेस आइडियाज़ गाइड</h3>
-            <p>कम निवेश वाले, घर-आधारित और टिकाऊ व्यावसायिक विचार। माइक्रोग्रीन से क्लाउड किचन तक।</p>
+            <div>
+                <div class="card-badge">Startup</div>
+                <h3>बिज़नेस आइडियाज़ गाइड</h3>
+                <p>कम निवेश वाले, घर-आधारित और टिकाऊ व्यावसायिक विचार। माइक्रोग्रीन से क्लाउड किचन तक।</p>
+            </div>
             <a href="bidea.html" class="btn">शुरुआत की राह ➔</a>
         </div>
 
-
-
-
-          <!-- Bank Deduction & Internet Banking Solution Card -->
-  <div class="card" style="border-color: #1b3f8b; box-shadow: 0 4px 15px rgba(27, 63, 139, 0.15); background: #ffffff;">
-    <div class="badge" style="color: #1b3f8b; background: rgba(27, 63, 139, 0.12); font-weight: bold;">💳 बैंकिंग साक्षरता व समाधान</div>
-    <h2 style="color: #0c2356;">बैंक कटौती का सच<br><span style="font-size: 1.1rem; color: #1b3f8b;">(Pending AMC & Net Banking)</span></h2>
-    <p style="color: #475569;">डिविडेंड या UPI से आई छोटी रकम अचानक क्यों कट जाती है? जानिए Pending AMC का पूरा हिसाब-किताब, वास्तविक केस स्टडी और YONO नेट बैंकिंग से समाधान।</p>
-    <a href="ded2.html" class="btn" style="background: linear-gradient(135deg, #1b3f8b, #0c2356); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(27, 63, 139, 0.25);">पूरी सच्चाई जानें ➔</a>
-  </div>       
-<!-- The Gold Lender of Babylon (The Richest Man in Babylon) Card -->
-<div class="card" style="border-color: #D4AF37; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.18); background: #FAF7F2;">
-  <div class="badge" style="color: #997A15; background: rgba(212, 175, 55, 0.15); font-weight: bold; border: 1px solid rgba(212, 175, 55, 0.3);">🏺 वित्तीय बुद्धिमत्ता व नीति-कथा</div>
-  <h2 style="color: #2B1B10;">बेबीलोन का स्वर्ण ऋणदाता<br><span style="font-size: 1.1rem; color: #A0522D;">(The Gold Lender of Babylon)</span></h2>
-  <p style="color: #44403C;">रोदान के 50 सिक्के, माथोन की संदूकची, किसान-बैल-गधे की प्रेरक कथा और इंटरएक्टिव 4-प्रश्नीय बोध प्रश्नोत्तरी!</p>
-  <a href="6.html" class="btn" style="background: linear-gradient(135deg, #B45309, #78350F); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(180, 83, 9, 0.3);">अमर कथा पढ़ें ➔</a>
-</div>
-
-
-        
-
-          <div class="card" style="border-color: #f59e0b; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15); background: #ffffff;">
-    <div class="badge" style="color: #b45309; background: rgba(245, 158, 11, 0.15); font-weight: bold;">🧀 माइंडसेट एवं परिवर्तन</div>
-    <h2>मेरा मक्खन किसने हटाया?<br><span style="font-size: 1.1rem; color: #d97706;">(Who Moved My Cheese?)</span></h2>
-    <p>बदलाव के डर को कैसे हराएं? डॉ. स्पेंसर जॉनसन की कालजयी किताब का भारतीय संदर्भ, चित्रमयी कहानी और लाइव 'कैरेक्टर टेस्ट' क्विज़।</p>
-    <a href="WhoMovedMyCheeseIHT.html" class="btn" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);">नया मक्खन ढूँढें ➔</a>
-  </div>
-
-        
-
-
-
-
-        
     </div>
 
+    <!-- SECTION 3: ACADEMIC EDUCATION & HIGHER EXAMS -->
     <section id="education" class="section-header">
-        <h2>पढ़ाई और परीक्षा तैयारी</h2>
-        <p>प्रतियोगी परीक्षाओं के लिए व्यवस्थित सामग्री और मॉक टेस्ट।</p>
+        <h2>पढ़ाई, विश्वविद्यालय एवं परीक्षा तैयारी</h2>
+        <p>स्नातकोत्तर इतिहास, राज्य लोक सेवा आयोग और मेडिकल प्रवेश की व्यवस्थित सामग्री।</p>
     </section>
     <div class="grid">
 
+        <!-- SKMU M.A. History Sem-2 Paper V -->
+        <div class="card" style="border-color: #4b2e83; box-shadow: 0 4px 15px rgba(75, 46, 131, 0.15);">
+            <div>
+                <div class="badge" style="color: #4b2e83; background: #eae6f7; font-weight: bold; border: 1px solid #dcd5f2;">✒️ इतिहास लेखन कौशल (Sem-2)</div>
+                <h2 style="color: #1a1528;">इतिहास लेखन कौशल<br><span style="font-size: 1.1rem; color: #4b2e83;">(Skill in History Writing • Paper V)</span></h2>
+                <p style="color: #4b5563;">अनुसंधान पद्धति, डेटा व परिकल्पना निर्माण, प्राथमिक-द्वितीयक स्रोत, आंतरिक व बाह्य संश्लेषण, शोध प्रबंध, सिनॉप्सिस, थीसिस लेखन व संदर्भ ग्रंथसूची के संपूर्ण 13 यूनिट्स के अध्ययन नोट्स!</p>
+            </div>
+            <a href="57.html" class="btn" style="background: linear-gradient(135deg, #4b2e83, #6b46c1); color: #ffffff; border: none; font-weight: bold;">संपूर्ण 13 यूनिट्स पढ़ें ➔</a>
+        </div>
 
-  <!-- Emotional Intelligence: Master Toolkit & Self-Improvement Hub Card -->
-  <div class="card" style="border-color: #4f46e5; box-shadow: 0 4px 15px rgba(79, 70, 229, 0.15); background: #ffffff;">
-    <div class="badge" style="color: #4338ca; background: rgba(79, 70, 229, 0.12); font-weight: bold;">🧘 ईक्यू संजीवनी टूलकिट</div>
-    <h2 style="color: #0f172a;">भावनात्मक बुद्धिमत्ता<br><span style="font-size: 1.1rem; color: #4f46e5;">(व्यावहारिक जीवन टूलकिट)</span></h2>
-    <p style="color: #475569;">दैनिक अशांति घटाने और मानसिक संतुलन बढ़ाने हेतु 60s श्वास टाइमर, मुखर 'I-संदेश' जनरेटर, 12-सूत्रीय EQ ऑडिट तथा 21-दिवसीय न्यूरो-रीवायरिंग एक्शन प्लान।</p>
-    <a href="eqm7.html" class="btn" style="background: linear-gradient(135deg, #4f46e5, #06b6d4); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);">टूलकिट खोलें ➔</a>
-  </div>
+        <!-- SKMU M.A. History Sem-2 Paper VI -->
+        <div class="card" style="border-color: #831843; box-shadow: 0 4px 15px rgba(131, 24, 67, 0.15);">
+            <div>
+                <div class="badge" style="color: #831843; background: #fce7f3; font-weight: bold; border: 1px solid #fbcfe8;">🏰 मध्यकालीन यूरोप (SKMU Sem-2)</div>
+                <h2 style="color: #1c1917;">मध्यकालीन यूरोप का इतिहास<br><span style="font-size: 1.1rem; color: #be185d;">(800–1600 A.D. • Paper VI)</span></h2>
+                <p style="color: #57534e;">शार्लेमेन, सामंतवाद, पोपतंत्र बनाम राजतंत्र, फ्रेडरिक बारबारोसा, मध्यकालीन विश्वविद्यालय, पुनर्जागरण, धर्म-सुधार, वाणिज्यिक क्रांति व पूंजीवाद के उदय के 15 संपूर्ण अध्याय!</p>
+            </div>
+            <a href="paper63.html" class="btn" style="background: linear-gradient(135deg, #831843, #be185d); color: #ffffff; border: none; font-weight: bold;">संपूर्ण 15 अध्याय पढ़ें ➔</a>
+        </div>
 
-        
+        <!-- SKMU M.A. History Sem-2 Paper VII -->
+        <div class="card" style="border-color: #355445; box-shadow: 0 4px 15px rgba(53, 84, 69, 0.15);">
+            <div>
+                <div class="badge" style="color: #24352d; background: #e7eee8; font-weight: bold; border: 1px solid #c9d8ce;">🏹 संताल परगना का इतिहास (SKMU Sem-2)</div>
+                <h2 style="color: #1a241f;">संताल परगना का इतिहास<br><span style="font-size: 1.1rem; color: #355445;">(1556–1947 A.D. • Paper VII)</span></h2>
+                <p style="color: #556259;">मुग़ल विजय, खेतौरी राज्य, पहाड़िया विद्रोह, दामिन-इ-कोह, 1855 संताल हूल, गैर-विनियमन प्रशासन, 1872 बंदोबस्त, साफ़ाहोड़ आंदोलन व मलूटी-राजमहल स्थापत्य के संपूर्ण अध्ययन नोट्स!</p>
+            </div>
+            <a href="MA_History_Semester_II_Paper_VII_Santal_Parganas_Master.html" class="btn" style="background: linear-gradient(130deg, #1d2c25, #355445); color: #ffffff; border: none; font-weight: bold;">संपूर्ण पाठ्यक्रम पढ़ें ➔</a>
+        </div>
 
-  <!-- Emotional Intelligence: Real Key to Success & Happiness Card -->
-  <div class="card" style="border-color: #6366f1; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.15); background: #ffffff;">
-    <div class="badge" style="color: #4338ca; background: rgba(99, 102, 241, 0.12); font-weight: bold;">🧠 ईक्यू इन्फोग्राफिक & गाइड</div>
-    <h2 style="color: #0f172a;">भावनात्मक बुद्धिमत्ता<br><span style="font-size: 1.1rem; color: #6366f1;">(सफलता व खुशहाली की कुंजी)</span></h2>
-    <p style="color: #475569;">डेनियल गोलमैन व CASEL मॉडल पर आधारित 5 मुख्य स्तंभ[span_0](start_span)[span_0](end_span), इंटरएक्टिव स्टॉपलाइट तकनीक[span_1](start_span)[span_1](end_span) और द्विभाषी इन्फोग्राफिक शीट[span_2](start_span)[span_2](end_span)!</p>
-    <a href="eqm2.html" class="btn" style="background: linear-gradient(135deg, #4f46e5, #6366f1); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(99, 102, 241, 0.25);">इन्फोग्राफिक देखें ➔</a>
-  </div>
+        <!-- SKMU M.A. History Sem-2 Paper VIII -->
+        <div class="card" style="border-color: #1a365d; box-shadow: 0 4px 15px rgba(26, 54, 93, 0.15);">
+            <div>
+                <div class="badge" style="color: #1a365d; background: #e2e8f0; font-weight: bold; border: 1px solid #cbd5e0;">🌸 जेंडर एवं नारी इतिहास (SKMU Sem-2)</div>
+                <h2 style="color: #1a202c;">भारतीय इतिहास में लिंग<br><span style="font-size: 1.1rem; color: #2c5282;">(Gender in Indian History • Paper VIII)</span></h2>
+                <p style="color: #4a5568;">अभिलेखीय व गैर-अभिलेखीय स्रोत, धर्म में महिलाओं का चित्रण, शिक्षा, कानूनी स्थिति, सुधार व महिला आंदोलन, राजनीतिक भागीदारी तथा झारखंड की आदिवासी महिलाओं के संपूर्ण 9 अध्यायों के प्रामाणिक अध्ययन नोट्स!</p>
+            </div>
+            <a href="paper82.html" class="btn" style="background: linear-gradient(135deg, #1a365d, #2c5282); color: #ffffff; border: none; font-weight: bold;">संपूर्ण 9 इकाइयाँ पढ़ें ➔</a>
+        </div>
 
+        <!-- SKMU Sem-1 Paper I -->
+        <div class="card" style="border-color: #2c3e50; box-shadow: 0 4px 15px rgba(44, 62, 80, 0.1);">
+            <div>
+                <div class="badge" style="color: #2c3e50; background: rgba(44, 62, 80, 0.15);">इतिहास लेखन (SKMU)</div>
+                <h2>इतिहास लेखन एवं<br><span style="font-size: 1.1rem; color: #16a085;">अबुल फजल की पद्धति</span></h2>
+                <p>SKMU M.A. हिस्ट्री सेमेस्टर 1 (Paper I)। इतिहास लेखन की परंपराएँ, धर्मनिरपेक्ष दृष्टिकोण, डेटा-संचालित सांख्यिकी और अबुल फजल का आलोचनात्मक मूल्यांकन।</p>
+            </div>
+            <a href="skmu-paper11.html" class="btn" style="background: linear-gradient(135deg, #2c3e50, #16a085); color: #ffffff; border: none; font-weight: bold;">वैज्ञानिक दृष्टि अपनाएँ ➔</a>
+        </div>
 
-          <div class="card" style="border-color: #0ea5e9; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.15); background: #0f172a; color: #f8fafc;">
-    <div class="badge" style="color: #0ea5e9; background: rgba(14, 165, 233, 0.15); font-weight: bold;">🏥 JCECEB NEET 2026</div>
-    <h2 style="color: #ffffff;">झारखण्ड मेडिकल<br><span style="font-size: 1.1rem; color: #f59e0b;">प्रवेश गाइड 2026</span></h2>
-    <p style="color: #94a3b8;">MBBS/BDS स्टेट कोटा सीटें, JCECEB काउंसिलिंग प्रक्रिया, कॉलेज फीस, कट-ऑफ ट्रेंड्स और e-Kalyan स्कॉलरशिप की संपूर्ण गाइड।</p>
-    <a href="med2.html" class="btn" style="background: linear-gradient(135deg, #0ea5e9, #0284c7); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3);">गाइड देखें ➔</a>
-  </div>
+        <!-- SKMU Sem-1 Paper II -->
+        <div class="card" style="border-color: #7e1d1d; box-shadow: 0 4px 15px rgba(126, 29, 29, 0.1);">
+            <div>
+                <div class="badge" style="color: #7e1d1d; background: rgba(126, 29, 29, 0.15);">जनजातीय इतिहास (SKMU)</div>
+                <h2>भारतीय जनजातीय इतिहास<br><span style="font-size: 1.1rem; color: #d35400;">एवं जयपाल सिंह मुंडा</span></h2>
+                <p>SKMU M.A. हिस्ट्री सेमेस्टर 1 (Paper II)। संविधान निर्माण में आदिवासियों की भूमिका, जयपाल सिंह मुंडा की कूटनीति, पाँचवीं व छठवीं अनुसूची और जनजातीय अस्मिता का वैधानिक संघर्ष।</p>
+            </div>
+            <a href="skmu-paper2.html" class="btn" style="background: linear-gradient(135deg, #7e1d1d, #d35400); color: #ffffff; border: none; font-weight: bold;">अस्मिता का इतिहास पढ़ें ➔</a>
+        </div>
 
+        <!-- SKMU Sem-1 Paper III -->
+        <div class="card" style="border-color: #800020; box-shadow: 0 4px 15px rgba(128, 0, 32, 0.1);">
+            <div>
+                <div class="badge" style="color: #800020; background: rgba(128, 0, 32, 0.15);">अकादमिक इतिहास (SKMU)</div>
+                <h2>समकालीन भारत<br><span style="font-size: 1.1rem; color: #800020;">का इतिहास (1947-2000)</span></h2>
+                <p>SKMU M.A. हिस्ट्री सेमेस्टर 1 (Paper III)। रियासतों का एकीकरण, जेपी आंदोलन और दलित पैंथर्स आंदोलन का गहन विश्लेषण और उत्तर-लेखन रणनीति।</p>
+            </div>
+            <a href="skmu-paper31.html" class="btn" style="background: linear-gradient(135deg, #800020, #a02040); color: #ffffff; border: none; font-weight: bold;">पाठ्यक्रम पढ़ें ➔</a>
+        </div>
 
+        <!-- SKMU Sem-1 Paper IV (Ancient World) -->
+        <div class="card" style="border-color: #5c3a21; box-shadow: 0 4px 15px rgba(92, 58, 33, 0.1);">
+            <div>
+                <div class="badge" style="color: #5c3a21; background: rgba(92, 58, 33, 0.15);">प्राचीन विश्व (SKMU)</div>
+                <h2>प्राचीन विश्व का<br><span style="font-size: 1.1rem; color: #5c3a21;">इतिहास (Paper IV)</span></h2>
+                <p>SKMU M.A. हिस्ट्री सेमेस्टर 1। प्राचीन यूनानी और रोमन सभ्यताओं का सामाजिक-आर्थिक ढाँचा, दासा प्रथा, संस्कृति और उनका ऐतिहासिक तुलनात्मक विश्लेषण।</p>
+            </div>
+            <a href="skmu-paper4.html" class="btn" style="background: linear-gradient(135deg, #5c3a21, #7a4f31); color: #ffffff; border: none; font-weight: bold;">प्राचीन गाथा पढ़ें ➔</a>
+        </div>
 
-        
+        <!-- SKMU Sem-1 Paper IV (Vietnam) -->
+        <div class="card" style="border-color: #5c3a21; box-shadow: 0 4px 15px rgba(92, 58, 33, 0.1);">
+            <div>
+                <div class="badge" style="color: #5c3a21; background: rgba(92, 58, 33, 0.15);">वैश्विक इतिहास (SKMU)</div>
+                <h2>वियतनाम संकट और<br><span style="font-size: 1.1rem; color: #5c3a21;">हो चि मिन्ह का संघर्ष</span></h2>
+                <p>SKMU M.A. हिस्ट्री सेमेस्टर 1। वियतनाम का राष्ट्रवाद, हो चि मिन्ह की कूटनीति, गुरिल्ला युद्ध नीति और महाशक्तियों के खिलाफ संप्रभुता की महान गाथा।</p>
+            </div>
+            <a href="skmu-paper41.html" class="btn" style="background: linear-gradient(135deg, #5c3a21, #6e472b); color: #ffffff; border: none; font-weight: bold;">क्रांति का इतिहास पढ़ें ➔</a>
+        </div>
 
+        <!-- Jharkhand Medical Guide -->
+        <div class="card" style="border-color: #0ea5e9; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.15); background: #0f172a; color: #f8fafc;">
+            <div>
+                <div class="badge" style="color: #0ea5e9; background: rgba(14, 165, 233, 0.15); font-weight: bold;">🏥 JCECEB NEET 2026</div>
+                <h2 style="color: #ffffff;">झारखण्ड मेडिकल<br><span style="font-size: 1.1rem; color: #f59e0b;">प्रवेश गाइड 2026</span></h2>
+                <p style="color: #94a3b8;">MBBS/BDS स्टेट कोटा सीटें, JCECEB काउंसिलिंग प्रक्रिया, कॉलेज फीस, कट-ऑफ ट्रेंड्स और e-Kalyan स्कॉलरशिप की संपूर्ण गाइड।</p>
+            </div>
+            <a href="med2.html" class="btn" style="background: linear-gradient(135deg, #0ea5e9, #0284c7); color: #ffffff; border: none; font-weight: bold;">गाइड देखें ➔</a>
+        </div>
 
-        
+        <!-- VBU GE Exam Card -->
+        <div class="card" style="border-color: #ef4444; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.15); position: relative;">
+            <div>
+                <div class="badge" style="color: #ffffff; background: #ef4444; animation: pulse 2s infinite;">⚠️ अर्जेंट अलर्ट (VBU Exam)</div>
+                <h2>VBU GE परीक्षा 2026<br><span style="font-size: 1.1rem; color: #1e3a8a;">अल्टीमेट पोर्टल गाइड</span></h2>
+                <p>सत्र 2015-18 से 2020-23 के जेनरिक इलेक्टिव परीक्षा फॉर्म का लाइव स्टेप-बाय-स्टेप विज़ुअल मैप। अंतिम तिथि 20.07.2026 से पहले फॉर्म भरें।</p>
+            </div>
+            <a href="gen2.html" class="btn" style="background: linear-gradient(135deg, #1e3a8a, #0f172a); color: #ffffff; border: none; font-weight: bold;">पोर्टल गाइड खोलें ➔</a>
+        </div>
 
-          <div class="card" style="border-color: #3498db; box-shadow: 0 4px 15px rgba(52, 152, 219, 0.1);">
-    <div class="badge" style="color: #3498db; background: rgba(52, 152, 219, 0.15);">भावनात्मक साक्षरता (EQ Skills)</div>
-    <h2>भावनात्मक साक्षरता एवं<br><span style="font-size: 1.1rem; color: #2ecc71;">आंतरिक नियंत्रण (EQ)</span></h2>
-    <p>गुस्से पर नियंत्रण का 90-सेकंड नियम, SOCS चार्ट और I-Statement। अपने मन के मौसम को प्रबंधित करने और व्यावहारिक मानसिक शांति पाने की अचूक गाइड।</p>
-    <a href="eq2.html" class="btn" style="background: linear-gradient(135deg, #2c3e50, #3498db); color: #ffffff; border: none; font-weight: bold;">संतुलन का मार्ग ➔</a>
-  </div>
-
-
-
-          <div class="card" style="border-color: #14b8a6; box-shadow: 0 4px 15px rgba(20, 184, 166, 0.15); background: #0f172a; color: #f1f5f9;">
-    <div class="badge" style="color: #14b8a6; background: rgba(20, 184, 166, 0.15); font-weight: bold;">⚡ इंटरएक्टिव लैब (EQ App)</div>
-    <h2 style="color: #ffffff;">इमोशनल लिटरेसी<br><span style="font-size: 1.1rem; color: #22d3ee;">ब्लूप्रिंट हब</span></h2>
-    <p style="color: #94a3b8;">गुस्से, उलझन और संवाद को मापने का लाइव जावास्क्रिप्ट टूल। अपना 'भावनात्मक स्कोर' नापें और मानसिक शांति के व्यावहारिक नियम सीखें।</p>
-    <a href="15.html" class="btn" style="background: linear-gradient(135deg, #14b8a6, #0891b2); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(20, 184, 166, 0.3);">लाइव टेस्ट शुरू करें ➔</a>
-  </div>
-
-
-        
-        
+        <!-- JPSC Paper 1 -->
         <div class="card c-blue">
-            <div class="card-badge">JPSC GS-I</div>
-            <h3>सामान्य अध्ययन समीक्षा</h3>
-            <p>इतिहास, भूगोल, और राजव्यवस्था पर आधारित 100 प्रश्नों की आधिकारिक समीक्षा।</p>
+            <div>
+                <div class="card-badge">JPSC GS-I</div>
+                <h3>सामान्य अध्ययन समीक्षा</h3>
+                <p>इतिहास, भूगोल, और राजव्यवस्था पर आधारित 100 प्रश्नों की आधिकारिक समीक्षा।</p>
+            </div>
             <a href="paper1.html" class="btn">समीक्षा देखें ➔</a>
         </div>
         
+        <!-- JPSC Paper 2 -->
         <div class="card c-blue">
-            <div class="card-badge">JPSC GS-II</div>
-            <h3>झारखण्ड विशेष अध्ययन</h3>
-            <p>झारखण्ड का इतिहास, संस्कृति, कानून और औद्योगिक नीतियों का गहन विश्लेषण।</p>
+            <div>
+                <div class="card-badge">JPSC GS-II</div>
+                <h3>झारखण्ड विशेष अध्ययन</h3>
+                <p>झारखण्ड का इतिहास, संस्कृति, कानून और औद्योगिक नीतियों का गहन विश्लेषण।</p>
+            </div>
             <a href="paper2.html" class="btn">अध्ययन करें ➔</a>
         </div>
         
+        <!-- RRB NTPC Mock -->
         <div class="card c-blue">
-            <div class="card-badge">RRB NTPC</div>
-            <h3>CBT-1 मॉक टेस्ट</h3>
-            <p>वास्तविक परीक्षा पैटर्न पर आधारित 100 प्रश्नों का अभ्यास टेस्ट और विस्तृत विश्लेषण।</p>
+            <div>
+                <div class="card-badge">RRB NTPC</div>
+                <h3>CBT-1 मॉक टेस्ट</h3>
+                <p>वास्तविक परीक्षा पैटर्न पर आधारित 100 प्रश्नों का अभ्यास टेस्ट और विस्तृत विश्लेषण।</p>
+            </div>
             <a href="rrb_ntpc_mock.html" class="btn">टेस्ट शुरू करें ➔</a>
         </div>
 
-
-
-  <div class="card" style="border-color: #2c3e50; box-shadow: 0 4px 15px rgba(44, 62, 80, 0.1);">
-    <div class="badge" style="color: #2c3e50; background: rgba(44, 62, 80, 0.15);">इतिहास लेखन (SKMU)</div>
-    <h2>इतिहास लेखन एवं<br><span style="font-size: 1.1rem; color: #16a085;">अबुल फजल की पद्धति</span></h2>
-    <p>SKMU M.A. हिस्ट्री सेमेस्टर 1 (Paper I)। इतिहास लेखन की परंपराएँ, धर्मनिरपेक्ष दृष्टिकोण, डेटा-संचालित सांख्यिकी और अबुल फजल का आलोचनात्मक मूल्यांकन।</p>
-    <a href="skmu-paper11.html" class="btn" style="background: linear-gradient(135deg, #2c3e50, #16a085); color: #ffffff; border: none; font-weight: bold;">वैज्ञानिक दृष्टि अपनाएँ ➔</a>
-  </div>
-
-
-
-          <div class="card" style="border-color: #7e1d1d; box-shadow: 0 4px 15px rgba(126, 29, 29, 0.1);">
-    <div class="badge" style="color: #7e1d1d; background: rgba(126, 29, 29, 0.15);">जनजातीय इतिहास (SKMU)</div>
-    <h2>भारतीय जनजातीय इतिहास<br><span style="font-size: 1.1rem; color: #d35400;">एवं जयपाल सिंह मुंडा</span></h2>
-    <p>SKMU M.A. हिस्ट्री सेमेस्टर 1 (Paper II)। संविधान निर्माण में आदिवासियों की भूमिका, जयपाल सिंह मुंडा की कूटनीति, पाँचवीं व छठवीं अनुसूची और जनजातीय अस्मिता का वैधानिक संघर्ष।</p>
-    <a href="skmu-paper2.html" class="btn" style="background: linear-gradient(135deg, #7e1d1d, #d35400); color: #ffffff; border: none; font-weight: bold;">अस्मिता का इतिहास पढ़ें ➔</a>
-  </div>
-
-        
-        
-  <div class="card" style="border-color: #800020; box-shadow: 0 4px 15px rgba(128, 0, 32, 0.1);">
-    <div class="badge" style="color: #800020; background: rgba(128, 0, 32, 0.15);">अकादमिक इतिहास (SKMU)</div>
-    <h2>समकालीन भारत<br><span style="font-size: 1.1rem; color: #800020;">का इतिहास (1947-2000)</span></h2>
-    <p>SKMU M.A. हिस्ट्री सेमेस्टर 1 (Paper III)। रियासतों का एकीकरण, जेपी आंदोलन और दलित पैंथर्स आंदोलन का गहन विश्लेषण और उत्तर-लेखन रणनीति।</p>
-    <a href="skmu-paper31.html" class="btn" style="background: linear-gradient(135deg, #800020, #a02040); color: #ffffff; border: none; font-weight: bold;">पाठ्यक्रम पढ़ें ➔</a>
-  </div>
-
-
-        
-  <div class="card" style="border-color: #5c3a21; box-shadow: 0 4px 15px rgba(92, 58, 33, 0.1);">
-    <div class="badge" style="color: #5c3a21; background: rgba(92, 58, 33, 0.15);">प्राचीन विश्व (SKMU)</div>
-    <h2>प्राचीन विश्व का<br><span style="font-size: 1.1rem; color: #5c3a21;">इतिहास (Paper IV)</span></h2>
-    <p>SKMU M.A. हिस्ट्री सेमेस्टर 1। प्राचीन यूनानी और रोमन सभ्यताओं का सामाजिक-आर्थिक ढाँचा, दासा प्रथा, संस्कृति और उनका ऐतिहासिक तुलनात्मक विश्लेषण।</p>
-    <a href="skmu-paper4.html" class="btn" style="background: linear-gradient(135deg, #5c3a21, #7a4f31); color: #ffffff; border: none; font-weight: bold;">प्राचीन गाथा पढ़ें ➔</a>
-  </div>
-
-
-          <div class="card" style="border-color: #5c3a21; box-shadow: 0 4px 15px rgba(92, 58, 33, 0.1);">
-    <div class="badge" style="color: #5c3a21; background: rgba(92, 58, 33, 0.15);">वैश्विक इतिहास (SKMU)</div>
-    <h2>वियतनाम संकट और<br><span style="font-size: 1.1rem; color: #5c3a21;">हो चि मिन्ह का संघर्ष</span></h2>
-    <p>SKMU M.A. हिस्ट्री सेमेस्टर 1। वियतनाम का राष्ट्रवाद, हो चि मिन्ह की कूटनीति, गुरिल्ला युद्ध नीति और महाशक्तियों के खिलाफ संप्रभुता की महान गाथा।</p>
-    <a href="skmu-paper41.html" class="btn" style="background: linear-gradient(135deg, #5c3a21, #6e472b); color: #ffffff; border: none; font-weight: bold;">क्रांति का इतिहास पढ़ें ➔</a>
-  </div>
-
-
-          <!-- SKMU M.A. History Sem-2 Paper V: Skill in History Writing Card -->
-  <div class="card" style="border-color: #4b2e83; box-shadow: 0 4px 15px rgba(75, 46, 131, 0.15); background: #ffffff;">
-    <div class="badge" style="color: #4b2e83; background: #eae6f7; font-weight: bold; border: 1px solid #dcd5f2;">✒️ इतिहास लेखन कौशल (Sem-2)</div>
-    <h2 style="color: #1a1528;">इतिहास लेखन कौशल<br><span style="font-size: 1.1rem; color: #4b2e83;">(Skill in History Writing • Paper V)</span></h2>
-    <p style="color: #4b5563;">अनुसंधान पद्धति, डेटा व परिकल्पना निर्माण, प्राथमिक-द्वितीयक स्रोत, आंतरिक व बाह्य संश्लेषण, शोध प्रबंध, सिनॉप्सिस, थीसिस लेखन व संदर्भ ग्रंथसूची के संपूर्ण 13 यूनिट्स के अध्ययन नोट्स!</p>
-    <a href="57.html" class="btn" style="background: linear-gradient(135deg, #4b2e83, #6b46c1); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(75, 46, 131, 0.25);">संपूर्ण 13 यूनिट्स पढ़ें ➔</a>
-  </div>
-        
-
-          <!-- SKMU M.A. History Sem-2 Paper VI: Medieval Europe Card -->
-  <div class="card" style="border-color: #831843; box-shadow: 0 4px 15px rgba(131, 24, 67, 0.15); background: #ffffff;">
-    <div class="badge" style="color: #831843; background: #fce7f3; font-weight: bold; border: 1px solid #fbcfe8;">🏰 मध्यकालीन यूरोप (SKMU Sem-2)</div>
-    <h2 style="color: #1c1917;">मध्यकालीन यूरोप का इतिहास<br><span style="font-size: 1.1rem; color: #be185d;">(800–1600 A.D. • Paper VI)</span></h2>
-    <p style="color: #57534e;">शार्लेमेन, सामंतवाद, पोपतंत्र बनाम राजतंत्र, फ्रेडरिक बारबारोसा, मध्यकालीन विश्वविद्यालय, पुनर्जागरण, धर्म-सुधार, वाणिज्यिक क्रांति व पूंजीवाद के उदय के 15 संपूर्ण अध्याय!</p>
-    <a href="paper63.html" class="btn" style="background: linear-gradient(135deg, #831843, #be185d); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(131, 24, 67, 0.25);">संपूर्ण 15 अध्याय पढ़ें ➔</a>
-  </div>
-
-
-
-        <!-- SKMU M.A. History Sem-2 Paper VII: History of Santal Parganas Card -->
-  <div class="card" style="border-color: #355445; box-shadow: 0 4px 15px rgba(53, 84, 69, 0.15); background: #ffffff;">
-    <div class="badge" style="color: #24352d; background: #e7eee8; font-weight: bold; border: 1px solid #c9d8ce;">🏹 संताल परगना का इतिहास (SKMU Sem-2)</div>
-    <h2 style="color: #1a241f;">संताल परगना का इतिहास<br><span style="font-size: 1.1rem; color: #355445;">(1556–1947 A.D. • Paper VII)</span></h2>
-    <p style="color: #556259;">मुग़ल विजय, खेतौरी राज्य, पहाड़िया विद्रोह, दामिन-इ-कोह, 1855 संताल हूल, गैर-विनियमन प्रशासन, 1872 बंदोबस्त, साफ़ाहोड़ आंदोलन व मलूटी-राजमहल स्थापत्य के संपूर्ण अध्ययन नोट्स!</p>
-    <a href="p7.html" class="btn" style="background: linear-gradient(130deg, #1d2c25, #355445); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(36, 53, 45, 0.25);">संपूर्ण पाठ्यक्रम पढ़ें ➔</a>
-  </div>
-        
-
-         <!-- SKMU M.A. History Sem-2 Paper VIII: Gender in Indian History Card -->
-  <div class="card" style="border-color: #1a365d; box-shadow: 0 4px 15px rgba(26, 54, 93, 0.15); background: #ffffff;">
-    <div class="badge" style="color: #1a365d; background: #e2e8f0; font-weight: bold; border: 1px solid #cbd5e0;">🌸 जेंडर एवं नारी इतिहास (SKMU Sem-2)</div>
-    <h2 style="color: #1a202c;">भारतीय इतिहास में लिंग<br><span style="font-size: 1.1rem; color: #2c5282;">(Gender in Indian History • Paper VIII)</span></h2>
-    <p style="color: #4a5568;">अभिलेखीय व गैर-अभिलेखीय स्रोत, धर्म में महिलाओं का चित्रण, शिक्षा, कानूनी स्थिति, सुधार व महिला आंदोलन, राजनीतिक भागीदारी तथा झारखंड की आदिवासी महिलाओं के संपूर्ण 9 अध्यायों के प्रामाणिक अध्ययन नोट्स!</p>
-    <a href="paper82.html" class="btn" style="background: linear-gradient(135deg, #1a365d, #2c5282); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(26, 54, 93, 0.25);">संपूर्ण 9 इकाइयाँ पढ़ें ➔</a>
-  </div>
-
-
-        
-
-          <div class="card" style="border-color: #ef4444; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.15); position: relative;">
-    <div class="badge" style="color: #ffffff; background: #ef4444; animation: pulse 2s infinite;">⚠️ अर्जेंट अलर्ट (VBU Exam)</div>
-    <h2>VBU GE परीक्षा 2026<br><span style="font-size: 1.1rem; color: #1e3a8a;">अल्टीमेट पोर्टल गाइड</span></h2>
-    <p>सत्र 2015-18 से 2020-23 के जेनरिक इलेक्टिव परीक्षा फॉर्म का लाइव स्टेप-बाय-स्टेप विज़ुअल मैप। अंतिम तिथि 20.07.2026 से पहले फॉर्म भरें।</p>
-    <a href="gen2.html" class="btn" style="background: linear-gradient(135deg, #1e3a8a, #0f172a); color: #ffffff; border: none; font-weight: bold;">पोर्टल गाइड खोलें ➔</a>
-  </div>
-
-  <style>
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
-      70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
-    }
-  </style>
-
-
-        
-        
     </div>
 
+    <!-- SECTION 4: TECH, AI & PRODUCTIVITY -->
     <section id="ai-tech" class="section-header">
-        <h2>तकनीकी शिक्षा और AI</h2>
-        <p>आने वाला समय AI का है। इसे सही तरीके से उपयोग करना सीखें।</p>
+        <h2>तकनीकी शिक्षा, AI एवं उत्पादकता</h2>
+        <p>आने वाला समय AI और स्व-प्रबंधन का है। इन टूल्स का सही उपयोग करना सीखें।</p>
     </section>
     <div class="grid">
+
+        <!-- AI Smart Application & Event Tracker -->
+        <div class="card" style="border-color: #6366f1; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2); background: #0b0f19; color: #f8fafc;">
+            <div>
+                <div class="badge" style="color: #6366f1; background: rgba(99, 102, 241, 0.15); font-weight: bold;">🤖 AI ऑटोमेशन टूल</div>
+                <h2 style="color: #ffffff;">AI स्मार्ट एप्लीकेशन<br><span style="font-size: 1.1rem; color: #818cf8;">एवं इवेंट ट्रैकर</span></h2>
+                <p style="color: #94a3b8;">फॉर्म डेडलाइन्स, परीक्षाओं और बिल भुगतान का लाइव काउंटडाउन। AI स्कैनर, फिल्टर और अर्जेंट रेड-ग्लो अलर्ट के साथ स्मार्ट ऑटोमेशन।</p>
+            </div>
+            <a href="todod-9.html" class="btn" style="background: linear-gradient(135deg, #4f46e5, #06b6d4); color: #ffffff; border: none; font-weight: bold;">ट्रैकर डैशबोर्ड खोलें ➔</a>
+        </div>
+
+        <!-- Chronotype Tracker -->
+        <div class="card" style="border-color: #38bdf8; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.15); background: #1e293b; color: #f8fafc;">
+            <div>
+                <div class="badge" style="color: #38bdf8; background: rgba(56, 189, 248, 0.15); font-weight: bold;">🕰️ जैविक घड़ी व उत्पादकता</div>
+                <h2 style="color: #ffffff;">अपना Chronotype खोजें<br><span style="font-size: 1.1rem; color: #38bdf8;">(Biological Peak Tracker)</span></h2>
+                <p style="color: #94a3b8;">10-प्रश्नीय जैविक घड़ी स्व-मूल्यांकन क्विज़, प्राकृतिक ऊर्जा विंडो का विश्लेषण और ऑटो-सेव 14-दिवसीय क्रोनोटाइप लॉग ट्रैकर।</p>
+            </div>
+            <a href="chronotype.html" class="btn" style="background: linear-gradient(135deg, #0284c7, #38bdf8); color: #0f172a; border: none; font-weight: bold;">जैविक स्कोर जानें ➔</a>
+        </div>
+
+        <!-- AI Prompt Guide -->
         <div class="card c-purple">
-            <div class="card-badge">AI Training</div>
-            <h3>Prompt Engineering Guide</h3>
-            <p>AI से सही सवाल पूछना सीखें। Zero-Shot, ReAct और Tree-of-Thoughts की हिंदी गाइड।</p>
+            <div>
+                <div class="card-badge">AI Training</div>
+                <h3>Prompt Engineering Guide</h3>
+                <p>AI से सही सवाल पूछना सीखें। Zero-Shot, ReAct और Tree-of-Thoughts की हिंदी गाइड।</p>
+            </div>
             <a href="ai-prompt-guide.html" class="btn">मास्टर बनें ➔</a>
         </div>
+
+        <!-- Gemini + LearnLM -->
         <div class="card c-purple">
-            <div class="card-badge">Advanced AI</div>
-            <h3>Gemini + LearnLM Masterclass</h3>
-            <p>AI का व्यवहार डिज़ाइन करना सीखें। एजुकेशनल वर्कफ़्लो और ऑटोमेशन की एडवांस गाइड।</p>
+            <div>
+                <div class="card-badge">Advanced AI</div>
+                <h3>Gemini + LearnLM Masterclass</h3>
+                <p>AI का व्यवहार डिज़ाइन करना सीखें। एजुकेशनल वर्कफ़्लो और ऑटोमेशन की एडवांस गाइड।</p>
+            </div>
             <a href="learnai.html" class="btn">महारत हासिल करें ➔</a>
         </div>
+
+        <!-- LearnLM Prompt Guide -->
         <div class="card c-purple">
-            <div class="card-badge">Educational AI</div>
-            <h3>LearnLM प्रॉम्प्ट गाइड</h3>
-            <p>Google के खास एजुकेशन मॉडल के सीक्रेट्स। सोक्रेटिक संवाद के ज़रिए सीखना।</p>
+            <div>
+                <div class="card-badge">Educational AI</div>
+                <h3>LearnLM प्रॉम्प्ट गाइड</h3>
+                <p>Google के खास एजुकेशन मॉडल के सीक्रेट्स। सोक्रेटिक संवाद के ज़रिए सीखना।</p>
+            </div>
             <a href="learnlm_prompt_guide.html" class="btn">सीखना शुरू करें ➔</a>
         </div>
+
+        <!-- Screen Time Calculator -->
         <div class="card c-blue">
-            <div class="card-badge">Productivity</div>
-            <h3>स्क्रीन टाइम कैलकुलेटर</h3>
-            <p>सोशल मीडिया में बर्बाद हो रहे समय की असली आर्थिक और मानसिक कीमत समझें।</p>
+            <div>
+                <div class="card-badge">Productivity</div>
+                <h3>स्क्रीन टाइम कैलकुलेटर</h3>
+                <p>सोशल मीडिया में बर्बाद हो रहे समय की असली आर्थिक और मानसिक कीमत समझें।</p>
+            </div>
             <a href="screentime-calculator.html" class="btn">नुकसान देखें ➔</a>
         </div>
+
     </div>
 
+    <!-- SECTION 5: PHILOSOPHY & SELF-REFLECTION -->
     <section id="philosophy" class="section-header">
-        <h2>आत्मचिंतन और जीवन दर्शन</h2>
-        <p>जब बाहरी दुनिया उलझी हुई लगे, तब भीतर की समझ सबसे बड़ी शक्ति बनती है।</p>
+        <h2>आत्मचिंतन, जीवन दर्शन एवं EQ</h2>
+        <p>जब बाहरी दुनिया उलझी हुई लगे, तब भीतर की समझ और भावनात्मक परिपक्वता सबसे बड़ी शक्ति बनती है।</p>
     </section>
     <div class="grid">
+
+        <!-- EQ Master Toolkit (eqm7) -->
+        <div class="card" style="border-color: #4f46e5; box-shadow: 0 4px 15px rgba(79, 70, 229, 0.15);">
+            <div>
+                <div class="badge" style="color: #4338ca; background: rgba(79, 70, 229, 0.12); font-weight: bold;">🧘 ईक्यू संजीवनी टूलकिट</div>
+                <h2 style="color: #0f172a;">भावनात्मक बुद्धिमत्ता<br><span style="font-size: 1.1rem; color: #4f46e5;">(व्यावहारिक जीवन टूलकिट)</span></h2>
+                <p style="color: #475569;">दैनिक अशांति घटाने और मानसिक संतुलन बढ़ाने हेतु 60s श्वास टाइमर, मुखर 'I-संदेश' जनरेटर, 12-सूत्रीय EQ ऑडिट तथा 21-दिवसीय न्यूरो-रीवायरिंग एक्शन प्लान।</p>
+            </div>
+            <a href="eqm7.html" class="btn" style="background: linear-gradient(135deg, #4f46e5, #06b6d4); color: #ffffff; border: none; font-weight: bold;">टूलकिट खोलें ➔</a>
+        </div>
+
+        <!-- EQ Infographic Poster (eqm) -->
+        <div class="card" style="border-color: #6366f1; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.15);">
+            <div>
+                <div class="badge" style="color: #4338ca; background: rgba(99, 102, 241, 0.12); font-weight: bold;">🧠 ईक्यू इन्फोग्राफिक & गाइड</div>
+                <h2 style="color: #0f172a;">भावनात्मक बुद्धिमत्ता<br><span style="font-size: 1.1rem; color: #6366f1;">(सफलता व खुशहाली की कुंजी)</span></h2>
+                <p style="color: #475569;">डेनियल गोलमैन व CASEL मॉडल पर आधारित 5 मुख्य स्तंभ, इंटरएक्टिव स्टॉपलाइट तकनीक और द्विभाषी इन्फोग्राफिक शीट!</p>
+            </div>
+            <a href="eqm.html" class="btn" style="background: linear-gradient(135deg, #4f46e5, #6366f1); color: #ffffff; border: none; font-weight: bold;">इन्फोग्राफिक देखें ➔</a>
+        </div>
+
+        <!-- Emotional Literacy EQ Skills (eq2) -->
+        <div class="card" style="border-color: #3498db; box-shadow: 0 4px 15px rgba(52, 152, 219, 0.1);">
+            <div>
+                <div class="badge" style="color: #3498db; background: rgba(52, 152, 219, 0.15);">भावनात्मक साक्षरता (EQ Skills)</div>
+                <h2>भावनात्मक साक्षरता एवं<br><span style="font-size: 1.1rem; color: #2ecc71;">आंतरिक नियंत्रण (EQ)</span></h2>
+                <p>गुस्से पर नियंत्रण का 90-सेकंड नियम, SOCS चार्ट और I-Statement। अपने मन के मौसम को प्रबंधित करने और व्यावहारिक मानसिक शांति पाने की अचूक गाइड।</p>
+            </div>
+            <a href="eq2.html" class="btn" style="background: linear-gradient(135deg, #2c3e50, #3498db); color: #ffffff; border: none; font-weight: bold;">संतुलन का मार्ग ➔</a>
+        </div>
+
+        <!-- Interactive Emotional Literacy Blueprint (15) -->
+        <div class="card" style="border-color: #14b8a6; box-shadow: 0 4px 15px rgba(20, 184, 166, 0.15); background: #0f172a; color: #f1f5f9;">
+            <div>
+                <div class="badge" style="color: #14b8a6; background: rgba(20, 184, 166, 0.15); font-weight: bold;">⚡ इंटरएक्टिव लैब (EQ App)</div>
+                <h2 style="color: #ffffff;">इमोशनल लिटरेसी<br><span style="font-size: 1.1rem; color: #22d3ee;">ब्लूप्रिंट हब</span></h2>
+                <p style="color: #94a3b8;">गुस्से, उलझन और संवाद को मापने का लाइव जावास्क्रिप्ट टूल। अपना 'भावनात्मक स्कोर' नापें और मानसिक शांति के व्यावहारिक नियम सीखें।</p>
+            </div>
+            <a href="15.html" class="btn" style="background: linear-gradient(135deg, #14b8a6, #0891b2); color: #ffffff; border: none; font-weight: bold;">लाइव टेस्ट शुरू करें ➔</a>
+        </div>
+
+        <!-- Winner vs Loser Mindset -->
+        <div class="card" style="border-color: #5b4bdb; box-shadow: 0 4px 15px rgba(91, 75, 219, 0.15);">
+            <div>
+                <div class="badge" style="color: #5b4bdb; background: rgba(91, 75, 219, 0.12); font-weight: bold;">🧠 न्यूरोसाइंस व मानसिक दृढ़ता</div>
+                <h2 style="color: #18202a;">विजेता बनाम हारने वाली<br><span style="font-size: 1.1rem; color: #5b4bdb;">मानसिकता (Mindset)</span></h2>
+                <p style="color: #657080;">एंड्रयू ह्यूबर्मन के सिद्धांतों पर आधारित व्यवहारिक ढांचा, जेनेरेटिव ड्राइव (Generative Drive), दर्द को रचनात्मक दिशा देने की कला और दैनिक 5 आत्म-विश्लेषण प्रश्न!</p>
+            </div>
+            <a href="winnervslosser.html" class="btn" style="background: linear-gradient(135deg, #5b4bdb, #7c6ee6); color: #ffffff; border: none; font-weight: bold;">माइंडसेट गाइड पढ़ें ➔</a>
+        </div>
+
+        <!-- 4M: Char M Complete Masterclass Card -->
+        <div class="card" style="border-color: #9c2f1e; box-shadow: 0 4px 15px rgba(156, 47, 30, 0.15);">
+            <div>
+                <div class="badge" style="color: #9c2f1e; background: rgba(156, 47, 30, 0.12); font-weight: bold;">🧠 आत्म-नियंत्रण व जीवन दर्शन</div>
+                <h2 style="color: #1f1812;">चार एम (4M)<br><span style="font-size: 1.1rem; color: #9c2f1e;">मन, मूड, मुँह और पैसा</span></h2>
+                <p style="color: #6b5f52;">चुपचाप ज़िंदगी बदलने वाली 4 बुनियादी शक्तियाँ: विचार परखना, भावना संभालना, सटीक बोलना और पैसे को दिशा देना—कक्षा 9 व युवाओं हेतु संपूर्ण सचित्र पाठ!</p>
+            </div>
+            <a href="char-m-complete.html" class="btn" style="background: linear-gradient(135deg, #9c2f1e, #b8956a); color: #ffffff; border: none; font-weight: bold;">पाठ्यक्रम पढ़ें ➔</a>
+        </div>
+
+        <!-- Jim Rohn True Wealth & Happiness Card -->
+        <div class="card" style="border-color: #161925; box-shadow: 5px 5px 0px 0px #161925;">
+            <div>
+                <div class="badge" style="color: #161925; background: #FFE047; font-weight: 800; border: 1.5px solid #161925;">💡 जीवन दर्शन व समृद्धि</div>
+                <h2 style="color: #161925;">सच्ची संपत्ति और<br><span style="font-size: 1.1rem; color: #FF70A6;">खुशी की कुंजी</span></h2>
+                <p style="color: #334155;">जिम रोन के विश्वप्रसिद्ध व्याख्यान के 11 व्यावहारिक चरण, निस्वार्थ योगदान का सिद्धांत, और 21-दिवसीय दैनिक एक्शन चेकलिस्ट।</p>
+            </div>
+            <a href="happy2.html" class="btn" style="background: #FFE047; color: #161925; border: 2px solid #161925; font-weight: 800;">मास्टर गाइड पढ़ें ➔</a>
+        </div>
+
+        <!-- Acharya Prashant -->
         <div class="card c-red">
-            <div class="card-badge">Self-Knowledge</div>
-            <h3>आचार्य प्रशांत: आंतरिक आज़ादी</h3>
-            <p>समाज सुधार बनाम स्वयं का उद्धार। जीवन के कठोर सत्यों पर एक गहरी चर्चा।</p>
+            <div>
+                <div class="card-badge">Self-Knowledge</div>
+                <h3>आचार्य प्रशांत: आंतरिक आज़ादी</h3>
+                <p>समाज सुधार बनाम स्वयं का उद्धार। जीवन के कठोर सत्यों पर एक गहरी चर्चा।</p>
+            </div>
             <a href="acharya-interview2.html" class="btn">विचार मंथन ➔</a>
         </div>
+
+        <!-- Marriage & Love Philosophy -->
         <div class="card c-dark">
-            <div class="card-badge">Philosophy</div>
-            <h3>विवाह और प्रेम दर्शन</h3>
-            <p>क्या विवाह केवल सामाजिक व्यवस्था है? मानवीय संबंधों पर एक दार्शनिक विश्लेषण।</p>
+            <div>
+                <div class="card-badge">Philosophy</div>
+                <h3>विवाह और प्रेम दर्शन</h3>
+                <p>क्या विवाह केवल सामाजिक व्यवस्था है? मानवीय संबंधों पर एक दार्शनिक विश्लेषण।</p>
+            </div>
             <a href="marriage_philosophy_standalone.html" class="btn">पूरा लेख पढ़ें ➔</a>
         </div>
+
+        <!-- Atmachintan & Mental Fatigue -->
         <div class="card c-dark">
-            <div class="card-badge">Mental Peace</div>
-            <h3>आत्मचिंतन और मानसिक थकान</h3>
-            <p>क्या आपका मन लगातार दौड़ने से थक गया है? 'ऑटो-पायलट' ज़िंदगी से बाहर निकलें।</p>
+            <div>
+                <div class="card-badge">Mental Peace</div>
+                <h3>आत्मचिंतन और मानसिक थकान</h3>
+                <p>क्या आपका मन लगातार दौड़ने से थक गया है? 'ऑटो-पायलट' ज़िंदगी से बाहर निकलें।</p>
+            </div>
             <a href="atmachintan.html" class="btn">शांति से पढ़ें ➔</a>
         </div>
+
+        <!-- Beyond Body & Rights -->
         <div class="card c-red">
-            <div class="card-badge">Beyond Body</div>
-            <h3>देह और अधिकार से परे</h3>
-            <p>स्वयं को देह के जाल से निकालकर 'अनंत चेतना' के रूप में पहचानने का कठोर दर्शन।</p>
+            <div>
+                <div class="card-badge">Beyond Body</div>
+                <h3>देह और अधिकार से परे</h3>
+                <p>स्वयं को देह के जाल से निकालकर 'अनंत चेतना' के रूप में पहचानने का कठोर दर्शन।</p>
+            </div>
             <a href="beyod.html" class="btn">सत्य का सामना ➔</a>
         </div>
+
+        <!-- Wake Up Common Man Report -->
         <div class="card c-red">
-            <div class="card-badge">Report</div>
-            <h3>जागो आम आदमी</h3>
-            <p>चमकते शहरों के पीछे का सच—जीडीपी, प्रदूषण और बेतहाशा बढ़ती भीड़ का अंजाम।</p>
+            <div>
+                <div class="card-badge">Report</div>
+                <h3>जागो आम आदमी</h3>
+                <p>चमकते शहरों के पीछे का सच—जीडीपी, प्रदूषण और बेतहाशा बढ़ती भीड़ का अंजाम।</p>
+            </div>
             <a href="jaago-aam-aadmi.html" class="btn">विशेष रिपोर्ट ➔</a>
         </div>
+
+        <!-- Wedding Card -->
         <div class="card c-dark">
-            <div class="card-badge">Invitation</div>
-            <h3>राहुल 💍 पिंकी डिजिटल कार्ड</h3>
-            <p>हमारे परिवार के मांगलिक अवसर का डिजिटल आमंत्रण और कार्यक्रम का विवरण।</p>
+            <div>
+                <div class="card-badge">Invitation</div>
+                <h3>राहुल 💍 पिंकी डिजिटल कार्ड</h3>
+                <p>हमारे परिवार के मांगलिक अवसर का डिजिटल आमंत्रण और कार्यक्रम का विवरण।</p>
+            </div>
             <a href="rahul_pinky_final_card.html" class="btn">आमंत्रण देखें ➔</a>
         </div>
+
     </div>
 
+    <!-- SECTION 6: DAILY MEDITATIONS & STOIC WISDOM -->
     <section id="stoic" class="section-header">
-        <h2>दैनिक ध्यान: Stoic Wisdom</h2>
-        <p>मार्कस ऑरेलियस के दर्शन के माध्यम से जीवन को स्वीकारने और मन को शांत करने की कला।</p>
+        <h2>दैनिक ध्यान: Stoic Wisdom & Meditations</h2>
+        <p>मार्कस ऑरेलियस के दर्शन के माध्यम से जीवन को स्वीकारने और मन को अडिग रखने की कला।</p>
     </section>
     <div class="grid">
+
+        <!-- Marcus Book 10-21 -->
         <div class="card c-dark">
-            <div class="card-badge">Stoic</div>
-            <h3>Amor Fati: नियति से प्रेम</h3>
-            <p>ब्रह्मांड और नियति को स्वीकार करने का अद्भुत दर्शन। जो हो रहा है, उसे स्वीकारें।</p>
+            <div>
+                <div class="card-badge">Stoic</div>
+                <h3>Amor Fati: नियति से प्रेम</h3>
+                <p>ब्रह्मांड और नियति को स्वीकार करने का अद्भुत दर्शन। जो हो रहा है, उसे स्वीकारें।</p>
+            </div>
             <a href="marcus-book10-21.html" class="btn">मंथन करें ➔</a>
         </div>
+
+        <!-- Marcus Book 10-22 -->
         <div class="card c-dark">
-            <div class="card-badge">Stoic</div>
-            <h3>निडरता: भविष्य के मार्ग</h3>
-            <p>जीते रहना या समाप्त हो जाना? मन से मृत्यु और अनिश्चितता का भय निकालें।</p>
+            <div>
+                <div class="card-badge">Stoic</div>
+                <h3>निडरता: भविष्य के मार्ग</h3>
+                <p>जीते रहना या समाप्त हो जाना? मन से मृत्यु और अनिश्चितता का भय निकालें।</p>
+            </div>
             <a href="marcus-book10-22.html" class="btn">मंथन करें ➔</a>
         </div>
+
+        <!-- Marcus Book 2 -->
         <div class="card c-dark">
-            <div class="card-badge">Stoic</div>
-            <h3>मर्यादा और विवेक (Book 2)</h3>
-            <p>मृत्यु से मित्रता और अहंकार का विसर्जन। मेडिटेशन्स के दूसरे भाग का विश्लेषण।</p>
+            <div>
+                <div class="card-badge">Stoic</div>
+                <h3>मर्यादा और विवेक (Book 2)</h3>
+                <p>मृत्यु से मित्रता और अहंकार का विसर्जन। मेडिटेशन्स के दूसरे भाग का विश्लेषण।</p>
+            </div>
             <a href="book2.html" class="btn">दर्शन को समझें ➔</a>
         </div>
 
-  <!-- 4M: Man, Mood, Munh, Paisa Masterclass Card -->
-  <div class="card" style="border-color: #9c2f1e; box-shadow: 0 4px 15px rgba(156, 47, 30, 0.15); background: #ffffff;">
-    <div class="badge" style="color: #9c2f1e; background: rgba(156, 47, 30, 0.12); font-weight: bold;">🧠 आत्म-नियंत्रण व जीवन दर्शन</div>
-    <h2 style="color: #1f1812;">चार एम (4M)<br><span style="font-size: 1.1rem; color: #9c2f1e;">मन, मूड, मुँह और पैसा</span></h2>
-    <p style="color: #6b5f52;">चुपचाप ज़िंदगी बदलने वाली 4 बुनियादी शक्तियाँ: विचार परखना, भावना संभालना, सटीक बोलना और पैसे को दिशा देना—कक्षा 9 व युवाओं हेतु संपूर्ण सचित्र पाठ!</p>
-    <a href="char-m-complete.html" class="btn" style="background: linear-gradient(135deg, #9c2f1e, #b8956a); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(156, 47, 30, 0.25);">पाठ्यक्रम पढ़ें ➔</a>
-  </div>
-
-        
-
-          <div class="card" style="border-color: #3C3C3C; box-shadow: 0 4px 15px rgba(60, 60, 60, 0.1);">
-    <div class="badge" style="color: #3C3C3C; background: rgba(60, 60, 60, 0.1);">नैतिक अनुशासन (Stoic)</div>
-    <h2>समय, विवेक और<br><span style="font-size: 1.1rem; color: #3C3C3C;">सद्गुण का मार्ग</span></h2>
-    <p>समय तेज़ी से बीत रहा है। अपनी बुद्धि को पशुवत आवेगों से बचाकर सत्य और न्याय के मार्ग पर चलने का मार्कस ऑरेलियस का कठोर आह्वान।</p>
-    <a href="book3.html" class="btn" style="background: linear-gradient(135deg, #3C3C3C, #555555); color: #ffffff; border: none;">अध्याय का सार ➔</a>
-          </div>
-        
-
-          <!-- Stoic Meditation: Book 4 - Inner Citadel & Pacing -->
-  <div class="card" style="border-color: #b84a39; box-shadow: 0 4px 15px rgba(184, 74, 57, 0.1);">
-    <div class="badge" style="color: #b84a39; background: rgba(184, 74, 57, 0.15);">मानसिक अभेद्यता (Stoic)</div>
-    <h2>आंतरिक किला और<br><span style="font-size: 1.1rem; color: #b84a39;">प्राकृतिक व्यवस्था</span></h2>
-    <p>चुनौतियों को ईंधन बनाना, सच्चा आंतरिक एकांत और समय की क्षणभंगुरता। मार्कस ऑरेलियस के चौथे भाग की ५१ प्रविष्टियों का संपूर्ण हिंदी रूपांतरण।</p>
-    <a href="meditations_book_4gs.html" class="btn" style="background: linear-gradient(135deg, #b84a39, #8e3224); color: #ffffff; border: none;">किले में लौटें ➔</a>
-  </div>
-
-          <div class="card" style="border-color: #FF9933; box-shadow: 0 4px 15px rgba(255, 153, 51, 0.1);">
-    <div class="badge" style="color: #FF9933; background: rgba(255, 153, 51, 0.15);">सौभाग्य का रहस्य (Stoic)</div>
-    <h2>सौभाग्य और<br><span style="font-size: 1.1rem; color: #138808;">चरित्र की कमाई</span></h2>
-    <p>उधार का भाग्य बनाम कमाई का भाग्य। जब बाहरी किस्मत साथ छोड़ दे, तो अपने चरित्र, साफ इरादों और नेक कर्मों से असली सौभाग्य का निर्माण करना सीखें।</p>
-    <a href="5-1.html" class="btn" style="background: linear-gradient(135deg, #FF9933, #138808); color: #ffffff; border: none; font-weight: bold;">सौभाग्य स्कोर नापें ➔</a>
-  </div>
-
-
-          <div class="card" style="border-color: #4a5568; box-shadow: 0 4px 15px rgba(74, 85, 104, 0.15);">
-    <div class="badge" style="color: #4a5568; background: rgba(74, 85, 104, 0.15);">सत्यनिष्ठा व स्वाभिमान (Stoic)</div>
-    <h2>स्वाभिमान और<br><span style="font-size: 1.1rem; color: #2d3748;">समय की महा-नदी</span></h2>
-    <p>चापलूसी की क्षणभंगुरता, आत्म-सम्मान की रक्षा और अनत समय में स्वाभिमान का मूल्य। मार्कस ऑरेलियस की 'मेडिटेशन्स' बुक 6 का संपूर्ण हिंदी विश्लेषण।</p>
-    <a href="6.html" class="btn" style="background: linear-gradient(135deg, #2d3748, #1a202c); color: #ffffff; border: none; font-weight: bold;">सत्य का मार्ग ➔</a>
-  </div>
-
-
-
-        
-        
-        
-        <div class="card c-dark">
-            <div class="card-badge">Stoic</div>
-            <h3>मुक्ति और विदा (Final)</h3>
-            <p>जब नाटककार इशारा करे, तो मुस्कुराहट के साथ मंच छोड़ें। अंतिम शांति का मार्ग।</p>
-            <a href="books12.html" class="btn">अंतिम शांति ➔</a>
+        <!-- Marcus Book 3 -->
+        <div class="card" style="border-color: #3C3C3C; box-shadow: 0 4px 15px rgba(60, 60, 60, 0.1);">
+            <div>
+                <div class="badge" style="color: #3C3C3C; background: rgba(60, 60, 60, 0.1);">नैतिक अनुशासन (Stoic)</div>
+                <h2>समय, विवेक और<br><span style="font-size: 1.1rem; color: #3C3C3C;">सद्गुण का मार्ग</span></h2>
+                <p>समय तेज़ी से बीत रहा है। अपनी बुद्धि को पशुवत आवेगों से बचाकर सत्य और न्याय के मार्ग पर चलने का मार्कस ऑरेलियस का कठोर आह्वान।</p>
+            </div>
+            <a href="book3.html" class="btn" style="background: linear-gradient(135deg, #3C3C3C, #555555); color: #ffffff; border: none;">अध्याय का सार ➔</a>
         </div>
+
+        <!-- Marcus Book 4 -->
+        <div class="card" style="border-color: #b84a39; box-shadow: 0 4px 15px rgba(184, 74, 57, 0.1);">
+            <div>
+                <div class="badge" style="color: #b84a39; background: rgba(184, 74, 57, 0.15);">मानसिक अभेद्यता (Stoic)</div>
+                <h2>आंतरिक किला और<br><span style="font-size: 1.1rem; color: #b84a39;">प्राकृतिक व्यवस्था</span></h2>
+                <p>चुनौतियों को ईंधन बनाना, सच्चा आंतरिक एकांत और समय की क्षणभंगुरता। मार्कस ऑरेलियस के चौथे भाग की ५१ प्रविष्टियों का संपूर्ण हिंदी रूपांतरण।</p>
+            </div>
+            <a href="meditations_book_4gs.html" class="btn" style="background: linear-gradient(135deg, #b84a39, #8e3224); color: #ffffff; border: none;">किले में लौटें ➔</a>
+        </div>
+
+        <!-- Marcus Book 5 -->
+        <div class="card" style="border-color: #FF9933; box-shadow: 0 4px 15px rgba(255, 153, 51, 0.1);">
+            <div>
+                <div class="badge" style="color: #FF9933; background: rgba(255, 153, 51, 0.15);">सौभाग्य का रहस्य (Stoic)</div>
+                <h2>सौभाग्य और<br><span style="font-size: 1.1rem; color: #138808;">चरित्र की कमाई</span></h2>
+                <p>उधार का भाग्य बनाम कमाई का भाग्य। जब बाहरी किस्मत साथ छोड़ दे, तो अपने चरित्र, साफ इरादों और नेक कर्मों से असली सौभाग्य का निर्माण करना सीखें।</p>
+            </div>
+            <a href="5-1.html" class="btn" style="background: linear-gradient(135deg, #FF9933, #138808); color: #ffffff; border: none; font-weight: bold;">सौभाग्य स्कोर नापें ➔</a>
+        </div>
+
+        <!-- Marcus Book 6 -->
+        <div class="card" style="border-color: #4a5568; box-shadow: 0 4px 15px rgba(74, 85, 104, 0.15);">
+            <div>
+                <div class="badge" style="color: #4a5568; background: rgba(74, 85, 104, 0.15);">सत्यनिष्ठा व स्वाभिमान (Stoic)</div>
+                <h2>स्वाभिमान और<br><span style="font-size: 1.1rem; color: #2d3748;">समय की महा-नदी</span></h2>
+                <p>चापलूसी की क्षणभंगुरता, आत्म-सम्मान की रक्षा और अनत समय में स्वाभिमान का मूल्य। मार्कस ऑरेलियस की 'मेडिटेशन्स' बुक 6 का संपूर्ण हिंदी विश्लेषण।</p>
+            </div>
+            <a href="6.html" class="btn" style="background: linear-gradient(135deg, #2d3748, #1a202c); color: #ffffff; border: none; font-weight: bold;">सत्य का मार्ग ➔</a>
+        </div>
+
+        <!-- Marcus Book 10-23 -->
         <div class="card c-dark">
-            <div class="card-badge">Stoic</div>
-            <h3>आंतरिक शांति (Book 10-23)</h3>
-            <p>"शांति जगह में नहीं, मन में होती है।" स्थान बदलने से आत्मा नहीं बदलती।</p>
+            <div>
+                <div class="card-badge">Stoic</div>
+                <h3>आंतरिक शांति (Book 10-23)</h3>
+                <p>"शांति जगह में नहीं, मन में होती है।" स्थान बदलने से आत्मा नहीं बदलती।</p>
+            </div>
             <a href="marcus-book10-23.html" class="btn">मंथन करें ➔</a>
         </div>
+
+        <!-- Marcus Book 12 Final -->
+        <div class="card c-dark">
+            <div>
+                <div class="card-badge">Stoic</div>
+                <h3>मुक्ति और विदा (Final)</h3>
+                <p>जब नाटककार इशारा करे, तो मुस्कुराहट के साथ मंच छोड़ें। अंतिम शांति का मार्ग।</p>
+            </div>
+            <a href="books12.html" class="btn">अंतिम शांति ➔</a>
+        </div>
+
     </div>
 
 </main>
 
 <footer>
-    <div style="margin-bottom:30px;">
+    <div class="footer-counter">
         <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://kbulbul026-coder.github.io/jpsc-pre-2026-mock/&count_bg=%23e8b84b&title_bg=%231a1a2e&title=Visitors&edge_flat=true" alt="Counter" />
     </div>
     <p>यह डिजिटल स्पेस उन लोगों के लिए है जो केवल जानकारी नहीं, बल्कि विवेक और स्पष्टता खोज रहे हैं।</p>
-    <p><strong>Digital Office of Paresh Kumar Hansda</strong></p>
+    <p style="margin-top: 6px;"><strong>Digital Office of Paresh Kumar Hansda</strong></p>
     <p style="font-size:0.85rem; margin-top:10px; color:var(--muted);">ज्ञान • विवेक • मानवता</p>
 </footer>
 
 <script>
-    // Progress Bar
+    // Reading Progress Bar
     window.addEventListener("scroll", () => {
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -820,14 +1048,24 @@
 
     // Dark Mode Toggle
     const themeBtn = document.getElementById("themeBtn");
+    
+    // Check local storage or preference on load
+    const currentTheme = localStorage.getItem("site-theme") || "light";
+    if (currentTheme === "dark") {
+        document.body.setAttribute("data-theme", "dark");
+        themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i> <span>Light Mode</span>';
+    }
+
     themeBtn.addEventListener("click", () => {
         const isDark = document.body.getAttribute("data-theme") === "dark";
         if(isDark) {
             document.body.removeAttribute("data-theme");
-            themeBtn.innerHTML = "🌙 Dark Mode";
+            localStorage.setItem("site-theme", "light");
+            themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i> <span>Dark Mode</span>';
         } else {
             document.body.setAttribute("data-theme", "dark");
-            themeBtn.innerHTML = "☀️ Light Mode";
+            localStorage.setItem("site-theme", "dark");
+            themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i> <span>Light Mode</span>';
         }
     });
 </script>
