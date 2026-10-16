@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JHTET Paper-2 पूर्ण मॉक टेस्ट (150 प्रश्न) | सभी अभ्यर्थियों के लिए</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Segoe UI', 'Nirmala UI', 'Mangal', system-ui, sans-serif; }
+        .option-btn { transition: all 0.2s ease; cursor: pointer; }
+        .option-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .palette-btn { transition: all 0.15s ease; cursor: pointer; }
+        .palette-btn:hover { transform: scale(1.08); }
+        .timer-danger { animation: pulse-danger 1s infinite; }
+        @keyframes pulse-danger { 0%, 100% { background-color: #fef2f2; } 50% { background-color: #fecaca; } }
+        .modal-backdrop { background-color: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+        .radio-card input:checked + div { border-color: #4f46e5; background-color: #eef2ff; box-shadow: 0 0 0 2px #c7d2fe; }
+        .radio-card input:checked + div .radio-dot { background-color: #4f46e5; border-color: #4f46e5; }
+        .radio-card input:focus-visible + div { outline: 2px solid #4f46e5; outline-offset: 2px; }
+        @media print { .no-print { display: none !important; } }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-900">
+
+    <!-- ================= HEADER ================= -->
+    <header class="bg-gradient-to-r from-indigo-950 via-indigo-900 to-purple-950 text-white shadow-lg sticky top-0 z-40 no-print">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-amber-400 flex items-center justify-center text-2xl shadow">📋</div>
+                <div>
+                    <h1 class="font-extrabold text-base sm:text-xl leading-tight">JHTET Paper-2 पूर्ण मॉक टेस्ट</h1>
+                    <p class="text-indigo-200 text-[11px] sm:text-xs">कक्षा VI–VIII • 150 प्रश्न • 150 अंक • सामाजिक अध्ययन stream</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
+                <div class="flex items-center gap-2 bg-white/10 rounded-xl px-3 py-1.5 border border-white/15">
+                    <div id="profileAvatar" class="w-8 h-8 rounded-full bg-amber-400 text-indigo-950 font-extrabold flex items-center justify-center text-sm">अ</div>
+                    <div class="leading-tight">
+                        <div class="flex items-center gap-1.5">
+                            <span id="profileName" class="font-bold text-xs sm:text-sm">अभ्यर्थी</span>
+                            <span id="profileCatBadge" class="text-[10px] font-bold bg-emerald-400 text-emerald-950 px-1.5 py-0.5 rounded">SC/ST</span>
+                        </div>
+                        <div id="profileLang" class="text-indigo-200 text-[10px] sm:text-[11px]">भाषा-2: खोरठा</div>
+                    </div>
+                    <button type="button" onclick="openSetup(false)" class="ml-1 text-[10px] sm:text-[11px] font-semibold bg-white/15 hover:bg-white/25 rounded-lg px-2 py-1 transition" title="प्रोफ़ाइल बदलें">✎ बदलें</button>
+                </div>
+                <div id="timerBox" class="flex items-center gap-1.5 bg-white text-slate-900 rounded-xl px-3 py-1.5 font-mono font-extrabold text-sm sm:text-base border-2 border-amber-400">
+                    <span>⏱</span><span id="timerDisplay">150:00</span>
+                </div>
+                <div class="bg-emerald-500 text-white rounded-xl px-3 py-1.5 font-extrabold text-sm sm:text-base">स्कोर: <span id="liveScoreDisplay">0 / 150</span></div>
+                <div class="bg-white/10 rounded-xl px-3 py-1.5 text-[11px] sm:text-xs border border-white/15" title="इसी श्रेणी व भाषा में सर्वश्रेष्ठ">🏆 सर्वश्रेष्ठ: <span id="bestScoreDisplay" class="font-bold">--</span></div>
+            </div>
+        </div>
+        <div class="bg-black/25 no-print">
+            <div class="max-w-7xl mx-auto px-3 sm:px-6 py-1.5 flex items-center gap-2 overflow-x-auto">
+                <button type="button" id="tabMockBtn" onclick="switchMainTab('mock')" class="px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-amber-400 text-slate-950 shadow transition flex items-center gap-1.5 shrink-0">📝 मॉक टेस्ट</button>
+                <button type="button" id="tabPatternBtn" onclick="switchMainTab('pattern')" class="px-4 py-1.5 rounded-lg text-xs sm:text-sm font-semibold text-indigo-100 hover:bg-white/10 transition flex items-center gap-1.5 shrink-0">📊 परीक्षा पैटर्न</button>
+                <span class="text-indigo-200/70 text-[11px] ml-auto shrink-0 hidden sm:block">नेगेटिव मार्किंग नहीं • प्रत्येक प्रश्न 1 अंक</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-3 sm:px-6 py-4 sm:py-6">
+
+        <!-- ================= MOCK VIEW ================= -->
+        <div id="mockView">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
+
+                <!-- LEFT: Question area -->
+                <div class="lg:col-span-8">
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-3 sm:p-4 mb-4 no-print">
+                        <div class="flex items-center gap-2 mb-2.5 flex-wrap" id="sectionFilterBar">
+                            <span class="text-xs font-bold text-slate-500 mr-1">खंड चुनें:</span>
+                            <button type="button" id="secBtn_ALL" onclick="filterBySection('ALL')" class="sec-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-sm transition">सभी</button>
+                            <button type="button" id="secBtn_CDP" onclick="filterBySection('CDP')" class="sec-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">CDP (1–30)</button>
+                            <button type="button" id="secBtn_HIN" onclick="filterBySection('HIN')" class="sec-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">हिंदी (31–45)</button>
+                            <button type="button" id="secBtn_ENG" onclick="filterBySection('ENG')" class="sec-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">English (46–60)</button>
+                            <button type="button" id="secBtn_LANG2" onclick="filterBySection('LANG2')" class="sec-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition"><span id="secBtn_LANG2_label">भाषा-2</span> (61–90)</button>
+                            <button type="button" id="secBtn_SST" onclick="filterBySection('SST')" class="sec-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">SST (91–150)</button>
+                        </div>
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span id="progressText" class="text-xs sm:text-sm font-semibold text-slate-600">हल किए गए प्रश्न: 0 / 150</span>
+                            <span id="progressPercent" class="text-xs sm:text-sm font-extrabold text-indigo-700">0%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 rounded-full h-2.5">
+                            <div id="progressBar" class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                        <label class="mt-3 flex items-center gap-2 text-xs sm:text-sm text-slate-600 cursor-pointer select-none">
+                            <input type="checkbox" id="instantFeedbackToggle" checked onchange="toggleInstantFeedback()" class="w-4 h-4 accent-indigo-600">
+                            <span>तुरंत उत्तर जांच (Instant Feedback): <span class="text-slate-400">बंद करने पर वास्तविक परीक्षा जैसा अनुभव मिलेगा</span></span>
+                        </label>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-4 sm:p-6">
+                        <div class="flex items-start justify-between gap-3 mb-3 flex-wrap">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <span id="qNumberBadge" class="bg-indigo-600 text-white font-extrabold text-xs sm:text-sm px-3 py-1 rounded-full">प्रश्न 1 / 150</span>
+                                <span id="qCategoryBadge" class="font-bold text-xs px-3 py-1 rounded-full border bg-teal-100 text-teal-800 border-teal-200">बाल विकास एवं शिक्षणशास्त्र</span>
+                            </div>
+                            <button type="button" id="bookmarkBtn" onclick="toggleBookmark()" class="text-xs font-semibold px-2.5 py-1 rounded-lg border border-slate-300 text-slate-600 hover:bg-amber-50 transition flex items-center gap-1" title="बुकमार्क (B)">
+                                <span id="bookmarkIcon">☆</span> <span class="hidden sm:inline">बुकमार्क</span><span class="text-slate-400">(B)</span>
+                            </button>
+                        </div>
+                        <h2 id="questionText" class="text-base sm:text-lg font-bold text-slate-900 leading-relaxed mb-5"></h2>
+                        <div id="optionsContainer" class="space-y-2.5 sm:space-y-3"></div>
+                        <div id="explanationBox" class="hidden mt-5 p-4 rounded-xl bg-indigo-50 border-l-4 border-indigo-500">
+                            <div class="flex items-center justify-between mb-1.5 flex-wrap gap-2">
+                                <h3 class="font-extrabold text-indigo-900 text-sm">💡 व्याख्या</h3>
+                                <span id="feedbackStatusBadge" class="px-2.5 py-0.5 rounded-md text-xs bg-emerald-600 text-white"></span>
+                            </div>
+                            <p id="explanationText" class="text-slate-700 text-sm leading-relaxed"></p>
+                        </div>
+                        <div class="flex items-center justify-between mt-6 gap-2 flex-wrap no-print">
+                            <button type="button" id="prevBtn" onclick="prevQuestion()" class="px-4 sm:px-5 py-2.5 rounded-xl bg-slate-200 hover:bg-slate-300 font-bold text-sm text-slate-700 transition disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5"><span>←</span><span class="hidden sm:inline">पिछला</span></button>
+                            <button type="button" id="clearBtn" onclick="clearResponse()" class="px-3 sm:px-4 py-2.5 rounded-xl border-2 border-slate-300 hover:border-rose-400 hover:text-rose-700 font-semibold text-xs sm:text-sm text-slate-500 transition">उत्तर हटाएँ</button>
+                            <button type="button" id="nextBtn" onclick="nextQuestion()" class="px-4 sm:px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 font-bold text-sm text-white transition flex items-center gap-1.5"><span>अगला प्रश्न</span><span>→</span></button>
+                        </div>
+                        <p class="mt-3 text-[11px] text-slate-400 no-print">⌨️ शॉर्टकट: <b>1–4</b> उत्तर चुनें • <b>←/→</b> प्रश्न बदलें • <b>B</b> बुकमार्क</p>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Palette -->
+                <div class="lg:col-span-4 no-print">
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 sm:p-5 lg:sticky lg:top-36">
+                        <h3 class="font-extrabold text-slate-900 mb-1 text-sm sm:text-base">🗺️ प्रश्न पैलेट (150)</h3>
+                        <p class="text-[11px] text-slate-500 mb-3">किसी संख्या पर क्लिक कर सीधे उस प्रश्न पर जाएँ</p>
+                        <div id="paletteContainer" class="space-y-3 max-h-[46vh] lg:max-h-[52vh] overflow-y-auto pr-1"></div>
+                        <div class="mt-4 pt-3 border-t border-slate-200">
+                            <div class="grid grid-cols-2 gap-2 text-[11px] sm:text-xs mb-3">
+                                <div class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-emerald-500 inline-block"></span> सही <b id="countCorrect" class="ml-auto">0</b></div>
+                                <div class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-rose-500 inline-block"></span> गलत <b id="countWrong" class="ml-auto">0</b></div>
+                                <div class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-indigo-600 inline-block"></span> हल किए <b id="countAnsweredFb" class="ml-auto">0</b></div>
+                                <div class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-slate-200 border border-slate-300 inline-block"></span> शेष <b id="countUnanswered" class="ml-auto">150</b></div>
+                                <div class="flex items-center gap-1.5 col-span-2"><span class="w-3.5 h-3.5 rounded-full bg-amber-400 border border-white inline-block"></span> बुकमार्क <b id="countBookmarked" class="ml-auto">0</b></div>
+                            </div>
+                            <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-3 mb-3">
+                                <p class="text-[11px] font-bold text-indigo-900 mb-1.5">📊 खंडवार लाइव स्कोर</p>
+                                <div id="sectionScoreList" class="space-y-1 text-[11px] sm:text-xs text-slate-700"></div>
+                            </div>
+                            <button type="button" onclick="confirmSubmit()" class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-extrabold text-sm sm:text-base shadow transition">✅ टेस्ट सबमिट करें</button>
+                            <button type="button" onclick="resetFullQuiz()" class="w-full mt-2 py-2.5 rounded-xl border-2 border-slate-300 hover:border-amber-500 hover:text-amber-700 font-bold text-xs sm:text-sm text-slate-600 transition">🔄 नया टेस्ट शुरू करें</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PATTERN VIEW ================= -->
+        <div id="patternView" class="hidden">
+            <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-4 sm:p-6 mb-4">
+                <h2 class="text-lg sm:text-2xl font-extrabold text-slate-900 mb-1">📊 JHTET Paper-2 परीक्षा पैटर्न</h2>
+                <p class="text-slate-500 text-xs sm:text-sm mb-4">कक्षा VI–VIII (उच्च प्राथमिक) • कुल 150 प्रश्न • 150 अंक • 2.5 घंटे • नेगेटिव मार्किंग नहीं</p>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs sm:text-sm border-collapse">
+                        <thead><tr class="bg-indigo-950 text-white">
+                            <th class="p-2.5 text-left">खंड</th><th class="p-2.5 text-left">प्रश्न संख्या</th><th class="p-2.5">प्रश्न</th><th class="p-2.5">अंक</th>
+                        </tr></thead>
+                        <tbody>
+                            <tr class="border-b border-slate-200"><td class="p-2.5 font-bold text-teal-800">बाल विकास एवं शिक्षणशास्त्र</td><td class="p-2.5 text-slate-600">1–30</td><td class="p-2.5 text-center font-bold">30</td><td class="p-2.5 text-center font-bold">30</td></tr>
+                            <tr class="border-b border-slate-200 bg-slate-50"><td class="p-2.5 font-bold text-rose-800">भाषा-1: हिंदी</td><td class="p-2.5 text-slate-600">31–45</td><td class="p-2.5 text-center font-bold">15</td><td class="p-2.5 text-center font-bold">15</td></tr>
+                            <tr class="border-b border-slate-200"><td class="p-2.5 font-bold text-amber-800">भाषा-1: English</td><td class="p-2.5 text-slate-600">46–60</td><td class="p-2.5 text-center font-bold">15</td><td class="p-2.5 text-center font-bold">15</td></tr>
+                            <tr class="border-b border-slate-200 bg-slate-50"><td class="p-2.5 font-bold text-purple-800">भाषा-2 (क्षेत्रीय/जनजातीय)</td><td class="p-2.5 text-slate-600">61–90</td><td class="p-2.5 text-center font-bold">30</td><td class="p-2.5 text-center font-bold">30</td></tr>
+                            <tr class="border-b border-slate-200"><td class="p-2.5 font-bold text-blue-800">सामाजिक अध्ययन</td><td class="p-2.5 text-slate-600">91–150</td><td class="p-2.5 text-center font-bold">60</td><td class="p-2.5 text-center font-bold">60</td></tr>
+                            <tr class="bg-indigo-50 font-extrabold"><td class="p-2.5">कुल</td><td class="p-2.5"></td><td class="p-2.5 text-center">150</td><td class="p-2.5 text-center">150</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 bg-amber-50 border border-amber-200 rounded-xl p-3 sm:p-4">
+                    <h3 class="font-extrabold text-amber-900 text-sm mb-1.5">🎯 उत्तीर्णांक (Qualifying Marks)</h3>
+                    <p id="cutoffInfoLine" class="text-xs sm:text-sm text-slate-700">सामान्य/EWS: 60% (90 प्रश्न) • BC: 55% (83 प्रश्न) • SC/ST/PwD: 52% (78 प्रश्न)</p>
+                    <p class="text-[11px] text-slate-500 mt-1.5">नोट: यह मॉक टेस्ट अभ्यास हेतु है; अंतिम कट-ऑफ JAC की आधिकारिक अधिसूचना के अनुसार मान्य होगी।</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-6 text-center text-[11px] sm:text-xs text-slate-400 pb-6 no-print">
+            <p>📚 JHTET Paper-2 पूर्ण मॉक टेस्ट • CDP 30 + भाषा-1 (हिंदी/English) 30 + भाषा-2 30 + सामाजिक अध्ययन 60</p>
+            <p class="mt-1">यह अभ्यास सामग्री है; आधिकारिक पाठ्यक्रम हेतु jac.jharkhand.gov.in देखें।</p>
+        </footer>
+    </main>
+
+
+    <!-- ================= SETUP MODAL ================= -->
+    <div id="setupModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 modal-backdrop">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-5 sm:p-7 max-h-[92vh] overflow-y-auto">
+            <div class="text-center mb-4">
+                <div class="w-14 h-14 rounded-2xl bg-indigo-600 flex items-center justify-center text-3xl mx-auto mb-2 shadow">📋</div>
+                <h2 class="text-lg sm:text-2xl font-extrabold text-slate-900">JHTET Paper-2 पूर्ण मॉक टेस्ट</h2>
+                <p class="text-slate-500 text-xs sm:text-sm mt-1">150 प्रश्न • 150 अंक • 2.5 घंटे • सामाजिक अध्ययन stream</p>
+                <p id="setupBestLine" class="hidden mt-2 text-xs sm:text-sm font-bold text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-1.5 inline-block"></p>
+            </div>
+            <div class="mb-4">
+                <label class="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5" for="setupName">आपका नाम (वैकल्पिक)</label>
+                <input type="text" id="setupName" maxlength="40" placeholder="जैसे: राहुल कुमार" class="w-full border-2 border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:border-indigo-500 focus:outline-none">
+            </div>
+            <div class="mb-4">
+                <p class="text-xs sm:text-sm font-bold text-slate-700 mb-2">श्रेणी चुनें (कट-ऑफ हेतु)</p>
+                <div class="grid grid-cols-3 gap-2">
+                    <label class="radio-card cursor-pointer"><input type="radio" name="setupCat" value="general" class="sr-only"><div class="border-2 border-slate-300 rounded-xl p-2.5 text-center transition"><span class="radio-dot inline-block w-3 h-3 rounded-full border-2 border-slate-400 mb-1"></span><p class="font-bold text-xs sm:text-sm">सामान्य/EWS</p><p class="text-[10px] text-slate-500">60% (90 अंक)</p></div></label>
+                    <label class="radio-card cursor-pointer"><input type="radio" name="setupCat" value="bc" class="sr-only"><div class="border-2 border-slate-300 rounded-xl p-2.5 text-center transition"><span class="radio-dot inline-block w-3 h-3 rounded-full border-2 border-slate-400 mb-1"></span><p class="font-bold text-xs sm:text-sm">BC</p><p class="text-[10px] text-slate-500">55% (83 अंक)</p></div></label>
+                    <label class="radio-card cursor-pointer"><input type="radio" name="setupCat" value="scst" class="sr-only" checked><div class="border-2 border-slate-300 rounded-xl p-2.5 text-center transition"><span class="radio-dot inline-block w-3 h-3 rounded-full border-2 border-slate-400 mb-1"></span><p class="font-bold text-xs sm:text-sm">SC/ST/PwD</p><p class="text-[10px] text-slate-500">52% (78 अंक)</p></div></label>
+                </div>
+            </div>
+            <div class="mb-5">
+                <p class="text-xs sm:text-sm font-bold text-slate-700 mb-2">भाषा-2 चुनें (प्रश्न 61–90)</p>
+                <div class="grid grid-cols-3 gap-2">
+                    <label class="radio-card cursor-pointer"><input type="radio" name="setupLang" value="KHORTHA" class="sr-only" checked><div class="border-2 border-slate-300 rounded-xl p-2.5 text-center transition"><span class="radio-dot inline-block w-3 h-3 rounded-full border-2 border-slate-400 mb-1"></span><p class="font-bold text-xs sm:text-sm">खोरठा</p><p class="text-[10px] text-slate-500">30 प्रश्न</p></div></label>
+                    <label class="radio-card cursor-pointer"><input type="radio" name="setupLang" value="NAGPURI" class="sr-only"><div class="border-2 border-slate-300 rounded-xl p-2.5 text-center transition"><span class="radio-dot inline-block w-3 h-3 rounded-full border-2 border-slate-400 mb-1"></span><p class="font-bold text-xs sm:text-sm">नागपुरी</p><p class="text-[10px] text-slate-500">30 प्रश्न</p></div></label>
+                    <label class="radio-card cursor-pointer"><input type="radio" name="setupLang" value="SANTHALI" class="sr-only"><div class="border-2 border-slate-300 rounded-xl p-2.5 text-center transition"><span class="radio-dot inline-block w-3 h-3 rounded-full border-2 border-slate-400 mb-1"></span><p class="font-bold text-xs sm:text-sm">संथाली</p><p class="text-[10px] text-slate-500">30 प्रश्न</p></div></label>
+                </div>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 mb-5 text-[11px] sm:text-xs text-slate-600">
+                <p class="font-bold text-slate-700 mb-1">📋 टेस्ट संरचना:</p>
+                <p>CDP (1–30) • हिंदी (31–45) • English (46–60) • भाषा-2 (61–90) • सामाजिक अध्ययन (91–150)</p>
+                <p class="mt-1">⏱ समय: 150 मिनट • नेगेटिव मार्किंग नहीं • प्रगति स्वतः सहेजी जाएगी</p>
+            </div>
+            <button type="button" onclick="saveSetupAndStart()" class="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-extrabold text-sm sm:text-base shadow transition">🚀 टेस्ट शुरू करें</button>
+        </div>
+    </div>
+
+    <!-- ================= RESULT MODAL ================= -->
+    <div id="resultModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 modal-backdrop">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-4 sm:p-6 max-h-[92vh] overflow-y-auto">
+            <div class="text-center mb-3">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-3xl mx-auto mb-2 shadow">🏆</div>
+                <h2 id="resultTitle" class="text-lg sm:text-2xl font-extrabold text-slate-900">प्रदर्शन विश्लेषण</h2>
+                <p id="resultVerdict" class="text-xs sm:text-sm text-slate-600 mt-1 font-medium"></p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 mb-4">
+                <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-3 text-center">
+                    <p class="text-[10px] sm:text-xs text-slate-500 font-semibold">कुल स्कोर</p>
+                    <p id="modalTotalScore" class="text-xl sm:text-2xl font-extrabold text-indigo-800">0 / 150</p>
+                </div>
+                <div class="bg-purple-50 border border-purple-200 rounded-xl p-3 text-center">
+                    <p class="text-[10px] sm:text-xs text-slate-500 font-semibold">प्रतिशत</p>
+                    <p id="modalPercentage" class="text-xl sm:text-2xl font-extrabold text-purple-800">0%</p>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 text-center">
+                    <p class="text-[10px] sm:text-xs text-slate-500 font-semibold">सही / गलत / छोड़े</p>
+                    <p id="modalAccuracy" class="text-sm sm:text-base font-extrabold text-slate-800 mt-1">0 / 0 / 0</p>
+                </div>
+                <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-center">
+                    <p id="modalCutoffLabel" class="text-[10px] sm:text-xs text-slate-500 font-semibold">कट-ऑफ</p>
+                    <p id="modalCutoffStatus" class="text-sm sm:text-base font-extrabold text-purple-900 mt-1">--</p>
+                </div>
+            </div>
+            <div class="mb-4">
+                <h3 class="font-extrabold text-slate-900 text-sm mb-2">📊 खंडवार प्रदर्शन</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs sm:text-sm border-collapse">
+                        <thead><tr class="bg-slate-100 text-slate-700">
+                            <th class="p-2 text-left">खंड</th><th class="p-2">प्रश्न</th><th class="p-2">सही</th><th class="p-2">गलत</th><th class="p-2">स्कोर</th><th class="p-2">%</th>
+                        </tr></thead>
+                        <tbody id="sectionResultBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            <p id="bestScoreLine" class="hidden text-center text-xs sm:text-sm font-bold text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-1.5 mb-3"></p>
+            <div class="mb-4">
+                <h3 class="font-extrabold text-slate-900 text-sm mb-2">📝 उत्तर कुंजी (क्लिक कर प्रश्न पर जाएँ)</h3>
+                <div class="overflow-x-auto max-h-72 overflow-y-auto border border-slate-200 rounded-xl">
+                    <table class="w-full text-[11px] sm:text-xs border-collapse">
+                        <thead class="sticky top-0 bg-slate-100"><tr>
+                            <th class="p-2 text-left">प्र.सं.</th><th class="p-2 text-left">खंड</th><th class="p-2 text-left">आपका उत्तर</th><th class="p-2 text-left">सही उत्तर</th><th class="p-2">स्थिति</th>
+                        </tr></thead>
+                        <tbody id="answerKeyTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-2 justify-center no-print">
+                <button type="button" onclick="printScorecard()" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs sm:text-sm transition">🖨️ स्कोरकार्ड प्रिंट करें</button>
+                <button type="button" onclick="closeResultModal()" class="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm transition">📝 टेस्ट जारी रखें</button>
+                <button type="button" onclick="closeResultModal(); resetFullQuiz();" class="px-4 py-2.5 rounded-xl border-2 border-slate-300 hover:border-amber-500 font-bold text-xs sm:text-sm text-slate-600 transition">🔄 नया टेस्ट</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        /* ==================== CDP BANK (30) ==================== */
+        const CDP_BANK = [
+            { q: "जीन पियाजे के संज्ञानात्मक विकास सिद्धांत के अनुसार, किस अवस्था में बच्चा 'अमूर्त चिंतन' करने लगता है?", o: ["(A) संवेदी-गामक अवस्था (0–2 वर्ष)", "(B) पूर्व-संक्रियात्मक अवस्था (2–7 वर्ष)", "(C) मूर्त-संक्रियात्मक अवस्था (7–11 वर्ष)", "(D) औपचारिक संक्रियात्मक अवस्था (11 वर्ष से ऊपर)"], c: 3, e: "औपचारिक संक्रियात्मक अवस्था (11–15 वर्ष) में किशोर अमूर्त चिंतन, परिकल्पनात्मक-निगमनात्मक तर्क और वैज्ञानिक ढंग से सोचने में सक्षम हो जाता है।" },
+            { q: "लेव वायगोत्स्की के अनुसार बच्चों के संज्ञानात्मक विकास में सबसे महत्वपूर्ण भूमिका किसकी होती है?", o: ["(A) केवल आनुवंशिकता और परिपक्वता", "(B) सामाजिक अंतःक्रिया, संस्कृति और भाषा", "(C) पुरस्कार और दंड", "(D) केवल पाठ्यपुस्तक रटना"], c: 1, e: "वायगोत्स्की के सामाजिक-सांस्कृतिक सिद्धांत के अनुसार बच्चे समाज, संस्कृति और भाषा के साथ सक्रिय अंतःक्रिया के माध्यम से सीखते हैं।" },
+            { q: "जब शिक्षक कठिन समस्या हेतु शुरुआती संकेत या अस्थायी सहारा देता है, तो इसे क्या कहते हैं?", o: ["(A) स्कीमा", "(B) पाड़ / स्कैफोल्डिंग", "(C) अनुकूलन", "(D) आत्मसात्करण"], c: 1, e: "समीपस्थ विकास के क्षेत्र (ZPD) में अधिक जानकार व्यक्ति द्वारा दी गई अस्थायी सहायता को 'पाड़' (Scaffolding) कहा जाता है।" },
+            { q: "RTE Act, 2009 के अनुसार दिव्यांग (CWSN) बच्चों हेतु निःशुल्क शिक्षा की आयु सीमा क्या है?", o: ["(A) 6 से 14 वर्ष", "(B) 6 से 18 वर्ष", "(C) 5 से 15 वर्ष", "(D) 3 से 16 वर्ष"], c: 1, e: "सामान्य बच्चों हेतु RTE में आयु 6–14 वर्ष है, परंतु बेंचमार्क दिव्यांगता वाले बच्चों हेतु निःशुल्क शिक्षा 6–18 वर्ष निर्धारित है।" },
+            { q: "'डिस्लेक्सिया' नामक अधिगम अक्षमता का संबंध मुख्यतः किससे है?", o: ["(A) गणितीय गणना में कठिनाई", "(B) पढ़ने और अक्षरों को पहचानने में कठिनाई", "(C) चलने-फिरने में अक्षमता", "(D) चित्र बनाने में कठिनाई"], c: 1, e: "डिस्लेक्सिया एक पठन विकार है; बच्चे को अक्षरों की पहचान (जैसे b/d में भ्रम) और धाराप्रवाह पठन में कठिनाई होती है।" },
+            { q: "NEP 2020 में 10+2 के स्थान पर कौन सी शैक्षणिक संरचना प्रस्तावित है?", o: ["(A) 5+3+4+3", "(B) 5+3+3+4", "(C) 3+4+4+4", "(D) 4+3+3+5"], c: 1, e: "NEP 2020 में 5+3+3+4 संरचना है: Foundational (5), Preparatory (3), Middle (3, कक्षा 6–8), Secondary (4)।" },
+            { q: "लॉरेंस कोहलबर्ग का प्रसिद्ध सिद्धांत किस आयाम से संबंधित है?", o: ["(A) शारीरिक विकास", "(B) नैतिक विकास", "(C) संवेगात्मक विकास", "(D) भाषा विकास"], c: 1, e: "कोहलबर्ग ने 'हाइंज की दुविधा' के आधार पर नैतिक विकास के 3 स्तर और 6 चरण प्रतिपादित किए।" },
+            { q: "कक्षा में 'समावेशी शिक्षा' का वास्तविक अर्थ क्या है?", o: ["(A) सामान्य व विशेष आवश्यकता वाले बच्चों को एक ही कक्षा में बिना भेदभाव पढ़ाना", "(B) प्रतिभाशाली बच्चों हेतु अलग स्कूल", "(C) दिव्यांग बच्चों को केवल विशेष विद्यालय भेजना", "(D) केवल उत्तीर्ण बच्चों को पढ़ाना"], c: 0, e: "समावेशी शिक्षा का मूल सिद्धांत 'सबके लिए शिक्षा' है; विविध पृष्ठभूमि के बच्चे नियमित कक्षा में एक साथ सीखते हैं।" },
+            { q: "शिक्षण के दौरान प्रगति जांचने व तुरंत सुधार हेतु किया जाने वाला मूल्यांकन कहलाता है:", o: ["(A) योगात्मक मूल्यांकन", "(B) रचनात्मक मूल्यांकन", "(C) वार्षिक बोर्ड मूल्यांकन", "(D) मानकीकृत मूल्यांकन"], c: 1, e: "शिक्षण के दौरान निरंतर फीडबैक लेने वाले आकलन को रचनात्मक मूल्यांकन (Formative Assessment) कहा जाता है।" },
+            { q: "उच्च प्राथमिक स्तर पर सामाजिक विज्ञान पढ़ाने का सबसे प्रभावी बाल-केंद्रित तरीका कौन सा है?", o: ["(A) केवल लंबी मौखिक व्याख्या", "(B) क्षेत्रीय भ्रमण, परियोजना कार्य, मानचित्रण एवं समूह चर्चा", "(C) उत्तर रटवाना", "(D) केवल मूक पठन"], c: 1, e: "क्षेत्रीय भ्रमण, स्रोत-आधारित चर्चा और प्रोजेक्ट वर्क बच्चों में आलोचनात्मक चिंतन विकसित करते हैं।" },
+            { q: "'वृद्धि' (Growth) और 'विकास' (Development) में मुख्य अंतर क्या है?", o: ["(A) दोनों एक ही हैं", "(B) वृद्धि मात्रात्मक-शारीरिक है, विकास गुणात्मक-सर्वांगीण है", "(C) वृद्धि मानसिक है, विकास शारीरिक है", "(D) वृद्धि रुकती नहीं, विकास रुक जाता है"], c: 1, e: "वृद्धि आकार/भार जैसे मात्रात्मक शारीरिक परिवर्तनों तक सीमित है, जबकि विकास शारीरिक, मानसिक, सामाजिक व संवेगात्मक सभी पक्षों का गुणात्मक परिवर्तन है।" },
+            { q: "'विकास सिर से पैर की ओर होता है' यह किस विकासात्मक सिद्धांत को दर्शाता है?", o: ["(A) समीप-दूराभिमुखी (Proximodistal)", "(B) शीर्षगामी (Cephalocaudal)", "(C) परिपक्वता सिद्धांत", "(D) अनुकूलन सिद्धांत"], c: 1, e: "शीर्षगामी (Cephalocaudal) सिद्धांत के अनुसार विकास सिर से प्रारंभ होकर पैरों की ओर बढ़ता है; बच्चा पहले सिर संभालता है, फिर चलता है।" },
+            { q: "हावर्ड गार्डनर का बुद्धि संबंधी सिद्धांत क्या कहलाता है?", o: ["(A) द्वि-कारक सिद्धांत", "(B) त्रि-चापीय सिद्धांत", "(C) बहुबुद्धि सिद्धांत", "(D) समूह-कारक सिद्धांत"], c: 2, e: "गार्डनर ने बहुबुद्धि सिद्धांत दिया (भाषायी, तार्किक-गणितीय, संगीतीय, शारीरिक-गतिसंवेदी, अंतर्वैयक्तिक आदि); स्पीयरमैन का द्वि-कारक (g/s) सिद्धांत है।" },
+            { q: "मास्लो की आवश्यकता पदानुक्रम में सबसे निचले स्तर पर कौन सी आवश्यकता है?", o: ["(A) आत्म-सिद्धि", "(B) सम्मान", "(C) सुरक्षा", "(D) शारीरिक (भोजन, जल, नींद)"], c: 3, e: "मास्लो के पदानुक्रम में सबसे नीचे शारीरिक आवश्यकताएँ (भोजन, जल, नींद) हैं, फिर सुरक्षा, सामाजिक, सम्मान और शीर्ष पर आत्म-सिद्धि।" },
+            { q: "एरिक्सन के मनोसामाजिक सिद्धांत में किशोरावस्था (12–18 वर्ष) का प्रमुख संकट क्या है?", o: ["(A) विश्वास बनाम अविश्वास", "(B) पहचान बनाम भूमिका भ्रम", "(C) परिश्रम बनाम हीनता", "(D) घनिष्ठता बनाम अलगाव"], c: 1, e: "किशोरावस्था में 'पहचान बनाम भूमिका भ्रम' का संकट होता है; किशोर 'मैं कौन हूँ' की खोज में अपनी पहचान बनाता है।" },
+            { q: "चॉम्स्की के अनुसार बच्चों में भाषा सीखने की जन्मजात क्षमता को क्या कहा जाता है?", o: ["(A) ZPD", "(B) LAD (भाषा अर्जन उपकरण)", "(C) स्कीमा", "(D) सुदृढ़ीकरण"], c: 1, e: "चॉम्स्की के अनुसार मस्तिष्क में जन्मजात 'भाषा अर्जन उपकरण' (LAD) होता है, जिससे बच्चा व्याकरण के नियम स्वतः सीख लेता है।" },
+            { q: "'क्रियाप्रसूत अनुबंधन' (Operant Conditioning) का सिद्धांत किसने दिया?", o: ["(A) पावलव", "(B) थॉर्नडाइक", "(C) स्किनर", "(D) बंडूरा"], c: 2, e: "स्किनर ने क्रियाप्रसूत अनुबंधन दिया (पुरस्कार/दंड से व्यवहार सीखना); पावलव ने शास्त्रीय अनुबंधन (कुत्ते पर घंटी का प्रयोग) दिया था।" },
+            { q: "थॉर्नडाइक के सीखने के नियमों में कौन सा शामिल नहीं है?", o: ["(A) तत्परता का नियम", "(B) अभ्यास का नियम", "(C) प्रभाव का नियम", "(D) अप्रत्याशित पुरस्कार का नियम"], c: 3, e: "थॉर्नडाइक के तीन मुख्य नियम हैं: तत्परता, अभ्यास और प्रभाव। 'अप्रत्याशित पुरस्कार' इनमें नहीं है।" },
+            { q: "बुद्धि लब्धि (IQ) ज्ञात करने का सूत्र किसने दिया?", o: ["(A) बिने", "(B) टर्मन", "(C) गिलफोर्ड", "(D) थर्स्टन"], c: 1, e: "टर्मन ने IQ = (मानसिक आयु / वास्तविक आयु) × 100 सूत्र दिया; बिने ने प्रथम बुद्धि परीक्षण बनाया था।" },
+            { q: "CCU/सतत एवं व्यापक मूल्यांकन (CCE) की मुख्य विशेषता क्या है?", o: ["(A) केवल वार्षिक परीक्षा", "(B) शैक्षणिक व सह-शैक्षणिक दोनों पक्षों का निरंतर आकलन", "(C) केवल लिखित परीक्षा", "(D) अनुत्तीर्ण करना"], c: 1, e: "CCE में बच्चे के शैक्षणिक (पढ़ाई) और सह-शैक्षणिक (खेल, कला, व्यवहार) दोनों पक्षों का सतत आकलन होता है।" },
+            { q: "NEP 2020 के अनुसार बुनियादी चरण (Foundational Stage) में कौन सी कक्षाएँ आती हैं?", o: ["(A) कक्षा 1–5", "(B) बालवाटिका से कक्षा 2 तक", "(C) कक्षा 6–8", "(D) कक्षा 9–12"], c: 1, e: "बुनियादी चरण में 3 वर्ष की प्री-स्कूल/बालवाटिका शिक्षा और कक्षा 1–2 शामिल हैं (आयु 3–8 वर्ष)।" },
+            { q: "RTE Act, 2009 के तहत निजी विद्यालयों में वंचित वर्ग हेतु कितने प्रतिशत सीटें आरक्षित हैं?", o: ["(A) 10%", "(B) 15%", "(C) 25%", "(D) 50%"], c: 2, e: "RTE की धारा 12(1)(c) के तहत निजी गैर-सहायता प्राप्त विद्यालयों में आर्थिक रूप से कमजोर व वंचित वर्ग हेतु 25% सीटें आरक्षित हैं।" },
+            { q: "'अपसारी चिंतन' (Divergent Thinking) का संबंध किससे है?", o: ["(A) सृजनात्मकता", "(B) रटना", "(C) अनुकरण", "(D) दंड"], c: 0, e: "अपसारी चिंतन (एक समस्या के अनेक मौलिक समाधान सोचना) सृजनात्मकता का मूल है; गिलफोर्ड ने इस संप्रत्यय पर बल दिया।" },
+            { q: "किंडरगार्टन (बालवाड़ी) पद्धति के प्रवर्तक कौन हैं?", o: ["(A) मॉन्टेसरी", "(B) फ्रोबेल", "(C) ड्यूवी", "(D) रूसो"], c: 1, e: "फ्रोबेल ने किंडरगार्टन पद्धति दी (खेल द्वारा शिक्षा); मॉन्टेसरी ने स्व-शिक्षा व ज्ञानेन्द्रियों के प्रशिक्षण पर बल दिया।" },
+            { q: "बंडूरा के सामाजिक अधिगम सिद्धांत में सीखने का मुख्य माध्यम क्या है?", o: ["(A) दंड", "(B) अवलोकन एवं अनुकरण (मॉडलिंग)", "(C) रटना", "(D) प्रयोगशाला प्रयोग"], c: 1, e: "बंडूरा के अनुसार बच्चे दूसरों के व्यवहार का अवलोकन व अनुकरण (मॉडलिंग) करके सीखते हैं; 'बोबो डॉल' प्रयोग प्रसिद्ध है।" },
+            { q: "'सीखने का पठार' (Plateau of Learning) का अर्थ क्या है?", o: ["(A) तेजी से सीखना", "(B) अभ्यास के बावजूद प्रगति का अस्थायी ठहराव", "(C) परीक्षा में अनुत्तीर्ण होना", "(D) नया विषय शुरू करना"], c: 1, e: "सीखने की प्रक्रिया में कभी-कभी अभ्यास के बावजूद प्रगति कुछ समय के लिए रुक जाती है; इसे सीखने का पठार कहते हैं।" },
+            { q: "प्रतिभाशाली बालकों की पहचान की प्रमुख विशेषता कौन सी है?", o: ["(A) केवल रटने की क्षमता", "(B) जिज्ञासा, मौलिकता व अपसारी चिंतन", "(C) शांत बैठना", "(D) शिक्षक की आज्ञा मानना"], c: 1, e: "प्रतिभाशाली बालकों में तीव्र जिज्ञासा, मौलिक विचार, अपसारी चिंतन और किसी क्षेत्र में असाधारण क्षमता पाई जाती है।" },
+            { q: "किशोरावस्था में शारीरिक परिवर्तनों हेतु उत्तरदायी ग्रंथि तंत्र कौन सा है?", o: ["(A) पाचन तंत्र", "(B) अंतःस्रावी तंत्र (हार्मोन)", "(C) तंत्रिका तंत्र", "(D) श्वसन तंत्र"], c: 1, e: "किशोरावस्था में पीयूष ग्रंथि व जनन ग्रंथियों से स्रावित हार्मोन (टेस्टोस्टेरोन, एस्ट्रोजन) शारीरिक परिवर्तन लाते हैं।" },
+            { q: "कक्षा में पिछड़े बालक (Backward Child) से क्या अभिप्राय है?", o: ["(A) मंदबुद्धि बालक", "(B) अपनी आयु/कक्षा के औसत से शैक्षिक उपलब्धि में पीछे बालक", "(C) शरारती बालक", "(D) गरीब बालक"], c: 1, e: "पिछड़ा बालक वह है जिसकी शैक्षिक उपलब्धि अपनी कक्षा के औसत से उल्लेखनीय रूप से कम हो, चाहे कारण बुद्धि, वातावरण या स्वास्थ्य हो।" },
+            { q: "मूल्यांकन (Evaluation) और मापन (Measurement) में मुख्य अंतर क्या है?", o: ["(A) कोई अंतर नहीं", "(B) मापन संख्यात्मक है, मूल्यांकन गुणात्मक निर्णय सहित व्यापक है", "(C) मूल्यांकन केवल परीक्षा है", "(D) मापन शिक्षक करता है"], c: 1, e: "मापन केवल अंक/संख्या देता है (जैसे 70/100), जबकि मूल्यांकन उस मापन की व्याख्या कर गुणात्मक निर्णय देता है (जैसे 'अच्छा प्रदर्शन')।" }
+        ];
+
+        /* ==================== LANGUAGE-I : HINDI (15) ==================== */
+        const HINDI1_BANK = [
+            { q: "'विद्यालय' शब्द में कौन सी संधि है? (विद्या + आलय)", o: ["(A) गुण संधि", "(B) यण संधि", "(C) वृद्धि संधि", "(D) दीर्घ संधि"], c: 1, e: "इ + आ = या होने से यण संधि है (विद्या + आलय = विद्यालय)। गुण संधि में अ+इ=ए होता है।" },
+            { q: "'नीलकमल' शब्द में कौन सा समास है?", o: ["(A) द्वंद्व समास", "(B) तत्पुरुष समास", "(C) कर्मधारय समास", "(D) बहुव्रीहि समास"], c: 2, e: "'नीलकमल' (नीला है जो कमल) में विशेषण-विशेष्य का संबंध है, अतः कर्मधारय समास है।" },
+            { q: "'जो लिखा न जा सके' वाक्यांश के लिए एक शब्द क्या है?", o: ["(A) अलेख्य", "(B) अपठनीय", "(C) अवाच्य", "(D) अश्रव्य"], c: 0, e: "'जो लिखा न जा सके' = अलेख्य; 'जो पढ़ा न जा सके' = अपठनीय; 'जो कहा न जा सके' = अकथनीय।" },
+            { q: "'अंधे की लाठी' मुहावरे का सही अर्थ क्या है?", o: ["(A) अंधा व्यक्ति", "(B) एकमात्र सहारा", "(C) लाठी से मारना", "(D) रास्ता भटकना"], c: 1, e: "'अंधे की लाठी' का अर्थ है एकमात्र सहारा, जैसे: 'बेटा बुढ़ापे में अंधे की लाठी होता है।'" },
+            { q: "'उत्थान' का विलोम शब्द क्या है?", o: ["(A) उत्कर्ष", "(B) पतन", "(C) अवनति", "(D) (B) और (C) दोनों"], c: 3, e: "'उत्थान' (उन्नति) का विलोम 'पतन'/'अवनति' है। परीक्षा में दोनों विकल्प हों तो संयुक्त विकल्प चुनें।" },
+            { q: "निम्न में से 'कमल' का पर्यायवाची नहीं है:", o: ["(A) पंकज", "(B) जलज", "(C) सरोज", "(D) रजनी"], c: 3, e: "पंकज, जलज, सरोज, अरविंद 'कमल' के पर्यायवाची हैं; 'रजनी' रात का पर्यायवाची है।" },
+            { q: "'वह खेल रहा है' वाक्य में कौन सा काल है?", o: ["(A) सामान्य वर्तमान", "(B) अपूर्ण वर्तमान", "(C) पूर्ण वर्तमान", "(D) संदिग्ध वर्तमान"], c: 1, e: "क्रिया वर्तमान में जारी है (अपूर्ण), अतः अपूर्ण वर्तमान काल है। 'खेलता है' सामान्य वर्तमान होता।" },
+            { q: "'राम ने रावण को मारा।' वाक्य में 'ने' कौन सा कारक दर्शाता है?", o: ["(A) कर्ता कारक", "(B) कर्म कारक", "(C) करण कारक", "(D) संप्रदान कारक"], c: 0, e: "भूतकाल की सकर्मक क्रिया में कर्ता के साथ 'ने' विभक्ति लगती है; यह कर्ता कारक है।" },
+            { q: "'दयालु' शब्द में कौन सा प्रत्यय है?", o: ["(A) लु", "(B) आलु", "(C) यालु", "(D) द"], c: 1, e: "'दयालु' = दया + आलु; 'आलु' प्रत्यय से कृपालु, श्रद्धालु जैसे शब्द बनते हैं।" },
+            { q: "'अत्याचार' शब्द में कौन सा उपसर्ग है?", o: ["(A) अ", "(B) अति", "(C) अत्या", "(D) आ"], c: 1, e: "'अत्याचार' = अति + आचार; 'अति' उपसर्ग से अत्यंत, अतिरिक्त, अत्याचार बनते हैं।" },
+            { q: "करुण रस का स्थायी भाव क्या है?", o: ["(A) रति", "(B) हास", "(C) शोक", "(D) क्रोध"], c: 2, e: "करुण रस का स्थायी भाव 'शोक' है; शृंगार का रति, हास्य का हास, वीर का उत्साह, रौद्र का क्रोध है।" },
+            { q: "दोहा छंद में प्रत्येक चरण में क्रमशः कितनी मात्राएँ होती हैं?", o: ["(A) 11, 13", "(B) 13, 11", "(C) 16, 16", "(D) 24, 24"], c: 1, e: "दोहा अर्द्धसम मात्रिक छंद है: पहले-तीसरे चरण में 13-13 और दूसरे-चौथे में 11-11 मात्राएँ होती हैं।" },
+            { q: "निम्न में शुद्ध वाक्य चुनिए:", o: ["(A) वह बाजार को गया।", "(B) वह बाजार गया।", "(C) उसने बाजार को गया।", "(D) वह बाजार में गया।"], c: 1, e: "'जाना' क्रिया के साथ 'को' विभक्ति नहीं लगती; शुद्ध वाक्य है: 'वह बाजार गया।'" },
+            { q: "अपठित गद्यांश: 'शिक्षा का उद्देश्य केवल परीक्षा उत्तीर्ण करना नहीं, बल्कि चरित्र निर्माण और समाज सेवा की भावना जगाना है।' इस गद्यांश का मुख्य भाव क्या है?", o: ["(A) परीक्षा की तैयारी", "(B) शिक्षा का व्यापक उद्देश्य", "(C) समाज सेवा का विरोध", "(D) चरित्र की उपेक्षा"], c: 1, e: "गद्यांश शिक्षा के व्यापक उद्देश्य (चरित्र निर्माण + समाज सेवा) पर बल देता है, न कि केवल परीक्षा पर।" },
+            { q: "उपर्युक्त गद्यांश के अनुसार आदर्श विद्यार्थी कौन है?", o: ["(A) केवल अधिक अंक लाने वाला", "(B) चरित्रवान और समाजसेवी भावना वाला", "(C) खेल में अव्वल", "(D) शिक्षक का प्रिय"], c: 1, e: "गद्यांश के अनुसार शिक्षा का लक्ष्य चरित्र निर्माण है, अतः चरित्रवान व समाजसेवी विद्यार्थी ही आदर्श है।" }
+        ];
+
+        /* ==================== LANGUAGE-I : ENGLISH (15) ==================== */
+        const ENGLISH1_BANK = [
+            { q: "Choose the correct synonym of 'ABUNDANT':", o: ["(A) Scarce", "(B) Plentiful", "(C) Meagre", "(D) Rare"], c: 1, e: "'Abundant' means existing in large quantities; its synonym is 'plentiful'. 'Scarce' is its antonym." },
+            { q: "Choose the correct antonym of 'BRAVE':", o: ["(A) Bold", "(B) Heroic", "(C) Cowardly", "(D) Valiant"], c: 2, e: "'Brave' means courageous; its antonym is 'cowardly'. Bold, heroic and valiant are synonyms." },
+            { q: "Fill in the blank: He is ___ honest man.", o: ["(A) a", "(B) an", "(C) the", "(D) no article"], c: 1, e: "'Honest' begins with a vowel sound (the 'h' is silent), so the article 'an' is used." },
+            { q: "Fill in the blank: She is afraid ___ dogs.", o: ["(A) from", "(B) with", "(C) of", "(D) by"], c: 2, e: "The adjective 'afraid' is always followed by the preposition 'of'." },
+            { q: "Fill in the blank: She ___ to school daily.", o: ["(A) go", "(B) goes", "(C) going", "(D) gone"], c: 1, e: "With third-person singular subject 'she' in simple present tense, the verb takes '-s': 'goes'." },
+            { q: "Choose the correct passive voice: 'She wrote a letter.'", o: ["(A) A letter is written by her.", "(B) A letter was written by her.", "(C) A letter has been written by her.", "(D) A letter will be written by her."], c: 1, e: "Simple past active ('wrote') changes to 'was/were + past participle' in passive: 'was written'." },
+            { q: "Choose the correct indirect speech: He said, 'I am busy.'", o: ["(A) He said that he is busy.", "(B) He said that he was busy.", "(C) He says that he was busy.", "(D) He said that I was busy."], c: 1, e: "In indirect speech, present 'am' shifts to past 'was', and 'I' changes to 'he'." },
+            { q: "One who can use both hands equally well is called:", o: ["(A) Versatile", "(B) Ambidextrous", "(C) Ambiguous", "(D) Ambitious"], c: 1, e: "'Ambidextrous' = able to use both hands; 'ambiguous' means unclear, 'ambitious' means aspiring." },
+            { q: "Spot the error: 'He do not like tea.'", o: ["(A) He", "(B) do", "(C) not", "(D) like tea"], c: 1, e: "With 'he' (third-person singular), the helping verb should be 'does': 'He does not like tea.'" },
+            { q: "Choose the correct plural form of 'child':", o: ["(A) childs", "(B) childes", "(C) children", "(D) childrens"], c: 2, e: "'Child' has an irregular plural: 'children'. 'Childrens' is incorrect." },
+            { q: "Fill in the blank with a question tag: You are coming, ___?", o: ["(A) are you", "(B) aren't you", "(C) don't you", "(D) isn't it"], c: 1, e: "A positive statement takes a negative tag: 'You are coming, aren't you?'" },
+            { q: "Choose the correct sentence:", o: ["(A) Neither of the boys were present.", "(B) Neither of the boys was present.", "(C) Neither of the boys are present.", "(D) Neither of the boys have present."], c: 1, e: "'Neither' is singular, so it takes a singular verb: 'was present'." },
+            { q: "Read the passage: 'Honesty is the best policy. An honest person wins the trust of all.' What is the main idea?", o: ["(A) Policy making", "(B) Importance of honesty", "(C) Winning competitions", "(D) Trust in business only"], c: 1, e: "Both sentences praise honesty, so the main idea is the importance of honesty." },
+            { q: "According to the passage, an honest person gains:", o: ["(A) Wealth", "(B) The trust of all", "(C) Political power", "(D) Nothing"], c: 1, e: "The passage clearly states: 'An honest person wins the trust of all.'" },
+            { q: "Choose the correct comparative degree: good → ___", o: ["(A) gooder", "(B) more good", "(C) better", "(D) best"], c: 2, e: "'Good' has an irregular comparative 'better' and superlative 'best'." }
+        ];
+
+        /* ==================== LANGUAGE-II BANKS (30 each) ==================== */
+        const LANG2_BANKS = {
+            KHORTHA: {
+                label: 'खोरठा',
+                questions: [
+                    { q: "खोरठा भाषा में 'य' वर्ण के स्थान पर शब्द के प्रारंभ में प्रायः किस वर्ण का प्रयोग होता है?", o: ["(A) व", "(B) ब", "(C) ज", "(D) स"], c: 2, e: "खोरठा ध्वनि-नियम के अनुसार शब्द के प्रारंभ में 'य' का परिवर्तन 'ज' में हो जाता है, जैसे: यमुना → जमुना।" },
+                    { q: "'उद्भासल करन' और 'चाभी काठी' नामक प्रसिद्ध खोरठा नाटकों के रचयिता कौन हैं?", o: ["(A) डॉ. ए.के. झा", "(B) श्रीनिवास पानुरी", "(C) शिवनाथ प्रमाणिक", "(D) विश्वनाथ दसौंधी 'राज'"], c: 1, e: "'उद्भासल करन' और 'चाभी काठी' खोरठा के भीष्म पितामह श्रीनिवास पानुरी की अमर नाट्य कृतियाँ हैं।" },
+                    { q: "खोरठा में 'हमनी' किस प्रकार का सर्वनाम है?", o: ["(A) उत्तम पुरुष एकवचन", "(B) उत्तम पुरुष बहुवचन", "(C) मध्यम पुरुष बहुवचन", "(D) अन्य पुरुष एकवचन"], c: 1, e: "खोरठा में उत्तम पुरुष एकवचन 'हम' होता है और बहुवचन 'हमनी' या 'हमरिन' होता है।" },
+                    { q: "खोरठा शब्द 'अइग' (आग) में किस ध्वनि परिवर्तन नियम का प्रयोग हुआ है?", o: ["(A) महाप्राणीकरण", "(B) अपिनिहिति (मध्य में 'इ' स्वर का आगम)", "(C) व्यंजन लोप", "(D) दीर्घीकरण"], c: 1, e: "अपिनिहिति खोरठा की प्रमुख विशेषता है: शब्द के मध्य में 'इ' स्वर का आगम, जैसे आग → अइग, दाल → दइल।" },
+                    { q: "'दामोदरेक कोराँय' नामक ऐतिहासिक खंडकाव्य किसकी रचना है?", o: ["(A) संतोष कुमार महतो", "(B) सुकुमार", "(C) शिवनाथ प्रमाणिक", "(D) बंसीलाल बंसी"], c: 2, e: "'दामोदरेक कोराँय' शिवनाथ प्रमाणिक द्वारा रचित प्रसिद्ध खोरठा खंडकाव्य है।" },
+                    { q: "खोरठा मुहावरा 'आँखि देखावेक' का सही अर्थ क्या है?", o: ["(A) नेत्र जांच कराना", "(B) डराना या धमकाना", "(C) प्रेम से इशारा करना", "(D) रास्ता दिखाना"], c: 1, e: "'आँखि देखावेक' (आँख दिखाना) का अर्थ किसी को डराना या धमकाना होता है।" },
+                    { q: "'छौवा खेलत हइ' (बच्चा खेल रहा है) वाक्य में कौन सा काल है?", o: ["(A) सामान्य वर्तमान काल", "(B) तात्कालिक/अपूर्ण वर्तमान काल", "(C) पूर्ण भूतकाल", "(D) संदिग्ध भविष्यत काल"], c: 1, e: "क्रिया वर्तमान में जारी है (अपूर्ण), अतः तात्कालिक/अपूर्ण वर्तमान काल है।" },
+                    { q: "झारखंड में प्रतिवर्ष किस तिथि को 'खोरठा दिवस' मनाया जाता है?", o: ["(A) 15 नवंबर", "(B) 30 जून", "(C) 25 दिसंबर", "(D) 2 अक्टूबर"], c: 2, e: "श्रीनिवास पानुरी की जयंती (25 दिसंबर) के उपलक्ष्य में प्रतिवर्ष 25 दिसंबर को 'खोरठा दिवस' मनाया जाता है।" },
+                    { q: "खोरठा व्याकरण में 'गोठ' शब्द किस प्रकार की संज्ञा का उदाहरण है?", o: ["(A) व्यक्तिवाचक", "(B) समूहवाचक (गोठवाचक)", "(C) भाववाचक", "(D) द्रव्यवाचक"], c: 1, e: "'गोठ' का अर्थ झुंड/समूह (मवेशियों का) है, इसलिए यह समूहवाचक संज्ञा है।" },
+                    { q: "करम पर्व पर गाए जाने वाले गीत को खोरठा में क्या कहा जाता है?", o: ["(A) सोहराय गीत", "(B) चाँचर गीत", "(C) जावा गीत / करम गीत", "(D) उदासी गीत"], c: 2, e: "करम पर्व में बहनें जावा डाली जगाती हैं; इस अवसर के गीतों को 'जावा गीत' या 'करम गीत' कहा जाता है।" },
+                    { q: "खोरठा भाषा किस भाषा-परिवार की सदस्य है?", o: ["(A) द्रविड़", "(B) आस्ट्रो-एशियाटिक", "(C) भारोपीय (इंडो-आर्यन)", "(D) तिब्बती-बर्मी"], c: 2, e: "खोरठा भारोपीय परिवार की इंडो-आर्यन शाखा की भाषा है; संथाली-मुंडारी आस्ट्रो-एशियाटिक परिवार की हैं।" },
+                    { q: "खोरठा में 'मोय' शब्द का अर्थ क्या है?", o: ["(A) तुम", "(B) मैं", "(C) वह", "(D) हम लोग"], c: 1, e: "'मोय' उत्तम पुरुष एकवचन सर्वनाम है, जिसका अर्थ 'मैं' होता है (हम = मैं भी प्रयुक्त)।" },
+                    { q: "'तोहनी' खोरठा में कौन सा सर्वनाम है?", o: ["(A) उत्तम पुरुष बहुवचन", "(B) मध्यम पुरुष एकवचन", "(C) मध्यम पुरुष बहुवचन", "(D) अन्य पुरुष बहुवचन"], c: 2, e: "'तोहनी'/'तोरिन' मध्यम पुरुष बहुवचन है (तुम लोग); एकवचन 'तोय' होता है।" },
+                    { q: "'मेघदूत' का खोरठा भाषा में अनुवाद किसने किया?", o: ["(A) शिवनाथ प्रमाणिक", "(B) डॉ. ए.के. झा", "(C) श्रीनिवास पानुरी", "(D) सुकुमार"], c: 2, e: "श्रीनिवास पानुरी ने कालिदास के 'मेघदूत' का खोरठा अनुवाद किया; उनकी अन्य कृति 'आँखि के गीत' है।" },
+                    { q: "'सदानिक व्याकरण' के रचयिता कौन हैं?", o: ["(A) श्रीनिवास पानुरी", "(B) डॉ. ए.के. झा", "(C) शिवनाथ प्रमाणिक", "(D) बंसीलाल बंसी"], c: 1, e: "डॉ. ए.के. झा ने 'सदानिक व्याकरण' लिखा; उनकी अन्य रचनाएँ 'खोरठा काठे पइदे खड़ी' और 'मेकामेकी न मेटमाट' हैं।" },
+                    { q: "खोरठा में 'श/ष' ध्वनि के स्थान पर प्रायः किसका प्रयोग होता है?", o: ["(A) ह", "(B) स या ख", "(C) श ही रहता है", "(D) च"], c: 1, e: "खोरठा में 'श/ष' का परिवर्तन 'स' या 'ख' में होता है, जैसे: शहर → सहर, धनुष → धनुख, वर्षा → बरखा।" },
+                    { q: "'बिहा' शब्द मूलतः किस हिंदी शब्द से बना है?", o: ["(A) विहार", "(B) विवाह", "(C) व्यवहार", "(D) विभा"], c: 1, e: "'व' के स्थान पर 'ब' नियम से विवाह → बिहा, विचार → बिचार, वन → बोन बनता है।" },
+                    { q: "'एक मौनी फूल' खोरठा कृति के रचयिता कौन हैं?", o: ["(A) सुकुमार", "(B) संतोष कुमार महतो", "(C) शिवनाथ प्रमाणिक", "(D) डॉ. ए.के. झा"], c: 1, e: "'एक मौनी फूल' संतोष कुमार महतो की रचना है; सुकुमार ने 'डाह' नाटक लिखा था।" },
+                    { q: "'डाह' नामक खोरठा नाटक के लेखक कौन हैं?", o: ["(A) सुकुमार", "(B) श्रीनिवास पानुरी", "(C) संतोष महतो", "(D) बंसीलाल बंसी"], c: 0, e: "'डाह' सुकुमार द्वारा रचित प्रसिद्ध खोरठा नाटक है।" },
+                    { q: "खोरठा में प्रश्नवाचक 'की' का प्रयोग किसके लिए होता है?", o: ["(A) व्यक्ति के लिए", "(B) वस्तु के लिए", "(C) स्थान के लिए", "(D) समय के लिए"], c: 1, e: "खोरठा में 'की' = क्या (वस्तु हेतु) और 'के' = कौन (व्यक्ति हेतु) प्रयुक्त होता है।" },
+                    { q: "'छौवइन' (बच्चों) शब्द में बहुवचन बनाने वाला प्रत्यय कौन सा है?", o: ["(A) -इन", "(B) -ओं", "(C) -एँ", "(D) -लोग"], c: 0, e: "खोरठा में बहुवचन हेतु '-इन', '-ऐन', '-वन', 'गुला/गुलिन' प्रत्यय जुड़ते हैं, जैसे छौवा → छौवइन।" },
+                    { q: "करम पर्व किस माह में मनाया जाता है?", o: ["(A) चैत्र", "(B) भाद्रपद (भादो)", "(C) माघ", "(D) ज्येष्ठ"], c: 1, e: "करम पर्व भादो (भाद्रपद) माह की एकादशी को मनाया जाता है; बहनें भाई की लंबी आयु हेतु जावा डाली जगाती हैं।" },
+                    { q: "सोहराय पर्व का संबंध किससे है?", o: ["(A) फसल कटाई", "(B) पशुधन की पूजा", "(C) विवाह", "(D) नववर्ष"], c: 1, e: "सोहराय पर्व में पशुधन (गाय-बैल) की पूजा होती है; यह कार्तिक माह में दीपावली के आसपास मनाया जाता है।" },
+                    { q: "खोरठा विवाह के अवसर पर गाए जाने वाले प्रसिद्ध लोकगीत कौन से हैं?", o: ["(A) जावा गीत", "(B) डमकच गीत", "(C) सोहराय गीत", "(D) चाँचर गीत"], c: 1, e: "'डमकच' खोरठा समाज का प्रसिद्ध विवाह लोकगीत-नृत्य है, जो बारात/विवाह के अवसर पर गाया जाता है।" },
+                    { q: "'पइसा' शब्द में कौन सा ध्वनि-नियम लागू हुआ है?", o: ["(A) 'ऐ' का 'अइ' में परिवर्तन", "(B) 'स' का लोप", "(C) दीर्घीकरण", "(D) महाप्राणीकरण"], c: 0, e: "खोरठा में 'ऐ' → 'अइ' (पैसा → पइसा) और 'औ' → 'अउ' (औरत → अउरत) हो जाता है।" },
+                    { q: "खोरठा मुख्यतः झारखंड के किस क्षेत्र में बोली जाती है?", o: ["(A) संथाल परगना", "(B) उत्तरी छोटानागपुर (हजारीबाग, धनबाद, बोकारो, गिरिडीह)", "(C) पलामू प्रमंडल", "(D) कोल्हान"], c: 1, e: "खोरठा उत्तरी छोटानागपुर क्षेत्र (हजारीबाग, धनबाद, बोकारो, गिरिडीह, चतरा) की प्रमुख भाषा है।" },
+                    { q: "'तातल और हेमाल' कृति के रचयिता कौन हैं?", o: ["(A) सुकुमार", "(B) शिवनाथ प्रमाणिक", "(C) संतोष महतो", "(D) श्रीनिवास पानुरी"], c: 1, e: "'तातल और हेमाल' शिवनाथ प्रमाणिक की रचना है; उनकी प्रसिद्ध कृति 'दामोदरेक कोराँय' भी है।" },
+                    { q: "खोरठा में 'ण' वर्ण के स्थान पर प्रायः किसका प्रयोग होता है?", o: ["(A) न", "(B) ण ही रहता है", "(C) म", "(D) ङ"], c: 0, e: "खोरठा में 'ण' के स्थान पर 'न' प्रयुक्त होता है, जैसे: कण → कन, बाण → बान, प्राण → परान।" },
+                    { q: "खोरठा साहित्य में 'धरा गगन सिद्धांत' किसने प्रतिपादित किया?", o: ["(A) श्रीनिवास पानुरी", "(B) डॉ. ए.के. झा", "(C) शिवनाथ प्रमाणिक", "(D) बंसीलाल बंसी"], c: 1, e: "डॉ. ए.के. झा ने खोरठा भाषा-साहित्य के संदर्भ में 'धरा गगन सिद्धांत' का प्रतिपादन किया।" },
+                    { q: "खोरठा में 'ई/ऊ' दीर्घ स्वरों का ह्रस्वीकरण किस उदाहरण में दिखता है?", o: ["(A) दूध → दुद", "(B) आग → अइग", "(C) शहर → सहर", "(D) विवाह → बिहा"], c: 0, e: "खोरठा में दीर्घ स्वर ह्रस्व हो जाते हैं, जैसे दूध → दुद; यह खोरठा की ध्वन्यात्मक विशेषता है।" }
+                ]
+            },
+            NAGPURI: {
+                label: 'नागपुरी',
+                questions: [
+                    { q: "नागपुरी भाषा को अन्य किस नाम से जाना जाता है?", o: ["(A) खोरठा", "(B) सादरी", "(C) मुंडारी", "(D) कुरुख"], c: 1, e: "नागपुरी को 'सादरी' भी कहा जाता है; यह छोटानागपुर की प्रमुख संपर्क भाषा है।" },
+                    { q: "नागपुरी भाषा किस भाषा-परिवार से संबंधित है?", o: ["(A) द्रविड़", "(B) आस्ट्रो-एशियाटिक", "(C) भारोपीय (इंडो-आर्यन)", "(D) तिब्बती-बर्मी"], c: 2, e: "नागपुरी भारोपीय परिवार की इंडो-आर्यन शाखा की भाषा है; संथाली-मुंडारी आस्ट्रो-एशियाटिक परिवार की हैं।" },
+                    { q: "नागपुरी के प्रथम ज्ञात कवि किसे माना जाता है?", o: ["(A) घासीराम महली", "(B) रघुनाथ शाह (रघुनाथ नृपति)", "(C) बेनीराम मेहता", "(D) हनुमान सिंह"], c: 1, e: "17वीं सदी के नागवंशी राजा रघुनाथ शाह नागपुरी के प्रथम ज्ञात कवि हैं; उन्होंने भक्तिपरक काव्य रचा।" },
+                    { q: "'नागवंशावली' (1876) के रचयिता कौन हैं?", o: ["(A) बेनीराम मेहता", "(B) रघुनाथ शाह", "(C) ई.एच. व्हिटली", "(D) कॉनराड बुकाउट"], c: 0, e: "बेनीराम मेहता ने 1876 में 'नागवंशावली' लिखी, जिसमें नागवंश के राजाओं का इतिहास है।" },
+                    { q: "'नागपुरी फाग शतक' और 'ललना रंजना' किसकी रचनाएँ हैं?", o: ["(A) बेनीराम मेहता", "(B) रघुनाथ शाह", "(C) घासीराम महली", "(D) प्रफुल्ल कुमार राय"], c: 2, e: "घासीराम महली ने 'नागपुरी फाग शतक', 'ललना रंजना', 'दुर्गा सप्तशती' और 'नागवंशावली झुमर' रचे।" },
+                    { q: "'Grammar of the Nagpuria Sadani Language' के लेखक कौन हैं?", o: ["(A) ई.एच. व्हिटली", "(B) जॉर्ज ग्रियर्सन", "(C) कॉनराड बुकाउट", "(D) फादर गॉशर"], c: 2, e: "कॉनराड बुकाउट ने यह व्याकरण लिखा; व्हिटली ने 1896 में गणवारी बोली पर टिप्पणियाँ लिखी थीं।" },
+                    { q: "छोटानागपुर में नागपुरी मुख्यतः किस रूप में प्रयुक्त होती है?", o: ["(A) केवल धार्मिक भाषा", "(B) आदिवासी-गैर आदिवासी समुदायों के बीच संपर्क भाषा", "(C) केवल न्यायालयीन भाषा", "(D) व्यापारिक भाषा"], c: 1, e: "नागपुरी (सादरी) छोटानागपुर में आदिवासी और सदान समुदायों के बीच संपर्क भाषा है।" },
+                    { q: "नागपुरी भाषी प्रमुख गैर-आदिवासी समुदाय को क्या कहा जाता है?", o: ["(A) सदान", "(B) मुंडा", "(C) उराँव", "(D) हो"], c: 0, e: "छोटानागपुर के मूल गैर-आदिवासी निवासी 'सदान' कहलाते हैं; नागपुरी उनकी प्रमुख भाषा है।" },
+                    { q: "'झुमर' (झुमैर) का संबंध किससे है?", o: ["(A) नागपुरी लोकगीत-लोकनृत्य परंपरा", "(B) संथाली विवाह विधि", "(C) मुंडारी शिकार पर्व", "(D) खोरठा व्याकरण"], c: 0, e: "झुमर छोटानागपुर की प्रसिद्ध लोकगीत-लोकनृत्य परंपरा है, जो नागपुरी संस्कृति की पहचान है।" },
+                    { q: "2011 की जनगणना में नागपुरी (सादरी) के मातृभाषियों की संख्या लगभग कितनी थी?", o: ["(A) 5 लाख", "(B) 15 लाख", "(C) 51 लाख", "(D) 2 करोड़"], c: 2, e: "2011 में लगभग 51 लाख लोगों ने नागपुरी (सादरी) को मातृभाषा बताया था।" },
+                    { q: "नागपुरी भाषा किस लिपि में लिखी जाती है?", o: ["(A) ओल चिकी", "(B) देवनागरी", "(C) कैथी", "(D) रोमन"], c: 1, e: "नागपुरी देवनागरी लिपि में लिखी जाती है; ओल चिकी संथाली की लिपि है।" },
+                    { q: "रघुनाथ शाह (रघुनाथ नृपति) किस शताब्दी के शासक-कवि थे?", o: ["(A) 15वीं", "(B) 16वीं", "(C) 17वीं", "(D) 19वीं"], c: 2, e: "नागवंशी राजा रघुनाथ शाह 17वीं शताब्दी के थे; उन्हें नागपुरी का प्रथम ज्ञात कवि माना जाता है।" },
+                    { q: "घासीराम महली द्वारा रचित 'दुर्गा सप्तशती' किस भाषा में है?", o: ["(A) खोरठा", "(B) नागपुरी", "(C) संस्कृत", "(D) बंगाली"], c: 1, e: "घासीराम महली ने संस्कृत 'दुर्गा सप्तशती' का नागपुरी में अनुवाद/रचना की थी।" },
+                    { q: "'नागवंशावली झुमर' के रचयिता कौन हैं?", o: ["(A) बेनीराम मेहता", "(B) घासीराम महली", "(C) रघुनाथ शाह", "(D) कॉनराड बुकाउट"], c: 1, e: "'नागवंशावली झुमर' घासीराम महली की रचना है, जिसमें झुमर शैली में नागवंश का वर्णन है।" },
+                    { q: "ई.एच. व्हिटली ने 1896 में किस क्षेत्र की 'गणवारी' बोली पर टिप्पणियाँ लिखीं?", o: ["(A) राँची", "(B) लोहरदगा", "(C) धनबाद", "(D) दुमका"], c: 1, e: "व्हिटली ने लोहरदगा की गणवारी बोली पर 'Notes on the Ganwari dialects' (1896) लिखी थी।" },
+                    { q: "नागपुरी भाषा का मुख्य क्षेत्र कौन सा है?", o: ["(A) संथाल परगना", "(B) छोटानागपुर पठार (राँची, गुमला, लोहरदगा, सिमडेगा)", "(C) पलामू", "(D) कोल्हान"], c: 1, e: "नागपुरी पश्चिमी-दक्षिणी छोटानागपुर (राँची, गुमला, लोहरदगा, सिमडेगा, खूँटी) में प्रमुख है।" },
+                    { q: "'फाग शतक' में 'फाग' शब्द का अर्थ क्या है?", o: ["(A) फाल्गुन माह के होली गीत", "(B) फसल", "(C) युद्ध", "(D) वर्षा"], c: 0, e: "'फाग' फाल्गुन माह में गाए जाने वाले होली/वसंत गीतों को कहते हैं; 'नागपुरी फाग शतक' में 100 फाग गीत हैं।" },
+                    { q: "नागपुरी साहित्य का आरंभ किनके काव्य से माना जाता है?", o: ["(A) मुगल बादशाहों", "(B) नागवंशी एवं रामगढ़ के राजाओं", "(C) अंग्रेज अधिकारियों", "(D) संत कवियों"], c: 1, e: "17वीं सदी में नागवंशी राजा और रामगढ़ राज के राजाओं ने नागपुरी में काव्य रचना आरंभ की थी।" },
+                    { q: "सरहुल पर्व में मुख्यतः किसकी पूजा होती है?", o: ["(A) चंद्रमा", "(B) साल वृक्ष एवं सूर्य (सिंगबोंगा)", "(C) गंगा", "(D) अग्नि"], c: 1, e: "सरहुल वसंत ऋतु का पर्व है, जिसमें साल वृक्ष और सूर्य देवता (सिंगबोंगा) की पूजा होती है।" },
+                    { q: "जितिया पर्व कौन और क्यों मनाता है?", o: ["(A) किसान, फसल हेतु", "(B) माताएँ, संतान की मंगलकामना हेतु", "(C) युवा, विवाह हेतु", "(D) व्यापारी, धन हेतु"], c: 1, e: "जितिया में माताएँ अपनी संतान की लंबी आयु व मंगल हेतु आश्विन माह में निर्जला व्रत रखती हैं।" },
+                    { q: "नागपुरी लोकगीतों का प्रमुख वाद्य यंत्र कौन सा है?", o: ["(A) सितार", "(B) मांदर", "(C) हारमोनियम", "(D) बाँसुरी"], c: 1, e: "मांदर छोटानागपुर का प्रमुख लोकवाद्य है; ढोल, नगाड़ा, टमक भी झुमर के साथ बजते हैं।" },
+                    { q: "गाँव का वह सामुदायिक स्थल जहाँ नृत्य-गीत व सभाएँ होती हैं, क्या कहलाता है?", o: ["(A) अखरा", "(B) हाट", "(C) धुमकुड़िया", "(D) सरना"], c: 0, e: "'अखरा' गाँव का सामुदायिक नृत्य-स्थल है; 'धुमकुड़िया' उराँव युवागृह और 'सरना' पवित्र जंगल है।" },
+                    { q: "'धुमकुड़िया' का संबंध किससे है?", o: ["(A) विवाह मंडप", "(B) उराँव युवागृह (युवाओं का प्रशिक्षण केंद्र)", "(C) बाजार", "(D) विद्यालय"], c: 1, e: "धुमकुड़िया उराँव समाज का पारंपरिक युवागृह है, जहाँ युवाओं को सामाजिक-सांस्कृतिक प्रशिक्षण मिलता है।" },
+                    { q: "सरहुल पर्व मुख्यतः किस ऋतु में मनाया जाता है?", o: ["(A) वसंत ऋतु", "(B) वर्षा ऋतु", "(C) शीत ऋतु", "(D) ग्रीष्म ऋतु"], c: 0, e: "सरहुल वसंत ऋतु (चैत्र माह) में मनाया जाता है; इसमें साल वृक्ष और सूर्य देवता (सिंगबोंगा) की पूजा होती है।" },
+                    { q: "बुकाउट की पुस्तक के शीर्षक में 'सदानी' (Sadani) शब्द किस ओर संकेत करता है?", o: ["(A) दुखद गीत", "(B) सदान समुदाय की भाषा", "(C) साधुओं की भाषा", "(D) सरकारी भाषा"], c: 1, e: "'Nagpuria Sadani' में 'सदानी' सदान समुदाय की भाषा होने का बोध कराता है।" },
+                    { q: "उराँव जनजाति की भाषा 'कुरुख' किस भाषा-परिवार की है?", o: ["(A) इंडो-आर्यन", "(B) द्रविड़", "(C) आस्ट्रो-एशियाटिक", "(D) तिब्बती-बर्मी"], c: 1, e: "कुरुख द्रविड़ परिवार की भाषा है, जबकि नागपुरी इंडो-आर्यन और संथाली-मुंडारी आस्ट्रो-एशियाटिक परिवार की हैं।" },
+                    { q: "छोटानागपुर में 'पड़हा' व्यवस्था का अर्थ क्या है?", o: ["(A) पाठशाला", "(B) गाँवों का पारंपरिक पंचायत संगठन", "(C) बाजार समिति", "(D) धार्मिक मठ"], c: 1, e: "'पड़हा' मुंडा-उराँव समाज का पारंपरिक स्वशासी पंचायत संगठन है, जिसमें कई गाँव शामिल होते हैं।" },
+                    { q: "नागपुरी क्षेत्र में मकर संक्रांति पर मनाया जाने वाला प्रमुख पर्व कौन सा है?", o: ["(A) सरहुल", "(B) टुसू", "(C) करम", "(D) जितिया"], c: 1, e: "टुसू पर्व मकर संक्रांति पर कुंवारी कन्याओं द्वारा मनाया जाता है; यह छोटानागपुर-पश्चिम बंगाल क्षेत्र का लोकपर्व है।" },
+                    { q: "नागपुरी लोककथाओं में 'छौ' नृत्य का संबंध किससे है?", o: ["(A) सरायकेला छौ नृत्य", "(B) कथक", "(C) भरतनाट्यम", "(D) ओडिसी"], c: 0, e: "सरायकेला छौ झारखंड का प्रसिद्ध अर्द्धशास्त्रीय मुखौटा नृत्य है, जिसे यूनेस्को की अमूर्त विरासत सूची में स्थान मिला है।" },
+                    { q: "'सदान' समाज की पारंपरिक ग्राम पंचायत का मुखिया क्या कहलाता है?", o: ["(A) मांझी", "(B) महतो/मुंडा", "(C) पड़हा राजा", "(D) दीवान"], c: 1, e: "सदान गाँवों में मुखिया प्रायः 'महतो' या 'मुंडा' कहलाता है; 'मांझी' संथाल गाँव का मुखिया है।" }
+                ]
+            },
+            SANTHALI: {
+                label: 'संथाली',
+                questions: [
+                    { q: "संथाली हेतु 'ओल चिकी' लिपि का निर्माण किसने किया?", o: ["(A) तिलका मांझी", "(B) पं. रघुनाथ मुर्मू", "(C) सिदो मुर्मू", "(D) बिरसा मुंडा"], c: 1, e: "पं. रघुनाथ मुर्मू ने 1925 में ओल चिकी लिपि बनाई, जिससे संथाल समाज को लिखित पहचान मिली।" },
+                    { q: "'ओल चिकी' लिपि का निर्माण किस वर्ष हुआ?", o: ["(A) 1905", "(B) 1915", "(C) 1925", "(D) 1947"], c: 2, e: "1925 में निर्माण; 1939 में मयूरभंज प्रदर्शनी में पहली बार सार्वजनिक प्रदर्शन हुआ।" },
+                    { q: "संथाली को आठवीं अनुसूची में किस संशोधन द्वारा शामिल किया गया?", o: ["(A) 42वाँ (1976)", "(B) 73वाँ (1992)", "(C) 92वाँ (2003)", "(D) 103वाँ (2019)"], c: 2, e: "92वें संशोधन (2003) द्वारा संथाली, बोडो, डोगरी, मैथिली आठवीं अनुसूची में शामिल हुईं।" },
+                    { q: "संथाली भाषा किस भाषा-परिवार की है?", o: ["(A) भारोपीय", "(B) द्रविड़", "(C) आस्ट्रो-एशियाटिक (मुंडा)", "(D) तिब्बती-बर्मी"], c: 2, e: "संथाली आस्ट्रो-एशियाटिक की मुंडा शाखा की भाषा है; खोरठा-नागपुरी इंडो-आर्यन हैं।" },
+                    { q: "'ओल चिकी' में कुल कितने वर्ण होते हैं?", o: ["(A) 26", "(B) 30", "(C) 36", "(D) 46"], c: 1, e: "ओल चिकी में 30 वर्ण हैं; इसमें बड़े-छोटे अक्षरों की अवधारणा नहीं है।" },
+                    { q: "'ओल चिकी' को अन्य किस नाम से जाना जाता है?", o: ["(A) ओल चेमेट", "(B) देवनागरी", "(C) कैथी", "(D) ब्राह्मी"], c: 0, e: "ओल चिकी को 'ओल चेमेट' भी कहते हैं; यह पूर्णतः ध्वन्यात्मक लिपि है।" },
+                    { q: "संथाली भाषा मुख्यतः किस क्षेत्र में बोली जाती है?", o: ["(A) कश्मीर", "(B) संथाल परगना सहित झारखंड, ओडिशा, बंगाल, असम", "(C) पूर्वोत्तर पहाड़ी राज्य", "(D) केरल"], c: 1, e: "संथाल झारखंड के संथाल परगना, ओडिशा, पश्चिम बंगाल, असम में निवास करते हैं।" },
+                    { q: "संथाल समुदाय स्वयं को किस नाम से संबोधित करता है?", o: ["(A) होड़ (मनुष्य)", "(B) दिकू", "(C) सदान", "(D) नागवंशी"], c: 0, e: "संथाल स्वयं को 'होड़' (मनुष्य) कहते हैं; 'दिकू' बाहरी/गैर-आदिवासी हेतु प्रयुक्त होता है।" },
+                    { q: "ओल चिकी निर्माण का मुख्य उद्देश्य क्या था?", o: ["(A) अंग्रेजी सीखना", "(B) संथाली की विशिष्ट ध्वनियों को सटीक लिखित रूप देना", "(C) हिंदी प्रचार", "(D) लेखांकन सरल करना"], c: 1, e: "देवनागरी/ओड़िया संथाली की विशिष्ट ध्वनियाँ व्यक्त नहीं कर पाती थीं, अतः ध्वन्यात्मक लिपि बनी।" },
+                    { q: "संथाल परगना (पृथक जिला) का गठन किस विद्रोह के बाद हुआ?", o: ["(A) कोल विद्रोह", "(B) संथाल हूल (1855)", "(C) बिरसा उलगुलान", "(D) ताना भगत आंदोलन"], c: 1, e: "1855 के संथाल हूल के बाद अंग्रेजों ने पृथक 'संथाल परगना' जिले का गठन किया।" },
+                    { q: "ओल चिकी से पहले संथाली प्रायः किन लिपियों में लिखी जाती थी?", o: ["(A) केवल ओल चिकी", "(B) देवनागरी, ओड़िया, बंगाली व रोमन", "(C) फारसी", "(D) गुरुमुखी"], c: 1, e: "ओल चिकी से पूर्व संथाली देवनागरी, ओड़िया, बंगाली व रोमन लिपियों में लिखी जाती थी।" },
+                    { q: "संथालों के सर्वोच्च देवता 'मारंग बुरु' का अर्थ क्या है?", o: ["(A) छोटा पहाड़", "(B) बड़ा पहाड़ (सर्वोच्च देवता)", "(C) नदी देवता", "(D) अग्नि देवता"], c: 1, e: "'मारंग बुरु' (बड़ा पहाड़) संथालों के सर्वोच्च देवता हैं; 'बोंगा' का अर्थ देवता/आत्मा है।" },
+                    { q: "संथाल समाज में 'जाहेर' क्या है?", o: ["(A) बाजार", "(B) पवित्र जंगल/पूजा स्थल", "(C) विद्यालय", "(D) श्मशान"], c: 1, e: "'जाहेर' संथालों का पवित्र जंगल है, जहाँ साल वृक्ष के नीचे देवताओं की पूजा होती है।" },
+                    { q: "सोहराय पर्व संथाल समाज में किससे संबंधित है?", o: ["(A) विवाह", "(B) पशुधन की पूजा", "(C) युद्ध विजय", "(D) नववर्ष"], c: 1, e: "सोहराय में पशुधन की पूजा होती है; यह कार्तिक माह में मनाया जाने वाला प्रमुख पर्व है।" },
+                    { q: "'बाहा' पर्व का संबंध किससे है?", o: ["(A) फूलों का पर्व (वसंत)", "(B) धान की फसल", "(C) मछली पकड़ना", "(D) शिकार"], c: 0, e: "'बाहा' वसंत ऋतु में फूलों का पर्व है; इसमें साल फूल की पूजा होती है।" },
+                    { q: "संथाल गाँव के मुखिया को क्या कहा जाता है?", o: ["(A) महतो", "(B) मांझी", "(C) पड़हा", "(D) दीवान"], c: 1, e: "संथाल गाँव का मुखिया 'मांझी' कहलाता है; कई मांझियों का प्रधान 'परगना' होता है।" },
+                    { q: "संथाल समाज में 'परगना' कौन होता है?", o: ["(A) पुजारी", "(B) मांझियों का प्रधान", "(C) व्यापारी", "(D) शिक्षक"], c: 1, e: "'परगना' एक क्षेत्र के सभी मांझियों का प्रधान होता है; यह पारंपरिक स्वशासन व्यवस्था है।" },
+                    { q: "ओल चिकी लिपि पहली बार सार्वजनिक रूप से कहाँ प्रदर्शित हुई?", o: ["(A) राँची 1925", "(B) मयूरभंज प्रदर्शनी 1939", "(C) कोलकाता 1947", "(D) दिल्ली 1950"], c: 1, e: "1939 में ओडिशा के मयूरभंज में आयोजित प्रदर्शनी में ओल चिकी पहली बार सार्वजनिक रूप से प्रस्तुत हुई।" },
+                    { q: "संथाल परगना प्रमंडल में कुल कितने जिले हैं?", o: ["(A) 4", "(B) 5", "(C) 6", "(D) 8"], c: 2, e: "संथाल परगना प्रमंडल में 6 जिले हैं: दुमका, देवघर, गोड्डा, साहिबगंज, पाकुड़, जामताड़ा।" },
+                    { q: "संथाल परगना प्रमंडल का मुख्यालय कहाँ है?", o: ["(A) देवघर", "(B) दुमका", "(C) साहिबगंज", "(D) गोड्डा"], c: 1, e: "संथाल परगना प्रमंडल का मुख्यालय दुमका है।" },
+                    { q: "प्रतिवर्ष 'हूल दिवस' किस तिथि को मनाया जाता है?", o: ["(A) 15 नवंबर", "(B) 9 अगस्त", "(C) 30 जून", "(D) 26 जनवरी"], c: 2, e: "30 जून 1855 को भोगनाडीह से हूल शुरू हुआ था; इसी स्मृति में प्रतिवर्ष 30 जून को हूल दिवस मनाया जाता है।" },
+                    { q: "संथाल हूल की प्रसिद्ध वीरांगनाएँ कौन थीं?", o: ["(A) फूलो-झानो", "(B) रानी लक्ष्मीबाई", "(C) अहिल्याबाई", "(D) रानी दुर्गावती"], c: 0, e: "फूलो-झानो मुर्मू संथाल हूल की वीरांगनाएँ थीं, जिन्होंने अंग्रेजों से संघर्ष किया।" },
+                    { q: "ओल चिकी लिपि का शताब्दी वर्ष (100 वर्ष) कब मनाया गया?", o: ["(A) 2000", "(B) 2015", "(C) 2025", "(D) 2030"], c: 2, e: "1925 में निर्मित ओल चिकी के 100 वर्ष 2025 में पूर्ण हुए; यह संथाल समाज हेतु गौरव का वर्ष रहा।" },
+                    { q: "भारत की राष्ट्रपति द्रौपदी मुर्मू का संबंध किस समुदाय से है?", o: ["(A) मुंडा", "(B) संथाल", "(C) उराँव", "(D) हो"], c: 1, e: "द्रौपदी मुर्मू संथाल समुदाय से हैं; वे भारत की प्रथम आदिवासी महिला राष्ट्रपति हैं।" },
+                    { q: "संथाली व्याकरण व शब्दकोश पर महत्वपूर्ण कार्य किसने किया?", o: ["(A) जॉर्ज ग्रियर्सन", "(B) पॉल बोडिंग", "(C) मैक्स मूलर", "(D) विलियम कैरी"], c: 1, e: "नॉर्वे के मिशनरी पॉल बोडिंग ने संथाली व्याकरण व शब्दकोश पर प्रामाणिक कार्य किया।" },
+                    { q: "संथालों का पारंपरिक धर्म क्या कहलाता है?", o: ["(A) हिंदू", "(B) सरना", "(C) ईसाई", "(D) बौद्ध"], c: 1, e: "संथालों का पारंपरिक प्रकृति-पूजक धर्म 'सरना' कहलाता है; जाहेर स्थल पर पूजा होती है।" },
+                    { q: "'जादोपटिया' चित्रकला का संबंध किस समुदाय से है?", o: ["(A) मुंडा", "(B) संथाल", "(C) उराँव", "(D) हो"], c: 1, e: "'जादोपटिया' संथाल समुदाय की पारंपरिक चित्रकला है, जिसमें लोककथाएँ चित्रित होती हैं।" },
+                    { q: "संथाल लोकनृत्य के साथ बजने वाला प्रमुख वाद्य कौन सा है?", o: ["(A) सितार", "(B) मांदर/ढोल", "(C) वीणा", "(D) तबला"], c: 1, e: "मांदर (ढोल) संथाल नृत्य-संगीत का प्रमुख वाद्य है; टमक, नगाड़ा भी बजते हैं।" },
+                    { q: "संथाल परगना काश्तकारी अधिनियम (SPT Act) किस वर्ष पारित हुआ?", o: ["(A) 1908", "(B) 1932", "(C) 1949", "(D) 1969"], c: 2, e: "SPT Act 1949 संथाल परगना में आदिवासी भूमि की रक्षा हेतु पारित हुआ; CNT Act 1908 छोटानागपुर हेतु था।" },
+                    { q: "'दामिन-ए-कोह' का क्या अर्थ है?", o: ["(A) पहाड़ों का देश (संथालों हेतु निर्धारित क्षेत्र)", "(B) नदी का मैदान", "(C) राजधानी", "(D) बंदरगाह"], c: 0, e: "'दामिन-ए-कोह' (फारसी: पहाड़ों का आँचल) 1832 में संथालों के बसने हेतु निर्धारित राजमहल पहाड़ी क्षेत्र था।" }
+                ]
+            }
+        };
+
+        /* ==================== SST BANK (60) ==================== */
+        const SST_BANK = [
+            { q: "30 जून 1855 को संथाल हूल की शुरुआत किस स्थान से हुई थी?", o: ["(A) उलिहातू", "(B) भोगनाडीह (साहिबगंज)", "(C) डोंबारी बुरू", "(D) चिंगरी नवाटोली"], c: 1, e: "30 जून 1855 को भोगनाडीह गाँव में सिदो-कान्हू के नेतृत्व में 10,000 से अधिक संथालों ने हूल का शंखनाद किया।" },
+            { q: "छोटानागपुर काश्तकारी अधिनियम (CNT Act) किस वर्ष लागू हुआ?", o: ["(A) 1900", "(B) 11 नवंबर 1908", "(C) 1949", "(D) 1855"], c: 1, e: "बिरसा उलगुलान के परिणामस्वरूप 11 नवंबर 1908 को CNT Act लागू हुआ; प्रारूप जॉन हॉफमैन ने तैयार किया।" },
+            { q: "झारखंड की सबसे लंबी नदी कौन सी है?", o: ["(A) स्वर्णरेखा", "(B) बराकर", "(C) दामोदर", "(D) मयूराक्षी"], c: 2, e: "दामोदर (592 किमी, झारखंड में 290 किमी) लातेहार के टोरी से निकलती है; यह झारखंड की सबसे लंबी नदी है।" },
+            { q: "मयूराक्षी नदी पर कनाडा के सहयोग से निर्मित बाँध कौन सा है?", o: ["(A) मैथन", "(B) तिलैया", "(C) मसानजोर (कनाडा डैम)", "(D) पंचेत"], c: 2, e: "दुमका में मयूराक्षी पर 1955 में कनाडा के सहयोग से मसानजोर बाँध बना, जिसे कनाडा डैम कहते हैं।" },
+            { q: "डॉ. अंबेडकर ने किस अनुच्छेद को 'संविधान की आत्मा' कहा?", o: ["(A) अनुच्छेद 14", "(B) अनुच्छेद 19", "(C) अनुच्छेद 21", "(D) अनुच्छेद 32"], c: 3, e: "अनुच्छेद 32 सीधे सर्वोच्च न्यायालय जाने की गारंटी देता है, इसलिए अंबेडकर ने इसे संविधान की आत्मा कहा।" },
+            { q: "झारखंड का एकमात्र जिला जहाँ से गंगा नदी बहती है?", o: ["(A) देवघर", "(B) साहिबगंज", "(C) पाकुड़", "(D) गोड्डा"], c: 1, e: "साहिबगंज एकमात्र जिला है जहाँ से गंगा लगभग 83 किमी प्रवाहित होती है।" },
+            { q: "झारखंड में 1857 की क्रांति की शुरुआत 12 जून 1857 को कहाँ से हुई?", o: ["(A) राँची", "(B) हजारीबाग", "(C) रोहिणी गाँव (देवघर)", "(D) चाईबासा"], c: 2, e: "देवघर के रोहिणी गाँव से 1857 का विद्रोह शुरू हुआ; यहाँ 32वीं इन्फैंट्री रेजिमेंट का मुख्यालय था।" },
+            { q: "पृथ्वी की 'सियाल' परत मुख्यतः किन तत्वों से बनी है?", o: ["(A) सिलिका-लोहा", "(B) सिलिका-एल्युमीनियम", "(C) सिलिका-मैग्नीशियम", "(D) निकेल-लोहा"], c: 1, e: "भूपर्पटी की ऊपरी परत सियाल (SiAl) में सिलिका और एल्युमीनियम की प्रधानता होती है।" },
+            { q: "कंप्यूटर में CPU का पूर्ण रूप क्या है?", o: ["(A) Central Processing Unit", "(B) Control Program Unit", "(C) Central Printing Utility", "(D) Common Processing Unit"], c: 0, e: "CPU = Central Processing Unit; यह कंप्यूटर के सभी तार्किक व अंकगणितीय कार्यों को नियंत्रित करता है।" },
+            { q: "अशोक के किस शिलालेख में कलिंग युद्ध का वर्णन है?", o: ["(A) प्रथम", "(B) सातवाँ", "(C) तेरहवाँ", "(D) चौदहवाँ"], c: 2, e: "13वें बृहद शिलालेख में कलिंग युद्ध की भीषणता और धम्मघोष अपनाने का वर्णन है।" },
+            { q: "हड़प्पा (सिंधु घाटी सभ्यता) की खोज 1921 में किसने की?", o: ["(A) राखालदास बनर्जी", "(B) दयाराम साहनी", "(C) जॉन मार्शल", "(D) अलेक्जेंडर कनिंघम"], c: 1, e: "दयाराम साहनी ने 1921 में हड़प्पा की खोज की; राखालदास बनर्जी ने 1922 में मोहनजोदड़ो खोजा।" },
+            { q: "'त्रिपिटक' किस धर्म के धार्मिक ग्रंथ हैं?", o: ["(A) जैन", "(B) बौद्ध", "(C) हिंदू", "(D) सिख"], c: 1, e: "त्रिपिटक (विनय, सुत्त, अभिधम्म) बौद्ध धर्म के ग्रंथ हैं; जैन ग्रंथ 'आगम' कहलाते हैं।" },
+            { q: "महावीर स्वामी का जन्म कहाँ हुआ था?", o: ["(A) लुंबिनी", "(B) कुंडग्राम (वैशाली)", "(C) पावापुरी", "(D) राजगृह"], c: 1, e: "महावीर का जन्म 540 ई.पू. में कुंडग्राम (वैशाली) में हुआ; पावापुरी में उन्हें निर्वाण प्राप्त हुआ।" },
+            { q: "गौतम बुद्ध का जन्म कहाँ हुआ था?", o: ["(A) बोधगया", "(B) सारनाथ", "(C) लुंबिनी", "(D) कुशीनगर"], c: 2, e: "बुद्ध का जन्म 563 ई.पू. में लुंबिनी में हुआ; बोधगया में ज्ञान और कुशीनगर में महापरिनिर्वाण हुआ।" },
+            { q: "प्रथम बौद्ध संगीति कहाँ आयोजित हुई थी?", o: ["(A) वैशाली", "(B) पाटलिपुत्र", "(C) राजगृह", "(D) कश्मीर"], c: 2, e: "प्रथम बौद्ध संगीति राजगृह में अजातशत्रु के शासनकाल में महाकश्यप की अध्यक्षता में हुई।" },
+            { q: "अशोक का राज्याभिषेक किस वर्ष हुआ था?", o: ["(A) 273 ई.पू.", "(B) 268 ई.पू.", "(C) 261 ई.पू.", "(D) 232 ई.पू."], c: 1, e: "अशोक का राज्याभिषेक 268 ई.पू. में हुआ; कलिंग युद्ध 261 ई.पू. में लड़ा गया।" },
+            { q: "'अर्थशास्त्र' ग्रंथ के रचयिता कौन हैं?", o: ["(A) मेगस्थनीज", "(B) कौटिल्य (चाणक्य)", "(C) पाणिनि", "(D) पतंजलि"], c: 1, e: "कौटिल्य (चाणक्य/विष्णुगुप्त) ने 'अर्थशास्त्र' लिखा; मेगस्थनीज ने 'इंडिका' लिखी थी।" },
+            { q: "'इंडिका' पुस्तक के लेखक कौन हैं?", o: ["(A) कौटिल्य", "(B) मेगस्थनीज", "(C) फाह्यान", "(D) ह्वेनसांग"], c: 1, e: "यूनानी राजदूत मेगस्थनीज ने चंद्रगुप्त मौर्य के दरबार का वर्णन 'इंडिका' में किया।" },
+            { q: "'भारत का नेपोलियन' किसे कहा जाता है?", o: ["(A) चंद्रगुप्त मौर्य", "(B) अशोक", "(C) समुद्रगुप्त", "(D) हर्षवर्धन"], c: 2, e: "इतिहासकार विंसेंट स्मिथ ने विजयों के कारण समुद्रगुप्त को 'भारत का नेपोलियन' कहा।" },
+            { q: "तराइन का प्रथम युद्ध (1191) किनके बीच हुआ?", o: ["(A) बाबर-राणा सांगा", "(B) पृथ्वीराज चौहान-मोहम्मद गोरी", "(C) अकबर-हेमू", "(D) अलाउद्दीन-राणा रतन सिंह"], c: 1, e: "1191 में तराइन के प्रथम युद्ध में पृथ्वीराज चौहान ने मोहम्मद गोरी को हराया; 1192 में द्वितीय युद्ध में गोरी विजयी हुआ।" },
+            { q: "दिल्ली सल्तनत का संस्थापक कौन था?", o: ["(A) इल्तुतमिश", "(B) कुतुबुद्दीन ऐबक", "(C) बलबन", "(D) अलाउद्दीन खिलजी"], c: 1, e: "1206 में कुतुबुद्दीन ऐबक ने गुलाम वंश की स्थापना कर दिल्ली सल्तनत की नींव रखी।" },
+            { q: "'दीन-ए-इलाही' धर्म किसने चलाया?", o: ["(A) अकबर", "(B) जहाँगीर", "(C) शाहजहाँ", "(D) औरंगजेब"], c: 0, e: "अकबर ने 1582 में 'दीन-ए-इलाही' (तौहीद-ए-इलाही) चलाया; बीरबल इसके प्रथम अनुयायी थे।" },
+            { q: "हल्दीघाटी का युद्ध (1576) किनके बीच हुआ?", o: ["(A) बाबर-इब्राहिम लोदी", "(B) अकबर-महाराणा प्रताप", "(C) शिवाजी-औरंगजेब", "(D) टीपू-अंग्रेज"], c: 1, e: "1576 में हल्दीघाटी में अकबर की सेना (मानसिंह) और महाराणा प्रताप के बीच युद्ध हुआ।" },
+            { q: "छत्रपति शिवाजी का राज्याभिषेक किस वर्ष रायगढ़ में हुआ?", o: ["(A) 1659", "(B) 1674", "(C) 1680", "(D) 1707"], c: 1, e: "1674 में रायगढ़ में शिवाजी का राज्याभिषेक हुआ और 'छत्रपति' की उपाधि धारण की।" },
+            { q: "प्लासी का युद्ध (1757) किनके बीच हुआ?", o: ["(A) क्लाइव-सिराजुद्दौला", "(B) वेलेजली-टीपू", "(C) डलहौजी-नाना साहब", "(D) हेस्टिंग्स-मराठा"], c: 0, e: "23 जून 1757 को प्लासी में रॉबर्ट क्लाइव ने सिराजुद्दौला को हराया; भारत में ब्रिटिश साम्राज्य की नींव पड़ी।" },
+            { q: "बक्सर का युद्ध किस वर्ष हुआ?", o: ["(A) 1757", "(B) 1764", "(C) 1772", "(D) 1782"], c: 1, e: "22 अक्टूबर 1764 को बक्सर में अंग्रेजों ने मीर कासिम, शुजाउद्दौला व शाह आलम द्वितीय को हराया।" },
+            { q: "'स्थायी बंदोबस्त' (1793) किस गवर्नर जनरल ने लागू किया?", o: ["(A) वारेन हेस्टिंग्स", "(B) कॉर्नवालिस", "(C) वेलेजली", "(D) डलहौजी"], c: 1, e: "लॉर्ड कॉर्नवालिस ने 1793 में बंगाल में स्थायी बंदोबस्त लागू किया; जमींदारों को भूमि का स्वामी बनाया गया।" },
+            { q: "1857 की क्रांति की शुरुआत 10 मई को कहाँ से हुई?", o: ["(A) दिल्ली", "(B) मेरठ", "(C) कानपुर", "(D) लखनऊ"], c: 1, e: "10 मई 1857 को मेरठ से क्रांति शुरू हुई; झारखंड में 12 जून 1857 को रोहिणी (देवघर) से शुरुआत हुई।" },
+            { q: "'भारत छोड़ो आंदोलन' किस वर्ष शुरू हुआ?", o: ["(A) 1930", "(B) 1932", "(C) 1942", "(D) 1947"], c: 2, e: "8 अगस्त 1942 को गांधी जी ने 'करो या मरो' के नारे के साथ भारत छोड़ो आंदोलन शुरू किया।" },
+            { q: "जलियांवाला बाग हत्याकांड किस तिथि को हुआ?", o: ["(A) 13 अप्रैल 1919", "(B) 15 अगस्त 1947", "(C) 26 जनवरी 1930", "(D) 9 अगस्त 1942"], c: 0, e: "13 अप्रैल 1919 (बैसाखी) को अमृतसर में जनरल डायर ने निहत्थी भीड़ पर गोलियाँ चलवाईं।" },
+            { q: "झारखंड राज्य का गठन किस तिथि को हुआ?", o: ["(A) 1 नवंबर 2000", "(B) 9 नवंबर 2000", "(C) 15 नवंबर 2000", "(D) 26 जनवरी 2001"], c: 2, e: "15 नवंबर 2000 (बिरसा मुंडा जयंती) को बिहार से अलग होकर झारखंड भारत का 28वाँ राज्य बना।" },
+            { q: "'धरती आबा' के नाम से कौन प्रसिद्ध हैं?", o: ["(A) तिलका मांझी", "(B) बिरसा मुंडा", "(C) सिदो मुर्मू", "(D) नीलांबर-पीतांबर"], c: 1, e: "बिरसा मुंडा को 'धरती आबा' (धरती के पिता) कहा जाता है; उन्होंने 1899-1900 में उलगुलान किया।" },
+            { q: "बिरसा मुंडा का जन्म कब और कहाँ हुआ?", o: ["(A) 15 नवंबर 1875, उलिहातू (खूँटी)", "(B) 1855, भोगनाडीह", "(C) 1780, तिलकपुर", "(D) 1900, राँची"], c: 0, e: "बिरसा का जन्म 15 नवंबर 1875 को खूँटी के उलिहातू गाँव में हुआ; 9 जून 1900 को राँची जेल में निधन।" },
+            { q: "तिलका मांझी को किस वर्ष भागलपुर में फांसी दी गई?", o: ["(A) 1775", "(B) 1785", "(C) 1855", "(D) 1900"], c: 1, e: "संथालों के प्रथम विद्रोही नेता तिलका मांझी (जबरा पहाड़िया) को 1785 में भागलपुर में फांसी दी गई।" },
+            { q: "'विल्किंसन रूल' (1833) का संबंध किससे है?", o: ["(A) शिक्षा", "(B) छोटानागपुर में आदिवासियों हेतु पृथक प्रशासनिक व्यवस्था", "(C) रेलवे", "(D) कर प्रणाली"], c: 1, e: "1833 के विल्किंसन रूल से छोटानागपुर के आदिवासी क्षेत्रों हेतु पृथक प्रशासन (नॉन-रेगुलेशन क्षेत्र) बना।" },
+            { q: "CNT Act (1908) का प्रारूप किसने तैयार किया था?", o: ["(A) लॉर्ड कर्जन", "(B) जॉन हॉफमैन", "(C) विल्किंसन", "(D) रिजले"], c: 1, e: "फादर जॉन हॉफमैन ने CNT Act का प्रारूप तैयार किया; यह आदिवासी भूमि की रक्षा करता है।" },
+            { q: "झारखंड का राज्य पशु कौन सा है?", o: ["(A) बाघ", "(B) हाथी", "(C) हिरण", "(D) भालू"], c: 1, e: "झारखंड का राज्य पशु हाथी, राज्य पक्षी कोयल, राज्य वृक्ष साल और राज्य पुष्प पलाश है।" },
+            { q: "हुंडरू जलप्रपात किस नदी पर है?", o: ["(A) दामोदर", "(B) स्वर्णरेखा", "(C) बराकर", "(D) कांची"], c: 1, e: "राँची के पास हुंडरू जलप्रपात (98 मी) स्वर्णरेखा नदी पर है; दशम जलप्रपात कांची नदी पर है।" },
+            { q: "झारखंड की सबसे ऊँची चोटी पारसनाथ की ऊँचाई कितनी है?", o: ["(A) 1164 मी", "(B) 1365 मी", "(C) 1565 मी", "(D) 968 मी"], c: 1, e: "पारसनाथ (1365 मी) झारखंड की सबसे ऊँची चोटी है; यह जैनियों का प्रसिद्ध तीर्थ है।" },
+            { q: "'छोटानागपुर की रानी' किसे कहा जाता है?", o: ["(A) राँची", "(B) नेतरहाट", "(C) हजारीबाग", "(D) डाल्टनगंज"], c: 1, e: "लातेहार का नेतरहाट पठार (1142 मी) 'छोटानागपुर की रानी' कहलाता है; यहाँ सूर्योदय-सूर्यास्त प्रसिद्ध है।" },
+            { q: "मैथन बाँध किस नदी पर बना है?", o: ["(A) दामोदर", "(B) बराकर", "(C) स्वर्णरेखा", "(D) मयूराक्षी"], c: 1, e: "मैथन बाँध बराकर नदी पर DVC की सबसे बड़ी जलाशय परियोजना है; तिलैया बाँध भी बराकर पर है।" },
+            { q: "पंचेत बाँध किस नदी पर स्थित है?", o: ["(A) बराकर", "(B) दामोदर", "(C) स्वर्णरेखा", "(D) अजय"], c: 1, e: "पंचेत बाँध दामोदर नदी पर DVC परियोजना का अंतिम बाँध है।" },
+            { q: "बोकारो स्टील प्लांट की स्थापना किस देश के सहयोग से हुई?", o: ["(A) जर्मनी", "(B) ब्रिटेन", "(C) सोवियत संघ (रूस)", "(D) जापान"], c: 2, e: "बोकारो इस्पात संयंत्र 1964 में सोवियत संघ के सहयोग से स्थापित हुआ; यह SAIL की इकाई है।" },
+            { q: "झारखंड में यूरेनियम का प्रमुख खनन केंद्र कौन सा है?", o: ["(A) जादूगोड़ा", "(B) नोआमुंडी", "(C) किरिबुरू", "(D) चिरिया"], c: 0, e: "पूर्वी सिंहभूम का जादूगोड़ा भारत का प्रमुख यूरेनियम खनन केंद्र है (UCIL द्वारा संचालित)।" },
+            { q: "भारत का प्रथम स्वदेशी लौह-इस्पात कारखाना (1907) कहाँ स्थापित हुआ?", o: ["(A) भिलाई", "(B) राउरकेला", "(C) साकची (जमशेदपुर)", "(D) दुर्गापुर"], c: 2, e: "1907 में जमशेदजी टाटा ने साकची (वर्तमान जमशेदपुर) में TISCO (टाटा स्टील) की स्थापना की।" },
+            { q: "'झारखंड' शब्द का शाब्दिक अर्थ क्या है?", o: ["(A) झाड़ियों/जंगलों का क्षेत्र", "(B) झरनों का देश", "(C) पहाड़ों का राज्य", "(D) नदियों की भूमि"], c: 0, e: "'झारखंड' का अर्थ है झाड़ियों/जंगलों से भरा क्षेत्र; यह नाम यहाँ के घने वनों के कारण पड़ा।" },
+            { q: "क्षेत्रफल की दृष्टि से भारत का सबसे बड़ा राज्य कौन सा है?", o: ["(A) मध्य प्रदेश", "(B) उत्तर प्रदेश", "(C) राजस्थान", "(D) महाराष्ट्र"], c: 2, e: "राजस्थान (3,42,239 वर्ग किमी) सबसे बड़ा राज्य है; मध्य प्रदेश दूसरे स्थान पर है।" },
+            { q: "कर्क रेखा भारत के कितने राज्यों से होकर गुजरती है?", o: ["(A) 6", "(B) 7", "(C) 8", "(D) 9"], c: 2, e: "कर्क रेखा 8 राज्यों से गुजरती है: गुजरात, राजस्थान, म.प्र., छत्तीसगढ़, झारखंड, प. बंगाल, त्रिपुरा, मिजोरम।" },
+            { q: "भारत की सबसे लंबी नदी कौन सी है?", o: ["(A) गोदावरी", "(B) यमुना", "(C) गंगा", "(D) ब्रह्मपुत्र"], c: 2, e: "गंगा (2525 किमी) भारत की सबसे लंबी नदी है; गोदावरी प्रायद्वीपीय भारत की सबसे बड़ी नदी है।" },
+            { q: "प्रायद्वीपीय भारत की सबसे बड़ी नदी कौन सी है?", o: ["(A) कृष्णा", "(B) कावेरी", "(C) गोदावरी", "(D) नर्मदा"], c: 2, e: "गोदावरी (1465 किमी) प्रायद्वीपीय भारत की सबसे बड़ी नदी है; इसे 'दक्षिण की गंगा' कहते हैं।" },
+            { q: "भारतीय संविधान कब लागू हुआ?", o: ["(A) 26 नवंबर 1949", "(B) 26 जनवरी 1950", "(C) 15 अगस्त 1947", "(D) 26 जनवरी 1930"], c: 1, e: "संविधान 26 नवंबर 1949 को अंगीकृत और 26 जनवरी 1950 को लागू हुआ; 26 जनवरी को गणतंत्र दिवस मनाते हैं।" },
+            { q: "संविधान सभा के अध्यक्ष कौन थे?", o: ["(A) डॉ. अंबेडकर", "(B) डॉ. राजेंद्र प्रसाद", "(C) जवाहरलाल नेहरू", "(D) सरदार पटेल"], c: 1, e: "डॉ. राजेंद्र प्रसाद संविधान सभा के स्थायी अध्यक्ष थे; अंबेडकर प्रारूप समिति के अध्यक्ष थे।" },
+            { q: "मौलिक कर्तव्य संविधान के किस अनुच्छेद में हैं?", o: ["(A) अनुच्छेद 14", "(B) अनुच्छेद 21A", "(C) अनुच्छेद 51A", "(D) अनुच्छेद 32"], c: 2, e: "42वें संशोधन (1976) द्वारा अनुच्छेद 51A में 10 मौलिक कर्तव्य जोड़े गए; वर्तमान में 11 हैं।" },
+            { q: "73वाँ संवैधानिक संशोधन किससे संबंधित है?", o: ["(A) नगरपालिका", "(B) पंचायती राज", "(C) शिक्षा", "(D) दल-बदल"], c: 1, e: "73वाँ संशोधन (1992) पंचायती राज से संबंधित है; 74वाँ संशोधन नगरपालिकाओं से है।" },
+            { q: "लोकसभा में झारखंड की कितनी सीटें हैं?", o: ["(A) 11", "(B) 14", "(C) 20", "(D) 81"], c: 1, e: "झारखंड से लोकसभा की 14, राज्यसभा की 6 और विधानसभा की 81 सीटें हैं।" },
+            { q: "झारखंड विधानसभा में कुल कितनी सीटें हैं?", o: ["(A) 60", "(B) 71", "(C) 81", "(D) 90"], c: 2, e: "झारखंड विधानसभा में 81 सीटें हैं, जिनमें 28 ST, 9 SC हेतु आरक्षित हैं।" },
+            { q: "'गरीबी हटाओ' का नारा किसने दिया था?", o: ["(A) महात्मा गांधी", "(B) इंदिरा गांधी (1971)", "(C) राजीव गांधी", "(D) अटल बिहारी"], c: 1, e: "1971 के लोकसभा चुनाव में इंदिरा गांधी ने 'गरीबी हटाओ' का नारा दिया था।" },
+            { q: "भारत में हरित क्रांति के जनक किसे माना जाता है?", o: ["(A) वर्गीज कुरियन", "(B) एम.एस. स्वामीनाथन", "(C) नॉर्मन बोरलॉग", "(D) ए.पी.जे. अब्दुल कलाम"], c: 1, e: "एम.एस. स्वामीनाथन भारत में हरित क्रांति के जनक हैं; विश्व स्तर पर नॉर्मन बोरलॉग माने जाते हैं।" },
+            { q: "भारतीय रिजर्व बैंक (RBI) की स्थापना कब हुई?", o: ["(A) 1935", "(B) 1947", "(C) 1950", "(D) 1969"], c: 0, e: "RBI की स्थापना 1 अप्रैल 1935 को हुई; 1949 में इसका राष्ट्रीयकरण हुआ।" },
+            { q: "भारत की प्रथम पंचवर्षीय योजना की अवधि क्या थी?", o: ["(A) 1947–52", "(B) 1951–56", "(C) 1956–61", "(D) 1961–66"], c: 1, e: "प्रथम पंचवर्षीय योजना (1951–56) हैरॉड-डोमर मॉडल पर कृषि को प्राथमिकता देकर शुरू हुई।" }
+        ];
+
+        /* ==================== CONFIG ==================== */
+        const CATEGORIES = {
+            general: { label: 'सामान्य/EWS', short: 'GEN', pct: 60, req: 90 },
+            bc: { label: 'BC', short: 'BC', pct: 55, req: 83 },
+            scst: { label: 'SC/ST/PwD', short: 'SC/ST', pct: 52, req: 78 }
+        };
+        const SECTIONS = [
+            { code: 'CDP', title: 'बाल विकास एवं शिक्षणशास्त्र (CDP)', short: 'CDP', count: 30, range: '1–30', badge: 'bg-teal-100 text-teal-800 border-teal-200' },
+            { code: 'HIN', title: 'भाषा-1: हिंदी', short: 'हिंदी', count: 15, range: '31–45', badge: 'bg-rose-100 text-rose-800 border-rose-200' },
+            { code: 'ENG', title: 'भाषा-1: English', short: 'English', count: 15, range: '46–60', badge: 'bg-amber-100 text-amber-800 border-amber-200' },
+            { code: 'LANG2', title: '', short: 'भाषा-2', count: 30, range: '61–90', badge: 'bg-purple-100 text-purple-800 border-purple-200', dynamic: true },
+            { code: 'SST', title: 'सामाजिक अध्ययन (SST)', short: 'SST', count: 60, range: '91–150', badge: 'bg-blue-100 text-blue-800 border-blue-200' }
+        ];
+        const TOTAL_Q = 150;
+        const TOTAL_TIME = 150 * 60;
+
+        /* ==================== STATE ==================== */
+        let profile = { name: '', category: 'scst', lang: 'KHORTHA' };
+        let questionsData = [];
+        let currentIndex = 0;
+        let userAnswers = [];
+        let bookmarked = [];
+        let instantFeedback = true;
+        let timerSeconds = TOTAL_TIME;
+        let timerInterval = null;
+        let quizStarted = false;
+
+        const LS_PROFILE = 'jhtet_full_profile_v1';
+        const LS_PROGRESS = 'jhtet_full_progress_v1';
+        const LS_BEST = 'jhtet_full_best_v1';
+
+        /* ==================== HELPERS ==================== */
+        function getCat() { return CATEGORIES[profile.category] || CATEGORIES.scst; }
+        function getLangLabel() { return (LANG2_BANKS[profile.lang] || LANG2_BANKS.KHORTHA).label; }
+        function displayName() { return (profile.name || '').trim() || 'अभ्यर्थी'; }
+        function sectionOf(idx) { return questionsData[idx] ? questionsData[idx].section : 'CDP'; }
+        function sectionMeta(code) { return SECTIONS.find(s => s.code === code); }
+
+        /* ==================== SETUP ==================== */
+        function openSetup() {
+            const savedBest = getBest();
+            const bl = document.getElementById('setupBestLine');
+            if (savedBest !== null) {
+                bl.classList.remove('hidden');
+                bl.textContent = `🏆 आपका अब तक का सर्वश्रेष्ठ स्कोर: ${savedBest} / 150`;
+            } else { bl.classList.add('hidden'); }
+            document.getElementById('setupName').value = profile.name || '';
+            document.querySelectorAll('input[name="setupCat"]').forEach(r => { r.checked = (r.value === profile.category); });
+            document.querySelectorAll('input[name="setupLang"]').forEach(r => { r.checked = (r.value === profile.lang); });
+            document.getElementById('setupModal').classList.remove('hidden');
+        }
+        function closeSetup() { document.getElementById('setupModal').classList.add('hidden'); }
+
+        function saveSetupAndStart() {
+            const name = document.getElementById('setupName').value.trim();
+            const catEl = document.querySelector('input[name="setupCat"]:checked');
+            const langEl = document.querySelector('input[name="setupLang"]:checked');
+            const newProfile = { name: name, category: catEl ? catEl.value : 'scst', lang: langEl ? langEl.value : 'KHORTHA' };
+            const langChanged = (newProfile.lang !== profile.lang);
+            const catChanged = (newProfile.category !== profile.category);
+            const hadProgress = userAnswers.some(a => a !== null);
+            if ((langChanged || catChanged) && hadProgress && quizStarted) {
+                if (!confirm('श्रेणी या भाषा बदलने पर वर्तमान टेस्ट की प्रगति रीसेट हो जाएगी। जारी रखें?')) return;
+            }
+            profile = newProfile;
+            try { localStorage.setItem(LS_PROFILE, JSON.stringify(profile)); } catch (e) {}
+            closeSetup();
+            if (langChanged) buildQuiz(true);
+            applyProfileToUI();
+            if (langChanged || catChanged) resetFullQuiz(); else { renderQuestion(); updateStats(); }
+            startTimer();
+            quizStarted = true;
+            saveProgress();
+        }
+
+        function applyProfileToUI() {
+            const langLabel = getLangLabel();
+            const cat = getCat();
+            const nm = displayName();
+            document.getElementById('profileAvatar').textContent = nm.trim().charAt(0).toUpperCase();
+            document.getElementById('profileName').textContent = nm;
+            document.getElementById('profileCatBadge').textContent = cat.short;
+            document.getElementById('profileLang').textContent = `भाषा-2: ${langLabel}`;
+            document.getElementById('secBtn_LANG2_label').textContent = langLabel;
+            const lang2sec = sectionMeta('LANG2');
+            lang2sec.title = `भाषा-2: ${langLabel}`;
+        }
+
+        /* ==================== BUILD ==================== */
+        function buildQuiz(force) {
+            const bank = LANG2_BANKS[profile.lang] || LANG2_BANKS.KHORTHA;
+            const built = [];
+            CDP_BANK.forEach(item => built.push({ id: built.length + 1, section: 'CDP', question: item.q, options: item.o, correct: item.c, explanation: item.e }));
+            HINDI1_BANK.forEach(item => built.push({ id: built.length + 1, section: 'HIN', question: item.q, options: item.o, correct: item.c, explanation: item.e }));
+            ENGLISH1_BANK.forEach(item => built.push({ id: built.length + 1, section: 'ENG', question: item.q, options: item.o, correct: item.c, explanation: item.e }));
+            bank.questions.forEach(item => built.push({ id: built.length + 1, section: 'LANG2', question: item.q, options: item.o, correct: item.c, explanation: item.e }));
+            SST_BANK.forEach(item => built.push({ id: built.length + 1, section: 'SST', question: item.q, options: item.o, correct: item.c, explanation: item.e }));
+            questionsData = built;
+            if (force || userAnswers.length !== TOTAL_Q) {
+                userAnswers = new Array(TOTAL_Q).fill(null);
+                bookmarked = new Array(TOTAL_Q).fill(false);
+                currentIndex = 0;
+            }
+        }
+
+        /* ==================== PERSISTENCE ==================== */
+        function saveProgress() {
+            if (!quizStarted) return;
+            try {
+                localStorage.setItem(LS_PROGRESS, JSON.stringify({ profile: profile, answers: userAnswers, bookmarked: bookmarked, timerSeconds: timerSeconds, currentIndex: currentIndex }));
+            } catch (e) {}
+        }
+        function loadSavedState() {
+            try {
+                const p = localStorage.getItem(LS_PROFILE);
+                if (p) profile = Object.assign(profile, JSON.parse(p));
+                return JSON.parse(localStorage.getItem(LS_PROGRESS) || 'null');
+            } catch (e) { return null; }
+        }
+        function getBest() {
+            try {
+                const b = JSON.parse(localStorage.getItem(LS_BEST) || '{}');
+                const v = b[profile.category + '_' + profile.lang];
+                return (typeof v === 'number') ? v : null;
+            } catch (e) { return null; }
+        }
+        function setBest(score) {
+            try {
+                const b = JSON.parse(localStorage.getItem(LS_BEST) || '{}');
+                const key = profile.category + '_' + profile.lang;
+                if (typeof b[key] !== 'number' || score > b[key]) { b[key] = score; localStorage.setItem(LS_BEST, JSON.stringify(b)); return true; }
+            } catch (e) {}
+            return false;
+        }
+        function refreshBestDisplay() {
+            const b = getBest();
+            document.getElementById('bestScoreDisplay').textContent = (b === null) ? '--' : `${b} / 150`;
+        }
+
+        /* ==================== INIT ==================== */
+        window.onload = function () {
+            const saved = loadSavedState();
+            buildQuiz(true);
+            applyProfileToUI();
+            if (saved && saved.profile && saved.profile.category === profile.category && saved.profile.lang === profile.lang && Array.isArray(saved.answers) && saved.answers.length === TOTAL_Q) {
+                userAnswers = saved.answers;
+                bookmarked = Array.isArray(saved.bookmarked) ? saved.bookmarked : new Array(TOTAL_Q).fill(false);
+                timerSeconds = typeof saved.timerSeconds === 'number' ? saved.timerSeconds : TOTAL_TIME;
+                currentIndex = typeof saved.currentIndex === 'number' ? saved.currentIndex : 0;
+                quizStarted = true;
+            }
+            renderPalette();
+            renderQuestion();
+            updateStats();
+            updateTimerDisplay();
+            refreshBestDisplay();
+            openSetup();
+            document.addEventListener('keydown', handleKeyboard);
+        };
+
+        function handleKeyboard(e) {
+            if (!quizStarted) return;
+            if (!document.getElementById('setupModal').classList.contains('hidden')) return;
+            if (!document.getElementById('resultModal').classList.contains('hidden')) return;
+            const tag = (document.activeElement && document.activeElement.tagName) || '';
+            if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+            if (document.getElementById('mockView').classList.contains('hidden')) return;
+            const k = e.key;
+            if (k >= '1' && k <= '4') selectOption(parseInt(k, 10) - 1);
+            else if (k === 'b' || k === 'B') toggleBookmark();
+            else if (k === 'ArrowRight') { e.preventDefault(); nextQuestion(); }
+            else if (k === 'ArrowLeft') { e.preventDefault(); prevQuestion(); }
+        }
+
+        /* ==================== RENDER: QUESTION ==================== */
+        function renderQuestion() {
+            const q = questionsData[currentIndex];
+            if (!q) return;
+            const meta = sectionMeta(q.section);
+            document.getElementById('qNumberBadge').textContent = `प्रश्न ${currentIndex + 1} / ${TOTAL_Q}`;
+            const catBadge = document.getElementById('qCategoryBadge');
+            catBadge.textContent = meta.title;
+            catBadge.className = 'font-bold text-xs px-3 py-1 rounded-full border ' + meta.badge;
+            document.getElementById('questionText').textContent = `${q.id}. ${q.question}`;
+
+            const bmBtn = document.getElementById('bookmarkBtn');
+            document.getElementById('bookmarkIcon').textContent = bookmarked[currentIndex] ? '★' : '☆';
+            bmBtn.className = 'text-xs font-semibold px-2.5 py-1 rounded-lg border transition flex items-center gap-1 ' +
+                (bookmarked[currentIndex] ? 'border-amber-400 bg-amber-100 text-amber-900 font-bold' : 'border-slate-300 text-slate-600 hover:bg-amber-50');
+
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            const selectedOpt = userAnswers[currentIndex];
+            q.options.forEach((optText, idx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.onclick = () => selectOption(idx);
+                let baseClasses = 'option-btn w-full text-left p-4 rounded-xl border-2 font-semibold text-sm sm:text-base flex items-center justify-between gap-3 ';
+                let iconHTML = '';
+                if (selectedOpt === null) {
+                    baseClasses += 'bg-white border-slate-200 hover:border-indigo-400 text-slate-800';
+                } else if (instantFeedback) {
+                    if (idx === q.correct) { baseClasses += 'bg-emerald-50 border-emerald-500 text-emerald-950'; iconHTML = '<span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-emerald-600 text-white shrink-0">✓ सही उत्तर</span>'; }
+                    else if (idx === selectedOpt) { baseClasses += 'bg-rose-50 border-rose-500 text-rose-950'; iconHTML = '<span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-rose-600 text-white shrink-0">✗ आपका चयन</span>'; }
+                    else { baseClasses += 'bg-slate-50 border-slate-200 text-slate-500 opacity-75'; }
+                } else {
+                    if (idx === selectedOpt) { baseClasses += 'bg-indigo-50 border-indigo-600 text-indigo-950'; iconHTML = '<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-600 text-white shrink-0">चयनित</span>'; }
+                    else { baseClasses += 'bg-white border-slate-200 hover:border-indigo-300 text-slate-800'; }
+                }
+                btn.className = baseClasses;
+                btn.innerHTML = `<span>${optText}</span>${iconHTML}`;
+                optionsContainer.appendChild(btn);
+            });
+
+            const expBox = document.getElementById('explanationBox');
+            const feedbackBadge = document.getElementById('feedbackStatusBadge');
+            if (selectedOpt !== null && instantFeedback) {
+                expBox.classList.remove('hidden');
+                document.getElementById('explanationText').textContent = q.explanation;
+                if (selectedOpt === q.correct) { feedbackBadge.textContent = 'सही जवाब! (+1 अंक)'; feedbackBadge.className = 'px-2.5 py-0.5 rounded-md text-xs bg-emerald-600 text-white'; }
+                else { feedbackBadge.textContent = 'गलत जवाब! सही विकल्प ऊपर हरा चिह्नित है'; feedbackBadge.className = 'px-2.5 py-0.5 rounded-md text-xs bg-rose-600 text-white'; }
+            } else { expBox.classList.add('hidden'); }
+
+            document.getElementById('prevBtn').disabled = currentIndex === 0;
+            document.getElementById('nextBtn').innerHTML = currentIndex === TOTAL_Q - 1
+                ? '<span>प्रथम प्रश्न पर जाएँ</span> <span>↺</span>'
+                : '<span>अगला प्रश्न</span> <span>→</span>';
+            highlightActiveSectionTab(q.section);
+            renderPalette();
+        }
+
+        function selectOption(i) { userAnswers[currentIndex] = i; renderQuestion(); updateStats(); saveProgress(); }
+        function clearResponse() { userAnswers[currentIndex] = null; renderQuestion(); updateStats(); saveProgress(); }
+        function toggleBookmark() { bookmarked[currentIndex] = !bookmarked[currentIndex]; renderQuestion(); updateStats(); saveProgress(); }
+        function toggleInstantFeedback() { instantFeedback = document.getElementById('instantFeedbackToggle').checked; renderQuestion(); updateStats(); }
+        function prevQuestion() { if (currentIndex > 0) { currentIndex--; renderQuestion(); saveProgress(); } }
+        function nextQuestion() { currentIndex = (currentIndex < TOTAL_Q - 1) ? currentIndex + 1 : 0; renderQuestion(); saveProgress(); }
+        function jumpToQuestion(i) { currentIndex = i; renderQuestion(); saveProgress(); }
+        function filterBySection(sec) {
+            if (sec === 'ALL') { currentIndex = 0; }
+            else { const idx = questionsData.findIndex(q => q.section === sec); currentIndex = idx === -1 ? 0 : idx; }
+            renderQuestion(); saveProgress();
+        }
+        function highlightActiveSectionTab(active) {
+            ['ALL', 'CDP', 'HIN', 'ENG', 'LANG2', 'SST'].forEach(code => {
+                const el = document.getElementById('secBtn_' + code);
+                if (!el) return;
+                el.className = 'sec-filter-btn px-3 py-1.5 rounded-xl text-xs transition ' +
+                    (code === active ? 'font-bold bg-indigo-600 text-white shadow-sm' : 'font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200');
+            });
+        }
+
+        /* ==================== RENDER: PALETTE ==================== */
+        function renderPalette() {
+            const container = document.getElementById('paletteContainer');
+            container.innerHTML = '';
+            SECTIONS.forEach(sec => {
+                const startIdx = questionsData.findIndex(q => q.section === sec.code);
+                if (startIdx === -1) return;
+                const head = document.createElement('div');
+                head.className = 'flex items-center justify-between';
+                head.innerHTML = `<span class="text-[11px] font-extrabold text-slate-700">${sec.short}</span><span class="text-[10px] text-slate-400">${sec.range}</span>`;
+                container.appendChild(head);
+                const grid = document.createElement('div');
+                grid.className = 'grid grid-cols-10 gap-1';
+                for (let i = 0; i < sec.count; i++) {
+                    const idx = startIdx + i;
+                    const q = questionsData[idx];
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.onclick = () => jumpToQuestion(idx);
+                    btn.textContent = idx + 1;
+                    btn.title = `प्रश्न ${idx + 1}`;
+                    let cls = 'palette-btn h-7 rounded-md font-bold text-[10px] flex items-center justify-center relative ';
+                    const ans = userAnswers[idx];
+                    if (ans === null) cls += 'bg-slate-100 text-slate-700 border border-slate-300 hover:bg-slate-200';
+                    else if (instantFeedback) cls += (ans === q.correct) ? 'bg-emerald-500 text-white shadow-sm' : 'bg-rose-500 text-white shadow-sm';
+                    else cls += 'bg-indigo-600 text-white shadow-sm';
+                    if (idx === currentIndex) cls += ' ring-2 ring-offset-1 ring-indigo-900 font-extrabold';
+                    btn.className = cls;
+                    if (bookmarked[idx]) {
+                        const dot = document.createElement('span');
+                        dot.className = 'w-2 h-2 rounded-full bg-amber-400 border border-white absolute -top-0.5 -right-0.5';
+                        btn.appendChild(dot);
+                    }
+                    grid.appendChild(btn);
+                }
+                container.appendChild(grid);
+            });
+        }
+
+        /* ==================== STATS ==================== */
+        function sectionStats() {
+            const stats = {};
+            SECTIONS.forEach(sec => { stats[sec.code] = { correct: 0, wrong: 0, answered: 0 }; });
+            questionsData.forEach((q, idx) => {
+                const ans = userAnswers[idx];
+                if (ans !== null) {
+                    stats[q.section].answered++;
+                    if (ans === q.correct) stats[q.section].correct++; else stats[q.section].wrong++;
+                }
+            });
+            return stats;
+        }
+        function updateStats() {
+            let correctCount = 0, wrongCount = 0;
+            questionsData.forEach((q, idx) => {
+                const ans = userAnswers[idx];
+                if (ans !== null) { if (ans === q.correct) correctCount++; else wrongCount++; }
+            });
+            const answered = correctCount + wrongCount;
+            const unanswered = TOTAL_Q - answered;
+            const percent = Math.round((answered / TOTAL_Q) * 100);
+            document.getElementById('progressText').textContent = `हल किए गए प्रश्न: ${answered} / ${TOTAL_Q}`;
+            document.getElementById('progressPercent').textContent = `${percent}%`;
+            document.getElementById('progressBar').style.width = `${percent}%`;
+            document.getElementById('countCorrect').textContent = correctCount;
+            document.getElementById('countWrong').textContent = wrongCount;
+            document.getElementById('countAnsweredFb').textContent = answered;
+            document.getElementById('countUnanswered').textContent = unanswered;
+            document.getElementById('countBookmarked').textContent = bookmarked.filter(Boolean).length;
+            document.getElementById('liveScoreDisplay').textContent = `${correctCount} / ${TOTAL_Q}`;
+
+            const stats = sectionStats();
+            const list = document.getElementById('sectionScoreList');
+            list.innerHTML = '';
+            SECTIONS.forEach(sec => {
+                const s = stats[sec.code];
+                const pct = sec.count ? Math.round((s.correct / sec.count) * 100) : 0;
+                const row = document.createElement('div');
+                row.className = 'flex items-center justify-between';
+                row.innerHTML = `<span class="font-semibold">${sec.short}</span><span class="font-bold text-indigo-800">${s.correct}/${sec.count} <span class="text-slate-400 font-normal">(${pct}%)</span></span>`;
+                list.appendChild(row);
+            });
+        }
+
+        /* ==================== TIMER ==================== */
+        function updateTimerDisplay() {
+            const mins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+            const secs = String(timerSeconds % 60).padStart(2, '0');
+            document.getElementById('timerDisplay').textContent = `${mins}:${secs}`;
+            document.getElementById('timerBox').classList.toggle('timer-danger', timerSeconds <= 5 * 60 && timerSeconds > 0);
+        }
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                if (timerSeconds > 0) {
+                    timerSeconds--;
+                    updateTimerDisplay();
+                    if (timerSeconds % 15 === 0) saveProgress();
+                } else { clearInterval(timerInterval); timerInterval = null; showResultModal(); }
+            }, 1000);
+        }
+        function resetFullQuiz() {
+            userAnswers = new Array(TOTAL_Q).fill(null);
+            bookmarked = new Array(TOTAL_Q).fill(false);
+            currentIndex = 0;
+            timerSeconds = TOTAL_TIME;
+            updateTimerDisplay();
+            renderQuestion(); updateStats(); saveProgress();
+        }
+
+        /* ==================== TABS ==================== */
+        function switchMainTab(tab) {
+            const mockView = document.getElementById('mockView');
+            const patternView = document.getElementById('patternView');
+            const tabMockBtn = document.getElementById('tabMockBtn');
+            const tabPatternBtn = document.getElementById('tabPatternBtn');
+            if (tab === 'mock') {
+                mockView.classList.remove('hidden'); patternView.classList.add('hidden');
+                tabMockBtn.className = 'px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-amber-400 text-slate-950 shadow transition flex items-center gap-1.5 shrink-0';
+                tabPatternBtn.className = 'px-4 py-1.5 rounded-lg text-xs sm:text-sm font-semibold text-indigo-100 hover:bg-white/10 transition flex items-center gap-1.5 shrink-0';
+            } else {
+                mockView.classList.add('hidden'); patternView.classList.remove('hidden');
+                tabPatternBtn.className = 'px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-amber-400 text-slate-950 shadow transition flex items-center gap-1.5 shrink-0';
+                tabMockBtn.className = 'px-4 py-1.5 rounded-lg text-xs sm:text-sm font-semibold text-indigo-100 hover:bg-white/10 transition flex items-center gap-1.5 shrink-0';
+            }
+        }
+
+        /* ==================== SUBMIT & RESULT ==================== */
+        function confirmSubmit() {
+            const unanswered = userAnswers.filter(a => a === null).length;
+            if (unanswered > 0 && !confirm(`आपने अभी ${unanswered} प्रश्न हल नहीं किए हैं। क्या फिर भी टेस्ट सबमिट करना चाहते हैं?`)) return;
+            showResultModal();
+        }
+        function showResultModal() {
+            if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+            const stats = sectionStats();
+            let correctCount = 0, wrongCount = 0, skipped = 0;
+            const tbody = document.getElementById('answerKeyTableBody');
+            tbody.innerHTML = '';
+            SECTIONS.forEach(sec => {
+                const startIdx = questionsData.findIndex(q => q.section === sec.code);
+                const sub = document.createElement('tr');
+                sub.innerHTML = `<td colspan="5" class="p-2 bg-indigo-50 font-extrabold text-indigo-900 text-xs">${sec.title} (${sec.range})</td>`;
+                tbody.appendChild(sub);
+                for (let i = 0; i < sec.count; i++) {
+                    const idx = startIdx + i;
+                    const q = questionsData[idx];
+                    const ans = userAnswers[idx];
+                    const isCorrect = ans === q.correct;
+                    if (ans === null) skipped++;
+                    else if (isCorrect) correctCount++;
+                    else wrongCount++;
+                    let statusBadge;
+                    if (ans === null) statusBadge = '<span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-semibold">छोड़ा</span>';
+                    else if (isCorrect) statusBadge = '<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">✓ सही</span>';
+                    else statusBadge = '<span class="px-2 py-0.5 rounded bg-rose-100 text-rose-800 font-bold">✗ गलत</span>';
+                    const tr = document.createElement('tr');
+                    tr.className = 'hover:bg-slate-50 cursor-pointer border-b border-slate-100';
+                    tr.onclick = () => { closeResultModal(); jumpToQuestion(idx); };
+                    tr.innerHTML = `<td class="p-2 font-bold text-slate-900">#${q.id}</td><td class="p-2 text-slate-500">${sec.short}</td><td class="p-2 font-medium ${isCorrect ? 'text-emerald-700' : (ans !== null ? 'text-rose-600' : 'text-slate-400')}">${ans !== null ? q.options[ans] : '--'}</td><td class="p-2 font-bold text-indigo-900">${q.options[q.correct]}</td><td class="p-2">${statusBadge}</td>`;
+                    tbody.appendChild(tr);
+                }
+            });
+
+            const sbody = document.getElementById('sectionResultBody');
+            sbody.innerHTML = '';
+            SECTIONS.forEach(sec => {
+                const s = stats[sec.code];
+                const pct = sec.count ? Math.round((s.correct / sec.count) * 100) : 0;
+                const tr = document.createElement('tr');
+                tr.className = 'border-b border-slate-100';
+                tr.innerHTML = `<td class="p-2 font-semibold">${sec.title}</td><td class="p-2 text-center">${sec.range}</td><td class="p-2 text-center font-bold text-emerald-700">${s.correct}</td><td class="p-2 text-center font-bold text-rose-600">${s.wrong}</td><td class="p-2 text-center font-extrabold">${s.correct}/${sec.count}</td><td class="p-2 text-center font-bold">${pct}%</td>`;
+                sbody.appendChild(tr);
+            });
+
+            const pct = Math.round((correctCount / TOTAL_Q) * 100);
+            const cat = getCat();
+            const nm = displayName();
+            document.getElementById('resultTitle').textContent = `${nm} का प्रदर्शन विश्लेषण`;
+            document.getElementById('modalTotalScore').textContent = `${correctCount} / ${TOTAL_Q}`;
+            document.getElementById('modalPercentage').textContent = `${pct}%`;
+            document.getElementById('modalAccuracy').textContent = `${correctCount} / ${wrongCount} / ${skipped}`;
+            document.getElementById('modalCutoffLabel').textContent = `${cat.short} कट-ऑफ (${cat.pct}%)`;
+            const cutoffEl = document.getElementById('modalCutoffStatus');
+            const verdictEl = document.getElementById('resultVerdict');
+            if (pct >= cat.pct) {
+                cutoffEl.textContent = `उत्तीर्ण ✓ (${cat.req} आवश्यक)`;
+                cutoffEl.className = 'text-sm sm:text-base font-extrabold text-emerald-700 mt-1';
+                verdictEl.textContent = `बधाई हो ${nm}! आपने ${cat.label} कट-ऑफ (${cat.pct}%) पार कर लिया है। 🎉`;
+            } else {
+                cutoffEl.textContent = `अनुत्तीर्ण (${cat.req} आवश्यक)`;
+                cutoffEl.className = 'text-sm sm:text-base font-extrabold text-rose-600 mt-1';
+                verdictEl.textContent = `हिम्मत न हारें ${nm}! उत्तीर्ण होने हेतु 150 में से कम से कम ${cat.req} प्रश्न (${cat.pct}%) सही करें।`;
+            }
+            const isNewBest = setBest(correctCount);
+            const best = getBest();
+            const bestLine = document.getElementById('bestScoreLine');
+            if (best !== null) {
+                bestLine.classList.remove('hidden');
+                bestLine.textContent = isNewBest ? `🏆 नया सर्वश्रेष्ठ स्कोर! (${cat.label}, ${getLangLabel()})` : `🏆 आपका सर्वश्रेष्ठ स्कोर (${cat.label}, ${getLangLabel()}): ${best} / ${TOTAL_Q}`;
+            } else bestLine.classList.add('hidden');
+            refreshBestDisplay();
+            document.getElementById('resultModal').classList.remove('hidden');
+            saveProgress();
+        }
+        function closeResultModal() { document.getElementById('resultModal').classList.add('hidden'); }
+
+        /* ==================== PRINT ==================== */
+        function printScorecard() {
+            let correctCount = 0, wrongCount = 0, skipped = 0;
+            let rows = '';
+            SECTIONS.forEach(sec => {
+                rows += `<tr><td colspan="5" style="border:1px solid #cbd5e1;padding:6px;background:#eef2ff;font-weight:bold;">${sec.title} (${sec.range})</td></tr>`;
+                const startIdx = questionsData.findIndex(q => q.section === sec.code);
+                for (let i = 0; i < sec.count; i++) {
+                    const idx = startIdx + i;
+                    const q = questionsData[idx];
+                    const ans = userAnswers[idx];
+                    let status, cls;
+                    if (ans === null) { skipped++; status = 'छोड़ा'; cls = 'color:#64748b'; }
+                    else if (ans === q.correct) { correctCount++; status = 'सही'; cls = 'color:#047857;font-weight:bold'; }
+                    else { wrongCount++; status = 'गलत'; cls = 'color:#be123c;font-weight:bold'; }
+                    rows += `<tr><td style="border:1px solid #cbd5e1;padding:6px;">${q.id}</td><td style="border:1px solid #cbd5e1;padding:6px;">${q.question}</td><td style="border:1px solid #cbd5e1;padding:6px;">${ans !== null ? q.options[ans] : '-'}</td><td style="border:1px solid #cbd5e1;padding:6px;font-weight:bold;">${q.options[q.correct]}</td><td style="border:1px solid #cbd5e1;padding:6px;${cls}">${status}</td></tr>`;
+                }
+            });
+            const pct = Math.round((correctCount / TOTAL_Q) * 100);
+            const cat = getCat();
+            const w = window.open('', '_blank');
+            w.document.write(`<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>JHTET स्कोरकार्ड</title></head><body style="font-family:sans-serif;padding:24px;color:#0f172a;">
+                <h2 style="margin:0;">JHTET Paper-2 पूर्ण मॉक टेस्ट स्कोरकार्ड</h2>
+                <p>अभ्यर्थी: <b>${displayName()}</b> | श्रेणी: <b>${cat.label}</b> | भाषा-2: <b>${getLangLabel()}</b> | दिनांक: <b>${new Date().toLocaleDateString('hi-IN')}</b></p>
+                <p>कुल प्राप्तांक: <b>${correctCount} / ${TOTAL_Q}</b> | प्रतिशत: <b>${pct}%</b> | सही: <b>${correctCount}</b> | गलत: <b>${wrongCount}</b> | छोड़े: <b>${skipped}</b> | कट-ऑफ (${cat.label}): <b>${cat.pct}% (${cat.req} प्रश्न)</b> | स्थिति: <b>${pct >= cat.pct ? 'उत्तीर्ण' : 'अनुत्तीर्ण'}</b></p>
+                <table style="border-collapse:collapse;width:100%;font-size:12px;"><thead><tr><th style="border:1px solid #cbd5e1;padding:6px;background:#f1f5f9;">प्र.सं.</th><th style="border:1px solid #cbd5e1;padding:6px;background:#f1f5f9;">प्रश्न</th><th style="border:1px solid #cbd5e1;padding:6px;background:#f1f5f9;">आपका उत्तर</th><th style="border:1px solid #cbd5e1;padding:6px;background:#f1f5f9;">सही उत्तर</th><th style="border:1px solid #cbd5e1;padding:6px;background:#f1f5f9;">स्थिति</th></tr></thead><tbody>${rows}</tbody></table>
+                <script>window.onload=function(){window.print();}<\/script></body></html>`);
+            w.document.close();
+        }
+    </script>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
+</html>
+
