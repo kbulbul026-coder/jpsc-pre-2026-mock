@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+
+        /* ===== विषय-सूची (Index) ===== */
+        .index-box { background: #ffffff; border: 2px solid #99f6e4; border-radius: 14px; padding: 22px 24px; margin: 26px 0 30px; box-shadow: 0 6px 18px -6px rgba(15,118,110,.18); }
+        .index-head { font-size: 1.25rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 14px; border-bottom: 2px solid #ccfbf1; padding-bottom: 10px; }
+        .index-hint { font-size: .85rem; font-weight: 500; color: var(--text-muted); }
+        .index-unit { margin-bottom: 14px; }
+        .index-unit:last-child { margin-bottom: 0; }
+        .index-unit-title { font-weight: 700; color: var(--primary); font-size: .98rem; margin-bottom: 8px; }
+        .index-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 8px; }
+        .index-link { display: block; background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 9px 13px; font-size: .9rem; color: var(--text-dark); text-decoration: none; transition: all .15s ease; }
+        .index-link:hover { background: #f0fdfa; border-color: var(--primary-light); color: var(--primary-dark); font-weight: 600; transform: translateX(3px); }
+        h3[id^="sec-"] { scroll-margin-top: 18px; }
+        @media (max-width: 640px) {
+            .index-box { padding: 16px; }
+            .index-grid { grid-template-columns: 1fr; }
+            .index-hint { display: block; margin-top: 4px; }
+        }
+    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JHTET 2026 Paper-2: कंप्यूटर ज्ञान (10 अंक) | मास्टर अध्ययन पोर्टल</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+        :root {
+            --primary: #0f766e;          /* गहरा टील/एमराल्ड - मनोविज्ञान व शिक्षा थीम */
+            --primary-dark: #115e59;
+            --primary-light: #14b8a6;
+            --accent: #d97706;           /* स्वर्णिम एम्बर */
+            --bg-main: #f0fdfa;          /* हल्का टील-व्हाइट बैकग्राउंड */
+            --surface: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border: #cbd5e1;
+            --card-bg: #f8fafc;
+            --highlight: #fef3c7;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.85;
+            margin: 0;
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 12px 30px -5px rgba(15, 118, 110, 0.1), 0 8px 12px -6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #99f6e4;
+        }
+
+        header {
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 24px;
+            margin-bottom: 34px;
+            text-align: center;
+        }
+
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ccfbf1;
+            color: var(--primary-dark);
+            padding: 5px 15px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            border: 1px solid #5eead4;
+        }
+
+        .badge-amber {
+            background: #fef3c7;
+            color: #92400e;
+            border-color: #fde68a;
+        }
+
+        h1 {
+            color: var(--primary-dark);
+            font-size: 2.15rem;
+            margin: 0 0 10px 0;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* प्रिंट एवं टॉप बार कंट्रोल्स */
+        .top-Fact-bar {
+            background: linear-gradient(90deg, #0f766e, #047857);
+            color: #ffffff;
+            padding: 14px 22px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 0.92rem;
+        }
+
+        .print-btn {
+            background: #fbbf24;
+            color: #0f172a;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .print-btn:hover {
+            background: #f59e0b;
+            transform: translateY(-1px);
+        }
+
+        /* मास्टर इंडेक्स स्टाइलिंग */
+        .index-container {
+            background: #ffffff;
+            border: 2px solid #99f6e4;
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 44px;
+            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.06);
+        }
+
+        .index-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #ccfbf1;
+            padding-bottom: 12px;
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .index-title {
+            color: var(--primary-dark);
+            font-size: 1.45rem;
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .unit-index-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 6px solid var(--primary);
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin-bottom: 18px;
+            transition: all 0.2s ease;
+        }
+
+        .unit-index-card:hover {
+            background: #f0fdfa;
+            border-color: var(--primary-light);
+            transform: translateX(4px);
+        }
+
+        .unit-index-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .unit-index-header a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-size: 1.18rem;
+            font-weight: 800;
+        }
+
+        .unit-index-header a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .marks-pill {
+            background: var(--primary-dark);
+            color: #ffffff;
+            padding: 3px 12px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .subtopic-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 6px 18px;
+            margin: 0;
+            padding-left: 20px;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        /* आगामी यूनिट्स के लिए साझा क्लास स्टाइल्स */
+        .unit-section {
+            margin-bottom: 54px;
+            border-bottom: 2px dashed var(--border);
+            padding-bottom: 42px;
+        }
+
+        h2 {
+            color: var(--primary-dark);
+            font-size: 1.6rem;
+            border-left: 6px solid var(--accent);
+            padding-left: 14px;
+            margin-top: 38px;
+            margin-bottom: 18px;
+            font-weight: 800;
+        }
+
+        h3 {
+            color: #1e293b;
+            font-size: 1.28rem;
+            margin-top: 26px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 6px;
+        }
+
+        h4 {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        p {
+            margin: 12px 0;
+            color: #1e293b;
+            text-align: justify;
+        }
+
+        ul, ol {
+            padding-left: 26px;
+            margin: 12px 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .note-card {
+            background: #f0fdfa;
+            border-left: 5px solid var(--primary);
+            padding: 18px 22px;
+            margin: 22px 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.98rem;
+            border-top: 1px solid #99f6e4;
+            border-bottom: 1px solid #99f6e4;
+            border-right: 1px solid #99f6e4;
+        }
+
+        .highlight-box {
+            background: var(--highlight);
+            border: 1px solid #fde68a;
+            border-left: 5px solid var(--accent);
+            padding: 18px 22px;
+            border-radius: 10px;
+            margin: 22px 0;
+            font-size: 0.96rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.94rem;
+        }
+
+        th {
+            background: #ccfbf1;
+            color: var(--primary-dark);
+            text-align: left;
+            padding: 12px;
+            border: 1px solid #99f6e4;
+            font-weight: 800;
+        }
+
+        td {
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .readings-box {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 50px;
+            border: 1px solid var(--border);
+        }
+
+        .readings-box h3 {
+            margin-top: 0;
+            color: var(--primary-dark);
+            border: none;
+        }
+
+
+        /* ---- Readability upgrades: progress bar, back-to-top, table hover ---- */
+        #read-progress { position: fixed; top: 0; left: 0; height: 4px; width: 0%; background: linear-gradient(90deg, #14b8a6, #d97706); z-index: 9999; border-radius: 0 4px 4px 0; }
+        #toTop { position: fixed; right: 18px; bottom: 18px; width: 48px; height: 48px; border-radius: 50%; background: #0f766e; color: #fff; border: none; font-size: 1.35rem; cursor: pointer; box-shadow: 0 6px 16px rgba(15,118,110,.35); display: none; z-index: 9998; font-family: inherit; line-height: 1; }
+        #toTop:hover { background: #115e59; transform: translateY(-3px); }
+        table tr:hover td { background: #f0fdfa; }
+        .unit-section, h2, h3 { scroll-margin-top: 16px; }
+        ::selection { background: #99f6e4; }
+        @media print { #read-progress, #toTop { display: none !important; } }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; border: none; max-width: 100%; padding: 10px; }
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 20px 16px; }
+            h1 { font-size: 1.65rem; }
+            .subtopic-list { grid-template-columns: 1fr; }
+            table { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .mcq-btn { font-size: 0.92rem; padding: 12px 14px; }
+        }
+    </style>
+</head>
+<body>
+<div id="read-progress" class="no-print"></div>
+<button id="toTop" class="no-print" title="ऊपर जाएँ" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<div class="container">
+<header>
+<div class="badge-group">
+<span class="badge">JAC JHTET 2026 | Paper-2 (कक्षा 6 से 8)</span>
+<span class="badge badge-amber">कंप्यूटर ज्ञान • 10 अंक</span>
+</div>
+<h1>🖥️ कंप्यूटर ज्ञान (Computer Knowledge)</h1>
+<p class="subtitle">Official Syllabus आधारित मास्टर अध्ययन पोर्टल — परिभाषा से प्रैक्टिस तक</p>
+</header>
+<div class="top-Fact-bar no-print"><div><strong>🎯 लक्ष्य:</strong> 10 में से 9+ अंक | <strong>नेगेटिव मार्किंग:</strong> शून्य (0)</div><button onclick="window.print()" class="print-btn">🖨️ प्रिंट करें</button></div>
+<nav class="index-box no-print" id="main-index" aria-label="विषय-सूची">
+<div class="index-head">📑 विषय-सूची <span class="index-hint">— किसी भी विषय पर क्लिक करें, सीधे वहाँ पहुँचें</span></div>
+<div class="index-unit"><div class="index-unit-title">इकाई 1 — कंप्यूटर का परिचय, पीढ़ियाँ, प्रकार एवं मेमोरी</div><div class="index-grid">
+<a class="index-link" href="#sec-1">1.1 परिभाषा, IPO चक्र ★</a>
+<a class="index-link" href="#sec-2">1.2 जनक एवं "प्रथम" तथ्य ★</a>
+<a class="index-link" href="#sec-3">1.3 पाँच पीढ़ियाँ ★</a>
+<a class="index-link" href="#sec-4">1.4 कंप्यूटर के प्रकार</a>
+<a class="index-link" href="#sec-5">1.5 हार्डवेयर vs सॉफ्टवेयर</a>
+<a class="index-link" href="#sec-6">1.6 CPU ★</a>
+<a class="index-link" href="#sec-7">1.7 मेमोरी — RAM, ROM ★</a>
+<a class="index-link" href="#sec-8">1.8 मेमोरी की इकाइयाँ ★</a>
+<a class="index-link" href="#sec-9">1.9 इनपुट डिवाइसेज़</a>
+<a class="index-link" href="#sec-10">1.10 आउटपुट डिवाइसेज़</a>
+</div></div>
+<div class="index-unit"><div class="index-unit-title">इकाई 2 — कीबोर्ड, माउस, डेस्कटॉप एवं विंडो</div><div class="index-grid">
+<a class="index-link" href="#sec-11">2.1 कीबोर्ड ★</a>
+<a class="index-link" href="#sec-12">2.2 फंक्शन कुंजियाँ F1–F12 ★</a>
+<a class="index-link" href="#sec-13">2.3 माउस</a>
+<a class="index-link" href="#sec-14">2.4 डेस्कटॉप घटक</a>
+<a class="index-link" href="#sec-15">2.5 विंडो के भाग व प्रकार</a>
+<a class="index-link" href="#sec-16">2.6 डायलॉग बॉक्स व मेनू</a>
+</div></div>
+<div class="index-unit"><div class="index-unit-title">इकाई 3 — MS Office: Word, Excel, PowerPoint एवं शॉर्टकट्स</div><div class="index-grid">
+<a class="index-link" href="#sec-17">3.1 MS Word ★</a>
+<a class="index-link" href="#sec-18">3.2 MS Excel ★</a>
+<a class="index-link" href="#sec-19">3.3 MS PowerPoint ★</a>
+<a class="index-link" href="#sec-20">3.4 शॉर्टकट मास्टर टेबल ★</a>
+</div></div>
+<div class="index-unit"><div class="index-unit-title">इकाई 4 — इंटरनेट, साइबर सुरक्षा, शैक्षिक तकनीक + प्रैक्टिस</div><div class="index-grid">
+<a class="index-link" href="#sec-21">4.1 इंटरनेट — शब्दावली ★</a>
+<a class="index-link" href="#sec-22">4.2 WWW, वेब पेज व वेबसाइट</a>
+<a class="index-link" href="#sec-23">4.3 ब्राउज़र vs सर्च इंजन ★</a>
+<a class="index-link" href="#sec-24">4.4 ईमेल — CC/BCC</a>
+<a class="index-link" href="#sec-25">4.5 साइबर सुरक्षा ★</a>
+<a class="index-link" href="#sec-26">4.6 DIKSHA</a>
+<a class="index-link" href="#sec-27">4.7 NISHTHA</a>
+<a class="index-link" href="#sec-28">4.8 Google Meet / Zoom</a>
+<a class="index-link" href="#sec-29">4.9 MS Paint</a>
+<a class="index-link" href="#sec-30">4.10 AI व डिजिटल शिक्षा शास्त्र</a>
+<a class="index-link" href="#sec-31">4.11 टैग वर्ड्स ब्रह्मास्त्र ⚡</a>
+<a class="index-link" href="#sec-32">4.12 प्रैक्टिस सेट — 30 प्रश्न</a>
+<a class="index-link" href="#sec-33">📖 संदर्भ ग्रंथ</a>
+</div></div>
+</nav>
+<div id="unit1" class="unit-section">
+<h2>इकाई 1 (Unit 1): कंप्यूटर का परिचय, पीढ़ियाँ, प्रकार एवं मेमोरी</h2>
+<h3 id="sec-1">1.1 कंप्यूटर की परिभाषा, IPO चक्र एवं विशेषताएँ ★</h3>
+<div class="note-card">
+    <strong>परिभाषा:</strong> कंप्यूटर एक इलेक्ट्रॉनिक युक्ति है जो उपयोगकर्ता से डेटा स्वीकार करती है (<strong>Input</strong>), दिए गए निर्देशों (प्रोग्राम) के अनुसार उसका प्रसंस्करण करती है (<strong>Process</strong>) और अर्थपूर्ण परिणाम प्रदान करती है (<strong>Output</strong>)। इस चक्र को <strong>IPO चक्र</strong> कहते हैं।
+    <br><strong>शब्द-उत्पत्ति:</strong> "कंप्यूटर" शब्द लैटिन भाषा के <strong>"Computare"</strong> से बना है, जिसका अर्थ है — <strong>"गणना करना"</strong>।
+</div>
+<h4>IPO चक्र (Input–Process–Output Cycle):</h4>
+<table>
+    <tr><th>चरण</th><th>कार्य</th><th>उदाहरण</th></tr>
+    <tr><td><strong>Input</strong> (निवेश)</td><td>डेटा व निर्देश ग्रहण करना</td><td>कीबोर्ड से नाम लिखना</td></tr>
+    <tr><td><strong>Process</strong> (प्रसंस्करण)</td><td>CPU द्वारा गणना/तुलना</td><td>अंकों का योग निकालना</td></tr>
+    <tr><td><strong>Output</strong> (निर्गम)</td><td>परिणाम प्रस्तुत करना</td><td>मॉनिटर पर परिणाम दिखना</td></tr>
+</table>
+<h4>कंप्यूटर की 5 प्रमुख विशेषताएँ:</h4>
+<table>
+    <tr><th>विशेषता</th><th>अर्थ</th><th>परीक्षा बिंदु</th></tr>
+    <tr><td><strong>गति</strong> (Speed)</td><td>प्रति सेकंड अरबों गणनाएँ (MIPS)</td><td>सबसे तेज़ गणना यंत्र</td></tr>
+    <tr><td><strong>शुद्धता</strong> (Accuracy)</td><td>लगभग शून्य त्रुटि के साथ परिणाम</td><td>GIGO: गलत इनपुट → गलत आउटपुट</td></tr>
+    <tr><td><strong>परिश्रम</strong> (Diligence)</td><td>बिना थके लगातार समान क्षमता से कार्य</td><td>मानव के विपरीत थकता नहीं</td></tr>
+    <tr><td><strong>बहुमुखी प्रतिभा</strong> (Versatility)</td><td>एक साथ अनेक प्रकार के कार्य</td><td>गणना, संगीत, चित्र, खेल</td></tr>
+    <tr><td><strong>स्मृति</strong> (Memory)</td><td>विपुल डेटा का दीर्घकालिक भंडारण</td><td>मानव स्मृति से बड़ी व स्थायी</td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li><strong>GIGO</strong> = Garbage In, Garbage Out — गलत डेटा दोगे तो गलत परिणाम मिलेगा; कंप्यूटर की शुद्धता इनपुट पर निर्भर है।</li>
+        <li>कंप्यूटर में <strong>स्वयं निर्णय लेने की क्षमता (बुद्धि) नहीं</strong> होती — वह केवल दिए गए निर्देशों का पालन करता है।</li>
+        <li><strong>IPO क्रम</strong> याद रखें: Input → Process → Output।</li>
+    </ul>
+</div>
+<h3 id="sec-2">1.2 कंप्यूटर के जनक एवं "प्रथम" तथ्य ★</h3>
+<div class="note-card">
+    <strong>चार्ल्स बैबेज (1791–1871)</strong> को <strong>कंप्यूटर का जनक (Father of Computer)</strong> कहा जाता है। उन्होंने 1822 में <strong>डिफरेंस इंजन</strong> और 1837 में <strong>एनालिटिकल इंजन</strong> की संकल्पना दी — जिसमें आधुनिक कंप्यूटर के सभी मूल तत्व (इनपुट, मेमोरी, प्रोसेसिंग, आउटपुट) मौजूद थे।
+    <br><strong>एडा लवलेस</strong> को विश्व की <strong>प्रथम प्रोग्रामर</strong> माना जाता है — उन्होंने बैबेज के एनालिटिकल इंजन के लिए प्रथम एल्गोरिदम लिखा था।
+</div>
+<h4>परीक्षा के "प्रथम" — एक नज़र में:</h4>
+<table>
+    <tr><th>तथ्य</th><th>नाम</th><th>वर्ष / विवरण</th></tr>
+    <tr><td><strong>कंप्यूटर के जनक</strong></td><td>चार्ल्स बैबेज</td><td>एनालिटिकल इंजन (1837)</td></tr>
+    <tr><td><strong>प्रथम प्रोग्रामर</strong></td><td>एडा लवलेस</td><td>महिला प्रोग्रामर</td></tr>
+    <tr><td><strong>प्रथम इलेक्ट्रॉनिक कंप्यूटर</strong></td><td>ENIAC</td><td>1946, अमेरिका (एकर्ट व मॉकली)</td></tr>
+    <tr><td><strong>प्रथम व्यावसायिक कंप्यूटर</strong></td><td>UNIVAC</td><td>1951</td></tr>
+    <tr><td><strong>प्रथम माइक्रोप्रोसेसर</strong></td><td>Intel 4004</td><td>1971</td></tr>
+    <tr><td><strong>भारत का प्रथम कंप्यूटर</strong></td><td>TIFRAC</td><td>1960, TIFR मुंबई</td></tr>
+    <tr><td><strong>भारत का प्रथम सुपर कंप्यूटर</strong></td><td>परम 8000</td><td>1991, C-DAC पुणे (विजय भाटकर)</td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>जनक</strong>" दिखे → <strong>चार्ल्स बैबेज</strong>; "<strong>प्रथम प्रोग्रामर</strong>" दिखे → <strong>एडा लवलेस</strong>।</li>
+        <li>"<strong>प्रथम इलेक्ट्रॉनिक</strong>" → <strong>ENIAC (1946)</strong>; "<strong>भारत का प्रथम सुपर</strong>" → <strong>परम 8000</strong>।</li>
+        <li>विजय भाटकर को भारत में <strong>सुपर कंप्यूटर के जनक</strong> के रूप में भी पूछा जाता है।</li>
+    </ul>
+</div>
+<h3 id="sec-3">1.3 कंप्यूटर की पाँच पीढ़ियाँ — विस्तृत ★</h3>
+<div class="note-card">
+    कंप्यूटर के विकास को प्रयुक्त <strong>मुख्य इलेक्ट्रॉनिक तकनीक</strong> के आधार पर <strong>5 पीढ़ियों</strong> में बाँटा गया है। हर अगली पीढ़ी पिछली से <strong>छोटी, तेज़, सस्ती व विश्वसनीय</strong> होती गई।
+</div>
+<table>
+    <tr><th>पीढ़ी</th><th>अवधि</th><th>मुख्य तकनीक</th><th>विशेषताएँ</th><th>उदाहरण</th></tr>
+    <tr><td><strong>प्रथम</strong></td><td>1940–56</td><td><strong>वैक्यूम ट्यूब</strong></td><td>विशाल आकार, अधिक गर्मी व बिजली की खपत</td><td>ENIAC, UNIVAC, IBM 701</td></tr>
+    <tr><td><strong>द्वितीय</strong></td><td>1956–63</td><td><strong>ट्रांजिस्टर</strong></td><td>छोटा, कम गर्मी, अधिक तेज़ व विश्वसनीय</td><td>IBM 7090, CDC 1604</td></tr>
+    <tr><td><strong>तृतीय</strong></td><td>1964–71</td><td><strong>एकीकृत परिपथ (IC)</strong></td><td>और छोटा व सस्ता; एक चिप पर अनेक ट्रांजिस्टर</td><td>IBM 360, PDP-8</td></tr>
+    <tr><td><strong>चतुर्थ</strong></td><td>1971–वर्तमान</td><td><strong>माइक्रोप्रोसेसर (VLSI)</strong></td><td>पर्सनल कंप्यूटर (PC) का युग; घर-घर कंप्यूटर</td><td>Intel 4004, IBM PC</td></tr>
+    <tr><td><strong>पंचम</strong></td><td>वर्तमान–भविष्य</td><td><strong>AI, ULSI</strong></td><td>कृत्रिम बुद्धिमत्ता, पैरेलल प्रोसेसिंग</td><td>रोबोट, AI सिस्टम</td></tr>
+</table>
+<h4>संबंधित महान आविष्कारक:</h4>
+<table>
+    <tr><th>आविष्कार</th><th>आविष्कारक</th><th>वर्ष</th></tr>
+    <tr><td><strong>ट्रांजिस्टर</strong></td><td>शॉकले, बार्डीन व ब्रैटेन (बेल लैब्स)</td><td>1947</td></tr>
+    <tr><td><strong>एकीकृत परिपथ (IC)</strong></td><td>जैक किल्बी</td><td>1958</td></tr>
+    <tr><td><strong>प्रथम माइक्रोप्रोसेसर (Intel 4004)</strong></td><td>टेड हॉफ (Intel)</td><td>1971</td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li><strong>क्रम ट्रिक:</strong> "<strong>वै-ट्रां-IC-माइक्रो-AI</strong>" — वैक्यूम ट्यूब → ट्रांजिस्टर → IC → माइक्रोप्रोसेसर → AI।</li>
+        <li>"<strong>ट्रांजिस्टर</strong>" दिखे → <strong>द्वितीय पीढ़ी</strong>; "<strong>IC</strong>" दिखे → <strong>तृतीय पीढ़ी</strong>; "<strong>माइक्रोप्रोसेसर</strong>" दिखे → <strong>चतुर्थ पीढ़ी</strong>।</li>
+        <li>सबसे अधिक पूछा जाने वाला तथ्य: <strong>Intel 4004 (1971)</strong> — विश्व का प्रथम माइक्रोप्रोसेसर।</li>
+    </ul>
+</div>
+<h3 id="sec-4">1.4 कंप्यूटर के प्रकार</h3>
+<div class="note-card">
+    कंप्यूटरों का वर्गीकरण मुख्यतः <strong>दो आधारों</strong> पर किया जाता है — <strong>(क) कार्यप्रणाली</strong> (कैसे कार्य करता है) और <strong>(ख) आकार व क्षमता</strong> (कितना शक्तिशाली है)।
+</div>
+<h4>(क) कार्यप्रणाली के आधार पर — 3 प्रकार:</h4>
+<table>
+    <tr><th>प्रकार</th><th>कार्यविधि</th><th>उदाहरण</th></tr>
+    <tr><td><strong>एनालॉग</strong></td><td>भौतिक राशियों (तापमान, दाब, गति) को <strong>मापता</strong> है; निरंतर सिग्नल पर कार्य</td><td>थर्मामीटर, स्पीडोमीटर, एनालॉग घड़ी</td></tr>
+    <tr><td><strong>डिजिटल</strong></td><td><strong>अंकों (0 और 1)</strong> पर कार्य करता है; सर्वाधिक प्रचलित</td><td>PC, लैपटॉप, कैलकुलेटर</td></tr>
+    <tr><td><strong>हाइब्रिड</strong></td><td>एनालॉग + डिजिटल <strong>दोनों के गुण</strong>; मापकर गणना भी करता है</td><td>अस्पताल के उपकरण, पेट्रोल पंप की मशीन</td></tr>
+</table>
+<h4>(ख) आकार व क्षमता के आधार पर — 4 प्रकार:</h4>
+<table>
+    <tr><th>प्रकार</th><th>विशेषता</th><th>उपयोग / उदाहरण</th></tr>
+    <tr><td><strong>माइक्रो (PC)</strong></td><td>सबसे छोटा; व्यक्तिगत उपयोग हेतु</td><td>डेस्कटॉप, लैपटॉप, टैबलेट</td></tr>
+    <tr><td><strong>मिनी</strong></td><td>मध्यम क्षमता; विभागीय कार्य</td><td>मध्यम कंपनियों के सर्वर</td></tr>
+    <tr><td><strong>मेनफ्रेम</strong></td><td>विशाल डेटा; एक साथ <strong>सैकड़ों उपयोगकर्ता</strong></td><td>बैंक, रेलवे आरक्षण, बीमा कंपनियाँ</td></tr>
+    <tr><td><strong>सुपर कंप्यूटर</strong></td><td><strong>सबसे तीव्र व शक्तिशाली</strong></td><td>मौसम पूर्वानुमान, अंतरिक्ष अनुसंधान; भारत की <strong>परम श्रृंखला</strong></td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>सबसे तेज़ / शक्तिशाली</strong>" दिखे → <strong>सुपर कंप्यूटर</strong>; "<strong>रेलवे आरक्षण / बैंक</strong>" दिखे → <strong>मेनफ्रेम</strong>।</li>
+        <li>"<strong>0 और 1 पर कार्य</strong>" → <strong>डिजिटल</strong>; "<strong>भौतिक राशि मापे</strong>" (ताप, दाब) → <strong>एनालॉग</strong>।</li>
+        <li>याद रखें: आकार का क्रम — <strong>माइक्रो &lt; मिनी &lt; मेनफ्रेम &lt; सुपर</strong>।</li>
+    </ul>
+</div>
+<h3 id="sec-5">1.5 हार्डवेयर बनाम सॉफ्टवेयर</h3>
+<div class="note-card">
+    <strong>हार्डवेयर:</strong> कंप्यूटर के वे भौतिक भाग जिन्हें <strong>छुआ व देखा</strong> जा सकता है (जैसे कीबोर्ड, मॉनिटर, CPU)।<br>
+    <strong>सॉफ्टवेयर:</strong> निर्देशों व प्रोग्रामों का समूह जो हार्डवेयर को <strong>क्या करना है</strong> बताता है (जैसे Windows, MS Word)। हार्डवेयर <strong>शरीर</strong> है तो सॉफ्टवेयर उसकी <strong>आत्मा</strong>।
+</div>
+<h4>विस्तृत तुलना:</h4>
+<table>
+    <tr><th>आधार</th><th>हार्डवेयर</th><th>सॉफ्टवेयर</th></tr>
+    <tr><td><strong>प्रकृति</strong></td><td><strong>मूर्त</strong> (Tangible) — छुआ जा सकता है</td><td><strong>अमूर्त</strong> (Intangible) — केवल अनुभव किया जा सकता है</td></tr>
+    <tr><td><strong>उदाहरण</strong></td><td>कीबोर्ड, माउस, मॉनिटर, प्रिंटर, CPU</td><td>Windows, MS Word, Chrome, गेम्स</td></tr>
+    <tr><td><strong>क्षति</strong></td><td>भौतिक टूट-फूट</td><td>वायरस या फाइल भ्रष्ट होना</td></tr>
+    <tr><td><strong>निर्भरता</strong></td><td>सॉफ्टवेयर के बिना बेकार डिब्बा</td><td>हार्डवेयर के बिना चल नहीं सकता</td></tr>
+</table>
+<h4>सॉफ्टवेयर के 2 मुख्य प्रकार ★:</h4>
+<table>
+    <tr><th>सिस्टम सॉफ्टवेयर</th><th>एप्लीकेशन सॉफ्टवेयर</th></tr>
+    <tr><td>कंप्यूटर के <strong>संचालन व प्रबंधन</strong> हेतु</td><td><strong>उपयोगकर्ता के विशिष्ट कार्यों</strong> हेतु</td></tr>
+    <tr><td>उदा. <strong>Windows, Linux, macOS, Android</strong> (ऑपरेटिंग सिस्टम)</td><td>उदा. <strong>MS Word, Excel, Chrome, Photoshop</strong>, गेम्स</td></tr>
+    <tr><td>कंपाइलर, इंटरप्रेटर, डिवाइस ड्राइवर भी इसी में</td><td>यूटिलिटी सॉफ्टवेयर (एंटीवायरस, बैकअप टूल) भी इसी श्रेणी में</td></tr>
+</table>
+<div class="note-card">
+    <strong>ऑपरेटिंग सिस्टम (OS) के 4 मुख्य कार्य:</strong> (1) मेमोरी प्रबंधन, (2) प्रोसेस/कार्य प्रबंधन, (3) फाइल प्रबंधन, (4) डिवाइस प्रबंधन। OS के बिना कंप्यूटर <strong>बूट (चालू)</strong> नहीं हो सकता।
+</div>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>Windows / Linux / Android</strong>" दिखे → <strong>सिस्टम सॉफ्टवेयर (OS)</strong>; "<strong>MS Word / Excel / Chrome</strong>" दिखे → <strong>एप्लीकेशन सॉफ्टवेयर</strong>।</li>
+        <li>"<strong>एंटीवायरस</strong>" → <strong>यूटिलिटी सॉफ्टवेयर</strong> (एप्लीकेशन की उप-श्रेणी)।</li>
+        <li>ट्रिक: <strong>हार्ड = हाथ</strong> (छू सकते हैं), <strong>सॉफ्ट = सोच</strong> (निर्देश/विचार)।</li>
+    </ul>
+</div>
+<h3 id="sec-6">1.6 CPU — कंप्यूटर का मस्तिष्क ★</h3>
+<div class="note-card">
+    <strong>CPU = Central Processing Unit</strong> — इसे कंप्यूटर का <strong>"मस्तिष्क"</strong> कहा जाता है। यह मदरबोर्ड पर स्थित चिप है जो सभी गणनाओं, तुलनाओं व निर्णयों का निष्पादन करती है। CPU की गति <strong>GHz (गीगाहर्ट्ज़)</strong> में मापी जाती है — जितनी अधिक, उतना तेज़ कंप्यूटर।
+</div>
+<h4>CPU के 3 मुख्य भाग:</h4>
+<table>
+    <tr><th>भाग</th><th>पूर्ण रूप</th><th>कार्य</th></tr>
+    <tr><td><strong>ALU</strong></td><td>Arithmetic Logic Unit</td><td><strong>गणितीय</strong> (जोड़, घटाव, गुणा, भाग) व <strong>तार्किक</strong> (बड़ा/छोटा/बराबर की तुलना) क्रियाएँ</td></tr>
+    <tr><td><strong>CU</strong></td><td>Control Unit</td><td>सभी भागों में <strong>समन्वय व नियंत्रण</strong>; निर्देशों की व्याख्या — "ट्रैफिक पुलिस" (स्वयं डेटा प्रोसेस नहीं करता)</td></tr>
+    <tr><td><strong>MU / रजिस्टर</strong></td><td>Memory Unit</td><td>प्रोसेसिंग के दौरान डेटा का <strong>अस्थायी भंडारण</strong>; सबसे तीव्र स्मृति</td></tr>
+</table>
+<h4>मशीन चक्र (Machine Cycle) — CPU कैसे कार्य करता है:</h4>
+<table>
+    <tr><th>चरण</th><th>कार्य</th></tr>
+    <tr><td><strong>1. Fetch</strong> (लाना)</td><td>मेमोरी से निर्देश प्राप्त करना</td></tr>
+    <tr><td><strong>2. Decode</strong> (समझना)</td><td>CU द्वारा निर्देश की व्याख्या</td></tr>
+    <tr><td><strong>3. Execute</strong> (पालन)</td><td>ALU द्वारा क्रिया का निष्पादन</td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>मस्तिष्क</strong>" दिखे → <strong>CPU</strong>; "<strong>गणितीय/तार्किक क्रियाएँ</strong>" दिखे → <strong>ALU</strong>।</li>
+        <li>"<strong>नियंत्रण / समन्वय</strong>" दिखे → <strong>CU</strong> — ध्यान दें, CU स्वयं गणना <strong>नहीं</strong> करता!</li>
+        <li>CPU की गति की इकाई → <strong>हर्ट्ज़ (MHz/GHz)</strong>; ट्रिक क्रम: <strong>Fetch → Decode → Execute</strong>।</li>
+    </ul>
+</div>
+<h3 id="sec-7">1.7 कंप्यूटर मेमोरी — RAM, ROM एवं प्रकार ★</h3>
+<div class="note-card">
+    <strong>मेमोरी</strong> कंप्यूटर का वह भाग है जहाँ डेटा व निर्देश <strong>संग्रहित</strong> होते हैं। मेमोरी दो प्रकार की होती है — <strong>प्राथमिक</strong> (CPU से सीधे जुड़ी, तेज़) व <strong>द्वितीयक</strong> (स्थायी भंडारण, बड़ी क्षमता)।
+</div>
+<h4>प्राथमिक vs द्वितीयक मेमोरी:</h4>
+<table>
+    <tr><th>प्राथमिक मेमोरी</th><th>द्वितीयक मेमोरी</th></tr>
+    <tr><td>CPU से <strong>सीधे</strong> जुड़ी; अत्यंत तेज़</td><td>CPU से <strong>अप्रत्यक्ष</strong>; अपेक्षाकृत धीमी</td></tr>
+    <tr><td>क्षमता <strong>कम</strong>, महंगी</td><td>क्षमता <strong>अधिक</strong>, सस्ती</td></tr>
+    <tr><td>उदा. <strong>RAM, ROM, कैश मेमोरी</strong></td><td>उदा. <strong>हार्ड डिस्क, SSD, पेन ड्राइव, CD/DVD</strong></td></tr>
+</table>
+<h4>RAM vs ROM — विस्तृत तुलना ★:</h4>
+<table>
+    <tr><th>आधार</th><th>RAM</th><th>ROM</th></tr>
+    <tr><td><strong>पूर्ण रूप</strong></td><td>Random Access Memory</td><td>Read Only Memory</td></tr>
+    <tr><td><strong>प्रकृति</strong></td><td><strong>अस्थायी (Volatile)</strong> — बिजली जाते ही डेटा मिटता है</td><td><strong>स्थायी (Non-volatile)</strong> — बिजली जाने पर भी सुरक्षित</td></tr>
+    <tr><td><strong>कार्य</strong></td><td>चल रहे प्रोग्राम व डेटा का भंडार ("कार्यशील मेज़")</td><td>कंप्यूटर <strong>बूट</strong> करने के निर्देश (<strong>BIOS</strong>)</td></tr>
+    <tr><td><strong>पढ़ना/लिखना</strong></td><td>पढ़ व लिख <strong>दोनों</strong> सकते हैं</td><td><strong>केवल पढ़</strong> सकते हैं</td></tr>
+</table>
+<div class="note-card">
+    <strong>अतिरिक्त तथ्य:</strong> <strong>कैश मेमोरी</strong> सबसे तेज़ व CPU के निकटतम मेमोरी है। RAM के प्रकार — <strong>SRAM</strong> (तेज़, महंगी) व <strong>DRAM</strong> (सामान्य); ROM के प्रकार — PROM, EPROM, EEPROM।
+</div>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>अस्थायी / वोलाटाइल / बिजली जाते ही मिटे</strong>" → <strong>RAM</strong>; "<strong>केवल पढ़ी जा सकती / स्थायी</strong>" → <strong>ROM</strong>।</li>
+        <li>"<strong>बूट / BIOS</strong>" दिखे → <strong>ROM</strong>; "<strong>कार्यशील मेमोरी</strong>" दिखे → <strong>RAM</strong>।</li>
+        <li>सबसे <strong>तेज़</strong> मेमोरी → <strong>कैश</strong>; सबसे <strong>बड़ी क्षमता</strong> → <strong>द्वितीयक</strong> (हार्ड डिस्क)।</li>
+    </ul>
+</div>
+<h3 id="sec-8">1.8 मेमोरी की इकाइयाँ — बिट से टेराबाइट तक ★</h3>
+<div class="note-card">
+    <strong>बिट (Bit)</strong> मेमोरी की <strong>सबसे छोटी इकाई</strong> है — इसका मान केवल <strong>0 या 1</strong> हो सकता है। <strong>8 बिट</strong> मिलकर <strong>1 बाइट</strong> बनाते हैं, जो एक अक्षर (जैसे 'A') को संग्रहित करता है।
+</div>
+<h4>इकाइयों का क्रम (छोटी → बड़ी):</h4>
+<table>
+    <tr><th>इकाई</th><th>पूर्ण रूप</th><th>मान</th></tr>
+    <tr><td><strong>बिट</strong></td><td>Binary Digit</td><td>0 या 1 (सबसे छोटी)</td></tr>
+    <tr><td><strong>निबल</strong></td><td>Nibble</td><td>4 बिट</td></tr>
+    <tr><td><strong>बाइट</strong></td><td>Byte</td><td><strong>8 बिट</strong> = 1 अक्षर</td></tr>
+    <tr><td><strong>KB</strong></td><td>किलोबाइट</td><td>1024 बाइट</td></tr>
+    <tr><td><strong>MB</strong></td><td>मेगाबाइट</td><td>1024 KB</td></tr>
+    <tr><td><strong>GB</strong></td><td>गीगाबाइट</td><td>1024 MB</td></tr>
+    <tr><td><strong>TB</strong></td><td>टेराबाइट</td><td>1024 GB</td></tr>
+    <tr><td><strong>PB / EB</strong></td><td>पेटाबाइट / एक्साबाइट</td><td>1024 TB / 1024 PB</td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li><strong>क्रम ट्रिक:</strong> "<strong>बि-नि-बा-किलो-मेगा-गीगा-टेरा</strong>" — बिट → निबल → बाइट → KB → MB → GB → TB।</li>
+        <li>"<strong>सबसे छोटी इकाई</strong>" → <strong>बिट</strong>; "<strong>1 बाइट</strong>" = <strong>8 बिट</strong> (सबसे ज़्यादा पूछा जाता है!)।</li>
+        <li>हर अगली इकाई = <strong>1024 गुना</strong> पिछली से (1 GB = 1024 MB)।</li>
+    </ul>
+</div>
+<h3 id="sec-9">1.9 इनपुट डिवाइसेज़ — विस्तृत</h3>
+<div class="note-card">
+    <strong>इनपुट डिवाइस</strong> वे युक्तियाँ हैं जिनके द्वारा डेटा व निर्देश <strong>कंप्यूटर के अंदर</strong> डाले जाते हैं। सबसे सामान्य इनपुट डिवाइस <strong>कीबोर्ड</strong> है, जबकि माउस, स्कैनर आदि <strong>पॉइंटिंग/विशेष</strong> इनपुट डिवाइस हैं।
+</div>
+<h4>प्रमुख इनपुट डिवाइसेज़ — एक नज़र में:</h4>
+<table>
+    <tr><th>डिवाइस</th><th>कार्य / विशेषता</th></tr>
+    <tr><td><strong>कीबोर्ड</strong></td><td>सबसे सामान्य इनपुट डिवाइस; अक्षर, अंक व प्रतीक डालने हेतु (सामान्यतः 104 कुंजियाँ)</td></tr>
+    <tr><td><strong>माउस</strong></td><td><strong>पॉइंटिंग डिवाइस</strong>; स्क्रीन पर कर्सर घुमाने हेतु; आविष्कारक — <strong>डगलस एंगेलबर्ट (1964)</strong></td></tr>
+    <tr><td><strong>स्कैनर</strong></td><td>चित्र/दस्तावेज़ की <strong>डिजिटल प्रति</strong> बनाता है</td></tr>
+    <tr><td><strong>OMR</strong></td><td>Optical Mark Reader — <strong>परीक्षा की OMR उत्तर-पुस्तिका</strong> जाँचने हेतु</td></tr>
+    <tr><td><strong>OCR</strong></td><td>Optical Character Recognition — <strong>छपे अक्षरों</strong> को पहचानकर डिजिटल बनाता है</td></tr>
+    <tr><td><strong>MICR</strong></td><td>Magnetic Ink Character Recognition — <strong>बैंक चेक</strong> के नीचे छपे नंबर पढ़ने हेतु</td></tr>
+    <tr><td><strong>बारकोड रीडर</strong></td><td>दुकानों में <strong>उत्पादों पर छपे बारकोड</strong> स्कैन करने हेतु</td></tr>
+    <tr><td><strong>जॉयस्टिक</strong></td><td><strong>गेम खेलने</strong> हेतु पॉइंटिंग डिवाइस</td></tr>
+    <tr><td><strong>लाइट पेन</strong></td><td>स्क्रीन पर <strong>सीधे लिखने/चित्र बनाने</strong> हेतु</td></tr>
+    <tr><td><strong>माइक्रोफोन</strong></td><td><strong>ध्वनि</strong> को इनपुट के रूप में डालने हेतु</td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>OMR</strong>" दिखे → <strong>परीक्षा उत्तर-पुस्तिका</strong>; "<strong>MICR</strong>" दिखे → <strong>बैंक चेक</strong>; "<strong>बारकोड</strong>" दिखे → <strong>दुकान/उत्पाद</strong>।</li>
+        <li><strong>पॉइंटिंग डिवाइसेज़:</strong> माउस, जॉयस्टिक, लाइट पेन, टच स्क्रीन — "इशारा करने वाले" सभी।</li>
+        <li>माउस के आविष्कारक <strong>डगलस एंगेलबर्ट</strong> — नाम याद रखें, अक्सर पूछा जाता है!</li>
+    </ul>
+</div>
+<h3 id="sec-10">1.10 आउटपुट डिवाइसेज़ — विस्तृत</h3>
+<div class="note-card">
+    <strong>आउटपुट डिवाइस</strong> वे युक्तियाँ हैं जो कंप्यूटर द्वारा प्रोसेस किए गए परिणाम को <strong>उपयोगकर्ता तक पहुँचाती</strong> हैं। सबसे सामान्य आउटपुट डिवाइस <strong>मॉनिटर</strong> है।
+</div>
+<h4>प्रमुख आउटपुट डिवाइसेज़ — एक नज़र में:</h4>
+<table>
+    <tr><th>डिवाइस</th><th>कार्य / विशेषता</th></tr>
+    <tr><td><strong>मॉनिटर</strong></td><td>सबसे सामान्य; स्क्रीन पर परिणाम दिखाता है — <strong>सॉफ्ट कॉपी</strong>; प्रकार: CRT (पुराना), LCD, LED (आधुनिक)</td></tr>
+    <tr><td><strong>प्रिंटर</strong></td><td>कागज़ पर छपाई — <strong>हार्ड कॉपी</strong>; प्रकार: डॉट मैट्रिक्स, इंकजेट, <strong>लेज़र</strong> (सबसे तेज़ व स्पष्ट)</td></tr>
+    <tr><td><strong>स्पीकर</strong></td><td><strong>ध्वनि</strong> के रूप में आउटपुट</td></tr>
+    <tr><td><strong>प्रोजेक्टर</strong></td><td>बड़ी स्क्रीन/दीवार पर प्रदर्शन (कक्षा, सेमिनार)</td></tr>
+    <tr><td><strong>प्लॉटर</strong></td><td><strong>बड़े आकार</strong> के चित्र, नक्शे व इंजीनियरिंग ड्राइंग हेतु</td></tr>
+</table>
+<h4>प्रिंटर के प्रकार (अक्सर पूछा जाता है ★):</h4>
+<table>
+    <tr><th>प्रकार</th><th>उदाहरण</th><th>विशेषता</th></tr>
+    <tr><td><strong>इम्पैक्ट</strong> (चोट मारकर छापता है)</td><td>डॉट मैट्रिक्स</td><td>शोर करता है; सस्ता</td></tr>
+    <tr><td><strong>नॉन-इम्पैक्ट</strong> (बिना चोट)</td><td>इंकजेट, <strong>लेज़र</strong></td><td>शांत, तेज़ व स्पष्ट छपाई</td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>सॉफ्ट कॉपी</strong>" → <strong>मॉनिटर</strong>; "<strong>हार्ड कॉपी</strong>" → <strong>प्रिंटर</strong>।</li>
+        <li>"<strong>सबसे तेज़ / उत्तम प्रिंटर</strong>" → <strong>लेज़र प्रिंटर</strong>; "<strong>इम्पैक्ट प्रिंटर</strong>" → <strong>डॉट मैट्रिक्स</strong>।</li>
+        <li>"<strong>बड़े नक्शे / इंजीनियरिंग चित्र</strong>" दिखे → <strong>प्लॉटर</strong>।</li>
+    </ul>
+</div>
+</div>
+<div id="unit2" class="unit-section">
+<h2>इकाई 2 (Unit 2): कीबोर्ड, माउस, डेस्कटॉप एवं विंडो</h2>
+<h3 id="sec-11">2.1 कीबोर्ड — विस्तृत ★</h3>
+<div class="note-card">
+    <strong>कीबोर्ड</strong> सबसे सामान्य <strong>इनपुट डिवाइस</strong> है, जिससे अक्षर, अंक व प्रतीक कंप्यूटर में डाले जाते हैं। मानक कीबोर्ड में सामान्यतः <strong>104 कुंजियाँ</strong> होती हैं और इसका लेआउट <strong>QWERTY</strong> कहलाता है (पहली पंक्ति के अक्षरों के नाम पर)।
+</div>
+<h4>मुख्य कुंजी श्रेणियाँ:</h4>
+<table>
+    <tr><th>श्रेणी</th><th>कुंजियाँ</th><th>कार्य</th></tr>
+    <tr><td><strong>फंक्शन कुंजियाँ</strong></td><td>F1 – F12</td><td>विशेष कार्य: <strong>F1</strong> = सहायता (Help), <strong>F2</strong> = नाम बदलना, <strong>F5</strong> = रिफ्रेश</td></tr>
+    <tr><td><strong>संशोधक कुंजियाँ</strong></td><td>Ctrl, Alt, Shift</td><td>अन्य कुंजियों के साथ मिलकर शॉर्टकट बनाती हैं</td></tr>
+    <tr><td><strong>टॉगल कुंजियाँ</strong></td><td>Caps Lock, Num Lock</td><td>दबाने पर चालू/बंद होती हैं</td></tr>
+    <tr><td><strong>विशेष कुंजियाँ</strong></td><td>Enter, Esc, Tab, Backspace, Delete</td><td>Enter = स्वीकार; <strong>Esc = रद्द</strong>; Backspace = बाएँ मिटाए; Delete = दाएँ/चयनित मिटाए</td></tr>
+    <tr><td><strong>नेविगेशन कुंजियाँ</strong></td><td>Arrow, Home, End, Page Up/Down</td><td>कर्सर/पेज घुमाने हेतु</td></tr>
+</table>
+<div class="note-card">
+    <strong>जानें:</strong> कीबोर्ड की <strong>सबसे लंबी कुंजी Spacebar</strong> है। <strong>Print Screen</strong> कुंजी स्क्रीन की तस्वीर (स्क्रीनशॉट) लेती है।
+</div>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>सबसे लंबी कुंजी</strong>" → <strong>Spacebar</strong>; "<strong>सहायता (Help)</strong>" → <strong>F1</strong>; "<strong>रिफ्रेश</strong>" → <strong>F5</strong>।</li>
+        <li>"<strong>रद्द / Escape</strong>" → <strong>Esc</strong>; "<strong>QWERTY</strong>" → मानक कीबोर्ड लेआउट।</li>
+        <li><strong>Backspace vs Delete:</strong> Backspace = कर्सर के <strong>बाएँ</strong> मिटाता है; Delete = कर्सर के <strong>दाएँ</strong> मिटाता है।</li>
+    </ul>
+</div>
+<h3 id="sec-12">2.2 फंक्शन कुंजियाँ F1–F12 (प्रत्येक का कार्य) ★</h3>
+<div class="note-card">
+    कीबोर्ड की सबसे ऊपरी पंक्ति में स्थित <strong>F1 से F12</strong> तक की कुंजियाँ <strong>फंक्शन कुंजियाँ</strong> कहलाती हैं। प्रत्येक का एक निश्चित विशेष कार्य होता है — ये परीक्षा में <strong>अत्यंत महत्वपूर्ण</strong> हैं।
+</div>
+<h4>प्रत्येक फंक्शन कुंजी का कार्य:</h4>
+<table>
+    <tr><th>कुंजी</th><th>मुख्य कार्य</th></tr>
+    <tr><td><strong>F1</strong></td><td><strong>सहायता (Help)</strong> खोलना — लगभग हर प्रोग्राम में</td></tr>
+    <tr><td><strong>F2</strong></td><td>चयनित फाइल/फोल्डर का <strong>नाम बदलना (Rename)</strong></td></tr>
+    <tr><td><strong>F3</strong></td><td><strong>खोज (Search)</strong> विंडो खोलना</td></tr>
+    <tr><td><strong>F4</strong></td><td><strong>Alt + F4</strong> = चालू विंडो/प्रोग्राम <strong>बंद</strong> करना</td></tr>
+    <tr><td><strong>F5</strong></td><td><strong>रिफ्रेश / रीलोड</strong> करना (पेज पुनः लोड)</td></tr>
+    <tr><td><strong>F6</strong></td><td>ब्राउज़र में <strong>एड्रेस बार</strong> पर कर्सर ले जाना</td></tr>
+    <tr><td><strong>F7</strong></td><td>MS Word में <strong>वर्तनी व व्याकरण जाँच</strong></td></tr>
+    <tr><td><strong>F8</strong></td><td>कंप्यूटर चालू करते समय <strong>बूट मेन्यू / सेफ मोड</strong></td></tr>
+    <tr><td><strong>F9</strong></td><td>कुछ प्रोग्रामों में दस्तावेज़ <strong>रिफ्रेश/अपडेट</strong></td></tr>
+    <tr><td><strong>F10</strong></td><td><strong>मेन्यू बार</strong> सक्रिय करना</td></tr>
+    <tr><td><strong>F11</strong></td><td>ब्राउज़र में <strong>पूर्ण स्क्रीन (Full Screen)</strong></td></tr>
+    <tr><td><strong>F12</strong></td><td>MS Word में <strong>Save As</strong> विंडो खोलना</td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>सबसे ज़्यादा पूछे जाने वाले: <strong>F1 = Help</strong>, <strong>F2 = Rename</strong>, <strong>F5 = Refresh</strong>, <strong>Alt+F4 = बंद</strong>।</li>
+        <li>"<strong>वर्तनी जाँच (Word)</strong>" → <strong>F7</strong>; "<strong>पूर्ण स्क्रीन</strong>" → <strong>F11</strong>; "<strong>Save As</strong>" → <strong>F12</strong>।</li>
+        <li>ट्रिक: <strong>"1-मदद, 2-नाम, 5-ताज़ा, 4-बंद"</strong> — F1 मदद, F2 नाम, F5 रिफ्रेश, Alt+F4 बंद।</li>
+    </ul>
+</div>
+<h3 id="sec-13">2.3 माउस — क्रियाएँ, प्रकार, आविष्कारक</h3>
+<div class="note-card">
+    <strong>माउस</strong> एक <strong>पॉइंटिंग डिवाइस</strong> है जिससे स्क्रीन पर कर्सर (तीर) घुमाकर चयन व निर्देश दिए जाते हैं। इसके आविष्कारक <strong>डगलस एंगेलबर्ट (1964)</strong> हैं।
+</div>
+<h4>माउस के प्रकार:</h4>
+<table>
+    <tr><th>प्रकार</th><th>विशेषता</th></tr>
+    <tr><td><strong>मैकेनिकल</strong></td><td>नीचे <strong>रबर की गेंद</strong> होती है; पुराना प्रकार</td></tr>
+    <tr><td><strong>ऑप्टिकल</strong></td><td><strong>प्रकाश संवेदक (लेज़र/LED)</strong> से गति पकड़ता है; आधुनिक व सटीक</td></tr>
+    <tr><td><strong>वायरलेस</strong></td><td>बिना तार — <strong>ब्लूटूथ/USB रिसीवर</strong> से जुड़ता है</td></tr>
+</table>
+<h4>माउस की मुख्य क्रियाएँ:</h4>
+<table>
+    <tr><th>क्रिया</th><th>अर्थ / कार्य</th></tr>
+    <tr><td><strong>क्लिक</strong> (बायाँ बटन 1 बार)</td><td>किसी आइटम का <strong>चयन</strong> करना</td></tr>
+    <tr><td><strong>डबल क्लिक</strong> (2 बार तेज़)</td><td>फाइल/फोल्डर को <strong>खोलना</strong></td></tr>
+    <tr><td><strong>राइट क्लिक</strong></td><td><strong>संदर्भ मेन्यू</strong> (विकल्प सूची) खोलना</td></tr>
+    <tr><td><strong>ड्रैग</strong></td><td>बटन दबाकर आइटम को <strong>खींचकर</strong> ले जाना</td></tr>
+    <tr><td><strong>स्क्रॉल</strong> (पहिया)</td><td>पेज को <strong>ऊपर-नीचे</strong> घुमाना</td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>आविष्कारक</strong>" → <strong>डगलस एंगेलबर्ट (1964)</strong>; "<strong>पॉइंटिंग डिवाइस</strong>" → <strong>माउस</strong>।</li>
+        <li>"<strong>खोलना</strong>" → <strong>डबल क्लिक</strong>; "<strong>मेन्यू खोलना</strong>" → <strong>राइट क्लिक</strong>।</li>
+        <li>ट्रिक: <strong>1 क्लिक = चुनो, 2 क्लिक = खोलो, राइट क्लिक = मेन्यू</strong>।</li>
+    </ul>
+</div>
+<h3 id="sec-14">2.4 डेस्कटॉप घटक — विस्तृत</h3>
+<div class="note-card">
+    कंप्यूटर <strong>चालू (बूट)</strong> होने के बाद दिखने वाली पहली स्क्रीन <strong>डेस्कटॉप</strong> कहलाती है। यह उपयोगकर्ता का <strong>कार्यक्षेत्र</strong> है जहाँ से सभी प्रोग्राम व फाइलें खोली जाती हैं।
+</div>
+<h4>डेस्कटॉप के मुख्य घटक:</h4>
+<table>
+    <tr><th>घटक</th><th>कार्य / विशेषता</th></tr>
+    <tr><td><strong>आइकन</strong></td><td>प्रोग्राम/फाइल की <strong>छोटी तस्वीर</strong>; डबल क्लिक से खुलती है</td></tr>
+    <tr><td><strong>टास्कबार</strong></td><td>सबसे <strong>नीचे की पट्टी</strong>; चल रहे प्रोग्राम व स्टार्ट बटन दिखाती है</td></tr>
+    <tr><td><strong>स्टार्ट बटन/मेन्यू</strong></td><td>टास्कबार के <strong>बाएँ कोने</strong> में; सभी प्रोग्रामों का मुख्य द्वार</td></tr>
+    <tr><td><strong>सिस्टम ट्रे</strong></td><td>टास्कबार के <strong>दाएँ कोने</strong> में — <strong>घड़ी, तारीख, वॉल्यूम, नेटवर्क</strong> आइकन</td></tr>
+    <tr><td><strong>रीसायकल बिन</strong></td><td><strong>हटाई गई फाइलों</strong> का अस्थायी भंडार; यहाँ से फाइल <strong>वापस</strong> लाई जा सकती है</td></tr>
+    <tr><td><strong>This PC</strong></td><td>सभी <strong>ड्राइव व डिवाइस</strong> (C:, D:, पेन ड्राइव) देखने हेतु</td></tr>
+    <tr><td><strong>वॉलपेपर</strong></td><td>डेस्कटॉप की <strong>पृष्ठभूमि तस्वीर</strong></td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>सबसे नीचे की पट्टी</strong>" → <strong>टास्कबार</strong>; "<strong>घड़ी/तारीख वाला कोना</strong>" → <strong>सिस्टम ट्रे</strong>।</li>
+        <li>"<strong>हटाई गई फाइलें वापस लाना</strong>" → <strong>रीसायकल बिन</strong>; "<strong>पहली स्क्रीन</strong>" → <strong>डेस्कटॉप</strong>।</li>
+        <li>ट्रिक: <strong>बायाँ = शुरुआत (Start), दायाँ = समय (घड़ी)</strong> — टास्कबार के दो कोने।</li>
+    </ul>
+</div>
+<h3 id="sec-15">2.5 विंडो के भाग व प्रकार</h3>
+<div class="note-card">
+    <strong>विंडो</strong> स्क्रीन पर खुला <strong>आयताकार क्षेत्र</strong> है जिसमें कोई प्रोग्राम, फाइल या संदेश दिखाई देता है। हर विंडो के कुछ निश्चित भाग होते हैं जो परीक्षा में पूछे जाते हैं।
+</div>
+<h4>विंडो के मुख्य भाग:</h4>
+<table>
+    <tr><th>भाग</th><th>कार्य / विशेषता</th></tr>
+    <tr><td><strong>टाइटल बार</strong></td><td>सबसे <strong>ऊपर की पट्टी</strong>; प्रोग्राम/फाइल का <strong>नाम</strong> दिखाती है</td></tr>
+    <tr><td><strong>कंट्रोल बटन</strong></td><td>टाइटल बार के <strong>दाएँ कोने</strong> में — <strong>Minimize (_)</strong>, <strong>Maximize (□)</strong>, <strong>Close (X)</strong></td></tr>
+    <tr><td><strong>मेन्यू बार</strong></td><td>File, Edit, View, Insert... — सभी <strong>आदेशों की सूची</strong></td></tr>
+    <tr><td><strong>टूलबार</strong></td><td>बार-बार काम आने वाले <strong>त्वरित बटन</strong> (Save, Print, Undo...)</td></tr>
+    <tr><td><strong>स्क्रॉल बार</strong></td><td>लंबी सामग्री को <strong>ऊपर-नीचे / बाएँ-दाएँ</strong> घुमाने हेतु</td></tr>
+    <tr><td><strong>स्टेटस बार</strong></td><td>सबसे <strong>नीचे की पट्टी</strong>; पेज संख्या, ज़ूम जैसी <strong>जानकारी</strong> दिखाती है</td></tr>
+    <tr><td><strong>कार्यक्षेत्र</strong></td><td>विंडो का बीच वाला भाग जहाँ <strong>वास्तविक कार्य</strong> होता है</td></tr>
+</table>
+<h4>विंडो के प्रकार:</h4>
+<table>
+    <tr><th>प्रकार</th><th>उदाहरण</th></tr>
+    <tr><td><strong>एप्लीकेशन विंडो</strong></td><td>कोई प्रोग्राम खोलने पर (जैसे MS Word)</td></tr>
+    <tr><td><strong>डॉक्यूमेंट विंडो</strong></td><td>प्रोग्राम के अंदर खुला दस्तावेज़</td></tr>
+    <tr><td><strong>डायलॉग बॉक्स</strong></td><td><strong>संदेश या विकल्प</strong> पूछने वाली छोटी विंडो (जैसे "Save करें?")</td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>सबसे ऊपर की पट्टी / नाम वाली पट्टी</strong>" → <strong>टाइटल बार</strong>; "<strong>X बटन</strong>" → <strong>Close</strong>।</li>
+        <li>"<strong>संदेश/विकल्प वाली छोटी विंडो</strong>" → <strong>डायलॉग बॉक्स</strong>; "<strong>सबसे नीचे की पट्टी</strong>" → <strong>स्टेटस बार</strong>।</li>
+        <li>क्रम याद रखें: <strong>ऊपर = टाइटल, नीचे = स्टेटस, दायाँ कोना = X (बंद)</strong>।</li>
+    </ul>
+</div>
+<h3 id="sec-16">2.6 डायलॉग बॉक्स व मेनू</h3>
+<div class="note-card">
+    <strong>डायलॉग बॉक्स</strong> एक छोटी विंडो है जो उपयोगकर्ता से <strong>जानकारी माँगती</strong> है या <strong>संदेश/चेतावनी</strong> देती है (जैसे "क्या आप Save करना चाहते हैं?")। <strong>मेनू</strong> आदेशों की <strong>सूची</strong> है जिसमें से उपयोगकर्ता कोई विकल्प चुनता है (जैसे File मेनू)।
+</div>
+<h4>डायलॉग बॉक्स के मुख्य तत्व:</h4>
+<table>
+    <tr><th>तत्व</th><th>कार्य</th></tr>
+    <tr><td><strong>टेक्स्ट बॉक्स</strong></td><td>नाम/जानकारी <strong>टाइप</strong> करने का खाली स्थान</td></tr>
+    <tr><td><strong>चेक बॉक्स (☐)</strong></td><td><strong>एक से अधिक</strong> विकल्प चुनने हेतु (टिक लगाएँ)</td></tr>
+    <tr><td><strong>रेडियो बटन (○)</strong></td><td>कई में से <strong>केवल एक</strong> विकल्प चुनने हेतु</td></tr>
+    <tr><td><strong>ड्रॉप-डाउन सूची</strong></td><td>नीचे की ओर खुलने वाली <strong>विकल्प सूची</strong></td></tr>
+    <tr><td><strong>कमांड बटन</strong></td><td><strong>OK, Cancel, Apply</strong> जैसे क्रिया बटन</td></tr>
+</table>
+<h4>मेनू के प्रकार:</h4>
+<table>
+    <tr><th>मेनू</th><th>विशेषता</th></tr>
+    <tr><td><strong>पुल-डाउन मेनू</strong></td><td>मेन्यू बार से <strong>नीचे की ओर</strong> खुलता है (जैसे File मेनू)</td></tr>
+    <tr><td><strong>पॉप-अप / संदर्भ मेनू</strong></td><td><strong>राइट क्लिक</strong> पर जहाँ क्लिक किया वहीं खुलता है</td></tr>
+    <tr><td><strong>स्टार्ट मेनू</strong></td><td>स्टार्ट बटन दबाने पर खुलने वाला <strong>मुख्य मेनू</strong></td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>एक से अधिक विकल्प</strong>" → <strong>चेक बॉक्स</strong>; "<strong>केवल एक विकल्प</strong>" → <strong>रेडियो बटन</strong> — यह सबसे ज़्यादा पूछा जाता है!</li>
+        <li>"<strong>राइट क्लिक पर खुलने वाला मेनू</strong>" → <strong>पॉप-अप/संदर्भ मेनू</strong>।</li>
+        <li>ट्रिक: <strong>चेक = चुनो कई, रेडियो = चुनो एक</strong> (रेडियो में एक स्टेशन!)।</li>
+    </ul>
+</div>
+</div>
+<div id="unit3" class="unit-section">
+<h2>इकाई 3 (Unit 3): MS Office — Word, Excel, PowerPoint एवं शॉर्टकट्स</h2>
+<h3 id="sec-17">3.1 MS Word — रिबन, टैब व फॉर्मेटिंग ★</h3>
+<div class="note-card">
+    <strong>MS Word</strong> Microsoft Office का <strong>वर्ड प्रोसेसिंग</strong> सॉफ्टवेयर है, जिससे दस्तावेज़ (पत्र, निबंध, रिपोर्ट) बनाए व सजाए जाते हैं। इसकी फाइल का एक्सटेंशन <strong>.docx</strong> होता है। स्क्रीन के ऊपर दिखने वाली आदेश-पट्टी <strong>रिबन (Ribbon)</strong> कहलाती है।
+</div>
+<h4>रिबन के मुख्य टैब:</h4>
+<table>
+    <tr><th>टैब</th><th>मुख्य कार्य</th></tr>
+    <tr><td><strong>Home</strong></td><td><strong>फॉर्मेटिंग</strong> — फॉन्ट, पैराग्राफ, स्टाइल (सबसे ज़्यादा इस्तेमाल)</td></tr>
+    <tr><td><strong>Insert</strong></td><td>तस्वीर, टेबल, पेज नंबर <strong>डालना</strong></td></tr>
+    <tr><td><strong>Layout</strong></td><td>पेज का <strong>आकार, मार्जिन</strong> तय करना</td></tr>
+    <tr><td><strong>Review</strong></td><td><strong>वर्तनी जाँच</strong>, टिप्पणी (Comment)</td></tr>
+    <tr><td><strong>View</strong></td><td>दस्तावेज़ को <strong>कैसे देखना</strong> है (Print Layout आदि)</td></tr>
+</table>
+<h4>मुख्य फॉर्मेटिंग व शॉर्टकट:</h4>
+<table>
+    <tr><th>कार्य</th><th>शॉर्टकट</th></tr>
+    <tr><td><strong>Bold</strong> (मोटा)</td><td><strong>Ctrl + B</strong></td></tr>
+    <tr><td><strong>Italic</strong> (तिरछा)</td><td><strong>Ctrl + I</strong></td></tr>
+    <tr><td><strong>Underline</strong> (रेखांकन)</td><td><strong>Ctrl + U</strong></td></tr>
+    <tr><td><strong>Save</strong> (सहेजना)</td><td><strong>Ctrl + S</strong></td></tr>
+    <tr><td><strong>Print</strong> (छापना)</td><td><strong>Ctrl + P</strong></td></tr>
+    <tr><td><strong>Undo</strong> (पूर्ववत)</td><td><strong>Ctrl + Z</strong></td></tr>
+    <tr><td><strong>Justify</strong> (दोनों ओर सीधा)</td><td><strong>Ctrl + J</strong></td></tr>
+    <tr><td><strong>वर्तनी जाँच</strong></td><td><strong>F7</strong></td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>सबसे ज़्यादा पूछे जाने वाले: <strong>Ctrl+B / Ctrl+I / Ctrl+U</strong> — ट्रिक: <strong>"B-I-U = मोटा-तिरछा-रेखा"</strong>।</li>
+        <li>"<strong>Word फाइल का एक्सटेंशन</strong>" → <strong>.docx</strong>; "<strong>वर्तनी जाँच</strong>" → <strong>F7</strong>।</li>
+        <li>"<strong>दोनों ओर से सीधा पैराग्राफ</strong>" → <strong>Justify (Ctrl+J)</strong>।</li>
+    </ul>
+</div>
+<h3 id="sec-18">3.2 MS Excel — सेल रेफरेंस व फंक्शन ★</h3>
+<div class="note-card">
+    <strong>MS Excel</strong> Microsoft Office का <strong>स्प्रेडशीट</strong> सॉफ्टवेयर है, जिससे आंकड़ों की गणना व हिसाब-किताब किया जाता है। फाइल <strong>वर्कबुक</strong> (.xlsx) कहलाती है, जिसमें <strong>वर्कशीट</strong> (Sheet1, Sheet2...) होती हैं। पंक्ति (Row) व स्तंभ (Column) के मिलन को <strong>सेल</strong> कहते हैं (जैसे <strong>A1</strong>)।
+</div>
+<h4>सेल रेफरेंस के प्रकार (अक्सर पूछा जाता है ★):</h4>
+<table>
+    <tr><th>प्रकार</th><th>उदाहरण</th><th>अर्थ</th></tr>
+    <tr><td><strong>Relative</strong> (सापेक्ष)</td><td>A1</td><td>कॉपी करने पर पता <strong>बदल</strong> जाता है</td></tr>
+    <tr><td><strong>Absolute</strong> (पूर्ण)</td><td><strong>$A$1</strong></td><td>कॉपी करने पर भी पता <strong>नहीं बदलता</strong> (पक्का ताला)</td></tr>
+    <tr><td><strong>Mixed</strong> (मिश्रित)</td><td>$A1 या A$1</td><td>केवल एक भाग (पंक्ति या स्तंभ) <strong>स्थिर</strong> रहता है</td></tr>
+</table>
+<h4>मुख्य फंक्शन:</h4>
+<table>
+    <tr><th>फंक्शन</th><th>कार्य</th><th>उदाहरण</th></tr>
+    <tr><td><strong>SUM</strong></td><td>संख्याओं का <strong>जोड़</strong></td><td>=SUM(A1:A10)</td></tr>
+    <tr><td><strong>AVERAGE</strong></td><td><strong>औसत</strong> निकालना</td><td>=AVERAGE(A1:A10)</td></tr>
+    <tr><td><strong>MAX</strong></td><td><strong>सबसे बड़ी</strong> संख्या</td><td>=MAX(A1:A10)</td></tr>
+    <tr><td><strong>MIN</strong></td><td><strong>सबसे छोटी</strong> संख्या</td><td>=MIN(A1:A10)</td></tr>
+    <tr><td><strong>COUNT</strong></td><td>संख्याओं की <strong>गिनती</strong></td><td>=COUNT(A1:A10)</td></tr>
+</table>
+<div class="note-card">
+    <strong>याद रखें:</strong> हर फॉर्मूला <strong>= (बराबर)</strong> चिह्न से शुरू होता है। <strong>फॉर्मूला बार</strong> में सेल की सामग्री दिखती है और <strong>नेम बॉक्स</strong> में चुने हुए सेल का पता।
+</div>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>फॉर्मूला किससे शुरू होता है?</strong>" → <strong>= (बराबर)</strong>; "<strong>Excel फाइल एक्सटेंशन</strong>" → <strong>.xlsx</strong>।</li>
+        <li>"<strong>पूर्ण/स्थिर पता</strong>" → <strong>$A$1</strong> — ट्रिक: <strong>"$ = पक्का ताला"</strong>।</li>
+        <li><strong>SUM = जोड़, AVERAGE = औसत, MAX = बड़ा, MIN = छोटा, COUNT = गिनती</strong> — नाम ही काम बताता है!</li>
+    </ul>
+</div>
+<h3 id="sec-19">3.3 MS PowerPoint — व्यू व ट्रांजिशन ★</h3>
+<div class="note-card">
+    <strong>MS PowerPoint</strong> Microsoft Office का <strong>प्रेजेंटेशन</strong> सॉफ्टवेयर है, जिससे स्लाइडों के माध्यम से प्रस्तुति दी जाती है। फाइल <strong>प्रेजेंटेशन</strong> (.pptx) कहलाती है और इसका प्रत्येक पेज <strong>स्लाइड</strong> कहलाता है।
+</div>
+<h4>मुख्य व्यू (अक्सर पूछा जाता है ★):</h4>
+<table>
+    <tr><th>व्यू</th><th>कार्य</th></tr>
+    <tr><td><strong>Normal View</strong></td><td>स्लाइड बनाने व संपादित करने का <strong>सामान्य</strong> दृश्य</td></tr>
+    <tr><td><strong>Slide Sorter View</strong></td><td><strong>सभी स्लाइड एक साथ</strong> दिखती हैं — <strong>क्रम बदलने</strong> हेतु सर्वोत्तम</td></tr>
+    <tr><td><strong>Slide Show View</strong></td><td>प्रस्तुति <strong>चलाने</strong> का दृश्य (<strong>F5</strong> दबाएँ)</td></tr>
+    <tr><td><strong>Notes Page View</strong></td><td>प्रत्येक स्लाइड के साथ <strong>वक्ता के नोट्स</strong> देखने हेतु</td></tr>
+</table>
+<h4>ट्रांजिशन बनाम एनिमेशन (भ्रम न करें!):</h4>
+<table>
+    <tr><th>विशेषता</th><th>अर्थ</th></tr>
+    <tr><td><strong>Transition</strong></td><td><strong>एक स्लाइड से दूसरी स्लाइड</strong> पर जाने का प्रभाव</td></tr>
+    <tr><td><strong>Animation</strong></td><td><strong>स्लाइड के अंदर</strong> की वस्तुओं (टेक्स्ट/तस्वीर) का प्रभाव</td></tr>
+</table>
+<div class="note-card">
+    <strong>स्लाइड शो:</strong> <strong>F5</strong> = पहली स्लाइड से शुरू; <strong>Shift + F5</strong> = वर्तमान स्लाइड से शुरू; <strong>Esc</strong> = शो बंद करना।
+</div>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>स्लाइडों का क्रम बदलना</strong>" → <strong>Slide Sorter View</strong>; "<strong>स्लाइड शो शुरू</strong>" → <strong>F5</strong>।</li>
+        <li><strong>Transition = स्लाइड बदलने पर; Animation = स्लाइड के अंदर</strong> — ट्रिक: <strong>"T = तबदील, A = अंदर"</strong>।</li>
+        <li>"<strong>PowerPoint फाइल एक्सटेंशन</strong>" → <strong>.pptx</strong>।</li>
+    </ul>
+</div>
+<h3 id="sec-20">3.4 शॉर्टकट मास्टर टेबल ★</h3>
+<div class="note-card">
+    कीबोर्ड <strong>शॉर्टकट</strong> परीक्षा में <strong>सबसे ज़्यादा पूछे जाने वाला</strong> टॉपिक है। नीचे एक ही जगह सभी महत्वपूर्ण शॉर्टकट दिए गए हैं — इसे <strong>रिवीजन चार्ट</strong> की तरह याद करें।
+</div>
+<h4>Ctrl शॉर्टकट (सबसे महत्वपूर्ण):</h4>
+<table>
+    <tr><th>शॉर्टकट</th><th>कार्य</th><th>शॉर्टकट</th><th>कार्य</th></tr>
+    <tr><td><strong>Ctrl + A</strong></td><td>सब चुनें</td><td><strong>Ctrl + S</strong></td><td>Save (सहेजें)</td></tr>
+    <tr><td><strong>Ctrl + B</strong></td><td>Bold (मोटा)</td><td><strong>Ctrl + P</strong></td><td>Print (छापें)</td></tr>
+    <tr><td><strong>Ctrl + C</strong></td><td>Copy (नकल)</td><td><strong>Ctrl + X</strong></td><td>Cut (काटें)</td></tr>
+    <tr><td><strong>Ctrl + V</strong></td><td>Paste (चिपकाएँ)</td><td><strong>Ctrl + Z</strong></td><td>Undo (पूर्ववत)</td></tr>
+    <tr><td><strong>Ctrl + Y</strong></td><td>Redo (फिर से)</td><td><strong>Ctrl + F</strong></td><td>Find (खोजें)</td></tr>
+    <tr><td><strong>Ctrl + H</strong></td><td>Replace (बदलें)</td><td><strong>Ctrl + N</strong></td><td>नया दस्तावेज़</td></tr>
+    <tr><td><strong>Ctrl + O</strong></td><td>Open (खोलें)</td><td><strong>Ctrl + W</strong></td><td>विंडो/टैब बंद</td></tr>
+    <tr><td><strong>Ctrl + I</strong></td><td>Italic (तिरछा)</td><td><strong>Ctrl + U</strong></td><td>Underline (रेखांकन)</td></tr>
+    <tr><td><strong>Ctrl + J</strong></td><td>Justify</td><td><strong>Ctrl + K</strong></td><td>Hyperlink डालें</td></tr>
+</table>
+<h4>Windows व Alt शॉर्टकट:</h4>
+<table>
+    <tr><th>शॉर्टकट</th><th>कार्य</th><th>शॉर्टकट</th><th>कार्य</th></tr>
+    <tr><td><strong>Alt + F4</strong></td><td>प्रोग्राम <strong>बंद</strong> करें</td><td><strong>Alt + Tab</strong></td><td>खुली <strong>विंडो बदलें</strong></td></tr>
+    <tr><td><strong>Win + D</strong></td><td><strong>डेस्कटॉप</strong> दिखाएँ</td><td><strong>Win + E</strong></td><td><strong>File Explorer</strong> खोलें</td></tr>
+    <tr><td><strong>Win + L</strong></td><td>कंप्यूटर <strong>लॉक</strong> करें</td><td><strong>Win + R</strong></td><td><strong>Run</strong> डायलॉग खोलें</td></tr>
+</table>
+<h4>अन्य उपयोगी शॉर्टकट:</h4>
+<table>
+    <tr><th>शॉर्टकट</th><th>कार्य</th></tr>
+    <tr><td><strong>Shift + Delete</strong></td><td>बिना रीसायकल बिन के <strong>स्थायी रूप से हटाएँ</strong></td></tr>
+    <tr><td><strong>Ctrl + Home / Ctrl + End</strong></td><td>दस्तावेज़ की <strong>शुरुआत / अंत</strong> पर जाएँ</td></tr>
+    <tr><td><strong>F5</strong></td><td><strong>रिफ्रेश</strong> / स्लाइड शो (PowerPoint)</td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>सुनहरा त्रिक: <strong>Ctrl+X = काटो, Ctrl+C = नकल, Ctrl+V = चिपकाओ</strong> — क्रम याद रखें!</li>
+        <li><strong>Ctrl+Z = Undo, Ctrl+Y = Redo</strong> — ट्रिक: <strong>"Z = ज़ख्म भरो, Y = यस फिर से"</strong>।</li>
+        <li>"<strong>कंप्यूटर लॉक</strong>" → <strong>Win+L</strong>; "<strong>स्थायी हटाना</strong>" → <strong>Shift+Delete</strong>।</li>
+    </ul>
+</div>
+</div>
+<div id="unit4" class="unit-section">
+<h2>इकाई 4 (Unit 4): इंटरनेट, साइबर सुरक्षा, शैक्षिक तकनीक + प्रैक्टिस सेट</h2>
+<h3 id="sec-21">4.1 इंटरनेट — परिचय व शब्दावली ★</h3>
+<div class="note-card">
+    <strong>इंटरनेट</strong> दुनियाभर के कंप्यूटरों को जोड़ने वाला <strong>"नेटवर्कों का नेटवर्क"</strong> है। <strong>WWW (World Wide Web)</strong> के जनक <strong>टिम बर्नर्स-ली (1989)</strong> हैं — इंटरनेट पर वेबसाइटों का जाल ही WWW कहलाता है।
+</div>
+<h4>मुख्य शब्दावली (परीक्षा में सीधे पूछी जाती है ★):</h4>
+<table>
+    <tr><th>शब्द</th><th>पूरा नाम</th><th>अर्थ</th></tr>
+    <tr><td><strong>ISP</strong></td><td>Internet Service Provider</td><td><strong>इंटरनेट सेवा देने वाली</strong> कंपनी (जैसे 【entity-Jio¦canonical_name=Jio】, 【entity-Airtel¦canonical_name=Airtel】, BSNL)</td></tr>
+    <tr><td><strong>URL</strong></td><td>Uniform Resource Locator</td><td>किसी वेबसाइट का <strong>पता</strong> (जैसे www.google.com)</td></tr>
+    <tr><td><strong>HTTP</strong></td><td>HyperText Transfer Protocol</td><td>वेब पेज भेजने का <strong>नियम/प्रोटोकॉल</strong></td></tr>
+    <tr><td><strong>HTTPS</strong></td><td>HTTP Secure</td><td><strong>सुरक्षित</strong> संस्करण (S = Secure) — बैंकिंग हेतु</td></tr>
+    <tr><td><strong>IP पता</strong></td><td>Internet Protocol Address</td><td>नेटवर्क में कंप्यूटर की <strong>पहचान संख्या</strong></td></tr>
+    <tr><td><strong>DNS</strong></td><td>Domain Name System</td><td>वेबसाइट के नाम को IP पते में बदलता है — <strong>इंटरनेट की फोनबुक</strong></td></tr>
+</table>
+<h4>अन्य उपयोगी शब्द:</h4>
+<table>
+    <tr><th>शब्द</th><th>अर्थ</th></tr>
+    <tr><td><strong>ब्राउज़र</strong></td><td>वेबसाइट <strong>देखने</strong> का सॉफ्टवेयर (Chrome, Firefox, Edge)</td></tr>
+    <tr><td><strong>सर्च इंजन</strong></td><td>जानकारी <strong>खोजने</strong> की सेवा (Google, Bing)</td></tr>
+    <tr><td><strong>डाउनलोड / अपलोड</strong></td><td>इंटरनेट से <strong>लेना</strong> / इंटरनेट पर <strong>भेजना</strong></td></tr>
+    <tr><td><strong>वेबसाइट / वेबपेज</strong></td><td>पेजों का समूह / समूह का <strong>एक</strong> पेज</td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>इंटरनेट सेवा देने वाली कंपनी</strong>" → <strong>ISP</strong>; "<strong>वेबसाइट का पता</strong>" → <strong>URL</strong>।</li>
+        <li>"<strong>WWW के जनक</strong>" → <strong>टिम बर्नर्स-ली</strong>; "<strong>इंटरनेट की फोनबुक</strong>" → <strong>DNS</strong>।</li>
+        <li>ट्रिक: <strong>I = देने वाला (ISP), U = पता (URL), H = नियम (HTTP), S = सुरक्षित</strong>।</li>
+    </ul>
+</div>
+<h3 id="sec-22">4.2 WWW, वेब पेज व वेबसाइट</h3>
+<div class="note-card">
+    <strong>WWW (World Wide Web)</strong> इंटरनेट पर <strong>हाइपरटेक्स्ट दस्तावेज़ों का जाल</strong> है, जिसे <strong>टिम बर्नर्स-ली (1989)</strong> ने बनाया। ध्यान दें: <strong>इंटरनेट ≠ WWW</strong> — इंटरनेट नेटवर्क है, WWW उस पर चलने वाली सेवा है।
+</div>
+<h4>मुख्य अवधारणाएँ:</h4>
+<table>
+    <tr><th>शब्द</th><th>अर्थ</th></tr>
+    <tr><td><strong>वेब पेज</strong></td><td>WWW का <strong>एक</strong> दस्तावेज़; <strong>HTML</strong> भाषा में लिखा जाता है</td></tr>
+    <tr><td><strong>वेबसाइट</strong></td><td>संबंधित वेब पेजों का <strong>समूह</strong> (एक डोमेन नाम के अंतर्गत)</td></tr>
+    <tr><td><strong>होम पेज</strong></td><td>वेबसाइट का <strong>पहला/मुख्य</strong> पेज</td></tr>
+    <tr><td><strong>हाइपरलिंक</strong></td><td>एक पेज से दूसरे पेज पर ले जाने वाली <strong>कड़ी</strong> (आमतौर पर नीली, रेखांकित)</td></tr>
+    <tr><td><strong>HTML</strong></td><td>HyperText Markup Language — वेब पेज <strong>बनाने</strong> की भाषा</td></tr>
+    <tr><td><strong>वेब सर्वर</strong></td><td>वेबसाइट को <strong>संग्रहित</strong> करने वाला कंप्यूटर</td></tr>
+    <tr><td><strong>वेब ब्राउज़र</strong></td><td>वेब पेज <strong>देखने</strong> का सॉफ्टवेयर (Chrome, Firefox)</td></tr>
+</table>
+<h4>डोमेन नाम के प्रकार:</h4>
+<table>
+    <tr><th>डोमेन</th><th>प्रयोग</th></tr>
+    <tr><td><strong>.com</strong></td><td>वाणिज्यिक (Commercial) वेबसाइट</td></tr>
+    <tr><td><strong>.gov</strong></td><td><strong>सरकारी</strong> वेबसाइट</td></tr>
+    <tr><td><strong>.edu</strong></td><td><strong>शैक्षणिक</strong> संस्थान</td></tr>
+    <tr><td><strong>.in</strong></td><td><strong>भारत</strong> की वेबसाइट</td></tr>
+    <tr><td><strong>.org</strong></td><td>गैर-लाभकारी <strong>संगठन</strong></td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>WWW के जनक</strong>" → <strong>टिम बर्नर्स-ली</strong>; "<strong>वेब पेज बनाने की भाषा</strong>" → <strong>HTML</strong>।</li>
+        <li>"<strong>सरकारी वेबसाइट</strong>" → <strong>.gov</strong>; "<strong>शैक्षणिक</strong>" → <strong>.edu</strong> — ट्रिक: <strong>"G = Government, E = Education"</strong>।</li>
+        <li>ट्रिक: <strong>पेज = एक पन्ना, साइट = पूरी किताब</strong>।</li>
+    </ul>
+</div>
+<h3 id="sec-23">4.3 ब्राउज़र बनाम सर्च इंजन ★</h3>
+<div class="note-card">
+    <strong>ब्राउज़र</strong> वह <strong>सॉफ्टवेयर</strong> है जिससे वेबसाइटें <strong>खोली/देखी</strong> जाती हैं, जबकि <strong>सर्च इंजन</strong> वह <strong>सेवा</strong> है जिससे इंटरनेट पर जानकारी <strong>खोजी</strong> जाती है। यह अंतर परीक्षा में <strong>बार-बार</strong> पूछा जाता है!
+</div>
+<h4>तुलना तालिका (सबसे महत्वपूर्ण ★):</h4>
+<table>
+    <tr><th>आधार</th><th>ब्राउज़र</th><th>सर्च इंजन</th></tr>
+    <tr><td><strong>परिभाषा</strong></td><td>वेब पेज <strong>खोलने</strong> का सॉफ्टवेयर</td><td>जानकारी <strong>खोजने</strong> की सेवा</td></tr>
+    <tr><td><strong>प्रकृति</strong></td><td><strong>इंस्टॉल</strong> होने वाला प्रोग्राम</td><td><strong>वेबसाइट</strong> (ब्राउज़र के अंदर चलती है)</td></tr>
+    <tr><td><strong>कार्य</strong></td><td>URL टाइप करके पेज दिखाता है</td><td>कीवर्ड से <strong>परिणामों की सूची</strong> देता है</td></tr>
+    <tr><td><strong>उदाहरण</strong></td><td><strong>Chrome, Firefox, Edge, Safari</strong></td><td><strong>Google, Bing, Yahoo, DuckDuckGo</strong></td></tr>
+</table>
+<div class="note-card">
+    <strong>सबसे बड़ा भ्रम:</strong> <strong>Google Chrome</strong> एक <strong>ब्राउज़र</strong> है, जबकि <strong>Google</strong> एक <strong>सर्च इंजन</strong> है। दोनों अलग-अलग हैं!
+</div>
+<h4>ब्राउज़र के भाग व सुविधाएँ:</h4>
+<table>
+    <tr><th>सुविधा</th><th>कार्य</th></tr>
+    <tr><td><strong>एड्रेस बार</strong></td><td><strong>URL</strong> टाइप करने की जगह</td></tr>
+    <tr><td><strong>टैब</strong></td><td>एक साथ <strong>कई पेज</strong> खोलना</td></tr>
+    <tr><td><strong>बुकमार्क</strong></td><td>पसंदीदा पेज <strong>सहेजना</strong></td></tr>
+    <tr><td><strong>हिस्ट्री</strong></td><td>पहले देखे गए पेजों का <strong>रिकॉर्ड</strong></td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>वेबसाइट देखने का सॉफ्टवेयर</strong>" → <strong>ब्राउज़र</strong>; "<strong>जानकारी खोजने की सेवा</strong>" → <strong>सर्च इंजन</strong>।</li>
+        <li><strong>Chrome = ब्राउज़र, Google = सर्च इंजन</strong> — नाम एक जैसा, काम अलग!</li>
+        <li>ट्रिक: <strong>"ब्राउज़र = खिड़की (देखो), सर्च इंजन = नौकर (खोजो)"</strong>।</li>
+    </ul>
+</div>
+<h3 id="sec-24">4.4 ईमेल — संरचना, फोल्डर व CC/BCC</h3>
+<div class="note-card">
+    <strong>ईमेल (Electronic Mail)</strong> इंटरनेट से <strong>इलेक्ट्रॉनिक पत्र</strong> भेजने की सेवा है। पहला ईमेल <strong>रे टॉमलिंसन (1971)</strong> ने भेजा था। ईमेल पते में <strong>@</strong> चिह्न ("at the rate") अवश्य होता है।
+</div>
+<h4>ईमेल पते की संरचना:</h4>
+<table>
+    <tr><th>भाग</th><th>उदाहरण: ram@gmail.com</th></tr>
+    <tr><td><strong>उपयोगकर्ता नाम</strong></td><td><strong>ram</strong> (पहचान)</td></tr>
+    <tr><td><strong>@ चिह्न</strong></td><td><strong>@</strong> (at the rate)</td></tr>
+    <tr><td><strong>डोमेन नाम</strong></td><td><strong>gmail.com</strong> (सेवा प्रदाता)</td></tr>
+</table>
+<h4>मुख्य फोल्डर:</h4>
+<table>
+    <tr><th>फोल्डर</th><th>कार्य</th></tr>
+    <tr><td><strong>Inbox</strong></td><td><strong>आने वाले</strong> मेल</td></tr>
+    <tr><td><strong>Sent</strong></td><td><strong>भेजे गए</strong> मेल</td></tr>
+    <tr><td><strong>Drafts</strong></td><td>अधूरे / <strong>बिना भेजे</strong> मेल</td></tr>
+    <tr><td><strong>Spam / Junk</strong></td><td><strong>अवांछित</strong> मेल</td></tr>
+    <tr><td><strong>Trash</strong></td><td><strong>हटाए गए</strong> मेल</td></tr>
+</table>
+<h4>To, CC, BCC — अंतर (अक्सर पूछा जाता है ★):</h4>
+<table>
+    <tr><th>क्षेत्र</th><th>पूरा नाम</th><th>अर्थ</th></tr>
+    <tr><td><strong>To</strong></td><td>—</td><td><strong>मुख्य</strong> प्राप्तकर्ता</td></tr>
+    <tr><td><strong>CC</strong></td><td>Carbon Copy</td><td>अन्य को <strong>प्रतिलिपि</strong> — सभी प्राप्तकर्ताओं को <strong>दिखता</strong> है</td></tr>
+    <tr><td><strong>BCC</strong></td><td>Blind Carbon Copy</td><td><strong>गुप्त</strong> प्रतिलिपि — किसी अन्य को <strong>नहीं दिखता</strong></td></tr>
+</table>
+<div class="note-card">
+    <strong>Subject</strong> = मेल की <strong>विषय पंक्ति</strong>; <strong>Attachment</strong> = मेल के साथ भेजी गई <strong>संलग्न फाइल</strong> (📎 पेपर क्लिप आइकन)।
+</div>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>गुप्त प्रतिलिपि</strong>" → <strong>BCC</strong> — ट्रिक: <strong>"B = Blind = छिपा"</strong>।</li>
+        <li>"<strong>पहला ईमेल</strong>" → <strong>रे टॉमलिंसन (1971)</strong>; "<strong>@ का अर्थ</strong>" → <strong>at the rate</strong>।</li>
+        <li>"<strong>बिना भेजे मेल</strong>" → <strong>Drafts</strong>; "<strong>आने वाले मेल</strong>" → <strong>Inbox</strong>।</li>
+    </ul>
+</div>
+<h3 id="sec-25">4.5 साइबर सुरक्षा — वायरस, फ़िशिंग व हैकिंग ★</h3>
+<div class="note-card">
+    <strong>साइबर सुरक्षा</strong> कंप्यूटर, नेटवर्क व डेटा को <strong>डिजिटल खतरों</strong> से बचाने की कला है। हानिकारक सॉफ्टवेयर को सामूहिक रूप से <strong>मैलवेयर</strong> (Malicious + Software) कहते हैं।
+</div>
+<h4>मैलवेयर के प्रकार (परीक्षा में सबसे ज़्यादा ★):</h4>
+<table>
+    <tr><th>मैलवेयर</th><th>विशेषता</th></tr>
+    <tr><td><strong>वायरस</strong></td><td>होस्ट फाइल से जुड़कर <strong>स्वयं फैलने</strong> वाला हानिकारक प्रोग्राम</td></tr>
+    <tr><td><strong>वर्म</strong></td><td><strong>बिना होस्ट</strong> के नेटवर्क में स्वयं फैलता है</td></tr>
+    <tr><td><strong>ट्रोजन हॉर्स</strong></td><td><strong>उपयोगी दिखने वाला</strong> धोखेबाज़ प्रोग्राम (अंदर छिपा खतरा)</td></tr>
+    <tr><td><strong>रैनसमवेयर</strong></td><td>डेटा <strong>बंधक</strong> बनाकर <strong>फिरौती</strong> माँगता है</td></tr>
+    <tr><td><strong>स्पाइवेयर</strong></td><td>उपयोगकर्ता की <strong>जासूसी</strong> करता है</td></tr>
+    <tr><td><strong>एडवेयर</strong></td><td>अवांछित <strong>विज्ञापन</strong> दिखाता है</td></tr>
+</table>
+<h4>साइबर अपराध व बचाव:</h4>
+<table>
+    <tr><th>शब्द</th><th>अर्थ</th></tr>
+    <tr><td><strong>फ़िशिंग</strong></td><td><strong>नकली ईमेल/वेबसाइट</strong> से गुप्त जानकारी (पासवर्ड, OTP) चुराना</td></tr>
+    <tr><td><strong>हैकिंग</strong></td><td>सिस्टम में <strong>अनधिकृत पहुँच</strong>; अच्छा हैकर = <strong>व्हाइट हैट</strong>, बुरा = <strong>ब्लैक हैट</strong></td></tr>
+    <tr><td><strong>स्पैम</strong></td><td><strong>अवांछित</strong> थोक ईमेल/संदेश</td></tr>
+    <tr><td><strong>फायरवॉल</strong></td><td>नेटवर्क की <strong>सुरक्षा दीवार</strong> — अनधिकृत पहुँच रोकती है</td></tr>
+    <tr><td><strong>एंटीवायरस</strong></td><td>मैलवेयर <strong>पहचानकर हटाने</strong> वाला सॉफ्टवेयर</td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>नकली ईमेल से जानकारी चुराना</strong>" → <strong>फ़िशिंग</strong>; "<strong>फिरौती माँगना</strong>" → <strong>रैनसमवेयर</strong>।</li>
+        <li>"<strong>उपयोगी दिखने वाला धोखा</strong>" → <strong>ट्रोजन हॉर्स</strong> — ट्रिक: <strong>"ट्रॉय के तोहफ़े जैसा"</strong>।</li>
+        <li><strong>व्हाइट हैट = अच्छा हैकर, ब्लैक हैट = बुरा हैकर</strong> — रंग ही चरित्र बताता है!</li>
+    </ul>
+</div>
+<h3 id="sec-26">4.6 DIKSHA — राष्ट्रीय डिजिटल शिक्षा मंच</h3>
+<div class="note-card">
+    <strong>DIKSHA</strong> (Digital Infrastructure for Knowledge Sharing) भारत सरकार का <strong>राष्ट्रीय डिजिटल शिक्षा मंच</strong> है। इसे <strong>NCERT</strong> ने विकसित किया और <strong>2017</strong> में शिक्षा मंत्रालय ने लॉन्च किया। यह शिक्षकों व छात्रों हेतु <strong>निःशुल्क</strong> डिजिटल पाठ्य सामग्री उपलब्ध कराता है।
+</div>
+<h4>मुख्य विशेषताएँ:</h4>
+<table>
+    <tr><th>विशेषता</th><th>विवरण</th></tr>
+    <tr><td><strong>पूरा नाम</strong></td><td><strong>Digital Infrastructure for Knowledge Sharing</strong></td></tr>
+    <tr><td><strong>विकासकर्ता</strong></td><td><strong>NCERT</strong> (शिक्षा मंत्रालय की पहल)</td></tr>
+    <tr><td><strong>लॉन्च वर्ष</strong></td><td><strong>2017</strong></td></tr>
+    <tr><td><strong>QR कोड पाठ्यपुस्तकें</strong></td><td>किताबों में <strong>QR कोड</strong> स्कैन कर डिजिटल सामग्री — <strong>Energized Textbooks</strong></td></tr>
+    <tr><td><strong>भाषाएँ</strong></td><td><strong>30+ भाषाओं</strong> में सामग्री (बहुभाषी मंच)</td></tr>
+    <tr><td><strong>पहुँच</strong></td><td><strong>मोबाइल ऐप</strong> व वेब पोर्टल (diksha.gov.in) — निःशुल्क</td></tr>
+</table>
+<h4>संबंधित तथ्य:</h4>
+<table>
+    <tr><th>तथ्य</th><th>विवरण</th></tr>
+    <tr><td><strong>PM eVIDYA</strong></td><td>DIKSHA इसी कार्यक्रम का <strong>हिस्सा</strong> है — "एक राष्ट्र, एक डिजिटल प्लेटफॉर्म"</td></tr>
+    <tr><td><strong>लाभार्थी</strong></td><td>छात्र, <strong>शिक्षक</strong> व अभिभावक — शिक्षक प्रशिक्षण सामग्री भी उपलब्ध</td></tr>
+    <tr><td><strong>सामग्री</strong></td><td>वीडियो पाठ, प्रश्नोत्तरी, <strong>इंटरैक्टिव</strong> पाठ्य सामग्री</td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>DIKSHA का पूरा नाम</strong>" → <strong>Digital Infrastructure for Knowledge Sharing</strong>।</li>
+        <li>"<strong>DIKSHA किसने विकसित किया?</strong>" → <strong>NCERT</strong>; "<strong>कब लॉन्च?</strong>" → <strong>2017</strong>।</li>
+        <li>"<strong>QR कोड वाली किताबें</strong>" → <strong>Energized Textbooks</strong> — ट्रिक: <strong>"DIKSHA = दीक्षा (शिक्षा की शुरुआत)"</strong>।</li>
+    </ul>
+</div>
+<h3 id="sec-27">4.7 NISHTHA — शिक्षक प्रशिक्षण पहल</h3>
+<div class="note-card">
+    <strong>NISHTHA</strong> (National Initiative for School Heads' and Teachers' Holistic Advancement) शिक्षा मंत्रालय की <strong>राष्ट्रीय शिक्षक प्रशिक्षण पहल</strong> है। इसे <strong>2019-20</strong> में लॉन्च किया गया और <strong>NCERT</strong> द्वारा संचालित किया जाता है। इसका उद्देश्य शिक्षकों व स्कूल प्रमुखों का <strong>समग्र विकास</strong> है।
+</div>
+<h4>NISHTHA के संस्करण:</h4>
+<table>
+    <tr><th>संस्करण</th><th>केंद्र बिंदु</th></tr>
+    <tr><td><strong>NISHTHA 1.0</strong></td><td><strong>प्रारंभिक स्तर</strong> (कक्षा 1-8) के शिक्षक व प्रधान — <strong>2019-20</strong> में लॉन्च</td></tr>
+    <tr><td><strong>NISHTHA 2.0</strong></td><td><strong>माध्यमिक स्तर</strong> (कक्षा 9-12) के शिक्षक</td></tr>
+    <tr><td><strong>NISHTHA 3.0</strong></td><td><strong>FLN</strong> (बुनियादी साक्षरता व संख्या ज्ञान) — <strong>NIPUN Bharat</strong> से जुड़ा</td></tr>
+</table>
+<h4>मुख्य तथ्य:</h4>
+<table>
+    <tr><th>तथ्य</th><th>विवरण</th></tr>
+    <tr><td><strong>पूरा नाम</strong></td><td><strong>National Initiative for School Heads' and Teachers' Holistic Advancement</strong></td></tr>
+    <tr><td><strong>प्रशिक्षण मंच</strong></td><td><strong>DIKSHA</strong> प्लेटफॉर्म पर ऑनलाइन मॉड्यूल</td></tr>
+    <tr><td><strong>लक्ष्य</strong></td><td>लगभग <strong>42 लाख</strong> शिक्षकों व स्कूल प्रमुखों का प्रशिक्षण — विश्व का सबसे बड़ा ऐसा कार्यक्रम</td></tr>
+    <tr><td><strong>विषय</strong></td><td>बाल-केंद्रित शिक्षण, समावेशी शिक्षा, <strong>ICT</strong> का उपयोग, मूल्यांकन</td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>NISHTHA का पूरा नाम</strong>" → <strong>National Initiative for School Heads' and Teachers' Holistic Advancement</strong>।</li>
+        <li>"<strong>NISHTHA कब लॉन्च?</strong>" → <strong>2019-20</strong>; "<strong>प्रशिक्षण मंच?</strong>" → <strong>DIKSHA</strong>।</li>
+        <li>"<strong>NISHTHA 3.0</strong>" → <strong>FLN / NIPUN Bharat</strong> — ट्रिक: <strong>"NISHTHA = निष्ठा (शिक्षक की निष्ठा)"</strong>।</li>
+    </ul>
+</div>
+<h3 id="sec-28">4.8 Google Meet / Zoom — ऑनलाइन कक्षा</h3>
+<div class="note-card">
+    <strong>Google Meet</strong> Google के <strong>Workspace</strong> का वीडियो कॉन्फ्रेंसिंग टूल है, जबकि <strong>Zoom</strong> Zoom Video Communications का प्लेटफॉर्म है (संस्थापक: <strong>एरिक युआन</strong>)। दोनों का उपयोग <strong>ऑनलाइन कक्षा</strong> व बैठकों हेतु होता है।
+</div>
+<h4>तुलना तालिका:</h4>
+<table>
+    <tr><th>आधार</th><th>Google Meet</th><th>Zoom</th></tr>
+    <tr><td><strong>कंपनी</strong></td><td><strong>Google</strong> (Workspace का हिस्सा)</td><td><strong>Zoom</strong> Video Communications</td></tr>
+    <tr><td><strong>संस्थापक</strong></td><td>—</td><td><strong>एरिक युआन</strong></td></tr>
+    <tr><td><strong>पहुँच</strong></td><td>Gmail <strong>खाते</strong> से सीधे</td><td><strong>ऐप/लिंक</strong> से (खाता वैकल्पिक)</td></tr>
+    <tr><td><strong>विशेषता</strong></td><td>Google Classroom से <strong>एकीकरण</strong></td><td><strong>ब्रेकआउट रूम</strong>, वर्चुअल बैकग्राउंड</td></tr>
+</table>
+<h4>ऑनलाइन कक्षा की मुख्य सुविधाएँ:</h4>
+<table>
+    <tr><th>सुविधा</th><th>कार्य</th></tr>
+    <tr><td><strong>स्क्रीन शेयरिंग</strong></td><td>अपनी <strong>स्क्रीन</strong> सभी को दिखाना (प्रस्तुति हेतु)</td></tr>
+    <tr><td><strong>म्यूट / अनम्यूट</strong></td><td>माइक <strong>बंद / चालू</strong> करना (शोर रोकने हेतु)</td></tr>
+    <tr><td><strong>चैट बॉक्स</strong></td><td>बिना बोले <strong>संदेश</strong> भेजना</td></tr>
+    <tr><td><strong>रिकॉर्डिंग</strong></td><td>कक्षा को <strong>रिकॉर्ड</strong> कर बाद में देखना</td></tr>
+    <tr><td><strong>हैंड रेज़ ✋</strong></td><td>बोलने हेतु <strong>हाथ उठाना</strong> (अनुमति माँगना)</td></tr>
+    <tr><td><strong>ब्रेकआउट रूम</strong></td><td>छात्रों को <strong>छोटे समूहों</strong> में बाँटना (मुख्यतः Zoom)</td></tr>
+</table>
+<div class="note-card">
+    <strong>सुरक्षा:</strong> <strong>वेटिंग रूम</strong> (प्रतीक्षा कक्ष), <strong>पासकोड</strong> व <strong>मीटिंग लॉक</strong> से अनधिकृत प्रवेश रोका जाता है।
+</div>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>Zoom के संस्थापक</strong>" → <strong>एरिक युआन</strong>; "<strong>Google Meet किसका है?</strong>" → <strong>Google</strong>।</li>
+        <li>"<strong>छात्रों को छोटे समूहों में बाँटना</strong>" → <strong>ब्रेकआउट रूम</strong>।</li>
+        <li>"<strong>अपनी स्क्रीन दिखाना</strong>" → <strong>स्क्रीन शेयरिंग</strong> — ट्रिक: <strong>"शेयर = दिखाओ"</strong>।</li>
+    </ul>
+</div>
+<h3 id="sec-29">4.9 MS Paint — टूल्स सहित</h3>
+<div class="note-card">
+    <strong>MS Paint</strong> Windows के साथ मिलने वाला <strong>निःशुल्क रेखाचित्र (Drawing)</strong> प्रोग्राम है। इसकी डिफ़ॉल्ट फाइल एक्सटेंशन <strong>.bmp</strong> है (.jpg, .png भी समर्थित)।
+</div>
+<h4>मुख्य टूल्स (परीक्षा में सीधे पूछे जाते हैं ★):</h4>
+<table>
+    <tr><th>टूल</th><th>कार्य</th></tr>
+    <tr><td><strong>पेंसिल (Pencil)</strong></td><td><strong>स्वतंत्र रेखा</strong> खींचना</td></tr>
+    <tr><td><strong>ब्रश (Brush)</strong></td><td>विभिन्न प्रकार के ब्रश से <strong>चित्रकारी</strong></td></tr>
+    <tr><td><strong>इरेज़र (Eraser)</strong></td><td>बने चित्र को <strong>मिटाना</strong></td></tr>
+    <tr><td><strong>फिल विद कलर (पेंट बाल्टी 🪣)</strong></td><td>बंद क्षेत्र में <strong>रंग भरना</strong></td></tr>
+    <tr><td><strong>टेक्स्ट (A)</strong></td><td>चित्र में <strong>अक्षर</strong> लिखना</td></tr>
+    <tr><td><strong>कलर पिकर</strong></td><td>चित्र से कोई <strong>रंग चुनना</strong></td></tr>
+    <tr><td><strong>मैग्निफायर</strong></td><td>चित्र को <strong>ज़ूम</strong> करके देखना</td></tr>
+    <tr><td><strong>आकृतियाँ (Shapes)</strong></td><td><strong>रेखा, आयत, दीर्घवृत्त</strong> आदि बनाना</td></tr>
+</table>
+<h4>अन्य सुविधाएँ:</h4>
+<table>
+    <tr><th>सुविधा</th><th>कार्य</th></tr>
+    <tr><td><strong>क्रॉप</strong></td><td>चित्र का <strong>अनावश्यक भाग काटना</strong></td></tr>
+    <tr><td><strong>रीसाइज़</strong></td><td>चित्र का <strong>आकार बदलना</strong></td></tr>
+    <tr><td><strong>रोटेट</strong></td><td>चित्र को <strong>घुमाना</strong></td></tr>
+    <tr><td><strong>क्लिपबोर्ड</strong></td><td><strong>कट, कॉपी, पेस्ट</strong> करना</td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>रंग भरने वाला टूल</strong>" → <strong>Fill with Color (पेंट बाल्टी)</strong> — ट्रिक: <strong>"बाल्टी = भरो"</strong>।</li>
+        <li>"<strong>Paint की डिफ़ॉल्ट एक्सटेंशन</strong>" → <strong>.bmp</strong>।</li>
+        <li>"<strong>चित्र मिटाने</strong>" हेतु → <strong>इरेज़र</strong>; "<strong>रंग चुनने</strong>" हेतु → <strong>कलर पिकर</strong>।</li>
+    </ul>
+</div>
+<h3 id="sec-30">4.10 AI व डिजिटल शिक्षा शास्त्र</h3>
+<div class="note-card">
+    <strong>AI (Artificial Intelligence — कृत्रिम बुद्धिमत्ता)</strong> मशीनों में <strong>मानव जैसी सोचने, सीखने</strong> की क्षमता है। <strong>डिजिटल शिक्षा शास्त्र (Digital Pedagogy)</strong> तकनीक के माध्यम से <strong>पढ़ाने की कला व विज्ञान</strong> है। <strong>NEP 2020</strong> शिक्षा में तकनीक के उपयोग पर विशेष बल देता है।
+</div>
+<h4>शिक्षा में AI के उपयोग:</h4>
+<table>
+    <tr><th>उपयोग</th><th>विवरण</th></tr>
+    <tr><td><strong>व्यक्तिगत शिक्षण</strong></td><td>प्रत्येक छात्र की <strong>गति व स्तर</strong> के अनुसार सामग्री (Personalized Learning)</td></tr>
+    <tr><td><strong>वर्चुअल ट्यूटर</strong></td><td><strong>चैटबॉट</strong> द्वारा 24×7 प्रश्नों के उत्तर</td></tr>
+    <tr><td><strong>स्वचालित मूल्यांकन</strong></td><td>परीक्षाओं की <strong>तुरंत जाँच</strong> व फीडबैक</td></tr>
+    <tr><td><strong>भाषा अनुवाद</strong></td><td>सामग्री का <strong>कई भाषाओं</strong> में अनुवाद — बहुभाषी शिक्षा</td></tr>
+    <tr><td><strong>स्मार्ट कंटेंट</strong></td><td>पाठ्यपुस्तक का <strong>डिजिटल, इंटरैक्टिव</strong> रूप</td></tr>
+</table>
+<h4>लाभ व चुनौतियाँ:</h4>
+<table>
+    <tr><th>लाभ ✅</th><th>चुनौतियाँ ⚠️</th></tr>
+    <tr><td>कहीं भी, कभी भी <strong>सुलभ</strong> शिक्षा</td><td><strong>डिजिटल विभाजन</strong> (सबके पास तकनीक नहीं)</td></tr>
+    <tr><td>शिक्षक का <strong>समय</strong> बचता है</td><td>डेटा <strong>गोपनीयता</strong> का प्रश्न</td></tr>
+    <tr><td>छात्र की <strong>रुचि</strong> बढ़ती है</td><td>तकनीक पर <strong>अति-निर्भरता</strong> का खतरा</td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 परीक्षा ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>"<strong>AI का पूरा नाम</strong>" → <strong>Artificial Intelligence (कृत्रिम बुद्धिमत्ता)</strong>।</li>
+        <li>"<strong>शिक्षा में तकनीक पर बल</strong>" → <strong>NEP 2020</strong>।</li>
+        <li>"<strong>प्रत्येक छात्र के अनुसार शिक्षण</strong>" → <strong>व्यक्तिगत शिक्षण (Personalized Learning)</strong> — ट्रिक: <strong>"AI = स्मार्ट सहायक"</strong>।</li>
+    </ul>
+</div>
+<h3 id="sec-31">4.11 टैग वर्ड्स — पूरे अध्याय का ब्रह्मास्त्र ⚡</h3>
+<div class="note-card">
+    यह टॉपिक पूरे <strong>ICT अध्याय (4.1–4.10)</strong> के <strong>सबसे महत्वपूर्ण टैग वर्ड्स</strong> का संग्रह है। परीक्षा से ठीक पहले इन्हें ज़रूर दोहराएँ — प्रश्न इन्हीं शब्दों से बनते हैं!
+</div>
+<h4>🌐 इंटरनेट व वेब:</h4>
+<table>
+    <tr><th>टैग वर्ड</th><th>उत्तर</th></tr>
+    <tr><td>"नेटवर्कों का नेटवर्क"</td><td><strong>इंटरनेट</strong></td></tr>
+    <tr><td>"WWW के जनक"</td><td><strong>टिम बर्नर्स-ली (1989)</strong></td></tr>
+    <tr><td>"इंटरनेट सेवा देने वाली कंपनी"</td><td><strong>ISP</strong></td></tr>
+    <tr><td>"वेबसाइट का पता"</td><td><strong>URL</strong></td></tr>
+    <tr><td>"वेब पेज भेजने का नियम"</td><td><strong>HTTP</strong></td></tr>
+    <tr><td>"इंटरनेट की फोनबुक"</td><td><strong>DNS</strong></td></tr>
+    <tr><td>"वेबसाइट देखने का सॉफ्टवेयर"</td><td><strong>ब्राउज़र</strong></td></tr>
+    <tr><td>"जानकारी खोजने की सेवा"</td><td><strong>सर्च इंजन</strong></td></tr>
+</table>
+<h4>📧 ईमेल व साइबर सुरक्षा:</h4>
+<table>
+    <tr><th>टैग वर्ड</th><th>उत्तर</th></tr>
+    <tr><td>"पहला ईमेल"</td><td><strong>रे टॉमलिंसन (1971)</strong></td></tr>
+    <tr><td>"गुप्त प्रतिलिपि"</td><td><strong>BCC</strong></td></tr>
+    <tr><td>"बिना भेजे मेल"</td><td><strong>Drafts</strong></td></tr>
+    <tr><td>"नकली ईमेल से जानकारी चुराना"</td><td><strong>फ़िशिंग</strong></td></tr>
+    <tr><td>"फिरौती माँगने वाला"</td><td><strong>रैनसमवेयर</strong></td></tr>
+    <tr><td>"उपयोगी दिखने वाला धोखा"</td><td><strong>ट्रोजन हॉर्स</strong></td></tr>
+    <tr><td>"नेटवर्क की सुरक्षा दीवार"</td><td><strong>फायरवॉल</strong></td></tr>
+</table>
+<h4>🎓 डिजिटल शिक्षा व अन्य:</h4>
+<table>
+    <tr><th>टैग वर्ड</th><th>उत्तर</th></tr>
+    <tr><td>"DIKSHA का पूरा नाम"</td><td><strong>Digital Infrastructure for Knowledge Sharing</strong></td></tr>
+    <tr><td>"DIKSHA विकसित / लॉन्च"</td><td><strong>NCERT / 2017</strong></td></tr>
+    <tr><td>"QR कोड वाली किताबें"</td><td><strong>Energized Textbooks</strong></td></tr>
+    <tr><td>"NISHTHA लॉन्च"</td><td><strong>2019-20</strong></td></tr>
+    <tr><td>"NISHTHA 3.0"</td><td><strong>FLN / NIPUN Bharat</strong></td></tr>
+    <tr><td>"Zoom के संस्थापक"</td><td><strong>एरिक युआन</strong></td></tr>
+    <tr><td>"रंग भरने वाला टूल"</td><td><strong>Fill with Color</strong></td></tr>
+    <tr><td>"AI का पूरा नाम"</td><td><strong>Artificial Intelligence</strong></td></tr>
+</table>
+<div class="highlight-box">
+    <strong>💡 अंतिम ब्रह्मास्त्र:</strong>
+    <ul>
+        <li>परीक्षा में <strong>उद्धरण चिह्न ("...") वाला वाक्य</strong> दिखे → तुरंत यह तालिका याद करें!</li>
+        <li>ट्रिक: <strong>I = देने वाला, U = पता, H = नियम, B = छिपा, G = सरकारी</strong>।</li>
+        <li>अब <strong>अध्याय 4 पूर्ण!</strong> 🎉 — अगले चरण में <strong>अध्याय 5 (शिक्षा मनोविज्ञान)</strong> शुरू करेंगे।</li>
+    </ul>
+</div>
+<h3 id="sec-32">4.12 प्रैक्टिस सेट — 30 प्रश्नों का इंटरैक्टिव सेट</h3>
+<div id="quiz-scoreboard" class="top-Fact-bar no-print" style="background: linear-gradient(90deg, #115e59, #0f766e); position: sticky; top: 10px; z-index: 50; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                <div>
+                    <strong>📊 लाइव स्कोरकार्ड:</strong> हल किए गए: <span id="attempted-count">0</span>/30 | सही उत्तर: <span id="correct-count" style="color: #fde68a; font-size: 1.1rem;">0</span>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button onclick="showAllAnswers()" class="print-btn" style="background: #ffffff; color: #0f766e;">👁️ सभी उत्तर व व्याख्या देखें</button>
+                    <button onclick="resetQuiz()" class="print-btn">🔄 रीसेट करें</button>
+                </div>
+            </div>
+
+            <style>
+                .mcq-card { background: #ffffff; border: 1px solid var(--border); border-left: 5px solid var(--primary); border-radius: 12px; padding: 20px 24px; margin-bottom: 22px; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+                .mcq-q { font-weight: 700; font-size: 1.05rem; color: var(--text-dark); margin-bottom: 14px; }
+                .mcq-options { display: grid; grid-template-columns: 1fr; gap: 10px; }
+                .mcq-btn { text-align: left; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 11px 16px; font-family: inherit; font-size: 0.96rem; color: #1e293b; cursor: pointer; transition: all 0.15s ease; }
+                .mcq-btn:hover:not(:disabled) { background: #f0fdfa; border-color: var(--primary-light); }
+                .mcq-btn.correct { background: #d1fae5 !important; border-color: #10b981 !important; color: #065f46 !important; font-weight: 700; }
+                .mcq-btn.wrong { background: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+                .mcq-exp { display: none; margin-top: 14px; padding: 14px 18px; background: #fef3c7; border-left: 4px solid var(--accent); border-radius: 6px; font-size: 0.93rem; color: #78350f; }
+                @media print { .mcq-exp { display: block !important; } }
+
+            </style>
+
+            <div class="mcq-card" data-ans="0">
+                <div class="mcq-q">प्रश्न 1. कंप्यूटर शब्द की उत्पत्ति किस भाषा के किस शब्द से हुई है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) लैटिन — Computare (गणना करना)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) ग्रीक — Computos</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) फ्रेंच — Compter</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) अंग्रेजी — Count</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> कंप्यूटर शब्द लैटिन भाषा के 'Computare' से बना है, जिसका अर्थ है — गणना करना।</div>
+            </div>
+            <div class="mcq-card" data-ans="0">
+                <div class="mcq-q">प्रश्न 2. कंप्यूटर के जनक (Father of Computer) किसे कहा जाता है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) चार्ल्स बैबेज</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) एलन ट्यूरिंग</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) बिल गेट्स</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) स्टीव जॉब्स</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> चार्ल्स बैबेज ने डिफरेंस इंजन व एनालिटिकल इंजन का सिद्धांत दिया; अतः वे कंप्यूटर के जनक कहलाते हैं।</div>
+            </div>
+            <div class="mcq-card" data-ans="1">
+                <div class="mcq-q">प्रश्न 3. कंप्यूटर की प्रथम पीढ़ी की मुख्य तकनीक क्या थी?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) ट्रांजिस्टर</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) वैक्यूम ट्यूब</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) एकीकृत परिपथ (IC)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) माइक्रोप्रोसेसर</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> प्रथम पीढ़ी (1940–56) वैक्यूम ट्यूब पर आधारित थी; उदाहरण — ENIAC, UNIVAC।</div>
+            </div>
+            <div class="mcq-card" data-ans="2">
+                <div class="mcq-q">प्रश्न 4. माइक्रोप्रोसेसर का प्रयोग कंप्यूटर की किस पीढ़ी में हुआ?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) द्वितीय</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) तृतीय</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) चतुर्थ</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) प्रथम</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> चतुर्थ पीढ़ी (1971 से) माइक्रोप्रोसेसर (VLSI) पर आधारित है; पहला — Intel 4004 (1971)।</div>
+            </div>
+            <div class="mcq-card" data-ans="1">
+                <div class="mcq-q">प्रश्न 5. 1 बाइट में कितने बिट होते हैं?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) 4 बिट</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) 8 बिट</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) 16 बिट</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) 1024 बिट</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> 8 बिट = 1 बाइट; 4 बिट = 1 निबल कहलाता है।</div>
+            </div>
+            <div class="mcq-card" data-ans="2">
+                <div class="mcq-q">प्रश्न 6. 1 GB किसके बराबर होता है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) 1024 KB</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) 1000 MB</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) 1024 MB</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) 1024 TB</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> 1024 बाइट = 1 KB; 1024 KB = 1 MB; 1024 MB = 1 GB।</div>
+            </div>
+            <div class="mcq-card" data-ans="0">
+                <div class="mcq-q">प्रश्न 7. CPU का पूर्ण रूप क्या है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) Central Processing Unit</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) Computer Personal Unit</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) Central Program Utility</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) Control Processing Unit</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> CPU = Central Processing Unit; इसे कंप्यूटर का 'मस्तिष्क' कहा जाता है।</div>
+            </div>
+            <div class="mcq-card" data-ans="1">
+                <div class="mcq-q">प्रश्न 8. ALU का मुख्य कार्य क्या है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) डेटा संग्रहित करना</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) गणितीय व तार्किक क्रियाएँ करना</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) इनपुट लेना</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) प्रिंट करना</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> ALU (Arithmetic Logic Unit) जोड़-घटाव व तुलना जैसी गणितीय-तार्किक क्रियाएँ करता है।</div>
+            </div>
+            <div class="mcq-card" data-ans="1">
+                <div class="mcq-q">प्रश्न 9. RAM की प्रमुख विशेषता क्या है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) स्थायी स्मृति है</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) अस्थायी/वोलाटाइल स्मृति है</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) केवल पढ़ी जा सकती है</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) बाहरी मेमोरी है</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> RAM अस्थायी (वोलाटाइल) मेमोरी है — बिजली जाते ही डेटा मिट जाता है; ROM स्थायी होती है।</div>
+            </div>
+            <div class="mcq-card" data-ans="3">
+                <div class="mcq-q">प्रश्न 10. निम्न में से कौन सी इनपुट डिवाइस नहीं है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) कीबोर्ड</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) माउस</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) स्कैनर</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) मॉनिटर</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> मॉनिटर आउटपुट डिवाइस है; कीबोर्ड, माउस, स्कैनर इनपुट डिवाइस हैं।</div>
+            </div>
+            <div class="mcq-card" data-ans="2">
+                <div class="mcq-q">प्रश्न 11. किसी टेक्स्ट को पेस्ट करने की शॉर्टकट कुंजी क्या है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) Ctrl + C</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) Ctrl + X</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) Ctrl + V</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) Ctrl + P</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> Ctrl+C = कॉपी, Ctrl+X = कट, Ctrl+V = पेस्ट, Ctrl+P = प्रिंट।</div>
+            </div>
+            <div class="mcq-card" data-ans="1">
+                <div class="mcq-q">प्रश्न 12. अंतिम कार्य को पूर्ववत (Undo) करने की शॉर्टकट कुंजी क्या है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) Ctrl + Y</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) Ctrl + Z</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) Ctrl + S</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) Ctrl + A</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> Ctrl+Z = Undo (पूर्ववत), Ctrl+Y = Redo (पुनः करें)।</div>
+            </div>
+            <div class="mcq-card" data-ans="1">
+                <div class="mcq-q">प्रश्न 13. PowerPoint में स्लाइड शो शुरू करने के लिए कौन सी कुंजी दबाते हैं?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) नई स्लाइड</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) स्लाइड शो शुरू</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) सेव</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) प्रिंट</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> F5 दबाने से स्लाइड शो शुरू होता है; Esc से बंद होता है।</div>
+            </div>
+            <div class="mcq-card" data-ans="1">
+                <div class="mcq-q">प्रश्न 14. PowerPoint में नई स्लाइड जोड़ने की शॉर्टकट कुंजी क्या है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) Ctrl + N</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) Ctrl + M</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) Ctrl + S</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) F5</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> Ctrl+M = नई स्लाइड; Ctrl+N = नया प्रेजेंटेशन/दस्तावेज़।</div>
+            </div>
+            <div class="mcq-card" data-ans="1">
+                <div class="mcq-q">प्रश्न 15. MS Excel में फॉर्मूला किस चिह्न से शुरू होता है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) +</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) =</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) @</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) #</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> Excel में हर फॉर्मूला '=' से शुरू होता है, जैसे =SUM(A1:A5)।</div>
+            </div>
+            <div class="mcq-card" data-ans="1">
+                <div class="mcq-q">प्रश्न 16. MS Word किस प्रकार का सॉफ्टवेयर है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) स्प्रेडशीट</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) वर्ड प्रोसेसर</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) वेब ब्राउजर</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) एंटीवायरस</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> MS Word वर्ड प्रोसेसर है (दस्तावेज़ बनाना/संपादन); Excel स्प्रेडशीट है।</div>
+            </div>
+            <div class="mcq-card" data-ans="0">
+                <div class="mcq-q">प्रश्न 17. WWW का पूर्ण रूप क्या है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) World Wide Web</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) World Web Wide</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) Web World Wide</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) Wide World Web</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> WWW = World Wide Web; इसके जनक टिम बर्नर्स-ली (1989) हैं।</div>
+            </div>
+            <div class="mcq-card" data-ans="2">
+                <div class="mcq-q">प्रश्न 18. निम्न में से सर्च इंजन कौन सा है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) Chrome</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) Firefox</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) Google</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) Edge</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> Google व Bing सर्च इंजन हैं; Chrome, Firefox, Edge वेब ब्राउजर हैं।</div>
+            </div>
+            <div class="mcq-card" data-ans="1">
+                <div class="mcq-q">प्रश्न 19. ईमेल में CC का अर्थ क्या है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) Common Copy</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) Carbon Copy</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) Computer Copy</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) Central Copy</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> CC = Carbon Copy (प्रतिलिपि); BCC = Blind Carbon Copy।</div>
+            </div>
+            <div class="mcq-card" data-ans="1">
+                <div class="mcq-q">प्रश्न 20. DIKSHA मंच किससे संबंधित है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) शिक्षक वेतन</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) डिजिटल पाठ्यसामग्री मंच</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) परीक्षा बोर्ड</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) छात्रवृत्ति</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> DIKSHA (NCERT) स्कूली शिक्षा हेतु डिजिटल पाठ्यसामग्री का राष्ट्रीय मंच है।</div>
+            </div>
+
+            <div class="mcq-card" data-ans="0">
+                <div class="mcq-q">प्रश्न 21. DNS का पूर्ण रूप क्या है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) Domain Name System</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) Data Network Service</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) Digital Name Server</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) Dynamic Network System</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> DNS = Domain Name System — वेबसाइट के नाम को IP पते में बदलता है; इसे "इंटरनेट की फोनबुक" कहते हैं।</div>
+            </div>
+
+            <div class="mcq-card" data-ans="2">
+                <div class="mcq-q">प्रश्न 22. निम्न में से वेब ब्राउज़र कौन सा है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) Google</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) Bing</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) Firefox</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) Yahoo</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> Firefox, Chrome, Edge वेब ब्राउज़र हैं; Google, Bing, Yahoo सर्च इंजन हैं।</div>
+            </div>
+
+            <div class="mcq-card" data-ans="1">
+                <div class="mcq-q">प्रश्न 23. ईमेल पते में '@' चिह्न का क्या अर्थ है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) and the rest</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) at the rate</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) at the ratio</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) all together</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> '@' का अर्थ "at the rate" है; जैसे — ram@gmail.com।</div>
+            </div>
+
+            <div class="mcq-card" data-ans="3">
+                <div class="mcq-q">प्रश्न 24. बिना भेजे गए (अधूरे) ईमेल किस फोल्डर में सहेजे जाते हैं?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) Inbox</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) Sent</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) Spam</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) Drafts</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> Drafts = बिना भेजे/अधूरे मेल; Inbox = आने वाले मेल; Sent = भेजे गए मेल।</div>
+            </div>
+
+            <div class="mcq-card" data-ans="0">
+                <div class="mcq-q">प्रश्न 25. नकली ईमेल/वेबसाइट से गुप्त जानकारी चुराने को क्या कहते हैं?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) फ़िशिंग</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) स्पैमिंग</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) ब्राउज़िंग</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) बुकमार्किंग</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> फ़िशिंग = नकली ईमेल/वेबसाइट से पासवर्ड, OTP आदि गुप्त जानकारी चुराना।</div>
+            </div>
+
+            <div class="mcq-card" data-ans="1">
+                <div class="mcq-q">प्रश्न 26. डेटा बंधक बनाकर फिरौती माँगने वाला मैलवेयर कौन सा है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) वर्म</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) रैनसमवेयर</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) स्पाइवेयर</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) एडवेयर</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> रैनसमवेयर डेटा को बंधक बनाकर फिरौती (Ransom) माँगता है।</div>
+            </div>
+
+            <div class="mcq-card" data-ans="2">
+                <div class="mcq-q">प्रश्न 27. NISHTHA कार्यक्रम किससे संबंधित है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) छात्रवृत्ति योजना</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) मध्याह्न भोजन योजना</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) शिक्षक प्रशिक्षण</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) खेल प्रतियोगिता</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> NISHTHA = शिक्षकों व स्कूल प्रमुखों के समग्र विकास हेतु राष्ट्रीय प्रशिक्षण पहल।</div>
+            </div>
+
+            <div class="mcq-card" data-ans="3">
+                <div class="mcq-q">प्रश्न 28. Zoom वीडियो प्लेटफॉर्म के संस्थापक कौन हैं?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) सुंदर पिचाई</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) बिल गेट्स</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) मार्क जुकरबर्ग</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) एरिक युआन</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> Zoom के संस्थापक एरिक युआन हैं।</div>
+            </div>
+
+            <div class="mcq-card" data-ans="1">
+                <div class="mcq-q">प्रश्न 29. MS Paint में बंद क्षेत्र में रंग भरने वाला टूल कौन सा है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) इरेज़र</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) Fill with Color</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) मैग्निफायर</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) कलर पिकर</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> Fill with Color (पेंट बाल्टी) बंद क्षेत्र में रंग भरता है।</div>
+            </div>
+
+            <div class="mcq-card" data-ans="0">
+                <div class="mcq-q">प्रश्न 30. AI का पूर्ण रूप क्या है?</div>
+                <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) Artificial Intelligence</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) Automatic Internet</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) Advanced Information</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) Active Intelligence</button>
+                </div>
+                <div class="mcq-exp"><strong>व्याख्या:</strong> AI = Artificial Intelligence (कृत्रिम बुद्धिमत्ता)।</div>
+            </div>
+        
+</div>
+<div class="readings-box"><h3 id="sec-33">📖 अनुशंसित प्रामाणिक संदर्भ ग्रंथ</h3><ul><li>SCERT/NCERT कंप्यूटर पाठ्यपुस्तकें (कक्षा 6–8)</li><li>प्रतियोगी परीक्षाओं हेतु <em>कंप्यूटर ज्ञान</em> गाइड</li><li>DIKSHA पोर्टल — डिजिटल शिक्षा पाठ्यसामग्री</li><li>NEP 2020 — डिजिटल शिक्षा खंड</li></ul></div>
+</div>
+<script>
+let attempted=0,correct=0;
+function checkAns(btn,i){const c=btn.closest('.mcq-card'),a=parseInt(c.getAttribute('data-ans')),bs=c.querySelectorAll('.mcq-btn'),e=c.querySelector('.mcq-exp');bs.forEach(b=>b.disabled=true);attempted++;if(i===a){btn.classList.add('correct');correct++;}else{btn.classList.add('wrong');bs[a].classList.add('correct');}e.style.display='block';upd();}
+function upd(){document.getElementById('attempted-count').innerText=attempted;document.getElementById('correct-count').innerText=correct;}
+function showAllAnswers(){document.querySelectorAll('.mcq-card').forEach(c=>{const a=parseInt(c.getAttribute('data-ans'));c.querySelectorAll('.mcq-btn')[a].classList.add('correct');c.querySelector('.mcq-exp').style.display='block';});}
+function resetQuiz(){attempted=0;correct=0;upd();document.querySelectorAll('.mcq-card').forEach(c=>{c.querySelectorAll('.mcq-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong');});c.querySelector('.mcq-exp').style.display='none';});}
+window.addEventListener('scroll',function(){var h=document.documentElement;document.getElementById('read-progress').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';document.getElementById('toTop').style.display=h.scrollTop>600?'block':'none';},{passive:true});
+</script>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script><script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
+</html>
