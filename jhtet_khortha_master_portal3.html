@@ -1,0 +1,2076 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JHTET 2026 Level-2: भाषा-2 क्षेत्रीय भाषा खोरठा (30 अंक) | मास्टर अध्ययन पोर्टल</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f766e;          /* गहरा टील/एमराल्ड */
+            --primary-dark: #115e59;
+            --primary-light: #14b8a6;
+            --accent: #d97706;           /* स्वर्णिम एम्बर */
+            --bg-main: #f0fdfa;
+            --surface: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border: #cbd5e1;
+            --card-bg: #f8fafc;
+            --highlight: #fef3c7;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.85;
+            margin: 0;
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 12px 30px -5px rgba(15, 118, 110, 0.1), 0 8px 12px -6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #99f6e4;
+        }
+
+        header {
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 24px;
+            margin-bottom: 34px;
+            text-align: center;
+        }
+
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ccfbf1;
+            color: var(--primary-dark);
+            padding: 5px 15px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            border: 1px solid #5eead4;
+        }
+
+        .badge-amber {
+            background: #fef3c7;
+            color: #92400e;
+            border-color: #fde68a;
+        }
+
+        h1 {
+            color: var(--primary-dark);
+            font-size: 2.15rem;
+            margin: 0 0 10px 0;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .top-Fact-bar {
+            background: linear-gradient(90deg, #0f766e, #047857);
+            color: #ffffff;
+            padding: 14px 22px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 0.92rem;
+        }
+
+        .print-btn {
+            background: #fbbf24;
+            color: #0f172a;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .print-btn:hover {
+            background: #f59e0b;
+            transform: translateY(-1px);
+        }
+
+        /* मास्टर इंडेक्स स्टाइलिंग */
+        .index-container {
+            background: #ffffff;
+            border: 2px solid #99f6e4;
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 44px;
+            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.06);
+        }
+
+        .index-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #ccfbf1;
+            padding-bottom: 12px;
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .index-title {
+            color: var(--primary-dark);
+            font-size: 1.45rem;
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .unit-index-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 6px solid var(--primary);
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin-bottom: 18px;
+            transition: all 0.2s ease;
+        }
+
+        .unit-index-card:hover {
+            background: #f0fdfa;
+            border-color: var(--primary-light);
+            transform: translateX(4px);
+        }
+
+        .unit-index-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .unit-index-header a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-size: 1.18rem;
+            font-weight: 800;
+        }
+
+        .unit-index-header a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .marks-pill {
+            background: var(--primary-dark);
+            color: #ffffff;
+            padding: 3px 12px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .subtopic-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 6px 18px;
+            margin: 0;
+            padding-left: 20px;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        /* कंटेंट एरिया स्टाइल्स */
+        .unit-section {
+            margin-bottom: 54px;
+            border-bottom: 2px dashed var(--border);
+            padding-bottom: 42px;
+        }
+
+        h2 {
+            color: var(--primary-dark);
+            font-size: 1.6rem;
+            border-left: 6px solid var(--accent);
+            padding-left: 14px;
+            margin-top: 38px;
+            margin-bottom: 18px;
+            font-weight: 800;
+        }
+
+        h3 {
+            color: #1e293b;
+            font-size: 1.28rem;
+            margin-top: 26px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 6px;
+        }
+
+        h4 {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        p {
+            margin: 12px 0;
+            color: #1e293b;
+            text-align: justify;
+        }
+
+        ul, ol {
+            padding-left: 26px;
+            margin: 12px 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .note-card {
+            background: #f0fdfa;
+            border-left: 5px solid var(--primary);
+            padding: 18px 22px;
+            margin: 22px 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.98rem;
+            border-top: 1px solid #99f6e4;
+            border-bottom: 1px solid #99f6e4;
+            border-right: 1px solid #99f6e4;
+        }
+
+        .highlight-box {
+            background: var(--highlight);
+            border: 1px solid #fde68a;
+            border-left: 5px solid var(--accent);
+            padding: 18px 22px;
+            border-radius: 10px;
+            margin: 22px 0;
+            font-size: 0.96rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.94rem;
+        }
+
+        th {
+            background: #ccfbf1;
+            color: var(--primary-dark);
+            text-align: left;
+            padding: 12px;
+            border: 1px solid #99f6e4;
+            font-weight: 800;
+        }
+
+        td {
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .readings-box {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 50px;
+            border: 1px solid var(--border);
+        }
+
+        .readings-box h3 {
+            margin-top: 0;
+            color: var(--primary-dark);
+            border: none;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; border: none; max-width: 100%; padding: 10px; }
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 20px 16px; }
+            h1 { font-size: 1.65rem; }
+            .subtopic-list { grid-template-columns: 1fr; }
+        }
+    
+        /* ===== Master Index: clickable topics ===== */
+        .subtopic-list li { transition: background .15s ease; border-radius: 6px; }
+        .subtopic-list li:hover { background: #f0fdfa; }
+        .subtopic-list li a.idx-link { color: inherit; text-decoration: none; display: block; padding: 2px 6px; margin-left: -6px; }
+        .subtopic-list li a.idx-link:hover { color: var(--primary-dark); font-weight: 600; }
+        h3[id^="sec-"] { scroll-margin-top: 18px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="badge-group">
+                <span class="badge">JAC JHTET 2026 | नया आधिकारिक सिलेबस (14.03.2026)</span>
+                <span class="badge">उच्च प्राथमिक स्तर (कक्षा 6 से 8): 30 प्रश्न = 30 अंक</span>
+            </div>
+            <h1>🌾 भाषा-2 (क्षेत्रीय भाषा): खोरठा (Khortha)</h1>
+            <p class="subtitle">परीक्षा-प्रयुक्त लिपि: देवनागरी | संपूर्ण व्याकरण, शब्दावली, लोक/शिष्ट साहित्य एवं भाषा-शिक्षणशास्त्र इनसाइक्लोपीडिया</p>
+        </header>
+
+        <!-- टॉप एक्शन बार -->
+        <div class="top-Fact-bar no-print">
+            <div>
+                <strong>🎯 लक्ष्य:</strong> खोरठा में 30 में से 28+ अंक | <strong>सिलेबस आधार:</strong> JAC JHTET 2026 (पृष्ठ सं. 14 — सभी 9 बिंदु)
+            </div>
+            <button onclick="window.print()" class="print-btn">🖨️ PDF सेव / प्रिंट करें</button>
+        </div>
+
+        <!-- ==================== मास्टर इंडेक्स (MASTER INDEX) ==================== -->
+        <div class="index-container" id="top-index">
+            <div class="index-header">
+                <h2 class="index-title" style="border:none; padding:0; margin:0;">📚 मास्टर विषय-सूची (Master Index — JAC 2026 Syllabus)</h2>
+                <span style="font-size: 0.9rem; color: var(--primary-dark); font-weight: 700;">कुल 4 इकाइयाँ (9 पाठ्यक्रम बिंदु | 30 अंक)</span>
+            </div>
+
+            <!-- Unit 1 Index -->
+            <div class="unit-index-card">
+                <div class="unit-index-header">
+                    <a href="#unit1">इकाई 1 (Unit 1): खोरठा भाषा परिचय, देवनागरी ध्वनि-वर्तनी एवं विस्तृत व्यावहारिक शब्दावली</a>
+                    <span class="marks-pill">पाठ्यक्रम बिंदु 1, 2 व 3 | ~8 अंक</span>
+                </div>
+                <ul class="subtopic-list">
+                    <li><a class="idx-link" href="#sec-1">1.1 खोरठा भाषा का उद्भव, नामकरण (खरोष्ठी मत - ए.के. झा) एवं भाषा-परिवार</a></li>
+                    <li><a class="idx-link" href="#sec-2">1.2 भाषिक क्षेत्र (उत्तरी छोटानागपुर व संथाल परगना के 16 जिले) एवं 6 क्षेत्रीय भेद</a></li>
+                    <li><a class="idx-link" href="#sec-3">1.3 देवनागरी आधारित लेखन-प्रस्तुति: खोरठा के 8 स्वर एवं 29/31 व्यंजन ध्वनियाँ</a></li>
+                    <li><a class="idx-link" href="#sec-4">1.4 हिंदी-खोरठा ध्वनि रूपांतरण नियम (ष/श→स, व→ब, ण→न, ऋ→रि, क्ष→छ/ख)</a></li>
+                    <li><a class="idx-link" href="#sec-5">1.5 विस्तृत शब्दावली (भाग-1): परिवार व रिश्तेदारी, शरीर के अंग, घर-गृहस्थी व बर्तन</a></li>
+                    <li><a class="idx-link" href="#sec-6">1.6 विस्तृत शब्दावली (भाग-2): गाँव-खेती, प्रकृति, पशु-पक्षी, रंग, संख्या व समय</a></li>
+                    <li><a class="idx-link" href="#sec-7">1.7 दैनिक व्यवहार के खोरठा क्रिया-पद, ठेठ शब्द एवं मुहावरे/लोकोक्तियाँ (पटतोर/आहना)</a></li>
+                </ul>
+            </div>
+
+            <!-- Unit 2 Index -->
+            <div class="unit-index-card">
+                <div class="unit-index-header">
+                    <a href="#unit2">इकाई 2 (Unit 2): खोरठा व्याकरण का क्रियात्मक अध्ययन (Functional Grammar)</a>
+                    <span class="marks-pill">पाठ्यक्रम बिंदु 4 | ~10 अंक</span>
+                </div>
+                <ul class="subtopic-list">
+                    <li><a class="idx-link" href="#sec-8">2.1 संज्ञा (संइज्ञा - 5 भेद) एवं सर्वनाम (सरवनाम - हम, तोहें, ई, उ, के, की)</a></li>
+                    <li><a class="idx-link" href="#sec-9">2.2 लिंग-विधान (पुल्लिंग-स्त्रीलिंग प्रत्यय) एवं वचन परिवर्तन ('इन/ऐन/गुला/गुलिन')</a></li>
+                    <li><a class="idx-link" href="#sec-10">2.3 कारक एवं विभक्ति-चिह्न (कर्ता 'ए', कर्म 'के/रा', संबंध 'क/कर/र', अधिकरण 'ए/में')</a></li>
+                    <li><a class="idx-link" href="#sec-11">2.4 विशेषण (बिसेसन - 4 भेद) एवं क्रिया (करिया - मूल व सहायक क्रियाएँ)</a></li>
+                    <li><a class="idx-link" href="#sec-12">2.5 काल (बीतल/भूत, चलित/वर्तमान, आवेवाला/भविष्यत काल के रूप)</a></li>
+                    <li><a class="idx-link" href="#sec-13">2.6 उपसर्ग (अदतिया) एवं प्रत्यय (पछतिया) तथा शुद्ध खोरठा वाक्य-रचना</a></li>
+                </ul>
+            </div>
+
+            <!-- Unit 3 Index -->
+            <div class="unit-index-card">
+                <div class="unit-index-header">
+                    <a href="#unit3">इकाई 3 (Unit 3): खोरठा लोकसाहित्य, शिष्ट साहित्य (गद्य-पद्य), साहित्यकार एवं पठन-लेखन कौशल</a>
+                    <span class="marks-pill">पाठ्यक्रम बिंदु 5, 6 व 7 | ~7 अंक</span>
+                </div>
+                <ul class="subtopic-list">
+                    <li><a class="idx-link" href="#sec-14">3.1 खोरठा लोकसाहित्य: लोकगीत (सोहराय, करमा, टुसू, बिहा), लोककथा एवं लोकगाथा</a></li>
+                    <li><a class="idx-link" href="#sec-15">3.2 प्रमुख साहित्यकार एवं कृतियाँ: श्रीनिवास पानुरी, ए.के. झा, डॉ. बी.एन. ओहदार, विश्वनाथ दसोंधी 'राज', सुकुमार, श्याम सुंदर महतो, संतोष कुमार महतो आदि</a></li>
+                    <li><a class="idx-link" href="#sec-16">3.3 प्रमुख गद्य एवं पद्य कृतियों का परिचय (मेघदूत, दामोदरक कोरांय, आंखि की गीत, डाह, अजगर, छँइहर, सोंध माटी)</a></li>
+                    <li><a class="idx-link" href="#sec-17">3.4 झारखंड की सांस्कृतिक विरासत, पर्व-त्योहार एवं समुदाय-संदर्भ</a></li>
+                    <li><a class="idx-link" href="#sec-18">3.5 पठन-बोध (गद्यांश/पद्यांश/संवाद), पत्र/आवेदन प्रारूप एवं हिंदी-खोरठा अनुवाद</a></li>
+                </ul>
+            </div>
+
+            <!-- Unit 4 Index -->
+            <div class="unit-index-card">
+                <div class="unit-index-header">
+                    <a href="#unit4">इकाई 4 (Unit 4): बहुभाषी कक्षा में खोरठा भाषा-शिक्षण (NEP 2020) एवं 30 प्रश्नों का मास्टर प्रैक्टिस सेट</a>
+                    <span class="marks-pill">पाठ्यक्रम बिंदु 8 व 9 + प्रैक्टिस | ~5 अंक</span>
+                </div>
+                <ul class="subtopic-list">
+                    <li><a class="idx-link" href="#sec-19">4.1 बहुभाषी कक्षा में खोरठा भाषा-शिक्षण की आधारभूत प्रासंगिकता एवं सेतु (Bridge) उपयोग</a></li>
+                    <li><a class="idx-link" href="#sec-20">4.2 नई शिक्षा नीति (NEP 2020) में मातृभाषा/क्षेत्रीय भाषा, द्विभाषिक सामग्री व स्थानीय ज्ञान</a></li>
+                    <li><a class="idx-link" href="#sec-21">4.3 व्याख्या सहित 30 उच्च-स्तरीय खोरठा बहुविकल्पीय प्रश्न (Interactive Master Quiz)</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ==================== CONTENT AREA ==================== -->
+        <!-- ==================== UNIT 1 (SYLLABUS POINTS 1, 2 & 3) ==================== -->
+        <div id="unit1" class="unit-section">
+            <h2>इकाई 1 (Unit 1): खोरठा भाषा परिचय, देवनागरी लेखन-वर्तनी एवं विस्तृत व्यावहारिक शब्दावली</h2>
+
+            <p><strong>पाठ्यक्रम संदर्भ (JAC JHTET 2026 - Level 2):</strong> यह इकाई आपके आधिकारिक पाठ्यक्रम के <strong>बिंदु 1</strong> <em>(खोरठा भाषा, भाषिक क्षेत्र एवं समुदाय-संदर्भ का परिचय)</em>, <strong>बिंदु 2</strong> <em>(देवनागरी आधारित लेखन-प्रस्तुति, रूपांतरण, उच्चारण और वर्तनी)</em> तथा <strong>बिंदु 3</strong> <em>(विस्तृत शब्दावली एवं व्यावहारिक प्रयोग)</em> को 100% कवर करती है।</p>
+
+            <!-- ---------------- 1.1 ---------------- -->
+            <h3 id="sec-1">1.1 खोरठा भाषा का परिचय, उद्भव, नामकरण एवं समुदाय-संदर्भ</h3>
+            <p><strong>खोरठा (Khortha)</strong> झारखंड राज्य के सबसे बड़े भौगोलिक क्षेत्र और सर्वाधिक जनसंख्या द्वारा बोली जाने वाली एक प्रमुख <strong>'सदानी' (Sadani / मूलवासी गैर-जनजातीय एवं जनजातीय संपर्क भाषा)</strong> और क्षेत्रीय भाषा है। झारखंड सरकार द्वारा इसे <strong>द्वितीय राजभाषा</strong> का दर्जा प्रदान किया गया है।</p>
+
+            <div class="note-card">
+                <strong>★ खोरठा के नामकरण एवं उद्भव के प्रमुख सिद्धांत (परीक्षा में सर्वाधिक पूछे जाने वाले तथ्य):</strong>
+                <ul>
+                    <li><strong>1. 'खरोष्ठी' लिपि से उद्भव का सिद्धांत (सर्वमान्य मत ★★):</strong> खोरठा के महान भाषा-वैज्ञानिक और मौसम विज्ञानी <strong>डॉ. ए.के. झा (अजीत कुमार झा)</strong> के अनुसार, प्राचीन भारतीय लिपि <strong>'खरोष्ठी'</strong> से ही ध्वनि-परिवर्तन के क्रम में खोरठा शब्द बना है:<br>
+                    <p style="text-align:center; font-weight:800; color:var(--primary-dark); margin:8px 0;">
+                        खरोष्ठी → खरोठी → खराठी → खोरठा
+                    </p></li>
+                    <li><strong>2. 'खरौंधा' या 'खोरहा' से संबंध:</strong> कुछ विद्वानों के अनुसार यह 'खोर' (गाँव की गली/टोला) में बसने वाले आम जनमानस की भाषा होने के कारण 'खोरठा' कहलाई।</li>
+                    <li><strong>3. भाषा-परिवार एवं संबंध ★:</strong>
+                        <ul>
+                            <li><strong>डॉ. ए.के. झा और कृष्ण चंद्र दास 'आला' का मत:</strong> इन्होंने खोरठा को भारत की प्राचीनतम अनार्य (प्राक्-आर्य / सिंधु घाटी सभ्यता एवं आग्नेय/द्रविड़) भाषा-परंपरा से जुड़ा माना है।</li>
+                            <li><strong>जॉर्ज अब्राहम ग्रियर्सन (Linguistic Survey of India) व आधुनिक भाषाविदों का मत:</strong> भाषा-परिवार की दृष्टि से खोरठा <strong>भारोपीय (Indo-Aryan) भाषा-परिवार</strong> की <strong>'मागधी प्राकृत' (पूर्वी शाखा)</strong> से विकसित हुई है। इसे <em>अर्ध-मागधी / मागधी अपभ्रंश</em> की संतान माना जाता है।</li>
+                        </ul>
+                    </li>
+                    <li><strong>4. सदान एवं जनजातीय संपर्क भाषा (Lingua Franca):</strong> खोरठा न केवल सदान समुदायों (कुड़मी/महतो, कोइरी, तेली, घटवार, रजवार, गोप, विश्वकर्मा, ब्राह्मण, मुस्लिम आदि) की मातृभाषा है, बल्कि यह संथाल, मुंडा, उराँव, बिरहोर और करमाली जैसी जनजातियों के साथ आपसी संवाद की <strong>मुख्य संपर्क भाषा (Sadani Link Language)</strong> भी है।</li>
+                </ul>
+            </div>
+
+            <!-- ---------------- 1.2 ---------------- -->
+            <h3 id="sec-2">1.2 खोरठा का भाषिक क्षेत्र (16 जिले) एवं 6 प्रमुख क्षेत्रीय भेद (बोलियाँ)</h3>
+            <p>झारखंड के कुल 24 जिलों में से <strong>3 प्रमंडलों (उत्तरी छोटानागपुर, संथाल परगना और पलामू प्रमंडल के कुछ हिस्से) के 15 से 16 जिलों</strong> में खोरठा बोली जाती है (लगभग 31,000 वर्ग मील क्षेत्रफल)।</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 32%;">प्रमंडल (Division)</th>
+                        <th style="width: 68%;">खोरठा भाषी जिले (Districts)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>1. उत्तरी छोटानागपुर प्रमंडल ★</strong><br>(खोरठा का गढ़ — सभी 7 जिले)</td>
+                        <td><strong>हजारीबाग, गिरिडीह, धनबाद, बोकारो, रामगढ़, चतरा और कोडरमा।</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. संथाल परगना प्रमंडल</strong><br>(सभी 6 जिले)</td>
+                        <td><strong>दुमका, देवघर, गोड्डा, साहिबगंज, पाकुड़ और जामताड़ा।</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. पलामू एवं दक्षिणी छोटानागपुर (आंशिक)</strong></td>
+                        <td><strong>पलामू, गढ़वा, लातेहार</strong> तथा रांची का सिल्ली/मुरी सीमावर्ती क्षेत्र।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>खोरठा के 6 प्रमुख क्षेत्रीय रूप / उप-बोलियाँ (Regional Dialects of Khortha ★):</h4>
+            <p>डॉ. ए.के. झा एवं डॉ. बी.एन. ओहदार ने भौगोलिक क्षेत्र और पड़ोसी भाषाओं के प्रभाव के आधार पर खोरठा को <strong>6 क्षेत्रीय रूपों</strong> में बाँटा है:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 24%;">क्षेत्रीय रूप (बोली)</th>
+                        <th style="width: 34%;">मुख्य क्षेत्र (जिले/स्थान)</th>
+                        <th style="width: 42%;">प्रमुख भाषिक विशेषता एवं प्रभाव</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>1. शिखरिया (Sikhariya) ★</strong></td>
+                        <td>जैनामोड, चास, चंदनकियारी (बोकारो), कतरास, झरिया (धनबाद) और पारसनाथ (शिखरजी) के आसपास का क्षेत्र।</td>
+                        <td>• इसमें बहुवचन में 'गुलिन' और संबंध कारक में 'केर/रे' का प्रयोग अधिक होता है। इस पर बांग्ला और कुरमाली का हल्का प्रभाव दिखता है।<br>• <strong>मानक खोरठा साहित्य में इसका और नदिया पार/हजारीबागिया रूप का सर्वाधिक प्रयोग होता है।</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. गोलवारी (Golwari)</strong></td>
+                        <td>रामगढ़ जिले का <strong>गोला प्रखंड</strong> से लेकर कसमार व पेटरवार तक (दामोदर नदी घाटी)।</td>
+                        <td>• इसमें प्रश्नवाचक 'की' (क्या) के स्थान पर <strong>'का'</strong> का प्रयोग होता है।</td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>3. रामगढ़िया (Ramgarhiya)</strong></td>
+                        <td>रामगढ़, पतरातू और रांची की ओरमानझी सीमा।</td>
+                        <td>• इस पर पड़ोसी भाषा <strong>नागपुरी</strong> का प्रभाव स्पष्ट दिखता है (जैसे—'कहाँ जाहें?' के स्थान पर 'कने जाथिस?')।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. हजारीबागिया / पचमइयाँ (Hazaribagiya)</strong></td>
+                        <td>हजारीबाग, चतरा और कोडरमा क्षेत्र।</td>
+                        <td>• उत्तर में बिहार की सीमा लगने के कारण इस पर <strong>मगही भाषा</strong> का प्रभाव दिखता है (जैसे—क्रिया के अंत में 'हइ/हथिन' का प्रयोग)।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. देशवाली (Deshwali)</strong></td>
+                        <td>पलामू प्रमंडल (पलामू, गढ़वा व लातेहार)।</td>
+                        <td>• यह पलामू क्षेत्र में बोली जाने वाली खोरठा है जिस पर मगही व भोजपुरी का प्रभाव है।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. संथाल परगनिया (Santhal Parganiya) ★</strong></td>
+                        <td>देवघर, दुमका, गोड्डा, जामताड़ा, पाकुड़ व साहिबगंज।</td>
+                        <td>• इस पर <strong>मैथिली और अंगिका ('छै / छी' सहायक क्रिया)</strong> तथा संथाली भाषा का प्रभाव होता है (जैसे—'कहाँ जा रहल छें?')।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ---------------- 1.3 ---------------- -->
+            <h3 id="sec-3">1.3 देवनागरी आधारित लेखन-प्रस्तुति, ध्वनि-व्यवस्था एवं उच्चारण (Phonology)</h3>
+            <p>परीक्षा में खोरठा भाषा की लिपि <strong>देवनागरी (Devanagari)</strong> है, किंतु हिंदी के सभी 52 वर्णों का प्रयोग खोरठा में नहीं होता। खोरठा एक <strong>'सरल और सुख-मुखी' (आसानी से उच्चारित होने वाली)</strong> भाषा है।</p>
+
+            <div class="highlight-box">
+                <h4>★★ खोरठा वर्णमाला का स्वर्णिम सार (1 से 2 प्रश्न शत-प्रतिशत निश्चित):</h4>
+                <ul>
+                    <li><strong>1. खोरठा में कुल स्वर वर्ण (Vowels) = 8 हैं ★:</strong><br>
+                        <strong>ह्रस्व स्वर (3):</strong> <code>अ, इ, उ</code><br>
+                        <strong>दीर्घ स्वर (5):</strong> <code>आ, ई, ऊ, ए, ओ</code><br>
+                        <em>(नोट: हिंदी के <strong>'ऋ', 'ऐ'</strong> और <strong>'औ'</strong> का स्वतंत्र प्रयोग खोरठा में नहीं होता! 'ऐ' को <strong>'अइ'</strong> और 'औ' को <strong>'अउ'</strong> लिखा जाता है)।</em>
+                    </li>
+                    <li><strong>2. खोरठा में कुल व्यंजन वर्ण (Consonants) = 29 (+ 2 ताड़नजात 'ड़, ढ़' = कुल 31) हैं ★:</strong>
+                        <ul>
+                            <li><strong>क-वर्ग (5):</strong> क, ख, ग, घ, ङ</li>
+                            <li><strong>च-वर्ग (5):</strong> च, छ, ज, झ, ञ</li>
+                            <li><strong>ट-वर्ग (4 + 2):</strong> ट, ठ, ड, ढ (तथा ड़, ढ़) — <em>यहाँ <strong>'ण'</strong> का प्रयोग नहीं होता!</em></li>
+                            <li><strong>त-वर्ग (5):</strong> त, थ, द, ध, न</li>
+                            <li><strong>प-वर्ग (5):</strong> प, फ, ब, भ, म</li>
+                            <li><strong>अंतःस्थ (4):</strong> य, र, ल, व</li>
+                            <li><strong>ऊष्म (2):</strong> स, ह — <em>यहाँ तालव्य <strong>'श'</strong> और मूर्धन्य <strong>'ष'</strong> का प्रयोग नहीं होता!</em></li>
+                            <li><strong>संयुक्त व्यंजन निषेध:</strong> खोरठा में <strong>क्ष, त्र, ज्ञ, श्र</strong> का सीधा प्रयोग नहीं होता।</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ---------------- 1.4 ---------------- -->
+            <h3 id="sec-4">1.4 हिंदी से खोरठा ध्वनि-रूपांतरण एवं वर्तनी के 12 अचूक नियम</h3>
+            <p>आपके सिलेबस के बिंदु 2 में स्पष्ट लिखा है—<em>"देवनागरी आधारित लेखन-प्रस्तुति, रूपांतरण, उच्चारण और वर्तनी"</em>। नीचे दी गई तालिका से परीक्षा में सीधे शब्द-रूपांतरण के प्रश्न आते हैं:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">नियम क्र.</th>
+                        <th style="width: 28%;">हिंदी का वर्ण / ध्वनि</th>
+                        <th style="width: 25%;">खोरठा में रूपांतरण ★</th>
+                        <th style="width: 35%;">परीक्षा में पूछे जाने वाले उदाहरण (हिंदी → खोरठा)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1.</strong></td>
+                        <td><strong>ऐ</strong> और <strong>औ</strong> (संयुक्त स्वर)</td>
+                        <td><strong>अइ</strong> और <strong>अउ</strong></td>
+                        <td>• पैसा → <strong>पइसा</strong> | कैसा → <strong>कइसन</strong> | बैल → <strong>बइल</strong><br>• औरत → <strong>अउरत</strong> | कौआ → <strong>कउआ</strong> | भौजी → <strong>भउजी</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>2.</strong></td>
+                        <td><strong>ऋ</strong> (स्वर)</td>
+                        <td><strong>रि / र</strong></td>
+                        <td>• ऋषि → <strong>रिसि</strong> | ऋण → <strong>रिन</strong> | कृपा → <strong>किरपा</strong> | घृणा → <strong>घिन</strong></td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>3. ★</strong></td>
+                        <td><strong>श</strong> (तालव्य) एवं <strong>ष</strong> (मूर्धन्य)</td>
+                        <td><strong>स</strong> (दंत्य 'स') या <strong>ख</strong></td>
+                        <td>• शादी → <strong>सादी / बिहा</strong> | शहर → <strong>सहर</strong> | गणेश → <strong>गनेस</strong><br>• धनुष → <strong>धनुस / धनुख</strong> | वर्षा → <strong>बरखा</strong> | दोष → <strong>दोख/दोस</strong></td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>4. ★</strong></td>
+                        <td><strong>ण</strong> (मूर्धन्य ण)</td>
+                        <td><strong>न</strong> (दंत्य न)</td>
+                        <td>• प्राण → <strong>परान</strong> | गुण → <strong>गुन</strong> | कारण → <strong>कारन</strong> | बाण → <strong>बान</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. ★</strong></td>
+                        <td><strong>व</strong> (दंतोष्ठ्य व)</td>
+                        <td><strong>ब</strong> या <strong>ओ</strong></td>
+                        <td>• वन → <strong>बन / बोन</strong> | विवाह → <strong>बिहा</strong> | विचार → <strong>बिचार</strong><br>• वकील → <strong>ओकील</strong> | वजन → <strong>ओजन</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. ★</strong></td>
+                        <td>शब्द के प्रारंभ का <strong>'य'</strong></td>
+                        <td><strong>ज</strong> या <strong>ए</strong></td>
+                        <td>• यम → <strong>जम</strong> | यात्रा → <strong>जातरा</strong> | यश → <strong>जस</strong> | यज्ञ → <strong>जग/जइग</strong><br>• यदि → <strong>जदि / एदि</strong> | यकीन → <strong>एकीन</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>7. ★</strong></td>
+                        <td><strong>क्ष</strong> (संयुक्त अक्षर)</td>
+                        <td><strong>छ</strong> या <strong>ख</strong></td>
+                        <td>• परीक्षा → <strong>परीछा</strong> | क्षमा → <strong>छमा</strong> | पक्षी → <strong>पंछी / चेरे</strong><br>• खेत (क्षेत्र) → <strong>खेत</strong> | लक्ष्मण → <strong>लछमन / लखना</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>8.</strong></td>
+                        <td><strong>त्र</strong> (संयुक्त अक्षर)</td>
+                        <td><strong>तर</strong> या <strong>त</strong></td>
+                        <td>• पवित्र → <strong>पबितर</strong> | मंत्र → <strong>मंतर</strong> | चरित्र → <strong>चरितर</strong> | पुत्र → <strong>पूत</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>9.</strong></td>
+                        <td><strong>ज्ञ</strong> (संयुक्त अक्षर)</td>
+                        <td><strong>ग्य / गें / गिआँ</strong></td>
+                        <td>• ज्ञान → <strong>गियान / गेयान</strong> | अज्ञानी → <strong>अगेयानी</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>10. ★</strong></td>
+                        <td><strong>स्वरागम / विप्रकर्ष</strong><br>(आधे अक्षर को पूरा करना)</td>
+                        <td>संयुक्त व्यंजन के बीच स्वर आ जाना</td>
+                        <td>• धर्म → <strong>धरम</strong> | कर्म → <strong>करम</strong> | जन्म → <strong>जनम</strong><br>• प्रेम → <strong>पिरित / पेरेम</strong> | स्कूल → <strong>इसकूल</strong> | स्नान → <strong>असनान</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>11. ★</strong></td>
+                        <td><strong>अभिनिहिति (Epenthesis)</strong></td>
+                        <td>शब्द के बीच में <strong>'इ'</strong> स्वर का आगम (खोरठा की सबसे अनूठी पहचान)</td>
+                        <td>• रात → <strong>राइत</strong> | बात → <strong>बाइत</strong> | दाल → <strong>दाइल</strong><br>• भात → <strong>भाइत</strong> | आज → <strong>आइज</strong> | काल्ह (कल) → <strong>काइल्ह</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>12.</strong></td>
+                        <td><strong>र ↔ ल</strong> का व्यत्यय</td>
+                        <td>कभी 'र' का 'ल' और 'ल' का 'र' होना</td>
+                        <td>• मंदिर → <strong>मंदिल</strong> | हल → <strong>हर</strong> | फल → <strong>फर</strong> | ताला → <strong>तारा</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ---------------- 1.5 ---------------- -->
+            <h3 id="sec-5">1.5 विस्तृत शब्दावली (भाग-1): परिवार, शरीर के अंग एवं घर-गृहस्थी</h3>
+            <p>उच्च प्राथमिक स्तर (कक्षा 6–8) के सिलेबस के बिंदु 3 में <strong>'विस्तृत शब्दावली एवं व्यावहारिक प्रयोग'</strong> निर्धारित है। नीचे विषयवार ठेठ खोरठा शब्दों का प्रामाणिक संकलन दिया गया है:</p>
+
+            <h4>(क) परिवार एवं रिश्तेदारी की शब्दावली (Kinship Vocabulary):</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>हिंदी शब्द</th>
+                        <th>ठेठ खोरठा शब्द ★</th>
+                        <th>हिंदी शब्द</th>
+                        <th>ठेठ खोरठा शब्द ★</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>माता / माँ</td>
+                        <td><strong>माय / माई / अम्मा</strong></td>
+                        <td>पिता</td>
+                        <td><strong>बाप / बाबू / दादा</strong></td>
+                    </tr>
+                    <tr>
+                        <td>दादा (पिता के पिता)</td>
+                        <td><strong>आजा / ददा / बूढ़ा बाप</strong></td>
+                        <td>दादी (पिता की माँ)</td>
+                        <td><strong>आजी / बूढ़ी माय</strong></td>
+                    </tr>
+                    <tr>
+                        <td>नाना / नानी</td>
+                        <td><strong>नाना / नानी (ममा आजा/आजी)</strong></td>
+                        <td>बड़ा भाई / भाभी</td>
+                        <td><strong>दादा (भाई) / भउजी (भाभी)</strong></td>
+                    </tr>
+                    <tr>
+                        <td>पति / पत्नी</td>
+                        <td><strong>गोमके (मरद) / गोमकाइन (जनी/मेहरारू)</strong></td>
+                        <td>बेटा / बेटी</td>
+                        <td><strong>बेटा (पूत) / बेटी (धीया)</strong></td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td>पति का बड़ा भाई (जेठ)</td>
+                        <td><strong>भैंसुर ★</strong></td>
+                        <td>पति के बड़े भाई की पत्नी (जेठानी)</td>
+                        <td><strong>गोतिनी / बड़की गोतिनी ★</strong></td>
+                    </tr>
+                    <tr>
+                        <td>पत्नी का बड़ा भाई</td>
+                        <td><strong>जेठसार ★</strong></td>
+                        <td>पत्नी की बड़ी बहन</td>
+                        <td><strong>जेठसास / बड़की साली ★</strong></td>
+                    </tr>
+                    <tr>
+                        <td>छोटा भाई / छोटी बहन</td>
+                        <td><strong>छोट भाई (बाबू) / छोट बहिन (मइया)</strong></td>
+                        <td>बहन का पति (बहनोई)</td>
+                        <td><strong>बहनोई / पाहुन</strong></td>
+                    </tr>
+                    <tr>
+                        <td>चाचा / चाची</td>
+                        <td><strong>काका / काकी</strong></td>
+                        <td>ताऊ (बड़े पिताजी) / ताई</td>
+                        <td><strong>बड़का बाप / बड़की माय</strong></td>
+                    </tr>
+                    <tr>
+                        <td>बुआ / फूफा</td>
+                        <td><strong>फुफू (पीसी) / फूफा (पीसा)</strong></td>
+                        <td>मामा / मामी</td>
+                        <td><strong>मामा (मामू) / मामी</strong></td>
+                    </tr>
+                    <tr>
+                        <td>दामाद / मेहमान</td>
+                        <td><strong>दमाद / पाहुन (मेहमान) ★</strong></td>
+                        <td>बच्चा / बच्चे</td>
+                        <td><strong>छउवा / गीदर (बहुवचन: छउवैन/गीदरगुलिन) ★</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>(ख) मानव शरीर के अंग (Body Parts in Khortha):</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>हिंदी (शरीर का अंग)</th>
+                        <th>खोरठा शब्द ★</th>
+                        <th>हिंदी (शरीर का अंग)</th>
+                        <th>खोरठा शब्द ★</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>सिर / माथा</td>
+                        <td><strong>मूँड़ / कपार</strong></td>
+                        <td>बाल (केश)</td>
+                        <td><strong>चूल / केस ★</strong></td>
+                    </tr>
+                    <tr>
+                        <td>आँख / पुतली</td>
+                        <td><strong>आँइख / डिमना (पुतली)</strong></td>
+                        <td>कान / नाक</td>
+                        <td><strong>कान / नाक (नथुना)</strong></td>
+                    </tr>
+                    <tr>
+                        <td>गाल / ठोड़ी</td>
+                        <td><strong>गाल (गाल्फड़) / ठोर (ठोड़ी)</strong></td>
+                        <td>जीभ / होंठ</td>
+                        <td><strong>जीभ / ओठ (ठोर)</strong></td>
+                    </tr>
+                    <tr>
+                        <td>गर्दन / कंधा</td>
+                        <td><strong>घेंचा (गरदन) ★ / काँध (खांध)</strong></td>
+                        <td>पीठ / कमर</td>
+                        <td><strong>पीइठ / डाँड़ (कमर) ★★</strong></td>
+                    </tr>
+                    <tr>
+                        <td>हाथ / उंगली</td>
+                        <td><strong>हाथ / अँगरी (अँगुरी)</strong></td>
+                        <td>पेट / नाभि</td>
+                        <td><strong>पेट (पोटा) / ढोंढ़ी (नाभि) ★</strong></td>
+                    </tr>
+                    <tr>
+                        <td>पैर / घुटना</td>
+                        <td><strong>गोड़ (टाँग) ★ / ठेहुना (घुटना) ★</strong></td>
+                        <td>एड़ी / तलवा</td>
+                        <td><strong>इड़ी / तरवा</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>(ग) घर-गृहस्थी, बर्तन एवं भोजन की ठेठ शब्दावली (Household & Food):</h4>
+            <ul>
+                <li><strong>घर के भाग:</strong> मिट्टी का घर = <em>माटीक घर / कोठा घर</em>; आँगन = <strong>अँगना</strong>; बरामदा = <strong>ओसरा / पिंड़िया ★</strong>; रसोई घर = <strong>राँधना घर / भनसार</strong>; मवेशी बाँधने का घर = <strong>गोहाल ★</strong>; अनाज रखने की मिट्टी की कोठी = <strong>कोठी / मोरा ★</strong>; दरवाजा = <strong>दुआर / केवाड़ी</strong>; छप्पर (खपरैल) = <strong>छानी / खपरा</strong>।</li>
+                <li><strong>बर्तन एवं घरेलू सामान:</strong> थाली = <strong>थारी / चिपली (छोटी थाली) ★</strong>; कटोरा = <strong>डुभा ★</strong>; लोटा = <strong>लोटा / गड़ुआ</strong>; मिट्टी का घड़ा = <strong>चुक्का / घइला ★</strong>; कलछुल = <strong>डब्बू / करछुल ★</strong>; सूप = <strong>सूप</strong>; छोटी टोकरी = <strong>दउरी / खाँची ★</strong>; झाड़ू = <strong>बढ़नी / झारू ★★</strong>; ओखली = <strong>उखइर / ढेंकी</strong>; सिलबट्टा = <strong>पाटी-लोढ़ा ★</strong>; चटाई = <strong>चटइ / पटिया</strong>; खाट = <strong>खटिया / माचा (मचिया = छोटी चौकी)</strong>।</li>
+                <li><strong>भोजन (Food):</strong> पका हुआ चावल = <strong>भाइत</strong>; बासी भात (पानी वाला) = <strong>पखाल भाइत / बसिया भाइत ★</strong>; रोटी = <strong>रोटी / पुरुवा</strong>; चावल के आटे का पकवान = <strong>पीठा / छिलका रोटी / ढुस्का ★</strong>; सब्जी = <strong>तीमन / साग-सब्जी ★★</strong>; नमक = <strong>नून ★</strong>; गुड़ = <strong>गुर / मीठा</strong>; मट्ठा/छाछ = <strong>घोर / मही ★</strong>।</li>
+            </ul>
+
+            <!-- ---------------- 1.6 ---------------- -->
+            <h3 id="sec-6">1.6 विस्तृत शब्दावली (भाग-2): गाँव-खेती, प्रकृति, पशु-पक्षी, रंग, संख्या एवं समय</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 22%;">विषय-क्षेत्र</th>
+                        <th style="width: 78%;">प्रमुख ठेठ खोरठा शब्द एवं उनके हिंदी अर्थ (परीक्षा हेतु अत्यंत महत्वपूर्ण)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>1. खेती-बारी एवं भूमि के प्रकार ★★</strong></td>
+                        <td>
+                            • <strong>दोन (Don):</strong> निचली उपजाऊ धान की जमीन (सबसे निचली जमीन = <em>गहंड़ / बहियार</em>)।<br>
+                            • <strong>टाँड़ (Tand):</strong> ऊँची एवं सूखी जमीन (घर के पास की बारी = <em>बाड़ी / कोला</em>)।<br>
+                            • <strong>कृषि उपकरण:</strong> हल = <strong>हर</strong>; जुआठ = <strong>जुआइठ</strong>; हल का फाल = <strong>फार</strong>; कुदाल = <strong>कोइड़ / कुदाइर ★</strong>; हँसिया = <strong>हँसुआ / दाव</strong>; खेत समतल करने का पाटा = <strong>चौकी / रइता</strong>; बैलगाड़ी = <strong>सगड़ / गाड़ी ★</strong>।<br>
+                            • <strong>कृषि क्रियाएँ:</strong> धान के बिचड़े (पौध) = <strong>बिहन / मोरी ★</strong>; धान रोपना = <strong>रोपनी</strong>; घास निकालना = <strong>निरौनी / कमौनी</strong>; खलिहान = <strong>खरिहान ★</strong>; पुआल = <strong>पोरा / बिचाली ★</strong>।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. प्रकृति एवं मौसम</strong></td>
+                        <td>
+                            • सूर्य = <strong>सुरुज / बेरा ★★</strong> | चंद्रमा = <strong>चाँद / चंदा</strong> | तारे = <strong>तरेगन ★</strong> | आकाश = <strong>अकास / सरग</strong><br>
+                            • जंगल = <strong>बोन / पतरा ★</strong> | पहाड़ = <strong>पहाड़ / टुंगरी (छोटी पहाड़ी) ★</strong> | नदी/नाला = <strong>नदी / जोरिया (छोटी नदी) ★★</strong> | तालाब = <strong>पोखइर / बाँध / आहर</strong><br>
+                            • वर्षा = <strong>बरखा / पानी</strong> | ओस = <strong>सीत</strong> | ओले = <strong>पखना / बनरा</strong> | धूप = <strong>रउद ★★</strong> | छाँव = <strong>छँइहर ★</strong> | हवा = <strong>बयार / हवा</strong> | कीचड़ = <strong>कादो ★</strong>।
+                        </td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>3. पशु-पक्षी एवं कीट-पतंग ★★</strong></td>
+                        <td>
+                            • गाय का बछड़ा = <strong>लेरू / बाछा ★</strong> | भैंस = <strong>काड़ा (नर भैंसा) / भइँस ★</strong> | बकरी = <strong>छागर / पठिया (छोटी बकरी) ★</strong> | भेड़ = <strong>भेड़ा / मेढ़ो</strong><br>
+                            • कुत्ता = <strong>कुकुर</strong> | बिल्ली = <strong>बिलाइ / मेंजूर ★</strong> | चूहा = <strong>मूस / चूँटी ★</strong> | गिलहरी = <strong>चिरुआ / रुखी ★</strong> | सियार = <strong>खेंखरी / सियार</strong> | खरगोश = <strong>खरहा ★</strong><br>
+                            • पक्षी (सामान्य) = <strong>चेरे / चिरइ ★★</strong> | गौरैया = <strong>घरचिरइया</strong> | कबूतर = <strong>पेरवा ★</strong> | कौआ = <strong>कउआ</strong> | मुर्गा/मुर्गी = <strong>कुकड़ो / चेंगना (चूजा) ★</strong><br>
+                            • मछली = <strong>मछरी</strong> | केकड़ा = <strong>काँकड़ा / खोंखड़ा</strong> | मेंढक = <strong>बेंग ★★</strong> | चींटी = <strong>चूँटी / माटा (लाल चींटी) ★</strong> | मच्छर = <strong>मछर / भुनगा</strong> | जुगनू = <strong>भगजोगनी ★</strong>।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. रंग एवं स्वाद</strong></td>
+                        <td>
+                            • सफेद (उजला) = <strong>चरका / सादा ★★</strong> | काला = <strong>करिया ★</strong> | लाल = <strong>ललका / लाल</strong> | पीला = <strong>पियर / पियरका ★</strong> | हरा = <strong>हरियर ★</strong><br>
+                            • खट्टा = <strong>अमट / खट्टा ★</strong> | मीठा = <strong>गुरगुरा / मीठ</strong> | कड़वा = <strong>तीता ★</strong> | तीखा (मिर्च जैसा) = <strong>कड़ुआ / झाल ★</strong> | फीका (बिना नमक) = <strong>अलोना / सबरंग</strong>।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. संख्या एवं समय-बोध ★</strong></td>
+                        <td>
+                            • <strong>संख्याएँ:</strong> एक (1), दुइ (2), तीन (3), चाइर (4), पाँच (5), छव (6), सात (7), आठ (8), नव (9), दस (10), कोरी (20 का समूह = <strong>एक कोरी ★</strong>), आधा = <strong>आधा</strong>, चौथाई = <strong>पाव</strong>।<br>
+                            • <strong>समय:</strong> सुबह/भोर = <strong>भिनसार / बिहान ★★</strong> | दोपहर = <strong>मांझिल बेरा / दुपहर</strong> | शाम = <strong>साँझ / बेरा डूबे</strong> | आज = <strong>आइज</strong> | कल (बीता/आने वाला) = <strong>काइल्ह</strong> | परसों = <strong>परिया / परसू</strong> | इस वर्ष = <strong>इबेर / एइसों ★</strong> | पिछले वर्ष = <strong>पउर साल ★</strong>।
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ---------------- 1.7 ---------------- -->
+            <h3 id="sec-7">1.7 दैनिक व्यवहार के ठेठ खोरठा क्रिया-पद, संवाद एवं लोकोक्तियाँ (पटतोर/आहना)</h3>
+
+            <h4>(क) दैनिक जीवन के 20 अत्यंत महत्वपूर्ण ठेठ खोरठा क्रिया-शब्द (Action Verbs ★):</h4>
+            <ul>
+                <li><strong>खाना-पीना व सोना:</strong> खाना = <em>खाएक</em>; निगलना = <em>लीलेक</em>; प्यास लगना = <em>पियासेक</em>; सोना = <em>सुतेक</em>; जागना = <em>जागेक / उठेक</em>।</li>
+                <li><strong>आना-जाना व गति:</strong> आना = <em>आवेक</em>; जाना = <em>जाएक</em>; दौड़ना = <em>दउड़ेक / कुदेक ★</em>; टहलना/घूमना = <em>घुरेक / बुलेक ★</em>; बैठना = <em>बइसेक</em>; खड़ा होना = <em>ठाढ़ होवेक ★</em>; गिरना = <em>गिरक / हुमठेक</em>।</li>
+                <li><strong>देखना, बोलना व कार्य:</strong> देखना = <em>देखेक / ताकेक (ताकना)</em>; सुनना = <em>सुनेक</em>; बोलना = <em>कहेक / बोलेक</em>; बुलाना = <em>डकेक / हकावेक ★</em>; रोना = <em>काँदेक ★★</em>; हँसना = <em>हँसेक</em>; नहाना = <em>नहाएक / डूबा लेवेक</em>; ढूँढना/खोजना = <em>टोवेक / खोजेक ★</em>; छिपना = <em>नुकाएक ★★</em>; फेंकना = <em>बिगेक / फेंकेक ★</em>।</li>
+            </ul>
+
+            <h4>(ख) कक्षा एवं दैनिक जीवन में प्रयुक्त सरल खोरठा वाक्य (Daily Expressions):</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>हिंदी वाक्य</th>
+                        <th>मानक खोरठा रूपांतरण ★</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>आपका नाम क्या है? / तुम्हारा नाम क्या है?</td>
+                        <td><strong>तोहर नाम की हको? / तोर नाम की हउ?</strong></td>
+                    </tr>
+                    <tr>
+                        <td>मेरा नाम बुलबुल कुमारी है।</td>
+                        <td><strong>हम्मर नाम बुलबुल कुमारी हके।</strong></td>
+                    </tr>
+                    <tr>
+                        <td>आप कहाँ जा रहे हैं?</td>
+                        <td><strong>तोहें कहाँ जाइ रहल हें? (या तोहें कने जाहें?)</strong></td>
+                    </tr>
+                    <tr>
+                        <td>आपका घर किस गाँव में है?</td>
+                        <td><strong>तोहर घर कउन गाँवें हको?</strong></td>
+                    </tr>
+                    <tr>
+                        <td>बच्चों, अपनी-अपनी किताब खोलो और पढ़ो।</td>
+                        <td><strong>छउवैन (गीदरगुलिन), अपन-अपन किताब खोलऽ अउर पढ़ऽ।</strong></td>
+                    </tr>
+                    <tr>
+                        <td>आज बहुत तेज धूप है, पेड़ की छाँव में बैठो।</td>
+                        <td><strong>आइज बड़ टाँठ रउद हइ, गाछेक छँइहरे बइसऽ।</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>★ प्रमुख खोरठा मुहावरे (आहना) एवं लोकोक्तियाँ (पटतोर / कहावत):</h4>
+                <p>खोरठा में मुहावरों को <strong>'आहना'</strong> और लोकोक्तियों (कहावतों) को <strong>'पटतोर'</strong> तथा पहेलियों को <strong>'बुझौवल / फाँक'</strong> कहा जाता है:</p>
+                <ol>
+                    <li><strong>"आँइख देखावेक"</strong> — डराना या धमकाना।</li>
+                    <li><strong>"पेटे बिलाइ कुदेक"</strong> — बहुत तेज भूख लगना (पेट में चूहे कूदना)।</li>
+                    <li><strong>"कान पातवेक"</strong> — ध्यान से चुपके से बात सुनना।</li>
+                    <li><strong>"डाँड़ टूटेक"</strong> — हिम्मत या सहारा टूट जाना (कमर टूटना)।</li>
+                    <li><strong>"गोड़े-हाथे परे"</strong> — बहुत खुशामद या विनती करना।</li>
+                    <li><strong>"घरक मुरगी दाइल बराबर" (पटतोर)</strong> — पास की वस्तु या व्यक्ति का कम आदर होना।</li>
+                    <li><strong>"जेते ओढ़ना, ओते गोड़ पसारना" (पटतोर)</strong> — अपनी सामर्थ्य के अनुसार खर्च करना।</li>
+                    <li><strong>"नाचे नय जाने, अँगनवे टेढ़" (पटतोर)</strong> — काम न आने पर संसाधनों में दोष निकालना।</li>
+                    <li><strong>"अपन दही के खट्टा नय कहे" (पटतोर)</strong> — अपनी चीज या कमी को कोई बुरा नहीं बताता।</li>
+                    <li><strong>"काम पियारा कि चाम पियारा" (पटतोर)</strong> — व्यक्ति की सुंदरता नहीं बल्कि उसके गुण व काम का महत्व होता है।</li>
+                </ol>
+            </div>
+        </div>
+        <!-- ==================== END OF UNIT 1 ==================== -->
+
+        <!-- YAHAN AGLA CODE PASTE KAREIN (Unit 2 to Unit 4) -->
+
+
+        <!-- ==================== UNIT 2 (SYLLABUS POINT 4 | ~10 MARKS) ==================== -->
+        <div id="unit2" class="unit-section">
+            <h2>इकाई 2 (Unit 2): खोरठा व्याकरण का क्रियात्मक अध्ययन (Functional Grammar)</h2>
+
+            <p><strong>पाठ्यक्रम संदर्भ (JAC JHTET 2026 - Level 2, बिंदु 4):</strong> <em>"व्याकरण का क्रियात्मक अध्ययन — संज्ञा, सर्वनाम, विशेषण, क्रिया, काल, कारक, वाक्य-रचना और उपसर्ग-प्रत्यय का प्रारंभिक उपयोग।"</em> खोरठा के कुल 30 प्रश्नों में से सर्वाधिक <strong>10 से 12 प्रश्न</strong> अकेले इस व्याकरण खंड से पूछे जाते हैं। डॉ. ए.के. झा, डॉ. बी.एन. ओहदार और दिनेश दिनमणि के मानक खोरठा व्याकरण के अनुसार इसका संपूर्ण विश्लेषण नीचे प्रस्तुत है:</p>
+
+            <!-- ---------------- 2.1 ---------------- -->
+            <h3 id="sec-8">2.1 संज्ञा (संइज्ञा / नाँव - 5 भेद) एवं सर्वनाम (सरवनाम / ओजी-संइज्ञा - 6 भेद)</h3>
+
+            <h4>(क) संज्ञा (खोरठा में: 'संइज्ञा' या 'नाँव'):</h4>
+            <p>ककरो नाम (अदमी, जीव-जंतु, जिनिस, ठउर/जगह चाहे भाव) के <strong>'संइज्ञा'</strong> कहल जा हइ। हिंदी के समान ही अर्थ की दृष्टि से खोरठा में भी संज्ञा के <strong>5 भेद</strong> होते हैं:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 28%;">संज्ञा का भेद (खोरठा नाम ★)</th>
+                        <th style="width: 22%;">हिंदी समतुल्य</th>
+                        <th style="width: 50%;">पहचान एवं परीक्षा में पूछे जाने वाले ठेठ खोरठा उदाहरण</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. जाइतवाचक संइज्ञा ★</strong></td>
+                        <td>जातिवाचक संज्ञा</td>
+                        <td>जे संइज्ञा से कउनो जीव या जिनिस के पूरा <strong>जाइत (जाति/वर्ग)</strong> के बोध होवे।<br><em>उदाहरण:</em> <strong>छउवा (बच्चा), गीदर, गोइठ, गाछ (पेड़), बोन (जंगल), नदी, जोरिया, पहाड़, टुंगरी, गाय, छागर, चेरे (पक्षी), किताब।</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. बेकतिवाचक / खासबोधी संइज्ञा ★</strong></td>
+                        <td>व्यक्तिवाचक संज्ञा</td>
+                        <td>जेकर से कउनो <strong>खास (विशेष) एक अदमी, जगह या जिनिस</strong> के बोध होवे।<br><em>उदाहरण:</em> <strong>बिरसा मुंडा, पानुरी जी, दामोदर नदी, पारसनाथ पहाड़, राँची, झारखंड, सोहराय, करमा, छँइहर (किताब)।</strong></td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>3. भाववाचक संइज्ञा ★★</strong></td>
+                        <td>भाववाचक संज्ञा</td>
+                        <td>जेकर से गुन, दोस, दसा या मनक भाव के पता चले (जेकरा छुअल नय जा सके, खाली महसूस करल जा सके)।<br><em>खोरठा प्रत्यय से बने रूप:</em> गीदर → <strong>गीदरपन / छउवापन (बचपन)</strong>; बूढ़ा → <strong>बुढ़ारी ★ (बुढ़ापा)</strong>; मीठ → <strong>मिठास</strong>; दुखाएक → <strong>दुख / दरद</strong>; भलाई, चतुराई, मया (ममता), डेर (भय), पिरीत (प्रेम)।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. गोठवाचक / समूहवाचक संइज्ञा ★★</strong></td>
+                        <td>समूहवाचक संज्ञा</td>
+                        <td>जेकर से अदमी चाहे जिनिस के <strong>गोठ (समूह/भीड़)</strong> के बोध होवे।<br><em>उदाहरण:</em> <strong>पेठिया / हाट (बाजार) ★, जातरा (मेला) ★, बइठकी (सभा), गोठ (मवेशियों का झुंड) ★, खोंपा / घउद (अंगूर/केले या फूल का गुच्छा) ★, बोझा (गट्ठर), बरात, पंचायत, इसकूल (क्लास)।</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. चीजबसूतवाचक / दरबवाचक संइज्ञा ★</strong></td>
+                        <td>द्रव्यवाचक संज्ञा</td>
+                        <td>जे जिनिस के <strong>नापल चाहे जोखल (तौला)</strong> जा सके, मकन गिनल नय जा सके।<br><em>उदाहरण:</em> <strong>पानी, तेल, दूध, घीव, माटी, सोना, रूपा (चाँदी), लोहा, चाउर (चावल), दाइल, नून, कोयला, पखना (पत्थर)।</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>(ख) सर्वनाम (खोरठा में: 'सरवनाम' या 'ओजी-संइज्ञा' / 'अइजी'):</h4>
+            <p>डॉ. ए.के. झा ने सर्वनाम को खोरठा में <strong>'ओजी-संइज्ञा'</strong> (संज्ञा के बदले आने वाला शब्द) कहा है। संइज्ञा के बदले जे सबद परजोग होवे हइ, ओकरा <strong>'सरवनाम'</strong> कहल जा हइ। खोरठा में सर्वनाम के <strong>6 भेद</strong> हैं:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 26%;">सर्वनाम का भेद</th>
+                        <th style="width: 34%;">मौलिक खोरठा सर्वनाम शब्द ★★</th>
+                        <th style="width: 40%;">वाक्य-प्रयोग एवं विशेष परीक्षा नियम</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>1. पुरुसवाचक सरवनाम ★</strong><br>(पुरुषवाचक — 3 पुरुष)</td>
+                        <td>
+                            • <strong>उत्तम पुरुष (बोलने वाला):</strong> एकवचन = <strong>हम / हमें</strong> | बहुवचन = <strong>हमनी / हमरिन</strong><br>
+                            • <strong>मध्यम पुरुष (सुनने वाला):</strong> एकवचन = <strong>तोंय / तोहें</strong> (आदरसूचक: <em>तोहें</em>) | बहुवचन = <strong>तोहनी / तोहरिन</strong><br>
+                            • <strong>अन्य पुरुष (जिसके बारे में बात हो):</strong> एकवचन = <strong>ई / उ (ओहें)</strong> | बहुवचन = <strong>इखिन / उखिन (ओखिन/हखिन)</strong>
+                        </td>
+                        <td>• <em>"<strong>हम</strong> काइल्ह राँची जाइब।"</em> (उत्तम पुरुष)<br>• <em>"<strong>हमनी</strong> सब झारखंडी हियो।"</em> (उत्तम पुरुष बहुवचन)<br>• <em>"<strong>तोहें</strong> कखन अइला?"</em> (मध्यम पुरुष)<br>• <em>"<strong>उखिन</strong> खेतें काम कर रहल हथिन।"</em> (अन्य पुरुष बहुवचन)</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>2. निसचइवाचक / ठेकानी सरवनाम ★★</strong><br>(निश्चयवाचक)</td>
+                        <td>• नजदीक की वस्तु/व्यक्ति (यह) = <strong>ई ★</strong><br>• दूर की वस्तु/व्यक्ति (वह) = <strong>उ ★</strong></td>
+                        <td>• <em>"<strong>ई</strong> हमर किताब हके।"</em> (यह मेरी किताब है - निकटवर्ती)<br>• <em>"<strong>उ</strong> तोर घर हको।"</em> (वह तुम्हारा घर है - दूरवर्ती)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. अनिसचइवाचक / अनठेकानी सरवनाम ★★</strong><br>(अनिश्चयवाचक)</td>
+                        <td>• प्राणीवाचक (कोई) = <strong>कउनो / केउ (कोई) ★</strong><br>• वस्तुवाचक (कुछ) = <strong>कुछ / किछु ★</strong></td>
+                        <td>• <em>"दुआरे <strong>केउ (कउनो)</strong> डाक रहल हइ।"</em> (दरवाजे पर कोई बुला रहा है)<br>• <em>"दूधे <strong>किछु</strong> गिरल हइ।"</em> (दूध में कुछ गिरा है)</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>4. परसनवाचक / सवालवाचक सरवनाम ★★</strong><br>(प्रश्नवाचक)</td>
+                        <td>• सजीव/प्राणी के लिए (कौन) = <strong>के / कउन ★</strong><br>• निर्जीव/वस्तु के लिए (क्या) = <strong>की / का ★</strong><br>• (किसको = <em>ककरा</em>; किसका = <em>ककर</em>)</td>
+                        <td>• <em>"हिंया <strong>के</strong> आइल हइ?"</em> (यहाँ कौन आया है? - सजीव)<br>• <em>"तोर हाथे <strong>की</strong> हको?"</em> (तुम्हारे हाथ में क्या है? - निर्जीव)<br><em>(यह 'के' और 'की' का अंतर परीक्षा में बार-बार पूछा जाता है!)</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. संबंधवाचक / जोड़ाववाचक सरवनाम ★</strong><br>(संबंधवाचक)</td>
+                        <td>• <strong>जे ... से ★</strong> (जो ... सो/वह)<br>• <strong>जउन ... तउन / जेकर ... तेकर</strong></td>
+                        <td>• <em>"<strong>जे</strong> पढ़तइ, <strong>से</strong> पास करतइ।"</em> (जो पढ़ेगा, वह पास करेगा)<br>• <em>"<strong>जेकर</strong> लाठी, <strong>तेकर</strong> भइँस।"</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. निजवाचक सरवनाम ★</strong><br>(निजवाचक — स्वयं/अपने-आप)</td>
+                        <td>• <strong>अपने / अपन / निजे / सुयें ★</strong></td>
+                        <td>• <em>"हम ई काम <strong>अपने (निजे)</strong> कइर लेब।"</em> (मैं यह काम स्वयं कर लूँगा)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ---------------- 2.2 ---------------- -->
+            <h3 id="sec-9">2.2 लिंग-विधान (पुल्लिंग-स्त्रीलिंग नियम) एवं वचन परिवर्तन ('इन/ऐन/गुला/गुलिन')</h3>
+
+            <h4>(क) खोरठा लिंग-विधान (Gender Rules in Khortha ★):</h4>
+            <p>खोरठा भाषा की सबसे बड़ी व्याकरणिक विशेषता यह है कि इसमें <strong>निर्जीव वस्तुओं (अप्राणीवाचक संज्ञाओं) का कोई लिंग-भेद नहीं होता</strong>—वे उभयलिंगी या अ-लिंगी मानी जाती हैं, और खोरठा में <strong>लिंग के कारण क्रिया (Verb) का रूप सामान्यतः नहीं बदलता</strong> (जैसे—<em>"राजू भाइत खा हइ"</em> और <em>"सीता भाइत खा हइ"</em>)। केवल सजीव प्राणियों (नर-मादा) में लिंग परिवर्तन के 3 मुख्य नियम हैं:</p>
+
+            <ol>
+                <li><strong>1. स्वतंत्र या पूर्णतः भिन्न शब्द द्वारा (नर → मादा) ★★:</strong>
+                    <ul>
+                        <li>बाप → <strong>माय</strong> | भाई (दादा) → <strong>बहिन (दीदी) / भउजी</strong> | मरद (गोमके) → <strong>जनी (मेहरारू/गोमकाइन)</strong></li>
+                        <li>बेटा (पूत) → <strong>बेटी (धीया)</strong> | छउवा (बाबू) → <strong>मइया (बच्ची)</strong> | आजा → <strong>आजी</strong></li>
+                        <li>बरद (बैल) / साँढ़ → <strong>गाय ★</strong> | काड़ा (भैंसा) → <strong>भइँस ★★</strong> | बकरा → <strong>छागर / पठिया ★</strong> | भेड़ा → <strong>मेढ़ो / भेड़ी</strong></li>
+                    </ul>
+                </li>
+                <li><strong>2. पुल्लिंग शब्दों में स्त्रीलिंग प्रत्यय ('इ', 'इन', 'आइन', 'नी') जोड़कर ★:</strong>
+                    <ul>
+                        <li><strong>'आ' को 'ई' में बदलकर:</strong> बूढ़ा → <strong>बूढ़ी</strong>; काका → <strong>काकी</strong>; मामा → <strong>मामी</strong>; घोड़ा → <strong>घोड़ी</strong>; लेरू/बाछा → <strong>बाछी</strong>; चरका (सफेद पु.) → <strong>चरकी (सफेद स्त्री.) ★</strong>; करिया → <strong>करकी ★</strong>; ललका → <strong>ललकी</strong>।</li>
+                        <li><strong>'इन' (इनि) प्रत्यय जोड़कर:</strong> बाघ → <strong>बाघिन</strong>; साँप → <strong>साँपिन</strong>; कुम्हार → <strong>कुम्हराइन / कुम्हारिन</strong>; तेली → <strong>तेलिन</strong>; धोबी → <strong>धोबिन</strong>; अहीर → <strong>अहिरिन</strong>; महतो → <strong>महताइन ★</strong>।</li>
+                        <li><strong>'आइन' प्रत्यय जोड़कर:</strong> गुरु → <strong>गुरुवाइन</strong>; बाबू → <strong>बबुआइन</strong>; ओझा → <strong>ओझाइन</strong>; भगत → <strong>भगताइन</strong>; गोमके → <strong>गोमकाइन</strong>।</li>
+                        <li><strong>'नी' प्रत्यय जोड़कर:</strong> मोर → <strong>मोरनी</strong>; हाथी → <strong>हथिनी</strong>; चोर → <strong>चोरनी</strong>; मास्टर → <strong>मास्टरनी</strong>।</li>
+                    </ul>
+                </li>
+                <li><strong>3. छोटे जीव-जंतुओं में नर/मादा शब्द आगे जोड़कर:</strong> जैसे—<em>नर चेरे / मादा चेरे</em>, <em>अँड़िया कुकुर (नर कुत्ता) / कुतिया</em>।</li>
+            </ol>
+
+            <h4>(ख) खोरठा वचन-विधान (Number: एकवचन से बहुवचन बनाने के नियम ★★):</h4>
+            <p>खोरठा में वचन दो प्रकार के होते हैं—<strong>एकवचन (एकछोट)</strong> और <strong>बहुवचन (बहुछोट)</strong>। खोरठा में एकवचन संज्ञा को बहुवचन बनाने के लिए अत्यंत विशिष्ट प्रत्यय लगते हैं, जिनसे हर परीक्षा में प्रश्न आता है:</p>
+
+            <div class="highlight-box">
+                <h4>★★ खोरठा में एकवचन से बहुवचन बनाने के 4 स्वर्णिम सूत्र:</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 28%;">बहुवचन प्रत्यय / नियम</th>
+                            <th style="width: 32%;">कब लगता है?</th>
+                            <th style="width: 40%;">एकवचन → बहुवचन (परीक्षा उदाहरण)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. 'इन' या 'ऐन' प्रत्यय ★</strong></td>
+                            <td>जब शब्द के अंत में <strong>'अ', 'आ', 'ई' या 'ऊ'</strong> स्वर हो।<br><em>(आकारांत में 'ऐन' और ईकारांत/ऊकारांत में 'इन' लगता है)।</em></td>
+                            <td>
+                                • छउवा (बच्चा) → <strong>छउवैन ★</strong><br>
+                                • घोड़ा → <strong>घोड़ैन</strong> | बेटा → <strong>बेटवैन</strong> | लइका → <strong>लइकैन</strong><br>
+                                • गाय → <strong>गायीन ★</strong> | किताब → <strong>किताबिन</strong><br>
+                                • बेटी → <strong>बेटीन</strong> | आदमी → <strong>आदमीन</strong> | बकरी → <strong>बकरीन</strong><br>
+                                • गरू (गाय-बैल) → <strong>गरूइन ★</strong> | साधु → <strong>साधुइन</strong>
+                            </td>
+                        </tr>
+                        <tr style="background-color: #f0fdfa;">
+                            <td><strong>2. 'गुला' / 'गुलिन' / 'गुलेन' ★★</strong></td>
+                            <td>संज्ञा या सर्वनाम के ठीक बाद जोड़कर (विशेषकर शिखरिया व पूर्वी खोरठा में अत्यंत प्रचलित)।</td>
+                            <td>
+                                • गीदर (बच्चा) → <strong>गीदरगुला / गीदरगुलिन ★</strong><br>
+                                • गाछ (पेड़) → <strong>गाछगुला / गाछगुलिन</strong><br>
+                                • किताब → <strong>किताबगुला</strong> | घर → <strong>घरगुला</strong><br>
+                                • उ (वह) → <strong>उगुला / उगुलिन</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. 'सब' / 'लोग' / 'खिन' / 'मन' शब्द जोड़कर</strong></td>
+                            <td>समूह का बोध कराने के लिए संज्ञा के बाद स्वतंत्र रूप से।</td>
+                            <td>
+                                • मास्टर → <strong>मास्टर सब / मास्टर खिन</strong><br>
+                                • छउवा → <strong>छउवा सब / छउवा लोग</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. संख्यावाचक विशेषण के साथ नियम ★</strong></td>
+                            <td><strong>विशेष नियम:</strong> यदि संज्ञा से पहले कोई निश्चित संख्या (दुइ, चाइर, दस) आ जाए, तो संज्ञा में 'इन/ऐन' प्रत्यय <strong>नहीं</strong> लगता!</td>
+                            <td>
+                                • ❌ <em>चाइर गो छउवैन</em> (अशुद्ध)<br>
+                                • ✅ <strong>चाइर गो छउवा</strong> (शुद्ध — चार बच्चे)<br>
+                                • ✅ <strong>पाँच टा गाय</strong> (शुद्ध — पाँच गाएँ)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ---------------- 2.3 ---------------- -->
+            <h3 id="sec-10">2.3 कारक एवं विभक्ति-चिह्न (परसर्ग) — संपूर्ण 8 कारक तालिका</h3>
+            <p>वाक्य में संज्ञा या सर्वनाम का क्रिया के साथ संबंध बताने वाले चिह्नों को <strong>कारक (विभक्ति / परसर्ग)</strong> कहते हैं। खोरठा में भी <strong>8 कारक</strong> होते हैं। इनकी विभक्तियाँ हिंदी से काफी भिन्न और अनूठी हैं:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">कारक का नाम</th>
+                        <th style="width: 14%;">हिंदी चिह्न</th>
+                        <th style="width: 24%;">खोरठा विभक्ति-चिह्न ★★</th>
+                        <th style="width: 42%;">मानक खोरठा वाक्य-प्रयोग एवं नियम</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. कर्ता कारक</strong><br>(काम करने वाला)</td>
+                        <td>ने / शून्य (0)</td>
+                        <td><strong>शून्य (0), ए, एं, ञ</strong></td>
+                        <td>• सामान्यतः कोई चिह्न नहीं: <em>"राम भाइत खाइलक।"</em> (राम ने भात खाया)<br>• 'ए/एं' विभक्ति: <em>"कुकुर<strong>ए</strong> काटलक।"</em> (कुत्ते ने काटा); <em>"छउव<strong>एं</strong> काँदलक।"</em></td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>2. कर्म कारक ★</strong><br>(जिस पर क्रिया का फल पड़े)</td>
+                        <td>को</td>
+                        <td><strong>के, रा (सर्वनाम में) ★</strong></td>
+                        <td>• संज्ञा के साथ 'के': <em>"माय छउवा <strong>के</strong> दुलार कर हइ।"</em><br>• सर्वनाम के साथ <strong>'रा'</strong>: हम + रा = <strong>हमरा</strong> (मुझको); तोर + रा = <strong>तोरा</strong> (तुझको); ओकर + रा = <strong>ओकरा</strong> (उसको)।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. करण कारक ★</strong><br>(साधन / माध्यम)</td>
+                        <td>से / के द्वारा</td>
+                        <td><strong>से, ले, तें, ए, एं ★</strong></td>
+                        <td>• <em>"उ कलम <strong>से (ले)</strong> लिख हइ।"</em><br>• <em>"हम हँसुआ <strong>एं (से)</strong> घास काटलियइ।"</em><br>• <em>"भूख<strong>ें</strong> पेट जर रहल हइ।"</em> (भूख से पेट जल रहा है)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. संप्रदान कारक ★</strong><br>(जिसके लिए कुछ किया जाए)</td>
+                        <td>को / के लिए</td>
+                        <td><strong>लाय, लागिन, खातिर, लेल, के वास्ते ★★</strong></td>
+                        <td>• <em>"बाप बेटा <strong>खातिर (लागिन / लाय / लेल)</strong> किताब अनलक।"</em> (पिता बेटे के लिए किताब लाया)<br>• <em>"पढ़े <strong>लाय</strong> इसकूल जा।"</em> (पढ़ने के लिए स्कूल जाओ)</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>5. अपादान कारक ★★</strong><br>(अलगाव, डर, तुलना, उद्गम)</td>
+                        <td>से (अलग होना)</td>
+                        <td><strong>ले, से, में से ★</strong></td>
+                        <td>• <em>"गाछ <strong>ले (से)</strong> पत्ता गिरल।"</em> (पेड़ से पत्ता गिरा - अलगाव)<br>• <em>"छउवा बाघ <strong>ले (से)</strong> डेरा हइ।"</em> (बच्चा बाघ से डरता है)<br>• <em>"राजू मोहन <strong>ले</strong> डँगा (लम्बा) हइ।"</em> (तुलना)</td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>6. संबंध कारक ★★</strong><br>(अधिकार या रिश्ता)</td>
+                        <td>का, के, की, रा, रे, री</td>
+                        <td><strong>क, कर, केर, एक (संज्ञा में) | र, न (सर्वनाम में) ★</strong></td>
+                        <td>• संज्ञा में: <em>"राम<strong>क</strong> (या राम <strong>केर/कर</strong>) घर"</em> (राम का घर); <em>"गाछ<strong>ेक</strong> छँइहर"</em> (पेड़ की छाँव); <em>"माटी<strong>क</strong> मूरत"</em> (मिट्टी की मूरत)।<br>• सर्वनाम में <strong>'र'</strong>: <strong>हमर</strong> (मेरा), <strong>तोर/तोहर</strong> (तुम्हारा), <strong>ओकर/इकर</strong> (उसका/इसका), <strong>हमनीक/तोहनीक</strong> (हमारा/तुम्हारा)।</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>7. अधिकरण कारक ★★</strong><br>(क्रिया का आधार/स्थान/समय)</td>
+                        <td>में, पर</td>
+                        <td><strong>ए, एं, में, पर, उप्पर ★</strong></td>
+                        <td>• खोरठा में 'में/पर' के लिए शब्द के अंत में <strong>'ए / एं'</strong> जोड़ना सबसे प्रमुख पहचान है:<br>• घर में = <strong>घरें ★</strong> (<em>"बाबू घरें नखइ"</em>); हाथ में = <strong>हाथें</strong>; गोड़ में = <strong>गोड़ें</strong>; मूड़ पर = <strong>मूड़ें</strong>; दुआर पर = <strong>दुआरें</strong>; बारी में = <strong>बारीं</strong>।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>8. संबोधन कारक ★</strong><br>(पुकारने या बुलाने हेतु)</td>
+                        <td>हे! अरे! ओ!</td>
+                        <td><strong>ए! अजी! हो! रे! गे! गो! हे! ★</strong></td>
+                        <td>• बड़ों/सम्मान के लिए: <strong>ए हो! ए गो!</strong> (<em>"ए गो माय! सुन ना"</em>)<br>• छोटे लड़के के लिए: <strong>अरे! रे!</strong> (<em>"कहाँ जाहें रे छउवा?"</em>)<br>• छोटी लड़की/स्त्री के लिए: <strong>अगे! गे! ★</strong> (<em>"कि करहें गे मइया?"</em>)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ---------------- 2.4 ---------------- -->
+            <h3 id="sec-11">2.4 विशेषण (बिसेसन - 4 भेद) एवं क्रिया (करिया - मूल व सहायक क्रियाएँ)</h3>
+
+            <h4>(क) विशेषण (खोरठा में: 'बिसेसन'):</h4>
+            <p>जे सबद संइज्ञा चाहे सरवनाम के गुन, दोस, रंग, रूप या संख्या बतवे हइ, ओकरा <strong>'बिसेसन'</strong> कहल जा हइ। (जिसकी विशेषता बताई जाए उसे <em>'बिसेसय' [विशेष्य]</em> और जो विशेषण की भी विशेषता बताए उसे <em>'परबिसेसन' [प्रविशेषण]</em> कहते हैं—जैसे: <em>"आइज <strong>बड़ टाँठ</strong> रउद हइ"</em> में 'बड़' प्रविशेषण है)। खोरठा में विशेषण के <strong>4 भेद</strong> हैं:</p>
+
+            <ol>
+                <li><strong>1. गुनवाचक बिसेसन (गुणवाचक):</strong> गुन, दोस, रंग, आकार, स्वाद या दसा बतावे वाला।<br>
+                    <em>ठेठ खोरठा विशेषण शब्द ★:</em> <strong>बेस / नीक (अच्छा)</strong>, बाउर / खराब (बुरा), <strong>चरका (सफेद)</strong>, करिया (काला), हरियर (हरा), पियर (पीला), <strong>डँगा (लम्बा) ★</strong>, नाटा / बाउना (छोटा), <strong>मोठ (मोटा)</strong>, पातर (पतला), <strong>टाँठ (कड़ा/तेज) ★</strong>, भोंथरा (कुंद), <strong>अमट (खट्टा) ★</strong>, तीता (कड़वा), गुरगुरा (मीठा), <strong>सोझा (सीधा) ★</strong>, बेंड़ा / टेढ़ा (टेढ़ा)।</li>
+                <li><strong>2. संख्यावाचक बिसेसन (संख्यावाचक):</strong>
+                    <ul>
+                        <li><em>ठेकानी (निश्चित संख्या):</em> दुइ गो छउवा, चाइर टा गाय, एक कोरी (20) आम, पाहिला, दुसरा। <em>(नोट: खोरठा में संख्या के साथ <strong>'गो', 'टा', 'ठो'</strong> प्रत्यय अवश्य लगते हैं—जैसे 'तीन गो किताब')।</em></li>
+                        <li><em>अनठेकानी (अनिश्चित संख्या):</em> <strong>कतेक / कइएक (कई)</strong>, थोरवे (थोड़े), <strong>ढेर / बगरा (बहुत सारे) ★</strong>।</li>
+                    </ul>
+                </li>
+                <li><strong>3. परिमानवाचक / नाप-जोखवाचक बिसेसन (परिमाणवाचक):</strong>
+                    <ul>
+                        <li><em>ठेकानी (निश्चित नाप-तौल):</em> दुइ सेर चाउर, एक पइला धान ★, चाइर हाथ लुगा, एक लोटा पानी।</li>
+                        <li><em>अनठेकानी (अनिश्चित मात्रा):</em> <strong>तनिक / रतिसुन / कटी-सुन (थोड़ा-सा) ★★</strong>, <strong>अधिया / ढेर / अनगिनत / भइर (पूरा)</strong>।</li>
+                    </ul>
+                </li>
+                <li><strong>4. सारवनामिक / संकेतवाचक बिसेसन (सार्वनामिक):</strong> जब सर्वनाम शब्द किसी संज्ञा के ठीक पहले आकर उसकी ओर संकेत करे।<br>
+                    <em>उदाहरण:</em> <em>"<strong>ई</strong> छउवा बड़ बेस हइ"</em> (यहाँ 'ई' छउवा संज्ञा की विशेषता बता रहा है); <em>"<strong>उ</strong> गाछ आम के हके।"</em></li>
+            </ol>
+
+            <h4>(ख) क्रिया (खोरठा में: 'करिया' या 'काम'):</h4>
+            <p>जे सबद से कउनो काम के होवेक चाहे करेक पता चले, ओकरा <strong>'करिया' (क्रिया)</strong> कहल जा हइ।</p>
+            <ul>
+                <li><strong>मूल धातु एवं क्रिया का सामान्य रूप ★:</strong> खोरठा में मूल धातु में <strong>'-एक' या '-ना'</strong> प्रत्यय लगाने से क्रिया का सामान्य रूप बनता है। जैसे:
+                    <ul>
+                        <li><strong>पढ़</strong> (धातु) + एक = <strong>पढ़ेक</strong> (पढ़ना) | <strong>लिख</strong> + एक = <strong>लिखेक</strong> (लिखना) | <strong>खा</strong> + एक = <strong>खाएक</strong> (खाना) | <strong>जा</strong> + एक = <strong>जाएक</strong> (जाना) | <strong>सुत</strong> + एक = <strong>सुतेक</strong> (सोना) | <strong>काँद</strong> + एक = <strong>काँदेक</strong> (रोना)।</li>
+                    </ul>
+                </li>
+                <li><strong>कर्म के आधार पर क्रिया के 2 भेद:</strong>
+                    <ol>
+                        <li><strong>सकरमक करिया (सकर्मक क्रिया):</strong> जेकर संग करम (Object) रहे चाहे करम के संभावना रहे (सवाल पूछें: <em>'की' [क्या] या 'ककरा' [किसको]?</em>)। जैसे—<em>खाएक, पढ़ेक, लिखेक, देखेक, पीएक, काटेक।</em> (उदा.—<em>"राजू आम खा हइ"</em> — की खा हइ? = आम)।</li>
+                        <li><strong>अकरमक करिया (अकर्मक क्रिया):</strong> जेकर संग कउनो करम नय रहे और क्रिया का फल सीधे कर्ता पर पड़े। जैसे—<em>सुतेक (सोना), हँसेक (हँसना), काँदेक (रोना), उड़ेक (उड़ना), दउड़ेक (दौड़ना), बइसेक (बैठना)।</em> (उदा.—<em>"छउवा काँद हइ"</em>, <em>"चेरे अकासें उड़ हइ"</em>)।</li>
+                    </ol>
+                </li>
+                <li><strong>खोरठा की प्रमुख सहायक क्रियाएँ (Helping Verbs ★):</strong>
+                    <ul>
+                        <li>वर्तमान काल (है/हैं/हूँ): <strong>हइ, हके, हको, हियो, हथिन, हउ (और संथाल परगनिया में: छै, छी)</strong>।</li>
+                        <li>नकारात्मक वर्तमान (नहीं है ★): खोरठा में 'नय हइ' को मिलाकर एक विशेष सहायक क्रिया बनती है—<strong>नखइ / नखे / नखो / नखथिन ★★</strong> (जैसे—<em>"बाबू घरें नखइ"</em> = पिताजी घर में नहीं हैं; <em>"हमर पास पइसा नखे"</em> = मेरे पास पैसा नहीं है)।</li>
+                        <li>भूतकाल (था/थे/थी): <strong>रहे, रहइ, रहथिन, हलइ, हले, हलथिन ★</strong>।</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- ---------------- 2.5 ---------------- -->
+            <h3 id="sec-12">2.5 काल-विधान (Tense: बीतल/भूत, चलित/वर्तमान, आवेवाला/भविष्यत काल)</h3>
+            <p>क्रिया के जिस रूप से काम होने के समय का पता चले, उसे <strong>काल (खोरठा में: 'काल' या 'बखत')</strong> कहते हैं। खोरठा में तीनों कालों की पहचान क्रिया के अंत में लगने वाले प्रत्ययों से तुरंत की जा सकती है:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 22%;">काल का नाम (खोरठा नाम)</th>
+                        <th style="width: 24%;">पहचान चिह्न (क्रिया के अंत में ★)</th>
+                        <th style="width: 54%;">प्रमुख उपभेद एवं खोरठा वाक्य-उदाहरण</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>1. चलित काल / एकनक काल ★</strong><br>(वर्तमान काल - Present Tense)</td>
+                        <td>धातु + <strong>हइ, हें, हो, हथिन</strong><br>(अपूर्ण में: <strong>रहल हइ / इत हइ</strong>)</td>
+                        <td>
+                            • <strong>सामान्य वर्तमान:</strong> <em>"हम पढ़ <strong>हियो / हें</strong>"</em> (मैं पढ़ता हूँ); <em>"राजू इसकूल जा <strong>हइ</strong>"</em> (राजू स्कूल जाता है)।<br>
+                            • <strong>तात्कालिक / अपूर्ण वर्तमान (अधपूरा चलित ★):</strong> <em>"बुलबुल किताब पढ़ <strong>रहल हइ</strong>"</em> (या <em>पढ़<strong>इत हइ</strong></em> — बुलबुल किताब पढ़ रही है)।<br>
+                            • <strong>संदिग्ध वर्तमान (सकहा चलित):</strong> <em>"माय खाना बनाव<strong>त होइतइ</strong>"</em> (माँ खाना बनाती होगी)।
+                        </td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>2. बीतल काल / भूतकाल ★★</strong><br>(Past Tense)</td>
+                        <td>मूल पहचान अक्षर: <strong>'ल' (लइ, लक, लियइ, ला, लथिन)</strong> तथा सहायक क्रिया <strong>रहे/हलइ</strong></td>
+                        <td>
+                            <strong>★ ट्रिक: जिस क्रिया के अंत में 'ल' दिखे, वह 99% भूतकाल (बीतल काल) है!</strong><br>
+                            • <strong>सामान्य भूत:</strong> <em>"राम भाइत खाइ<strong>लक</strong> / खाइ<strong>लइ</strong>"</em> (राम ने भात खाया); <em>"हम पढ़<strong>लियइ</strong>"</em> (मैंने पढ़ा)।<br>
+                            • <strong>आसन्न भूत (ताजा बीतल):</strong> <em>"उ अभी आइ<strong>ल हइ</strong>"</em> (वह अभी आया है)।<br>
+                            • <strong>पूर्ण भूत (पूरा बीतल):</strong> <em>"उ राँची गेल <strong>रहे (हलइ)</strong>"</em> (वह राँची गया था)।<br>
+                            • <strong>अपूर्ण भूत (अधपूरा बीतल):</strong> <em>"सीता गीत गावइत <strong>रहे (या गा रहल हलइ)</strong>"</em> (सीता गीत गा रही थी)।<br>
+                            • <strong>हेतुहेतुमद् भूत (ढसाहा बीतल ★):</strong> <em>"जदि पानी बरस<strong>तलइ</strong>, त धान बेस हो<strong>तलइ</strong>"</em> (यदि पानी बरसता, तो धान अच्छा होता)।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. आवेवाला काल / भविसत काल ★★</strong><br>(Future Tense)</td>
+                        <td>मूल पहचान अक्षर: <strong>'ब' (उत्तम पुरुष)</strong> एवं <strong>'त' (तइ, तें, थिन — मध्यम/अन्य पुरुष)</strong></td>
+                        <td>
+                            <strong>★ ट्रिक: क्रिया के अंत में 'ब' या 'त' दिखे, तो वह भविष्यत काल है!</strong><br>
+                            • <strong>सामान्य भविष्यत:</strong> <em>"हम काइल्ह राँची जा<strong>इब</strong>"</em> (मैं कल राँची जाऊँगा); <em>"उ काइल्ह आ<strong>इतइ (आवतइ)</strong>"</em> (वह कल आएगा); <em>"तोहें परीछा दे<strong>बें / देतइ</strong>"</em>।<br>
+                            • <strong>संभाव्य भविष्यत (सकहा आवेवाला):</strong> <em>"सायद आइज बरखा हो<strong>वे</strong> / हो<strong>इतइ</strong>"</em> (शायद आज वर्षा हो)।<br>
+                            • <strong>हेतुहेतुमद् भविष्यत:</strong> <em>"जे मेहनत कर<strong>तइ</strong>, से सफल हो<strong>इतइ</strong>"</em> (जो मेहनत करेगा, वह सफल होगा)।
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ---------------- 2.6 ---------------- -->
+            <h3 id="sec-13">2.6 उपसर्ग (अदतिया / अगूतर) एवं प्रत्यय (पछतिया / पाछूतर) तथा वाक्य-रचना</h3>
+
+            <h4>(क) उपसर्ग (खोरठा में: 'अदतिया' या 'अगूतर' ★):</h4>
+            <p>जे सबद-खंड कउनो मूल सबद के <strong>आगू (पहले)</strong> जुइड़ के ओकर माने (अर्थ) बदइल दे हइ, ओकरा खोरठा में <strong>'अदतिया' (उपसर्ग)</strong> कहल जा हइ। प्रमुख खोरठा उपसर्ग:</p>
+            <ul>
+                <li><strong>अ / अन (नहीं या अभाव के अर्थ में):</strong> अ + काज = <em>अकाज</em>; अ + जान = <em>अजान</em>; अन + चिन्हार (परिचित) = <strong>अनचिन्हार (अपरिचित) ★</strong>; अन + पच = <em>अनपच</em>; अन + ठेकान = <strong>अनठेकान ★</strong>।</li>
+                <li><strong>अध (आधा के अर्थ में):</strong> अध + पका = <em>अधपका</em>; अध + कपारी = <strong>अधकपारी ★</strong>; अध + मरा = <em>अधमरा</em>; अध + रतिया = <em>अधरतिया</em>।</li>
+                <li><strong>नि / निर (बिना या रहित के अर्थ में):</strong> नि + मुँहा = <strong>निमुँहा ★</strong>; नि + धड़क = <em>निधड़क</em>; नि + फिकिर = <em>निफिकिर</em>; निर + बंस = <strong>निरबंस ★</strong>; निर + लाज = <em>निरलाज</em>।</li>
+                <li><strong>कु / क (बुरा के अर्थ में):</strong> कु + डहर (रास्ता) = <strong>कुडहर ★</strong>; कु + चाल = <em>कुचाल</em>; क + पूत = <em>कपूत</em>।</li>
+                <li><strong>सु / स (अच्छा या साथ के अर्थ में):</strong> सु + डहर = <strong>सुडहर ★</strong>; स + पूत = <em>सपूत</em>; स + परिवार = <em>सपरिवार</em>।</li>
+                <li><strong>बिन (बिना के अर्थ में):</strong> बिन + बिहाइल = <strong>बिनबिहाइल (अविवाहित) ★</strong>; बिन + देखल = <em>बिनदेखल</em>।</li>
+                <li><strong>भर (पूरा के अर्थ में):</strong> भर + पेट = <em>भरपेट</em>; भर + पइला = <em>भरपइला</em>; भर + दिन = <em>भरदिन</em>।</li>
+                <li><strong>बे (विदेशी/उर्दू उपसर्ग — बिना):</strong> बे + इमान = <em>बेइमान</em>; बे + सरम = <em>बेसरम</em>; बे + हिसाब = <em>बेहिसाब</em>।</li>
+            </ul>
+
+            <h4>(ख) प्रत्यय (खोरठा में: 'पछतिया' या 'पाछूतर' ★):</h4>
+            <p>जे सबद-खंड कउनो मूल सबद या धातु के <strong>पाछू (अंत में)</strong> जुइड़ के नया सबद बनवे हइ, ओकरा <strong>'पछतिया' (प्रत्यय)</strong> कहल जा हइ। (ये दो प्रकार के होते हैं—<em>कृदंत [क्रिया धातु में लगने वाले]</em> और <em>तद्धित [संज्ञा/विशेषण में लगने वाले]</em>):</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">खोरठा प्रत्यय (पछतिया)</th>
+                        <th style="width: 30%;">मूल शब्द / धातु</th>
+                        <th style="width: 45%;">निर्मित ठेठ खोरठा शब्द (परीक्षा हेतु अत्यंत महत्वपूर्ण)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. 'अइया' / 'वइया' ★</strong><br>(काम करने वाला - कर्तृवाचक)</td>
+                        <td>पढ़, लिख, खा, गीत गा, कमा</td>
+                        <td>• पढ़ + अइया = <strong>पढ़वइया (पढ़ने वाला) ★</strong><br>• लिख + अइया = <strong>लिखवइया</strong> | खा + अइया = <strong>खवइया</strong> | कमवइया</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>2. 'आरी' / 'पन' / 'आली' ★</strong><br>(भाववाचक तद्धित प्रत्यय)</td>
+                        <td>बूढ़ा, गीदर, छउवा, हरियर</td>
+                        <td>• बूढ़ा + आरी = <strong>बुढ़ारी (बुढ़ापा) ★★</strong><br>• गीदर + पन = <strong>गीदरपन / छउवापन</strong><br>• हरियर + आली = <strong>हरियाली</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. 'नी' / 'ना' ★</strong><br>(करणवाचक - उपकरण)</td>
+                        <td>बढ़ (झाड़ना), ओढ़, ढक, बेल</td>
+                        <td>• बढ़ + नी = <strong>बढ़नी (झाड़ू) ★★</strong><br>• ओढ़ + नी = <strong>ओढ़नी</strong> | ढक + ना = <strong>ढकना</strong> | बेलना</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. 'गर' ★★</strong><br>(गुणवाचक विशेषण बनाने हेतु)</td>
+                        <td>लूर (ढंग/हुनर), डोल (सुडौल), मया (दया)</td>
+                        <td>• लूर + गर = <strong>लूरगर (हुनरमंद/सलीकेदार) ★★</strong><br>• डोल + गर = <strong>डोलगर (सुडौल)</strong> | <strong>मयागर (दयालु) ★</strong><br><em>(विपरीतार्थक: 'बे' उपसर्ग लगाकर — <strong>बेलूर / बेलूरगर</strong> = जिसे काम का ढंग न हो)</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. 'आहा' / 'हा' ★</strong><br>(वाला या स्वभाव)</td>
+                        <td>गाँव, बोन (जंगल), रूस (रूठना), डेर (डर)</td>
+                        <td>• गाँव + आहा = <strong>गँवाहा (गाँव वाला)</strong> | बोन + आहा = <strong>बोनाहा ★</strong><br>• रूस + हा = <strong>रुसहा (जल्दी रूठने वाला)</strong> | <strong>डेरहा (डरपोक) ★</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. 'इया' ★</strong><br>(क्षेत्र या संबंध बताने हेतु)</td>
+                        <td>राँची, रामगढ़, शिखर, पहाड़</td>
+                        <td>• रामगढ़ + इया = <strong>रामगढ़िया</strong> | शिखर + इया = <strong>शिखरिया ★</strong><br>• पहाड़ + इया = <strong>पहाड़िया</strong> | <strong>खोरठइया (खोरठा बोलने वाला)</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>7. 'टी' / 'ली' / 'री' ★</strong><br>(ऊनवाचक — छोटा रूप बताने हेतु)</td>
+                        <td>छोटा पात्र या वस्तु दिखाने हेतु</td>
+                        <td>• डुभा (बड़ा कटोरा) → <strong>डुभली (छोटी कटोरी) ★</strong><br>• थारी → <strong>चिपली / थरिया</strong> | खाँची → <strong>खँचिया</strong> | टँगरी → <strong>टुंगरी (छोटी पहाड़ी)</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>(ग) खोरठा वाक्य-रचना एवं प्रकार (Sentence Structure & Types):</h4>
+            <ul>
+                <li><strong>वाक्य का पद-क्रम:</strong> हिंदी की तरह खोरठा में भी सामान्य वाक्य का क्रम <strong>कर्ता (Subject) + कर्म (Object) + क्रिया (Verb) [S + O + V]</strong> होता है। जैसे—<em>"बुलबुल (कर्ता) किताब (कर्म) पढ़ हइ (क्रिया)।"</em></li>
+                <li><strong>रचना के आधार पर वाक्य के 3 भेद:</strong>
+                    <ol>
+                        <li><strong>सरल / सोझा वाक्य (Simple Sentence):</strong> जिसमें एक उद्देश्य और एक ही मुख्य क्रिया हो। जैसे—<em>"किसान हर जोत रहल हइ।"</em></li>
+                        <li><strong>मिसरित / मिलल वाक्य (Complex Sentence):</strong> जिसमें एक प्रधान उपवाक्य और एक या अधिक आश्रित उपवाक्य हों (जो <em>'जे...से', 'जखन...तखन', 'जदि...त', 'काहेकि'</em> से जुड़े हों)। जैसे—<em>"<strong>जखन</strong> बरखा भेलइ, <strong>तखन</strong> बेंग टर्राए लगलइ।"</em> (जब बारिश हुई, तब मेंढक टर्राने लगे)।</li>
+                        <li><strong>संजुकत / जोड़ाव वाक्य (Compound Sentence):</strong> जब दो स्वतंत्र वाक्य <strong>'अउर / आर' (और), 'मकन / मुदा' (परंतु/लेकिन) ★, 'चाहे / कि' (या)</strong> से जुड़े हों। जैसे—<em>"राजू खूब पढ़लक, <strong>मकन (मुदा)</strong> सफल नय भेल।"</em></li>
+                    </ol>
+                </li>
+                <li><strong>अर्थ के आधार पर प्रमुख खोरठा वाक्य-रूप:</strong>
+                    <ul>
+                        <li><strong>विधानवाचक (सकारात्मक):</strong> <em>"सुरुज पूरब दिसा में उग हइ।"</em></li>
+                        <li><strong>निषेधवाचक (नकारात्मक - 'नय' या 'नखइ/मइत'):</strong> <em>"हम झूँठ <strong>नय</strong> बोलब।"</em> / <em>"रउद में बाहर <strong>मइत (मत)</strong> जो।"</em></li>
+                        <li><strong>प्रश्नवाचक (सवालवाचक):</strong> <em>"की तोहें भाइत खइला?"</em></li>
+                        <li><strong>आज्ञावाचक (हुकुमबोधी):</strong> <em>"हियाँ आउ अउर चुपचाप बइसऽ।"</em></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- ==================== END OF UNIT 2 ==================== -->
+        <!-- ==================== UNIT 3 (SYLLABUS POINTS 5, 6 & 7 | ~7 MARKS) ==================== -->
+        <div id="unit3" class="unit-section">
+            <h2>इकाई 3 (Unit 3): खोरठा लोकसाहित्य, शिष्ट साहित्य, प्रमुख साहित्यकार एवं पठन-लेखन कौशल</h2>
+
+            <p><strong>पाठ्यक्रम संदर्भ (JAC JHTET 2026 - Level 2, बिंदु 5, 6 व 7):</strong> <em>"लोकसाहित्य, शिष्ट साहित्य (गद्य-पद्य), झारखंड की सांस्कृतिक विरासत, पत्र-लेखन और हिंदी-खोरठा अनुवाद।"</em> खोरठा परीक्षा में यह खंड सबसे अधिक स्कोरिंग और रोचक है। प्रामाणिक खोरठा लोकसंस्कृति और आधुनिक शिष्ट साहित्य का संपूर्ण विश्लेषण नीचे प्रस्तुत है:</p>
+
+            <!-- ---------------- 3.1 ---------------- -->
+            <h3 id="sec-14">3.1 खोरठा लोकसाहित्य: लोकगीत, लोककथा एवं लोकगाथा (Folk Literature)</h3>
+            <p>लोकसाहित्य किसी समाज की मौखिक संस्कृति का दर्पण होता है। डॉ. ए.के. झा और शिवनाथ प्रमाणिक के अनुसार खोरठा लोकसाहित्य अत्यंत समृद्ध है:</p>
+
+            <ul>
+                <li><strong>1. खोरठा लोकगीत (Folk Songs):</strong> खोरठा लोकगीतों में संस्कारों, पर्व-त्योहारों और कृषि जीवन का सजीव चित्रण मिलता है। प्रमुख लोकगीत श्रेणियाँ:
+                    <ul>
+                        <li><strong>संस्कार गीत (Sanskar Geet):</strong> जन्म गीत, मुंडन गीत और <strong>बिहा गीत (विवाह गीत — जैसे: ढमक, हरचिरइया, दुआरेक गीत) ★</strong>।</li>
+                        <li><strong>पर्व-त्योहार गीत (Festival Songs):</strong>
+                            <ul>
+                               <li><strong>सोहराय गीत ★:</strong> गोधन और मवेशियों की पूजा तथा दीपावली के समय गाए जाने वाले गीत।</li>
+                               <li><strong>करमा गीत (Karma Geet) ★★:</strong> प्रकृति और भाई-बहन के प्रेम का महान पर्व 'करम' के अवसर पर जावा जगाते समय गाए जाने वाले मादक गीत (जैसे—<em>"जवा जगाइ गे मइया, करम राजा जगाइ..."</em>)।</li>
+                               <li><strong>टुसू गीत ★:</strong> मकर संक्रांति (पोष संक्रांति) के अवसर पर कुँवारी कन्याओं द्वारा टुसू चौड़ल स्थापित कर गाए जाने वाले गीत।</li>
+                            </ul>
+                        </li>
+                        <li><strong>ऋतु एवं श्रम गीत (Seasonal & Labour Songs):</strong> धान रोपनी के समय गाए जाने वाले <strong>'झूमर' और 'डमकच'</strong> गीत, तथा खेतों में काम करते समय थकान मिटाने वाले श्रम गीत।</li>
+                    </ul>
+                </li>
+                <li><strong>2. खोरठा लोककथाएँ (Folk Tales):</strong> बुजुर्गों द्वारा मौखिक रूप से पीढ़ी-दर-पीढ़ी सुनाई जाने वाली कहानियाँ। डॉ. शांति भारत और बंसी लाल बंसी द्वारा संकलित प्रमुख लोककथाएँ:
+                    <ul>
+                        <li><em>'सात भाई भौजाई'</em>, <em>'बूढ़ी और ओकरा'</em>, <em>'कमल-कुसुम'</em>, <em>'दुहीयार'</em> और <em>'केतकी फूल'</em>। (इन कथाओं में नीति, न्याय, प्रेम और श्रम की महत्ता का संदेश होता है)।</li>
+                    </ul>
+                </li>
+                <li><strong>3. खोरठा लोकगाथाएँ एवं प्रकीर्ण लोकसाहित्य:</strong> ऐतिहासिक या वीरतापूर्ण घटनाओं पर आधारित मौखिक कथाएँ, पहेलियाँ (बुझौवल/फाँक), और लोकोक्तियाँ (पटतोर)।</li>
+            </ul>
+
+            <!-- ---------------- 3.2 ---------------- -->
+            <h3 id="sec-15">3.2 खोरठा के प्रमुख साहित्यकार एवं उनकी अमर कृतियाँ</h3>
+            <p>खोरठा भाषा को आधुनिक मुकाम तक पहुँचाने वाले महान साहित्यकारों का जीवन और रचनाएँ परीक्षा में बार-बार पूछे जाते हैं:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">साहित्यकार का नाम</th>
+                        <th style="width: 30%;">उपनाम एवं उपाधि / परिचय</th>
+                        <th style="width: 45%;">प्रमुख कृतियाँ (काव्य, नाटक, कहानी संग्रह) ★</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>1. श्रीनिवास पानुरी ★★</strong></td>
+                        <td>
+                            • <strong>खोरठा के भीष्म पितामह</strong> / 'खोरठा के भारतेंदु'<br>
+                            • जन्म: कल्याणपुर, बरवाड्डा, धनबाद (25 दिसं. 1920)
+                        </td>
+                        <td>
+                            • काव्य: <strong>'बालकिरण', 'दिव्यज्योति', 'आँखि की गीत' ★★, 'रामकथा भगत जोगनी', 'मेघदूत'</strong> (कालिदास के मेघदूत का खोरठा पद्यानुवाद)।<br>
+                            • नाटक: <strong>'डाह' (श्रेष्ठ सामाजिक नाटक) ★★</strong>, 'रकतिया फूल'।<br>
+                            • संस्मरण: 'पानुरी जी के संस्मरण'।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. डॉ. ए.के. झा (अजीत कुमार झा) ★★</strong></td>
+                        <td>
+                            • मौसम वैज्ञानिक, भाषाविद् एवं 'खोरठा के पाणिनी'<br>
+                            • जन्म: चंडीपुर, बोकारो (20 जून 1939)
+                        </td>
+                        <td>
+                            • व्याकरण: <strong>'खोरठा सहित सदानिक व्याकरण' ★★</strong><br>
+                            • काव्य/नाटक: <strong>'किरीट फूल', 'श्रापमुक्त अहल्या'</strong>, 'मेघदूत' (समीक्षात्मक)।<br>
+                            • संपादन: 'खोरठा गद्य-पद्य संग्रह'।
+                        </td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>3. डॉ. बी.एन. ओहदार</strong></td>
+                        <td>
+                            • शिक्षाविद्, आलोचक एवं TRL विशेषज्ञ<br>
+                            • जन्म: चटाकपुर, रामगढ़
+                        </td>
+                        <td>
+                            • कृतियाँ: <strong>'खोरठा भाषा एवं साहित्य: उद्भव और विकास'</strong>, 'सोन माटी' (भूमिका लेखक), लोकसाहित्य शोध ग्रंथ।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. विश्वनाथ दसोंधी 'राज'</strong></td>
+                        <td>
+                            • प्रसिद्ध नाटककार एवं कहानीकार<br>
+                            • जन्म: भटमुरा, धनबाद
+                        </td>
+                        <td>
+                            • नाटक/उपन्यास: <strong>'अजगर' (वर्ग संघर्ष पर आधारित प्रसिद्ध नाटक) ★★</strong>, 'मकुनचैला'।<br>
+                            • कहानी संग्रह: <strong>'धइसाइकल फूल'</strong>।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. सुकुमार (सुरेश कुमार विश्वकर्मा)</strong></td>
+                        <td>
+                            • नाटककार, गीतकार एवं फिल्मकार<br>
+                            • जन्म: भंडरा, बोकारो
+                        </td>
+                        <td>
+                            • नाटक: <strong>'चाभी कैका' (चाबी काठी - भ्रष्टाचार व शोषण के विरुद्ध नाटक) ★★</strong>。<br>
+                            • गीत संग्रह: 'हरियर हरियर डार'।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. श्याम सुंदर महतो 'श्याम'</strong></td>
+                        <td>
+                            • प्रसिद्ध गद्यकार एवं निबंधकार
+                        </td>
+                        <td>
+                            • निबंध/कहानी: <strong>'मुक्तरामायण'</strong>, 'बलिदान'।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>7. संतोष कुमार महतो</strong></td>
+                        <td>
+                            • खोरठा के प्रसिद्ध कहानीकार
+                        </td>
+                        <td>
+                            • कहानी संग्रह: <strong>'सोंध माटी' (झारखंड की माटी और किसानों की पीड़ा पर आधारित 10 कहानियाँ और 31 कविताएँ) ★★</strong>।
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ---------------- 3.3 ---------------- -->
+            <h3 id="sec-16">3.3 प्रमुख गद्य एवं पद्य कृतियों का संक्षिप्त परिचय (Classics Overview)</h3>
+            <ul>
+                <li><strong>1. 'सोंध माटी' (संतोष कुमार महतो - कहानी व कविता संग्रह):</strong> इसमें कुल 10 कहानियाँ (जैसे—<em>उबखैद, जीयते जीयता, हुताशन, ओनाइड</em>) और 31 कविताएँ हैं। यह खोरठा साहित्य की सबसे चर्चित पाठ्यपुस्तक है जो ग्रामीण अर्थव्यवस्था, पलायन और संघर्ष को दर्शाती है।</li>
+                <li><strong>2. 'छँइहर' (डॉ. मनपूरन गोस्वामी - कहानी संग्रह):</strong> इसमें समाज के विभिन्न चरित्रों और मनोवैज्ञानिक पहलुओं को दर्शाने वाली कहानियाँ संकलित हैं (शीर्षक कहानी 'छँइहर' संगति के प्रभाव पर आधारित है)।</li>
+                <li><strong>3. 'डाह' (श्रीनिवास पानुरी - नाटक):</strong> यह ईर्ष्या, प्रतिशोध और पारिवारिक टूटन पर आधारित एक अत्यंत लोकप्रिय खोरठा नाटक है जिसके प्रमुख पात्र विवेक, शेखर और कमिला हैं।</li>
+                <li><strong>4. 'अजगर' (विश्वनाथ दसोंधी 'राज' - नाटक):</strong> यह सामंतवाद, महाजनी प्रथा और पुलिस-प्रशासन द्वारा गरीबों के शोषण के विरुद्ध खोरठा का क्रांतिकारी नाटक है (अजगर समाज के शोषक वर्ग का प्रतीक है)।</li>
+                <li><strong>5. 'दामोदरक कोरांय' (शिवनाथ प्रमाणिक - खंडकाव्य):</strong> दामोदर नदी की घाटी को केंद्र में रखकर झारखंड के विस्थापन, कोयलांचल की समस्याओं और अमर संस्कृति का महागाथात्मक खंडकाव्य है।</li>
+            </ul>
+
+            <!-- ---------------- 3.4 ---------------- -->
+            <h3 id="sec-17">3.4 झारखंड की सांस्कृतिक विरासत, पर्व-त्योहार एवं समुदाय-संदर्भ</h3>
+            <p>झारखंड की संस्कृति प्रकृति पूजा और सामुदायिक समरसता पर आधारित है। खोरठा भाषी समाज के प्रमुख पर्व:</p>
+            <ul>
+                <li><strong>करम पर्व (Karma Festival):</strong> भादो मास के एकादशी को मनाया जाने वाला प्रकृति और भाई-बहन के अटूट प्रेम का पर्व। इसमें जावा फूल की पूजा होती है।</li>
+                <li><strong>सोहराय / बांदना पर्व (Sohrai / Bandna):</strong> कार्तिक अमावस्या (दीपावली) के अगले दिन मवेशियों (गाय-बैल) की पूजा का पर्व। इस दिन बैलों की पीठ पर तेल-सिंदूर लगाकर उन्हें सजाया जाता है और खोरठा गीत गाए जाते हैं—<em>"सोरहइया आवे रे..."</em>।</li>
+                <li><strong>टुसू पर्व (Tusu Festival):</strong> मकर संक्रांति पर कुँवारी लड़कियों द्वारा मनाया जाने वाला लोकपर्व।</li>
+                <li><strong>सरहुल (बाहा पर्व):</strong> साल (सखुआ) के फूलों के खिलने पर प्रकृति के प्रति कृतज्ञता ज्ञापित करने का पर्व।</li>
+            </ul>
+
+            <!-- ---------------- 3.5 ---------------- -->
+            <h3 id="sec-18">3.5 पठन-बोध (Comprehension), पत्र-लेखन एवं हिंदी-खोरठा अनुवाद</h3>
+            <ul>
+                <li><strong>पठन-बोध (Comprehension):</strong> परीक्षा में किसी गद्यांश या पद्यांश को पढ़कर उस पर आधारित 3 से 5 प्रश्नों के सटीक उत्तर खोरठा या हिंदी में देने होते हैं।</li>
+                <li><strong>पत्र एवं आवेदन प्रारूप (Letter Writing in Khortha):</strong>
+                    <ul>
+                        <li>प्रधानाचार्य को आवेदन: <em>"सेवा में, प्रधानाध्यापक महोदय, उत्क्रमित उच्च विद्यालय..."</em></li>
+                        <li>छुट्टी के लिए खोरठा में निवेदन: <em>"महाशय, सविनय निवेदन हके कि हमर तबियत बिहान ले खराब हको, तेकरे से..."</em></li>
+                    </ul>
+                </li>
+                <li><strong>हिंदी से खोरठा अनुवाद अभ्यास (Hindi to Khortha Translation):</strong>
+                    <ul>
+                        <li><em>हिंदी:</em> "राम कल राँची जाएगा।" → <em>खोरठा:</em> "राम काइल्ह राँची जइतइ।"</li>
+                        <li><em>हिंदी:</em> "यह मेरी पुस्तक है।" → <em>खोरठा:</em> "ई हमर किताब हके।"</li>
+                        <li><em>हिंदी:</em> "पिताजी घर में नहीं हैं।" → <em>खोरठा:</em> "बाप (बाबू) घरें नखइ।"</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- ==================== END OF UNIT 3 ==================== -->
+
+
+
+        <!-- ==================== UNIT 4 (SYLLABUS POINTS 8 & 9 | ~5 MARKS) ==================== -->
+        <div id="unit4" class="unit-section">
+            <h2>इकाई 4 (Unit 4): बहुभाषी कक्षा में खोरठा भाषा-शिक्षण (NEP 2020) एवं 30 प्रश्नों का मास्टर प्रैक्टिस सेट</h2>
+
+            <p><strong>पाठ्यक्रम संदर्भ (JAC JHTET 2026 - Level 2, बिंदु 8 व 9):</strong> <em>"बहुभाषी कक्षा में खोरठा भाषा-शिक्षण की प्रासंगिकता और राष्ट्रीय शिक्षा नीति (NEP) 2020 में क्षेत्रीय/मातृभाषा से जुड़े प्रावधान।"</em> खोरठा परीक्षा में शिक्षणशास्त्र (Pedagogy) और खोरठा भाषा के व्यावहारिक अनुप्रयोग पर आधारित यह खंड अत्यंत महत्वपूर्ण है। संपूर्ण विश्लेषणात्मक सामग्री और 30 प्रश्नों का मास्टर प्रैक्टिस सेट नीचे प्रस्तुत है:</p>
+
+            <!-- ---------------- 4.1 ---------------- -->
+            <h3 id="sec-19">4.1 बहुभाषी कक्षा में खोरठा भाषा-शिक्षण की प्रासंगिकता एवं सेतु (Bridge) उपयोग</h3>
+            <p>झारखंड एक बहुभाषिक (Multilingual) राज्य है जहाँ एक ही कक्षा में संथाली, मुंडारी, कुड़ुख, खोरठा, नागपुरी और हिंदी बोलने वाले बच्चे एक साथ बैठते हैं। आधुनिक भाषा-शिक्षणशास्त्र के अनुसार:</p>
+            <ul>
+                <li><strong>बहुभाषिकता एक संसाधन (Multilingualism as a Resource) ★:</strong> खोरठा भाषी या बहुभाषिक कक्षा में बच्चों की मातृभाषा को कभी भी 'बाधा' (Barrier) नहीं माना जाना चाहिए, बल्कि इसे शिक्षण को सुगम बनाने के लिए एक मूल्यवान 'संसाधन' (Asset) माना जाना चाहिए।</li>
+                <li><strong>सेतु भाषा (Bridge Language) के रूप में खोरठा:</strong> झारखंड की संपर्क भाषा (Lingua Franca) होने के नाते खोरठा प्राथमिक और उच्च प्राथमिक स्तर पर बच्चों को उनकी अपनी घर की बोली से मानक हिंदी और अंग्रेजी की मुख्यधारा से जोड़ने वाले एक मजबूत 'सेतु' (Bridge) का कार्य करती है।</li>
+                <li><strong>सांस्कृतिक रूप से उत्तरदायी शिक्षण (Culturally Responsive Pedagogy):</strong> खोरठा शिक्षण में स्थानीय लोककथाओं, त्योहारों (सरहुल, करमा, सोहराय) और परिवेशीय उदाहरणों का प्रयोग करने से बच्चों की बोधगम्यता (Comprehension) और वैचारिक स्पष्टता तीव्र गति से बढ़ती है।</li>
+            </ul>
+
+            <!-- ---------------- 4.2 ---------------- -->
+            <h3 id="sec-20">4.2 राष्ट्रीय शिक्षा नीति (NEP 2020) में मातृभाषा, क्षेत्रीय भाषा एवं द्विभाषिक सामग्री</h3>
+            <p>भारत सरकार की <strong>राष्ट्रीय शिक्षा नीति (NEP 2020)</strong> के अंतर्गत क्षेत्रीय और मातृभाषाओं के शिक्षण को सर्वोपरि स्थान दिया गया है:</p>
+            <ul>
+                <li><strong>माध्यम के रूप में मातृभाषा/क्षेत्रीय भाषा ★:</strong> NEP 2020 के प्रावधान 4.11 के अनुसार, कम से कम कक्षा 5 तक (और जहाँ तक संभव हो कक्षा 8 तक) शिक्षा का माध्यम बच्चों की मातृभाषा / स्थानीय या क्षेत्रीय भाषा (जैसे खोरठा) होनी चाहिए।</li>
+                <li><strong>द्विभाषिक सामग्री (Bilingual Materials):</strong> बहुभाषी कक्षाओं में शिक्षण को प्रभावी बनाने के लिए पाठ्यपुस्तकों और टीएलएम (TLM) में द्विभाषिक (खोरठा-हिंदी) संदर्भ सामग्री का विकास किया जाना चाहिए ताकि बच्चे सहजता से सीख सकें।</li>
+                <li><strong>स्थानीय ज्ञान प्रणालियाँ (Local Knowledge Systems):</strong> पाठ्यक्रम में झारखंड की स्थानीय कला, लोकसाहित्य, कृषि संस्कृति और पर्यावरण-बोध को स्थान देना NEP 2020 का मुख्य लक्ष्य है।</li>
+            </ul>
+
+            <!-- ---------------- 4.3 ---------------- -->
+            <h3 id="sec-21">4.3 व्याख्या सहित 30 उच्च-स्तरीय खोरठा बहुविकल्पीय प्रश्न (Interactive Master Quiz)</h3>
+            <p>नीचे दिए गए 30 प्रश्न JHTET Level-2 (कक्षा 6 से 8) के खोरठा पाठ्यक्रम (व्याकरण, साहित्य, लोकसाहित्य और पेडागोजी) पर आधारित हैं। अपने उत्तर चुनें और तुरंत व्याख्या देखें:</p>
+
+            <!-- Quiz Scoreboard -->
+            <div id="quiz-scoreboard" class="top-Fact-bar no-print" style="background: linear-gradient(90deg, #115e59, #0f766e); position: sticky; top: 10px; z-index: 50; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                <div>
+                    <strong>📊 खोरठा लाइव स्कोरकार्ड:</strong> हल किए गए: <span id="k-attempted">0</span>/30 | सही उत्तर: <span id="k-correct" style="color: #fde68a; font-size: 1.1rem;">0</span>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button onclick="showAllKhorthaAnswers()" class="print-btn" style="background: #ffffff; color: #0f766e;">👁️ सभी उत्तर व व्याख्या देखें</button>
+                    <button onclick="resetKhorthaQuiz()" class="print-btn">🔄 रीसेट करें</button>
+                </div>
+            </div>
+
+            <style>
+                .k-mcq-card {
+                    background: #ffffff;
+                    border: 1px solid var(--border);
+                    border-left: 5px solid var(--primary);
+                    border-radius: 12px;
+                    padding: 20px 24px;
+                    margin-bottom: 22px;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+                }
+                .k-mcq-q {
+                    font-weight: 700;
+                    font-size: 1.05rem;
+                    color: var(--text-dark);
+                    margin-bottom: 14px;
+                }
+                .k-mcq-options {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 10px;
+                }
+                .k-mcq-btn {
+                    text-align: left;
+                    background: #f8fafc;
+                    border: 1px solid #cbd5e1;
+                    border-radius: 8px;
+                    padding: 11px 16px;
+                    font-family: inherit;
+                    font-size: 0.96rem;
+                    color: #1e293b;
+                    cursor: pointer;
+                    transition: all 0.15s ease;
+                }
+                .k-mcq-btn:hover:not(:disabled) {
+                    background: #f0fdfa;
+                    border-color: var(--primary-light);
+                }
+                .k-mcq-btn.correct {
+                    background: #d1fae5 !important;
+                    border-color: #10b981 !important;
+                    color: #065f46 !important;
+                    font-weight: 700;
+                }
+                .k-mcq-btn.wrong {
+                    background: #fee2e2 !important;
+                    border-color: #ef4444 !important;
+                    color: #991b1b !important;
+                }
+                .k-mcq-exp {
+                    display: none;
+                    margin-top: 14px;
+                    padding: 14px 18px;
+                    background: #fef3c7;
+                    border-left: 4px solid var(--accent);
+                    border-radius: 6px;
+                    font-size: 0.93rem;
+                    color: #78350f;
+                }
+                @media print {
+                    .k-mcq-exp { display: block !important; }
+                }
+            </style>
+
+            <div id="k-quiz-container">
+                <!-- Q1 -->
+                <div class="k-mcq-card" data-ans="1">
+                    <div class="k-mcq-q">प्रश्न 1. खोरठा भाषा के उद्भव के संबंध में 'खरोष्ठी लिपि से खोरठा बना है'—यह प्रसिद्ध सिद्धांत किसने प्रतिपादित किया है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) श्रीनिवास पानुरी</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) डॉ. ए.के. झा (अजीत कुमार झा)</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) विश्वनाथ दसोंधी 'राज'</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) शिवनाथ प्रमाणिक</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> डॉ. ए.के. झा के अनुसार प्राचीन खरोष्ठी लिपि से ध्वनि-परिवर्तन के क्रम में 'खरोठी → खराठी → खोरठा' शब्द विकसित हुआ है।</div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="k-mcq-card" data-ans="2">
+                    <div class="k-mcq-q">प्रश्न 2. खोरठा वर्णमाला में स्वतंत्र रूप से कुल कितने स्वर वर्ण (Vowels) माने जाते हैं?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) 11 स्वर</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) 6 स्वर</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) 8 स्वर (3 ह्रस्व + 5 दीर्घ)</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) 10 स्वर</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> खोरठा में कुल 8 स्वर होते हैं—3 ह्रस्व (अ, इ, उ) और 5 दीर्घ (आ, ई, ऊ, ए, ओ)। 'ऋ', 'ऐ', 'औ' का स्वतंत्र प्रयोग नहीं होता।</div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="k-mcq-card" data-ans="0">
+                    <div class="k-mcq-q">प्रश्न 3. हिंदी शब्द 'परीक्षा' का खोरठा में मानक वर्तनी रूपांतरण क्या होगा?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) परीछा</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) परिक्षा</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) परिखा</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) प्रेच्छा</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> खोरठा वर्तनी नियम के अनुसार संयुक्त अक्षर 'क्ष' का रूपांतरण 'छ' या 'ख' में होता है, अतः परीक्षा का खोरठा रूप 'परीछा' है।</div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="k-mcq-card" data-ans="3">
+                    <div class="k-mcq-q">प्रश्न 4. खोरठा भाषा की सबसे अनूठी विशेषता 'अभिनिहिति' (Epenthesis) के अनुसार हिंदी शब्द 'रात' या 'बात' को खोरठा में क्या लिखा जाता है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) राती — बाती</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) रैत — बैत</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) रति — बति</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) राइत — बाइत (तथा आज → आइज)</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> अभिनिहिति नियम के तहत खोरठा में शब्दों के बीच में 'इ' स्वर का आगम हो जाता है जिससे रात → राइत, बात → बाइत और आज → आइज बनता है।</div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="k-mcq-card" data-ans="1">
+                    <div class="k-mcq-q">प्रश्न 5. खोरठा व्याकरण में 'बुढ़ा' शब्द का सही स्त्रीलिंग रूप क्या होगा?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) बुढ़ाइन</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) बूढ़ी (बुढ़ारी भाववाचक है)</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) बुढ़िया</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) बुढ़ानी</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> पुल्लिंग 'बूढ़ा' में 'आ' को 'ई' में बदलकर स्त्रीलिंग 'बूढ़ी' बनता है (जबकि 'बुढ़ारी' भाववाचक संज्ञा है)।</div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="k-mcq-card" data-ans="2">
+                    <div class="k-mcq-q">प्रश्न 6. खोरठा में एकवचन संज्ञा 'छउवा' (बच्चा) को बहुवचन बनाने के लिए किस प्रत्यय का प्रयोग किया जाता है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) गण</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) वृंद</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) छउवैन / छउवागुला / छउवागुलिन</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) ओऴ</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> खोरठा में एकवचन से बहुवचन बनाने के लिए 'इन/ऐन' (छउवैन) तथा 'गुला/गुलिन' (छउवागुला) प्रत्ययों का प्रयोग होता है।</div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="k-mcq-card" data-ans="0">
+                    <div class="k-mcq-q">प्रश्न 7. खोरठा कारक व्यवस्था में संप्रदान कारक (के लिए) के लिए निम्नलिखित में से कौन-सा विभक्ति-चिह्न (परसर्ग) सर्वाधिक प्रयुक्त होता है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) लाय, लागिन, खातिर, लेल</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) के, रा</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) से, ले</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) ए, एं</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> खोरठा में संप्रदान कारक के लिए 'लाय, लागिन, खातिर, लेल' परसर्गों का प्रयोग होता है (जैसे—'बेटा खातिर किताब अनलक')।</div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="k-mcq-card" data-ans="3">
+                    <div class="k-mcq-q">प्रश्न 8. खोरठा वाक्य "बाबू घरें नखइ" में प्रयुक्त शब्द 'नखइ' व्याकरण की दृष्टि से क्या है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) मुख्य संज्ञा</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) निषेधवाचक सर्वनाम</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) भूतकालिक क्रिया</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) नकारात्मक सहायक क्रिया (नय + हइ = नखइ / नखे)</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> 'नखइ' या 'नखे' खोरठा की विशिष्ट नकारात्मक सहायक क्रिया (Negative Helping Verb) है जिसका अर्थ 'नहीं है' होता है।</div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="k-mcq-card" data-ans="1">
+                    <div class="k-mcq-q">प्रश्न 9. खोरठा में 'लूर' (ढंग/हुनर) मूल शब्द में '-गर' प्रत्यय जोड़ने से कौन-सा नया ठेठ खोरठा शब्द बनेगा?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) लूरहीन</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) लूरगर (हुनरमंद / सलीकेदार)</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) लूरवाला</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) लूरैया</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> लूर + गर = लूरगर (सलीकेदार या हुनरमंद व्यक्ति)। इसका विपरीत 'बेलूर' होता है।</div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="k-mcq-card" data-ans="2">
+                    <div class="k-mcq-q">प्रश्न 10. खोरठा काल-विधान के अनुसार भूतकाल (बीतल काल) की सबसे प्रमुख पहचान क्या है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) क्रिया के अंत में 'ब' का होना</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) क्रिया के अंत में 'हइ' का होना</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) क्रिया के अंत में 'ल' अक्षर (लइ, लक, लियइ) का होना</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) क्रिया के अंत में 'तइ' का होना</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> खोरठा में जिस क्रिया के अंत में 'ल' (जैसे—खाइ<strong>लक</strong>, पढ़<strong>लियइ</strong>) दिखे, वह भूतकाल (बीतल काल) होती है।</div>
+                </div>
+
+                <!-- Q11 -->
+                <div class="k-mcq-card" data-ans="0">
+                    <div class="k-mcq-q">प्रश्न 11. खोरठा के भीष्म पितामह और 'खोरठा के भारतेंदु' के रूप में किसे जाना जाता है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) श्रीनिवास पानुरी</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) डॉ. ए.के. झा</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) विश्वनाथ दसोंधी 'राज'</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) संतोष कुमार महतो</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> श्रीनिवास पानुरी जी को आधुनिक खोरठा साहित्य का भीष्म पितामह कहा जाता है। उनकी प्रसिद्ध रचना 'आँखि की गीत' और नाटक 'डाह' अत्यंत लोकप्रिय हैं।</div>
+                </div>
+
+                <!-- Q12 -->
+                <div class="k-mcq-card" data-ans="3">
+                    <div class="k-mcq-q">प्रश्न 12. खोरठा की प्रसिद्ध पुस्तक 'सोंध माटी' (कहानी एवं कविता संग्रह) के रचनाकार कौन हैं?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) शिवनाथ प्रमाणिक</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) सुकुमार</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) बंसी लाल बंसी</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) संतोष कुमार महतो</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> 'सोंध माटी' संतोष कुमार महतो की रचना है जिसमें 10 कहानियाँ और 31 कविताएँ संकलित हैं।</div>
+                </div>
+
+                <!-- Q13 -->
+                <div class="k-mcq-card" data-ans="1">
+                    <div class="k-mcq-q">प्रश्न 13. खोरठा नाटक 'अजगर' के रचयिता कौन हैं? यह नाटक मुख्य रूप से किस पर आधारित है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) श्रीनिवास पानुरी — पारिवारिक ईर्ष्या</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) विश्वनाथ दसोंधी 'राज' — सामंतवाद, महाजनी प्रथा और गरीबों का शोषण</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) सुकुमार — भ्रष्टाचार</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) डॉ. ए.के. झा — भाषा व्याकरण</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> विश्वनाथ दसोंधी 'राज' द्वारा लिखित 'अजगर' नाटक समाज के शोषक वर्ग (महाजन-पुलिस-सामंत) के विरुद्ध एक क्रांतिकारी नाटक है।</div>
+                </div>
+
+                <!-- Q14 -->
+                <div class="k-mcq-card" data-ans="2">
+                    <div class="k-mcq-q">प्रश्न 14. झारखंड में प्रकृति और भाई-बहन के प्रेम का महान पर्व 'करम' (Karma Festival) किस खोरठा लोकगीत के अवसर पर मनाया जाता है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) टुसू गीत</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) सोहराय गीत</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) करमा गीत (जावा जगाते समय)</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) डमकच गीत</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> भादो मास में करम पर्व के अवसर पर जावा जगाते समय 'करमा गीत' (जैसे—<em>"जवा जगाइ गे मइया..."</em>) गाए जाते हैं।</div>
+                </div>
+
+                <!-- Q15 -->
+                <div class="k-mcq-card" data-ans="0">
+                    <div class="k-mcq-q">प्रश्न 15. खोरठा मुहावरे (आहना) "पेटे बिलाइ कुदेक" का सही अर्थ क्या है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) बहुत तेज भूख लगना</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) बिल्ली पालना</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) पेट दर्द होना</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) डर जाना</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> 'पेटे बिलाइ कुदेक' का खोरठा मुहावरे में अर्थ पेट में चूहेकूदना यानी बहुत तेज भूख लगना होता है।</div>
+                </div>
+
+                <!-- Q16 -->
+                <div class="k-mcq-card" data-ans="1">
+                    <div class="k-mcq-q">प्रश्न 16. बहुभाषी कक्षा में खोरठा भाषा-शिक्षण के संदर्भ में शिक्षक को कौन-सा दृष्टिकोण अपनाना चाहिए?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) बच्चों की स्थानीय बोलियों पर प्रतिबंध लगाना चाहिए।</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) बच्चों की मातृभाषा और क्षेत्रीय बोलियों को एक 'संसाधन' और 'सेतु' (Bridge) के रूप में प्रयोग करना चाहिए।</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) केवल मानक हिंदी में ही शिक्षण देना चाहिए।</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) स्थानीय शब्दों की उपेक्षा करनी चाहिए।</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> बहुभाषी कक्षा में बच्चों की मातृभाषा और क्षेत्रीय बोलियाँ सीखने की प्रक्रिया को आसान बनाने के लिए एक मूल्यवान संसाधन होती हैं।</div>
+                </div>
+
+                <!-- Q17 -->
+                <div class="k-mcq-card" data-ans="2">
+                    <div class="k-mcq-q">प्रश्न 17. राष्ट्रीय शिक्षा नीति (NEP 2020) के अनुसार प्राथमिक स्तर (कम से कम कक्षा 5 तक) शिक्षा का माध्यम क्या होना चाहिए?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) केवल अंग्रेजी</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) केवल शास्त्रीय संस्कृत</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) मातृभाषा / स्थानीय या क्षेत्रीय भाषा (जैसे खोरठा)</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) विदेशी भाषा</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> NEP 2020 के प्रावधानों के अनुसार प्रारंभिक शिक्षा मातृभाषा या स्थानीय/क्षेत्रीय भाषा के माध्यम से दी जानी चाहिए।</div>
+                </div>
+
+                <!-- Q18 -->
+                <div class="k-mcq-card" data-ans="3">
+                    <div class="k-mcq-q">प्रश्न 18. खोरठा कृषि शब्दावली में 'दोन' (Don) शब्द का प्रयोग किसके लिए किया जाता है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) ऊँची सूखी जमीन</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) घर के पास की बाड़ी</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) खलिहान</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) निचली उपजाऊ धान की जमीन (बहियार)</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> खोरठा खेती शब्दावली में निचली उपजाऊ भूमि जहाँ धान की खेती होती है उसे 'दोन' और ऊँची सूखी जमीन को 'टाँड़' कहते हैं।</div>
+                </div>
+
+                <!-- Q19 -->
+                <div class="k-mcq-card" data-ans="0">
+                    <div class="k-mcq-q">प्रश्न 19. खोरठा में 'दामोदरक कोरांय' (खंडकाव्य) के रचयिता कौन हैं?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) शिवनाथ प्रमाणिक</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) सुकुमार</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) संतोष कुमार महतो</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) श्याम सुंदर महतो</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> 'दामोदरक कोरांय' शिवनाथ प्रमाणिक द्वारा रचित दामोदर घाटी और झारखंड की समस्याओं पर आधारित प्रसिद्ध महागाथात्मक खंडकाव्य है।</div>
+                </div>
+
+                <!-- Q20 -->
+                <div class="k-mcq-card" data-ans="1">
+                    <div class="k-mcq-q">प्रश्न 20. खोरठा शब्द 'बढ़नी' (झाड़ू) में कौन-सा प्रत्यय (पछतिया) लगा है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) आइन</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) 'नी' प्रत्यय (करणवाचक उपकरण)</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) पन</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) गर</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> बढ़ (झाड़ना धातु) + नी = बढ़नी (झाड़ू), जो उपकरण या करणवाचक प्रत्यय का उदाहरण है।</div>
+                </div>
+
+                <!-- Q21 -->
+                <div class="k-mcq-card" data-ans="2">
+                    <div class="k-mcq-q">प्रश्न 21. खोरठा में 'सोहराय पर्व' मुख्य रूप से किससे संबंधित है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) भाई-बहन के प्रेम से</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) धान रोपनी से</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) गोधन और मवेशियों (गाय-बैल) की पूजा से</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) मकर संक्रांति से</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> सोहराय / बांदना पर्व कार्तिक अमावस्या (दीपावली) के समय मवेशियों की पूजा और उन्हें सजाने से जुड़ा प्रमुख खोरठा लोकपर्व है।</div>
+                </div>
+
+                <!-- Q22 -->
+                <div class="k-mcq-card" data-ans="3">
+                    <div class="k-mcq-q">प्रश्न 22. खोरठा लोकोक्ति (पटतोर) "घरक मुरगी दाइल बराबर" का क्या अर्थ है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) मुर्गी को दाल खिलाना</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) घर में दावत होना</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) गरीब होना</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) अपने पास की वस्तु या व्यक्ति का कम आदर करना</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> इस पटतोर का अर्थ है कि घर की मुर्गी भी दाल के बराबर यानी अपनी चीज का लोग कम महत्व समझते हैं।</div>
+                </div>
+
+                <!-- Q23 -->
+                <div class="k-mcq-card" data-ans="0">
+                    <div class="k-mcq-q">प्रश्न 23. खोरठा में 'चाबी काठी' (चाभी कैका) नाटक के रचनाकार कौन हैं?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) सुकुमार (सुरेश कुमार विश्वकर्मा)</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) श्रीनिवास पानुरी</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) विश्वनाथ दसोंधी 'राज'</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) संतोष कुमार महतो</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> 'चाभी काठी' सुकुमार द्वारा रचित भ्रष्टाचार और शोषण के विरुद्ध एक प्रसिद्ध खोरठा नाटक है।</div>
+                </div>
+
+                <!-- Q24 -->
+                <div class="k-mcq-card" data-ans="1">
+                    <div class="k-mcq-q">प्रश्न 24. खोरठा सर्वनाम के कितने भेद होते हैं?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) 4 भेद</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) 6 भेद (जिन्हें ओजी-संइज्ञा भी कहते हैं)</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) 5 भेद</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) 7 भेद</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> हिंदी के समान खोरठा में भी सर्वनाम के 6 भेद होते हैं (पुरुषवाचक, निश्चयवाचक, अनिश्चयवाचक, प्रश्नवाचक, संबंधवाचक और निजवाचक)।</div>
+                </div>
+
+                <!-- Q25 -->
+                <div class="k-mcq-card" data-ans="2">
+                    <div class="k-mcq-q">प्रश्न 25. खोरठा वाक्य "राम काइल्ह राँची जइतइ" में प्रयुक्त 'जइतइ' किस काल (Tense) की क्रिया है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) भूतकाल (बीतल काल)</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) वर्तमान काल (चलित काल)</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) भविष्यत काल (आवेवाला काल — 'तइ' प्रत्यय)</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) आज्ञावाचक काल</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> खोरठा भविष्यत काल में मध्यम/अन्य पुरुष के अंत में 'तइ/तेंद' (जैसे जइतइ = जाएगा) लगता है।</div>
+                </div>
+
+                <!-- Q26 -->
+                <div class="k-mcq-card" data-ans="3">
+                    <div class="k-mcq-q">प्रश्न 26. बहुभाषी कक्षा में खोरठा पढ़ाते समय एक शिक्षक के लिए सबसे उपयुक्त शिक्षण अधिगम सामग्री (TLM) कौन-सी होगी?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) केवल अमूर्त अंग्रेजी पुस्तकें</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) केवल कठिन व्याकरण चार्ट</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) मानक हिंदी के शब्दकोश</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) द्विभाषिक (खोरठा-हिंदी) स्थानीय लोककथाएँ, चित्र और स्थानीय परिवेश से जुड़ी वस्तुएँ</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> बहुभाषी कक्षा में स्थानीय परिवेश, द्विभाषिक सामग्री और चित्रों का प्रयोग बच्चों के अनुभवात्मक अधिगम को सर्वाधिक मजबूत करता है।</div>
+                </div>
+
+                <!-- Q27 -->
+                <div class="k-mcq-card" data-ans="0">
+                    <div class="k-mcq-q">प्रश्न 27. खोरठा में 'डाह' नाटक के मुख्य पात्र कौन-से हैं?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) विवेक, शेखर और कमिला (ईर्ष्या व प्रतिशोध पर आधारित)</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) गजाधर और सुगनी</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) मंगरु और सातो</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) बिरसा और गया मुंडा</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> श्रीनिवास पानुरी रचित 'डाह' नाटक में विवेक और शेखर दो भाई-समान मित्र हैं जिनके बीच ईर्ष्या (डाह) के कारण त्रासदी होती है।</div>
+                </div>
+
+                <!-- Q28 -->
+                <div class="k-mcq-card" data-ans="1">
+                    <div class="k-mcq-q">प्रश्न 28. खोरठा व्याकरण में 'निमुँहा' शब्द में कौन-सा उपसर्ग (अदतिया) प्रयुक्त हुआ है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) बे उपसर्ग</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) 'नि' उपसर्ग (बिना या रहित के अर्थ में)</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) अध उपसर्ग</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) कु उपसर्ग</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> नि + मुँहा = निमुँहा (बिना मुँह का या चुप रहने वाला), जिसमें 'नि' उपसर्ग लगा है।</div>
+                </div>
+
+                <!-- Q29 -->
+                <div class="k-mcq-card" data-ans="2">
+                    <div class="k-mcq-q">प्रश्न 29. भाषा शिक्षण में 'निदानात्मक परीक्षण' (Diagnostic Test) का मुख्य उद्देश्य क्या होता है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) बच्चों को फेल या पास करना</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) वार्षिक परीक्षा का स्कोर कार्ड तैयार करना</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) बच्चों की सीखने की कठिनाइयों, कमजोरियों और त्रुटियों का कारण पता लगाना</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) कठोर दंड देना</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> निदानात्मक परीक्षण का उद्देश्य यह खोजना होता है कि छात्र को खोरठा सीखने में कहाँ और क्यों कठिनाई आ रही है, जिसके बाद उपचारात्मक शिक्षण दिया जाता है।</div>
+                </div>
+
+                <!-- Q30 -->
+                <div class="k-mcq-card" data-ans="3">
+                    <div class="k-mcq-q">प्रश्न 30. खोरठा लोकसाहित्य के अंतर्गत 'बुझौवल' या 'फाँक' किसे कहा जाता है?</div>
+                    <div class="k-mcq-options">
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 0)">(A) विवाह गीत</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 1)">(B) शोक गीत</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 2)">(C) लोकगाथा</button>
+                        <button class="k-mcq-btn" onclick="checkKAns(this, 3)">(D) पहेली (Riddles)</button>
+                    </div>
+                    <div class="k-mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> खोरठा लोकसाहित्य में मौखिक रूप से पूछे जाने वाली पहेलियों को 'बुझौवल' या 'फाँक' कहा जाता है।</div>
+                </div>
+            </div>
+
+            <!-- Interactive Quiz Script -->
+            <script>
+                let kAttempted = 0;
+                let kCorrect = 0;
+
+                function checkKAns(btn, selectedIndex) {
+                    const card = btn.closest('.k-mcq-card');
+                    const correctAns = parseInt(card.getAttribute('data-ans'));
+                    const allBtns = card.querySelectorAll('.k-mcq-btn');
+                    const expBox = card.querySelector('.k-mcq-exp');
+
+                    allBtns.forEach(b => b.disabled = true);
+
+                    kAttempted++;
+                    if (selectedIndex === correctAns) {
+                        btn.classList.add('correct');
+                        kCorrect++;
+                    } else {
+                        btn.classList.add('wrong');
+                        allBtns[correctAns].classList.add('correct');
+                    }
+
+                    expBox.style.display = 'block';
+                    updateKScoreboard();
+                }
+
+                function updateKScoreboard() {
+                    document.getElementById('k-attempted').innerText = kAttempted;
+                    document.getElementById('k-correct').innerText = kCorrect;
+                }
+
+                function showAllKhorthaAnswers() {
+                    const cards = document.querySelectorAll('.k-mcq-card');
+                    cards.forEach(card => {
+                        const correctAns = parseInt(card.getAttribute('data-ans'));
+                        const allBtns = card.querySelectorAll('.k-mcq-btn');
+                        const expBox = card.querySelector('.k-mcq-exp');
+                        allBtns[correctAns].classList.add('correct');
+                        expBox.style.display = 'block';
+                    });
+                }
+
+                function resetKhorthaQuiz() {
+                    kAttempted = 0;
+                    kCorrect = 0;
+                    updateKScoreboard();
+                    const cards = document.querySelectorAll('.k-mcq-card');
+                    cards.forEach(card => {
+                        const allBtns = card.querySelectorAll('.k-mcq-btn');
+                        const expBox = card.querySelector('.k-mcq-exp');
+                        allBtns.forEach(b => {
+                            b.disabled = false;
+                            b.classList.remove('correct', 'wrong');
+                        });
+                        expBox.style.display = 'none';
+                    });
+                }
+            </script>
+        </div>
+        <!-- ==================== END OF UNIT 4 ==================== -->
+
+
+        <!-- संदर्भ ग्रंथ सूची -->
+        <div class="readings-box">
+            <h3 id="sec-22">📖 अनुशंसित प्रामाणिक संदर्भ ग्रंथ (Suggested Readings for JHTET Khortha)</h3>
+            <ul>
+                <li>डॉ. ए.के. झा: <em>खोरठा सहित सदानिक व्याकरण</em> एवं <em>खोरठा भाषा विज्ञान</em></li>
+                <li>डॉ. बी.एन. ओहदार: <em>खोरठा भाषा एवं साहित्य: उद्भव एवं विकास</em></li>
+                <li>दिनेश कुमार 'दिनमणि' एवं गजाधर महतो 'प्रभाकर': <em>आधुनिक खोरठा व्याकरण और रचना</em></li>
+                <li>जनजातीय एवं क्षेत्रीय भाषा विभाग (TRL), रांची विश्वविद्यालय एवं विनोबा भावे विश्वविद्यालय पाठ्यक्रम</li>
+            </ul>
+        </div>
+    </div>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script><script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
+</html>
+
