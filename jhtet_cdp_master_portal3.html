@@ -1,0 +1,2217 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JHTET 2026 Level-2: बाल विकास एवं शिक्षणशास्त्र (CDP - 30 अंक) | मास्टर अध्ययन पोर्टल</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f766e;          /* गहरा टील/एमराल्ड - मनोविज्ञान व शिक्षा थीम */
+            --primary-dark: #115e59;
+            --primary-light: #14b8a6;
+            --accent: #d97706;           /* स्वर्णिम एम्बर */
+            --bg-main: #f0fdfa;          /* हल्का टील-व्हाइट बैकग्राउंड */
+            --surface: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border: #cbd5e1;
+            --card-bg: #f8fafc;
+            --highlight: #fef3c7;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.85;
+            margin: 0;
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 12px 30px -5px rgba(15, 118, 110, 0.1), 0 8px 12px -6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #99f6e4;
+        }
+
+        header {
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 24px;
+            margin-bottom: 34px;
+            text-align: center;
+        }
+
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ccfbf1;
+            color: var(--primary-dark);
+            padding: 5px 15px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            border: 1px solid #5eead4;
+        }
+
+        .badge-amber {
+            background: #fef3c7;
+            color: #92400e;
+            border-color: #fde68a;
+        }
+
+        h1 {
+            color: var(--primary-dark);
+            font-size: 2.15rem;
+            margin: 0 0 10px 0;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* प्रिंट एवं टॉप बार कंट्रोल्स */
+        .top-Fact-bar {
+            background: linear-gradient(90deg, #0f766e, #047857);
+            color: #ffffff;
+            padding: 14px 22px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 0.92rem;
+        }
+
+        .print-btn {
+            background: #fbbf24;
+            color: #0f172a;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .print-btn:hover {
+            background: #f59e0b;
+            transform: translateY(-1px);
+        }
+
+        /* मास्टर इंडेक्स स्टाइलिंग */
+        .index-container {
+            background: #ffffff;
+            border: 2px solid #99f6e4;
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 44px;
+            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.06);
+        }
+
+        .index-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #ccfbf1;
+            padding-bottom: 12px;
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .index-title {
+            color: var(--primary-dark);
+            font-size: 1.45rem;
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .unit-index-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 6px solid var(--primary);
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin-bottom: 18px;
+            transition: all 0.2s ease;
+        }
+
+        .unit-index-card:hover {
+            background: #f0fdfa;
+            border-color: var(--primary-light);
+            transform: translateX(4px);
+        }
+
+        .unit-index-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .unit-index-header a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-size: 1.18rem;
+            font-weight: 800;
+        }
+
+        .unit-index-header a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .marks-pill {
+            background: var(--primary-dark);
+            color: #ffffff;
+            padding: 3px 12px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .subtopic-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 6px 18px;
+            margin: 0;
+            padding-left: 20px;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        /* आगामी यूनिट्स के लिए साझा क्लास स्टाइल्स */
+        .unit-section {
+            margin-bottom: 54px;
+            border-bottom: 2px dashed var(--border);
+            padding-bottom: 42px;
+        }
+
+        h2 {
+            color: var(--primary-dark);
+            font-size: 1.6rem;
+            border-left: 6px solid var(--accent);
+            padding-left: 14px;
+            margin-top: 38px;
+            margin-bottom: 18px;
+            font-weight: 800;
+        }
+
+        h3 {
+            color: #1e293b;
+            font-size: 1.28rem;
+            margin-top: 26px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 6px;
+        }
+
+        h4 {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        p {
+            margin: 12px 0;
+            color: #1e293b;
+            text-align: justify;
+        }
+
+        ul, ol {
+            padding-left: 26px;
+            margin: 12px 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .note-card {
+            background: #f0fdfa;
+            border-left: 5px solid var(--primary);
+            padding: 18px 22px;
+            margin: 22px 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.98rem;
+            border-top: 1px solid #99f6e4;
+            border-bottom: 1px solid #99f6e4;
+            border-right: 1px solid #99f6e4;
+        }
+
+        .highlight-box {
+            background: var(--highlight);
+            border: 1px solid #fde68a;
+            border-left: 5px solid var(--accent);
+            padding: 18px 22px;
+            border-radius: 10px;
+            margin: 22px 0;
+            font-size: 0.96rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.94rem;
+        }
+
+        th {
+            background: #ccfbf1;
+            color: var(--primary-dark);
+            text-align: left;
+            padding: 12px;
+            border: 1px solid #99f6e4;
+            font-weight: 800;
+        }
+
+        td {
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .readings-box {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 50px;
+            border: 1px solid var(--border);
+        }
+
+        .readings-box h3 {
+            margin-top: 0;
+            color: var(--primary-dark);
+            border: none;
+        }
+
+
+        /* ---- Readability upgrades: progress bar, back-to-top, table hover ---- */
+        #read-progress { position: fixed; top: 0; left: 0; height: 4px; width: 0%; background: linear-gradient(90deg, #14b8a6, #d97706); z-index: 9999; border-radius: 0 4px 4px 0; }
+        #toTop { position: fixed; right: 18px; bottom: 18px; width: 48px; height: 48px; border-radius: 50%; background: #0f766e; color: #fff; border: none; font-size: 1.35rem; cursor: pointer; box-shadow: 0 6px 16px rgba(15,118,110,.35); display: none; z-index: 9998; font-family: inherit; line-height: 1; }
+        #toTop:hover { background: #115e59; transform: translateY(-3px); }
+        table tr:hover td { background: #f0fdfa; }
+        .unit-section, h2, h3 { scroll-margin-top: 16px; }
+        ::selection { background: #99f6e4; }
+        @media print { #read-progress, #toTop { display: none !important; } }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; border: none; max-width: 100%; padding: 10px; }
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 20px 16px; }
+            h1 { font-size: 1.65rem; }
+            .subtopic-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div id="read-progress" class="no-print"></div>
+    <button id="toTop" class="no-print" title="ऊपर जाएँ" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+    <div class="container">
+        <header>
+            <div class="badge-group">
+                <span class="badge">JAC JHTET 2026 | Level-2 (कक्षा 6 से 8)</span>
+                <span class="badge">अनिवार्य खंड-1: 30 प्रश्न = 30 अंक</span>
+            </div>
+            <h1>🧠 बाल विकास एवं शिक्षणशास्त्र (Child Development & Pedagogy)</h1>
+            <p class="subtitle">उच्च प्राथमिक स्तर (11 से 14 वर्ष के बालकों के विशेष संदर्भ में) — संपूर्ण इनसाइक्लोपीडिया</p>
+        </header>
+
+        <!-- टॉप एक्शन बार -->
+        <div class="top-Fact-bar no-print">
+            <div>
+                <strong>🎯 लक्ष्य:</strong> 30 में से 28+ अंक | <strong>नेगेटिव मार्किंग:</strong> शून्य (0)
+            </div>
+            <button onclick="window.print()" class="print-btn">🖨️ PDF सेव / प्रिंट करें</button>
+        </div>
+
+        <!-- ==================== मास्टर इंडेक्स (MASTER INDEX) ==================== -->
+        <div class="index-container" id="top-index">
+            <div class="index-header">
+                <h2 class="index-title" style="border:none; padding:0; margin:0;">📚 मास्टर विषय-सूची (Master Index)</h2>
+                <span style="font-size: 0.9rem; color: var(--primary-dark); font-weight: 700;">कुल 4 इकाइयाँ (30 अंक)</span>
+            </div>
+
+            <!-- Unit 1 Index -->
+            <div class="unit-index-card">
+                <div class="unit-index-header">
+                    <a href="#unit1">इकाई 1 (Unit 1): बाल विकास की अवधारणा, अवस्थाएँ एवं प्रमुख मनोवैज्ञानिक सिद्धांत</a>
+                    <span class="marks-pill">15 प्रश्न | 15 अंक</span>
+                </div>
+                <ul class="subtopic-list">
+                    <li>1.1 वृद्धि बनाम विकास (Growth vs Development) एवं अवस्थाएँ</li>
+                    <li>1.2 किशोरावस्था (11–14/18 वर्ष): स्टेनली हॉल एवं मुख्य विशेषताएँ</li>
+                    <li>1.3 बाल विकास के 10 स्वर्णिम सिद्धांत (शीर्षगामी व अधोगामी)</li>
+                    <li>1.4 आनुवंशिकता एवं वातावरण (Nature vs Nurture - वुडवर्थ सूत्र)</li>
+                    <li>1.5 समाजीकरण एवं यूरी ब्रोनफेनब्रेनर का पारिस्थितिकी तंत्र सिद्धांत</li>
+                    <li>1.6 जीन पियाजे (Jean Piaget) का संज्ञानात्मक विकास सिद्धांत (4 चरण)</li>
+                    <li>1.7 लेव वायगोत्स्की (Lev Vygotsky): ZPD, पाड़ (Scaffolding) व निजी वाक्</li>
+                    <li>1.8 लॉरेंस कोहलबर्ग का नैतिक विकास (3 स्तर, 6 चरण) व कैरोल गिलिगन की आलोचना</li>
+                    <li>1.9 एरिक एरिक्सन का मनोसामाजिक सिद्धांत (8 जीवन-चरण)</li>
+                    <li>1.10 जेरोम ब्रूनर का संज्ञानात्मक एवं सर्पिल पाठ्यचर्या सिद्धांत (3 अवस्थाएँ)</li>
+                    <li>1.11 हावर्ड गार्डनर का बहु-बुद्धि सिद्धांत (8 प्रकार की बुद्धि) एवं IQ सूत्र</li>
+                    <li>1.12 नोम चोम्स्की का भाषा विकास सिद्धांत (LAD एवं सार्वभौमिक व्याकरण)</li>
+                </ul>
+            </div>
+
+            <!-- Unit 2 Index -->
+            <div class="unit-index-card">
+                <div class="unit-index-header">
+                    <a href="#unit2">इकाई 2 (Unit 2): समावेशी शिक्षा, अधिगम विकार, सृजनात्मकता एवं शिक्षा नीतियाँ</a>
+                    <span class="marks-pill">5 प्रश्न | 5 अंक</span>
+                </div>
+                <ul class="subtopic-list">
+                    <li>2.1 समावेशी शिक्षा (Inclusive Education): वंचित एवं जनजातीय बालक</li>
+                    <li>2.2 प्रमुख अधिगम विकार: डिस्लेक्सिया, डिसग्राफिया, डिसकैलकुलिया, अफेज्या, डिस्प्रेक्सिया, ADHD, ऑटिज्म</li>
+                    <li>2.3 प्रतिभाशाली एवं सृजनात्मक बालक (अपसारी बनाम अभिसारी चिंतन - गिलफोर्ड)</li>
+                    <li>2.4 RTE Act 2009, RPWD Act 2016 (21 दिव्यांगताएँ), NCF 2005 एवं NEP 2020</li>
+                </ul>
+            </div>
+
+            <!-- Unit 3 Index -->
+            <div class="unit-index-card">
+                <div class="unit-index-header">
+                    <a href="#unit3">इकाई 3 (Unit 3): अधिगम के सिद्धांत, अभिप्रेरणा, संज्ञान-संवेग एवं शिक्षणशास्त्र</a>
+                    <span class="marks-pill">10 प्रश्न | 10 अंक</span>
+                </div>
+                <ul class="subtopic-list">
+                    <li>3.1 व्यवहारवादी सिद्धांत: थार्नडाइक (3 मुख्य व 5 गौण नियम), पावलव एवं स्किनर</li>
+                    <li>3.2 गेस्टाल्टवादी सूझ का सिद्धांत (कोहलर - सुल्तान) एवं बंडूरा का सामाजिक अधिगम</li>
+                    <li>3.3 अधिगम अंतरण (Transfer of Learning), अधिगम वक्र एवं अधिगम पठार</li>
+                    <li>3.4 अभिप्रेरणा (आंतरिक व बाह्य) एवं अब्राहम मास्लो का आवश्यकता पदानुक्रम</li>
+                    <li>3.5 संज्ञान एवं संवेग (मैकडूगल की 14 मूल प्रवृत्तियाँ), आकलन (CCE) व बच्चों की त्रुटियाँ</li>
+                    <li>3.6 ब्लूम्स टैक्सोनॉमी (शैक्षणिक उद्देश्यों का वर्गीकरण) एवं HOTs प्रश्न</li>
+                </ul>
+            </div>
+
+            <!-- Unit 4 Index -->
+            <div class="unit-index-card">
+                <div class="unit-index-header">
+                    <a href="#unit4">इकाई 4 (Unit 4): पेडागोजी टैग वर्ड्स (ब्रह्मास्त्र) एवं 30 प्रश्नों का मास्टर प्रैक्टिस सेट</a>
+                    <span class="marks-pill">बोनस अभ्यास खंड</span>
+                </div>
+                <ul class="subtopic-list">
+                    <li>4.1 सकारात्मक (Positive) एवं नकारात्मक (Negative) पेडागोजी टैग वर्ड्स</li>
+                    <li>4.2 व्याख्या सहित 30 उच्च-स्तरीय बहुविकल्पीय प्रश्न (Interactive Quiz)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ==================== CONTENT AREA ==================== -->
+        <!-- आगामी यूनिट्स का कोड इस टिप्पणी के ठीक नीचे क्रमवार जोड़ा जाएगा -->
+        <!-- YAHAN AGLA CODE PASTE KAREIN (Unit 1 to Unit 4) -->
+
+
+
+        <!-- ==================== CONTENT AREA ==================== -->
+        <!-- आगामी यूनिट्स का कोड इस टिप्पणी के ठीक नीचे क्रमवार जोड़ा जाएगा -->
+        <!-- ==================== UNIT 1 (15 MARKS) ==================== -->
+        <div id="unit1" class="unit-section">
+            <h2>इकाई 1 (Unit 1): बाल विकास की अवधारणा, अवस्थाएँ एवं प्रमुख मनोवैज्ञानिक सिद्धांत (15 प्रश्न | 15 अंक)</h2>
+
+            <p><strong>शैक्षणिक परिप्रेक्ष्य (Level-2 विशेष):</strong> झारखंड शिक्षक पात्रता परीक्षा (JHTET) के उच्च प्राथमिक स्तर (कक्षा 6 से 8) में बाल विकास एवं शिक्षणशास्त्र के कुल 30 प्रश्नों में से अकेले <strong>15 प्रश्न (50% भारांक)</strong> इस प्रथम इकाई से पूछे जाते हैं। चूँकि कक्षा 6 से 8 के विद्यार्थियों की आयु <strong>11 से 14 वर्ष (उत्तर-बाल्यावस्था का अंत एवं किशोरावस्था का प्रारंभ)</strong> होती है, अतः एक शिक्षक के लिए यह समझना अनिवार्य है कि इस वय-संधि काल में बालक का शारीरिक, मानसिक, संवेगात्मक, नैतिक और सामाजिक विकास किन मनोवैज्ञानिक नियमों से संचालित होता है।</p>
+
+            <!-- ---------------- 1.1 ---------------- -->
+            <h3>1.1 वृद्धि बनाम विकास (Growth vs Development) एवं विकास की अवस्थाएँ</h3>
+            <p>सामान्य बोलचाल में 'वृद्धि' (अभिवृद्धि) और 'विकास' को एक ही समझ लिया जाता है, किंतु शिक्षा मनोविज्ञान में इन दोनों के बीच स्पष्ट और वैज्ञानिक अंतर है। प्रसिद्ध मनोवैज्ञानिक <strong>हरलॉक (E.B. Hurlock)</strong> के अनुसार, <em>"विकास केवल अभिवृद्धि तक सीमित नहीं है, वरन् इसमें प्रौढ़ावस्था के लक्ष्य की ओर परिवर्तनों का प्रगतिशील क्रम निहित रहता है। विकास के परिणामस्वरूप व्यक्ति में नवीन विशेषताएँ और नवीन योग्यताएँ प्रकट होती हैं।"</em></p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 18%;">तुलना का आधार</th>
+                        <th style="width: 41%;">वृद्धि / अभिवृद्धि (Growth)</th>
+                        <th style="width: 41%;">विकास (Development)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. प्रकृति (Nature)</strong></td>
+                        <td>वृद्धि केवल <strong>मात्रात्मक या परिमाणात्मक (Quantitative)</strong> होती है (जैसे—लंबाई, भार, हड्डियों के आकार व दाँतों की संख्या में वृद्धि)।</td>
+                        <td>विकास <strong>मात्रात्मक एवं गुणात्मक (Quantitative & Qualitative)</strong> दोनों होता है (शारीरिक वृद्धि के साथ-साथ कार्यक्षमता, तर्कशक्ति व परिपक्वता में सुधार)।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. क्षेत्र (Scope)</strong></td>
+                        <td>इसका क्षेत्र <strong>संकुचित (Narrow)</strong> है; यह केवल शारीरिक एवं कोशिकीय पक्ष से संबंधित है तथा विकास का ही एक छोटा अंग है।</td>
+                        <td>इसका क्षेत्र <strong>अत्यंत व्यापक (Broad/Holistic)</strong> है; इसमें शारीरिक, संज्ञानात्मक (मानसिक), सामाजिक, संवेगात्मक व नैतिक सभी पक्ष समाहित हैं।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. अवधि (Duration)</strong></td>
+                        <td>यह जीवनपर्यंत नहीं चलती; एक निश्चित आयु (परिपक्वता या किशोरावस्था के अंत: 18–20 वर्ष) प्राप्त होने पर रुक जाती है।</td>
+                        <td>यह <strong>गर्भावस्था से मृत्यु पर्यंत (Womb to Tomb / Conception to Death)</strong> निरंतर चलने वाली अबाध प्रक्रिया है।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. मापन (Measurement)</strong></td>
+                        <td>इसका <strong>प्रत्यक्ष मापन (Direct Measurement)</strong> संभव है (जैसे किलोग्राम, सेंटीमीटर, इंच आदि इकाइयों में)।</td>
+                        <td>इसका सीधा रेखीय मापन असंभव है; इसका केवल मनोवैज्ञानिक परीक्षणों व व्यवहार अवलोकन द्वारा <strong>आकलन (Assessment)</strong> किया जा सकता है।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. दिशा एवं क्रम</strong></td>
+                        <td>वृद्धि की कोई निश्चित दिशा या पूर्व-निर्धारित मूल्य-लक्ष्य नहीं होता।</td>
+                        <td>विकास सदैव एक <strong>निश्चित दिशा और प्रगतिशील क्रम (Progressive & Orderly Sequence)</strong> में होता है।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>विकास के 4 प्रमुख परस्पर संबंधित आयाम (Domains of Development):</h4>
+            <ol>
+                <li><strong>शारीरिक एवं गामक विकास (Physical & Motor Development):</strong> शरीर के बाह्य व आंतरिक अंगों का विकास तथा मांसपेशियों का समन्वय। गामक कौशल दो प्रकार के होते हैं:
+                    <ul>
+                        <li><em>स्थूल गामक कौशल (Gross Motor Skills):</em> बड़ी मांसपेशियों का उपयोग—जैसे बैठना, घुटनों के बल चलना, दौड़ना, कूदना, तैरना, सीढ़ियाँ चढ़ना।</li>
+                        <li><em>सूक्ष्म गामक कौशल (Fine Motor Skills):</em> छोटी मांसपेशियों (विशेषकर उंगलियों व आँखों) का बारीक समन्वय—जैसे पेंसिल पकड़कर लिखना, चित्र में रंग भरना, सुई में धागा पिरोना, शर्ट के बटन बंद करना, कैंची से कागज काटना।</li>
+                    </ul>
+                </li>
+                <li><strong>संज्ञानात्मक / मानसिक विकास (Cognitive Development):</strong> चिंतन, तर्क, स्मृति, कल्पना, समस्या-समाधान, अवधान (Attention) और भाषा सीखने की क्षमता का विकास।</li>
+                <li><strong>सामाजिक विकास (Social Development):</strong> समाज के नियमों, मूल्यों और रीति-रिवाजों के साथ समायोजन तथा सहयोग की भावना।</li>
+                <li><strong>संवेगात्मक एवं नैतिक विकास (Emotional & Moral Development):</strong> भय, क्रोध, प्रेम, ईर्ष्या जैसे संवेगों पर नियंत्रण और सही-गलत के विवेक का विकास।</li>
+            </ol>
+
+            <h4>मानव विकास की प्रमुख अवस्थाएँ एवं उनकी मनोवैज्ञानिक विशेषताएँ:</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>अवस्था (Stage)</th>
+                        <th>आयु सीमा</th>
+                        <th>प्रमुख मनोवैज्ञानिक उपनाम एवं केंद्रीय विशेषताएँ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. प्रसवपूर्व अवस्था (Prenatal Stage)</strong></td>
+                        <td>गर्भधारण से जन्म तक (9 माह / 280 दिन)</td>
+                        <td>विकास की शुरुआत जन्म से नहीं बल्कि <strong>गर्भावस्था</strong> से होती है। इसके 3 उप-चरण हैं: (i) डिम्बावस्था (Germinal: 0–2 सप्ताह), (ii) पिण्डावस्था (Embryonic: 2–8 सप्ताह), (iii) गर्भस्थ शिशु अवस्था (Fetal: 8 सप्ताह से जन्म तक)।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. शैशवावस्था (Infancy)</strong></td>
+                        <td>जन्म से 2 वर्ष तक</td>
+                        <td>• <strong>तीव्रतम शारीरिक वृद्धि का काल</strong>, इंद्रियों व गामक क्रियाओं से सीखना।<br>• खिलौनों की आयु (Toy Age), अनुकरण द्वारा सीखना, परनिर्भरता।<br>• <em>वैलेंटाइन का कथन:</em> "शैशवावस्था सीखने का आदर्श काल है।"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. पूर्व-बाल्यावस्था (Early Childhood)</strong></td>
+                        <td>2 से 6 वर्ष तक</td>
+                        <td>• <strong>भाषा विकास का सबसे संवेदनशील काल (Most Sensitive Period for Language Development) ★</strong><br>• पूर्व-विद्यालयी आयु (Pre-school Age), पूर्व-टोली आयु (Pre-gang Age), जिज्ञासा व 'क्यों और कैसे' के प्रश्नों की आयु, प्रतीकात्मक व कल्पनाशील खेल (Make-believe Play)।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. उत्तर-बाल्यावस्था (Later Childhood)</strong></td>
+                        <td>6 से 11/12 वर्ष तक</td>
+                        <td>• विद्यालयी आयु (Elementary School Age), <strong>टोली या गैंग आयु (Gang Age)</strong>, गंदी आयु (Dirty Age), चुस्ती की आयु (Smart Age)।<br>• मूर्त वस्तुओं पर तार्किक चिंतन की शुरुआत; शारीरिक वृद्धि की गति अपेक्षाकृत धीमी पर स्थायी।<br>• <em>कोल एवं ब्रूस:</em> "बाल्यावस्था संवेगात्मक विकास का अनोखा काल (Unique Period) है।"<br>• <em>रॉस (Ross):</em> "बाल्यावस्था छद्म/मिथ्या परिपक्वता (Pseudo-Maturity) का काल है।"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. किशोरावस्था ★ (Adolescence)</strong></td>
+                        <td>11/12 से 18 वर्ष तक (Level-2 मुख्य केंद्र)</td>
+                        <td>• बाल्यावस्था और प्रौढ़ावस्था के बीच का <strong>संक्रमण काल (Transitional Period)</strong> एवं 'सुनहरा काल' (Golden Age)।<br>• अमूर्त चिंतन (Abstract Thinking), पहचान का संकट (Identity Crisis), समवयस्क समूह (Peer Group) का सर्वाधिक प्रभाव।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ---------------- 1.2 ---------------- -->
+            <h3>1.2 किशोरावस्था (11–14/18 वर्ष): स्टेनली हॉल एवं उच्च प्राथमिक बालकों का मनोविज्ञान</h3>
+            <p>अंग्रेजी शब्द <strong>'Adolescence'</strong> लैटिन भाषा के शब्द <em>'Adolescere'</em> से बना है, जिसका शाब्दिक अर्थ है—<strong>"परिपक्वता की ओर बढ़ना" (To grow to maturity)</strong>। चूँकि JHTET Level-2 (कक्षा 6–8) के छात्र 11 से 14 वर्ष के होते हैं, वे ठीक इसी अवस्था की दहलीज (वयःसंधि काल / Puberty) पर खड़े होते हैं।</p>
+
+            <div class="note-card">
+                <strong>जी. स्टेनली हॉल (G. Stanley Hall) का ऐतिहासिक कथन ★:</strong><br>
+                किशोर मनोविज्ञान के जनक अमेरिकी मनोवैज्ञानिक स्टेनली हॉल ने <strong>1904 ई.</strong> में प्रकाशित अपनी विश्वप्रसिद्ध पुस्तक <strong>'Adolescence'</strong> में लिखा है:<br>
+                <em>"किशोरावस्था बड़े संघर्ष, तनाव, आँधी और तूफान तथा विरोध की अवस्था है।" (Adolescence is a period of great stress and storm, strain and strife.)</em>
+            </div>
+
+            <h4>किशोरावस्था के संदर्भ में अन्य प्रसिद्ध मनोवैज्ञानिक परिभाषाएँ:</h4>
+            <ul>
+                <li><strong>किलपैट्रिक (Kilpatrick):</strong> <em>"इस बात में कोई मतभेद नहीं हो सकता कि किशोरावस्था जीवन का सबसे कठिन काल (Most difficult period of life) है।"</em></li>
+                <li><strong>जर्सिल्ड (Jersild):</strong> <em>"किशोरावस्था वह समय है जिसमें विचारशील व्यक्ति बाल्यावस्था से परिपक्वता की ओर संक्रमण करता है।"</em></li>
+                <li><strong>क्रो एंड क्रो (Crow & Crow):</strong> <em>"किशोर ही वर्तमान की शक्ति और भावी आशा को प्रस्तुत करता है।"</em></li>
+                <li><strong>रॉस (Ross):</strong> <em>"किशोरावस्था शैशवावस्था की पुनरावृत्ति (Recapitulation of Infancy) है।"</em></li>
+            </ul>
+
+            <h4>11 से 14/18 वर्ष के किशोर बालकों की 8 प्रमुख मनोवैज्ञानिक विशेषताएँ:</h4>
+            <ol>
+                <li><strong>तीव्र शारीरिक एवं हार्मोनल परिवर्तन (वयःसंधि / Puberty):</strong> पीयूष ग्रंथि (Pituitary Gland) और जनन ग्रंथियों की सक्रियता से आवाज में बदलाव, लंबाई-भार में अकस्मात वृद्धि और द्वितीयक लैंगिक लक्षणों का विकास होता है।</li>
+                <li><strong>संवेगात्मक अस्थिरता एवं आवेगशीलता:</strong> किशोर कभी अत्यंत उत्साहित और आशावादी दिखता है, तो अगले ही पल निराशा और एकाकीपन में डूब जाता है (Mood Swings)।</li>
+                <li><strong>समवयस्क / मित्र-समूह का सर्वाधिक प्रभाव (Dominance of Peer Group):</strong> इस आयु में माता-पिता और शिक्षकों की तुलना में अपने मित्रों की राय, पहनावे और स्वीकृति का प्रभाव सबसे अधिक होता है।</li>
+                <li><strong>आत्म-चेतना एवं 'काल्पनिक श्रोता' (Imaginary Audience — डेविड एल्काइंड):</strong> किशोर अपने रूप-रंग और व्यक्तित्व को लेकर अत्यंत सजग (Self-conscious) रहता है और उसे लगता है कि दुनिया की हर नजर उसी को देख रही है।</li>
+                <li><strong>वीर-पूजा की भावना (Hero Worship):</strong> किशोर किसी महापुरुष, खिलाड़ी, अभिनेता या शिक्षक को अपना आदर्श (Role Model) मानकर उसके जैसा बनने की चेष्टा करता है।</li>
+                <li><strong>अमूर्त चिंतन एवं तार्किकता का चरम विकास:</strong> पियाजे के अनुसार 11 वर्ष के बाद बालक बिना मूर्त सहारे के काल्पनिक स्थितियों, वैज्ञानिक परिकल्पनाओं और दर्शन पर तर्क कर सकता है।</li>
+                <li><strong>स्वतंत्रता बनाम विद्रोह की भावना:</strong> किशोर स्वयं को वयस्क समझता है और माता-पिता की रोक-टोक या उपदेशों के प्रति विद्रोह प्रकट करता है।</li>
+                <li><strong>व्यावसायिक एवं भविष्य की चिंता:</strong> "मैं आगे क्या बनूँगा?" और अपनी सामाजिक पहचान को लेकर गहरा अंतर्द्वंद्व रहता है।</li>
+            </ol>
+
+            <!-- ---------------- 1.3 ---------------- -->
+            <h3>1.3 बाल विकास के 10 स्वर्णिम सिद्धांत (Principles of Child Development)</h3>
+            <p>प्रत्येक शिक्षक पात्रता परीक्षा में बाल विकास के नियमों से 1 से 2 प्रश्न सीधे पूछे जाते हैं:</p>
+
+            <div class="highlight-box">
+                <h4>★ सिद्धांत 1: विकास की दिशा का सिद्धांत (Principle of Direction — सर्वाधिक महत्वपूर्ण):</h4>
+                <p>विकास की दिशा मुख्यतः दो वैज्ञानिक नियमों का पालन करती है:</p>
+                <ul>
+                    <li><strong>(क) शीर्षगामी / मस्तकाधोमुखी सिद्धांत (Cephalocaudal Sequence):</strong> इसमें विकास <strong>सिर से पैर (Head to Toe / Longitudinal)</strong> की ओर होता है। भ्रूणावस्था और शैशवावस्था में सबसे पहले सिर और मस्तिष्क का विकास होता है; बच्चा पहले सिर संभालना सीखता है, फिर धड़ (बैठना), और सबसे अंत में पैरों पर नियंत्रण पाकर चलना व दौड़ना सीखता है।</li>
+                    <li><strong>(ख) अधोगामी / समीप-दूराभिमुख सिद्धांत (Proximodistal Sequence):</strong> इसमें विकास शरीर के <strong>केंद्र/मध्य भाग (रीढ़ की हड्डी व हृदय) से बाहर की ओर (Center to Periphery / Outwards)</strong> होता है। उदाहरणार्थ—बच्चा पहले अपने कंधे और पूरी बाँह पर नियंत्रण पाता है, उसके बाद कलाई पर, और सबसे अंत में हाथ की उंगलियों से सूक्ष्म कार्य (जैसे लिखना) करना सीखता है।</li>
+                </ul>
+            </div>
+
+            <ol start="2">
+                <li><strong>निरंतरता का सिद्धांत (Principle of Continuity):</strong> विकास कभी न रुकने वाली प्रक्रिया है जो गर्भाधान से लेकर मृत्यु तक निरंतर चलती रहती है (यद्यपि इसकी गति कभी तीव्र तो कभी मंद हो सकती है)।</li>
+                <li><strong>समान प्रतिमान का सिद्धांत (Principle of Uniform Pattern):</strong> विश्व के किसी भी कोने में जन्म लेने वाले सभी मानव शिशुओं के विकास का <strong>क्रम (Sequence)</strong> एक समान होता है (जैसे सभी बच्चे बोलने से पहले बड़बड़ाते हैं और चलने से पहले बैठना सीखते हैं)।</li>
+                <li><strong>वैयक्तिक भिन्नता का सिद्धांत (Principle of Individual Differences):</strong> यद्यपि विकास का क्रम समान होता है, किंतु प्रत्येक बालक में <strong>विकास की दर/गति (Rate of Development)</strong> और अंतिम स्तर भिन्न-भिन्न होता है।</li>
+                <li><strong>सामान्य से विशिष्ट क्रियाओं का सिद्धांत (General to Specific Responses):</strong> बालक पहले सामान्य या अनियंत्रित क्रियाएँ करता है और बाद में विशिष्ट क्रियाएँ। जैसे—शिशु शुरू में किसी खिलौने को पकड़ने के लिए पूरे शरीर और दोनों हाथों को झपटता है, बाद में केवल दो उंगलियों से पकड़ लेता है; शुरू में वह पूरे शरीर से रोता है, बाद में केवल आँखों से आँसू बहाता है।</li>
+                <li><strong>एकीकरण का सिद्धांत (Principle of Integration):</strong> बालक पहले संपूर्ण अंग को और फिर अंग के छोटे भागों को चलाना सीखता है, तथा अंत में उन सभी भागों में समन्वय (Integration) स्थापित कर लेता है (जैसे साइकिल चलाते समय पैडल मारना, हैंडल संभालना और सामने सड़क देखना—तीनों का एक साथ एकीकरण)।</li>
+                <li><strong>परस्पर संबंध का सिद्धांत (Principle of Interrelation):</strong> विकास के सभी आयाम (शारीरिक, संज्ञानात्मक, सामाजिक और संवेगात्मक) एक-दूसरे से घनिष्ठ रूप से जुड़े होते हैं। यदि बच्चा शारीरिक रूप से बीमार या कुपोषित है, तो उसका मानसिक और सामाजिक विकास भी प्रभावित होगा।</li>
+                <li><strong>वर्तुलाकार बनाम रेखीय प्रगति का सिद्धांत (Spiral, NOT Linear Progression):</strong> विकास कभी भी एक सीधी रेखा (Straight Line) में नहीं चलता, बल्कि <strong>वर्तुलाकार / सर्पिलाकार (Spiral)</strong> होता है। बालक एक अवस्था में तेजी से आगे बढ़ता है, फिर उस विकास को परिपक्व और स्थायी बनाने के लिए कुछ समय तक विश्राम लेता हुआ प्रतीत होता है।</li>
+                <li><strong>पूर्वानुमेयता का सिद्धांत (Principle of Predictability):</strong> चूँकि विकास का क्रम निश्चित है, इसलिए बालक की वर्तमान शारीरिक व मानसिक प्रगति को देखकर उसके भविष्य के विकास का काफी हद तक पूर्वानुमान लगाया जा सकता है।</li>
+                <li><strong>आनुवंशिकता एवं वातावरण की अंतःक्रिया का सिद्धांत (Interaction of Heredity & Environment):</strong> बालक का विकास न केवल वंशानुक्रम से होता है और न केवल पर्यावरण से, बल्कि दोनों की सक्रिय अंतःक्रिया का परिणाम है।</li>
+            </ol>
+
+            <!-- ---------------- 1.4 ---------------- -->
+            <h3>1.4 आनुवंशिकता एवं वातावरण का प्रभाव (Heredity & Environment: Nature vs Nurture)</h3>
+            <p>मनोविज्ञान में <strong>'प्रकृति बनाम पोषण' (Nature vs Nurture)</strong> की बहस अत्यंत प्राचीन है। यहाँ <strong>'प्रकृति' (Nature)</strong> का अर्थ जैविक <em>आनुवंशिकता/वंशानुक्रम (Heredity)</em> से है, जो एक <strong>स्थिर (Static)</strong> संरचना है; जबकि <strong>'पोषण' (Nurture)</strong> का अर्थ <em>वातावरण/पर्यावरण (Environment)</em> से है, जो एक <strong>गत्यात्मक (Dynamic)</strong> कारक है।</p>
+
+            <div class="note-card">
+                <strong>वुडवर्थ (R.S. Woodworth) का अमर गणितीय सूत्र ★:</strong><br>
+                वुडवर्थ ने स्पष्ट किया कि बालक का विकास वंशानुक्रम और वातावरण का योग (+) नहीं, बल्कि <strong>गुणनफल (×)</strong> है:<br>
+                <p style="text-align:center; font-size:1.15rem; font-weight:800; color:var(--primary-dark); margin:10px 0;">
+                    विकास (Development) = आनुवंशिकता (Heredity) × वातावरण (Environment)
+                </p>
+                अर्थात यदि इन दोनों में से कोई भी एक शून्य (0) हो जाए, तो विकास संभव नहीं है। आनुवंशिकता विकास की <em>'ऊपरी सीमा' (Upper Limit / Potential)</em> तय करती है और वातावरण उस क्षमता को पल्लवित होने का अवसर देता है।
+            </div>
+
+            <h4>आनुवंशिकता के प्रमुख जैविक नियम एवं तथ्य:</h4>
+            <ul>
+                <li><strong>आनुवंशिकता के जनक:</strong> ऑस्ट्रिया के पादरी व वैज्ञानिक <strong>ग्रेगर जॉन मेंडल (Gregor Johann Mendel)</strong>, जिन्होंने मटर के पौधों (Pisum sativum) पर प्रयोग कर वंशानुक्रम के नियम दिए।</li>
+                <li><strong>गुणसूत्र (Chromosomes) एवं जीन:</strong> मानव के संयुक्त कोष (Zygote) में <strong>23 जोड़े (कुल 46) गुणसूत्र</strong> होते हैं (23 माता से + 23 पिता से)। इनमें से 22 जोड़े 'ऑटोसोम्स' (कायिक गुणसूत्र) होते हैं जो शरीर का निर्माण करते हैं, जबकि <strong>23वाँ जोड़ा 'लिंग गुणसूत्र' (Sex Chromosome)</strong> कहलाता है।</li>
+                <li><strong>लिंग निर्धारण का वैज्ञानिक सत्य:</strong> माता में 23वाँ जोड़ा <strong>XX</strong> होता है और पिता में <strong>XY</strong> होता है। यदि माता का X और पिता का X मिले तो <strong>लड़की (XX)</strong> जन्म लेती है; और यदि माता का X तथा पिता का Y मिले तो <strong>लड़का (XY)</strong> जन्म लेता है। अतः शिशु के लिंग का निर्धारण पूर्णतः <strong>पिता के गुणसूत्र</strong> द्वारा होता है।</li>
+                <li><strong>आनुवंशिकता के 3 मुख्य नियम:</strong>
+                    <ol>
+                        <li><em>समानता का नियम (Law of Similarity — सोरेनसन):</em> जैसे माता-पिता होते हैं, वैसी ही संतान होती है (बुद्धिमान माता-पिता की संतान बुद्धिमान)।</li>
+                        <li><em>भिन्नता का नियम (Law of Variation — डार्विन व लैमार्क):</em> जीनों के भिन्न संयोजन के कारण एक ही माता-पिता की दो संतानें भी रूप-रंग व स्वभाव में बिल्कुल एक जैसी नहीं होतीं।</li>
+                        <li><em>प्रत्यागमन का नियम (Law of Regression — फ्रांसिस गाल्टन):</em> कभी-कभी अत्यंत प्रतिभाशाली माता-पिता की संतान सामान्य या मंदबुद्धि, अथवा सामान्य माता-पिता की संतान अत्यंत प्रतिभाशाली पैदा हो जाती है (प्रकृति औसत की ओर लौटती है)।</li>
+                    </ol>
+                </li>
+                <li><strong>जुड़वाँ बच्चों का प्रकार:</strong>
+                    <ul>
+                        <li><em>समरूपी जुड़वाँ (Identical / Monozygotic Twins):</em> एक ही निषेचित अंडाणु के दो भागों में बँटने से बनते हैं; इनका लिंग और आनुवंशिक गुण 100% समान होता है।</li>
+                        <li><em>भ्रातृ जुड़वाँ (Fraternal / Dizygotic Twins):</em> दो अलग-अलग अंडाणुओं के निषेचन से बनते हैं; ये सामान्य भाई-बहन जैसे होते हैं और इनका लिंग समान या भिन्न हो सकता है।</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- ---------------- 1.5 ---------------- -->
+            <h3>1.5 समाजीकरण की प्रक्रिया एवं यूरी ब्रोनफेनब्रेनर का पारिस्थितिकी तंत्र सिद्धांत</h3>
+            <p><strong>समाजीकरण (Socialization)</strong> वह प्रक्रिया है जिसके द्वारा एक जैविक शिशु समाज के मानदंडों, मूल्यों, भाषा, संस्कृति और व्यवहार के तरीकों को सीखकर एक 'सामाजिक प्राणी' बनता है।</p>
+
+            <h4>समाजीकरण की प्रमुख संस्थाएँ / वाहक (Agencies of Socialization ★):</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>संस्था का प्रकार</th>
+                        <th>सम्मिलित इकाइयाँ</th>
+                        <th>बालक के जीवन में भूमिका</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. प्राथमिक समाजीकरण (Primary Agency)</strong></td>
+                        <td><strong>परिवार (Family)</strong>, माता-पिता एवं निकटतम रक्त-संबंधी।</td>
+                        <td>शैशवावस्था और प्रारंभिक बाल्यावस्था में समाजीकरण की <strong>सर्वप्रथम और सबसे महत्वपूर्ण संस्था</strong>। बालक यहीं से मातृभाषा, स्नेह, विश्वास और बुनियादी संस्कार सीखता है।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. द्वितीयक / गौण समाजीकरण (Secondary Agencies)</strong></td>
+                        <td><strong>विद्यालय (School)</strong>, शिक्षक, समवयस्क/मित्र-समूह (Peer Group), पड़ोस, जनसंचार माध्यम (Media), धर्म व पुस्तकालय।</td>
+                        <td>बालक को परिवार के बाहर के व्यापक समाज के नियमों, समय की पाबंदी, लोकतांत्रिक मूल्यों और सहयोगात्मक जीवन से जोड़ती हैं। <em>(11–14 वर्ष में विद्यालय व मित्र-समूह सबसे प्रभावशाली होते हैं)।</em></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>यूरी ब्रोनफेनब्रेनर का पारिस्थितिकी परक सिद्धांत (Urie Bronfenbrenner's Ecological Systems Theory):</h4>
+            <p>रूसी मूल के अमेरिकी मनोवैज्ञानिक यूरी ब्रोनफेनब्रेनर ने बताया कि बालक का विकास शून्य में नहीं, बल्कि उसके चारों ओर घेरे हुए <strong>5 पर्यावरणीय मंडलों (पाँच संकेंद्रित परतों)</strong> के अंतर्संबंध से होता है:</p>
+            <ol>
+                <li><strong>लघुमंडल (Microsystem — सबसे भीतरी परत):</strong> वह तात्कालिक वातावरण जिससे बालक का <strong>सीधा और दैनिक संपर्क</strong> होता है—जैसे परिवार, माता-पिता, विद्यालय, शिक्षक और घनिष्ठ मित्र।</li>
+                <li><strong>मध्यमंडल (Mesosystem):</strong> यह लघुमंडल के विभिन्न तत्वों के बीच के <strong>आपसी संबंधों</strong> से बनता है—जैसे माता-पिता और शिक्षकों के बीच संवाद (Parent-Teacher Meeting - PTM)। यदि घर और स्कूल में अच्छा तालमेल हो, तो बच्चे का विकास बेहतर होता है।</li>
+                <li><strong>बाह्यमंडल (Exosystem):</strong> वे सामाजिक संस्थाएँ जिनमें बालक स्वयं प्रत्यक्ष रूप से शामिल नहीं होता, किंतु वे उसके विकास को अप्रत्यक्ष रूप से प्रभावित करती हैं—जैसे <strong>माता-पिता का कार्यस्थल (Office)</strong>, उनके तबादले, स्थानीय स्वास्थ्य सेवाएँ और मीडिया।</li>
+                <li><strong>वृहदमंडल (Macrosystem):</strong> समाज की व्यापक <strong>सांस्कृतिक मान्यताएँ, धार्मिक मूल्य, परंपराएँ, देश के कानून</strong> और सामाजिक-आर्थिक स्तर।</li>
+                <li><strong>घटकमंडल / कालमंडल (Chronosystem):</strong> समय के साथ बच्चे के जीवन और समाज में होने वाले <strong>ऐतिहासिक बदलाव और जीवन की बड़ी घटनाएँ</strong> (जैसे माता-पिता का तलाक, किसी नए शहर में बसना, या डिजिटल इंटरनेट युग का आगमन)।</li>
+            </ol>
+
+            <!-- ---------------- 1.6 ---------------- -->
+            <h3>1.6 जीन पियाजे (Jean Piaget) का संज्ञानात्मक विकास सिद्धांत (4 चरण)</h3>
+            <p>स्विट्जरलैंड के महान विकासात्मक मनोवैज्ञानिक <strong>जीन पियाजे (1896–1980)</strong> को 'विकासात्मक मनोविज्ञान का जनक' और <strong>मौलिक/संज्ञानात्मक रचनावादी (Radical / Cognitive Constructivist)</strong> माना जाता है। उन्होंने अपने ही तीन बच्चों के सूक्ष्म अवलोकन के आधार पर यह सिद्धांत प्रतिपादित किया।</p>
+
+            <div class="note-card">
+                <strong>पियाजे के सिद्धांत के 4 मूलभूत आधार स्तंभ:</strong>
+                <ol>
+                    <li>बच्चे निष्क्रिय श्रोता या 'कोरी स्लेट' नहीं हैं, बल्कि वे <strong>'नन्हे वैज्ञानिक' (Little Scientists)</strong> और <strong>'ज्ञान के सक्रिय निर्माता' (Active Builders of Knowledge)</strong> हैं जो भौतिक संसार में खोजबीन करके अपना ज्ञान स्वयं रचते हैं।</li>
+                    <li>बच्चों के सोचने का तरीका वयस्कों से मात्रा (Amount) में नहीं, बल्कि <strong>प्रकार/गुणवत्ता (Kind/Quality) में भिन्न</strong> होता है (वयस्क की तुलना में बच्चा कम नहीं सोचता, बल्कि अलग तरीके से सोचता है)।</li>
+                    <li>पियाजे के अनुसार संज्ञानात्मक विकास <strong>असतत (Discontinuous)</strong> होता है क्योंकि यह 4 अलग-अलग और निश्चित चरणों (Stages) में आगे बढ़ता है।</li>
+                    <li><strong>परिपक्वता और विचार की प्राथमिकता:</strong> पियाजे के अनुसार पहले जैविक परिपक्वता और <strong>विचार (Thought)</strong> आता है, और उसके बाद <strong>भाषा (Language)</strong> का विकास होता है।</li>
+                </ol>
+            </div>
+
+            <h4>पियाजे की प्रमुख संज्ञानात्मक शब्दावली (Key Concepts):</h4>
+            <ul>
+                <li><strong>1. स्कीमा (Schema):</strong> मानव मस्तिष्क में सूचनाओं, अनुभवों और व्यवहार के तरीकों को संगठित करने वाली मानसिक संरचना या <em>'ज्ञान के प्रकोष्ठ/पैकेट'</em>। (जैसे—बच्चे के दिमाग में 'पक्षी' या 'साइकिल चलाने' का स्कीमा)।</li>
+                <li><strong>2. अनुकूलन (Adaptation):</strong> वातावरण के साथ सामंजस्य बैठाने की जन्मजात प्रवृत्ति। अनुकूलन की दो पूरक उप-प्रक्रियाएँ होती हैं:
+                    <ul>
+                        <li><strong>(क) आत्मसात्करण / समावेशन (Assimilation):</strong> अपने पूर्व-विद्यमान स्कीमा में <strong>बिना किसी परिवर्तन के नई जानकारी को सीधे जोड़ लेना</strong>। <em>उदाहरण:</em> एक बच्चे के स्कीमा में है कि 'चार पैर और पूँछ वाला जीव कुत्ता होता है'। जब वह पहली बार सफेद बिल्ली या गाय देखता है, तो उसे भी 'कुत्ता' कहकर पुकारता है।</li>
+                        <li><strong>(ख) समायोजन / विशिष्टीकरण (Accommodation):</strong> जब पुरानी जानकारी नए अनुभव पर फिट नहीं बैठती, तो नई सूचना के अनुसार <strong>पुराने स्कीमा में संशोधन, बदलाव करना या नया स्कीमा बनाना</strong>। <em>उदाहरण:</em> माँ द्वारा बताए जाने पर कि "यह भौंकता नहीं बल्कि म्याऊँ करता है और इसे बिल्ली कहते हैं", बच्चा अपने पुराने कुत्ते वाले स्कीमा में सुधार कर 'बिल्ली' का नया स्कीमा बना लेता है।</li>
+                    </ul>
+                </li>
+                <li><strong>3. साम्यधारण / संतुलन (Equilibration):</strong> जब बच्चे के सामने कोई ऐसी नई स्थिति आती है जिसे वह पुराने स्कीमा से नहीं समझ पाता, तो उसके मन में <strong>असंतुलन या संज्ञानात्मक द्वंद्व (Disequilibrium)</strong> पैदा होता है। आत्मसात्करण और समायोजन की मदद से इस भ्रम को दूर कर पुनः मानसिक संतुलन (Equilibrium) प्राप्त करने की प्रक्रिया को 'साम्यधारण' कहते हैं।</li>
+            </ul>
+
+            <h4>जीन पियाजे के संज्ञानात्मक विकास की 4 अवस्थाएँ (Four Stages of Cognitive Development):</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 22%;">अवस्था का नाम</th>
+                        <th style="width: 14%;">आयु सीमा</th>
+                        <th style="width: 64%;">प्रमुख संज्ञानात्मक उपलब्धि एवं सीमाएँ (परीक्षा में पूछे जाने वाले बिंदु)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. संवेदी-गामक / इंद्रियजनित अवस्था (Sensory-Motor Stage)</strong></td>
+                        <td>जन्म से 2 वर्ष</td>
+                        <td>
+                            • शिशु अपनी <strong>पाँचों इंद्रियों (आँख, कान, नाक, त्वचा, जीभ)</strong> और शारीरिक क्रियाओं (पकड़ना, चूसना) के माध्यम से दुनिया को समझता है।<br>
+                            • <strong>वस्तु स्थायित्व (Object Permanence) ★:</strong> लगभग 18–24 माह में बच्चे में यह समझ आ जाती है कि जब कोई खिलौना या वस्तु उसकी आँखों के सामने से हटाकर तकिए के नीचे छिपा दी जाती है, तब भी उस वस्तु का अस्तित्व समाप्त नहीं होता और वह उसे ढूँढने लगता है।<br>
+                            • सहज क्रियाओं (Reflex Actions) से <strong>लक्ष्य-निर्देशित व्यवहार (Goal-Directed Behavior)</strong> और विलंबित अनुकरण (Deferred Imitation) की ओर विकास।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. पूर्व-संक्रियात्मक अवस्था (Pre-Operational Stage)</strong></td>
+                        <td>2 से 7 वर्ष</td>
+                        <td>
+                            इस अवस्था में बच्चा संकेतों व भाषा का प्रयोग शुरू करता है, पर <strong>तार्किक चिंतन का अभाव</strong> रहता है। इसकी 4 मुख्य सीमाएँ हैं:<br>
+                            • <strong>जीववाद (Animism) ★:</strong> निर्जीव वस्तुओं (गुड़िया, सूर्य, बादल, मेज) को सजीव समझना (जैसे—मेज से टकराकर गिरने पर मेज को मारने पर खुश होना कि 'मेज को भी दर्द हुआ')।<br>
+                            • <strong>अहं-केंद्रितता (Egocentrism) ★:</strong> यह सोचना कि पूरी दुनिया ठीक वैसा ही सोचती और महसूस करती है जैसा मैं करता हूँ; दूसरों के दृष्टिकोण (Perspective) को न समझ पाना।<br>
+                            • <strong>केंद्रीकरण (Centration) ★:</strong> किसी वस्तु या घटना के एक समय में केवल एक ही प्रत्यक्ष पहलू (जैसे केवल गिलास की ऊँचाई) पर ध्यान केंद्रित कर पाना और चौड़ाई की उपेक्षा करना।<br>
+                            • <strong>अपलटावी गुण / अनुत्क्रमणीयता (Irreversibility) ★:</strong> चिंतन में पीछे की ओर न लौट पाना (जैसे $2+3=5$ समझ लेना पर $5-3=2$ या अपने घर से स्कूल का रास्ता जानना पर स्कूल से वापस घर का तर्क उलट न पाना)।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. मूर्त संक्रियात्मक अवस्था (Concrete Operational Stage)</strong></td>
+                        <td>7 से 11 वर्ष</td>
+                        <td>
+                            • प्रत्यक्ष दिखने वाली <strong>मूर्त वस्तुओं (Concrete Objects) के संबंध में तार्किक चिंतन (Logical Thinking)</strong> की शुरुआत।<br>
+                            • <strong>संरक्षण (Conservation) ★:</strong> यह समझ आ जाना कि किसी वस्तु के बाहरी आकार या बर्तन को बदल देने से उसकी मात्रा, संख्या या भार में कोई बदलाव नहीं होता (चौड़े गिलास का पानी पतले लंबे गिलास में डालने पर भी बराबर रहता है)।<br>
+                            • <strong>विकेंद्रीकरण (Decentration)</strong> एवं <strong>पलटावी गुण / उत्क्रमणीयता (Reversibility)</strong> का आ जाना (बर्फ से पानी और पानी से वापस बर्फ बनना समझना)।<br>
+                            • <strong>वर्गीकरण (Classification):</strong> वस्तुओं को रंग, आकार व गुण के आधार पर समूहों में बाँटना।<br>
+                            • <strong>श्रेणीक्रम / क्रमबद्धता (Seriation) एवं सकर्मक अनुमान (Transitivity):</strong> छड़ों को छोटे से बड़े के क्रम में लगाना (यदि $A > B$ और $B > C$ है, तो $A > C$ होगा)।<br>
+                            • <strong>आगमनात्मक तर्क (Inductive Reasoning):</strong> विशिष्ट उदाहरणों से सामान्य नियम की ओर सोचना।
+                        </td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>4. औपचारिक / अमूर्त संक्रियात्मक अवस्था ★ (Formal Operational Stage)</strong></td>
+                        <td>11 से 15+ वर्ष (Level-2 के छात्र)</td>
+                        <td>
+                            • संज्ञानात्मक विकास की सर्वोच्च अवस्था। बालक अब उन विषयों पर भी सोच सकता है जो आँखों के सामने नहीं हैं—अर्थात <strong>अमूर्त चिंतन (Abstract Thinking)</strong> (जैसे—बीजगणित में $x, y$ मानना, लोकतंत्र, न्याय, नैतिकता)।<br>
+                            • <strong>परिकल्पनात्मक-निगमनात्मक तर्क (Hypothetico-Deductive Reasoning) ★:</strong> किसी समस्या के समाधान के लिए वैज्ञानिक की तरह विभिन्न संभावित परिकल्पनाएँ (Hypotheses) बनाना और सामान्य नियमों से विशिष्ट निष्कर्ष निकालना।<br>
+                            • <strong>अपसारी एवं वैज्ञानिक चिंतन (Divergent & Scientific Thinking):</strong> पेंडुलम समस्या (Pendulum Task) को व्यवस्थित ढंग से हल करने की क्षमता।
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ---------------- 1.7 ---------------- -->
+            <h3>1.7 लेव वायगोत्स्की (Lev Vygotsky) का सामाजिक-सांस्कृतिक सिद्धांत</h3>
+            <p>रूसी मनोवैज्ञानिक <strong>लेव सिमोनोविच वायगोत्स्की (1896–1934)</strong> को <strong>'सामाजिक रचनावाद' (Social Constructivism)</strong> का जनक माना जाता है। जहाँ पियाजे ने माना कि बच्चा भौतिक वातावरण से अकेले टकराकर ज्ञान बनाता है, वहीं वायगोत्स्की ने सिद्ध किया कि बालक का संज्ञानात्मक विकास निर्वात में नहीं, बल्कि <strong>समाज (Social Interaction), संस्कृति (Culture) और भाषा (Language)</strong> के माध्यम से वयस्कों व साथियों के साथ सहयोग से होता है।</p>
+
+            <div class="highlight-box">
+                <h4>वायगोत्स्की के 3 केंद्रीय संप्रत्यय (ZPD, MKO एवं पाड़/Scaffolding ★):</h4>
+                <ol>
+                    <li><strong>समीपस्थ / निकटस्थ विकास का क्षेत्र (ZPD — Zone of Proximal Development):</strong><br>
+                        बच्चा वर्तमान में बिना किसी की मदद के स्वतंत्र रूप से जो कार्य कर सकता है (वास्तविक विकास का स्तर) और किसी अधिक जानकार व्यक्ति के मार्गदर्शन या सहायता से वह जिस उच्च स्तर तक कार्य कर सकता है (संभावित विकास का स्तर)—<strong>इन दोनों स्तरों के बीच के अंतर या खाली क्षेत्र को 'ZPD' कहा जाता है।</strong> वास्तविक अधिगम इसी क्षेत्र में घटित होता है।</li>
+                    <li><strong>अधिक जानकार अन्य (MKO — More Knowledgeable Other):</strong><br>
+                        वह कोई भी व्यक्ति जिसके पास सीखने वाले बालक की तुलना में किसी विशेष कार्य या विषय की अधिक समझ और कौशल हो। यह आवश्यक नहीं कि MKO केवल शिक्षक या माता-पिता ही हों; यह बालक का कोई <strong>मित्र, छोटा भाई-बहन या कंप्यूटर</strong> भी हो सकता है।</li>
+                    <li><strong>पाड़ / ढाँचा निर्माण / मचान (Scaffolding):</strong><br>
+                        <em>(नोट: इस शब्द का सर्वप्रथम प्रयोग ब्रूनर, वुड और रॉस ने वायगोत्स्की के सिद्धांत के संदर्भ में किया)।</em> ZPD के भीतर जब MKO बच्चे को समस्या हल करने के लिए <strong>अस्थायी और जरूरत के अनुसार सहायता</strong> (जैसे—संकेत देना [Hints/Cues], प्रश्न पूछना, आधा हल किया हुआ उदाहरण दिखाना या प्रोत्साहन देना) प्रदान करता है, तो उसे <strong>'पाड़' (Scaffolding)</strong> कहते हैं। जैसे-जैसे बच्चा दक्ष होता जाता है, यह सहारा धीरे-धीरे हटा लिया जाता है।</li>
+                </ol>
+            </div>
+
+            <h4>वायगोत्स्की के अनुसार भाषा और विचार तथा भाषा के 3 रूप:</h4>
+            <p>वायगोत्स्की ने <strong>भाषा (Language) को मानव चिंतन का सबसे बड़ा सांस्कृतिक उपकरण (Greatest Psychological Tool)</strong> माना। उनके अनुसार जीवन के शुरुआती 2 वर्षों में भाषा और विचार अलग-अलग विकसित होते हैं, किंतु लगभग 3 वर्ष की आयु में दोनों मिलकर एक हो जाते हैं।</p>
+            <ul>
+                <li><strong>1. सामाजिक वाक् (Social Speech — जन्म से 2 वर्ष):</strong> बच्चा केवल दूसरों से संवाद करने और अपनी आवश्यकताएँ बताने के लिए भाषा का प्रयोग करता है।</li>
+                <li><strong>2. निजी वाक् / आत्म-चर्चा (Private Speech — 3 से 6/7 वर्ष) ★:</strong> इस अवस्था में बच्चा खिलौनों से खेलते या चित्र बनाते समय <strong>स्वयं से बोल-बोलकर बातें करता है</strong> (जैसे—"अब मैं यहाँ लाल रंग भरूँगा, अरे यह पहिया गलत लग गया")। वायगोत्स्की के अनुसार यह अपरिपक्वता नहीं है, बल्कि बच्चा निजी वाक् के माध्यम से <strong>अपने स्वयं के व्यवहार, योजना और चिंतन को निर्देशित व नियंत्रित (Self-Regulation)</strong> करता है।</li>
+                <li><strong>3. आंतरिक / मौन वाक् (Silent Inner Speech — 7 वर्ष के बाद):</strong> यही निजी वाक् धीरे-धीरे भीतर चला जाता है और मौन शाब्दिक चिंतन का रूप ले लेता है।</li>
+            </ul>
+
+            <h4>तुलनात्मक सारणी: जीन पियाजे बनाम लेव वायगोत्स्की</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>आधार</th>
+                        <th>जीन पियाजे (Jean Piaget)</th>
+                        <th>लेव वायगोत्स्की (Lev Vygotsky)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>दृष्टिकोण</strong></td>
+                        <td>संज्ञानात्मक / मौलिक रचनावाद (Cognitive Constructivism)।</td>
+                        <td>सामाजिक-सांस्कृतिक रचनावाद (Socio-Cultural Constructivism)।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>विकास का स्वरूप</strong></td>
+                        <td>विकास <strong>असतत (Discontinuous)</strong> है और 4 निश्चित आयु-आधारित चरणों में होता है।</td>
+                        <td>विकास एक <strong>सतत (Continuous)</strong> सामाजिक प्रक्रिया है; कोई कठोर आयु-चरण नहीं हैं।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>अधिगम बनाम विकास</strong></td>
+                        <td>पहले जैविक <strong>विकास/परिपक्वता</strong> होती है, तब अधिगम (सीखना) संभव होता है।</td>
+                        <td>सामाजिक <strong>अधिगम (Learning)</strong> विकास की प्रक्रिया को आगे खींचता है (अधिगम पहले, विकास बाद में)।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>भाषा एवं विचार</strong></td>
+                        <td>पहले <strong>विचार (Thought)</strong> जन्म लेता है, भाषा बाद में आती है।</td>
+                        <td>भाषा और विचार शुरू में स्वतंत्र हैं, 3 वर्ष बाद एक हो जाते हैं; भाषा चिंतन को सुगम बनाती है।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>स्वयं से बात करना</strong></td>
+                        <td>इसे <strong>'अहं-केंद्रित वाक्' (Egocentric Speech)</strong> कहा और संज्ञानात्मक अपरिपक्वता माना।</td>
+                        <td>इसे <strong>'निजी वाक्' (Private Speech)</strong> कहा और आत्म-नियमन (Self-Regulation) के लिए अत्यंत महत्वपूर्ण बताया।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ---------------- 1.8 ---------------- -->
+            <h3>1.8 लॉरेंस कोहलबर्ग का नैतिक विकास सिद्धांत (3 स्तर, 6 चरण) एवं कैरोल गिलिगन की आलोचना</h3>
+            <p>अमेरिकी मनोवैज्ञानिक <strong>लॉरेंस कोहलबर्ग (Lawrence Kohlberg, 1927–1987)</strong> ने जीन पियाजे के नैतिक विचारों को आगे बढ़ाते हुए बच्चों और वयस्कों के सामने कई नैतिक दुविधाओं (Moral Dilemmas) की कहानियाँ रखीं और उनके तर्कों (Moral Reasoning) के आधार पर नैतिक विकास के <strong>3 मुख्य स्तर (Levels) और 6 सार्वभौमिक चरण (Stages)</strong> प्रतिपादित किए।</p>
+
+            <div class="note-card">
+                <strong>प्रसिद्ध 'हाइंज की दुविधा' (Heinz Dilemma):</strong><br>
+                यूरोप में एक महिला कैंसर के विशेष प्रकार से मर रही थी। डॉक्टरों के अनुसार केवल एक ही दवा उसकी जान बचा सकती थी, जिसकी खोज उसी शहर के एक केमिस्ट (दवा विक्रेता) ने की थी। दवा बनाने में केमिस्ट का खर्च $200 आया था, पर वह उसे दस गुना दाम ($2000) में बेच रहा था। बीमार महिला के पति <strong>हाइंज</strong> ने सबसे उधार मांगा पर वह केवल $1000 ही जुटा पाया। उसने केमिस्ट से विनती की कि वह आधी कीमत में दवा दे दे या बाकी पैसे बाद में ले ले, पर केमिस्ट ने साफ मना कर दिया। हताश होकर हाइंज ने रात में केमिस्ट की दुकान का ताला तोड़ा और अपनी पत्नी की जान बचाने के लिए दवा चुरा ली।<br>
+                <em>कोहलबर्ग का प्रश्न:</em> "क्या हाइंज को दवा चुरानी चाहिए थी? क्यों या क्यों नहीं?" (यहाँ उत्तर 'हाँ' या 'ना' से अधिक महत्वपूर्ण वह <strong>तर्क</strong> है जो बच्चा अपने उत्तर के समर्थन में देता है)।
+            </div>
+
+            <h4>कोहलबर्ग के नैतिक विकास के 3 स्तर एवं 6 चरण:</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 24%;">नैतिक स्तर (Level)</th>
+                        <th style="width: 28%;">चरण (Stage)</th>
+                        <th style="width: 48%;">नैतिक तर्क का आधार एवं उदाहरण</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2"><strong>स्तर 1: पूर्व-परंपरागत नैतिकता (Pre-Conventional Level)</strong><br><em>(आयु: 4 से 10 वर्ष)</em><br>नैतिकता का नियंत्रण पूर्णतः <strong>बाहरी परिणामों (दंड या व्यक्तिगत स्वार्थ)</strong> पर आधारित होता है।</td>
+                        <td><strong>चरण 1: आज्ञापालन एवं दंड अभिविन्यास</strong><br>(Obedience and Punishment Orientation)</td>
+                        <td>बच्चा नियम इसलिए मानता है ताकि उसे <strong>शारीरिक दंड या सजा न मिले</strong>। यदि किसी कार्य पर सजा मिलती है तो वह गलत है। (उदा.—"हाइंज को चोरी नहीं करनी चाहिए क्योंकि पुलिस उसे जेल में डाल देगी")।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>चरण 2: साधनात्मक सापेक्षता / यांत्रिक उद्देश्य / व्यक्तिगत विनिमय अभिविन्यास ★</strong><br>(Instrumental Relativist / Tit-for-Tat / Individualism & Exchange)</td>
+                        <td>इसमें नैतिकता <strong>'जैसे को तैसा' (Tit for Tat)</strong> और परस्पर स्वार्थ/लेन-देन ("तुम मेरी पीठ खुजाओ, मैं तुम्हारी खुजाऊँगा") पर आधारित होती है। (उदा.—"यदि तुमने मेरी पेंसिल तोड़ी, तो मैं भी तुम्हारी कॉपी फाड़ूँगा" या "मैं अपना टिफिन तभी दूँगा जब तुम मुझे अपनी साइकिल चलाने दोगे")।</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><strong>स्तर 2: परंपरागत / रूढ़िगत नैतिकता (Conventional Level)</strong><br><em>(आयु: 10 से 13 वर्ष — Level-2 छात्र)</em><br>बच्चा समाज और परिवार के नियमों को अपनाता है ताकि <strong>सामाजिक स्वीकृति और व्यवस्था</strong> बनी रहे।</td>
+                        <td><strong>चरण 3: 'अच्छा लड़का - अच्छी लड़की' अभिविन्यास ★</strong><br>(Good Boy - Nice Girl / Interpersonal Concordance)</td>
+                        <td>बच्चा माता-पिता, शिक्षकों और साथियों की नजरों में <strong>अच्छा बनने, उनकी प्रशंसा और अनुमोदन (Approval) पाने</strong> के लिए नैतिक व्यवहार करता है। (उदा.—"हाइंज ने अपनी पत्नी से प्रेम के कारण दवा चुराई, वह एक अच्छा पति है; कोई भी अच्छा इंसान अपनी पत्नी को मरने नहीं देगा")।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>चरण 4: कानून एवं व्यवस्था अभिविन्यास ★</strong><br>(Law and Order / Authority and Social-Order Maintaining)</td>
+                        <td>इसमें व्यक्ति मानता है कि समाज के <strong>नियम और कानून सर्वोच्च हैं</strong> तथा उनका बिना किसी अपवाद के पालन करना प्रत्येक नागरिक का कर्तव्य है; यदि एक भी व्यक्ति कानून तोड़ेगा तो समाज में अराजकता फैल जाएगी। (उदा.—"लाल बत्ती पर तब भी रुकना चाहिए जब सड़क पर कोई पुलिस न हो")।</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><strong>स्तर 3: उत्तर-परंपरागत / परम्परा-पश्चात नैतिकता (Post-Conventional Level)</strong><br><em>(आयु: 13 वर्ष से ऊपर व वयस्क)</em><br>नैतिकता समाज के बंधे-बंधाए नियमों से ऊपर उठकर <strong>आंतरिक विवेक और मानव अधिकारों</strong> पर आधारित होती है।</td>
+                        <td><strong>चरण 5: सामाजिक अनुबंध एवं वैयक्तिक अधिकार अभिविन्यास</strong><br>(Social Contract and Individual Rights)</td>
+                        <td>व्यक्ति समझता है कि <strong>कानून समाज की भलाई के लिए बनाए गए समझौते हैं</strong>। यदि कोई कानून मानव जीवन या मौलिक अधिकारों की रक्षा नहीं कर पा रहा है, तो लोकतांत्रिक तरीके से उस कानून को बदला जा सकता है (जीवन का अधिकार संपत्ति के अधिकार से बड़ा है)।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>चरण 6: सार्वभौमिक नैतिक सिद्धांत अभिविन्यास ★</strong><br>(Universal Ethical Principles / Conscience)</td>
+                        <td>नैतिक विकास की सर्वोच्च अवस्था। व्यक्ति अपनी <strong>अंतरात्मा की आवाज (Conscience), न्याय, समानता और मानवीय गरिमा</strong> के सार्वभौमिक सिद्धांतों का पालन करता है—चाहे इसके लिए उसे समाज के अन्यायपूर्ण कानूनों का विरोध करना पड़े या अपने प्राण ही क्यों न गंवाने पड़ें (जैसे—महात्मा गांधी, नेल्सन मंडेला, भगत सिंह)।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>★ कैरोल गिलिगन (Carol Gilligan) द्वारा कोहलबर्ग के सिद्धांत की नारीवादी आलोचना:</h4>
+                <p>कोहलबर्ग की ही सहयोगी और शिष्या रहीं अमेरिकी मनोवैज्ञानिक <strong>कैरोल गिलिगन</strong> ने <strong>1982 ई.</strong> में प्रकाशित अपनी प्रसिद्ध पुस्तक <strong>'In a Different Voice'</strong> में कोहलबर्ग के सिद्धांत की कड़ी आलोचना प्रस्तुत की:</p>
+                <ul>
+                    <li><strong>लैंगिक पूर्वाग्रह (Gender Bias):</strong> गिलिगन ने बताया कि कोहलबर्ग ने अपने मूल प्रयोग में केवल <strong>श्वेत अमेरिकी पुरुषों/लड़कों (All-Male Sample)</strong> को ही शामिल किया था, और उसी के आधार पर महिलाओं को नैतिक विकास में पुरुषों से निचले स्तर (चरण 3) पर आंका।</li>
+                    <li><strong>न्याय की नैतिकता बनाम देखभाल की नैतिकता (Ethics of Justice vs Ethics of Care):</strong> गिलिगन ने सिद्ध किया कि पुरुषों की नैतिकता <strong>'न्याय, नियमों और अमूर्त अधिकारों' (Ethics of Justice)</strong> पर टिकी होती है, जबकि महिलाओं की नैतिकता <strong>'देखभाल, करुणा, सहानुभूति और मानवीय रिश्तों को जोड़े रखने की जिम्मेदारी' (Ethics of Care and Responsibility)</strong> पर आधारित होती है। अतः महिलाओं की नैतिकता कमतर नहीं, बल्कि एक भिन्न और उतनी ही उच्च आवाज है।</li>
+                </ul>
+            </div>
+
+            <!-- ---------------- 1.9 ---------------- -->
+            <h3>1.9 एरिक एरिक्सन का मनोसामाजिक विकास सिद्धांत (8 जीवन-चरण)</h3>
+            <p>जर्मन-अमेरिकी मनोविश्लेषक <strong>एरिक एरिक्सन (Erik Erikson, 1902–1994)</strong> ने सिगमंड फ्रायड के काम-प्रवृत्ति (Psychosexual) के स्थान पर सामाजिक अनुभवों को महत्व देते हुए <strong>'मनोसामाजिक विकास सिद्धांत' (Psychosocial Theory of Development)</strong> प्रतिपादित किया (पुस्तक: <em>Childhood and Society</em>)। उन्होंने जन्म से वृद्धावस्था तक संपूर्ण मानव जीवन को <strong>8 मनोसामाजिक चरणों (8 Stages of Life Span)</strong> में बाँटा। प्रत्येक चरण में व्यक्ति के सामने एक 'मनोसामाजिक संकट' (Crisis) आता है जिसके सफल समाधान से एक मनोवैज्ञानिक सद्गुण (Virtue) का विकास होता है:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>चरण</th>
+                        <th>मनोसामाजिक संकट (Psychosocial Crisis)</th>
+                        <th>आयु सीमा</th>
+                        <th>विकसित सद्गुण (Virtue) एवं मुख्य विशेषता</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1.</strong></td>
+                        <td><strong>विश्वास बनाम अविश्वास</strong><br>(Trust vs Mistrust)</td>
+                        <td>जन्म से 1.5 वर्ष (शैशवावस्था)</td>
+                        <td><strong>आशा (Hope):</strong> यदि माता-पिता शिशु को समय पर भोजन, दुलार और सुरक्षा देते हैं, तो उसमें दुनिया के प्रति 'विश्वास' जाग्रत होता है।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2.</strong></td>
+                        <td><strong>स्वायत्तता बनाम लज्जा एवं संदेह</strong><br>(Autonomy vs Shame & Doubt)</td>
+                        <td>1.5 से 3 वर्ष (प्रारंभिक बाल्यावस्था)</td>
+                        <td><strong>इच्छाशक्ति (Will):</strong> बच्चा स्वयं कपड़े पहनना, खाना और शौच नियंत्रण (Toilet Training) सीखता है। अधिक डांटने पर उसमें संदेह पैदा होता है।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3.</strong></td>
+                        <td><strong>पहल बनाम अपराध-बोध</strong><br>(Initiative vs Guilt)</td>
+                        <td>3 से 6 वर्ष (पूर्व-विद्यालयी आयु)</td>
+                        <td><strong>उद्देश्य (Purpose):</strong> बच्चा खेलों और नए कार्यों में स्वयं पहल करता है और प्रश्न पूछता है। यदि उसे रोका जाए तो अपराध-बोध आता है।</td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>4. ★</strong></td>
+                        <td><strong>परिश्रम/उद्यम बनाम हीनता</strong><br>(Industry vs Inferiority)</td>
+                        <td>6 से 12 वर्ष (विद्यालयी आयु)</td>
+                        <td><strong>सामर्थ्य / दक्षता (Competence):</strong> बच्चा विद्यालय में पढ़ना, लिखना, गणित व खेलकूद के कौशल सीखता है। प्रशंसा मिलने पर 'परिश्रम' और बार-बार असफल होने पर 'हीन भावना' आती है।</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>5. ★★</strong></td>
+                        <td><strong>पहचान बनाम भूमिका संभ्रांति</strong><br>(Identity vs Role Confusion)</td>
+                        <td>12 से 18 वर्ष (किशोरावस्था — Level-2 मुख्य फोकस)</td>
+                        <td><strong>निष्ठा / कर्तव्यपरायणता (Fidelity):</strong> किशोर के सामने सबसे बड़ा प्रश्न होता है—<em>"मैं कौन हूँ और समाज में मेरी क्या भूमिका है?"</em> इसे एरिक्सन ने <strong>'पहचान का संकट' (Identity Crisis)</strong> कहा है।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6.</strong></td>
+                        <td><strong>घनिष्ठता बनाम अलगाव</strong><br>(Intimacy vs Isolation)</td>
+                        <td>18 से 40 वर्ष (युवा प्रौढ़ावस्था)</td>
+                        <td><strong>प्रेम (Love):</strong> व्यक्ति वैवाहिक जीवन और मित्रता में गहरे, स्थायी और आत्मीय संबंध बनाता है; असफल रहने पर अकेलापन महसूस करता है।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7.</strong></td>
+                        <td><strong>उत्पादकता/जननात्मकता बनाम स्थिरता</strong><br>(Generativity vs Stagnation)</td>
+                        <td>40 से 65 वर्ष (मध्य प्रौढ़ावस्था)</td>
+                        <td><strong>देखभाल (Care):</strong> व्यक्ति अगली पीढ़ी के कल्याण, बच्चों के पालन-पोषण और समाज के लिए कुछ सार्थक योगदान देने की सोचता है।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>8.</strong></td>
+                        <td><strong>अहं-संपूर्णता बनाम निराशा</strong><br>(Ego Integrity vs Despair)</td>
+                        <td>65 वर्ष से मृत्यु तक (वृद्धावस्था)</td>
+                        <td><strong>परिपक्व ज्ञान / प्रज्ञा (Wisdom):</strong> व्यक्ति अपने बीते हुए जीवन को पीछे मुड़कर देखता है। सफल जीवन पर संतोष (संपूर्णता) और अधूरे लक्ष्यों पर 'निराशा' होती है।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ---------------- 1.10 ---------------- -->
+            <h3>1.10 जेरोम ब्रूनर का संज्ञानात्मक विकास एवं सर्पिल पाठ्यचर्या सिद्धांत</h3>
+            <p>अमेरिकी संज्ञानात्मक मनोवैज्ञानिक <strong>जेरोम ब्रूनर (Jerome Bruner, 1915–2016)</strong> ने पियाजे के चरणों के विकल्प के रूप में संज्ञानात्मक प्रतिनिधित्व की <strong>3 अवस्थाएँ (Modes of Representation)</strong> बताईं और शिक्षा में दो महान अवधारणाएँ दीं—<strong>'अन्वेषण अधिगम' (Discovery Learning)</strong> तथा <strong>'सर्पिल पाठ्यचर्या' (Spiral Curriculum)</strong>।</p>
+
+            <h4>ब्रूनर के अनुसार सीखने और ज्ञान के प्रतिनिधित्व की 3 अवस्थाएँ:</h4>
+            <ol>
+                <li><strong>1. क्रियात्मक / विधि निर्माण अवस्था (Enactive Stage — जन्म से 1/2 वर्ष):</strong><br>
+                    इस अवस्था में शिशु भाषा या चित्रों से नहीं, बल्कि <strong>शारीरिक क्रियाओं और गामक गतिविधियों (Action-based / Motor Responses)</strong> के माध्यम से ज्ञान प्राप्त करता है और उसे मांसपेशीय स्मृति में रखता है (जैसे—झुनझुना हिलाने पर आवाज आना, दूध की बोतल देखकर मुँह चलाना)।</li>
+                <li><strong>2. प्रतिबिंबात्मक / चित्रात्मक / मूर्ति अवस्था (Iconic Stage — 1/2 से 6/7 वर्ष):</strong><br>
+                    इस अवस्था में बच्चा अपने मस्तिष्क में वस्तुओं के <strong>दृश्य चित्र या मानसिक प्रतिमाएँ (Mental Images / Pictures / Diagrams)</strong> बनाकर सीखता है। जो वस्तुएँ उसने देखी हैं, उनके चित्र उसके दिमाग में छप जाते हैं। इसीलिए प्राथमिक कक्षाओं में सचित्र पुस्तकों और मॉडलों से पढ़ाना सर्वाधिक प्रभावी होता है।</li>
+                <li><strong>3. संकेतात्मक / प्रतीकात्मक अवस्था (Symbolic Stage — 7 वर्ष से ऊपर):</strong><br>
+                    यह सर्वोच्च अवस्था है जहाँ बालक ज्ञान को <strong>भाषा के शब्दों, गणितीय चिह्नों ($+, -, \times, x, y$), संगीत के स्वरों और अमूर्त प्रतीकों (Abstract Symbols)</strong> के माध्यम से समझता और व्यक्त करता है।</li>
+            </ol>
+
+            <div class="note-card">
+                <strong>★ सर्पिल पाठ्यचर्या (Spiral Curriculum) क्या है?</strong><br>
+                ब्रूनर का प्रसिद्ध कथन है: <em>"किसी भी विषय को किसी भी विकास की अवस्था में रहने वाले बालक को ईमानदारी के साथ किसी न किसी बौद्धिक रूप में सिखाया जा सकता है।"</em><br>
+                <strong>सर्पिल पाठ्यचर्या</strong> का अर्थ है कि पाठ्यक्रम ऐसा होना चाहिए जिसमें किसी मूलभूत अवधारणा (जैसे 'प्रकाश संश्लेषण' या 'लोकतंत्र') को छोटी कक्षा में सरल और मूर्त रूप में पढ़ाया जाए, और जैसे-जैसे बच्चा अगली कक्षाओं (कक्षा 6, 7, 8...) में जाए, <strong>उसी विषय को बार-बार दोहराते हुए उसके कठिनाई के स्तर, गहराई और अमूर्तता को स्पाइरल (कुंडली) की तरह बढ़ाया जाए</strong> ताकि पूर्व-ज्ञान नए ज्ञान से जुड़ सके।
+            </div>
+
+            <!-- ---------------- 1.11 ---------------- -->
+            <h3>1.11 हावर्ड गार्डनर का बहु-बुद्धि सिद्धांत (8 प्रकार की बुद्धि) एवं बुद्धिलब्धि (IQ) सूत्र</h3>
+            <p><strong>बुद्धि (Intelligence)</strong> समायोजन करने, सीखने और अमूर्त चिंतन करने की समग्र क्षमता है।</p>
+
+            <h4>बुद्धि मापन का इतिहास एवं बुद्धिलब्धि (IQ) का सूत्र:</h4>
+            <ul>
+                <li><strong>1905 ई. (प्रथम बुद्धि परीक्षण):</strong> फ्रांस के मनोवैज्ञानिक <strong>अल्फ्रेड बिने (Alfred Binet)</strong> और थियोडोर साइमन ने विश्व का पहला सफल बुद्धि परीक्षण बनाया।</li>
+                <li><strong>1908 ई. (मानसिक आयु — Mental Age):</strong> अल्फ्रेड बिने ने 'मानसिक आयु' (MA) का संप्रत्यय दिया।</li>
+                <li><strong>1912 ई. (IQ शब्द):</strong> जर्मन मनोवैज्ञानिक <strong>विलियम स्टर्न (William Stern)</strong> ने सर्वप्रथम बुद्धिलब्धि का सूत्र $IQ = MA / CA$ दिया।</li>
+                <li><strong>1916 ई. (अंतिम संशोधित सूत्र ★):</strong> स्टैनफोर्ड विश्वविद्यालय के <strong>लुईस टर्मन (Lewis Terman)</strong> ने दशमलव हटाने के लिए स्टर्न के सूत्र में <strong>100 से गुणा</strong> किया, जो आज संपूर्ण विश्व में प्रचलित है:
+                    <p style="text-align:center; font-size:1.15rem; font-weight:800; color:var(--primary-dark); margin:10px 0;">
+                        बुद्धिलब्धि (IQ) = [ मानसिक आयु (Mental Age - MA) ÷ वास्तविक/तिथि आयु (Chronological Age - CA) ] × 100
+                    </p>
+                </li>
+                <li><strong>टर्मन की IQ वर्गीकरण तालिका:</strong> <strong>140 से अधिक</strong> = प्रतिभाशाली (Gifted / Genius); <strong>120–139</strong> = अतिश्रेष्ठ (Very Superior); <strong>110–119</strong> = तीव्र/श्रेष्ठ बुद्धि; <strong>90 से 109 = सामान्य / औसत बुद्धि (Average ★ सर्वाधिक प्रश्न यहीं से)</strong>; <strong>80–89</strong> = मंद बुद्धि (Dull); <strong>70–79</strong> = क्षीण/सीमांत बुद्धि; <strong>70 से कम</strong> = मानसिक रूप से मंदित (Mentally Retarded / बौद्धिक अक्षमता)।</li>
+            </ul>
+
+            <h4>बुद्धि के अन्य प्रमुख सिद्धांत (एक नजर में):</h4>
+            <ul>
+                <li><strong>एक-कारक / एक-खंड सिद्धांत (Unifactor Theory):</strong> अल्फ्रेड बिने।</li>
+                <li><strong>द्वि-कारक सिद्धांत (Two-Factor Theory — 1904):</strong> ब्रिटेन के <strong>चार्ल्स स्पीयरमैन (Charles Spearman)</strong>। उन्होंने बताया कि बुद्धि में दो कारक होते हैं—(1) <strong>'G-कारक' (सामान्य कारक / General Factor):</strong> जो जन्मजात होता है और हर कार्य में काम आता है, तथा (2) <strong>'S-कारक' (विशिष्ट कारक / Specific Factor):</strong> जो अर्जित होता है और किसी विशेष कौशल (जैसे संगीत या पेंटिंग) से जुड़ा होता है।</li>
+                <li><strong>समूह-कारक सिद्धांत (Group Factor / Primary Mental Abilities - 7 तत्व):</strong> एल.एल. थर्स्टन (L.L. Thurstone)।</li>
+                <li><strong>त्रि-आयामी / बुद्धि संरचना सिद्धांत (3D / Structure of Intellect - SOI Model):</strong> <strong>जे.पी. गिलफोर्ड</strong> (संक्रिया, विषय-वस्तु और उत्पाद = $5 \times 6 \times 6 = 180$ कोष्ठक)।</li>
+                <li><strong>तरल एवं ठोस बुद्धि सिद्धांत (Fluid and Crystallized Intelligence):</strong> रेमंड कैटेल एवं हॉर्न।</li>
+                <li><strong>त्रितंत्र / त्रिचापीय सिद्धांत (Triarchic Theory of Intelligence):</strong> <strong>रॉबर्ट स्टर्नबर्ग (Robert Sternberg)</strong> — इन्होंने बुद्धि के 3 रूप बताए: (1) <em>विश्लेषणात्मक/घटकीय (Analytical/Componential)</em>, (2) <em>सृजनात्मक/अनुभवजन्य (Creative/Experiential)</em>, और (3) <em>व्यावहारिक/संदर्भगत (Practical/Contextual - 'Street Smart')</em>।</li>
+            </ul>
+
+            <h4>★ हावर्ड गार्डनर का बहु-बुद्धि सिद्धांत (Howard Gardner's Theory of Multiple Intelligences):</h4>
+            <p>हार्वर्ड विश्वविद्यालय के अमेरिकी मनोवैज्ञानिक <strong>हावर्ड गार्डनर</strong> ने <strong>1983 ई.</strong> में अपनी प्रसिद्ध पुस्तक <strong>'Frames of Mind: The Theory of Multiple Intelligences'</strong> में पारंपरिक एकल IQ परीक्षणों को खारिज कर दिया। उन्होंने कहा कि बुद्धि कोई एक तत्व नहीं है जिसे एक कागज-पेंसिल टेस्ट से मापा जा सके, बल्कि मानव मस्तिष्क में <strong>8 स्वतंत्र प्रकार की बुद्धियाँ (NCERT के अनुसार 8 प्रकार)</strong> होती हैं:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 6%;">क्र.</th>
+                        <th style="width: 28%;">बुद्धि का प्रकार (Type of Intelligence)</th>
+                        <th style="width: 40%;">प्रमुख विशेषता एवं क्षमता</th>
+                        <th style="width: 26%;">उदाहरण (किन व्यक्तियों में अधिक होती है?)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1.</strong></td>
+                        <td><strong>भाषायी / शाब्दिक बुद्धि</strong><br>(Linguistic Intelligence)</td>
+                        <td>भाषा के शब्दों, वाक्यों और अर्थों को प्रभावी ढंग से बोलने, लिखने और दूसरों को समझाने की क्षमता।</td>
+                        <td>कवि, लेखक, पत्रकार, वकील, प्रखर वक्ता।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2.</strong></td>
+                        <td><strong>तार्किक-गणितीय बुद्धि</strong><br>(Logical-Mathematical)</td>
+                        <td>अमूर्त तर्क करने, संख्याओं के साथ खेलने, वैज्ञानिक समस्याओं को सुलझाने और कारण-प्रभाव संबंध खोजने की क्षमता।</td>
+                        <td>गणितज्ञ, वैज्ञानिक (आइंस्टीन), कंप्यूटर प्रोग्रामर, अर्थशास्त्री।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3.</strong></td>
+                        <td><strong>स्थानिक / दृश्य बुद्धि ★</strong><br>(Spatial Intelligence)</td>
+                        <td>दूरी, स्थान, आकार और मानसिक चित्रों (3D) की कल्पना करने तथा दिशाओं को समझने की क्षमता।</td>
+                        <td><strong>मूर्तिकार, चित्रकार, वास्तुकार (Architect), इंटीरियर डिजाइनर, नाविक, पायलट, शतरंज खिलाड़ी।</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>4.</strong></td>
+                        <td><strong>शारीरिक-गतिक बुद्धि ★</strong><br>(Bodily-Kinesthetic)</td>
+                        <td>संपूर्ण शरीर या शरीर के किसी अंग के लचीलेपन और सूक्ष्म मांसपेशीय समन्वय का कुशलतापूर्वक उपयोग करने की क्षमता।</td>
+                        <td><strong>धावक/खिलाड़ी, नर्तक (Dancer), अभिनेता, जिम्नास्ट, शल्य-चिकित्सक (Surgeon)।</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>5.</strong></td>
+                        <td><strong>संगीतिक बुद्धि</strong><br>(Musical Intelligence)</td>
+                        <td>सुर, लय, ताल (Rhythm), ध्वनि के उतार-चढ़ाव को पहचानने और संगीत रचने की क्षमता।</td>
+                        <td>गायक (लता मंगेशकर), संगीतकार (ए.आर. रहमान), वाद्ययंत्र वादक।</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>6.</strong></td>
+                        <td><strong>अंतर्वैयक्तिक बुद्धि ★★</strong><br>(Interpersonal Intelligence)<br><em>[Inter = दूसरों के बीच]</em></td>
+                        <td><strong>दूसरे व्यक्तियों के मनोभावों, इच्छाओं, संवेगों, इरादों और व्यवहार को सूक्ष्मता से समझने</strong> तथा उनके साथ मधुर संबंध बनाने की क्षमता।</td>
+                        <td><strong>राजनेता, सफल शिक्षक, सामाजिक कार्यकर्ता, मनोचिकित्सक/परामर्शदाता (Counselor), विक्रेता।</strong></td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>7.</strong></td>
+                        <td><strong>अंतरावैयक्तिक बुद्धि ★★</strong><br>(Intrapersonal Intelligence)<br><em>[Intra = स्वयं के भीतर]</em></td>
+                        <td><strong>स्वयं की भावनाओं, अपनी शक्तियों, कमजोरियों, जीवन के लक्ष्यों और आंतरिक मनःस्थिति को गहराई से जानने (आत्म-चिंतन)</strong> की क्षमता।</td>
+                        <td><strong>दार्शनिक (Philosophers), आध्यात्मिक गुरु (बुद्ध, विवेकानंद), चिंतक, आत्म-चरित लेखक।</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>8.</strong></td>
+                        <td><strong>प्रकृतिवादी बुद्धि</strong><br>(Naturalistic Intelligence)<br><em>(1998 में जोड़ी गई)</em></td>
+                        <td>प्राकृतिक पर्यावरण, पेड़-पौधों, जीव-जंतुओं, मौसम और खनिजों की विविधता को पहचानने व वर्गीकृत करने की संवेदनशीलता।</td>
+                        <td>किसान, वनस्पतिशास्त्री (Botanist), जंतु-वैज्ञानिक, पर्यावरणविद्, शिकारी।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ---------------- 1.12 ---------------- -->
+            <h3>1.12 नोम चोम्स्की का भाषा विकास सिद्धांत (LAD एवं सार्वभौमिक व्याकरण)</h3>
+            <p>अमेरिकी भाषाविद् <strong>नोम चोम्स्की (Avram Noam Chomsky)</strong> ने व्यवहारवादी स्किनर (जिनका मानना था कि बच्चे केवल नकल और पुनर्बलन से भाषा सीखते हैं) का खंडन करते हुए आधुनिक <strong>'जनरेटिव ग्रामर' और 'सहजवादी भाषा सिद्धांत' (Nativist Theory of Language)</strong> प्रतिपादित किया।</p>
+
+            <div class="note-card">
+                <strong>चोम्स्की के भाषा विकास के 2 मुख्य स्तंभ ★:</strong>
+                <ol>
+                    <li><strong>भाषा अर्जन यंत्र (LAD — Language Acquisition Device):</strong> चोम्स्की के अनुसार प्रत्येक मानव शिशु में <strong>भाषा सीखने की जन्मजात क्षमता (Innate Capacity)</strong> होती है। मस्तिष्क में एक काल्पनिक 'भाषा अर्जन यंत्र' (LAD) होता है, जो जन्म के बाद शुरुआती 5 वर्षों (संवेदनशील काल) में सर्वाधिक सक्रिय रहता है। इसी की मदद से बच्चा अपने आसपास बोली जाने वाली किसी भी भाषा के नियमों को स्वतः ग्रहण कर लेता है।</li>
+                    <li><strong>सार्वभौमिक व्याकरण (Universal Grammar — UG):</strong> चोम्स्की का मानना है कि दुनिया की सभी मानव भाषाओं (चाहे हिंदी हो, खोरठा हो या अंग्रेजी) के मूल व्याकरणिक ढाँचे में एक समानता होती है (जैसे हर भाषा में संज्ञा, क्रिया और कर्ता होते हैं), जिसकी समझ बच्चे के मस्तिष्क में जन्मजात रूप से कोडित रहती है।</li>
+                </ol>
+            </div>
+
+            <h4>भाषा की वैज्ञानिक संरचना एवं सूक्ष्मतम इकाइयाँ (1 प्रश्न निश्चित):</h4>
+            <ul>
+                <li><strong>1. स्वनिम / ध्वनिग्राम (Phoneme):</strong> भाषा या <strong>ध्वनि की सबसे छोटी इकाई</strong>। इसका अपना कोई स्वतंत्र अर्थ नहीं होता, किंतु यह शब्दों में अंतर पैदा करती है (जैसे—'क', 'च', 'त', 'प' या अंग्रेजी में /p/, /b/, /f/)।</li>
+                <li><strong>2. रूपिम / रूपग्राम (Morpheme):</strong> भाषा में <strong>अर्थ की सबसे छोटी इकाई</strong> (जैसे—'अ', 'उप', 'जल', 'ता')।</li>
+                <li><strong>3. वाक्य-विन्यास (Syntax):</strong> शब्दों को सही व्याकरणिक क्रम (कर्ता + कर्म + क्रिया) में रखने का नियम। <em>उदाहरण:</em> "बुलबुल किताब पढ़ती है" वाक्य-विन्यास की दृष्टि से शुद्ध है।</li>
+                <li><strong>4. अर्थ-विन्यास (Semantics):</strong> वाक्य के शब्दों का अर्थ तार्किक रूप से सही होना।<br>
+                    <em>प्रसिद्ध परीक्षा उदाहरण ★:</em> वाक्य <strong>"चाय ने मोहन को पीया"</strong> या <strong>"मैडम साइकिल चलाती हैं" के स्थान पर "साइकिल मैडम को चलाती है"</strong>—यह वाक्य व्याकरणिक ढाँचे यानी <em>वाक्य-विन्यास (Syntax) की दृष्टि से सही है, किंतु अर्थ-विन्यास (Semantics) की दृष्टि से गलत/अर्थहीन है।</em>
+                </li>
+            </ul>
+        </div>
+        <!-- ==================== END OF UNIT 1 ==================== -->
+
+        <!-- YAHAN AGLA CODE PASTE KAREIN (Unit 2 to Unit 4) -->
+
+        <!-- ==================== UNIT 2 (5 MARKS) ==================== -->
+        <div id="unit2" class="unit-section">
+            <h2>इकाई 2 (Unit 2): समावेशी शिक्षा, अधिगम विकार, सृजनात्मकता एवं शिक्षा नीतियाँ (5 प्रश्न | 5 अंक)</h2>
+
+            <p><strong>शैक्षणिक परिप्रेक्ष्य (Level-2 एवं झारखंड विशेष):</strong> झारखंड जैसे सांस्कृतिक, भाषायी और जनजातीय विविधता से समृद्ध राज्य में एक उच्च प्राथमिक शिक्षक (कक्षा 6 से 8) के लिए कक्षा की विविधता को समझना अनिवार्य है। इस इकाई से परीक्षा में <strong>5 प्रश्न (5 अंक)</strong> निश्चित रूप से पूछे जाते हैं, जिनमें अधिगम अक्षमता (Learning Disabilities), सृजनात्मकता (अपसारी चिंतन), समावेशी शिक्षा और NEP 2020 / RTE 2009 से सीधे प्रश्न आते हैं।</p>
+
+            <!-- ---------------- 2.1 ---------------- -->
+            <h3>2.1 समावेशी शिक्षा (Inclusive Education): वंचित, विविध एवं जनजातीय पृष्ठभूमि के बालक</h3>
+            <p><strong>समावेशी शिक्षा का मूल दर्शन:</strong> समावेशी शिक्षा का अर्थ है—<em>"एक ही नियमित विद्यालय की सामान्य छत के नीचे बिना किसी भेदभाव के सामान्य बालकों और विशिष्ट आवश्यकता वाले बालकों (दिव्यांग, वंचित, जनजातीय व प्रतिभाशाली) को एक साथ, समान रूप से शिक्षा प्रदान करना।"</em></p>
+
+            <div class="note-card">
+                <strong>★ समावेशी शिक्षा का स्वर्णिम सूत्र (परीक्षा में सर्वाधिक पूछा जाने वाला संकल्पनात्मक प्रश्न):</strong><br>
+                समावेशी शिक्षा में <strong>"बच्चा व्यवस्था के अनुसार नहीं बदलता, बल्कि व्यवस्था (System/School) को बच्चे की आवश्यकताओं के अनुसार बदला जाता है।"</strong> (System changes according to the child, NOT the child according to the system.)
+            </div>
+
+            <h4>शिक्षा की तीन व्यवस्थाओं में सूक्ष्म अंतर:</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 22%;">शिक्षा का प्रकार</th>
+                        <th style="width: 78%;">मुख्य विशेषता एवं दृष्टिकोण</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. विशेष शिक्षा (Special Education / Segregation)</strong></td>
+                        <td>इसमें दिव्यांग या विशिष्ट बच्चों को सामान्य बच्चों से <strong>अलग करके</strong> उनके लिए बने विशेष विद्यालयों (जैसे—अंध विद्यालय या मूक-बधिर विद्यालय) में पढ़ाया जाता है। यह 'पृथक्करण' (Segregation) को बढ़ावा देती है।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. एकीकृत शिक्षा (Integrated Education)</strong></td>
+                        <td>इसमें विशिष्ट बच्चों को सामान्य स्कूल में प्रवेश तो दे दिया जाता है, किंतु स्कूल अपने पाठ्यक्रम, भवन या शिक्षण विधि में कोई विशेष बदलाव नहीं करता; <strong>बच्चे को ही स्कूल के माहौल में ढलना पड़ता है।</strong></td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>3. समावेशी शिक्षा ★ (Inclusive Education)</strong></td>
+                        <td>इसमें सभी बच्चों का बिना किसी शर्त के स्वागत किया जाता है और प्रत्येक बालक की जरूरत के अनुसार <strong>विद्यालय के वातावरण, लचीले पाठ्यक्रम, शिक्षण विधि (TLM) और बुनियादी ढाँचे (जैसे रैंप, ब्रेल पुस्तकें) में बदलाव</strong> किया जाता है।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>झारखंड के विशेष संदर्भ में वंचित एवं जनजातीय बालकों (ST/SC/वंचित वर्ग) की शिक्षा:</h4>
+            <ul>
+                <li><strong>बहुभाषिकता (Multilingualism) एक संसाधन के रूप में ★:</strong> झारखंड में संथाली, मुंडारी, हो, कुड़ुख, खड़िया, खोरठा, नागपुरी जैसी अनेक जनजातीय व क्षेत्रीय भाषाएँ बोली जाती हैं। यदि कक्षा 6 का कोई जनजातीय बालक अपनी मातृभाषा का प्रयोग करता है, तो शिक्षक को उसे रोकना या दंडित नहीं करना चाहिए, बल्कि <strong>उसकी मातृभाषा को एक 'संसाधन' (Asset/Resource) और 'पुल' (Bridge) के रूप में</strong> उपयोग करते हुए मानक भाषा व विषय सिखाना चाहिए।</li>
+                <li><strong>सांस्कृतिक रूप से संवेदनशील शिक्षणशास्त्र (Culturally Responsive Pedagogy):</strong> पाठ्यवस्तु के उदाहरण बच्चों के स्थानीय परिवेश (जंगल, कृषि, स्थानीय पर्व-त्योहार जैसे सरहुल, करमा, सोहराय और पारंपरिक कला) से जुड़े होने चाहिए ताकि वे जुड़ाव महसूस करें।</li>
+                <li><strong>समानता बनाम समता (Equality vs Equity) ★:</strong> 'समानता' (Equality) का अर्थ है सबको एक जैसा संसाधन देना, जबकि समावेशी शिक्षा <strong>'समता' (Equity)</strong> पर बल देती है—अर्थात <em>"जिसे जितनी और जैसी सहायता की आवश्यकता है, उसे वैसी सहायता देकर मुख्यधारा के बराबर लाना"</em> (जैसे—दृष्टिबाधित छात्र को परीक्षा में अतिरिक्त समय व लेखक [Scribe] देना)।</li>
+            </ul>
+
+            <!-- ---------------- 2.2 ---------------- -->
+            <h3>2.2 प्रमुख अधिगम विकार एवं विकासात्मक अक्षमताएँ (Learning Disabilities — 1 से 2 प्रश्न पक्के)</h3>
+            <p><strong>'अधिगम अक्षमता' (Learning Disability)</strong> शब्द का सर्वप्रथम प्रयोग <strong>1963 ई. में सैमुअल किर्क (Samuel Kirk)</strong> ने किया था। यह कोई मानसिक मंदता नहीं है, बल्कि तंत्रिका तंत्र (Neurological) की कार्यप्रणाली में सूक्ष्म अंतर के कारण पढ़ने, लिखने, बोलने या गणितीय गणना करने में आने वाली विशिष्ट कठिनाई है।</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 24%;">विकार का नाम (Disorder)</th>
+                        <th style="width: 22%;">संबंधित क्षेत्र</th>
+                        <th style="width: 54%;">प्रमुख लक्षण एवं परीक्षा में पूछे जाने वाले उदाहरण</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>1. डिस्लेक्सिया ★★ (Dyslexia)</strong></td>
+                        <td><strong>पठन विकार</strong><br>(Reading Disorder)</td>
+                        <td>• पढ़ने और अक्षरों की ध्वनि पहचानने में कठिनाई (यह सबसे सामान्य अधिगम विकार है; फिल्म <em>'तारे जमीन पर'</em> का ईशान)।<br>• <strong>भ्रामक अक्षरों को उल्टा पढ़ना:</strong> जैसे—<strong>'b' को 'd', 'was' को 'saw', 'nuclear' को 'unclear', 'कलम' को 'कमल'</strong> पढ़ना तथा शब्दों के बीच से अक्षर गायब कर देना।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. डिसग्राफिया ★★ (Dysgraphia)</strong></td>
+                        <td><strong>लेखन विकार</strong><br>(Writing Disorder)</td>
+                        <td>• सूक्ष्म गामक कौशल (Fine Motor Skills) और हाथ-आँख के समन्वय में कमी के कारण <strong>लिखने में कठिनाई</strong>।<br>• अपठनीय लिखावट, अक्षरों का आकार छोटा-बड़ा होना, लाइनों के ऊपर-नीचे लिखना और पेंसिल पकड़ने में दर्द महसूस होना।</td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>3. डिसकैलकुलिया ★★ (Dyscalculia)</strong></td>
+                        <td><strong>गणितीय गणना विकार</strong><br>(Mathematical Disorder)</td>
+                        <td>• अंकों, संख्याओं, गणितीय चिह्नों ($+, -, \times, \div$) को समझने, गिनती गिनने, पहाड़े याद रखने, समय देखने और पैसे का हिसाब लगाने में अत्यधिक कठिनाई।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. अफेज्या / डिस्फेज्या ★ (Aphasia / Dysphasia)</strong></td>
+                        <td><strong>भाषायी संप्रेषण विकार</strong><br>(Language Comprehension & Speech Disorder)</td>
+                        <td>• मस्तिष्क में चोट या विकार के कारण <strong>मौखिक रूप से अपने विचारों को बोलकर व्यक्त करने</strong> और दूसरों की भाषा को समझने में कठिनाई।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. डिस्प्रेक्सिया / अप्रेक्सिया ★ (Dyspraxia / Apraxia)</strong></td>
+                        <td><strong>गामक समन्वय विकार</strong><br>(Motor Coordination Disorder)</td>
+                        <td>• मस्तिष्क और मांसपेशियों के बीच तालमेल न बैठ पाना।<br>• बच्चे को चलने, दौड़ने, संतुलन बनाने, गेंद पकड़ने, शर्ट के बटन लगाने या जूते के फीते बाँधने में कठिनाई होती है।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. डिसमॉर्फिया (Dysmorphia)</strong></td>
+                        <td><strong>शारीरिक भ्रम विकार</strong><br>(Body Image Distortion)</td>
+                        <td>• एक मनोवैज्ञानिक भ्रम जिसमें व्यक्ति को लगता है कि उसके शरीर का कोई अंग अन्य लोगों की तुलना में छोटा, अधूरा या कुरूप है।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7. डिसथीमिया (Dysthymia)</strong></td>
+                        <td><strong>गंभीर तनाव / अवसाद की अवस्था</strong><br>(Persistent Mild Depression)</td>
+                        <td>• बालक सदैव उदास, निराश और गंभीर मानसिक तनाव की स्थिति में रहता है, जिससे उसका अधिगम प्रभावित होता है।</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>8. ए.डी.एच.डी. ★★ (ADHD)</strong></td>
+                        <td><strong>अवधान न्यूनता अतिसक्रियता विकार</strong><br>(Attention Deficit Hyperactivity Disorder)</td>
+                        <td>• <strong>प्रमुख लक्षण:</strong> किसी एक काम पर <strong>लंबे समय तक ध्यान केंद्रित न कर पाना (Inattention)</strong>, एक जगह शांति से न बैठ पाना (चंचलता/Hyperactivity), बिना सोचे-समझे बीच में बोल पड़ना और अपनी बारी का इंतजार न कर पाना (आवेगशीलता/Impulsivity)।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>9. ऑटिज्म / स्वलीनता ★ (Autism Spectrum Disorder - ASD)</strong></td>
+                        <td><strong>सामाजिक संप्रेषण एवं व्यवहार विकार</strong></td>
+                        <td>• बच्चा अपनी ही दुनिया में खोया रहता है; दूसरों से <strong>नजर मिलाकर बात न करना (Lack of Eye Contact)</strong>, मित्र बनाने में कठिनाई, एक ही व्यवहार या शब्दों को बार-बार दोहराना (Repetitive Behavior) और दिनचर्या में बदलाव से घबराना।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ---------------- 2.3 ---------------- -->
+            <h3>2.3 प्रतिभाशाली एवं सृजनात्मक बालक (अपसारी बनाम अभिसारी चिंतन — जे.पी. गिलफोर्ड)</h3>
+
+            <h4>(क) प्रतिभाशाली बालक (Gifted Children):</h4>
+            <ul>
+                <li><strong>टर्मन के अनुसार:</strong> वे बालक जिनकी बुद्धिलब्धि <strong>(IQ) 140 या उससे अधिक</strong> होती है, प्रतिभाशाली कहलाते हैं।</li>
+                <li><strong>रेंजुलि (Joseph Renzulli) का त्रि-वृत्तीय मॉडल (Three-Ring Conception of Giftedness) ★:</strong> रेंजुलि के अनुसार प्रतिभाशाली होना केवल उच्च IQ नहीं है, बल्कि यह <strong>3 गुणों के संगम</strong> का परिणाम है:
+                    <ol>
+                        <li><strong>औसत से ऊपर योग्यता (Above Average Ability)</strong></li>
+                        <li><strong>उच्च सृजनात्मकता (High Creativity)</strong></li>
+                        <li><strong>उच्च कार्य-प्रतिबद्धता / लगन (High Task Commitment)</strong></li>
+                    </ol>
+                </li>
+                <li><strong>प्रतिभाशाली बालकों के लिए शैक्षिक प्रावधान:</strong> यदि कक्षा का कार्य बहुत आसान हो, तो प्रतिभाशाली बच्चे ऊब जाते हैं। उनके लिए <strong>संवर्धित पाठ्यक्रम (Enrichment Program)</strong>, उच्च-स्तरीय चिंतन के कार्य और <strong>कक्षोन्नति / त्वरण (Grade Acceleration)</strong> की व्यवस्था होनी चाहिए।</li>
+            </ul>
+
+            <h4>(ख) सृजनात्मकता (Creativity) एवं इसके 4 मुख्य तत्व:</h4>
+            <p><strong>सृजनात्मकता (Creativity)</strong> का अर्थ है—लीक से हटकर सोचना (Thinking Out of the Box), नवीन विचारों का सृजन करना और पुरानी वस्तुओं के नए व उपयोगी संबंध खोजना। सृजनात्मकता के जनक <strong>ई. पॉल टोरेंस (E. Paul Torrance)</strong> माने जाते हैं। सृजनात्मकता के <strong>4 प्रमुख घटक</strong> हैं:</p>
+            <ol>
+                <li><strong>प्रवाह / धाराप्रवाहिता (Fluency):</strong> किसी समस्या पर कम समय में अधिक-से-अधिक विचार उत्पन्न करना।</li>
+                <li><strong>लचीलापन / नम्यता (Flexibility):</strong> एक ही तरीके से चिपके न रहकर अलग-अलग दृष्टिकोणों और दिशाओं में सोचना।</li>
+                <li><strong>मौलिकता (Originality):</strong> ऐसा अनूठा और नया विचार देना जो सामान्यतः किसी और ने न सोचा हो।</li>
+                <li><strong>विस्तार (Elaboration):</strong> किसी मूल विचार को बारीकियों और विवरणों के साथ सजाकर पूर्ण रूप देना।</li>
+            </ol>
+
+            <div class="highlight-box">
+                <h4>★ जे.पी. गिलफोर्ड (J.P. Guilford): अभिसारी चिंतन बनाम अपसारी चिंतन (1956):</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 22%;">आधार</th>
+                            <th style="width: 39%;">अभिसारी चिंतन (Convergent Thinking)</th>
+                            <th style="width: 39%;">अपसारी चिंतन (Divergent Thinking) ★</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. अर्थ</strong></td>
+                            <td>जब किसी प्रश्न या समस्या का <strong>केवल एक ही निश्चित और बंधा-बंधाया सही उत्तर</strong> खोजा जाता है।</td>
+                            <td>जब किसी समस्या के समाधान के लिए <strong>अनेक दिशाओं में सोचकर एक से अधिक नवीन विकल्प/उत्तर</strong> खोजे जाते हैं।</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. प्रश्न का प्रकार</strong></td>
+                            <td><strong>बंद-अंत वाले प्रश्न (Close-ended Questions):</strong> जैसे—"झारखंड की राजधानी कहाँ है?" या "$8 + 4$ कितना होता है?"</td>
+                            <td><strong>मुक्त-अंत वाले प्रश्न (Open-ended Questions):</strong> जैसे—"यदि पृथ्वी से सभी पेड़ समाप्त हो जाएँ तो क्या होगा?" या "ऐसी कौन-सी दो संख्याएँ हैं जिनका जोड़ 12 हो?"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. मुख्य संबंध ★</strong></td>
+                            <td>इसका सीधा संबंध <strong>'बुद्धि' (Intelligence)</strong> और रटने/तथ्यों के स्मरण से है।</td>
+                            <td>इसका सीधा संबंध <strong>'सृजनात्मकता' (Creativity)</strong>, कल्पनाशीलता और मौलिक खोज से है।</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ---------------- 2.4 ---------------- -->
+            <h3>2.4 प्रमुख शिक्षा अधिनियम एवं नीतियाँ: RTE 2009, RPWD 2016, NCF 2005 एवं NEP 2020</h3>
+
+            <h4>1. शिक्षा का अधिकार अधिनियम (RTE Act — Right of Children to Free and Compulsory Education Act, 2009):</h4>
+            <ul>
+                <li><strong>संवैधानिक आधार:</strong> <strong>86वें संविधान संशोधन (2002)</strong> द्वारा संविधान के अनुच्छेद <strong>21(A)</strong> में शिक्षा को मौलिक अधिकार बनाया गया। यह अधिनियम <strong>1 अप्रैल 2010</strong> से संपूर्ण भारत में लागू हुआ।</li>
+                <li><strong>आयु सीमा ★:</strong> सामान्य बच्चों के लिए <strong>6 से 14 वर्ष (कक्षा 1 से 8)</strong> तक निःशुल्क एवं अनिवार्य शिक्षा; किंतु <strong>दिव्यांग बच्चों (Children with Disabilities) के लिए यह आयु सीमा 6 से 18 वर्ष</strong> है।</li>
+                <li><strong>प्रमुख धाराएँ (Sections):</strong>
+                    <ul>
+                        <li><strong>धारा 12(1)(c):</strong> निजी (Private) विद्यालयों की प्रारंभिक कक्षा में <strong>25% सीटें</strong> आर्थिक रूप से कमजोर (EWS) व वंचित वर्ग के बच्चों के लिए आरक्षित होंगी।</li>
+                        <li><strong>धारा 13:</strong> प्रवेश के समय बच्चे या माता-पिता का कोई साक्षात्कार (Screening Test) या कैपिटेशन फीस (डोनेशन) नहीं ली जाएगी।</li>
+                        <li><strong>धारा 16:</strong> किसी भी बच्चे को प्रारंभिक शिक्षा पूरी होने तक <strong>निष्कासित (Expel) नहीं किया जाएगा।</strong></li>
+                        <li><strong>धारा 17 ★:</strong> बच्चों को किसी भी प्रकार का <strong>शारीरिक दंड (Corporal Punishment) या मानसिक प्रताड़ना देना पूर्णतः दंडनीय अपराध</strong> है।</li>
+                        <li><strong>धारा 21:</strong> विद्यालय प्रबंधन समिति (SMC) में 75% सदस्य माता-पिता/अभिभावक होंगे तथा 50% महिलाएँ होंगी।</li>
+                        <li><strong>धारा 27 ★:</strong> शिक्षकों को <strong>जनगणना (Census), आपदा राहत और चुनाव ड्यूटी</strong> के अलावा किसी भी अन्य गैर-शैक्षणिक कार्य में नहीं लगाया जाएगा।</li>
+                        <li><strong>धारा 28:</strong> किसी भी सरकारी शिक्षक द्वारा <strong>प्राइवेट ट्यूशन (Private Tuition)</strong> पढ़ाना पूर्णतः प्रतिबंधित है।</li>
+                    </ul>
+                </li>
+                <li><strong>उच्च प्राथमिक स्तर (कक्षा 6 से 8 — Level-2) के लिए RTE मानक ★:</strong>
+                    <ul>
+                        <li><strong>छात्र-शिक्षक अनुपात (PTR):</strong> प्रत्येक <strong>35 छात्रों पर 1 शिक्षक (35 : 1)</strong>। (जबकि प्राथमिक कक्षा 1–5 में यह 30 : 1 है)।</li>
+                        <li><strong>न्यूनतम कार्य दिवस एवं शिक्षण घंटे (कक्षा 6–8):</strong> एक शैक्षणिक वर्ष में न्यूनतम <strong>220 कार्य दिवस</strong> या <strong>1000 शिक्षण घंटे</strong>। (प्राथमिक कक्षा 1–5 के लिए 200 दिन / 800 घंटे)।</li>
+                        <li><strong>शिक्षक के प्रति सप्ताह कार्य घंटे:</strong> तैयारी के घंटों सहित न्यूनतम <strong>45 घंटे प्रति सप्ताह</strong>।</li>
+                        <li><strong>विद्यालय की दूरी:</strong> प्राथमिक विद्यालय (1–5) घर से <strong>1 कि.मी.</strong> के भीतर और उच्च प्राथमिक विद्यालय (6–8) घर से <strong>3 कि.मी.</strong> के दायरे में होना चाहिए।</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>2. दिव्यांगजन अधिकार अधिनियम (RPWD Act — Rights of Persons with Disabilities Act, 2016):</h4>
+            <ul>
+                <li>इस अधिनियम ने पुराने PWD Act, 1995 का स्थान लिया।</li>
+                <li><strong>दिव्यांगताओं की संख्या ★:</strong> इसमें दिव्यांगता की श्रेणियों को 7 से बढ़ाकर <strong>21 प्रकार (21 Disabilities)</strong> कर दिया गया है (इसमें पहली बार <em>एसिड अटैक पीड़ित, थैलेसीमिया, हीमोफीलिया, सिकल सेल डिजीज [झारखंड में प्रमुख], पार्किंसंस, ऑटिज्म और विशिष्ट अधिगम अक्षमता [SLD]</em> को शामिल किया गया)।</li>
+                <li><strong>आरक्षण:</strong> बेंचमार्क दिव्यांगता (न्यूनतम 40% दिव्यांगता) वाले व्यक्तियों के लिए सरकारी उच्च शिक्षण संस्थानों में प्रवेश में <strong>5% आरक्षण</strong> और सरकारी नौकरियों में <strong>4% आरक्षण</strong> का प्रावधान है।</li>
+            </ul>
+
+            <h4>3. राष्ट्रीय पाठ्यचर्या की रूपरेखा (NCF — National Curriculum Framework, 2005):</h4>
+            <ul>
+                <li><strong>अध्यक्ष:</strong> प्रो. <strong>यशपाल</strong> (आधार सूत्र: <strong>"शिक्षा बिना बोझ के" / Learning without Burden — 1993 रिपोर्ट</strong>)।</li>
+                <li><strong>सैद्धांतिक आधार:</strong> यह व्यवहारवाद के बजाय <strong>'रचनावाद' (Constructivism)</strong> पर आधारित है, जहाँ शिक्षक केवल एक <strong>'सुगमकर्ता' (Facilitator)</strong> है और बच्चा स्वयं सक्रिय रहकर ज्ञान का निर्माण करता है।</li>
+                <li><strong>NCF 2005 के 5 मार्गदर्शक सिद्धांत (5 Guiding Principles ★):</strong>
+                    <ol>
+                        <li>ज्ञान को स्कूल के बाहरी जीवन से जोड़ना।</li>
+                        <li>पढ़ाई को रटंत प्रणाली (Rote Method) से मुक्त करना।</li>
+                        <li>पाठ्यचर्या का इस प्रकार संवर्धन करना कि वह बच्चों को चौमुखी विकास के अवसर दे, न कि केवल पाठ्यपुस्तक-केंद्रित (Textbook-centric) बनकर रह जाए।</li>
+                        <li>परीक्षाओं को अधिक लचीला बनाना और उन्हें कक्षा की गतिविधियों से जोड़ना।</li>
+                        <li>एक ऐसी अधिभावी पहचान का विकास करना जिसमें लोकतांत्रिक राज्य व्यवस्था के अंतर्गत राष्ट्रीय चिंताएँ समाहित हों।</li>
+                    </ol>
+                </li>
+            </ul>
+
+            <h4>4. राष्ट्रीय शिक्षा नीति (NEP — National Education Policy, 2020):</h4>
+            <div class="note-card">
+                <strong>NEP 2020 के सर्वोच्च परीक्षा बिंदु (1 प्रश्न शत-प्रतिशत निश्चित):</strong>
+                <ul>
+                    <li><strong>अध्यक्ष:</strong> पूर्व इसरो (ISRO) प्रमुख <strong>डॉ. के. कस्तूरीरंगन (Dr. K. Kasturirangan)</strong>। यह स्वतंत्र भारत की तीसरी शिक्षा नीति है (1968 और 1986 के बाद)।</li>
+                    <li><strong>नया शैक्षणिक ढाँचा ★:</strong> पुरानी $10+2$ प्रणाली के स्थान पर <strong>$5 + 3 + 3 + 4$</strong> का नया पाठ्यचर्या ढाँचा लागू किया गया:
+                        <ol>
+                            <li><strong>फाउंडेशनल स्टेज (Foundational — 5 वर्ष):</strong> 3 वर्ष (आंगनबाड़ी/प्री-स्कूल) + 2 वर्ष (कक्षा 1 व 2) | <em>आयु: 3 से 8 वर्ष</em>।</li>
+                            <li><strong>प्रिपरेटरी स्टेज (Preparatory — 3 वर्ष):</strong> कक्षा 3 से 5 | <em>आयु: 8 से 11 वर्ष</em>।</li>
+                            <li><strong>मिडिल स्टेज ★ (Middle Stage — 3 वर्ष | Level-2):</strong> <strong>कक्षा 6 से 8 | <em>आयु: 11 से 14 वर्ष</em></strong> (यहाँ से व्यावसायिक शिक्षा/इंटर्नशिप और कोडिंग की शुरुआत तथा अनुभवात्मक अधिगम)।</li>
+                            <li><strong>सेकेंडरी स्टेज (Secondary — 4 वर्ष):</strong> कक्षा 9 से 12 | <em>आयु: 14 से 18 वर्ष</em> (विषय चुनने की पूर्ण स्वतंत्रता)।</li>
+                        </ol>
+                    </li>
+                    <li><strong>प्रमुख शब्दावली एवं संस्थान:</strong>
+                        <ul>
+                            <li><strong>NIPUN Bharat (निपुण भारत):</strong> 2026-27 तक कक्षा 3 के अंत तक प्रत्येक बच्चे में <strong>बुनियादी साक्षरता एवं संख्याज्ञान (FLN — Foundational Literacy and Numeracy)</strong> सुनिश्चित करना।</li>
+                            <li><strong>PARAKH (परख) ★:</strong> राष्ट्रीय मूल्यांकन केंद्र — <em>Performance Assessment, Review, and Analysis of Knowledge for Holistic Development</em>।</li>
+                            <li><strong>360-डिग्री समग्र प्रगति कार्ड (Holistic Progress Card):</strong> जिसमें केवल अंक नहीं, बल्कि <strong>स्व-आकलन (Self-Assessment), सहपाठी आकलन (Peer Assessment)</strong> और शिक्षक का आकलन शामिल होगा।</li>
+                            <li><strong>मातृभाषा माध्यम:</strong> कम-से-कम <strong>कक्षा 5 तक (और बेहतर हो कि कक्षा 8 तक)</strong> शिक्षा का माध्यम मातृभाषा / स्थानीय / क्षेत्रीय भाषा होगी।</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- ==================== END OF UNIT 2 ==================== -->
+
+        <!-- ==================== UNIT 3 (10 MARKS) ==================== -->
+        <div id="unit3" class="unit-section">
+            <h2>इकाई 3 (Unit 3): अधिगम के सिद्धांत, अभिप्रेरणा, संज्ञान-संवेग एवं शिक्षणशास्त्र (10 प्रश्न | 10 अंक)</h2>
+
+            <p><strong>शैक्षणिक परिप्रेक्ष्य (Level-2 विशेष):</strong> JHTET उच्च प्राथमिक स्तर (कक्षा 6 से 8) में बाल विकास के बाद सबसे बड़ा भारांक <strong>(10 प्रश्न = 10 अंक)</strong> इसी इकाई का है। इसमें यह परखा जाता है कि 11 से 14 वर्ष के विद्यार्थी विभिन्न विषयों (गणित, विज्ञान, सामाजिक विज्ञान व भाषा) को कैसे सीखते हैं, उनमें सीखने की रुचि (अभिप्रेरणा) कैसे जगाई जाए, उनकी गलतियों (Errors) को शिक्षण में कैसे उपयोग किया जाए और उनका सतत मूल्यांकन (Assessment) कैसे हो।</p>
+
+            <!-- ---------------- 3.1 ---------------- -->
+            <h3>3.1 व्यवहारवादी अधिगम सिद्धांत: थार्नडाइक, पावलव एवं स्किनर</h3>
+            <p><strong>अधिगम (Learning) का अर्थ:</strong> सामान्य अर्थ में 'सीखना'। मनोवैज्ञानिक दृष्टि से—<em>"अभ्यास, प्रशिक्षण और अनुभव के कारण व्यवहार में होने वाला अपेक्षाकृत स्थायी परिवर्तन (Relatively Permanent Change in Behavior) ही अधिगम है।"</em> (नोट: थकान, बीमारी, दवा या परिपक्वता के कारण होने वाला परिवर्तन अधिगम नहीं कहलाता)।</p>
+            <ul>
+                <li><strong>गेट्स व अन्य (Gates):</strong> <em>"अनुभव और प्रशिक्षण द्वारा व्यवहार में परिवर्तन ही अधिगम है।"</em></li>
+                <li><strong>क्रो एंड क्रो (Crow & Crow):</strong> <em>"आदतों, ज्ञान और अभिवृत्तियों का अर्जन ही अधिगम है।"</em></li>
+                <li><strong>वुडवर्थ (Woodworth):</strong> <em>"नवीन ज्ञान तथा नवीन प्रतिक्रियाओं का अर्जन करने की प्रक्रिया अधिगम है।"</em></li>
+            </ul>
+
+            <h4>1. ई.एल. थार्नडाइक (E.L. Thorndike): प्रयास एवं त्रुटि का सिद्धांत (Trial and Error Theory) ★</h4>
+            <ul>
+                <li><strong>प्रतिपादक:</strong> अमेरिकी मनोवैज्ञानिक एडवर्ड ली थार्नडाइक (इन्हें <strong>'प्रथम शैक्षिक मनोवैज्ञानिक' [First Educational Psychologist]</strong> और पशु मनोविज्ञान का जनक माना जाता है; पुस्तक: <em>Animal Intelligence, Educational Psychology</em>)।</li>
+                <li><strong>अन्य उपनाम:</strong> उद्दीपक-अनुक्रिया सिद्धांत (S-R Bond Theory), संबंधवाद का सिद्धांत (Connectionism), चयन एवं संबंध का सिद्धांत।</li>
+                <li><strong>प्रयोग:</strong> एक <strong>भूखी बिल्ली</strong> (उद्दीपक/लक्ष्य = पिंजरे के बाहर रखी <strong>मछली का टुकड़ा</strong>; पहेली पेटी = Puzzle Box)। बिल्ली ने कई बार उछल-कूद (त्रुटियाँ) की और संयोगवश उसका पंजा लीवर (खटके) पर पड़ गया जिससे दरवाजा खुल गया। बार-बार प्रयास करने पर उसकी त्रुटियाँ कम होती गईं और अंततः वह एक ही बार में खटका दबाकर दरवाजा खोलना सीख गई।</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>★★ थार्नडाइक के सीखने के नियम (Laws of Learning — 1 प्रश्न शत-प्रतिशत निश्चित):</h4>
+                <p>थार्नडाइक ने अधिगम के <strong>3 मुख्य (Primary)</strong> और <strong>5 गौण (Secondary)</strong> नियम दिए हैं:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 35%;">3 मुख्य नियम (Primary Laws) ★</th>
+                            <th style="width: 65%;">शैक्षिक निहितार्थ एवं उदाहरण</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. तत्परता का नियम</strong><br>(Law of Readiness)</td>
+                            <td>जब कोई बालक किसी कार्य को सीखने के लिए मानसिक और शारीरिक रूप से <strong>तैयार (Ready)</strong> होता है, तो वह उसे शीघ्र और आनंद के साथ सीख लेता है।<br><em>प्रसिद्ध कहावत:</em> "आप घोड़े को तालाब तक तो ले जा सकते हैं, पर उसे पानी पीने के लिए बाध्य नहीं कर सकते।" (अतः पढ़ाने से पहले बच्चों में 'पूर्व-ज्ञान व रुचि' जगाना जरूरी है)।</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. अभ्यास का नियम</strong><br>(Law of Exercise)</td>
+                            <td>किसी सीखी गई क्रिया को बार-बार दोहराने से उद्दीपक-अनुक्रिया (S-R) का संबंध मजबूत होता है और छोड़ देने से कमजोर पड़ जाता है। इसके दो उप-नियम हैं:<br>• <strong>उपयोग का नियम (Law of Use):</strong> अभ्यास से स्मरण पक्का होना (कबीर: <em>"करत-करत अभ्यास के जड़मति होत सुजान"</em>)।<br>• <strong>अनुपयोग का नियम (Law of Disuse):</strong> अभ्यास न करने पर विस्मरण (भूलना) होना।</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. प्रभाव / संतोष-असंतोष का नियम</strong><br>(Law of Effect / Satisfaction)</td>
+                            <td>जिस कार्य को करने से बालक को <strong>संतोष, सुख या सफलता (पुरस्कार)</strong> मिलती है, वह उसे दोबारा करना चाहता है; और जिससे दुख या असंतोष (दंड) मिलता है, उसे छोड़ देता है। <em>(यही नियम आगे चलकर स्किनर के 'पुनर्बलन' का आधार बना)।</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-bottom:0;"><strong>थार्नडाइक के 5 गौण नियम (Secondary Laws):</strong> (1) <em>बहु-अनुक्रिया का नियम (Law of Multiple Response)</em>, (2) <em>मानसिक स्थिति / मनोवृत्ति का नियम (Law of Mental Set/Attitude)</em>, (3) <em>आंशिक क्रिया का नियम (Law of Partial Activity — समस्या को छोटे भागों में बाँटना)</em>, (4) <em>सादृश्यता / आत्मीकरण का नियम (Law of Analogy — पूर्व ज्ञान से जोड़कर सीखना)</em>, (5) <em>साहचर्य परिवर्तन का नियम (Law of Associative Shifting)</em>।</p>
+            </div>
+
+            <h4>2. इवान पी. पावलव (I.P. Pavlov): शास्त्रीय अनुबंधन का सिद्धांत (Classical Conditioning Theory) ★</h4>
+            <ul>
+                <li><strong>प्रतिपादक:</strong> रूसी शरीर-क्रिया वैज्ञानिक <strong>इवान पेट्रोविच पावलव</strong> (पाचन क्रिया पर शोध के लिए <strong>1904 में नोबेल पुरस्कार</strong> प्राप्त; इन्हें 'अनुबंधन का जनक' [Father of Conditioning] कहा जाता है)।</li>
+                <li><strong>अन्य नाम:</strong> अनुकूलित अनुक्रिया सिद्धांत (Conditioned Response - CR Theory), संबंध प्रतिक्रिया सिद्धांत, Type-S अनुबंधन।</li>
+                <li><strong>प्रयोग:</strong> पावलव ने एक <strong>कुत्ते</strong> की लार ग्रंथि का ऑपरेशन किया। उन्होंने भोजन देने से ठीक पहले घंटी बजाई। कुछ दिनों तक यह क्रम दोहराने के बाद, <strong>केवल घंटी बजने मात्र से ही कुत्ते के मुँह से लार टपकने लगी।</strong></li>
+                <li><strong>प्रमुख 4 तत्व:</strong>
+                    <ol>
+                        <li><strong>अनानुबंधित / स्वाभाविक उद्दीपक (UCS - Unconditioned Stimulus):</strong> भोजन (Food)।</li>
+                        <li><strong>अनानुबंधित / स्वाभाविक अनुक्रिया (UCR - Unconditioned Response):</strong> भोजन देखकर लार आना (Salivation)।</li>
+                        <li><strong>अनुबंधित / अस्वाभाविक उद्दीपक (CS - Conditioned Stimulus):</strong> घंटी की आवाज (Bell)।</li>
+                        <li><strong>अनुबंधित अनुक्रिया (CR - Conditioned Response):</strong> केवल घंटी की आवाज सुनकर लार आना।</li>
+                    </ol>
+                </li>
+                <li><strong>महत्वपूर्ण शब्दावली:</strong> <em>विलोपन (Extinction):</em> यदि लंबे समय तक केवल घंटी बजे और भोजन न मिले, तो लार आना बंद हो जाता है। <em>उद्दीपक सामान्यीकरण (Stimulus Generalization):</em> घंटी से मिलती-जुलती किसी अन्य आवाज (जैसे सीटी या ट्रेन की आवाज) पर भी लार आना। <em>विभेदीकरण (Discrimination):</em> असली घंटी और अन्य आवाजों में अंतर पहचान लेना।</li>
+            </ul>
+
+            <h4>3. बी.एफ. स्किनर (B.F. Skinner): क्रियाप्रसूत अनुबंधन का सिद्धांत (Operant Conditioning Theory) ★</h4>
+            <ul>
+                <li><strong>प्रतिपादक:</strong> अमेरिकी मनोवैज्ञानिक <strong>बुरहस फ्रेडरिक स्किनर</strong>।</li>
+                <li><strong>अन्य नाम:</strong> नैमित्तिक अनुबंधन (Instrumental Conditioning), <strong>R-S सिद्धांत (Response-Stimulus)</strong>, Type-R अनुबंधन, सक्रिय अनुबंधन।</li>
+                <li><strong>प्रयोग:</strong> स्किनर बॉक्स में <strong>सफेद चूहे (1938)</strong> और <strong>कबूतर (1943)</strong> पर प्रयोग। जहाँ पावलव के सिद्धांत में पहले उद्दीपक (भोजन) दिखता था, वहीं स्किनर ने कहा कि प्राणी पहले स्वयं <strong>क्रिया (Operant Response)</strong> करता है और यदि उस क्रिया के बाद उसे <strong>पुनर्बलन (Reinforcement)</strong> मिलता है, तो वह क्रिया पक्की हो जाती है।</li>
+            </ul>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 28%;">स्किनर के मुख्य संप्रत्यय</th>
+                        <th style="width: 36%;">सकारात्मक (Positive — कुछ जोड़ना)</th>
+                        <th style="width: 36%;">नकारात्मक (Negative — कुछ हटाना)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>1. पुनर्बलन ★ (Reinforcement)</strong><br><em>उद्देश्य: वांछित व्यवहार की संभावना को <strong>बढ़ाना</strong>।</em></td>
+                        <td><strong>धनात्मक पुनर्बलन (Positive Reinforcement):</strong> सही कार्य करने पर कोई सुखद वस्तु/प्रशंसा देना (जैसे—अच्छे अंक लाने पर पुरस्कार, टॉफी या शाबाशी देना)।</td>
+                        <td><strong>ऋणात्मक पुनर्बलन (Negative Reinforcement) ★:</strong> सही व्यवहार को बढ़ाने के लिए किसी <strong>कष्टप्रद या अप्रिय स्थिति को हटा लेना</strong> (जैसे—ठंड से बचने के लिए स्वेटर पहनना, सिरदर्द हटाने के लिए दवा लेना, या समय पर होमवर्क करने पर अतिरिक्त गृहकार्य से छूट देना)। <em>(नोट: ऋणात्मक पुनर्बलन 'दंड' नहीं होता!)</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. दंड (Punishment)</strong><br><em>उद्देश्य: अवांछित व्यवहार को <strong>घटाना या रोकना</strong>।</em></td>
+                        <td>गलत व्यवहार पर कोई अप्रिय कष्ट देना (जैसे—डांटना या अतिरिक्त काम का बोझ डालना)।</td>
+                        <td>गलत व्यवहार पर कोई प्रिय सुविधा छीन लेना (जैसे—मोबाइल या टीवी देखने का समय छीन लेना)।</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>शैक्षिक योगदान:</strong> स्किनर ने शिक्षण में <strong>'अभिक्रमित अनुदेशन' (Programmed Instruction)</strong> और 'शिक्षण मशीनों' (Teaching Machines) का आविष्कार किया तथा <strong>'शेपिंग' (Shaping — क्रमिक सन्निकटन द्वारा जटिल व्यवहार सिखाना)</strong> की तकनीक दी।</p>
+
+            <!-- ---------------- 3.2 ---------------- -->
+            <h3>3.2 गेस्टाल्टवादी सूझ का सिद्धांत (कोहलर) एवं अल्बर्ट बंडूरा का सामाजिक अधिगम सिद्धांत</h3>
+
+            <h4>1. अंतर्दृष्टि या सूझ का सिद्धांत (Insight Theory of Learning — गेस्टाल्टवाद) ★</h4>
+            <ul>
+                <li><strong>गेस्टाल्ट (Gestalt) का अर्थ:</strong> यह जर्मन भाषा का शब्द है जिसका अर्थ है—<strong>'संपूर्ण आकृति' या 'समग्र रूप' (Whole / Total Configuration)</strong>।</li>
+                <li><strong>प्रमुख गेस्टाल्टवादी मनोवैज्ञानिक:</strong> इसके संस्थापक <strong>मैक्स वर्दीमर (Max Wertheimer)</strong> हैं, तथा प्रयोगकर्ता <strong>वोल्फगैंग कोहलर (Wolfgang Köhler)</strong>, कर्ट कोफ्का (Kurt Koffka) और कर्ट लेविन हैं।</li>
+                <li><strong>कोहलर का प्रसिद्ध प्रयोग:</strong> कोहलर ने कैनरी द्वीप पर <strong>'सुल्तान' (Sultan) नामक चिंपांजी (वनमानुष)</strong> पर प्रयोग किया। पिंजरे की छत से केले टाँग दिए गए और पिंजरे में कुछ खाली बक्से तथा दो जुड़ने वाली छड़ियाँ रख दी गईं। सुल्तान ने उछल-कूद बंद कर पहले पूरी समस्या का समग्र अवलोकन किया और अचानक मस्तिष्क में <strong>'सूझ' (Insight / Aha! Moment)</strong> आने पर बक्सों को एक के ऊपर एक रखकर और दोनों छड़ियों को आपस में जोड़कर केले प्राप्त कर लिए।</li>
+                <li><strong>शैक्षिक महत्व (Level-2 के लिए):</strong> यह सिद्धांत थार्नडाइक के 'रटने व अंधे प्रयास' का विरोध करता है। उच्च प्राथमिक स्तर (कक्षा 6–8) में <strong>गणित, विज्ञान और व्याकरण की समस्या-समाधान विधि</strong> इसी सिद्धांत पर आधारित है। यह <strong>"पूर्ण से अंश की ओर" (Whole to Part)</strong> शिक्षण सूत्र का आधार है।</li>
+            </ul>
+
+            <h4>2. अल्बर्ट बंडूरा का सामाजिक अधिगम सिद्धांत (Albert Bandura's Social Learning Theory) ★</h4>
+            <ul>
+                <li><strong>प्रतिपादक:</strong> कनाडाई-अमेरिकी मनोवैज्ञानिक <strong>अल्बर्ट बंडूरा (1977)</strong>।</li>
+                <li><strong>अन्य नाम:</strong> <strong>अवलोकनात्मक अधिगम (Observational Learning)</strong>, अनुकरण द्वारा सीखना (Learning by Imitation), <strong>मॉडलिंग (Modeling)</strong>।</li>
+                <li><strong>प्रसिद्ध प्रयोग:</strong> <strong>'बोबो डॉल' (Bobo Doll Experiment)</strong> और जीवित जोकर पर प्रयोग। बंडूरा ने बच्चों को एक फिल्म दिखाई जिसमें एक वयस्क 'बोबो डॉल' (गुड्डे) को पीट रहा था। जिन बच्चों ने देखा कि आक्रामक व्यवहार करने वाले मॉडल को पुरस्कृत किया गया, उन्होंने भी खिलौने के साथ वैसा ही आक्रामक व्यवहार दोहराया।</li>
+                <li><strong>मॉडलिंग / अवलोकनात्मक अधिगम के 4 क्रमिक सोपान (परीक्षा में क्रम पूछा जाता है ★):</strong>
+                    <ol>
+                        <li><strong>अवधान / ध्यान (Attention):</strong> किसी आदर्श व्यक्ति (Model—जैसे शिक्षक या माता-पिता) के व्यवहार को ध्यानपूर्वक देखना।</li>
+                        <li><strong>धारण / स्मृति (Retention):</strong> देखे गए व्यवहार को अपने मस्तिष्क में याद रखना।</li>
+                        <li><strong>पुनरुत्पादन / प्रस्तुतीकरण (Reproduction):</strong> याद रखे गए व्यवहार को स्वयं करके दिखाना (क्रिया में बदलना)।</li>
+                        <li><strong>अभिप्रेरणा / पुनर्बलन (Motivation / Reinforcement):</strong> प्रशंसा या सफलता मिलने पर उस व्यवहार को अपने जीवन में स्थायी रूप से अपना लेना।</li>
+                    </ol>
+                </li>
+                <li><strong>स्व-प्रभावोत्पादकता (Self-Efficacy):</strong> बंडूरा ने यह संप्रत्यय भी दिया, जिसका अर्थ है—<em>"व्यक्ति का अपनी स्वयं की क्षमताओं पर यह विश्वास कि वह किसी दी गई परिस्थिति या कार्य में सफलता प्राप्त कर सकता है।"</em></li>
+            </ul>
+
+            <div class="note-card">
+                <strong>अन्य महत्वपूर्ण अधिगम सिद्धांत (एक नजर में):</strong>
+                <ul>
+                    <li><strong>कर्ट लेविन (Kurt Lewin):</strong> क्षेत्र सिद्धांत (Field Theory of Learning — <em>Life Space / जीवन दायरा</em>)।</li>
+                    <li><strong>एडवर्ड टॉलमैन (E.C. Tolman):</strong> चिह्न अधिगम (Sign Learning) एवं <strong>अव्यक्त अधिगम (Latent Learning)</strong> व 'संज्ञानात्मक मानचित्र' (Cognitive Map)।</li>
+                    <li><strong>डेविड आसुबेल (David Ausubel):</strong> अर्थपूर्ण शाब्दिक अधिगम (Meaningful Verbal Learning) एवं <strong>अग्रिम संगठक प्रतिमान (Advance Organizer Model)</strong>; इन्होंने रटंत अधिगम (Rote Learning) और अर्थपूर्ण अधिगम में अंतर किया।</li>
+                    <li><strong>रॉबर्ट गैने (Robert Gagne):</strong> अधिगम सोपानिकी (Hierarchy of Learning — 8 स्तर: संकेत अधिगम से शुरू होकर <strong>समस्या-समाधान अधिगम [Problem Solving — सर्वोच्च स्तर]</strong> तक)।</li>
+                    <li><strong>डेविड कोल्ब (David Kolb):</strong> अनुभवात्मक अधिगम चक्र (Experiential Learning Cycle — 4 चरण)।</li>
+                </ul>
+            </div>
+
+            <!-- ---------------- 3.3 ---------------- -->
+            <h3>3.3 अधिगम अंतरण (Transfer of Learning), अधिगम वक्र एवं अधिगम पठार</h3>
+
+            <h4>(क) अधिगम का अंतरण / स्थानांतरण (Transfer of Learning):</h4>
+            <p>जब एक क्षेत्र या परिस्थिति में सीखा गया ज्ञान, कौशल या अनुभव किसी दूसरी परिस्थिति में सीखने को प्रभावित करता है, तो उसे 'अधिगम अंतरण' कहते हैं। इसके प्रमुख प्रकार हैं:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">अंतरण का प्रकार</th>
+                        <th style="width: 70%;">अर्थ एवं परीक्षा में पूछे जाने वाले उदाहरण</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>1. धनात्मक / सकारात्मक अंतरण ★</strong><br>(Positive Transfer)</td>
+                        <td>जब पूर्व में सीखा गया ज्ञान <strong>नए ज्ञान को सीखने में सहायता करे</strong>।<br><em>उदाहरण:</em> साइकिल चलाना जानने वाले को स्कूटी/मोटरसाइकिल सीखने में आसानी होना; संस्कृत का ज्ञान हिंदी सीखने में सहायक होना; गणित का ज्ञान भौतिक विज्ञान (Physics) के न्यूमेरिकल हल करने में सहायक होना।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. ऋणात्मक / नकारात्मक अंतरण ★</strong><br>(Negative Transfer)</td>
+                        <td>जब पूर्व में सीखा गया ज्ञान <strong>नए ज्ञान को सीखने में बाधा या रुकावट उत्पन्न करे</strong>।<br><em>उदाहरण:</em> भारत में बाईं ओर कार चलाने वाले व्यक्ति को अमेरिका में दाईं ओर कार चलाने में कठिनाई होना; हिंदी टाइपिंग (Kruti Dev) सीखे व्यक्ति को अंग्रेजी टाइपिंग में उंगलियाँ फँसना।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. शून्य अंतरण ★</strong><br>(Zero Transfer)</td>
+                        <td>जब पूर्व ज्ञान का नए ज्ञान पर <strong>न तो कोई लाभ हो और न ही कोई हानि</strong>।<br><em>उदाहरण:</em> कबीर के दोहे याद करने का क्रिकेट खेलने या साइकिल चलाने पर कोई प्रभाव न पड़ना।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. क्षैतिज अंतरण (Horizontal)</strong></td>
+                        <td>जब किसी कक्षा/स्तर में सीखा गया ज्ञान <strong>उसी स्तर की दूसरी समान परिस्थिति</strong> में काम आए (जैसे—कक्षा 6 में गणित में सीखा प्रतिशत का नियम कक्षा 6 के ही विज्ञान में काम आना)।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. ऊर्ध्व / लंबवत अंतरण (Vertical)</strong></td>
+                        <td>जब निचली कक्षा/सरल स्तर का ज्ञान <strong>उच्च स्तर या अगली कक्षा की जटिल समस्याओं</strong> को सुलझाने में काम आए (जैसे—कक्षा 6 का बीजगणित कक्षा 8 के समीकरण हल करने में सहायक होना)।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. द्विपार्श्विक अंतरण (Bilateral) ★</strong></td>
+                        <td>जब शरीर के <strong>एक अंग (जैसे दाएँ हाथ) से सीखा गया कौशल दूसरे अंग (बाएँ हाथ) में</strong> बिना विशेष अभ्यास के स्थानांतरित हो जाए।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>(ख) अधिगम वक्र (Learning Curves) एवं अधिगम पठार (Learning Plateau):</h4>
+            <p>सीखने की मात्रा और उसमें लगने वाले समय/अभ्यास के संबंध को जब ग्राफ पेपर पर रेखा द्वारा दर्शाया जाता है, तो उसे <strong>अधिगम वक्र</strong> कहते हैं। इसके 4 प्रकार हैं:</p>
+            <ol>
+                <li><strong>सरल रेखीय वक्र (Straight Line Curve):</strong> सीखने की गति हर प्रयास में एक समान बढ़ती है (व्यावहारिक जीवन में अत्यंत दुर्लभ)।</li>
+                <li><strong>उन्नतोदर / ऋणात्मक त्वरित वक्र (Convex / Negatively Accelerated Curve):</strong> शुरू में सीखने की गति बहुत तेज होती है और बाद में धीमी पड़ जाती है।</li>
+                <li><strong>नतोदर / धनात्मक त्वरित वक्र (Concave / Positively Accelerated Curve):</strong> शुरू में सीखने की गति धीमी होती है, पर अभ्यास बढ़ने के साथ बाद में बहुत तीव्र हो जाती है।</li>
+                <li><strong>मिश्रित / S-आकार का वक्र (S-Shaped Curve):</strong> इसमें पहले धीमी, फिर तीव्र और अंत में पुनः धीमी गति दिखाई देती है।</li>
+            </ol>
+
+            <div class="highlight-box">
+                <strong>★ अधिगम का पठार (Learning Plateau) क्या है?</strong><br>
+                जब सीखते-सीखते एक ऐसी स्थिति आ जाती है जहाँ <strong>अभ्यास करने के बावजूद सीखने की प्रगति बिल्कुल रुक जाती है</strong> (अधिगम वक्र ऊपर जाने के बजाय <strong>समतल/क्षैतिज [Flat]</strong> हो जाता है), तो इस रुकी हुई अवस्था को <strong>'अधिगम पठार'</strong> कहते हैं।<br>
+                • <strong>पठार के कारण:</strong> थकान, रुचि व प्रेरणा का अभाव, दोषपूर्ण शिक्षण विधि, विषय का अचानक बहुत कठिन हो जाना, या अस्वस्थ वातावरण।<br>
+                • <strong>पठार दूर करने के उपाय:</strong> बच्चे को कुछ समय विश्राम देना, शिक्षण विधि को रोचक/खेल-आधारित बनाना और सकारात्मक प्रोत्साहन देना।
+            </div>
+
+            <!-- ---------------- 3.4 ---------------- -->
+            <h3>3.4 अभिप्रेरणा (Motivation: आंतरिक व बाह्य) एवं अब्राहम मास्लो का आवश्यकता पदानुक्रम</h3>
+            <p><strong>अभिप्रेरणा (Motivation)</strong> शब्द लैटिन भाषा के <em>'Motum' / 'Movere'</em> से बना है जिसका अर्थ है—<strong>'गति करना' (To Move)</strong>।</p>
+            <ul>
+                <li><strong>स्किनर की प्रसिद्ध परिभाषा ★:</strong> <em>"अभिप्रेरणा अधिगम का सर्वोत्कृष्ट राजमार्ग (Super Highway / Golden Road to Learning) है।"</em></li>
+                <li><strong>गुड (Good):</strong> <em>"अभिप्रेरणा किसी कार्य को प्रारंभ करने, जारी रखने और नियंत्रित करने की प्रक्रिया है।"</em></li>
+                <li><strong>अभिप्रेरणा चक्र (Motivation Cycle) के 3 मुख्य घटक ★:</strong><br>
+                    <strong>1. आवश्यकता (Need - कमी या अति) $\rightarrow$ 2. अंतर्नोद / चालक (Drive - तनाव या उत्तेजना) $\rightarrow$ 3. प्रोत्साहन / लक्ष्य (Incentive / Goal)</strong>।<br>
+                    <em>(उदाहरण: 'भोजन/पानी' = आवश्यकता है; उससे उत्पन्न 'भूख/प्यास' = अंतर्नोद/चालक है; और भोजन मिल जाने पर तनाव शांत होना = प्रोत्साहन है)।</em>
+                </li>
+            </ul>
+
+            <h4>आंतरिक अभिप्रेरणा बनाम बाह्य अभिप्रेरणा (Intrinsic vs Extrinsic Motivation ★):</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 50%;">1. आंतरिक / सकारात्मक अभिप्रेरणा ★★ (Intrinsic Motivation)</th>
+                        <th style="width: 50%;">2. बाह्य / कृत्रिम अभिप्रेरणा (Extrinsic Motivation)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>• जब बालक किसी कार्य को <strong>स्वयं की रुचि, जिज्ञासा, आनंद और आत्म-संतुष्टि (Self-Satisfaction)</strong> के लिए करता है।<br>• इसमें पुरस्कार कार्य के भीतर ही निहित होता है।<br>• <strong>उदाहरण:</strong> किसी छात्र द्वारा अपनी जिज्ञासा शांत करने या आनंद के लिए विज्ञान की पुस्तक पढ़ना या पेंटिंग बनाना।<br>• <em>पेडागोजी नियम:</em> एक शिक्षक को सदैव बच्चों में <strong>आंतरिक अभिप्रेरणा</strong> विकसित करनी चाहिए क्योंकि यह स्थायी होती है।</td>
+                        <td>• जब बालक किसी कार्य को रुचि से नहीं, बल्कि <strong>बाहरी पुरस्कार पाने, अंक/ट्रॉफी जीतने, प्रशंसा पाने या दंड/डांट से बचने</strong> के लिए करता है।<br>• <strong>उदाहरण:</strong> पिताजी द्वारा साइकिल दिलाने के वादे पर या कक्षा में प्रथम पुरस्कार (नकद इनाम) पाने के लिए पढ़ाई करना।<br>• <em>सीमा:</em> जैसे ही बाहरी लालच हटता है, सीखना रुक जाता है।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>★ अब्राहम मास्लो का आवश्यकता पदानुक्रम सिद्धांत (Abraham Maslow's Hierarchy of Needs — 1943/1954):</h4>
+            <p>मानवतावादी मनोविज्ञान के जनक <strong>अब्राहम मास्लो</strong> ने मानव आवश्यकताओं को एक त्रिभुजाकार पिरामिड में <strong>नीचे से ऊपर की ओर 5 क्रमिक स्तरों</strong> में व्यवस्थित किया है। जब निचले स्तर की आवश्यकता पूरी होती है, तभी व्यक्ति ऊपर के स्तर की ओर बढ़ता है:</p>
+            <ol>
+                <li><strong>1. शारीरिक / दैहिक आवश्यकताएँ (Physiological Needs — सबसे निचला व बुनियादी स्तर):</strong> भूख, प्यास, हवा, नींद, कपड़ा। <em>(स्कूलों में 'मध्याह्न भोजन योजना' [Mid-Day Meal / PM Poshan] इसी पहले स्तर को पूरा करने के लिए चलाई जाती है ताकि भूखा बच्चा पढ़ाई पर ध्यान दे सके)।</em></li>
+                <li><strong>2. सुरक्षा की आवश्यकता (Safety Needs):</strong> शारीरिक सुरक्षा, भय-मुक्त वातावरण, स्वास्थ्य एवं आर्थिक स्थिरता।</li>
+                <li><strong>3. प्रेम एवं संबद्धता की आवश्यकता (Love and Belongingness Needs):</strong> परिवार का स्नेह, मित्रता, समूह द्वारा अपनाया जाना।</li>
+                <li><strong>4. आत्म-सम्मान की आवश्यकता (Esteem Needs):</strong> समाज में प्रतिष्ठा, पहचान, उपलब्धि और आत्मविश्वास। <em>(शुरुआती 1 से 4 स्तरों को मास्लो ने <strong>'अभावजन्य आवश्यकताएँ' [Deficiency Needs / D-Needs]</strong> कहा है)।</em></li>
+                <li><strong>5. आत्म-सिद्धि की आवश्यकता ★ (Self-Actualization Needs — सर्वोच्च शिखर):</strong> अपनी आंतरिक क्षमताओं को उच्चतम स्तर तक पहचानना और वह बनना जो व्यक्ति बन सकता है (इसे <strong>'वृद्धि आवश्यकता' [Being / Growth Need - B-Need]</strong> कहा जाता है)।</li>
+            </ol>
+
+            <!-- ---------------- 3.5 ---------------- -->
+            <h3>3.5 संज्ञान एवं संवेग, आकलन (Assessment / CCE) एवं बच्चों की त्रुटियाँ</h3>
+
+            <h4>(क) संज्ञान एवं संवेग का संबंध (Cognition and Emotion):</h4>
+            <ul>
+                <li><strong>विलियम मैकडूगल (William McDougall):</strong> इन्होंने अपनी पुस्तक <em>Outline of Psychology</em> में <strong>14 मूल प्रवृत्तियों (14 Instincts)</strong> और उनसे जुड़े <strong>14 संवेगों</strong> का सिद्धांत दिया (जैसे—<em>पलायन [Escape] मूल प्रवृत्ति का संवेग 'भय' [Fear] है; युयुत्सा [Combat] का संवेग 'क्रोध' [Anger] है; जिज्ञासा का संवेग 'आश्चर्य' है</em>)।</li>
+                <li><strong>संज्ञान और संवेग का अंतर्संबंध ★ (1 प्रश्न निश्चित):</strong> आधुनिक मनोविज्ञान के अनुसार संज्ञान (सोचना/दिमाग) और संवेग (भावनाएँ/दिल) एक-दूसरे से स्वतंत्र नहीं हैं, बल्कि दोनों <strong>आपस में गुँथे हुए (Interwoven / Bi-directional) हैं और एक-दूसरे को गहराई से प्रभावित करते हैं।</strong> यदि बच्चा अत्यधिक भय, परीक्षा की चिंता (Anxiety) या तनाव में है, तो उसकी सोचने व याद करने की संज्ञानात्मक क्षमता घट जाती है।</li>
+                <li><strong>एकमात्र अपवाद ★ — रॉबर्ट ज़ेजोंक (Robert Zajonc):</strong> यदि प्रश्न में विशेष रूप से मनोवैज्ञानिक <strong>'रॉबर्ट ज़ेजोंक'</strong> का नाम लेकर पूछा जाए, तो उत्तर होगा कि ज़ेजोंक के अनुसार <strong>"संज्ञान और संवेग एक-दूसरे से स्वतंत्र (Independent) होते हैं।"</strong></li>
+            </ul>
+
+            <h4>(ख) शिक्षण एवं अधिगम में आकलन के 3 रूप (Assessment in Pedagogy ★★):</h4>
+            <p><strong>सतत एवं व्यापक मूल्यांकन (CCE — Continuous and Comprehensive Evaluation):</strong> इसमें 'सतत' का अर्थ है शिक्षण के साथ निरंतर चलने वाला आकलन और 'व्यापक' का अर्थ है <strong>शैक्षिक (Scholastic) एवं सह-शैक्षिक (Co-Scholastic — खेल, कला, नैतिक मूल्य, जीवन कौशल)</strong> दोनों पक्षों का समग्र विकास आँकना।</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 26%;">आकलन का प्रकार</th>
+                        <th style="width: 24%;">कब किया जाता है?</th>
+                        <th style="width: 50%;">मुख्य उद्देश्य एवं परीक्षा उदाहरण</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>1. अधिगम के लिए आकलन ★★</strong><br>(Assessment FOR Learning)<br><em>= रचनात्मक आकलन (Formative Assessment)</em></td>
+                        <td><strong>शिक्षण-अधिगम प्रक्रिया के दौरान</strong> (पढ़ाते समय या इकाई के बीच में)।</td>
+                        <td>• इसका उद्देश्य बच्चों को पास-फेल करना नहीं, बल्कि उनकी सीखने की कमियों को पहचानना (<strong>निदानात्मक परीक्षण / Diagnostic Test</strong>) और उन्हें दूर करने के लिए <strong>उपचारात्मक शिक्षण (Remedial Teaching)</strong> देना है।<br>• <em>प्रसिद्ध उदाहरण:</em> एक बावरची (Chef) द्वारा खाना बनाते समय बीच में चखकर देखना कि नमक ठीक है या नहीं।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. अधिगम का आकलन ★</strong><br>(Assessment OF Learning)<br><em>= योगात्मक आकलन (Summative Assessment)</em></td>
+                        <td><strong>सत्र या वर्ष के अंत में</strong> (जैसे वार्षिक परीक्षा / बोर्ड परीक्षा)।</td>
+                        <td>• इसका उद्देश्य यह जाँचना है कि सत्र के अंत में बच्चे ने कितना सीखा तथा उन्हें अंक, श्रेणी या ग्रेड/प्रमाण-पत्र देना।<br>• <em>प्रसिद्ध उदाहरण:</em> मेहमानों द्वारा तैयार खाना खाकर निर्णय सुनाना कि खाना कैसा बना है।</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>3. अधिगम के रूप में आकलन ★★</strong><br>(Assessment AS Learning)</td>
+                        <td>सीखने की प्रक्रिया के साथ स्वयं छात्र द्वारा।</td>
+                        <td>• जब विद्यार्थी <strong>स्वयं अपने कार्य का आकलन (Self-Assessment)</strong> या अपने <strong>सहपाठियों का आकलन (Peer Assessment)</strong> करते हैं और अपनी सोच पर चिंतन (अधिसंज्ञान / Metacognition) करके सीखते हैं।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>(ग) बच्चों की त्रुटियाँ एवं वैकल्पिक अवधारणाएँ (Children's Errors & Alternative Conceptions ★):</h4>
+            <div class="note-card">
+                <strong>पेडागोजी का स्वर्णिम नियम (1 प्रश्न पक्का):</strong><br>
+                <ul>
+                    <li><strong>त्रुटियाँ सीखने का अभिन्न हिस्सा हैं:</strong> जब कक्षा 6–8 का विद्यार्थी कोई गलती (Error) करता है, तो वह उसकी मूर्खता या लापरवाही का प्रमाण नहीं है, बल्कि बच्चों की त्रुटियाँ उनके <strong>"चिंतन की प्रक्रिया में अंतर्दृष्टि देती हैं" (Errors are windows into a child's thinking)</strong>—अर्थात वे शिक्षक को यह बताती हैं कि बच्चा किस प्रकार सोच रहा है।</li>
+                    <li><strong>भ्रांतियाँ या वैकल्पिक अवधारणाएँ (Misconceptions / Alternative Conceptions):</strong> बच्चे खाली दिमाग लेकर स्कूल नहीं आते; वे अपने दैनिक अनुभवों से प्रकृति व दुनिया के बारे में कुछ 'सहज सिद्धांत' (Naive Theories) बना लेते हैं (जैसे—"जब हम चलते हैं तो चाँद भी हमारे साथ चलता है" या "भारी वस्तु हल्की वस्तु से तेज गिरती है")। शिक्षक को इनका मजाक नहीं उड़ाना चाहिए, बल्कि प्रयोगात्मक चर्चा और साक्ष्यों के माध्यम से उन्हें वैज्ञानिक अवधारणा तक ले जाना चाहिए।</li>
+                </ul>
+            </div>
+        </div>
+            <h3>3.6 ब्लूम्स टैक्सोनॉमी (Bloom's Taxonomy): शैक्षणिक उद्देश्यों का वर्गीकरण ★</h3>
+            <div class="note-card">
+                <strong>परिचय:</strong> 1956 में <strong>बेंजामिन ब्लूम</strong> ने शैक्षणिक उद्देश्यों को तीन पक्षों में बाँटा — <strong>संज्ञानात्मक</strong> (Cognitive – ज्ञान/चिंतन), <strong>भावात्मक</strong> (Affective – रुचि/मूल्य; क्राथवोल) और <strong>क्रियात्मक</strong> (Psychomotor – कौशल; सिम्पसन)। CDP में मुख्यतः <strong>संज्ञानात्मक पक्ष के 6 स्तरों</strong> से प्रश्न आते हैं — नीचे से ऊपर की ओर जटिलता बढ़ती जाती है।
+            </div>
+            <table>
+                <tr><th>स्तर (क्रम)</th><th>उद्देश्य</th><th>पहचान क्रियाएँ (Keywords)</th><th>उदाहरण प्रश्न</th></tr>
+                <tr><td><strong>1. स्मरण</strong> (Remember)</td><td>तथ्यों/सूचना को याद करना</td><td>परिभाषित करो, सूचीबद्ध करो, पहचानो, नाम बताओ</td><td>"पियाजे की कितनी अवस्थाएँ हैं?"</td></tr>
+                <tr><td><strong>2. समझ</strong> (Understand)</td><td>अर्थ ग्रहण कर व्याख्या करना</td><td>व्याख्या करो, सारांश दो, अंतर बताओ, उदाहरण दो</td><td>"ZPD से क्या अभिप्राय है?"</td></tr>
+                <tr><td><strong>3. अनुप्रयोग</strong> (Apply)</td><td>ज्ञान का नई स्थिति में प्रयोग</td><td>प्रयोग करो, हल करो, प्रदर्शित करो, उपयोग करो</td><td>"कक्षा में स्कैफोल्डिंग कैसे देंगे?"</td></tr>
+                <tr><td><strong>4. विश्लेषण</strong> (Analyze)</td><td>भागों में बाँटकर संबंध देखना</td><td>विश्लेषण करो, तुलना करो, वर्गीकरण करो, भेद करो</td><td>"इन दोनों सिद्धांतों में क्या अंतर है?"</td></tr>
+                <tr><td><strong>5. मूल्यांकन</strong> (Evaluate)</td><td>मानदंडों के आधार पर निर्णय/तर्क</td><td>मूल्यांकन करो, तर्क दो, आलोचना करो, निर्णय दो</td><td>"कौन सी विधि बेहतर है और क्यों?"</td></tr>
+                <tr><td><strong>6. सृजन</strong> (Create)</td><td>नया निर्माण/रचना करना</td><td>रचना करो, डिज़ाइन करो, योजना बनाओ, सृजन करो</td><td>"समावेशी कक्षा हेतु पाठ योजना बनाओ।"</td></tr>
+            </table>
+            <div class="highlight-box">
+                <strong>💡 परीक्षा ब्रह्मास्त्र (2–3 प्रश्न पक्के):</strong>
+                <ul>
+                    <li><strong>संशोधित टैक्सोनॉमी (2001):</strong> एंडरसन व क्राथवोल ने स्तरों को संज्ञा से <strong>क्रिया रूप</strong> में बदला और सबसे ऊपर <strong>"सृजन (Create)"</strong> रखा — यही वर्तमान मान्य क्रम है।</li>
+                    <li><strong>HOTs (उच्च स्तरीय चिंतन):</strong> ऊपर के 3 स्तर (विश्लेषण, मूल्यांकन, सृजन) = उच्च स्तरीय चिंतन कौशल; <strong>NEP 2020</strong> रटंत (स्मरण) की जगह इन्हीं पर बल देती है।</li>
+                    <li>प्रश्न में <strong>"मूल्यांकन कीजिए / तर्क दीजिए / सृजन कीजिए / डिज़ाइन कीजिए"</strong> जैसे शब्द दिखें → उच्च स्तर (HOTs) का प्रश्न है।</li>
+                    <li>याद रखें: <strong>ब्लूम = 1956, 6 स्तर, संज्ञानात्मक पक्ष</strong>; भावात्मक पक्ष = क्राथवोल, क्रियात्मक पक्ष = सिम्पसन।</li>
+                </ul>
+            </div>
+        </div>
+        <!-- ==================== END OF UNIT 3 ==================== -->
+
+        <!-- ==================== UNIT 4 (BONUS PRACTICE & TAG WORDS) ==================== -->
+        <div id="unit4" class="unit-section">
+            <h2>इकाई 4 (Unit 4): पेडागोजी टैग वर्ड्स (ब्रह्मास्त्र) एवं 30 प्रश्नों का मास्टर प्रैक्टिस सेट</h2>
+
+            <p><strong>परीक्षा रणनीति (Score Booster):</strong> शिक्षक पात्रता परीक्षा (JHTET / CTET) में लगभग 12 से 15 प्रश्न शुद्ध रूप से व्यावहारिक शिक्षणशास्त्र (Applied Pedagogy) पर आधारित होते हैं। यदि किसी प्रश्न की भाषा जटिल लगे, तो नीचे दिए गए <strong>सकारात्मक (Positive)</strong> और <strong>नकारात्मक (Negative) टैग वर्ड्स</strong> की मदद से आप मात्र 5 सेकंड में गलत विकल्पों को हटाकर (Elimination Method) 100% सटीक उत्तर चुन सकते हैं।</p>
+
+            <!-- ---------------- 4.1 ---------------- -->
+            <h3>4.1 सकारात्मक (Positive) बनाम नकारात्मक (Negative) पेडागोजी टैग वर्ड्स ★</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 50%; background-color: #d1fae5; color: #065f46; border-color: #6ee7b7;">✅ सकारात्मक टैग वर्ड्स (Positive Tag Words)<br><em>(यदि प्रश्न सकारात्मक हो, तो ये शब्द हमेशा सही उत्तर होते हैं)</em></th>
+                        <th style="width: 50%; background-color: #fee2e2; color: #991b1b; border-color: #fca5a5;">❌ नकारात्मक टैग वर्ड्स (Negative Tag Words)<br><em>(इन्हें देखते ही विकल्प को गलत मानकर काट दें — सिवाय 'नहीं/NOT' वाले प्रश्नों के)</em></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><strong>बाल-केंद्रित शिक्षा (Child-Centric Education)</strong> व बच्चे को सक्रिय (Active) रखना।</li>
+                                <li><strong>सक्रिय अन्वेषण / खोजबीन (Active Exploration / Discovery)</strong> एवं 'करके सीखना' (Learning by Doing / Hands-on Activity)।</li>
+                                <li><strong>अवसर प्रदान करना (Providing Opportunities)</strong> एवं प्रोत्साहन देना (Encourage)।</li>
+                                <li><strong>बहुभाषिकता व मातृभाषा (Multilingualism)</strong> को एक <strong>'संसाधन' (Resource / Asset)</strong> मानना।</li>
+                                <li><strong>बाहरी / वास्तविक जीवन से जोड़ना (Connecting with Real/Daily Life)</strong> (NCF 2005)।</li>
+                                <li><strong>अपसारी चिंतन (Divergent Thinking)</strong>, सृजनात्मकता व <strong>मुक्त-अंत वाले प्रश्न (Open-ended Questions)</strong>।</li>
+                                <li><strong>समालोचनात्मक चिंतन (Critical Thinking)</strong> एवं वैज्ञानिक दृष्टिकोण।</li>
+                                <li><strong>समावेशी शिक्षा (Inclusive Education)</strong>, समता (Equity) एवं लचीला पाठ्यक्रम (Flexible Curriculum)।</li>
+                                <li><strong>वैयक्तिक भिन्नताओं (Individual Differences)</strong> का सम्मान करना।</li>
+                                <li><strong>त्रुटियाँ एवं भ्रांतियाँ (Errors & Misconceptions):</strong> सीखने का स्वाभाविक हिस्सा और <strong>'बच्चों के चिंतन की खिड़की'</strong>।</li>
+                                <li><strong>आंतरिक अभिप्रेरणा (Intrinsic Motivation)</strong>, जिज्ञासा (Curiosity) व रुचि।</li>
+                                <li><strong>निदानात्मक एवं उपचारात्मक शिक्षण (Diagnostic & Remedial Teaching)</strong>।</li>
+                                <li><strong>सहयोगात्मक अधिगम (Collaborative / Peer Learning)</strong>, सामूहिक चर्चा व पाड़ (Scaffolding)।</li>
+                                <li><strong>प्रगतिशील कक्षा (Progressive Classroom)</strong> एवं लोकतांत्रिक/भय-मुक्त वातावरण।</li>
+                                <li><strong>बहु-संवेदी शिक्षण सामग्री (Multi-sensory TLM)</strong> एवं दृश्य-श्रव्य साधन।</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><strong>केवल / मात्र / ही / सिर्फ (Only / Merely / Solely)</strong> — यह सोच को सीमित करता है।</li>
+                                <li><strong>रटना / कंठस्थ करना / याद करना (Rote Memorization / Cramming)</strong>।</li>
+                                <li><strong>दंड देना, डांटना, फटकारना या भय पैदा करना (Punishment, Scolding, Fear)</strong> (RTE धारा 17 के विरुद्ध)।</li>
+                                <li><strong>कठोर अनुशासन (Rigid Discipline)</strong> एवं बच्चे को निष्क्रिय (Passive Listener) बनाना।</li>
+                                <li><strong>शिक्षक-केंद्रित (Teacher-Centric)</strong> या <strong>पाठ्यपुस्तक-केंद्रित (Textbook-Centric)</strong> होना।</li>
+                                <li><strong>अलग करना / पृथक्करण (Segregation)</strong>, नामीकरण करना (Labeling) या वर्गीकरण (Ranking/Grading)।</li>
+                                <li><strong>तुलना करना (Comparison between students)</strong> या गला-काट प्रतिस्पर्धा (Cut-throat Competition)।</li>
+                                <li><strong>लैंगिक रूढ़िवादिता / पक्षपात (Gender Stereotyping / Bias)</strong>।</li>
+                                <li><strong>अभिसारी चिंतन (Convergent Thinking)</strong> एवं बंद-अंत वाले प्रश्न।</li>
+                                <li><strong>बाह्य अभिप्रेरणा (Extrinsic Motivation):</strong> इनाम का लालच, नकद पुरस्कार या केवल प्रथम आने के लिए पढ़ना।</li>
+                                <li><strong>व्याख्यान विधि (Lecture Method)</strong> या परिभाषाओं को ज्यों-का-त्यों लिखवाना (कक्षा 6–8 में अनुपयुक्त)।</li>
+                                <li><strong>कोरी स्लेट (Blank Slate / Tabula Rasa)</strong> या खाली बर्तन समझना।</li>
+                                <li><strong>उपेक्षा करना / अनदेखा करना (Ignoring)</strong> या प्रधानाचार्य/माता-पिता से शिकायत करना।</li>
+                                <li><strong>मानकीकृत परीक्षण (Standardized Tests)</strong> — ये व्यक्तिगत भिन्नता की उपेक्षा करते हैं।</li>
+                                <li><strong>कलन विधि / यांत्रिक ड्रिल (Mechanical Drill & Practice)</strong> पर अत्यधिक बल।</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ---------------- 4.2 ---------------- -->
+            <h3>4.2 व्याख्या सहित 30 उच्च-स्तरीय बहुविकल्पीय प्रश्न (Interactive Master Practice Set)</h3>
+            <p>नीचे दिए गए 30 प्रश्न JHTET Level-2 (कक्षा 6 से 8) के नवीनतम परीक्षा पैटर्न और संपूर्ण सिलेबस (Unit 1 से Unit 3) के अनुपात (15 + 5 + 10 = 30 प्रश्न) पर आधारित हैं। अपने उत्तर चुनें और विस्तृत व्याख्या के साथ तुरंत अपना स्कोर जाँचें:</p>
+
+            <!-- Quiz Scoreboard -->
+            <div id="quiz-scoreboard" class="top-Fact-bar no-print" style="background: linear-gradient(90deg, #115e59, #0f766e); position: sticky; top: 10px; z-index: 50; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                <div>
+                    <strong>📊 लाइव स्कोरकार्ड:</strong> हल किए गए: <span id="attempted-count">0</span>/30 | सही उत्तर: <span id="correct-count" style="color: #fde68a; font-size: 1.1rem;">0</span>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button onclick="showAllAnswers()" class="print-btn" style="background: #ffffff; color: #0f766e;">👁️ सभी उत्तर व व्याख्या देखें</button>
+                    <button onclick="resetQuiz()" class="print-btn">🔄 रीसेट करें</button>
+                </div>
+            </div>
+
+            <style>
+                .mcq-card {
+                    background: #ffffff;
+                    border: 1px solid var(--border);
+                    border-left: 5px solid var(--primary);
+                    border-radius: 12px;
+                    padding: 20px 24px;
+                    margin-bottom: 22px;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+                }
+                .mcq-q {
+                    font-weight: 700;
+                    font-size: 1.05rem;
+                    color: var(--text-dark);
+                    margin-bottom: 14px;
+                }
+                .mcq-options {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 10px;
+                }
+                .mcq-btn {
+                    text-align: left;
+                    background: #f8fafc;
+                    border: 1px solid #cbd5e1;
+                    border-radius: 8px;
+                    padding: 11px 16px;
+                    font-family: inherit;
+                    font-size: 0.96rem;
+                    color: #1e293b;
+                    cursor: pointer;
+                    transition: all 0.15s ease;
+                }
+                .mcq-btn:hover:not(:disabled) {
+                    background: #f0fdfa;
+                    border-color: var(--primary-light);
+                }
+                .mcq-btn.correct {
+                    background: #d1fae5 !important;
+                    border-color: #10b981 !important;
+                    color: #065f46 !important;
+                    font-weight: 700;
+                }
+                .mcq-btn.wrong {
+                    background: #fee2e2 !important;
+                    border-color: #ef4444 !important;
+                    color: #991b1b !important;
+                }
+                .mcq-exp {
+                    display: none;
+                    margin-top: 14px;
+                    padding: 14px 18px;
+                    background: #fef3c7;
+                    border-left: 4px solid var(--accent);
+                    border-radius: 6px;
+                    font-size: 0.93rem;
+                    color: #78350f;
+                }
+                @media print {
+                    .mcq-exp { display: block !important; }
+                }
+            </style>
+
+            <div id="quiz-container">
+                <!-- Q1 -->
+                <div class="mcq-card" data-ans="2">
+                    <div class="mcq-q">प्रश्न 1. एक शिशु पहले अपने सिर और धड़ पर नियंत्रण पाता है और बाद में पैरों से चलना सीखता है; वहीं दूसरी ओर वह किसी वस्तु को पकड़ने के लिए पहले पूरी बाँह का उपयोग करता है और बाद में उंगलियों का। विकास के ये दोनों क्रम क्रमशः क्या कहलाते हैं?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) अधोगामी (Proximodistal) एवं शीर्षगामी (Cephalocaudal)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) रेखीय (Linear) एवं वर्तुलाकार (Spiral)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) शीर्षगामी (Cephalocaudal) एवं अधोगामी (Proximodistal)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) विशिष्ट से सामान्य एवं सामान्य से विशिष्ट</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> सिर से पैर (Head to Toe) की ओर होने वाला विकास 'शीर्षगामी' (Cephalocaudal) कहलाता है, जबकि शरीर के केंद्र/मध्य से बाहर (बाँह से उंगलियों) की ओर होने वाला विकास 'अधोगामी/समीप-दूराभिमुख' (Proximodistal) कहलाता है।</div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="mcq-card" data-ans="1">
+                    <div class="mcq-q">प्रश्न 2. "किशोरावस्था बड़े संघर्ष, तनाव, आँधी और तूफान की अवस्था है" — यह विश्वप्रसिद्ध कथन किस मनोवैज्ञानिक का है तथा उनकी 1904 में प्रकाशित पुस्तक का नाम क्या है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) किलपैट्रिक — Child Development</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) जी. स्टेनली हॉल — Adolescence</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) एरिक एरिक्सन — Childhood and Society</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) जीन पियाजे — The Moral Judgment of the Child</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> किशोर मनोविज्ञान के जनक जी. स्टेनली हॉल ने 1904 में प्रकाशित अपनी पुस्तक <em>'Adolescence'</em> में किशोरावस्था को संघर्ष, तनाव और तूफान (Stress and Storm) का काल कहा है।</div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="mcq-card" data-ans="3">
+                    <div class="mcq-q">प्रश्न 3. कक्षा 7 में पढ़ने वाले 13 वर्षीय राहुल के लिए समाजीकरण की 'प्राथमिक संस्था' (Primary Agency) और 'द्वितीयक संस्था' (Secondary Agency) का सही युग्म कौन-सा है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) प्राथमिक: विद्यालय; द्वितीयक: परिवार</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) प्राथमिक: समवयस्क समूह (Peers); द्वितीयक: सोशल मीडिया</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) प्राथमिक: पुस्तकालय; द्वितीयक: माता-पिता</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) प्राथमिक: परिवार एवं माता-पिता; द्वितीयक: विद्यालय एवं मित्र-समूह</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> परिवार सदैव समाजीकरण की 'प्राथमिक संस्था' होता है, जबकि विद्यालय, मित्र-समूह (Peer Group), मीडिया और पड़ोस 'द्वितीयक/गौण संस्थाएँ' हैं।</div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="mcq-card" data-ans="1">
+                    <div class="mcq-q">प्रश्न 4. यूरी ब्रोनफेनब्रेनर के पारिस्थितिकी तंत्र सिद्धांत (Ecological Systems Theory) के अनुसार, एक बच्चे के माता-पिता और उसके कक्षा-शिक्षक के बीच होने वाली 'पैरेंट-टीचर मीटिंग' (PTM) किस मंडल का उदाहरण है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) लघुमंडल (Microsystem)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) मध्यमंडल (Mesosystem)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) बाह्यमंडल (Exosystem)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) घटकमंडल (Chronosystem)</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> परिवार और विद्यालय दोनों लघुमंडल (Microsystem) के हिस्से हैं, किंतु जब इन दोनों के बीच आपसी संवाद या अंतर्संबंध (जैसे PTM) होता है, तो वह 'मध्यमंडल' (Mesosystem) कहलाता है।</div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="mcq-card" data-ans="2">
+                    <div class="mcq-q">प्रश्न 5. छोटी बच्ची सना ने पहले चार पैरों वाले कुत्ते को देखा था। जब उसने पहली बार भूरे रंग के घोड़े को देखा, तो उसने कहा—"देखो, कितना बड़ा कुत्ता!" बाद में माँ के समझाने पर उसने अपनी जानकारी में सुधार किया कि घोड़ा कुत्ते से अलग होता है और वह हिनहिनाता है। जीन पियाजे के अनुसार सना द्वारा पुरानी जानकारी में किया गया यह 'संशोधन' क्या कहलाता है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) आत्मसात्करण / समावेशन (Assimilation)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) केंद्रीकरण (Centration)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) समायोजन / विशिष्टीकरण (Accommodation)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) वस्तु स्थायित्व (Object Permanence)</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> घोड़े को देखकर पहले 'बड़ा कुत्ता' कहना 'आत्मसात्करण' (Assimilation) था, किंतु नई जानकारी के आधार पर अपने पूर्व स्कीमा में संशोधन/बदलाव कर 'घोड़े' का नया स्कीमा बनाना 'समायोजन' (Accommodation) कहलाता है।</div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="mcq-card" data-ans="3">
+                    <div class="mcq-q">प्रश्न 6. जीन पियाजे के संज्ञानात्मक विकास सिद्धांत के अनुसार, कक्षा 6 से 8 (आयु 11 से 14 वर्ष) के विद्यार्थी किस अवस्था में होते हैं और उनकी प्रमुख विशेषता क्या है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) पूर्व-संक्रियात्मक अवस्था — जीववाद और अहं-केंद्रितता</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) संवेदी-गामक अवस्था — वस्तु स्थायित्व</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) मूर्त संक्रियात्मक अवस्था — केवल प्रत्यक्ष वस्तुओं का संरक्षण</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) औपचारिक संक्रियात्मक अवस्था — अमूर्त चिंतन एवं परिकल्पनात्मक-निगमनात्मक तर्क</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> 11 वर्ष से ऊपर के बालक 'औपचारिक/अमूर्त संक्रियात्मक अवस्था' (Formal Operational Stage) में होते हैं, जहाँ वे अमूर्त चिंतन (Abstract Thinking) और वैज्ञानिक रूप से परिकल्पनात्मक-निगमनात्मक तर्क (Hypothetico-Deductive Reasoning) कर सकते हैं।</div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="mcq-card" data-ans="1">
+                    <div class="mcq-q">प्रश्न 7. 5 वर्षीय राजू लकड़ी के ब्लॉक से घर बनाते समय स्वयं से जोर-जोर से बोलता है—"पहले यह नीला ब्लॉक नीचे लगाऊँगा, फिर इसके ऊपर लाल छत रखूँगा।" लेव वायगोत्स्की के अनुसार राजू का यह व्यवहार क्या दर्शाता है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) अहं-केंद्रित वाक् और संज्ञानात्मक अपरिपक्वता</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) निजी वाक् (Private Speech), जो उसके अपने कार्य और चिंतन को आत्म-नियंत्रित (Self-Regulate) करने में सहायता करता है</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) मनोवैज्ञानिक विकार या स्वलीनता (Autism)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) शिक्षक का ध्यान आकर्षित करने की कोशिश</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> वायगोत्स्की ने बच्चे द्वारा स्वयं से बात करने को 'निजी वाक्' (Private Speech) कहा है, जिसके माध्यम से बच्चा अपने व्यवहार व सोच को निर्देशित (Self-Regulation) करता है। (जबकि पियाजे ने इसे 'अहं-केंद्रित वाक्' कहा था)।</div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="mcq-card" data-ans="0">
+                    <div class="mcq-q">प्रश्न 8. गणित की शिक्षिका बुलबुल मैडम देखती हैं कि एक छात्रा भिन्न (Fraction) का सवाल हल करते समय बीच में अटक गई है। मैडम उसे पूरा उत्तर बताने के बजाय एक छोटा-सा संकेत (Hint) और पूर्व-उदाहरण देती हैं, जिससे छात्रा स्वयं सवाल हल कर लेती है। वायगोत्स्की के अनुसार शिक्षिका द्वारा दी गई यह अस्थायी सहायता क्या है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) पाड़ / ढाँचा निर्माण (Scaffolding)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) अनुकूलन (Adaptation)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) शास्त्रीय अनुबंधन (Classical Conditioning)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) नकारात्मक पुनर्बलन (Negative Reinforcement)</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> समीपस्थ विकास के क्षेत्र (ZPD) के भीतर किसी अधिक जानकार व्यक्ति (MKO) द्वारा समस्या समाधान के दौरान दी जाने वाली अस्थायी सहायता या संकेत को 'पाड़' या 'मचान' (Scaffolding) कहते हैं।</div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="mcq-card" data-ans="1">
+                    <div class="mcq-q">प्रश्न 9. रांची के एक स्कूल में दीपक अपनी टिफिन का समोसा अपने मित्र को देते हुए कहता है—"मैं आज तुम्हें अपना समोसा इसलिए दे रहा हूँ ताकि कल तुम मुझे अपनी नई साइकिल चलाने दो।" लॉरेंस कोहलबर्ग के नैतिक विकास के अनुसार दीपक किस चरण में है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) आज्ञापालन एवं दंड अभिविन्यास (चरण 1)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) साधनात्मक सापेक्षता / व्यक्तिगत विनिमय अभिविन्यास (चरण 2 — 'जैसे को तैसा')</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) 'अच्छा लड़का - अच्छी लड़की' अभिविन्यास (चरण 3)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) कानून एवं व्यवस्था अभिविन्यास (चरण 4)</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> जब नैतिक व्यवहार के पीछे परस्पर लेन-देन, स्वार्थ या 'जैसे को तैसा' (Tit-for-Tat / Individualism and Exchange) की भावना हो, तो वह कोहलबर्ग के पूर्व-परंपरागत स्तर का 'दूसरा चरण' होता है।</div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="mcq-card" data-ans="2">
+                    <div class="mcq-q">प्रश्न 10. कैरोल गिलिगन (Carol Gilligan) ने लॉरेंस कोहलबर्ग के नैतिक विकास सिद्धांत की आलोचना किस मुख्य आधार पर की है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) कोहलबर्ग ने नैतिक विकास को आनुवंशिक मान लिया था।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) कोहलबर्ग ने बच्चों पर प्रयोग करने के बजाय पशुओं पर प्रयोग किया।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) कोहलबर्ग का सिद्धांत लैंगिक पूर्वाग्रह (Gender Bias) से ग्रस्त है क्योंकि इसमें महिलाओं की 'देखभाल और संबंधों की नैतिकता' (Ethics of Care) की उपेक्षा की गई है।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) कोहलबर्ग ने नैतिक विकास के बहुत अधिक चरण बता दिए।</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> कैरोल गिलिगन ने अपनी पुस्तक <em>'In a Different Voice' (1982)</em> में बताया कि कोहलबर्ग ने केवल पुरुषों के नमूने पर शोध किया और पुरुषों की 'न्याय की नैतिकता' को महिलाओं की 'देखभाल की नैतिकता' (Ethics of Care) से श्रेष्ठ मान लिया।</div>
+                </div>
+
+                <!-- Q11 -->
+                <div class="mcq-card" data-ans="2">
+                    <div class="mcq-q">प्रश्न 11. एरिक एरिक्सन के मनोसामाजिक विकास सिद्धांत के अनुसार, 12 से 18 वर्ष के किशोरों के सामने मुख्य मनोसामाजिक संकट (Crisis) कौन-सा होता है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) विश्वास बनाम अविश्वास (Trust vs Mistrust)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) पहल बनाम अपराध-बोध (Initiative vs Guilt)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) पहचान बनाम भूमिका संभ्रांति (Identity vs Role Confusion)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) अहं-संपूर्णता बनाम निराशा (Ego Integrity vs Despair)</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> एरिक्सन के 5वें चरण (किशोरावस्था: 12–18 वर्ष) में बालक अपनी स्वतंत्र सामाजिक व व्यावसायिक पहचान खोजता है, जिसे 'पहचान बनाम भूमिका संभ्रांति' (Identity Crisis) कहा जाता है।</div>
+                </div>
+
+                <!-- Q12 -->
+                <div class="mcq-card" data-ans="3">
+                    <div class="mcq-q">प्रश्न 12. एनसीईआरटी (NCERT) की पाठ्यपुस्तकों में कक्षा 6 में 'भोजन और पोषण' को सरल रूप में पढ़ाया जाता है, और फिर कक्षा 7 व 8 में उसी विषय को पाचन तंत्र और कोशिकीय श्वसन के साथ जोड़कर अधिक गहराई व जटिलता से पढ़ाया जाता है। जेरोम ब्रूनर के अनुसार यह किस प्रकार की पाठ्यचर्या है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) कठोर पाठ्यचर्या (Rigid Curriculum)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) रेखीय पाठ्यचर्या (Linear Curriculum)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) प्रच्छन्न पाठ्यचर्या (Hidden Curriculum)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) सर्पिल पाठ्यचर्या (Spiral Curriculum)</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> ब्रूनर की 'सर्पिल पाठ्यचर्या' (Spiral Curriculum) में मूल अवधारणा को अगली कक्षाओं में बार-बार दोहराते हुए उसके कठिनाई के स्तर को कुंडली (Spiral) की तरह ऊपर उठाया जाता है।</div>
+                </div>
+
+                <!-- Q13 -->
+                <div class="mcq-card" data-ans="1">
+                    <div class="mcq-q">प्रश्न 13. यदि 10 वर्ष के वास्तविक आयु (CA) वाले एक बालक की मानसिक आयु (MA) 12 वर्ष है, तो टर्मन के सूत्र के अनुसार उसकी बुद्धिलब्धि (IQ) क्या होगी?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) 100</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) 120</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) 83.3</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) 140</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> सूत्र: $IQ = (MA \div CA) \times 100$। यहाँ $MA = 12$ और $CA = 10$ है। अतः $IQ = (12 \div 10) \times 100 = 120$ (अतिश्रेष्ठ बुद्धि)।</div>
+                </div>
+
+                <!-- Q14 -->
+                <div class="mcq-card" data-ans="0">
+                    <div class="mcq-q">प्रश्न 14. हावर्ड गार्डनर के बहु-बुद्धि सिद्धांत के अनुसार, एक सफल शिक्षक, मनोचिकित्सक (Counselor) और राजनेता—जो दूसरे व्यक्तियों के मनोभावों, इच्छाओं और व्यवहार को तुरंत समझ लेते हैं—उनमें किस प्रकार की बुद्धि उच्च मात्रा में होती है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) अंतर्वैयक्तिक बुद्धि (Interpersonal Intelligence)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) अंतरावैयक्तिक बुद्धि (Intrapersonal Intelligence)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) स्थानिक बुद्धि (Spatial Intelligence)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) शारीरिक-गतिक बुद्धि (Bodily-Kinesthetic Intelligence)</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> दूसरों के मन व भावनाओं को समझने की क्षमता 'अंतर्वैयक्तिक बुद्धि' (Interpersonal) कहलाती है, जबकि स्वयं के भीतर झाँकने (आत्म-चिंतन) की क्षमता 'अंतरावैयक्तिक बुद्धि' (Intrapersonal) कहलाती है।</div>
+                </div>
+
+                <!-- Q15 -->
+                <div class="mcq-card" data-ans="2">
+                    <div class="mcq-q">प्रश्न 15. भाषा विज्ञान के संदर्भ में वाक्य—"मोहन ने चाय को खाया" या "फूल ने माली को तोड़ा"—के बारे में कौन-सा कथन सत्य है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) यह वाक्य-विन्यास (Syntax) और अर्थ-विन्यास (Semantics) दोनों की दृष्टि से सही है।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) यह अर्थ-विन्यास की दृष्टि से सही है, पर वाक्य-विन्यास की दृष्टि से गलत है।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) यह वाक्य-विन्यास (Syntax) की दृष्टि से सही है, किंतु अर्थ-विन्यास (Semantics) की दृष्टि से गलत है।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) इसमें स्वनिम (Phoneme) का प्रयोग नहीं हुआ है।</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> इस वाक्य में कर्ता + कर्म + क्रिया का व्याकरणिक क्रम (Syntax) बिल्कुल सही है, किंतु तार्किक अर्थ (Semantics) गलत है क्योंकि चाय 'पी' जाती है, खाई नहीं जाती।</div>
+                </div>
+
+                <!-- Q16 -->
+                <div class="mcq-card" data-ans="1">
+                    <div class="mcq-q">प्रश्न 16. झारखंड के दुमका जिले के एक विद्यालय में संथाली मातृभाषा बोलने वाला छात्र कक्षा 6 में प्रवेश लेता है। समावेशी शिक्षा और NEP 2020 के अनुसार शिक्षक को क्या करना चाहिए?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) छात्र को स्कूल में संथाली बोलने पर तुरंत रोक लगानी चाहिए ताकि वह जल्दी हिंदी सीख सके।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) उसकी मातृभाषा (संथाली) का सम्मान करते हुए उसे कक्षा में एक 'संसाधन' और 'पुल' के रूप में प्रयोग करना चाहिए।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) उसे जनजातीय बच्चों के एक अलग सेक्शन में बैठाना चाहिए।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) उसके माता-पिता से कहना चाहिए कि घर पर भी केवल मानक हिंदी ही बोलें।</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> NCF 2005 और NEP 2020 के अनुसार बहुभाषिकता (Multilingualism) कोई बाधा नहीं, बल्कि एक मूल्यवान संसाधन (Asset) है।</div>
+                </div>
+
+                <!-- Q17 -->
+                <div class="mcq-card" data-ans="0">
+                    <div class="mcq-q">प्रश्न 17. कक्षा 6 का एक विद्यार्थी पढ़ते समय बार-बार अटकता है, 'd' को 'b', 'saw' को 'was' और 'कलम' को 'कमल' पढ़ता है। वह किस अधिगम अक्षमता (Learning Disability) से प्रभावित है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) डिस्लेक्सिया (Dyslexia)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) डिसकैलकुलिया (Dyscalculia)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) डिस्प्रेक्सिया (Dyspraxia)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) डिसमॉर्फिया (Dysmorphia)</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> पठन और अक्षरों की ध्वनि-पहचान से संबंधित विकार को 'डिस्लेक्सिया' (Dyslexia) कहा जाता है।</div>
+                </div>
+
+                <!-- Q18 -->
+                <div class="mcq-card" data-ans="2">
+                    <div class="mcq-q">प्रश्न 18. जे.पी. गिलफोर्ड के अनुसार, जब एक शिक्षक बच्चों से पूछता है—"यदि पृथ्वी से सभी जंगल और पेड़ समाप्त हो जाएँ, तो हमारे जीवन पर क्या-क्या प्रभाव पड़ेगा?"—तो यह प्रश्न किस चिंतन को बढ़ावा देता है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) अभिसारी चिंतन (Convergent Thinking) एवं रटंत स्मृति</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) बंद-अंत वाला चिंतन (Close-ended Thinking)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) अपसारी चिंतन (Divergent Thinking) एवं सृजनात्मकता (Creativity)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) केवल तथ्यात्मक स्मरण</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> यह एक मुक्त-अंत वाला प्रश्न (Open-ended Question) है जिसके अनेक संभावित मौलिक उत्तर हो सकते हैं; यह सीधे तौर पर 'अपसारी चिंतन' और 'सृजनात्मकता' को बढ़ाता है।</div>
+                </div>
+
+                <!-- Q19 -->
+                <div class="mcq-card" data-ans="3">
+                    <div class="mcq-q">प्रश्न 19. शिक्षा का अधिकार अधिनियम (RTE Act, 2009) के अनुसार उच्च प्राथमिक स्तर (कक्षा 6 से 8) के लिए निर्धारित मानकों के विषय में कौन-सा विकल्प पूर्णतः सही है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) छात्र-शिक्षक अनुपात 30:1 तथा न्यूनतम 200 कार्य दिवस</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) छात्र-शिक्षक अनुपात 40:1 तथा न्यूनतम 800 शिक्षण घंटे</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) दिव्यांग बच्चों के लिए निःशुल्क शिक्षा की आयु 6 से 14 वर्ष</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) छात्र-शिक्षक अनुपात 35:1, न्यूनतम 220 कार्य दिवस (1000 शिक्षण घंटे) एवं शिक्षक के लिए 45 कार्य घंटे प्रति सप्ताह</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> RTE 2009 के अनुसार कक्षा 6–8 (Level-2) के लिए छात्र-शिक्षक अनुपात 35:1, शैक्षणिक वर्ष में न्यूनतम 220 कार्य दिवस या 1000 शिक्षण घंटे, और प्रति सप्ताह शिक्षक के लिए तैयारी सहित 45 कार्य घंटे निर्धारित हैं।</div>
+                </div>
+
+                <!-- Q20 -->
+                <div class="mcq-card" data-ans="1">
+                    <div class="mcq-q">प्रश्न 20. राष्ट्रीय शिक्षा नीति (NEP 2020) द्वारा प्रस्तावित नए शैक्षणिक ढाँचे '$5+3+3+4$' में उच्च प्राथमिक स्तर (कक्षा 6 से 8) को किस नाम से जाना जाता है और इसकी आयु सीमा क्या है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) प्रिपरेटरी स्टेज (Preparatory Stage) — आयु 8 से 11 वर्ष</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) मिडिल स्टेज (Middle Stage) — आयु 11 से 14 वर्ष</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) फाउंडेशनल स्टेज (Foundational Stage) — आयु 3 से 8 वर्ष</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) सेकेंडरी स्टेज (Secondary Stage) — आयु 14 से 18 वर्ष</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> NEP 2020 में कक्षा 6 से 8 (3 वर्ष) को 'मिडिल स्टेज' (Middle Stage) कहा गया है, जिसकी आयु सीमा 11 से 14 वर्ष है। यहीं से व्यावसायिक शिक्षा व कोडिंग की शुरुआत होती है।</div>
+                </div>
+
+                <!-- Q21 -->
+                <div class="mcq-card" data-ans="0">
+                    <div class="mcq-q">प्रश्न 21. एक शिक्षक कक्षा 7 में नया अध्याय शुरू करने से पहले कुछ रोचक पहेलियाँ और पूर्व-ज्ञान से जुड़े प्रश्न पूछकर बच्चों को मानसिक रूप से सीखने के लिए तैयार करता है। वह थार्नडाइक के सीखने के किस मुख्य नियम का पालन कर रहा है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) तत्परता का नियम (Law of Readiness)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) अभ्यास का नियम (Law of Exercise)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) प्रभाव का नियम (Law of Effect)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) आंशिक क्रिया का गौण नियम</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> थार्नडाइक के 'तत्परता के नियम' (Law of Readiness) के अनुसार जब बालक सीखने के लिए मानसिक रूप से तैयार (Ready) होता है, तब वह शीघ्र और आनंदपूर्वक सीखता है।</div>
+                </div>
+
+                <!-- Q22 -->
+                <div class="mcq-card" data-ans="2">
+                    <div class="mcq-q">प्रश्न 22. बी.एफ. स्किनर के क्रियाप्रसूत अनुबंधन (Operant Conditioning) के अनुसार, निम्नलिखित में से कौन-सा 'नकारात्मक पुनर्बलन' (Negative Reinforcement) का सही उदाहरण है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) छात्र द्वारा शोर मचाने पर शिक्षक द्वारा उसे छड़ी से मारना।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) गृहकार्य न करने पर छात्र का खेल का पीरियड बंद कर देना।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) पूरे सप्ताह समय पर कक्षा-कार्य पूरा करने वाले छात्रों को सप्ताहांत की अतिरिक्त असाइनमेंट (अप्रिय भार) से छूट दे देना ताकि वे आगे भी समय पर काम करें।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) परीक्षा में प्रथम आने पर छात्र को ट्रॉफी देना।</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> नकारात्मक पुनर्बलन 'दंड' नहीं होता! इसका उद्देश्य भी वांछित व्यवहार को 'बढ़ाना' होता है, जिसके लिए किसी अप्रिय या कष्टप्रद स्थिति (जैसे अतिरिक्त काम, ठंड या सिरदर्द) को हटा लिया जाता है।</div>
+                </div>
+
+                <!-- Q23 -->
+                <div class="mcq-card" data-ans="1">
+                    <div class="mcq-q">प्रश्न 23. गेस्टाल्टवादी मनोवैज्ञानिक वोल्फगैंग कोहलर के 'अंतर्दृष्टि या सूझ के सिद्धांत' (Insight Theory) पर आधारित शिक्षण सूत्र कौन-सा है, जो उच्च प्राथमिक स्तर पर समस्या-समाधान में प्रयुक्त होता है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) अंश से पूर्ण की ओर (Part to Whole)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) पूर्ण से अंश की ओर (Whole to Part)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) अमूर्त से मूर्त की ओर</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) कठिन से सरल की ओर</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> 'गेस्टाल्ट' का अर्थ ही 'समग्र या संपूर्ण आकृति' (Whole) है। सूझ के सिद्धांत में समस्या को पहले संपूर्ण रूप में देखा जाता है और फिर उसके अंशों को समझा जाता है (पूर्ण से अंश की ओर)।</div>
+                </div>
+
+                <!-- Q24 -->
+                <div class="mcq-card" data-ans="3">
+                    <div class="mcq-q">प्रश्न 24. अल्बर्ट बंडूरा के सामाजिक अधिगम सिद्धांत (Observational Learning) के अनुसार, किसी मॉडल के व्यवहार को देखकर सीखने के 4 चरणों का सही क्रम क्या है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) धारण $\rightarrow$ अवधान $\rightarrow$ अभिप्रेरणा $\rightarrow$ पुनरुत्पादन</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) अभिप्रेरणा $\rightarrow$ अवधान $\rightarrow$ धारण $\rightarrow$ पुनरुत्पादन</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) पुनरुत्पादन $\rightarrow$ ध्यान $\rightarrow$ स्मृति $\rightarrow$ पुनर्बलन</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) अवधान (Attention) $\rightarrow$ धारण (Retention) $\rightarrow$ पुनरुत्पादन (Reproduction) $\rightarrow$ अभिप्रेरणा (Motivation)</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> बंडूरा की मॉडलिंग प्रक्रिया के 4 क्रमिक सोपान हैं: 1. अवधान/ध्यान देना (Attention), 2. मस्तिष्क में धारण करना (Retention), 3. व्यवहार का पुनरुत्पादन करना (Reproduction), और 4. अभिप्रेरणा/पुनर्बलन (Motivation)।</div>
+                </div>
+
+                <!-- Q25 -->
+                <div class="mcq-card" data-ans="0">
+                    <div class="mcq-q">प्रश्न 25. एक छात्र ने कक्षा 6 में गणित में 'प्रतिशत और अनुपात' निकालना सीखा था। अब वह उस ज्ञान का उपयोग कक्षा 6 के ही भूगोल विषय में जनसंख्या के आँकड़ों को समझने में आसानी से कर रहा है। यह अधिगम के किस प्रकार के अंतरण (Transfer of Learning) का उदाहरण है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) धनात्मक एवं क्षैतिज अंतरण (Positive & Horizontal Transfer)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) ऋणात्मक अंतरण (Negative Transfer)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) शून्य अंतरण (Zero Transfer)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) द्विपार्श्विक अंतरण (Bilateral Transfer)</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> चूँकि पूर्व ज्ञान नए ज्ञान में 'सहायक' हो रहा है इसलिए यह धनात्मक अंतरण है, और चूँकि उसी स्तर (कक्षा 6) के एक विषय का ज्ञान दूसरे विषय में काम आ रहा है, इसलिए यह 'क्षैतिज अंतरण' (Horizontal Transfer) भी है।</div>
+                </div>
+
+                <!-- Q26 -->
+                <div class="mcq-card" data-ans="2">
+                    <div class="mcq-q">प्रश्न 26. जब किसी कौशल को सीखते समय अभ्यास करने के बावजूद कुछ समय के लिए सीखने की गति और प्रगति बिल्कुल रुक जाती है तथा अधिगम वक्र ऊपर बढ़ने के बजाय समतल (Flat) हो जाता है, तो इसे क्या कहते हैं?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) नतोदर अधिगम वक्र</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) अधिगम अक्षमता</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) अधिगम का पठार (Learning Plateau)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) विलोपन (Extinction)</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> थकान, रुचि की कमी या गलत शिक्षण विधि के कारण जब सीखने की प्रगति अस्थायी रूप से रुक जाती है और ग्राफ सपाट (Flat) हो जाता है, तो उसे 'अधिगम पठार' (Learning Plateau) कहते हैं।</div>
+                </div>
+
+                <!-- Q27 -->
+                <div class="mcq-card" data-ans="1">
+                    <div class="mcq-q">प्रश्न 27. निम्नलिखित में से कौन-सा उदाहरण 'आंतरिक अभिप्रेरणा' (Intrinsic Motivation) को सर्वोत्तम रूप से दर्शाता है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) रितु इसलिए गणित के सवाल हल कर रही है ताकि पिताजी उसे स्मार्टवॉच दिलाएँ।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) अमन अपनी जिज्ञासा शांत करने और आनंद के लिए खाली समय में सौरमंडल पर पुस्तक पढ़ रहा है व उसका मॉडल बना रहा है।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) सुमित शिक्षक की डांट और सजा से बचने के लिए गृहकार्य पूरा कर रहा है।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) प्रिया वार्षिक परीक्षा में स्कूल टॉपर की ट्रॉफी जीतने के लिए रात भर रट रही है।</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> जब कोई कार्य बाहरी इनाम या दंड के डर से नहीं, बल्कि स्वयं की रुचि, जिज्ञासा और आत्म-संतुष्टि (Self-Satisfaction) के लिए किया जाता है, तो वह 'आंतरिक अभिप्रेरणा' कहलाती है।</div>
+                </div>
+
+                <!-- Q28 -->
+                <div class="mcq-card" data-ans="3">
+                    <div class="mcq-q">प्रश्न 28. अब्राहम मास्लो के आवश्यकता पदानुक्रम सिद्धांत (Hierarchy of Needs) के अनुसार, विद्यालयों में चलाई जाने वाली 'मध्याह्न भोजन योजना' (PM Poshan / Mid-Day Meal) बच्चों की किस स्तर की आवश्यकता को पूरा करती है, और इस पिरामिड का सर्वोच्च शिखर कौन-सा है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) सुरक्षा की आवश्यकता; सर्वोच्च शिखर: आत्म-सम्मान</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) प्रेम एवं संबद्धता की आवश्यकता; सर्वोच्च शिखर: शारीरिक आवश्यकता</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) आत्म-सम्मान की आवश्यकता; सर्वोच्च शिखर: सुरक्षा</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) शारीरिक / दैहिक आवश्यकता (प्रथम स्तर); सर्वोच्च शिखर: आत्म-सिद्धि (Self-Actualization)</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> भोजन व पानी सबसे निचले यानी पहले स्तर की 'शारीरिक/दैहिक आवश्यकता' (Physiological Need) है, और मास्लो के पिरामिड का 5वाँ व सर्वोच्च स्तर 'आत्म-सिद्धि' (Self-Actualization) है।</div>
+                </div>
+
+                <!-- Q29 -->
+                <div class="mcq-card" data-ans="0">
+                    <div class="mcq-q">प्रश्न 29. एक विज्ञान शिक्षक पाठ पढ़ाते समय बीच-बीच में छात्रों से मौखिक प्रश्न पूछता है ताकि वह उनकी सीखने की कठिनाइयों का निदान (Diagnosis) कर सके और अपनी शिक्षण विधि में तुरंत सुधार (Remedial Teaching) कर सके। यह किस प्रकार का आकलन है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) अधिगम के लिए आकलन (Assessment FOR Learning / रचनात्मक आकलन)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) अधिगम का आकलन (Assessment OF Learning / योगात्मक आकलन)</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) मानकीकृत बोर्ड मूल्यांकन</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) केवल ग्रेड देने वाला आकलन</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> शिक्षण-अधिगम प्रक्रिया के दौरान सुधार और निदान के उद्देश्य से किया जाने वाला आकलन 'अधिगम के लिए आकलन' (Assessment FOR Learning / Formative Assessment) कहलाता है।</div>
+                </div>
+
+                <!-- Q30 -->
+                <div class="mcq-card" data-ans="2">
+                    <div class="mcq-q">प्रश्न 30. संज्ञान और संवेग (Cognition and Emotion) तथा बच्चों द्वारा कक्षा में की जाने वाली त्रुटियों (Errors) के संदर्भ में आधुनिक शिक्षणशास्त्र का सही दृष्टिकोण कौन-सा है?</div>
+                    <div class="mcq-options">
+                        <button class="mcq-btn" onclick="checkAns(this, 0)">(A) संज्ञान और संवेग एक-दूसरे से बिल्कुल अलग हैं और त्रुटियाँ बच्चों की मूर्खता दर्शाती हैं।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 1)">(B) संवेग केवल बाधा डालते हैं और त्रुटियों को कठोर दंड देकर तुरंत मिटा देना चाहिए।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 2)">(C) संज्ञान और संवेग आपस में गुँथे हुए (Interwoven) हैं तथा बच्चों की त्रुटियाँ उनके 'चिंतन की प्रक्रिया में अंतर्दृष्टि' (Windows into thinking) देती हैं।</button>
+                        <button class="mcq-btn" onclick="checkAns(this, 3)">(D) बच्चों की त्रुटियों पर शिक्षक को बिल्कुल ध्यान नहीं देना चाहिए।</button>
+                    </div>
+                    <div class="mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> संज्ञान (दिमाग) और संवेग (भावनाएँ) एक-दूसरे से घनिष्ठ रूप से जुड़े और अंतर्संबंधित हैं; साथ ही बच्चों की गलतियाँ सीखने का अभिन्न हिस्सा हैं जो शिक्षक को यह समझाती हैं कि बच्चा कैसे सोच रहा है।</div>
+                </div>
+            </div>
+
+            <!-- Interactive Quiz Script -->
+            <script>
+                // Reading progress bar + back-to-top visibility
+                window.addEventListener('scroll', function() {
+                    var h = document.documentElement;
+                    var pct = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+                    document.getElementById('read-progress').style.width = pct + '%';
+                    document.getElementById('toTop').style.display = h.scrollTop > 600 ? 'block' : 'none';
+                }, { passive: true });
+                let attempted = 0;
+                let correct = 0;
+
+                function checkAns(btn, selectedIndex) {
+                    const card = btn.closest('.mcq-card');
+                    const correctAns = parseInt(card.getAttribute('data-ans'));
+                    const allBtns = card.querySelectorAll('.mcq-btn');
+                    const expBox = card.querySelector('.mcq-exp');
+
+                    // Disable all buttons in this question card after one click
+                    allBtns.forEach(b => b.disabled = true);
+
+                    attempted++;
+                    if (selectedIndex === correctAns) {
+                        btn.classList.add('correct');
+                        correct++;
+                    } else {
+                        btn.classList.add('wrong');
+                        allBtns[correctAns].classList.add('correct');
+                    }
+
+                    expBox.style.display = 'block';
+                    updateScoreboard();
+                }
+
+                function updateScoreboard() {
+                    document.getElementById('attempted-count').innerText = attempted;
+                    document.getElementById('correct-count').innerText = correct;
+                }
+
+                function showAllAnswers() {
+                    const cards = document.querySelectorAll('.mcq-card');
+                    cards.forEach(card => {
+                        const correctAns = parseInt(card.getAttribute('data-ans'));
+                        const allBtns = card.querySelectorAll('.mcq-btn');
+                        const expBox = card.querySelector('.mcq-exp');
+                        allBtns[correctAns].classList.add('correct');
+                        expBox.style.display = 'block';
+                    });
+                }
+
+                function resetQuiz() {
+                    attempted = 0;
+                    correct = 0;
+                    updateScoreboard();
+                    const cards = document.querySelectorAll('.mcq-card');
+                    cards.forEach(card => {
+                        const allBtns = card.querySelectorAll('.mcq-btn');
+                        const expBox = card.querySelector('.mcq-exp');
+                        allBtns.forEach(b => {
+                            b.disabled = false;
+                            b.classList.remove('correct', 'wrong');
+                        });
+                        expBox.style.display = 'none';
+                    });
+                }
+            </script>
+        </div>
+        <!-- ==================== END OF UNIT 4 ==================== -->
+
+
+
+        <!-- संदर्भ ग्रंथ सूची -->
+        <div class="readings-box">
+            <h3>📖 अनुशंसित प्रामाणिक संदर्भ ग्रंथ (Suggested Readings for JHTET CDP)</h3>
+            <ul>
+                <li>NCERT कक्षा 11 एवं 12: <em>मनोविज्ञान (Psychology - NCERT Text Books)</em></li>
+                <li>प्रो. पी.डी. पाठक: <em>शिक्षा मनोविज्ञान (Educational Psychology)</em></li>
+                <li>अरुण कुमार सिंह: <em>उच्चतर सामान्य मनोविज्ञान एवं शिक्षा मनोविज्ञान</em></li>
+                <li>राष्ट्रीय पाठ्यचर्या की रूपरेखा (NCF 2005) एवं राष्ट्रीय शिक्षा नीति (NEP 2020) आधिकारिक दस्तावेज़</li>
+            </ul>
+        </div>
+    </div>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
+</html>
