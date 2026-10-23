@@ -1,0 +1,2249 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JHTET 2026 Level-2: भाषा-2 जनजातीय भाषा संताली (30 अंक) | मास्टर अध्ययन पोर्टल</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f766e;          /* गहरा टील/एमराल्ड */
+            --primary-dark: #115e59;
+            --primary-light: #14b8a6;
+            --accent: #d97706;           /* स्वर्णिम एम्बर */
+            --bg-main: #f0fdfa;
+            --surface: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border: #cbd5e1;
+            --card-bg: #f8fafc;
+            --highlight: #fef3c7;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.85;
+            margin: 0;
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 12px 30px -5px rgba(15, 118, 110, 0.1), 0 8px 12px -6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #99f6e4;
+        }
+
+        header {
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 24px;
+            margin-bottom: 34px;
+            text-align: center;
+        }
+
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ccfbf1;
+            color: var(--primary-dark);
+            padding: 5px 15px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            border: 1px solid #5eead4;
+        }
+
+        .badge-amber {
+            background: #fef3c7;
+            color: #92400e;
+            border-color: #fde68a;
+        }
+
+        h1 {
+            color: var(--primary-dark);
+            font-size: 2.15rem;
+            margin: 0 0 10px 0;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .top-Fact-bar {
+            background: linear-gradient(90deg, #0f766e, #047857);
+            color: #ffffff;
+            padding: 14px 22px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 0.92rem;
+        }
+
+        .print-btn {
+            background: #fbbf24;
+            color: #0f172a;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .print-btn:hover {
+            background: #f59e0b;
+            transform: translateY(-1px);
+        }
+
+        /* मास्टर इंडेक्स स्टाइलिंग */
+        .index-container {
+            background: #ffffff;
+            border: 2px solid #99f6e4;
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 44px;
+            box-shadow: 0 4px 12px rgba(15, 118, 110, 0.06);
+        }
+
+        .index-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #ccfbf1;
+            padding-bottom: 12px;
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .index-title {
+            color: var(--primary-dark);
+            font-size: 1.45rem;
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .unit-index-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 6px solid var(--primary);
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin-bottom: 18px;
+            transition: all 0.2s ease;
+        }
+
+        .unit-index-card:hover {
+            background: #f0fdfa;
+            border-color: var(--primary-light);
+            transform: translateX(4px);
+        }
+
+        .unit-index-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .unit-index-header a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-size: 1.18rem;
+            font-weight: 800;
+        }
+
+        .unit-index-header a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .marks-pill {
+            background: var(--primary-dark);
+            color: #ffffff;
+            padding: 3px 12px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .subtopic-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 6px 18px;
+            margin: 0;
+            padding-left: 20px;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        /* कंटेंट एरिया स्टाइल्स (आगामी यूनिट्स के लिए) */
+        .unit-section {
+            margin-bottom: 54px;
+            border-bottom: 2px dashed var(--border);
+            padding-bottom: 42px;
+        }
+
+        h2 {
+            color: var(--primary-dark);
+            font-size: 1.6rem;
+            border-left: 6px solid var(--accent);
+            padding-left: 14px;
+            margin-top: 38px;
+            margin-bottom: 18px;
+            font-weight: 800;
+        }
+
+        h3 {
+            color: #1e293b;
+            font-size: 1.28rem;
+            margin-top: 26px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 6px;
+        }
+
+        h4 {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        p {
+            margin: 12px 0;
+            color: #1e293b;
+            text-align: justify;
+        }
+
+        ul, ol {
+            padding-left: 26px;
+            margin: 12px 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .note-card {
+            background: #f0fdfa;
+            border-left: 5px solid var(--primary);
+            padding: 18px 22px;
+            margin: 22px 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.98rem;
+            border-top: 1px solid #99f6e4;
+            border-bottom: 1px solid #99f6e4;
+            border-right: 1px solid #99f6e4;
+        }
+
+        .highlight-box {
+            background: var(--highlight);
+            border: 1px solid #fde68a;
+            border-left: 5px solid var(--accent);
+            padding: 18px 22px;
+            border-radius: 10px;
+            margin: 22px 0;
+            font-size: 0.96rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.94rem;
+        }
+
+        th {
+            background: #ccfbf1;
+            color: var(--primary-dark);
+            text-align: left;
+            padding: 12px;
+            border: 1px solid #99f6e4;
+            font-weight: 800;
+        }
+
+        td {
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .readings-box {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 50px;
+            border: 1px solid var(--border);
+        }
+
+        .readings-box h3 {
+            margin-top: 0;
+            color: var(--primary-dark);
+            border: none;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; border: none; max-width: 100%; padding: 10px; }
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 20px 16px; }
+            h1 { font-size: 1.65rem; }
+            .subtopic-list { grid-template-columns: 1fr; }
+        }
+    
+        /* ===== Master Index: clickable topics ===== */
+        .subtopic-list li { transition: background .15s ease; border-radius: 6px; }
+        .subtopic-list li:hover { background: #f0fdfa; }
+        .subtopic-list li a.idx-link { color: inherit; text-decoration: none; display: block; padding: 2px 6px; margin-left: -6px; }
+        .subtopic-list li a.idx-link:hover { color: var(--primary-dark); font-weight: 600; }
+        h3[id^="sec-"] { scroll-margin-top: 18px; }
+    
+        /* ===== Floating: wapas suchi par jayein ===== */
+        #toIndex { position: fixed; bottom: 24px; right: 24px; width: 54px; height: 54px; border-radius: 50%;
+            background: #0f766e; color: #fff; border: 2px solid #ffffff; font-size: 1.5rem; line-height: 1;
+            cursor: pointer; box-shadow: 0 6px 18px rgba(0,0,0,.28); display: none; z-index: 100;
+            transition: transform .15s ease, background .15s ease; }
+        #toIndex:hover { transform: scale(1.12); background: #115e59; }
+        #toIndex:active { transform: scale(1.0); }
+        @media (max-width: 640px) { #toIndex { bottom: 16px; right: 16px; width: 48px; height: 48px; font-size: 1.3rem; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="badge-group">
+                <span class="badge">JAC JHTET 2026 | नया आधिकारिक सिलेबस (14.03.2026)</span>
+                <span class="badge badge-amber">अभ्यर्थी: बुलबुल कुमारी (ST)</span>
+                <span class="badge">उच्च प्राथमिक स्तर (कक्षा 6 से 8): 30 प्रश्न = 30 अंक</span>
+            </div>
+            <h1>🏹 भाषा-2 (जनजातीय भाषा): संताली (Santhali - ᱦᱚᱲ रोड़)</h1>
+            <p class="subtitle">परीक्षा-प्रयुक्त लिपि: देवनागरी | संपूर्ण भाषा-विज्ञान, व्याकरण, शब्द-संपदा, लोक/शिष्ट साहित्य एवं शिक्षणशास्त्र इनसाइक्लोपीडिया</p>
+        </header>
+
+        <!-- टॉप एक्शन बार -->
+        <div class="top-Fact-bar no-print">
+            <div>
+                <strong>🎯 लक्ष्य:</strong> संताली में 30 में से 28+ अंक | <strong>सिलेबस आधार:</strong> JAC JHTET 2026 (पृष्ठ सं. 7 — सभी 11 बिंदु)
+            </div>
+            <button onclick="window.print()" class="print-btn">🖨️ PDF सेव / प्रिंट करें</button>
+        </div>
+
+        <!-- ==================== मास्टर इंडेक्स (MASTER INDEX) ==================== -->
+        <div class="index-container" id="top-index">
+            <div class="index-header">
+                <h2 class="index-title" style="border:none; padding:0; margin:0;">📚 मास्टर विषय-सूची (Master Index — JAC 2026 Santhali Syllabus)</h2>
+                <span style="font-size: 0.9rem; color: var(--primary-dark); font-weight: 700;">कुल 4 इकाइयाँ (11 पाठ्यक्रम बिंदु | 30 अंक)</span>
+            </div>
+
+            <!-- Unit 1 Index -->
+            <div class="unit-index-card">
+                <div class="unit-index-header">
+                    <a href="#unit1">इकाई 1 (Unit 1): संताली भाषा परिचय, भाषा-विज्ञान, देवनागरी वर्तनी एवं व्यवहारिक शब्द-संपदा</a>
+                    <span class="marks-pill">पाठ्यक्रम बिंदु 1, 2, 4 व 9 | ~8 अंक</span>
+                </div>
+                <ul class="subtopic-list">
+                    <li><a class="idx-link" href="#sec-1">1.1 संताली भाषा का उद्भव, विकास, नामकरण (होड़ रोड़) एवं 92वाँ संविधान संशोधन (2003 - 8वीं अनुसूची)</a></li>
+                    <li><a class="idx-link" href="#sec-2">1.2 भाषा-परिवार (ऑस्ट्रो-एशियाटिक / मुंडा शाखा), भाषिक क्षेत्र एवं संताल समुदाय संबंध (12 गोत्र / पारिस)</a></li>
+                    <li><a class="idx-link" href="#sec-3">1.3 देवनागरी आधारित उत्तर-प्रस्तुति, वर्तनी-सावधानी एवं ओलचिकी लिपि (पं. रघुनाथ मुर्मू - 1925) का परिचय</a></li>
+                    <li><a class="idx-link" href="#sec-4">1.4 सामान्य व संताली भाषा-विज्ञान: स्वनिम, अवरुद्ध व्यंजन (Checked Consonants: क्, च्, त्, प्) एवं तुलनात्मक दृष्टि</a></li>
+                    <li><a class="idx-link" href="#sec-5">1.5 व्यवहारिक शब्द-संपदा (भाग-1): परिवार, रिश्तेदारी, शरीर के अंग, घर-गृहस्थी व आजीविका</a></li>
+                    <li><a class="idx-link" href="#sec-6">1.6 व्यवहारिक शब्द-संपदा (भाग-2): प्रकृति, कृषि, पशु-पक्षी, संख्या (मित् से इसि), रंग एवं दैनिक क्रियाएँ</a></li>
+                    <li><a class="idx-link" href="#sec-7">1.7 पर्यायवाची (समानार्थक), विलोम (उल्टा शब्द), मुहावरे, लोकोक्तियाँ (काहनी/भेन्ता) एवं पहेलियाँ (कुदूम)</a></li>
+                </ul>
+            </div>
+
+            <!-- Unit 2 Index -->
+            <div class="unit-index-card">
+                <div class="unit-index-header">
+                    <a href="#unit2">इकाई 2 (Unit 2): संताली व्याकरण का कार्यात्मक अध्ययन (Functional Grammar)</a>
+                    <span class="marks-pill">पाठ्यक्रम बिंदु 3 | ~10 अंक</span>
+                </div>
+                <ul class="subtopic-list">
+                    <li><a class="idx-link" href="#sec-8">2.1 संज्ञा (ञुतुम - 5 भेद) एवं लिंग-विधान (जानंग: सजीव 'जीबान' बनाम निर्जीव 'बिन-जीबान')</a></li>
+                    <li><a class="idx-link" href="#sec-9">2.2 वचन (लेखा - 3 वचन: मित्तान [एकवचन], बारया [द्विवचन - किन्], संगी [बहुवचन - को])</a></li>
+                    <li><a class="idx-link" href="#sec-10">2.3 पुरुष (गोरन - 3 पुरुष) एवं सर्वनाम (उञुम - 6 भेद तथा समावेशी 'अबो' बनाम अनन्य 'अले' का नियम)</a></li>
+                    <li><a class="idx-link" href="#sec-11">2.4 विशेषण (गुनवाचक, संख्यावाचक, परिमाणवाचक) एवं कारक व विभक्ति-चिह्न (8 कारक)</a></li>
+                    <li><a class="idx-link" href="#sec-12">2.5 क्रिया (कानवा) एवं काल-विधान (नांग: नितोक् [वर्तमान], एनेच् [भूत], दाराय [भविष्यत काल])</a></li>
+                    <li><a class="idx-link" href="#sec-13">2.6 उपसर्ग, मध्यसर्ग (Infix - संताली की अनूठी विशेषता), प्रत्यय तथा शुद्ध वाक्य-रचना</a></li>
+                </ul>
+            </div>
+
+            <!-- Unit 3 Index -->
+            <div class="unit-index-card">
+                <div class="unit-index-header">
+                    <a href="#unit3">इकाई 3 (Unit 3): संताली लोकसाहित्य, शिष्ट साहित्य का इतिहास, सांस्कृतिक सामग्री एवं पठन-लेखन कौशल</a>
+                    <span class="marks-pill">पाठ्यक्रम बिंदु 5, 6, 7 व 8 | ~7 अंक</span>
+                </div>
+                <ul class="subtopic-list">
+                    <li><a class="idx-link" href="#sec-14">3.1 संताली लोकसाहित्य: लोकगीत (बाहा, सोहराय, दोंग, लागड़े, करम), लोककथा (गाम-काहनी) एवं लोकसंस्कृति</a></li>
+                    <li><a class="idx-link" href="#sec-15">3.2 संताल समुदाय की सांस्कृतिक विरासत: पर्व-त्योहार, मांझी-परगना स्वशासन, जाहेर थान एवं सरना धर्म</a></li>
+                    <li><a class="idx-link" href="#sec-16">3.3 संताली साहित्य के इतिहास की रूपरेखा: मिशनरी काल (स्क्रेफ्सरूड, बोडिंग) से आधुनिक काल तक</a></li>
+                    <li><a class="idx-link" href="#sec-17">3.4 प्रमुख साहित्यकार एवं प्रतिनिधि विधाएँ (कविता, कहानी, नाटक, उपन्यास, निबंध व पत्र-पत्रिकाएँ: होड़ो संवाद)</a></li>
+                    <li><a class="idx-link" href="#sec-18">3.5 पठन-बोध (गद्य/पद्यांश, सार, शीर्षक) एवं लेखन कौशल (पत्र, आवेदन, रिपोर्ट, संक्षेपण, अनुवाद व वाक्-कला)</a></li>
+                </ul>
+            </div>
+
+            <!-- Unit 4 Index -->
+            <div class="unit-index-card">
+                <div class="unit-index-header">
+                    <a href="#unit4">इकाई 4 (Unit 4): बहुभाषिक कक्षा में संताली भाषा-शिक्षण (NEP 2020) एवं 30 प्रश्नों का मास्टर प्रैक्टिस सेट</a>
+                    <span class="marks-pill">पाठ्यक्रम बिंदु 10 व 11 + प्रैक्टिस | ~5 अंक</span>
+                </div>
+                <ul class="subtopic-list">
+                    <li><a class="idx-link" href="#sec-19">4.1 समुदाय एवं आदिवासी/भारतीय साहित्य संबंध, स्थानीय सामग्री से वर्ग-संचालन व बहुभाषिक कक्षा-प्रासंगिकता</a></li>
+                    <li><a class="idx-link" href="#sec-20">4.2 नई शिक्षा नीति (NEP 2020) में मातृभाषा-आधारित अधिगम: संताली में संवाद, गीत, कहानी और स्थानीय अनुभव</a></li>
+                    <li><a class="idx-link" href="#sec-21">4.3 व्याख्या सहित 30 उच्च-स्तरीय संताली बहुविकल्पीय प्रश्न (Interactive Master Quiz)</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ==================== CONTENT AREA ==================== -->
+        <!-- आगामी यूनिट्स का कोड इस टिप्पणी के ठीक नीचे क्रमवार जोड़ा जाएगा -->
+        <!-- YAHAN AGLA CODE PASTE KAREIN (Unit 1 to Unit 4) -->
+
+        <!-- ==================== UNIT 1 (SYLLABUS POINTS 1, 2, 4 & 9 | ~8 MARKS) ==================== -->
+        <div id="unit1" class="unit-section">
+            <h2>इकाई 1 (Unit 1): संताली भाषा परिचय, भाषा-विज्ञान, देवनागरी वर्तनी एवं व्यवहारिक शब्द-संपदा</h2>
+
+            <p><strong>पाठ्यक्रम संदर्भ (JAC JHTET 2026 - Level 2, पृष्ठ 7):</strong> यह इकाई आपके आधिकारिक पाठ्यक्रम के <strong>बिंदु 1</strong> <em>(संताली भाषा का उद्भव, विकास, भाषिक क्षेत्र, भाषा-समुदाय संबंध और भाषा-परिवार)</em>, <strong>बिंदु 2</strong> <em>(देवनागरी आधारित उत्तर-प्रस्तुति व वर्तनी-सावधानी)</em>, <strong>बिंदु 4</strong> <em>(पर्याय, विलोम, लोकोक्ति, मुहावरे, पहेलियाँ और व्यवहारिक शब्द-संपदा)</em> तथा <strong>बिंदु 9</strong> <em>(सामान्य व संताली भाषा-विज्ञान)</em> को विस्तारपूर्वक कवर करती है।</p>
+
+            <!-- ---------------- 1.1 ---------------- -->
+            <h3 id="sec-1">1.1 संताली भाषा का उद्भव, विकास, नामकरण (होड़ रोड़) एवं 92वाँ संविधान संशोधन (2003 - 8वीं अनुसूची)</h3>
+
+            <p><strong>संताली (Santhali / Santali)</strong> भारत की प्राचीनतम जीवित जनजातीय भाषाओं में से एक है तथा झारखंड राज्य की सबसे बड़ी जनजाति <strong>'संताल' (Santal)</strong> की मातृभाषा है। यह न केवल झारखंड की प्रमुख द्वितीय राजभाषा है, बल्कि भारतीय संविधान की <strong>आठवीं अनुसूची (8th Schedule)</strong> में शामिल होने वाली <strong>झारखंड की एकमात्र जनजातीय भाषा</strong> तथा संपूर्ण भारत के 'आस्ट्रो-एशियाटिक (मुंडा)' भाषा-परिवार की भी एकमात्र संवैधानिक भाषा है।</p>
+
+            <h4>(क) नामकरण एवं मौलिक पहचान ('होड़ रोड़' से 'संताली' तक):</h4>
+            <div class="note-card">
+                <strong>★ परीक्षा हेतु सर्वोच्च महत्वपूर्ण तथ्य (नामकरण के स्रोत):</strong>
+                <ul>
+                    <li><strong>1. 'होड़ रोड़' (Hor Ror — मौलिक/स्वनाम) ★★:</strong> संताल समुदाय के लोग स्वयं को <strong>'होड़' (Hor)</strong> या <strong>'होड़ होपोन' (Hor Hopon — मानव की संतान)</strong> कहते हैं और अपनी मातृभाषा को <strong>'होड़ रोड़' (मनुष्य की बोली/भाषा)</strong> या <strong>'होड़ काथा'</strong> कहते हैं। संताली में <em>'होड़'</em> का अर्थ है 'मनुष्य/आदमी' और <em>'रोड़'</em> का अर्थ है 'बोली या भाषा'।</li>
+                    <li><strong>2. 'खेरवाड़ / खेरवारी' परंपरा (Kherwar Tradition):</strong> ऐतिहासिक और पौराणिक मान्यताओं (<em>होड़ कोरेन मारे हापड़ाम को रेयाक् काथा</em>) के अनुसार, प्राचीन काल में संताल, मुंडा, हो, खड़िया, बिरहोर और भूमिज सभी एक ही मूल <strong>'खेरवाड़' (Kherwar)</strong> वंश और भाषा-समूह के अंग थे। बाद में भौगोलिक प्रवासन के कारण यह मूल खेरवारी भाषा संताली, मुंडारी, हो आदि स्वतंत्र भाषाओं में विकसित हुई।</li>
+                    <li><strong>3. 'साँवताल / संताल' से 'संताली' नाम की उत्पत्ति ★:</strong> भाषाविदों (जैसे डब्ल्यू.डब्ल्यू. हंटर, एल.ओ. स्क्रेफ्सरूड और डॉ. डोमन साहु 'समीर') के अनुसार, जब यह समुदाय पश्चिम बंगाल के मिदनापुर जिले के प्राचीन <strong>'सामंतभूमि' या 'साँत / साँवंत' (Saont / Samantbhumi — सिलदा परगना)</strong> क्षेत्र में लंबे समय तक निवास करने लगा, तब पड़ोसी गैर-जनजातीय समुदायों द्वारा इन्हें <em>'साँवतार' → 'साँवताल' → 'संताल' (Santal)</em> कहा जाने लगा और इनकी भाषा का नाम <strong>'संताली' (Santhali)</strong> पड़ गया।</li>
+                </ul>
+            </div>
+
+            <h4>(ख) संताली भाषा का ऐतिहासिक उद्भव एवं विकास-क्रम (4 चरण):</h4>
+            <p>भाषा-वैज्ञानिक दृष्टि से संताली एक <strong>अत्यंत प्राचीन अनार्य (प्राक्-द्रविड़ एवं प्राक्-आर्य / आग्नेय)</strong> भाषा है। इसके ऐतिहासिक विकास को मुख्यतः <strong>4 कालखंडों</strong> में बाँटा जाता है:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 24%;">विकास का चरण / कालखंड</th>
+                        <th style="width: 76%;">प्रमुख भाषिक एवं ऐतिहासिक विशेषताएँ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. प्राचीन मौखिक काल</strong><br>(आदिकाल से 1850 ई. पूर्व)</td>
+                        <td>
+                            • इस काल में संताली भाषा पूर्णतः <strong>मौखिक परंपरा (Oral Tradition)</strong> पर आधारित थी।<br>
+                            • सृष्टि-कथा (<em>जोमसिम बोंगा / करम बोंगा</em>), पुरखों का इतिहास, चंपागढ़ (चाय-चंपा) का स्वर्णिम इतिहास, लोकगीत (<em>दोंग, लागड़े, सोहराय, बाहा</em>) और लोककथाएँ पीढ़ी-दर-पीढ़ी मौखिक रूप से संचित रहीं।
+                        </td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>2. मिशनरी एवं मुद्रण काल ★</strong><br>(1852 ई. से 1924 ई. तक)</td>
+                        <td>
+                            • संताली भाषा के लिखित और व्याकरणिक विकास की शुरुआत ईसाई मिशनरियों द्वारा रोमन और बांग्ला लिपि में की गई।<br>
+                            • <strong>1852 ई. (प्रथम पुस्तक) ★:</strong> रेव. जे. फिलिप्स (Rev. J. Phillips) ने <strong>'An Introduction to the Santal Language'</strong> (बांग्ला लिपि में) प्रकाशित की, जिसे संताली भाषा की <strong>पहली छपी हुई पुस्तक</strong> माना जाता है।<br>
+                            • <strong>1868 ई.:</strong> ई.एल. पक्सले (E.L. Puxley) ने संताली का प्रथम शब्दकोश <em>'A Vocabulary of the Santali Language'</em> लिखा।<br>
+                            • <strong>1873 ई. (मानक व्याकरण) ★★:</strong> नॉर्वेजियन मिशनरी <strong>एल.ओ. स्क्रेफ्सरूड (L.O. Skrefsrud)</strong> ने प्रसिद्ध <strong>'A Grammar of the Santhal Language'</strong> प्रकाशित किया।<br>
+                            • <strong>1890 ई. (प्रथम पत्रिका) ★:</strong> बेनेगड़िया (दुमका) से संताली की पहली मासिक पत्रिका <strong>'होड़ होपोन रेन पेड़ा' (Hor Hopon Ren Pera)</strong> का प्रकाशन शुरू हुआ।<br>
+                            • <strong>पी.ओ. बोडिंग (P.O. Bodding) का योगदान ★★:</strong> इन्होंने 5 खंडों में <strong>'A Santal Dictionary' (1929–1936)</strong>, <em>'Materials for a Santali Grammar'</em> और 3 खंडों में <em>'Santal Folk Tales'</em> प्रकाशित कर संताली को विश्व पटल पर स्थापित किया।
+                        </td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>3. जागृति एवं आधुनिक निर्माण काल ★</strong><br>(1925 ई. से 1947 ई. तक)</td>
+                        <td>
+                            • <strong>1925 ई. (ओलचिकी लिपि का आविष्कार) ★★:</strong> मयूरभंज के महान दार्शनिक व भाषाविद् <strong>पंडित रघुनाथ मुर्मू ('गुरु गोमके')</strong> ने संताली की अपनी स्वतंत्र और वैज्ञानिक लिपि <strong>'ओलचिकी' (Ol Chiki)</strong> का आविष्कार किया।<br>
+                            • <strong>1936 ई.:</strong> पॉल जुझार सोरेन की प्रसिद्ध काव्य कृति <strong>'बाहा डाली'</strong> प्रकाशित हुई।<br>
+                            • <strong>1946 ई.:</strong> रघुनाथ मुर्मू का प्रसिद्ध नाटक <strong>'बिदु चांदान'</strong> और महादेव हांसदा की रचनाएँ सामने आईं।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. स्वातंत्र्योत्तर एवं संवैधानिक उत्कर्ष काल ★</strong><br>(1947 ई. से वर्तमान तक)</td>
+                        <td>
+                            • <strong>1947 ई. ('होड़ो संवाद') ★★:</strong> देवघर (वैद्यनाथ धाम) से <strong>डॉ. डोमन साहु 'समीर' (संताली के भारतेंदु)</strong> के संपादन में देवनागरी लिपि में प्रथम साप्ताहिक पत्र <strong>'होड़ो संवाद' (Horo Somvad)</strong> का प्रकाशन प्रारंभ हुआ, जिसने देवनागरी के माध्यम से संताली साहित्य में क्रांति ला दी।<br>
+                            • <strong>1951 ई.:</strong> डॉ. डोमन साहु 'समीर' की प्रसिद्ध पुस्तक <strong>'संताली प्रवेशिका'</strong> और 1953 में शारदा प्रसाद किसकू का कविता संग्रह <strong>'भुरका इपिल' (भोर का तारा)</strong> प्रकाशित हुआ।<br>
+                            • रांची विश्वविद्यालय (1980 में TRL विभाग की स्थापना), सिदो-कान्हू मुर्मू विश्वविद्यालय (दुमका) और कोल्हान विश्वविद्यालय में स्नातकोत्तर (MA) व शोध (Ph.D.) की पढ़ाई तथा <strong>2003 में संवैधानिक मान्यता</strong> और <strong>2005 से साहित्य अकादमी पुरस्कार</strong> की शुरुआत हुई।
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>(ग) 92वाँ संविधान संशोधन अधिनियम (2003) एवं 8वीं अनुसूची में संताली का स्थान ★★:</h4>
+            <p>JHTET, JPSC और JSSC की प्रत्येक परीक्षा में संताली की संवैधानिक स्थिति से <strong>1 प्रश्न शत-प्रतिशत</strong> पूछा जाता है। इसके सभी महत्वपूर्ण तथ्य नीचे दिए गए हैं:</p>
+
+            <div class="highlight-box">
+                <h4>★★ 92वाँ संविधान संशोधन (92nd Constitutional Amendment Act, 2003) — परीक्षा कैप्सूल:</h4>
+                <ul>
+                    <li><strong>संशोधन अधिनियम:</strong> भारतीय संसद द्वारा <strong>22 दिसंबर 2003</strong> को <strong>92वाँ संविधान संशोधन विधेयक (2003)</strong> पारित किया गया।</li>
+                    <li><strong>राष्ट्रपति की स्वीकृति एवं प्रवर्तन:</strong> तत्कालीन राष्ट्रपति डॉ. ए.पी.जे. अब्दुल कलाम द्वारा <strong>7 जनवरी 2004</strong> को इस पर हस्ताक्षर किए गए और यह राजपत्र में अधिसूचित होकर लागू हुआ।</li>
+                    <li><strong>शामिल की गई 4 भाषाएँ (ट्रिक — B D M S) ★★:</strong> 92वें संविधान संशोधन द्वारा भारतीय संविधान की <strong>आठवीं अनुसूची (8th Schedule)</strong> में एक साथ <strong>4 भाषाएँ</strong> जोड़ी गईं, जिससे अनुसूचित भाषाओं की कुल संख्या 18 से बढ़कर <strong>22</strong> हो गई:
+                        <ol>
+                            <li><strong>B — बोडो (Bodo):</strong> असम की जनजातीय भाषा (तिब्बती-बर्मी परिवार)</li>
+                            <li><strong>D — डोगरी (Dogri):</strong> जम्मू-कश्मीर व हिमाचल क्षेत्र की भाषा (भारोपीय परिवार)</li>
+                            <li><strong>M — मैथिली (Maithili):</strong> बिहार व झारखंड क्षेत्र की भाषा (भारोपीय परिवार)</li>
+                            <li><strong>S — संताली (Santhali) ★:</strong> झारखंड, ओडिशा, पश्चिम बंगाल व असम की जनजातीय भाषा (आस्ट्रो-एशियाटिक / मुंडा परिवार)</li>
+                        </ol>
+                    </li>
+                    <li><strong>अद्वितीय गौरव ★:</strong> संताली भारतीय संविधान की 8वीं अनुसूची में स्थान पाने वाली <strong>झारखंड की एकमात्र जनजातीय भाषा</strong> है तथा पूरे भारत के <strong>आस्ट्रो-एशियाटिक (मुंडा/आग्नेय) भाषा-परिवार की भी पहली और एकमात्र भाषा</strong> है।</li>
+                    <li><strong>साहित्य अकादमी पुरस्कार की शुरुआत (2005 ई.) ★:</strong> 8वीं अनुसूची में शामिल होने के बाद वर्ष <strong>2005 ई.</strong> से संताली भाषा में 'साहित्य अकादमी पुरस्कार' देना प्रारंभ किया गया। संताली में प्रथम साहित्य अकादमी पुरस्कार (2005) प्रसिद्ध कवि <strong>जादुमणि बेसरा</strong> को उनकी काव्य कृति <strong>'भाबना' (Bhabna)</strong> के लिए प्रदान किया गया था।</li>
+                    <li><strong>डिजिटल एवं संसदीय मान्यता:</strong> वर्तमान में संताली भाषा का उपयोग भारतीय संसद की कार्यवाही, यूपीएससी (UPSC) सिविल सेवा परीक्षा के वैकल्पिक साहित्य विषय, यूजीसी नेट (UGC-NET कोड 95) और आकाशवाणी/दूरदर्शन के राष्ट्रीय प्रसारणों में हो रहा है।</li>
+                </ul>
+            </div>
+
+            <!-- YAHAN AGLA SUB-TOPIC (1.2 to 1.7) PASTE KAREIN -->
+
+
+            <!-- ---------------- 1.2 ---------------- -->
+            <h3 id="sec-2">1.2 भाषा-परिवार (ऑस्ट्रो-एशियाटिक / मुंडा शाखा), भाषिक क्षेत्र एवं संताल समुदाय संबंध (12 गोत्र / पारिस)</h3>
+
+            <p><strong>पाठ्यक्रम संदर्भ (बिंदु 1):</strong> JHTET, JPSC एवं JSSC की परीक्षाओं में संताली के <strong>भाषा-परिवार के पदानुक्रम (Hierarchy)</strong> और संताल समुदाय के <strong>12 गोत्रों (पारिस) व उनके कुलचिह्न (टोटेम)</strong> से 1 से 2 प्रश्न अनिवार्य रूप से पूछे जाते हैं।</p>
+
+            <h4>(क) संताली का भाषा-परिवार एवं वैज्ञानिक वर्गीकरण (Language Family Classification ★★):</h4>
+            <p>भारत में बोली जाने वाली भाषाओं को मुख्यतः 4 भाषा-परिवारों (भारोपीय, द्रविड़, ऑस्ट्रो-एशियाटिक और चीनी-तिब्बती) में बाँटा गया है। महान भाषाविद् <strong>विल्हेम श्मिट (Wilhelm Schmidt)</strong> और <strong>जॉर्ज अब्राहम ग्रियर्सन</strong> (<em>Linguistic Survey of India, Vol. IV - 1906</em>) के अनुसार, संताली का भाषा-वैज्ञानिक वंश-वृक्ष (Family Tree) इस प्रकार है:</p>
+
+            <div class="highlight-box">
+                <h4>★★ संताली भाषा-परिवार का क्रमिक पदानुक्रम (परीक्षा में सीधा क्रम पूछा जाता है):</h4>
+                <p style="text-align:center; font-size:1.05rem; font-weight:800; color:var(--primary-dark); background:#ffffff; padding:12px; border-radius:8px; border:1px solid #99f6e4;">
+                    ऑस्ट्रिक महापरिवार (Austric Superfamily)<br>
+                    ↓<br>
+                    ऑस्ट्रो-एशियाटिक / आग्नेय भाषा-परिवार (Austro-Asiatic Family) ★<br>
+                    ↓<br>
+                    मुंडा उप-परिवार / शाखा (Munda Sub-family / कोलारियन शाखा)<br>
+                    ↓<br>
+                    उत्तरी मुंडा समूह (North Munda Branch)<br>
+                    ↓<br>
+                    खेरवारी समूह (Kherwari Group) ★<br>
+                    ↓<br>
+                    <strong>संताली भाषा (Santhali / ᱦᱚᱲ ᱨᱚᱲ)</strong>
+                </p>
+                <ul>
+                    <li><strong>अन्य नाम (पर्यायवाची नाम) ★:</strong> ऑस्ट्रो-एशियाटिक भाषा-परिवार को भारतीय भाषाविज्ञान में <strong>'आग्नेय भाषा-परिवार'</strong>, <strong>'निषाद भाषा-परिवार'</strong> (सुनीति कुमार चटर्जी द्वारा) या <strong>'कोल / मुंडा भाषा-परिवार'</strong> (मैक्समूलर द्वारा 'मुंडा' नाम दिया गया) भी कहा जाता है।</li>
+                    <li><strong>ऑस्ट्रो-एशियाटिक परिवार की 2 मुख्य शाखाएँ हैं:</strong>
+                        <ol>
+                            <li><strong>मोन-ख्मेर शाखा (Mon-Khmer Branch):</strong> इसके अंतर्गत मेघालय की <em>खासी (Khasi)</em> और अंडमान-निकोबार की <em>निकोबारी (Nicobarese)</em> भाषाएँ आती हैं।</li>
+                            <li><strong>मुंडा शाखा (Munda Branch - भारत की मुख्य शाखा):</strong> इसे पुनः दो भागों में बाँटा गया है—<strong>(i) उत्तरी मुंडा (खेरवारी):</strong> जिसमें <em>संताली, मुंडारी, हो, भूमिज, कोड़ा, बिरहोर, असुरी, कोरवा, तुरी</em> भाषाएँ आती हैं; तथा <strong>(ii) दक्षिणी मुंडा:</strong> जिसमें <em>खड़िया (Kharia), जुआंग, सवरा (सोरा), गुतोब, रेमो</em> भाषाएँ आती हैं।</li>
+                        </ol>
+                    </li>
+                    <li><strong>संताली की सर्वोच्च स्थिति ★:</strong> मुंडा (ऑस्ट्रो-एशियाटिक) परिवार की सभी भाषाओं में <strong>संताली बोलने वालों की जनसंख्या सर्वाधिक (लगभग 75 लाख से अधिक, भारत की जनगणना 2011 के अनुसार 73.68 लाख)</strong> है।</li>
+                </ul>
+            </div>
+
+            <h4>(ख) संताली का भाषिक क्षेत्र एवं भौगोलिक विस्तार (Linguistic Area & Regional Spread):</h4>
+            <p>संताली केवल झारखंड तक सीमित नहीं है, बल्कि यह पूर्वी भारत और पड़ोसी देशों में फैली एक व्यापक अंतरराष्ट्रीय जनजातीय भाषा है:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 28%;">क्षेत्र / राज्य / देश</th>
+                        <th style="width: 72%;">संताली भाषी प्रमुख जिले एवं केंद्र (प्रसार क्षेत्र)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>1. झारखंड (मुख्य गढ़) ★★</strong><br>(द्वितीय राजभाषा)</td>
+                        <td>
+                            • <strong>संताल परगना प्रमंडल (सभी 6 जिले — संताली का हृदय-स्थल):</strong> <strong>दुमका</strong> (उपराजधानी), <strong>देवघर, गोड्डा, साहिबगंज, पाकुड़ और जामताड़ा</strong>। <em>(प्राचीन नाम: 'दामिन-इ-कोह' एवं 'कांकजोल/नरीखंड')</em>।<br>
+                            • <strong>कोल्हान प्रमंडल (3 जिले):</strong> <strong>पूर्वी सिंहभूम (जमशेदपुर/घाटशिला)</strong>, <strong>सरायकेला-खरसावाँ</strong> और पश्चिमी सिंहभूम।<br>
+                            • <strong>उत्तरी छोटानागपुर प्रमंडल:</strong> <strong>गिरिडीह (पारसनाथ / मरांग बुरु क्षेत्र)</strong>, धनबाद, बोकारो, हजारीबाग और रामगढ़।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. पश्चिम बंगाल ★</strong><br>(अतिरिक्त राजभाषा)</td>
+                        <td><strong>पुरुलिया, बाँकुड़ा, झाड़ग्राम, पश्चिम मिदनापुर (मेदिनीपुर), बीरभूम, बर्धमान, मालदा</strong> और दिनाजपुर जिले।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. ओडिशा ★</strong></td>
+                        <td><strong>मयूरभंज (पं. रघुनाथ मुर्मू की जन्मभूमि — बारीपदा/रायरंगपुर) ★</strong>, क्योंझर (केंदुझर) और बालेश्वर (बालासोर) जिले।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. बिहार एवं असम</strong></td>
+                        <td>• <strong>बिहार:</strong> पूर्णिया, कटिहार, भागलपुर, बाँका और किशनगंज।<br>• <strong>असम व त्रिपुरा:</strong> चाय बागानों (Tea Gardens) के क्षेत्र—कोकराझार, सोनितपुर, चिरांग और कछार।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. भारत के बाहर (अंतरराष्ट्रीय) ★</strong></td>
+                        <td><strong>नेपाल</strong> (मोरंग और झापा जिले — जहाँ इन्हें 'सतार' कहा जाता है), <strong>बांग्लादेश</strong> (राजशाही, दिनाजपुर व रंगपुर) तथा <strong>भूटान</strong>।</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>संताली के क्षेत्रीय भाषिक रूप (Dialects):</strong> उच्चारण और क्षेत्रीय संपर्क के आधार पर संताली के मुख्य दो क्षेत्रीय रूप माने जाते हैं—<strong>(1) उत्तरी संताली (Northern Santali):</strong> संताल परगना, भागलपुर, बीरभूम व मानभूम में बोली जाने वाली (इसे मानक साहित्यिक रूप माना जाता है), तथा <strong>(2) दक्षिणी संताली (Southern Santali):</strong> ओडिशा के मयूरभंज, सिंहभूम और मिदनापुर में बोली जाने वाली। इसके अतिरिक्त <em>महली, करमाली और पहाड़िया (मालतो से भिन्न)</em> संताली की उप-बोलियों के रूप में जानी जाती हैं।</p>
+
+            <h4>(ग) भाषा-समुदाय संबंध: संताल समाज के 12 गोत्र ('पारिस' / Paris) एवं उनके टोटेम ★★:</h4>
+            <p>संताल समुदाय और उनकी भाषा एक-दूसरे के पूरक हैं। संताली भाषा में गोत्र (Clan) को <strong>'पारिस' (Paris)</strong> कहा जाता है। पौराणिक कथा के अनुसार, प्रथम मानव दंपति <strong>'पिलचु हाड़ाम' (प्रथम पुरुष)</strong> और <strong>'पिलचु बुड़ही' (प्रथम स्त्री)</strong> के 7 पुत्र और 7 पुत्रियाँ हुईं, जिनसे प्रारंभ में <strong>7 गोत्र</strong> बने और बाद में <strong>5 गोत्र</strong> और जुड़े—इस प्रकार संताल समाज में कुल <strong>12 गोत्र (पारिस)</strong> हैं। <em>(नोट: संताल समाज बहिर्विवाही [Exogamous] है, अर्थात एक ही पारिस/गोत्र में विवाह पूर्णतः वर्जित है)।</em></p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">क्र.</th>
+                        <th style="width: 24%;">गोत्र / पारिस का नाम ★</th>
+                        <th style="width: 30%;">टोटेम / कुलचिह्न (प्रतीक ★)</th>
+                        <th style="width: 36%;">पारंपरिक सामाजिक कार्य / उपाधि (चाँपागढ़ परंपरा)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>1.</strong></td>
+                        <td><strong>हाँसदा (Hansda) ★</strong><br><em>(आदि/प्रथम गोत्र)</em></td>
+                        <td><strong>हाँस / जंगली हंस</strong><br>(Wild Goose - 'हाँस' पखना)</td>
+                        <td>मूल वंशज / न्याय एवं शांति के प्रतीक (प्रथम पुत्र 'सांदोम' से संबंधित)।</td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>2.</strong></td>
+                        <td><strong>मुर्मू (Murmu) ★★</strong></td>
+                        <td><strong>नीलगाय (मुरुम जेय/गाय)</strong><br>(Nilgai / Blue Bull)</td>
+                        <td><strong>पुजारी / धार्मिक पुरोहित वर्ग (ठाकुर/नायके) ★</strong> — धार्मिक अनुष्ठान संपन्न करने वाले।</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>3.</strong></td>
+                        <td><strong>किस्कू (Kisku) ★★</strong></td>
+                        <td><strong>राजा / शाही पक्षी (किंगफिशर)</strong></td>
+                        <td><strong>राजा / शासक वर्ग (किस्कू रापाज) ★</strong> — प्रशासन और नेतृत्व करने वाले।</td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>4.</strong></td>
+                        <td><strong>हेम्ब्रम (Hembram) ★★</strong></td>
+                        <td><strong>सुपारी (गुवा / Betel Nut)</strong></td>
+                        <td><strong>कुँवर / दरबारी / मंत्री एवं न्यायाधीश वर्ग (हेम्ब्रम कुँवर) ★</strong>।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5.</strong></td>
+                        <td><strong>मरांडी (Marandi) ★★</strong></td>
+                        <td><strong>माँडरा घास / मकरा घास (नीलकंठ पक्षी)</strong></td>
+                        <td><strong>किस्को के दीवान / धनी जमींदार एवं कोषाध्यक्ष वर्ग (मरांडी किसाँड़) ★</strong>।</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>6.</strong></td>
+                        <td><strong>सोरेन (Soren) ★★</strong></td>
+                        <td><strong>सप्तर्षि तारा-मंडल (पोनोय चिरगुन / हिरण)</strong></td>
+                        <td><strong>सिपाही / सैनिक एवं योद्धा वर्ग (सोरेन सिपाही) ★</strong> — समाज की रक्षा करने वाले।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7.</strong></td>
+                        <td><strong>टुडू (Tudu) ★★</strong></td>
+                        <td><strong>मंदरिया / उल्लू पक्षी (धोबिन चिड़िया)</strong></td>
+                        <td><strong>संगीतकार, नर्तक एवं लोहार/शिल्पकार वर्ग (टुडू रसिकिया / मंदारिया) ★</strong> — मांदर व वाद्ययंत्र बनाने व बजाने में निपुण।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>8.</strong></td>
+                        <td><strong>बास्के (Baske) ★</strong></td>
+                        <td><strong>बासी भात (बास्के दाका) / नाग</strong></td>
+                        <td><strong>व्यापारी एवं रसोइया वर्ग</strong> (शिकार में देर होने पर बासी भात खाने के कारण 'बास्के' कहलाए)।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>9.</strong></td>
+                        <td><strong>बेसरा (Besra) ★</strong></td>
+                        <td><strong>बाज पक्षी (शिकरा / Hawk)</strong></td>
+                        <td><strong>तीरंदाज एवं संगीत-कला प्रेमी (बेसरा बाडोहिया)</strong>।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>10.</strong></td>
+                        <td><strong>पौड़िया / चोंड़े (Pauria / Chore)</strong></td>
+                        <td><strong>कबूतर (पाड़वा) / छिपकली (चोंड़े)</strong></td>
+                        <td>संदेशवाहक एवं वन्य-रक्षक वर्ग।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>11.</strong></td>
+                        <td><strong>गेंदवार / पँवरिया (Gendwar)</strong></td>
+                        <td><strong>गेंद / पक्षी विशेष</strong></td>
+                        <td>सहायक एवं कृषक वर्ग।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>12.</strong></td>
+                        <td><strong>बेदिया / डोंडका (Bedia)</strong><br><em>(12वाँ लुप्तप्राय गोत्र)</em></td>
+                        <td><strong>भेड़ (भेडिया) / जंगली फल</strong></td>
+                        <td>सीमांत कृषक एवं पशुपालक वर्ग।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-card">
+                <strong>★ परीक्षा हेतु 4 अचूक वन-लाइनर (संताल समुदाय एवं भाषा-संबंध):</strong>
+                <ul>
+                    <li><strong>1. उप-गोत्र ('खूंट' / Khunt):</strong> संतालों के प्रत्येक पारिस (गोत्र) को आगे कई उप-गोत्रों में बाँटा गया है जिन्हें संताली में <strong>'खूंट' (Khunt — जैसे नाइके खूंट, मांझी खूंट, सादा खूंट)</strong> कहा जाता है। कुल खूंटों की संख्या 144 से अधिक मानी जाती है।</li>
+                    <li><strong>2. सर्वोच्च देवता एवं धार्मिक स्थल:</strong> संतालों के सर्वोच्च देवता <strong>'सिङ बोंगा' (Sing Bonga — सूर्य देवता / ठाकुर जी)</strong> हैं और दूसरे प्रमुख देवता <strong>'मरांग बुरु' (Marang Buru — पारसनाथ पहाड़)</strong> हैं। गाँव के पवित्र पूजा-स्थल (सखुआ कुंज) को <strong>'जाहेर थान' (Jaher Than)</strong> कहते हैं जहाँ <strong>'जाहेर एरा' (ग्राम देवी)</strong> निवास करती हैं।</li>
+                    <li><strong>3. सर्वोच्च सामाजिक दंड:</strong> संताल समाज में गोत्र-नियम तोड़ने पर दिया जाने वाला सबसे कठोर सामाजिक बहिष्कार का दंड <strong>'बिटलाहा' (Bitlaha) ★★</strong> कहलाता है।</li>
+                    <li><strong>4. 'होड़ कोरेन मारे हापड़ाम को रेयाक् काथा' (1887 ई.) ★:</strong> यह संताल समुदाय के पुरखों, सृष्टि-रचना और 12 गोत्रों के इतिहास का सबसे प्रामाणिक ग्रंथ है, जिसे <strong>कल्याण हाड़ाम (Kolean Haram)</strong> के मौखिक कथन के आधार पर <strong>एल.ओ. स्क्रेफ्सरूड</strong> ने संकलित किया था।</li>
+                </ul>
+            </div>
+
+            <!-- YAHAN AGLA SUB-TOPIC (1.3 to 1.7) PASTE KAREIN -->
+
+
+            <!-- ---------------- 1.3 ---------------- -->
+            <h3 id="sec-3">1.3 देवनागरी आधारित उत्तर-प्रस्तुति, वर्तनी-सावधानी एवं ओलचिकी लिपि (पं. रघुनाथ मुर्मू - 1925) का परिचय</h3>
+
+            <p><strong>पाठ्यक्रम संदर्भ (बिंदु 2):</strong> JHTET और अन्य प्रतियोगी परीक्षाओं में संताली भाषा के लेखन के लिए देवनागरी लिपि के मानकीकरण, वर्तनी-सावधानी (Spelling Precautions) तथा संताली की अपनी स्वतंत्र लिपि <strong>'ओलचिकी' (Ol Chiki)</strong> के वर्ण-पैटर्न से संबंधित प्रश्न पूछे जाते हैं।</p>
+
+            <h4>(क) देवनागरी लिपि आधारित संताली लेखन एवं वर्तनी-सावधानी (Devanagari Orthography):</h4>
+            <p>संताली भाषा को देवनागरी लिपि में लिखते समय ध्वनि और वर्ण का सही तालमेल होना आवश्यक है क्योंकि संताली की अपनी कुछ विशिष्ट ध्वनियाँ हैं जिन्हें हिंदी वर्तनी से अलग समझा जाना चाहिए:</p>
+            
+            <div class="highlight-box">
+                <h4>★★ संताली देवनागरी वर्तनी के 4 प्रमुख नियम एवं सावधानियाँ:</h4>
+                <ul>
+                    <li><strong>1. अर्द्ध-स्वर या संवृत ध्वनियाँ:</strong> संताली में कुछ ऐसी अनुनासिक और स्वर ध्वनियाँ हैं जिनका उच्चारण हिंदी से थोड़ा भिन्न होता है। देवनागरी में इनके लिए चंद्रबिन्दु (~) और हलंत (्) का सटीक प्रयोग किया जाता है।</li>
+                    <li><strong>2. महाप्राण ध्वनियों का प्रयोग:</strong> संताली में महाप्राण ध्वनियाँ (जैसे ख, घ, छ, झ, ठ, ढ, थ, ध, फ, भ) प्रयुक्त होती हैं, किंतु मूल आस्ट्रो-एशियाटिक प्रकृति के कारण कई शब्दों में अघोष और अल्पप्राण ध्वनियों का बहुल प्रयोग होता है।</li>
+                    <li><strong>3. संयुक्त अक्षरों से बचाव:</strong> संताली में जटिल संस्कृतनिष्ठ संयुक्त अक्षरों (जैसे क्ष, त्र, ज्ञ, श्र) के बजाय सरल और अलग-अलग वर्णों या हलंतयुक्त रूपों को प्राथमिकता दी जाती है ताकि उच्चारण की मूल आस्ट्रो-एशियाटिक प्रकृति बनी रहे।</li>
+                    <li><strong>4. अनुनासिकता (Nasalization):</strong> शब्दों के अंत में या बीच में संताली में नाक से बोली जाने वाली ध्वनियाँ होती हैं, जिनके लिए मानक देवनागरी में अनुस्वार (·) या चंद्रबिन्दु (~) का ध्यान रखना अनिवार्य है।</li>
+                </ul>
+            </div>
+
+            <h4>(ख) संताली की अपनी मौलिक लिपि: 'ओलचिकी' (Ol Chiki Script ★★):</h4>
+            <p>संताली भाषा की अपनी एक स्वतंत्र, वैज्ञानिक और अद्वितीय लिपि है जिसका नाम <strong>'ओलचिकी' (Ol Chiki — ᱚᱞ ᱪᱤᱠᱤ)</strong> है। परीक्षा की दृष्टि से इसके सभी महत्वपूर्ण बिंदु नीचे दिए गए हैं:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 28%;">विषय / घटक</th>
+                        <th style="width: 72%;">ओलचिकी लिपि से संबंधित ऐतिहासिक एवं वैज्ञानिक तथ्य ★</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>1. आविष्कारक एवं वर्ष ★★</strong></td>
+                        <td>
+                            • <strong>आविष्कारक:</strong> पंडित रघुनाथ मुर्मू (जिन्हें संताल समाज में श्रद्धा से <strong>'गुरु गोमके'</strong> कहा जाता है)।<br>
+                            • <strong>वर्ष:</strong> सन् <strong>1925 ई.</strong> में ओलचिकी लिपि का आविष्कार किया गया था। (मई 2025 में इस लिपि के 100 वर्ष पूरे होने का शताब्दी वर्ष मनाया गया है)।
+                        </td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>2. नामकरण का अर्थ</strong></td>
+                        <td>संताली भाषा में <em>'ओल'</em> का अर्थ 'लिखना या लिपि' होता है और <em>'चिकी'</em> का अर्थ 'वर्ण या अक्षर' होता है। अतः 'ओलचिकी' का अर्थ है—<strong>लिखने के वर्ण/अक्षर</strong>।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. वर्ण संरचना (Total Letters) ★</strong></td>
+                        <td>
+                            • ओलचिकी लिपि में कुल <strong>30 वर्ण (अक्षर)</strong> हैं। इन्हें मुख्य रूप से दो श्रेणियों में बाँटा गया है:<br>
+                            1. <strong>स्वर वर्ण (Ot — ओत् / Vowels):</strong> कुल 6 स्वर होते हैं।<br>
+                            2. <strong>व्यंजन वर्ण (Ahar — अहार / Consonants):</strong> कुल 24 व्यंजन होते हैं।
+                        </td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>4. लिपि की वैज्ञानिक विशेषता ★★</strong></td>
+                        <td>
+                            • यह दुनिया की सबसे वैज्ञानिक और प्रकृति-आधारित लिपियों में से एक है। इसके प्रत्येक वर्ण की आकृति मानव शरीर के अंगों, प्रकृति, पेड़-पौधों और दैनिक उपयोग की वस्तुओं (जैसे मुड़ने वाली पत्तियाँ, तीर-धनुष, पानी की लहरें) के आकार पर आधारित है।<br>
+                            • इसमें हिंदी की तरह कोई 'मात्रा' (Matra) नहीं जोड़ी जाती, बल्कि प्रत्येक स्वर और व्यंजन का अपना पूर्ण स्वतंत्र वर्ण होता है।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. संवैधानिक एवं आधिकारिक स्थिति</strong></td>
+                        <td>पश्चिम बंगाल, झारखंड, ओडिशा और असम सरकारों द्वारा संताली शिक्षा में ओलचिकी लिपि को आधिकारिक मान्यता दी गई है। भारतीय संविधान की आठवीं अनुसूची में संताली को मान्यता मिलने के बाद ओलचिकी साहित्य का तीव्र गति से विकास हुआ है।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>संताली लेखन की अन्य लिपियाँ:</strong> ऐतिहासिक रूप से संताली भाषा को अलग-अलग क्षेत्रों में विभिन्न लिपियों में लिखा गया है—जैसे <strong>ओडिशा में 'ओड़िया लिपि'</strong>, <strong>पश्चिम बंगाल व असम में 'बांग्ला लिपि'</strong>, और पूरे भारत में वर्तमान आधिकारिक परीक्षा-प्रयुक्त <strong>'देवनागरी लिपि'</strong> तथा अपनी मूल <strong>'ओलचिकी लिपि'</strong>।</p>
+
+            <!-- YAHAN AGLA SUB-TOPIC (1.4 to 1.7) PASTE KAREIN -->
+
+            <!-- ---------------- 1.4 ---------------- -->
+            <h3 id="sec-4">1.4 सामान्य व संताली भाषा-विज्ञान: स्वनिम, अवरुद्ध व्यंजन (Checked Consonants: क्, च्, त्, प्) एवं तुलनात्मक दृष्टि</h3>
+
+            <p><strong>पाठ्यक्रम संदर्भ (बिंदु 9):</strong> JHTET और अन्य प्रतियोगी परीक्षाओं में संताली भाषा-विज्ञान (Santhali Linguistics), स्वनिम विज्ञान (Phonology) तथा संताली की सबसे अनूठी विशेषता <strong>'अवरुद्ध व्यंजन' (Checked Consonants / Glottalized Stops)</strong> से संबंधित उच्च-स्तरीय प्रश्न पूछे जाते हैं।</p>
+
+            <h4>(क) संताली स्वनिम विज्ञान एवं ध्वनियों का वर्गीकरण (Phonemes & Sound System):</h4>
+            <p>भाषा-वैज्ञानिक दृष्टि से संताली एक अत्यंत समृद्ध और ध्वनि-वैज्ञानिक रूप से सुव्यवस्थित भाषा है। इसके स्वनिम तंत्र (Phonemic System) को निम्नलिखित मुख्य भागों में बाँटा जाता है:</p>
+
+            <ul>
+                <li><strong>1. स्वर स्वनिम (Vowel Phonemes):</strong> संताली में मुख्य रूप से <strong>6 मौखिक स्वर</strong> (अ, आ, इ, ई, उ, ऊ, ए, ओ — संताली ओलचिकी में 6 मुख्य स्वर वर्ण होते हैं: <em>อ [o], 𑢠 [o], 𑢡 [e], 𑢢 [a], 𑢣 [i], 𑢤 [u]</em>) तथा उनके अनुनासिक (Nasalized) रूप होते हैं।</li>
+                <li><strong>2. व्यंजन स्वनिम (Consonant Phonemes):</strong> संताली में स्पर्श, संघर्षী, पार्श्विक, प्रकम्पी और अनुनासिक व्यंजन होते हैं। इसकी सबसे बड़ी विशेषता यह है कि इसमें कुछ ऐसी ध्वनियाँ हैं जो आर्य भाषाओं (जैसे हिंदी या संस्कृत) से बिल्कुल भिन्न हैं।</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>★★ संताली की सबसे अनूठी विशेषता: 'अवरुद्ध व्यंजन' (Checked / Glottalized Consonants):</h4>
+                <p>विश्व की भाषा-विज्ञान में संताली और मुंडा परिवार की भाषाओं को <strong>'Checked Consonants' (अवरुद्ध या रुद्ध व्यंजन)</strong> के लिए विशेष रूप से जाना जाता है। परीक्षा की दृष्टि से इसके मुख्य बिंदु:</p>
+                <ul>
+                    <li><strong>क्या होते हैं अवरुद्ध व्यंजन?</strong> जब संताली शब्दों के अंत में या बीच में क, च, त, प ध्वनियाँ आती हैं, तो उनके उच्चारण के समय फेफड़ों से आने वाली हवा मुख-विवर (Oral Cavity) में पूरी तरह अवरुद्ध (Check / Cut off) हो जाती है और वायु बाहर नहीं निकलती, बल्कि कंठद्वार पर थोड़ा झटका (Glottal Stop) लगता है।</li>
+                    <li><strong>मुख्य 4 अवरुद्ध व्यंजन ★:</strong> संताली में मुख्य रूप से ये 4 अवरुद्ध व्यंजन माने जाते हैं—<strong>क्ल (क् / k'), च्च् (च् / c'), त्तू (त् / t'), और प्प (प् / p')</strong>।</li>
+                    <li><strong>देवनागरी में प्रस्तुति:</strong> देवनागरी लिपि में लिखते समय इनके नीचे हलंत (्) लगाकर या अर्ध-ध्वनि के रूप में दर्शाया जाता है (जैसे—<em>रेक् / लेट् / सोप्</em>)।</li>
+                    <li><strong>अर्थ-भेदक महत्व:</strong> संताली में अवरुद्ध व्यंजनों के प्रयोग से शब्दों का अर्थ पूरी तरह बदल जाता है। उदाहरण के लिए—
+                        <ul>
+                            <li><em>'दत' (Dat)</em> और <em>'दत्' (Dat')</em> के उच्चारण और अर्थ में भिन्नता होती है।</li>
+                            <li>शब्दों के अंत में इन रुद्ध व्यंजनों का होना ऑस्ट्रो-एशियाटिक भाषा-परिवार की मूल आनुवंशिक पहचान है।</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <h4>(ख) संताली भाषा-विज्ञान की अन्य प्रमुख विशेषताएँ (Comparative Linguistics):</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 28%;">भाषिक विशेषता</th>
+                        <th style="width: 72%;">संताली भाषा-विज्ञान के अंतर्गत स्वरूप एवं तुलनात्मक दृष्टि ★</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>1. प्रत्यय-प्रधान / अश्लेषणी प्रकृति (Agglutinative Language)</strong></td>
+                        <td>संताली एक <strong>अश्लेषणी या प्रत्यय-प्रधान (Agglutinative)</strong> भाषा है। इसमें शब्दों के मूल रूप में उपसर्ग, मध्यसर्ग (Infix) और प्रत्यय जोड़कर नए शब्द और कारक-वचन बनाए जाते हैं (तुर्की और फिनिश भाषाओं की तरह)।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. मध्यसर्ग (Infix) की अनूठी विशेषता ★★</strong></td>
+                        <td>हिंदी या अंग्रेजी में उपसर्ग (आगे) और प्रत्यय (पीछे) होते हैं, किंतु संताली भाषा-विज्ञान की यह महान विशेषता है कि इसमें शब्द के <strong>ठीक बीच में (Infix)</strong> ध्वनि या अंश जोड़कर अर्थ बदला जाता है (जैसे मूल धातु में मध्यसर्ग का प्रयोग)।</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>3. वचन (Number) व्यवस्था ★</strong></td>
+                        <td>संताली व्याकरण में हिंदी की तरह केवल दो वचन (एकवचन और बहुवचन) नहीं होते, बल्कि इसमें <strong>तीन वचन</strong> होते हैं:<br>
+                        1. <strong>एकवचन (Singular / मित्तान)</strong><br>
+                        2. <strong>द्विवचन (Dual / बारया) — दो व्यक्तियों या वस्तुओं के लिए विशेष रूप</strong><br>
+                        3. <span>बहुवचन (Plural / संगी)</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. सर्वनाम की समावेशी व अनन्य व्यवस्था (Inclusive vs Exclusive Pronouns)</strong></td>
+                        <td>संताली में 'हम सब' या 'हमारा' के लिए दो अलग-अलग शब्द होते हैं:<br>
+                        • <strong>समावेशी (Inclusive - 'अबो' / Abo):</strong> जिसमें सुनने वाला (समोर वाला) भी शामिल हो।<br>
+                        • <strong>अनन्य (Exclusive - 'अले' / Ale):</strong> जिसमें सुनने वाला शामिल न हो (केवल बोलने वाले)।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- YAHAN AGLA SUB-TOPIC (1.5 to 1.7) PASTE KAREIN -->
+
+<!-- ---------------- 1.5 ---------------- -->
+<h3 id="sec-5">1.5 व्यावहारिक शब्द-संपदा (भाग-1): परिवार, रिश्तेदारी, शरीर के अंग, घर-गृहस्थी व आजीविका</h3>
+​<p><strong>पाठ्यक्रम संदर्भ (बिंदु 4):</strong> JHTET और अन्य प्रतियोगी परीक्षाओं में संताली भाषा की व्यावहारिक शब्द-संपदा (Vocabulary) से संबंधित सीधे प्रश्न पूछे जाते हैं। संताल समाज और संस्कृति से जुड़ी दैनिक शब्दावली का प्रामाणिक संकलन नीचे प्रस्तुत है:</p>
+​<h4>(क) परिवार एवं रिश्तेदारी की शब्दावली (Kinship Vocabulary):</h4>
+<table>
+<thead>
+<tr>
+<th style="width: 25%;">हिंदी अर्थ</th>
+<th style="width: 25%;">संताली शब्द (देवनागरी रूप) ★</th>
+<th style="width: 25%;">हिंदी अर्थ</th>
+<th style="width: 25%;">संताली शब्द (देवनागरी रूप) ★</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>पिता / बाबा</td>
+<td><strong>बाबा (Baba) / ताते</strong></td>
+<td>माता / माँ</td>
+<td><strong>इयो (Iyo) / मामो</strong></td>
+</tr>
+<tr style="background-color: #f0fdfa;">
+<td>दादा (पिता के पिता)</td>
+<td><strong>हाड़ाम बाबा (Haram Baba)</strong></td>
+<td>दादी (पिता की माता)</td>
+<td><strong>बुढ़ी इयो (Budhi Iyo)</strong></td>
+</tr>
+<tr>
+<td>बड़ा भाई</td>
+<td><strong>कुदाम / बोडा</strong></td>
+<td>बड़ी बहन</td>
+<td><strong>कुइति / मिसी (छोटी बहन)</strong></td>
+</tr>
+<tr style="background-color: #fef3c7;">
+<td>बेटा / पुत्र</td>
+<td><strong>कोड़ा होपोन (Kora Hopon)</strong></td>
+<td>बेटी / पुत्री</td>
+<td><strong>कुइरी होपोन (Kuri Hopon)</strong></td>
+</tr>
+<tr>
+<td>पति</td>
+<td><strong>हाड़ाम (Haram) / जोतो</strong></td>
+<td>पत्नी</td>
+<td><strong>बुढ़ी (Budhi) / एगा</strong></td>
+</tr>
+<tr style="background-color: #f0fdfa;">
+<td>चाचा / ताऊ</td>
+<td><strong>काका (Kaka) / काकी (चाची)</strong></td>
+<td>मामा / मामी</td>
+<td><strong>मामा (Mama) / मामी</strong></td>
+</tr>
+</tbody>
+</table>
+​<h4>(ख) मानव शरीर के अंग (Body Parts):</h4>
+<ul>
+<li>सिर / माथा = <strong>बोक्सा (Boksa) / कापा</strong></li>
+<li>बाल (केश) = <strong>उपाल (Upal)</strong></li>
+<li>आँख = <strong>मत् (Mat / Mated)</strong></li>
+<li>कान = <strong>लतेय (Latey)</strong></li>
+<li>नाक = <strong>मूहँ (Muh)</strong></li>
+<li>दाँत = <strong>गेद (Ged)</strong></li>
+<li>हाथ = <strong>तिइ (Tii)</strong></li>
+<li>पैर = <strong>जयंघ (Jayangh) / गोड़</strong></li>
+<li>पेट = <strong>लाता (Lata)</strong></li>
+</ul>
+​<h4>(ग) घर-गृहस्थी, बर्तन एवं आजीविका (Household Items & Livelihood):</h4>
+<p>संताली घरों और पारंपरिक आजीविका से जुड़े मुख्य शब्द:</p>
+<ul>
+<li>घर = <strong>ओड़ाक् (Orak')</strong></li>
+<li>आँगन = <strong>अँदना (Andna)</strong></li>
+<li>दरवाजा = <strong>ओड़ाक् मुचाद</strong></li>
+<li>मिट्टी का बर्तन (घड़ा) = <strong>डाला (Dala) / चाटू</strong></li>
+<li>चावल = <strong>जावे (Jawe) / दाका (पका हुआ चावल)</strong></li>
+<li>पानी = <strong>दाः (Da')</strong></li>
+<li>आग = <strong>सेन्देल (Sendel) / राः</strong></li>
+<li>खेती / कृषि = <strong>चसा (Chasa) / ओड़े</strong></li>
+<li>हल = <strong>नाँगेल (Nangel)</strong></li>
+<li>कुदाल / फावड़ा = <strong>कोदाल (Kodal)</strong></li>
+</ul>
+​<!-- YAHAN AGLA SUB-TOPIC (1.6 to 1.7) PASTE KAREIN -->
+<!-- ---------------- 1.6 ---------------- -->
+<h3 id="sec-6">1.6 व्यावहारिक शब्द-संपदा (भाग-2): प्रकृति, कृषि, पशु-पक्षी, संख्या (मित् से इसि), रंग एवं दैनिक क्रियाएँ</h3>
+​<p><strong>पाठ्यक्रम संदर्भ (बिंदु 4):</strong> संताली भाषा और संस्कृति में प्रकृति, कृषि और दैनिक जीवन से जुड़े शब्दों का एक अत्यंत समृद्ध खजाना है। प्रतियोगी परीक्षाओं (JHTET/JPSC) में संताली गिनती, प्राकृतिक तत्वों और पशु-पक्षियों के नामों से जुड़े प्रश्न पूछे जाते हैं:</p>
+​<h4>(क) प्रकृति, मौसम एवं भौगोलिक परिवेश (Nature & Environment):</h4>
+<ul>
+<li>आकाश / गगन = <strong>अकास (Akas) / सरग</strong></li>
+<li>सूर्य / धूप = <strong>सिङ / तापी (Raud)</strong></li>
+<li>चंद्रमा = <strong>चाँदो (Chando)</strong></li>
+<li>तारा = <strong>चिरगुन (Chirgun)</strong></li>
+<li>पानी / जल = <strong>दाः (Da')</strong></li>
+<li>आग = <strong>सेन्देल (Sendel) / राः</strong></li>
+<li>हवा = <strong>बयार (Bayar)</strong></li>
+<li>वर्षा / बारिश = <strong>दाः जाड़ / जोम</strong></li>
+<li>जंगल / वन = <strong>बोन (Bon) / सखुआ बोन</strong></li>
+<li>पहाड़ = <strong>बुरु (Buru) / टुंगरी (छोटी पहाड़ी)</strong></li>
+<li>नदी = <strong>गाड़ा (Gada) / जोरिया</strong></li>
+</ul>
+​<h4>(ख) कृषि एवं पशु-पक्षी (Agriculture, Animals & Birds):</h4>
+<ul>
+<li>गाय = <strong>गाई (Gai) / गरू</strong></li>
+<li>बैल = <strong>बरद (Barad)</strong></li>
+<li>बकरी = <strong>छागर (Chhagar) / बोका</strong></li>
+<li>कुत्ता = <strong>कुकुर (Kukur)</strong></li>
+<li>बिल्ली = <strong>बिलाइ (Bilai)</strong></li>
+<li>मछली = <strong>हांकू (Haku)</strong></li>
+<li>पक्षी = <strong>चिरइ (Chirai)</strong></li>
+<li>कौआ = <strong>कोक्को (Kokko)</strong></li>
+<li>कबूतर = <strong>पेरवा (Perwa)</strong></li>
+<li>धान = <strong>हेर (Her) / जावे</strong></li>
+<li>धान का खेत = <strong>बायड़ (Bayad)</strong></li>
+</ul>
+​<h4>(ग) संताली संख्या प्रणाली (Santhali Numerals: मित् से इसि):</h4>
+<p>संताली भाषा में गिनती की अपनी पारंपरिक प्रणाली है (विशेषकर 20 के आधार पर यानी 'इसि'):</p>
+<table>
+<thead>
+<tr>
+<th>संख्या</th>
+<th>संताली शब्द (देवनागरी रूप) ★</th>
+<th>संख्या</th>
+<th>संताली शब्द (देवनागरी रूप) ★</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (एक)</td>
+<td><strong>मित् (Mit')</strong></td>
+<td>6 (छः)</td>
+<td><strong>तुर्युः (Turyu')</strong></td>
+</tr>
+<tr style="background-color: #f0fdfa;">
+<td>2 (दो)</td>
+<td><strong>बारया (Barya) / बार</strong></td>
+<td>7 (सात)</td>
+<td><strong>एयेः (Eye')</strong></td>
+</tr>
+<tr>
+<td>3 (तीन)</td>
+<td><strong>पे (Pe)</strong></td>
+<td>8 (आठ)</td>
+<td><strong>इरल (Iral)</strong></td>
+</tr>
+<tr style="background-color: #fef3c7;">
+<td>4 (चार)</td>
+<td><strong>पोन (Pon)</strong></td>
+<td>9 (नौ)</td>
+<td><strong>आरे (Are)</strong></td>
+</tr>
+<tr>
+<td>5 (पाँच)</td>
+<td><strong>मोड़े (Mode)</strong></td>
+<td>10 (दस)</td>
+<td><strong>गिर्ल / गेपे (Gela)</strong></td>
+</tr>
+<tr style="background-color: #f0fdfa;">
+<td colspan="2">20 (बीस — संताली में 'एक कोरी' का आधार)</td>
+<td colspan="2"><strong>इसि (Isi)</strong> [जैसे— बार इसि = 40]</td>
+</tr>
+</tbody>
+</table>
+​<h4>(घ) रंग (Colours) एवं दैनिक क्रियाएँ (Daily Actions):</h4>
+<ul>
+<li>सफेद = <strong>उजला / सफेत (Ujala)</strong></li>
+<li>काला = <strong>करिया (Kariya)</strong></li>
+<li>लाल = <strong>ललका (Lalka)</strong></li>
+<li>हरा = <strong>हरियर (Hariyar)</strong></li>
+<li>पीला = <strong>पियर (Piyar)</strong></li>
+<li>खाना = <strong>जोम (Jom) / खाएक</strong></li>
+<li>पीना = <strong>इयुः (Iyu') / नुः</strong></li>
+<li>चलना = <strong>सेगेच् / हिजुक</strong></li>
+<li>सोना = <strong>गिटिज (Gitij)</strong></li>
+<li>रोना = <strong>राः (Ra') / काँदेक</strong></li>
+</ul>
+​<!-- YAHAN AGLA SUB-TOPIC (1.7) PASTE KAREIN -->
+
+            <!-- ---------------- 1.7 ---------------- -->
+            <h3 id="sec-7">1.7 पर्यायवाची (समानार्थक), विलोम (उल्टा शब्द), मुहावरे, लोकोक्तियाँ (काहनी/भेन्ता) एवं पहेलियाँ (कुदूम)</h3>
+
+            <p><strong>पाठ्यक्रम संदर्भ (बिंदु 4):</strong> JHTET और अन्य प्रतियोगी परीक्षाओं में संताली भाषा के पर्यायवाची शब्दों, विपरीतार्थक शब्दों, पारंपरिक मुहावरों, लोकोक्तियों (जिन्हें संताली में <em>'काहनी' या 'भेन्ता'</em> कहा जाता है) तथा पहेलियों (जिन्हें <em>'कुदूम'</em> कहा जाता है) से संबंधित प्रश्न पूछे जाते हैं।</p>
+
+            <h4>(क) संताली पर्यायवाची शब्द (समानार्थक शब्द — Synonyms):</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">मुख्य शब्द</th>
+                        <th style="width: 75%;">संताली पर्यायवाची शब्द (देवनागरी रूप) ★</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>आग</strong></td>
+                        <td>सेन्देल (Sendel), राः, सेन्देल आः</td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>पानी / जल</strong></td>
+                        <td>दाः (Da'), जाड़, जल</td>
+                    </tr>
+                    <tr>
+                        <td><strong>सूरज / सूर्य</strong></td>
+                        <td>सिङ (Sing), तापी, सुरुज</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>चाँद</strong></td>
+                        <td>चाँदो (Chando), चन्द्र</td>
+                    </tr>
+                    <tr>
+                        <td><strong>पहाड़</strong></td>
+                        <td>बुरु (Buru), टुंगरी (छोटी पहाड़ी), डाँड़</td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>जंगल</strong></td>
+                        <td>बोन (Bon), पतरा, सार</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>(ख) संताली विलोम शब्द (उल्टा शब्द — Antonyms):</h4>
+            <ul>
+                <li>बेस (अच्छा) → <strong>बाउर / खराब</strong></li>
+                <li>तेतेग (गर्म) → <strong>जाड़ (ठंडा)</strong></li>
+                <li>झेलड़ (लंबा/दूर) → <strong>तेन / लात (पास/छोटा)</strong></li>
+                <li>उजला (सफेद) → <strong>करिया (काला)</strong></li>
+                <li>जोम (खाना) → <strong>उपवास / भूखा रहना</strong></li>
+            </ul>
+
+            <h4>(ग) संताली मुहावरे एवं लोकोक्तियाँ (भेन्ता / काहनी):</h4>
+            <ul>
+                <li><strong>"आँइख तेहेक्"</strong> — आँख दिखाना यानी गुस्सा करना या डराना।</li>
+                <li><strong>"गोड़ रे बोंगेक"</strong> — पैर छूकर प्रणाम करना या शरण में जाना।</li>
+                <li><strong>"घरक होड़"</strong> — परिवार या समाज का अपना आदमी।</li>
+            </ul>
+
+            <h4>(घ) संताली पहेलियाँ ('कुदूम' — Riddles ★★):</h4>
+            <p>संताल समाज की मौखिक संस्कृति में पहेलियों को <strong>'कुदूम' (Kudum)</strong> कहा जाता है। मनोरंजन के साथ-साथ यह बच्चों की बौद्धिक क्षमता को परखने का माध्यम होती हैं:</p>
+            <ul>
+                <li><strong>कुदूम:</strong> <em>"एक तेरें तेरें, बारया तेरें तेरें, इरल तेरें तेरें।"</em> (पहेली का अर्थ: बारिश की बूँदें या पेड़ के पत्ते)।</li>
+                <li><strong>कुदूम:</strong> <em>"उजला ओड़ाक् रे करिया होड़।"</em> (उत्तर: <strong>आँख की पुतली</strong> — सफेद आँख के भीतर काली पुतली)।</li>
+            </ul>
+
+            <!-- UNIT 1 COMPLETED -->
+<!-- ==================== UNIT 2 (SYLLABUS POINT 3 | ~10 MARKS) ==================== -->
+<div id="unit2" class="unit-section">
+<h2>इकाई 2 (Unit 2): संताली व्याकरण का कार्यात्मक अध्ययन (Functional Grammar)</h2>
+​<p><strong>पाठ्यक्रम संदर्भ (JAC JHTET 2026 - Level 2, बिंदु 3):</strong> <em>"संज्ञा, सर्वनाम, विशेषण, क्रिया, लिंग, वचन, पुरुष, कारक, काल, उपसर्ग, प्रत्यय और वाक्य-रचना।"</em> संताली भाषा की अपनी एक अत्यंत अनूठी और वैज्ञानिक व्याकरणिक संरचना है। संताली व्याकरण के इस कार्यात्मक अध्ययन के अंतर्गत उप-बिंदु 2.1 का संपूर्ण प्रामाणिक विवरण नीचे प्रस्तुत है:</p>
+​<!-- ---------------- 2.1 ---------------- -->
+<h3 id="sec-8">2.1 संज्ञा (संताली में: 'ञुतुम' / Nyutum - 5 भेद) एवं लिंग-विधान (जानंग: सजीव 'जीबान' बनाम निर्जीव 'बिन-जीबान')</h3>
+​<h4>(क) संताली संज्ञा (ञुतुम / Nyutum):</h4>
+<p>ककरो नाम (अदमी, जीव-जंतु, जिनिस, ठउर चाहे भाव) के संताली में <strong>'ञुतुम' (ञुतुम सबद / संज्ञा)</strong> कहल जा हइ। संताली व्याकरण में अर्थ और प्रयोग की दृष्टि से संज्ञा के मुख्य रूप से <strong>5 भेद</strong> माने जाते हैं:</p>
+​<table>
+<thead>
+<tr>
+<th style="width: 26%;">संज्ञा का भेद (संताली नाम)</th>
+<th style="width: 24%;">हिंदी समतुल्य</th>
+<th style="width: 50%;">पहचान एवं परीक्षा में पूछे जाने वाले संताली उदाहरण ★</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. जातिक ञुतुम ★</strong></td>
+<td>जातिवाचक संज्ञा</td>
+<td>जे ञुतुम से कउनो खास जाइत (पूरा वर्ग या जाति) के बोध होवे।
+<em>उदाहरण:</em> <strong>कोड़ा (लड़का), कुइरी (लड़की), होड़ (मनुष्य), गाय, बरद (बैल), बोन (जंगल), बुरु (पहाड़), गाड़ा (नदी), किताब।</strong></td>
+</tr>
+<tr>
+<td><strong>2. बेकतिवाचक / खास ञुतुम ★</strong></td>
+<td>व्यक्तिवाचक संज्ञा</td>
+<td>जेकर से कउनो खास (एकमात्र) अदमी, ठाउँ (स्थान) या चीज के बोध होवे।
+<em>उदाहरण:</em> <strong>पंडित रघुनाथ मुर्मू, सिदो-कान्हू, दुमका, राँची, दामोदर, पारसनाथ, सोहराय (पर्व)।</strong></td>
+</tr>
+<tr style="background-color: #fef3c7;">
+<td><strong>3. भाववाचक ञुतुम ★★</strong></td>
+<td>भाववाचक संज्ञा</td>
+<td>जेकर से गुन, दोस, दसा या मनक भाव के पता चले (जेकरा खाली महसूस करल जा सके)।
+<em>उदाहरण:</em> <strong>मया (प्रेम/ममता), दुलार (प्यार), हाड़ामी (बुढ़ापा), गिदराति (बचपन), सुकल (सुख), दुख, रसिके (आनंद)।</strong></td>
+</tr>
+<tr>
+<td><strong>4. गोठवाचक ञुतुम ★★</strong></td>
+<td>समूहवाचक संज्ञा</td>
+<td>जेकर से अदमी चाहे जिनिस के गोठ (समूह या झुंड) के बोध होवे।
+<em>उदाहरण:</em> <strong>गोठ (मवेशियों का झुंड), पेठिया / हाट (बाजार), जातरा (मेला), बरात, सभा, जोत (समूह)।</strong></td>
+</tr>
+<tr>
+<td><strong>5. जिनिसवाचक / दरबवाचक ञुतुम ★</strong></td>
+<td>द्रव्यवाचक संज्ञा</td>
+<td>जे जिनिस के नापल चाहे जोखल (तौला) जा सके, मकन गिनल नय जा सके।
+
+<em>उदाहरण:</em> <strong>दाः (पानी), जावे (चावल), दाइल, तेल, सेन्देल (आग), माटी, सोना, रूपा (चाँदी), लोहा।</strong></td>
+</tr>
+</tbody>
+</table>
+​<h4>(ख) संताली लिंग-विधान (जानंग / Janang — सजीव 'जीबान' बनाम निर्जीव 'बिन-जीबान' ★★):</h4>
+<p>संताली भाषा-विज्ञान की सबसे बड़ी और अनूठी विशेषता इसका <strong>लिंग-विधान (जानंग)</strong> है। हिंदी या संस्कृत की तरह संताली में निर्जीव वस्तुओं का स्त्री-पुरुष लिंग नहीं होता। संताली में संज्ञा शब्दों को मुख्य रूप से दो श्रेणियों में बाँटा जाता है:</p>
+​<div class="highlight-box">
+<h4>★★ संताली लिंग (जानंग) के 2 मुख्य वर्ग:</h4>
+<ol>
+<li><strong>1. सजीव / प्राणधारी लिंग ('जीबान जानंग' / Jiban Janang):</strong>
+इसके अंतर्गत सभी मनुष्य, देवी-देवता और जीव-जंतु आते हैं। सजीव जानंग में पुनः अर्थ के आधार पर दो भेद होते हैं—
+<ul>
+<li><strong>रुआर जानंग (पुल्लिंग / Male):</strong> जैसे—<em>बाबा (पिता), कोड़ा (लड़का), हाड़ाम (वृद्ध पुरुष), बरद (बैल), साँढ़</em>।</li>
+<li><strong>एगा जानंग (स्त्रीलिंग / Female):</strong> जैसे—<em>इयो (माता), कुइरी (लड़की), बुढ़ी (वृद्ध महिला), गाय, भइँस</em>।</li>
+</ul>
+</li>
+<li><strong>2. निर्जीव / अप्राणीवाचक लिंग ('बिन-जीबान जानंग' / Bin-Jiban Janang) ★★:</strong>
+संताली में सभी निर्जीव वस्तुएँ (जैसे—घर, पानी, पत्थर, पेड़, नदी, कपड़ा) <strong>निर्जीव (बिन-जीबान)</strong> कोटि में आती हैं। संताली व्याकरण में निर्जीव वस्तुओं के लिए अलग से कोई पुल्लिंग या स्त्रीलिंग रूप नहीं होता, बल्कि वे तटस्थ (Neuter) रूप में प्रयुक्त होती हैं।</li>
+</ol>
+</div>
+​<!-- YAHAN AGLA SUB-TOPIC (2.2) PASTE KAREIN -->
+<!-- ---------------- 2.2 ---------------- -->
+<h3 id="sec-9">2.2 संताली वचन (लेखा / Lekha — 3 वचन: मित्तान, बारया, संगी ★★)</h3>
+<p><strong>पाठ्यक्रम संदर्भ (JAC JHTET 2026 - Level 2, बिंदु 3):</strong> हिंदी या अंग्रेजी में केवल दो वचन (एकवचन और बहुवचन) होते हैं, किंतु संताली भाषा-विज्ञान की सबसे अनूठी और वैज्ञानिक विशेषताओं में से एक इसकी <strong>त्रि-वचन (Three Numbers) व्यवस्था</strong> है। संताली में एक, दो और दो से अधिक के लिए अलग-अलग व्याकरणिक नियम होते हैं:</p>
+​<div class="highlight-box">
+<h4>★★ संताली वचन (लेखा) के 3 मुख्य प्रकार:</h4>
+<ol>
+<li><strong>1. एकवचन ('मित्तान' / Mittan — Singular):</strong>
+जब किसी एक व्यक्ति, वस्तु या प्राणी का बोध हो। जैसे—<em>कोड़ा (लड़का), गाय, ओड़ाक् (घर), किताब</em>।</li>
+<li><strong>2. द्विवचन ('बारया' / Barya — Dual) ★★:</strong>
+संताली व्याकरण की यह सबसे खास विशेषता है। जब ठीक <strong>दो</strong> व्यक्तियों या वस्तुओं का बोध हो, तो उसके लिए विशेष द्विवचन प्रत्यय या शब्द रूप का प्रयोग किया जाता है।
+
+<em>पहचान एवं उदाहरण:</em> द्विवचन दर्शाने के लिए शब्दों के अंत में <strong>'किन्' (Kin)</strong> या <strong>'बारया'</strong> जोड़ा जाता है। जैसे—
+<ul>
+<li><em>कोड़ाकिन् (Koda-kin):</em> दो लड़के</li>
+<li><em>इयो-बाबाकिन्:</em> माता-पिता दोनों</li>
+<li><em>बरदकिन्:</em> दो बैल</li>
+</ul>
+</li>
+<li><strong>3. बहुवचन ('संगी' / Sangi — Plural) ★★:</strong>
+जब दो से अधिक (तीन या अनेक) व्यक्तियों या वस्तुओं का बोध हो। बहुवचन दर्शाने के लिए शब्दों के अंत में <strong>'को' (Ko)</strong> प्रत्यय जोड़ा जाता है।
+
+<em>पहचान एवं उदाहरण:</em>
+<ul>
+<li><em>कोड़ाको (Koda-ko):</em> लड़के (अनेक लड़के)</li>
+<li><em>होड़को (Hor-ko):</em> लोग / मनुष्यगण</li>
+<li><em>गायको / किताबको:</em> गाएँ / पुस्तकें</li>
+</ul>
+</li>
+</ol>
+</div>
+​<p><strong>सर्वनाम के साथ वचन का प्रयोग:</strong> संताली सर्वनामों में भी एकवचन, द्विवचन और बहुवचन के रूप पूरी तरह निश्चित होते हैं (जैसे—<em>ञि / आं</em> [मैं - एकवचन], <em>अलाङ्</em> [हम दोनों - द्विवचन], <em>अले</em> [हम सब - बहुवचन])।</p>
+​<!-- YAHAN AGLA SUB-TOPIC (2.3 to 2.6) PASTE KAREIN -->
+            <!-- ---------------- 2.3 ---------------- -->
+            <h3 id="sec-10">2.3 पुरुष (गोरन / Goran — 3 पुरुष) एवं सर्वनाम (ञुतुम बदला / Uñum — 6 भेद तथा समावेशी 'अबो' बनाम अनन्य 'अले' का नियम)</h3>
+
+            <p><strong>पाठ्यक्रम संदर्भ (JAC JHTET 2026 - Level 2, बिंदु 3):</strong> संताली व्याकरण में पुरुष और सर्वनाम की व्यवस्था अन्य आर्य भाषाओं से अत्यंत विशिष्ट और वैज्ञानिक है। संताली सर्वनामों में वक्ता और श्रोता की स्थिति को स्पष्ट करने के लिए विशेष नियम होते हैं:</p>
+
+            <h4>(क) संताली पुरुष (गोरन / Goran — 3 पुरुष):</h4>
+            <p>संताली व्याकरण में पुरुष के तीन मुख्य भेद होते हैं, जिनका प्रयोग सर्वनाम और क्रिया दोनों में स्पष्ट रूप से झलकता है:</p>
+            <ul>
+                <li><strong>1. प्रथम पुरुष / बोलने वाला (First Person / Sapoka Goran):</strong> जैसे—<em>ञि / आं</em> (मैं), <em>अलाङ् / अले</em> (हम)।</li>
+                <li><strong>2. मध्यम पुरुष / सुनने वाला (Second Person / Ahoran Goran):</strong> जैसे—<em>आम</em> (तू/तुम), <strong>आपे</strong> (तुम सब)।</li>
+                <li><strong>3. अन्य पुरुष / जिसके बारे में बात हो (Third Person / Purana Goran):</strong> जैसे—<em>आदि / उइ</em> (वह), <em>कोको</em> (वे सब)।</li>
+            </ul>
+
+            <h4>(ख) संताली सर्वनाम (ञुतुम बदला / Uñum — 6 भेद):</h4>
+            <p>संज्ञा के स्थान पर प्रयुक्त होने वाले शब्दों को संताली में <strong>'ञुतुम बदला' (Uñum)</strong> कहा जाता है। अर्थ और प्रयोग की दृष्टि से इसके मुख्य रूप से <strong>6 भेद</strong> हैं:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">सर्वनाम का भेद (संताली नाम)</th>
+                        <th style="width: 35%;">प्रमुख संताली सर्वनाम शब्द ★</th>
+                        <th style="width: 40%;">विशेष नियम एवं उदाहरण</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. पुरुषवाचक सर्वनाम</strong></td>
+                        <td>ञि, आं, आम, आदि, अले, आपे</td>
+                        <td>तीनों पुरुषों (उत्तम, मध्यम, अन्य) के लिए प्रयुक्त।</td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>2. निश्चयवाचक सर्वनाम ★★</strong></td>
+                        <td>ई (यह), उ (वह), नेके (यह है)</td>
+                        <td>नजदीक या दूर की खास वस्तु/व्यक्ति का निश्चित बोध कराने के लिए।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. अनिश्चयवाचक सर्वनाम</strong></td>
+                        <td>कडो (कोई), ओकडो (कुछ)</td>
+                        <td>अनिश्चित व्यक्ति या वस्तु का बोध कराने हेतु।</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>4. प्रश्नवाचक सर्वनाम ★</strong></td>
+                        <td>ओकोय (कौन), चेटाक् (क्या)</td>
+                        <td>सवाल पूछने के लिए (जैसे—<em>"ओकोय हिजुककान्या?"</em> [कौन आया है?])।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. संबंधवाचक सर्वनाम</strong></td>
+                        <td>जे ... से, ओको ... ओको</td>
+                        <td>वाक्यों में आपसी संबंध जोड़ने के लिए।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. निजवाचक सर्वनाम</strong></td>
+                        <td>आप्ते (स्वयं / अपने आप)</td>
+                        <td>कर्ता के साथ निजता का बोध कराने हेतु।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>★★ संताली सर्वनाम की सबसे अनूठी विशेषता: समावेशी ('अबो' / Abo) बनाम अनन्य ('अले' / Ale):</h4>
+                <p>हिंदी या अंग्रेजी में 'हम' या 'हमारा' के लिए केवल एक शब्द होता है, किंतु संताली भाषा-विज्ञान की यह सबसे बड़ी विशेषता है कि इसमें वक्ता 'हम' के दो अलग-अलग रूपों का प्रयोग करता है:</p>
+                <ul>
+                    <li><strong>1. समावेशी 'हम' ('अबो' / Abo - Inclusive We):</strong> जब वक्ता कहता है <em>'अबो'</em>, तो उसमें <strong>सुनने वाला (समोर वाला श्रोता) भी शामिल होता है</strong> (अर्थात—हम सब यानी आप और हम दोनों मिलकर)।</li>
+                    <li><strong>2. अनन्य 'हम' ('अले' / Ale - Exclusive We):</strong> जब वक्ता कहता है <em>'अले'</em>, तो उसमें सुनने वाला शामिल <strong>नहीं</strong> होता (अर्थात—केवल हम बोलने वाले लोग, आप इसमें शामिल नहीं हैं)।</li>
+                </ul>
+            </div>
+
+            <!-- YAHAN AGLA SUB-TOPIC (2.4 to 2.6) PASTE KAREIN -->
+<!-- ---------------- 2.4 ---------------- -->
+<h3 id="sec-11">2.4 विशेषण (गुनवाचक, संख्यावाचक, परिमाणवाचक) एवं कारक व विभक्ति-चिह्न (8 कारक)</h3>
+<p><strong>पाठ्यक्रम संदर्भ (JAC JHTET 2026 - Level 2, बिंदु 3):</strong> संताली व्याकरण में संज्ञा और सर्वनाम की विशेषता बताने वाले शब्द 'विशेषण' तथा वाक्य में उनका संबंध स्थापित करने वाले 'कारक' अत्यंत महत्वपूर्ण हैं।</p>
+​<h4>(क) संताली विशेषण (विशेषण / Adjective):</h4>
+<p>जो शब्द संज्ञा या सर्वनाम की विशेषता (गुण, दोष, संख्या, परिमाण) बताते हैं, उन्हें संताली में विशेषण कहा जाता है। मुख्य भेद:</p>
+<ul>
+<li><strong>1. गुणवाचक विशेषण (गुनवाचक):</strong> जैसे—<em>बेस</em> (अच्छा), <em>बाउर/खराब</em> (बुरा), <em>चरका</em> (सफेद), <em>करिया</em> (काला)।</li>
+<li><strong>2. संख्यावाचक विशेषण (संख्यावाचक):</strong> निश्चित या अनिश्चित संख्या बताने वाले शब्द (जैसे—<em>मित् गोड़ा</em> [एक लड़का], <em>पे टा किताब</em> [तीन किताबें], <em>ढेर होड़</em> [बहुत लोग])।</li>
+<li><strong>3. परिमाणवाचक विशेषण (परिमाणवाचक):</strong> नाप-तौल बताने वाले शब्द (जैसे—<em>तुकू दाः</em> [थोड़ा पानी], <em>भइर चाउर</em> [भर चावल])।</li>
+</ul>
+​<h4>(ख) संताली कारक एवं विभक्ति-चिह्न (8 कारक — Karak & Postpositions):</h4>
+<p>संताली एक अश्लेषणी भाषा है जिसमें कारकों को दर्शाने के लिए शब्दों के बाद विशेष परसर्ग (विभक्ति-चिह्न) जोड़े जाते हैं:</p>
+<table>
+<thead>
+<tr>
+<th style="width: 25%;">कारक का नाम</th>
+<th style="width: 35%;">संताली विभक्ति / परसर्ग ★</th>
+<th style="width: 40%;">उदाहरण</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. कर्ता कारक</strong></td>
+<td>ते, रे, शून्य (0)</td>
+<td><em>कोड़ाते काम कएदा</em> (लड़के ने काम किया)</td>
+</tr>
+<tr style="background-color: #f0fdfa;">
+<td><strong>2. कर्म कारक</strong></td>
+<td>ते, के</td>
+<td><em>गाय के जोम एमेक् मे</em> (गाय को चारा दो)</td>
+</tr>
+<tr>
+<td><strong>3. करण कारक</strong></td>
+<td>ते (से / द्वारा)</td>
+<td><em>हाथते लिखतकान्या</em> (हाथ से लिख रहा है)</td>
+</tr>
+<tr style="background-color: #fef3c7;">
+<td><strong>4. संप्रदान कारक</strong></td>
+<td>लाగిन / खातिर</td>
+<td><em>गिदरा लागिन किताब</em> (बच्चे के लिए किताब)</td>
+</tr>
+<tr>
+<td><strong>5. अपादान कारक</strong></td>
+<td>कोन् / रेकोन् (से - अलग होना)</td>
+<td><em>ओड़ाक् कोन् हिजुक् कान्या</em> (घर से आ रहा है)</td>
+</tr>
+<tr>
+<td><strong>6. संबंध कारक</strong></td>
+<td>रेयाक् / रेन् / क</td>
+<td><em>रामरेयाक् ओड़ाक्</em> (राम का घर)</td>
+</tr>
+<tr style="background-color: #f0fdfa;">
+<td><strong>7. अधिकरण कारक</strong></td>
+<td>रे / टाय (में / पर)</td>
+<td><em>ओड़ाक् रे मेनाक् आः</em> (घर में है)</td>
+</tr>
+<tr>
+<td><strong>8. संबोधन कारक</strong></td>
+<td>ए! ओ! रे!</td>
+<td><em>ए कोड़ा! हियाँ मुजुक् मे</em> (ए लड़के! यहाँ आओ)</td>
+</tr>
+</tbody>
+</table>
+​<!-- YAHAN AGLA SUB-TOPIC (2.5 to 2.6) PASTE KAREIN -->
+<!-- ---------------- 2.5 ---------------- -->
+<h3 id="sec-12">2.5 क्रिया (कानवा / Kanwa) एवं काल-विधान (नांग: नितोक् [वर्तमान], एनेच् [भूत], दाराय [भविष्यत काल])</h3>
+<p><strong>पाठ्यक्रम संदर्भ (JAC JHTET 2026 - Level 2, बिंदु 3):</strong> संताली व्याकरण में क्रिया (Kanwa) और काल (Naang) की व्यवस्था अत्यंत वैज्ञानिक है। संताली क्रियाओं में कर्ता, कर्म, वचन और पुरुष के अनुसार प्रत्यय जुड़ते हैं:</p>
+​<h4>(क) संताली क्रिया (कानवा / Kanwa):</h4>
+<p>जिस शब्द से किसी काम के करने या होने का बोध हो, उसे संताली में <strong>'कानवा' (Verb)</strong> कहा जाता है। संताली क्रियाओं की मुख्य विशेषताएँ:</p>
+<ul>
+<li><strong>1. सकर्मक क्रिया (Sakarmath Kanwa):</strong> जिसमें कर्म (Object) अनिवार्य हो या रहने की संभावना हो (जैसे—<em>"गाय जोम एमेक् मे"</em> [चारा दो], <em>"किताब पढ़तकान्या"</em> [किताब पढ़ रहा है])।</li>
+<li><strong>2. अकर्मक क्रिया (Akarmath Kanwa):</strong> जिसमें कर्म न हो और फल सीधे कर्ता पर पड़े (जैसे—<em>"कोड़ा काँदकान्या"</em> [लड़का रो रहा है], <em>"ओड़ाक् कोन् हिजुक् कान्या"</em> [घर से आ रहा है])।</li>
+</ul>
+​<h4>(ख) संताली काल-विधान (नांग / Naang — 3 काल):</h4>
+<p>समय का बोध कराने वाले रूप को संताली में <strong>'नांग' (Tense)</strong> कहते हैं। इसके मुख्य रूप से <strong>3 भेद</strong> होते हैं:</p>
+​<table>
+<thead>
+<tr>
+<th style="width: 25%;">काल का नाम (संताली नाम)</th>
+<th style="width: 35%;">पहचान एवं प्रत्यय ★</th>
+<th style="width: 40%;">संताली उदाहरण एवं हिंदी अर्थ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. वर्तमान काल ('नितोक् नांग' / Nitok Naang)</strong></td>
+<td>कान्या / काना (रहा है)</td>
+<td><em>"ञि काम कान्या"</em> (मैं काम कर रहा हूँ)</td>
+</tr>
+<tr style="background-color: #f0fdfa;">
+<td><strong>2. भूत काल ('एनेच् नांग' / Enech Naang)</strong></td>
+<td>केदा / केत् / ल् (था / चुका)</td>
+<td><em>"कोड़ाते काम कएदा"</em> (लड़के ने काम किया)</td>
+</tr>
+<tr>
+<td><strong>3. भविष्यत काल ('दाराय नांग' / Daray Naang)</strong></td>
+<td>दोष / तनिक् / ब (गा / गेगी)</td>
+<td><em>"ञि हिजुक् आः"</em> (मैं आऊँगा)</td>
+</tr>
+</tbody>
+</table>
+​<!-- YAHAN AGLA SUB-TOPIC (2.6) PASTE KAREIN -->
+<!-- ---------------- 2.6 ---------------- -->
+<h3 id="sec-13">2.6 उपसर्ग, मध्यसर्ग (Infix — संताली की अनूठी विशेषता), प्रत्यय तथा शुद्ध वाक्य-रचना</h3>
+<p><strong>पाठ्यक्रम संदर्भ (JAC JHTET 2026 - Level 2, बिंदु 3):</strong> संताली व्याकरण में शब्दों के निर्माण और वाक्य-विन्यास की प्रक्रिया अत्यंत वैज्ञानिक है। इसमें उपसर्ग और प्रत्यय के अलावा मध्यसर्ग (Infix) की अनूठी व्यवस्था पाई जाती है:</p>
+​<h4>(क) संताली उपसर्ग (उपसर्ग / Prefix):</h4>
+<p>जो शब्दांश मूल शब्द के पहले जुड़कर उसके अर्थ में विशेषता या परिवर्तन लाते हैं, उन्हें उपसर्ग कहते हैं (जैसे—<em>बे-</em>, <em>नि-</em>, <em>सु-</em> आदि)।</p>
+​<h4>(ख) संताली मध्यसर्ग (Infix — संताली भाषा-विज्ञान की सबसे बड़ी विशेषता ★★):</h4>
+<p>हिंदी, अंग्रेजी या संस्कृत में शब्द के या तो आगे (उपसर्ग) या पीछे (प्रत्यय) शब्दांश जुड़ते हैं, किंतु <strong>संताली भाषा की महान विशेषता इसका मध्यसर्ग (Infix) है</strong>। इसमें मूल धातु या शब्द के <strong>ठीक बीच में</strong> एक ध्वनि या अंश (जैसे <em>-um-</em>, <em>-en-</em>, <em>-et-</em>) जोड़कर उसका अर्थ या काल बदल दिया जाता है। (जैसे मूल धातु में मध्यसर्ग का प्रयोग कर क्रिया के रूप बदलना)।</p>
+​<h4>(ग) संताली प्रत्यय (प्रत्यय / Suffix):</h4>
+<p>जो शब्दांश मूल शब्द या धातु के अंत में जुड़कर नए शब्द, वचन (जैसे <em>-ko</em>, <em>-kin</em>), कारक या भाववाचक संज्ञा बनाते हैं।</p>
+​<h4>(घ) शुद्ध वाक्य-रचना (Sentence Structure):</h4>
+<p>संताली भाषा में वाक्य का सामान्य पद-क्रम <strong>कर्ता (Subject) + कर्म (Object) + क्रिया (Verb) [S + O + V]</strong> होता है। वाक्य में वचन, पुरुष और काल के अनुसार प्रत्ययों का सही संयोजन ही शुद्ध अभिव्यक्ति कहलाता है।</p>
+​<!-- UNIT 2 COMPLETED -->
+</div>
+<!-- ==================== END OF UNIT 2 ==================== -->
+
+        <!-- ==================== UNIT 3 (SYLLABUS POINTS 5, 6, 7 & 8 | ~7 अंक) ==================== -->
+        <div id="unit3" class="unit-section">
+            <h2>इकाई 3 (Unit 3): संताली लोकसाहित्य, शिष्ट साहित्य का इतिहास, सांस्कृतिक सामग्री एवं पठन-लेखन कौशल</h2>
+
+            <p><strong>पाठ्यक्रम संदर्भ (JAC JHTET 2026 - Level 2, बिंदु 5, 6, 7 व 8):</strong> <em>"लोकसाहित्य, लोकगीत, लोककथा, शिष्ट साहित्य का इतिहास, प्रमुख साहित्यकार, सांस्कृतिक विरासत और पठन-लेखन कौशल।"</em> संताल समाज की मौखिक और लिखित परंपरा का संपूर्ण प्रामाणिक विवरण नीचे प्रस्तुत है:</p>
+
+            <!-- ---------------- 3.1 ---------------- -->
+            <h3 id="sec-14">3.1 संताली लोकसाहित्य: लोकगीत (बाहा, सोहराय, दोंग, लागड़े, करम), लोककथा (गाम-काहनी) एवं लोकसंस्कृति</h3>
+            
+            <p>संताल समाज का लोकसाहित्य (Folk Literature) अत्यंत समृद्ध, जीवंत और मौखिक परंपरा पर आधारित है। संताली लोकसाहित्य को पुरखों की अमूल्य धरोहर माना जाता है:</p>
+
+            <h4>(क) संताली लोकगीत (Folk Songs):</h4>
+            <p>संताली लोकगीत मानव जीवन के जन्म से लेकर मृत्यु तक के संस्कारों, ऋतुओं और पर्व-त्योहारों से जुड़े हुए हैं। प्रमुख लोकगीत श्रेणियाँ:</p>
+            <ul>
+                <li><strong>1. बाहा गीत (Baha Geet — पुष्प उत्सव गीत ★★):</strong> फागुन-चैत के महीने में जब सखुआ (साल) और महुआ के पेड़ नए फूलों से लद जाते हैं, तब प्रकृति के स्वागत में 'बाहा पर्व' पर ये गीत गाए जाते हैं।</li>
+                <li><strong>2. सोहराय गीत (Sohrai Geet — मवेशी व फसल उत्सव गीत ★★):</strong> कार्तिक अमावस्या के समय नई फसल आने और मवेशियों की पूजा के अवसर पर गाए जाने वाले उल्लासपूर्ण गीत।</li>
+                <li><strong>3. दोंग गीत (Dong Geet — विवाह गीत ★):</strong> संताल समाज में विवाह संस्कारों (शादी के विभिन्न चरणों) के समय गाए जाने वाले अत्यंत लोकप्रिय और पारंपरिक गीत।</li>
+                <li><strong>4. लागड़े गीत (Lagre Geet — नृत्य गीत ★):</strong> मांदर की थाप पर पूरी रातगाड़ी जाने वाली लागड़े शैली के गीत, जो ऊर्जा और उमंग के प्रतीक हैं।</li>
+                <li><strong>5. करम गीत (Karam Geet):</strong> भादो मास में प्रकृति और भाई-बहन के प्रेम के प्रतीक 'करम पर्व' पर गाए जाने वाले लोकगीत।</li>
+            </ul>
+
+            <h4>(ख) संताली लोककथाएँ एवं गाम-काहनी (Folk Tales):</h4>
+            <p>बुजुर्गों द्वारा संध्या के समय चौपालों पर बच्चों को सुनाई जाने वाली कहानियों को संताली में <strong>'गाम-काहनी' (Gam-Kahani)</strong> कहा जाता है। इसमें नीति, पशु-पक्षियों की कथाएँ, जादूई कथाएँ और समाज सुधार के संदेश होते हैं (जैसे—करम-धरम की कथा, ओड़ोक् हानी आदि)।</p>
+
+            <h4>(ग) संताली लोकसंस्कृति (Folk Culture):</h4>
+            <p>संताल समाज की संस्कृति नृत्य (डाँह, लागड़े, बाहा), वाद्ययंत्रों (मांदर, टमाकू, तिरियो), और सामुदायिक जीवन मूल्यों पर आधारित है।</p>
+
+            <!-- YAHAN AGLA SUB-TOPIC (3.2 to 3.5) PASTE KAREIN -->
+
+
+
+            <!-- ---------------- 3.2 ---------------- -->
+            <h3 id="sec-15">3.2 संताल समुदाय की सांस्कृतिक विरासत: प्रमुख पर्व-त्योहार, मांझी-परगना स्वशासन प्रणाली, जाहेर थान एवं सरना धर्म</h3>
+            
+            <p><strong>पाठ्यक्रम संदर्भ (JAC JHTET 2026 - Level 2, बिंदु 6 व 7):</strong> संताल जनजाति की सांस्कृतिक विरासत, पारंपरिक स्वशासन व्यवस्था और प्रकृति-पूजन परंपरा (सरना धर्म) भारतीय जनजातीय इतिहास का एक गौरवशाली अध्याय है। इसका विस्तृत प्रामाणिक विवरण नीचे प्रस्तुत है:</p>
+
+            <h4>(क) संताल समुदाय के प्रमुख पर्व-त्योहार (Festivals of Santhal Community ★):</h4>
+            <p>संतालों के सभी पर्व कृषि, प्रकृति, ऋतु परिवर्तन और पशुओं के सम्मान से जुड़े हुए हैं। उनके वर्ष की शुरुआत फागुन मास से होती है:</p>
+            <ul>
+                <li><strong>1. बाहा पर्व (Baha Parv — पुष्प उत्सव ★★):</strong> 
+                    फागुन-चैत महीने में मनाया जाने वाला यह संतालों का सबसे पवित्र और सुंदर पर्व है। इस अवसर पर साल (सखुआ) और महुआ के नए फूलों को देवताओं को अर्पित किया जाता है। गाँव के धार्मिक प्रधान (नायके) उपवास रखकर बाहा बोंगों की पूजा करते हैं। इसमें लोग एक-दूसरे पर पानी डालकर प्रकृति का उल्लास मनाते हैं।
+                </li>
+                <li><strong>2. सोहराय पर्व (Sohrai Parv — मवेशी व फसल उत्सव ★★):</strong> 
+                    कार्तिक अमावस्या (दीपावली के समय) नई फसल (धान) घर आने की खुशी में और मवेशियों (गाय, बैल) के सम्मान में यह 5 दिवसीय सबसे बड़ा महापर्व मनाया जाता है। इस दिन गोहाल (गोशाला) की पूजा होती है, मवेशियों कोहहह नहलाकर उनकी सींगों में तेल-सिंदूर लगाया जाता है और रात में गोहाल घर में 'खूंटा पूजा' होती है।
+                </li>
+                <li><strong>3. करम पर्व (Karam Parv):</strong> 
+                    भादो मास के एकादशी को प्रकृति, वनस्पति और भाई-बहन के अटूट प्रेम के प्रतीक के रूप में यह पर्व मनाया जाता है। इसमें करम पेड़ की डाली लाकर 'जावा' जगाया जाता है और रातभर मांदर की थाप पर करम गीत गाए जाते हैं।
+                </li>
+                <li><strong>4. एरक सिम् / हिरल पर्व (Erak Sim / Hero Sim):</strong> 
+                    यह धान की बुआई (खेती की शुरुआत) के समय मनाया जाने वाला कृषि पर्व है, जिसमें अच्छी बारिश और फसल के लिए सिंग बोंगा से प्रार्थना की जाती है।
+                </li>
+            </ul>
+
+            <h4>(ख) संताल समुदाय की पारंपरिक स्वशासन प्रणाली: 'मांझी-परगना शासन व्यवस्था' (Manjhi-Pargana System ★★):</h4>
+            <p>ब्रिटिश काल से पूर्व और आज भी संताल समाज की अपनी एक अत्यंत लोकतांत्रिक, सुदृढ़ और न्यायप्रिय पारंपरिक स्वशासन प्रणाली है, जिसे <strong>'मांझी-परगना व्यवस्था'</strong> कहा जाता है। इसके प्रमुख प्रशासनिक पद और अंग निम्नलिखित हैं:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">प्रशासनिक पद / अधिकारी</th>
+                        <th style="width: 35%;">प्रमुख कर्तव्य एवं अधिकार ★</th>
+                        <th style="width: 40%;">सहयोगी अधिकारी</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. मांझी (Manjhi)</strong><br><em>(गाँव का मुखिया)</em></td>
+                        <td>गाँव का प्रशासनिक, कार्यकारी और न्यायिक प्रमुख। यह गाँव के आंतरिक विवादों को सुलझाता है, कर/लगान वसूलता है और शादी-विवाह आदि आयोजनों का संचालन करता है।</td>
+                        <td><strong>प्राणिक (Pranik):</strong> मांझी की अनुपस्थिति में उसके कार्यों का संचालन करने वाला सहायक।</td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>2. जोग-मांझी (Jog-Manjhi)</strong></td>
+                        <td>गाँव का नैतिक संरक्षक और युवा संगठन (घोटूल) का प्रमुख। यह युवक-युवतियों के आचरण पर नजर रखता है और सांस्कृतिक आयोजनों की देखरेख करता है।</td>
+                        <td><strong>जोग-प्राणिक:</strong> जोग-मांझी का सहायक।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. नायक / नायके (Naike)</strong><br><em>(गाँव का धार्मिक पुरोहित)</em></td>
+                        <td>गाँव का मुख्य धार्मिक अधिकारी। यह सभी पर्व-त्योहारों, अनुศาสनों और बोंगा-बुरु (देवी-देवताओं) की पूजा-अर्चना संपन्न कराता है।</td>
+                        <td><strong>कुदाम नायके (Kudam Naike):</strong> गाँव की सीमा और बाहरी दुष्ट आत्माओं से रक्षा के लिए पूजा करने वाला सहायक पुरोहित।</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>4. गोडित (Godet)</strong><br><em>(गाँव का संदेशवाहक)</em></td>
+                        <td>गाँव का सूचना-प्रसारक। यह मांझी के आदेशों को घर-घर पहुँचाता है और पंचायत (सलाह-मशविरा) के लिए ग्रामीणों को एकत्रित करता है।</td>
+                        <td>गाँव के अन्य चौकीदार व सहायक।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. परगनाइत (Parganait)</strong><br><em>(क्षेत्रीय प्रमुख)</em></td>
+                        <td>15 से 80 गाँवों के समूह (परगना) का प्रमुख। यह कई गाँवों के बीच के बड़े विवादों का निपटारा करता है और मांझी के निर्णयों के विरुद्ध अपील सुनता है।</td>
+                        <td><strong>देश-मांझी / चोड़े:</strong> परगनाइत के अधीन कार्य करने वाले क्षेत्रीय प्रतिनिधि।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>सर्वोच्च सामाजिक दंड — 'बिटलाहा' (Bitlaha) ★★:</strong> संताल समाज के नियमों (विशेषकर गोत्र-सीमा लाँघने या समाज विरोधी जघन्य अपराध) को तोड़ने पर दिया जाने वाला सबसे कठोर सामाजिक बहिष्कार का दंड 'बिटलाहा' कहलाता है। इसमें हजारों लोग मांदर-नगाड़े बजाते हुए अपराधी के घर को घेरकर विध्वंस करते हैं, जब तक कि वह सार्वजनिक रूप से क्षमा न माँग ले।</p>
+
+            <h4>(ग) जाहेर थान एवं सरना धर्म (Jaher Than & Sarna Religion):</h4>
+            <ul>
+                <li><strong>पवित्र पूजा-स्थल — 'जाहेर थान' (Jaher Than):</strong> संतालों का कोई भी मंदिर पक्के भवनों में नहीं होता। प्रत्येक गाँव के बाहर साल (सखुआ) और महुआ के प्राचीन वृक्षों का एक प्राकृतिक कुंज होता है, जिसे <strong>'जाहेर थान'</strong> कहा जाता है। यह संतालों का अत्यंत पवित्र और सामूहिक पूजा-स्थल है।</li>
+                <li><strong>ग्राम देवी — 'जाहेर एरा' (Jaher Era):</strong> जाहेर थान में ग्राम देवी 'जाहेर एरा', सर्वोच्च देवता 'सिंग बोंगा' और मरांग बुरु का निवास माना जाता है, जहाँ नायके पूजा करते हैं।</li>
+                <li><strong>सरना धर्म (Sarna Religion):</strong> संताल समुदाय प्रकृति के पूजक होते हैं। वे पेड़ों, पहाड़ों, नदियों और जंगलों को ही ईश्वर का रूप मानकर पूजते हैं। उनकी इस प्रकृति-केन्द्रित आस्था को <strong>'सरना धर्म'</strong> कहा जाता है, जो उनकी सांस्कृतिक पहचान का मूल आधार है।</li>
+            </ul>
+
+            <!-- YAHAN AGLA SUB-TOPIC (3.3 to 3.5) PASTE KAREIN -->
+            <!-- ---------------- 3.3 ---------------- -->
+            <h3 id="sec-16">3.3 संताली साहित्य के इतिहास की रूपरेखा: मिशनरी काल (स्क्रेफ्सरूड, बोडिंग) से आधुनिक काल तक (History of Santhal Literature ★★)</h3>
+            
+            <p><strong>पाठ्यक्रम संदर्भ (JAC JHTET 2026 - Level 2, बिंदु 6):</strong> संताली साहित्य का इतिहास मौखिक परंपरा (लोकसाहित्य) से निकलकर लिखित और आधुनिक साहित्य के स्वर्ण युग तक की एक लंबी यात्रा तय करता है। यूरोपीय मिशनरियों, संताल बुद्धिजीवियों और स्वतंत्रता सेनानियों के प्रयासों से विकसित संताली साहित्य के इतिहास को मुख्य रूप से <strong>4 प्रमुख कालखंडों</strong> में विभाजित किया जाता है:</p>
+
+            <div class="note-card">
+                <h4>📊 संताली साहित्य के इतिहास का काल-विभाजन (Chronological Framework):</h4>
+                <ol>
+                    <li><strong>1. प्राचीन मौखिक काल / आदिकाल:</strong> (आरंभ से 1850 ई. तक) — मौखिक परंपरा, लोकगीत, लोककथाएँ और सृष्टिकथाएँ।</li>
+                    <li><strong>2. मिशनरी एवं मुद्रण काल:</strong> (1852 ई. से 1924 ई. तक) — रेव. जे. फिलिप्स, एल.ओ. स्क्रेफ्सरूड और पी.ओ. बोडिंग द्वारा व्याकरण, शब्दकोश और बाइबिल का संताली अनुवाद।</li>
+                    <li><strong>3. जागृति एवं ओलचिकी काल:</strong> (1925 ई. से 1947 ई. तक) — पं. रघुनाथ मुर्मू द्वारा 'ओलचिकी लिपि' का आविष्कार (1925), पत्र-पत्रिकाएँ और मौलिक साहित्यिक कृतियों की शुरुआत।</li>
+                    <li><strong>4. स्वातंत्र्योत्तर एवं संवैधानिक उत्कर्ष काल:</strong> (1947 ई. से वर्तमान तक) — देवनागरी में 'होड़ो संवाद', उपन्यास, नाटक, 2003 में 8वीं अनुसूची में संवैधानिक मान्यता और साहित्य अकादमी पुरस्कार।</li>
+                </ol>
+            </div>
+
+            <h4>(क) संताली साहित्य का प्रथम चरण — मिशनरी एवं मुद्रण काल (1852 – 1924 ई. ★★):</h4>
+            <p>संताली भाषा को लिखित रूप देने और उसका व्याकरणिक व शब्दकोशीय ढाँचा तैयार करने का श्रेय मुख्य रूप से ईसाई मिशनरियों (विशेषकर स्कैंडेवियन और अमेरिकन बैपटिस्ट मिशन) को जाता है:</p>
+            <ul>
+                <li><strong>1. रेव. जे. फिलिप्स (Rev. J. Phillips — 1852 ई. ★):</strong> अमेरिकी बैपटिस्ट मिशनरी जे. फिलिप्स ने बंगाल/ओडिशा सीमा पर संतालों के बीच कार्य करते हुए <strong>'An Introduction to the Santal Language' (1852)</strong> प्रकाशित की। इसे संताली भाषा की <strong>पहली छपी हुई पुस्तक</strong> माना जाता है।</li>
+                <li><strong>2. ई.एल. पक्सले (E.L. Puxley — 1868 ई.):</strong> इन्होंने संताली भाषा का प्रथम शब्दकोश <em>'A Vocabulary of the Santali Language'</em> प्रकाशित किया।</li>
+                <li><strong>3. नॉर्वेजियन मिशनरी एल.ओ. स्क्रेफ्सरूड (L.O. Skrefsrud — 1873 ई. ★★):</strong>
+                    <ul>
+                        <li>स्क्रेफ्सरूड संताली भाषा-विज्ञान और व्याकरण के क्षेत्र में महान स्तंभ माने जाते हैं। उन्होंने <strong>1873 ई.</strong> में प्रसिद्ध और प्रामाणिक व्याकरण ग्रंथ <strong>'A Grammar of the Santhal Language'</strong> प्रकाशित किया।</li>
+                        <li>इस पुस्तक की प्रस्तावना में उन्होंने संताल समाज के प्राचीन इतिहास, 12 गोत्रों (पारिस) और उनकी उत्पत्ति का विस्तृत प्रामाणिक विवरण दर्ज किया है।</li>
+                    </ul>
+                </li>
+                <li><strong>4. पॉल ओलाव बोडिंग (P.O. Bodding — 1890 से 1930 का दशक ★★):</strong>
+                    <ul>
+                        <li>बोडिंग ने संताली लोकसाहित्य और भाषा-विज्ञान को विश्व पटल पर स्थापित किया। उन्होंने 5 विशाल खंडों में <strong>'A Santal Dictionary' (1929–1936)</strong> संकलित किया, जो आज भी संताली शब्दकोश का सबसे बड़ा ग्रंथ है।</li>
+                        <li>इसके अतिरिक्त उन्होंने 3 खंडों में <strong>'Santal Folk Tales' (संताली लोककथाएँ)</strong> तथा <em>'Materials for a Santal Grammar'</em> प्रकाशित किए।</li>
+                        <li>उनके मुख्य सहयोगी संताल विद्वान <strong>साग्राम मुरमू (Sagram Murmu)</strong> थे, जिन्होंने संताल लोकगाथाओं और कथाओं को लिपिबद्ध कराने में ऐतिहासिक सहयोग दिया।</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>(ख) संताली साहित्य का द्वितीय चरण — जागृति एवं ओलचिकी काल (1925 – 1947 ई. ★):</h4>
+            <p>यह काल संताली समाज में अपनी अस्मिता, शिक्षा और स्वतंत्र लिपि के प्रति जन-जागृति का काल था:</p>
+            <ul>
+                <li><strong>1. पंडित रघुनाथ मुर्मू ('गुरु गोमके' — 1925 ई. ★★):</strong> मयूरभंज (ओडिशा) के इस महान विचारक ने संताली भाषा की स्वतंत्र, वैज्ञानिक और प्रकृति-आधारित लिपि <strong>'ओलचिकी' (Ol Chiki)</strong> का आविष्कार <strong>1925 ई.</strong> में किया। इससे संताली भाषा में मौलिक गद्य और पद्य रचनाओं का मार्ग प्रशस्त हुआ।</li>
+                <li><strong>2. पॉल जुझार सोरेन (Paul Jujhar Soren):</strong> इनकी प्रसिद्ध काव्य कृति <strong>'बाहा डाली' (Baha Dali — 1936 ई.)</strong> संताली की शुरुआती मुद्रित काव्य पुस्तकों में गिनी जाती है।</li>
+                <li><strong>3. सादू रामचंद मुर्मू (Sadhu Ramchand Murmu):</strong> इस काल के महान कवि और समाज सुधारक, जिन्होंने संताल समाज की कुप्रथाओं के खिलाफ और शिक्षा के पक्ष में ओजस्वी कविताएँ रचीं।</li>
+            </ul>
+
+            <h4>(ग) संताली साहित्य का तृतीय एवं स्वर्ण युग — स्वातंत्र्योत्तर काल (1947 ई. से वर्तमान तक ★★):</h4>
+            <p>स्वतंत्रता प्राप्ति के बाद देवनागरी और ओलचिकी दोनों लिपियों में संताली साहित्य का अभूतपूर्व विस्तार हुआ:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 28%;">साहित्यिक विधा / आयाम</th>
+                        <th style="width: 72%;">प्रमुख कृतियाँ, रचनाकार एवं ऐतिहासिक योगदान ★</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>1. पत्रकारिता एवं पत्रिकाएँ ★★</strong></td>
+                        <td>
+                            • <strong>'होड़ो संवाद' (Horo Somvad — 1947 ई., देवघर):</strong> <strong>डॉ. डोमन साहु 'समीर'</strong> (जिन्हें 'संताली साहित्य का भारतेंदु' कहा जाता है) के संपादन में देवनागरी लिपि में प्रकाशित प्रथम साप्ताहिक पत्र, जिसने संताली लेखन में क्रांति ला दी।<br>
+                            • अन्य पत्रिकाएँ: <i>जेथेल, जुग जाहेर, सांवहेंत मारेर</i> आदि।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. संताली कविता एवं महाकाव्य</strong></td>
+                        <td>
+                            • <strong>शारदा प्रसाद किसकू:</strong> काव्य संग्रह <i>'भुरका इपिल'</i> (भोर का तारा - 1953 ई.)।<br>
+                            • <strong>दिगंबर हांसदा:</strong> आधुनिक संताली कविताओं के प्रमुख हस्ताक्षर।<br>
+                            • <strong>सारदा प्रसाद किसकू</strong> एवं अन्य कवियों द्वारा प्रबंध काव्यों की रचना की गई।
+                        </td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>3. संताली नाटक (Dramas) ★★</strong></td>
+                        <td>
+                            • <strong>पंडित रघुनाथ मुर्मू:</strong> ऐतिहासिक नाटक <strong>'बिदु चांदान'</strong> (1946 ई.) और <i>'खेरवाड़ वीर'</i>।<br>
+                            • <strong>गुणाकर हांसदा:</strong> सामाजिक नाटकों की रचना।<br>
+                            • संताली नाटकों ने संताल समाज की परंपराओं, जनजातीय वीरों (सिदो-कान्हू, बिरसा मुंडा) के संघर्ष और सांस्कृतिक चेतना को घर-घर पहुँचाया।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. संताली उपन्यास (Novels)</strong></td>
+                        <td>
+                            • <strong>आर.आर. किस्कू 'रापाज':</strong> <i>'हरमा आतु'</i> (1946 ई.) — इसे संताली का पहला मौलिक उपन्यास माना जाता है (जो रॉबर्ट कारस्टेयर्स के अंग्रेजी उपन्यास पर आधारित था)।<br>
+                            • <strong>चन्द्रमोहन हांसदा:</strong> <i>'मनु माति'</i> (1977 ई.) — ओलचिकी लिपि में प्रकाशित पहला मौलिक उपन्यास।<br>
+                            • नारायण सोरेन 'तोरे सुतम' (<i>'माथा सुरा'</i>) और दामन हांसदा (<i>'ओड़ोक् ओराह'</i>)।
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>संविधान की 8वीं अनुसूची में मान्यता (2003) के पश्चात का साहित्यिक विस्र्स्तार:</strong> 22 दिसंबर 2003 को 92वें संविधान संशोधन द्वारा संताली को 8वीं अनुसूची में शामिल किए जाने के बाद से उपन्यास, कहानी संग्रह, आलोचना और शोध ग्रंथों की बाढ़ आ गई है। वर्ष 2005 से संताली में 'साहित्य अकादमी पुरस्कार' (प्रथम पुरस्कार: जादुमणि बेसरा की कृति <em>'भाबना'</em> को) दिए जाने से राष्ट्रीय स्तर पर संताली साहित्य को उच्च प्रतिष्ठा प्राप्त हुई है।</p>
+
+            <!-- YAHAN AGLA SUB-TOPIC (3.4 to 3.5) PASTE KAREIN -->
+
+
+
+            <!-- ---------------- 3.4 ---------------- -->
+            <h3 id="sec-17">3.4 प्रमुख साहित्यकार एवं प्रतिनिधि विधाएँ (कविता, कहानी, नाटक, उपन्यास, निबंध व पत्र-पत्रिकाएँ: होड़ो संवाद)</h3>
+            
+            <p><strong>पाठ्यक्रम संदर्भ (JAC JHTET 2026 - Level 2, बिंदु 6 व 7):</strong> संताली भाषा और साहित्य को समृद्ध बनाने में अनेक महान साहित्यकारों, कवियों, नाटककार और पत्रकारों का योगदान रहा है। प्रतियोगी परीक्षाओं (JHTET/JPSC/JSSC) की दृष्टि से प्रमुख संताली साहित्यकारों और उनकी प्रतिनिधि विधाओं का विस्तृत विवरण नीचे प्रस्तुत है:</p>
+
+            <h4>(क) संताली के प्रमुख साहित्यकार एवं उनकी अमर कृतियाँ:</h4>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">साहित्यकार का नाम</th>
+                        <th style="width: 35%;">परिचय एवं उपाधि / विशेषता ★</th>
+                        <th style="width: 40%;">प्रमुख कृतियाँ (काव्य, नाटक, उपन्यास आदि) ★★</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>1. पंडित रघुनाथ मुर्मू</strong><br><em>('गुरु गोमके' ★★)</em></td>
+                        <td>ओलचिकी लिपि के आविष्कारक, महान दार्शनिक, नाटककार और संताल समाज के सांस्कृतिक पुनर्जागरण के अग्रणी पुरोधा।</td>
+                        <td>
+                            • नाटक: <strong>'बिदु चांदान' (Bidu Chandan)</strong>, 'खेरवाड़ वीर'।<br>
+                            • व्याकरण: 'रोड़ोङ' (Ranal)।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. डॉ. डोमन साहु 'समीर'</strong><br><em>('संताली साहित्य का भारतेंदु' ★★)</em></td>
+                        <td>देवनागरी लिपि में संताली साहित्य को जन-जन तक पहुँचाने वाले महान पत्रकार, साहित्यकार और शोधकर्ता।</td>
+                        <td>
+                            • पत्र-संपादन: <strong>'होड़ो संवाद' (Horo Somvad - 1947, देवघर से प्रथम साप्ताहिक पत्र)</strong> ★★.<br>
+                            • कृतियाँ: <i>'संताली प्रवेशिका', 'संताली लोकगीत', 'होड़ो कोरेन मारे हापड़ाम को'</i>।
+                        </td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><strong>3. शारदा प्रसाद किसकू ★★</strong></td>
+                        <td>संताली के शीर्षस्थ कवि और गीतकार, जिन्हें उनकी उत्कृष्ट काव्य रचना के लिए जाना जाता है।</td>
+                        <td>
+                            • काव्य संग्रह: <strong>'भुरका इपिल' (Bhurka Epil — भोर का तारा, 1953 ई.)</strong> ★★.<br>
+                            • अन्य गीत और कविताएँ।
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. डोमन हांसदा</strong></td>
+                        <td>प्रसिद्ध कथाकार और उपन्यासकार।</td>
+                        <td>
+                            • उपन्यास: <strong>'ओड़ोक् ओराह'</strong> (घर-परिवार)।<br>
+                            • कहानियाँ: संताली समाज के यथार्थ चित्रण पर आधारित कथाएँ।
+                        </td>
+                    </tr>
+                    <tr style="background-color: #f0fdfa;">
+                        <td><strong>5. जादुमणि बेसरा ★★</strong></td>
+                        <td>प्रतिष्ठित संताली कवि, जिन्हें संताली में सर्वप्रथम साहित्य अकादमी पुरस्कार से सम्मानित किया गया।</td>
+                        <td>
+                            • काव्य संग्रह: <strong>'भाबना' (Bhabna — 2005 ई., साहित्य अकादमी पुरस्कार प्राप्त)</strong> ★★.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. अर्जुन चरण हेम्ब्रम</strong></td>
+                        <td>आधुनिक संताली गद्य और पद्य के सशक्त हस्ताक्षर।</td>
+                        <td>
+                            • कृतियाँ: <i>'चंदा रे जोन्हो'</i> तथा अन्य आधुनिक कविता संग्रह व निबंध।
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>(ख) प्रतिनिधि साहित्यिक विधाएँ (Representative Literary Genres):</h4>
+            <ul>
+                <li><strong>1. संताली कविता (Poetry):</strong> संताली कविताओं में प्रकृति प्रेम, विद्रोह, शोषण के विरुद्ध चेतना, पुरखों का गौरव और संताल हूल (क्रांति) की गूँज मिलती है। (जैसे—<i>भुरका इपिल, बाहा डाली</i>)।</li>
+                <li><strong>2. संताली नाटक (Drama):</strong> जनजातीय अस्मिता और समाज सुधार के लिए नाटक सबसे शक्तिशाली माध्यम रहे हैं। पं. रघुनाथ मुर्मू का <em>'बिदु चांदान'</em> इस विधा का मील का पत्थर है।</li>
+                <li><strong>3. संताली उपन्यास (Novel):</strong> आर.आर. किस्कू 'रापाज' का <em>'हरमा आतु'</em> (1946) और चन्द्रमोहन हांसदा का <em>'मनु माति'</em> संताल ग्रामीण जीवन, कृषि संकट और आधुनिकता के प्रभाव को दर्शाते हैं।</li>
+                <li><strong>4. संताली पत्रिकाएँ (Journals):</strong>
+                    <ul>
+                        <li><strong>'होड़ो संवाद' (1947):</strong> डॉ. डोमन साहु 'समीर' द्वारा देवनागरी में संपादित यह साप्ताहिक पत्र संताली साहित्य, संस्कृति और भाषा के मानकीकरण का प्राण बना।</li>
+                        <li>इसके अलावा <i>'जेथेल'</i>, <i>'जुग जाहेर'</i> और <i>'सांवहेंत'</i> पत्रिकाओं ने साहित्यिक चेतना को जीवित रखा।</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- YAHAN AGLA SUB-TOPIC (3.5) PASTE KAREIN -->
+
+            <!-- ---------------- 3.5 ---------------- -->
+            <h3 id="sec-18">3.5 पठन-बोध (गद्य/पद्यांश, सार, शीर्षक) एवं लेखन कौशल (पत्र, आवेदन, रिपोर्ट, संक्षेपण, अनुवाद व वाक्‌कला)</h3>
+            
+            <p><strong>पाठ्यक्रम संदर्भ (JAC JHTET 2026 - Level 2, बिंदु 8):</strong> <em>"पठन-बोध (Comprehension), सार-ग्रहण, शीर्षक-बोध, पत्र-लेखन, आवेदन, रिपोर्ट, संक्षेपण, अनुवाद (संताली से हिंदी/हिंदी से संताली) और वाक्-कला।"</em> भाषा दक्षता (Language Proficiency) के आकलन के लिए यह खंड अत्यंत महत्वपूर्ण है। इसके मुख्य आयाम निम्नलिखित हैं:</p>
+
+            <h4>(क) पठन-बोध (Comprehension — गद्य एवं पद्यांश):</h4>
+            <p>पठन-बोध का अर्थ किसी अपठित गद्यांश (Prose Passage) या पद्यांश (Poem) को पढ़कर उसकी मूल भावना, तार्किक निष्कर्ष, सार (Summary) और सटीक शीर्षक (Title) को समझना है। परीक्षा में इस पर आधारित 3 से 5 बहुविकल्पीय या लघु उत्तरीय प्रश्न पूछे जाते हैं:</p>
+            <ul>
+                <li><strong>1. सार (Summary):</strong> गद्यांश के मुख्य विचारों को अपने शब्दों में 1 तिहाई भाग में संक्षेप में प्रस्तुत करना।</li>
+                <li><strong>2. शीर्षक-बोध (Title Selection):</strong> गद्यांश के केंद्रीय भाव या मूल संदेश को दर्शाने वाला सबसे उपयुक्त और छोटा शीर्षक चुनना।</li>
+                <li><strong>3. भावार्थ एवं शब्दार्थ:</strong> पद्यांश की पंक्तियों में निहित संताली संस्कृति, प्रकृति-प्रेम या उपमाओं का सही अर्थ निकालना।</li>
+            </ul>
+
+            <h4>(ख) लेखन कौशल एवं प्रारूपण (Writing Skills & Formatting):</h4>
+            <ul>
+                <li><strong>1. पत्र एवं आवेदन लेखन (Letters & Applications):</strong> 
+                    <ul>
+                        <li>कार्यालयीय या औपचारिक पत्र (Formal Letters) जैसे विद्यालय के प्रधानाध्यापक को अवकाश के लिए आवेदन या जिला शिक्षा पदाधिकारी को पत्र।</li>
+                        <li><em>संताली प्रारूप उदाहरण:</em> <em>"सेवा रे, प्रधानाध्यापक महोदय, उच्च विद्यालय, दुमका..."</em></li>
+                    </ul>
+                </li>
+                <li><strong>2. रिपोर्ट लेखन (Report Writing):</strong> स्कूल में आयोजित होने वाले सांस्कृतिक कार्यक्रमों (जैसे—सोहराय पर्व, बाहा पर्व या विज्ञान प्रदर्शनी) पर संक्षिप्त एवं तथ्यात्मक आलेख तैयार करना।</li>
+                <li><strong>3. संक्षेपण (Precis Writing):</strong> किसी बड़े गद्यांश या अनुच्छेद के महत्वपूर्ण बिंदुओं को छाँटकर उसे संक्षिप्त और स्पष्ट रूप में लिखना।</li>
+                <li><strong>4. अनुवाद (Translation — संताली ↔ हिंदी):</strong> 
+                    <ul>
+                        <li><em>हिंदी:</em> "राम कल राँची जाएगा।" → <em>संताली:</em> "राम काइल्ह राँची जइतइ।"</li>
+                        <li><em>हिंदी:</em> "यह मेरी मातृभाषा है।" → <em>संताली:</em> "ई दो हमर होड़ रोड़ (मातृभाषा) हके।"</li>
+                    </ul>
+                </li>
+                <li><strong>5. वाक्-कला (Oratory / Public Speaking):</strong> मौखिक अभिव्यक्ति की वह कला जिसमें विचारों को शुद्ध उच्चारण, उचित आरोह-अवरोह और प्रभावशीलता के साथ श्रोताओं के समक्ष प्रस्तुत किया जाता है।</li>
+            </ul>
+
+            <!-- UNIT 3 COMPLETED -->
+        </div>
+        <!-- ==================== END OF UNIT 3 ==================== -->
+
+        <!-- ==================== UNIT 4 (SYLLABUS POINTS 10 & 11 | ~5 MARKS) ==================== -->
+        <div id="unit4" class="unit-section">
+            <h2>इकाई 4 (Unit 4): बहुभाषिक कक्षा में संताली भाषा-शिक्षण (NEP 2020) एवं 30 प्रश्नों का मास्टर प्रैक्टिस सेट</h2>
+
+            <p><strong>पाठ्यक्रम संदर्भ (JAC JHTET 2026 - Level 2, बिंदु 10 व 11):</strong> <em>"समुदाय एवं आदिवासी/भारतीय साहित्य संबंध, स्थानीय सामग्री से वर्ग-संचालन, बहुभाषिक कक्षा-प्रासंगिकता तथा राष्ट्रीय शिक्षा नीति (NEP) 2020 में मातृभाषा-आधारित अधिगम।"</em> शिक्षणशास्त्र (Pedagogy) और संताली भाषा के व्यावहारिक अनुप्रयोग पर आधारित यह खंड अत्यंत महत्वपूर्ण है। इसका संपूर्ण विश्लेषणात्मक विवरण नीचे प्रस्तुत है:</p>
+
+            <!-- ---------------- 4.1 ---------------- -->
+            <h3 id="sec-19">4.1 समुदाय एवं आदिवासी/भारतीय साहित्य संबंध, स्थानीय सामग्री से वर्ग-संचालन व बहुभाषिक कक्षा-प्रासंगिकता</h3>
+            <p>झारखंड एक बहुभाषिक (Multilingual) और बहुसांस्कृतिक राज्य है जहाँ एक ही कक्षा में संताली, मुंडारी, खोरठा, नागपुरी और हिंदी बोलने वाले बच्चे एक साथ बैठते हैं। आधुनिक भाषा-शिक्षणशास्त्र के अनुसार:</p>
+            <ul>
+                <li><strong>समुदाय और आदिवासी साहित्य का अंतर्संबंध:</strong> संताली लोकसाहित्य और आदिवासी साहित्य केवल किताबी ज्ञान नहीं है, बल्कि यह प्रकृति, श्रम, जल-जंगल-जमीन और मानवीय मूल्यों का जीवंत दस्तावेज है। कक्षा-शिक्षण में आदिवासी साहित्य को भारतीय मुख्यधारा के साहित्य के समकक्ष रखकर पढ़ाना सांस्कृतिक समावेशन को बढ़ावा देता है।</li>
+                <li><strong>स्थानीय सामग्री से वर्ग-संचालन (Local Materials in Classroom):</strong> शिक्षण को प्रभावी बनाने के लिए पाठ्यपुस्तकों के साथ-साथ स्थानीय पर्यावरण, जाहेर थान की परंपरा, साल के फूलों, मांदर की थाप और स्थानीय लोककथाओं को 'शिक्षण-अधिगम सामग्री' (TLM) के रूप में प्रयोग करना चाहिए। इससे बच्चों की बोधगम्यता (Comprehension) तीव्र गति से बढ़ती है।</li>
+                <li><strong>बहुभाषिकता एक संसाधन (Multilingualism as a Resource) ★:</strong> संताली भाषी या बहुभाषिक कक्षा में बच्चों की मातृभाषा को कभी भी 'बाधा' नहीं माना जाना चाहिए, बल्कि इसे शिक्षण को सुगम बनाने के लिए एक मूल्यवान 'सेतु' (Bridge) और संसाधन माना जाना चाहिए।</li>
+            </ul>
+
+            <!-- YAHAN AGLA SUB-TOPIC (4.2 to 4.3) PASTE KAREIN -->
+
+            <!-- ---------------- 4.2 ---------------- -->
+            <h3 id="sec-20">4.2 राष्ट्रीय शिक्षा नीति (NEP 2020) में मातृभाषा-आधारित अधिगम: संताली में संवाद, गीत, कहानी और स्थानीय अनुभव</h3>
+            <p>भारत सरकार की <strong>राष्ट्रीय शिक्षा नीति (NEP 2020)</strong> के अंतर्गत क्षेत्रीय और मातृभाषाओं के शिक्षण को सर्वोच्च प्राथमिकता दी गई है:</p>
+            <ul>
+                <li><strong>माध्यम के रूप में मातृभाषा ★:</strong> NEP 2020 के प्रावधानों के अनुसार, कम से कम कक्षा 5 तक (और जहाँ तक संभव हो कक्षा 8 तक) शिक्षा का माध्यम बच्चों की मातृभाषा / स्थानीय या क्षेत्रीय भाषा (जैसे संताली) होनी चाहिए। इससे बच्चों की वैचारिक स्पष्टता और संज्ञानात्मक विकास तीव्र होता है।</li>
+                <li><strong>संताली में संवाद, गीत और कहानियाँ:</strong> भाषा अधिगम को आनंददायी बनाने के लिए कक्षाओं में संताली लोकगीतों (बाहा, सोहराय), पारंपरिक गाम-कहानियों और दैनिक संवादों का खुलकर प्रयोग किया जाना चाहिए।</li>
+                <li><strong>स्थानीय अनुभव (Local Experiences):</strong> बच्चों के वास्तविक जीवन के अनुभवों और उनकी सांस्कृतिक थाती को कक्षा के शिक्षण से जोड़ना ही रचनावादी (Constructivist) शिक्षा का मूल आधार है।</li>
+            </ul>
+
+            <!-- YAHAN AGLA SUB-TOPIC (4.3 - 30 MCQs) PASTE KAREIN -->
+
+            <!-- ---------------- 4.3 ---------------- -->
+            <h3 id="sec-21">4.3 व्याख्या सहित 30 उच्च-स्तरीय संताली बहुविकल्पीय प्रश्न (Interactive Master Quiz)</h3>
+            <p>नीचे दिए गए 30 प्रश्न JHTET Level-2 (कक्षा 6 से 8) के संताली पाठ्यक्रम (भाषा-विज्ञान, व्याकरण, साहित्य, लोकसाहित्य और पेडागोजी) पर आधारित हैं। अपने उत्तर चुनें और तुरंत व्याख्या देखें:</p>
+
+            <!-- Quiz Scoreboard -->
+            <div id="quiz-scoreboard" class="top-Fact-bar no-print" style="background: linear-gradient(90deg, #115e59, #0f766e); position: sticky; top: 10px; z-index: 50; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                <div>
+                    <strong>📊 संताली लाइव स्कोरकार्ड:</strong> हल किए गए: <span id="s-attempted">0</span>/30 | सही उत्तर: <span id="s-correct" style="color: #fde68a; font-size: 1.1rem;">0</span>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button onclick="showAllSanthaliAnswers()" class="print-btn" style="background: #ffffff; color: #0f766e;">👁️ सभी उत्तर व व्याख्या देखें</button>
+                    <button onclick="resetSanthaliQuiz()" class="print-btn">🔄 रीसेट करें</button>
+                </div>
+            </div>
+
+            <style>
+                .s-mcq-card {
+                    background: #ffffff;
+                    border: 1px solid var(--border);
+                    border-left: 5px solid var(--primary);
+                    border-radius: 12px;
+                    padding: 20px 24px;
+                    margin-bottom: 22px;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+                }
+                .s-mcq-q {
+                    font-weight: 700;
+                    font-size: 1.05rem;
+                    color: var(--text-dark);
+                    margin-bottom: 14px;
+                }
+                .s-mcq-options {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 10px;
+                }
+                .s-mcq-btn {
+                    text-align: left;
+                    background: #f8fafc;
+                    border: 1px solid #cbd5e1;
+                    border-radius: 8px;
+                    padding: 11px 16px;
+                    font-family: inherit;
+                    font-size: 0.96rem;
+                    color: #1e293b;
+                    cursor: pointer;
+                    transition: all 0.15s ease;
+                }
+                .s-mcq-btn:hover:not(:disabled) {
+                    background: #f0fdfa;
+                    border-color: var(--primary-light);
+                }
+                .s-mcq-btn.correct {
+                    background: #d1fae5 !important;
+                    border-color: #10b981 !important;
+                    color: #065f46 !important;
+                    font-weight: 700;
+                }
+                .s-mcq-btn.wrong {
+                    background: #fee2e2 !important;
+                    border-color: #ef4444 !important;
+                    color: #991b1b !important;
+                }
+                .s-mcq-exp {
+                    display: none;
+                    margin-top: 14px;
+                    padding: 14px 18px;
+                    background: #fef3c7;
+                    border-left: 4px solid var(--accent);
+                    border-radius: 6px;
+                    font-size: 0.93rem;
+                    color: #78350f;
+                }
+                @media print {
+                    .s-mcq-exp { display: block !important; }
+                }
+            </style>
+
+            <div id="s-quiz-container">
+                <!-- Q1 -->
+                <div class="s-mcq-card" data-ans="1">
+                    <div class="s-mcq-q">प्रश्न 1. संताली भाषा किस भाषा-परिवार (Language Family) के अंतर्गत आती है?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) भारोपीय भाषा-परिवार</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) ऑस्ट्रो-एशियाटिक / आग्नेय भाषा-परिवार (मुंडा शाखा)</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) द्रविड़ भाषा-परिवार</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) चीनी-तिब्बती भाषा-परिवार</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> संताली ऑस्ट्रो-एशियाटिक (आग्नेय) महापरिवार की मुंडा उप-शाखा की सबसे बड़ी भाषा है।</div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="s-mcq-card" data-ans="2">
+                    <div class="s-mcq-q">प्रश्न 2. संताली भाषा की अपनी स्वतंत्र लिपि 'ओलचिकी' (Ol Chiki) का आविष्कार किसने और कब किया था?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) सिदो-कान्हू — 1855 ई.</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) एल.ओ. स्क्रेफ्सरूड — 1873 ई.</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) पंडित रघुनाथ मुर्मू ('गुरु गोमके') — 1925 ई.</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) डॉ. डोमन साहु 'समीर' — 1947 ई.</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> मयूरभंज के पंडित रघुनाथ मुर्मू ने 1925 ई. में ओलचिकी लिपि का आविष्कार किया था।</div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="s-mcq-card" data-ans="0">
+                    <div class="s-mcq-q">प्रश्न 3. भारतीय संविधान की आठवीं अनुसूची (8th Schedule) में संताली भाषा को किस संविधान संशोधन के तहत शामिल किया गया था?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) 92वाँ संविधान संशोधन अधिनियम, 2003</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) 73वाँ संविधान संशोधन अधिनियम, 1992</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) 42वाँ संविधान संशोधन अधिनियम, 1976</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) 103वाँ संविधान संशोधन अधिनियम, 2019</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> 22 दिसंबर 2003 को पारित 92वें संविधान संशोधन द्वारा संताली समेत 4 भाषाएँ आठवीं अनुसूची में जोड़ी गईं।</div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="s-mcq-card" data-ans="3">
+                    <div class="s-mcq-q">प्रश्न 4. संताली व्याकरण की सबसे बड़ी अनूठी विशेषता निम्नलिखित में से किसे माना जाता है?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) केवल उपसर्ग का प्रयोग</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) केवल दो वचन की व्यवस्था</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) निर्जीव वस्तुओं का स्त्री-लिंग होना</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) मध्यसर्ग (Infix) की व्यवस्था तथा 3 वचन (मित्तान, बारया, संगी)</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> संताली में मूल धातु के बीच में शब्दांश जोड़ने की मध्यसर्ग (Infix) विशेषता तथा 3 वचन (एकवचन, द्विवचन, बहुवचन) इसकी अनूठी विशेषता है।</div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="s-mcq-card" data-ans="1">
+                    <div class="s-mcq-q">प्रश्न 5. संताली सर्वनाम में समावेशी 'हम' ('अबो' / Abo) और अनन्य 'हम' ('अले' / Ale) में क्या अंतर है?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) 'अबो' का अर्थ वे लोग और 'अले' का अर्थ तुम सब होता है।</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) 'अबो' में सुनने वाला (श्रोता) शामिल होता है, जबकि 'अले' में सुनने वाला शामिल नहीं होता।</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) 'अबो' एकवचन है और 'अले' बहुवचन है।</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) दोनों में कोई अंतर नहीं है।</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> समावेशी 'अबो' में वक्ता के साथ श्रोता भी शामिल होता है, जबकि अनन्य 'अले' में श्रोता शामिल नहीं होता।</div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="s-mcq-card" data-ans="2">
+                    <div class="s-mcq-q">प्रश्न 6. संताली समाज में गोत्र (Clan) को क्या कहा जाता है और कुल कितने गोत्र हैं?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) खूंट — 7 गोत्र</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) जाहेर — 10 गोत्र</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) पारिस (Paris) — कुल 12 गोत्र</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) मांझी — 15 गोत्र</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याখ্যা:</strong> संताल समाज में गोत्र को 'पारिस' कहते हैं और कुल 12 पारिस (गोत्र) हैं (जैसे हाँसदा, मुर्मू, किस्कू आदि)।</div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="s-mcq-card" data-ans="0">
+                    <div class="s-mcq-q">प्रश्न 7. संताली स्वशासन प्रणाली में गाँव के प्रशासनिक, कार्यकारी और न्यायिक प्रमुख को क्या कहा जाता है?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) मांझी (Manjhi)</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) नायक / नायके</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) गोडित</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) परगनाइत</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> 'मांझी' गाँव का प्रशासनिक और न्यायिक मुखिया होता है, जबकि नायके धार्मिक पुरोहित होता है।</div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="s-mcq-card" data-ans="3">
+                    <div class="s-mcq-q">प्रश्न 8. संताल समाज में गोत्र-नियम तोड़ने या समाज-विरोधी जघन्य अपराध पर दिया जाने वाला सबसे कठोर सामाजिक बहिष्कार का दंड क्या कहलाता है?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) जोत पूजा</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) खूंटा पूजा</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) जाहेर थान</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) बिटलाहा (Bitlaha)</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> गंभीर सामाजिक अपराध पर हजारों लोगों द्वारा मांदर-नगाड़े बजाते हुए अपराधी के घर को घेरकर विध्वंस करने का दंड 'बिटलाहा' कहलाता है।</div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="s-mcq-card" data-ans="1">
+                    <div class="s-mcq-q">प्रश्न 9. संतालों का सबसे पवित्र और सुंदर पुष्प उत्सव पर्व कौन-सा है जो फागुन-चैत में मनाया जाता है?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) सोहराय पर्व</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) बाहा पर्व (Baha Parv)</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) करम पर्व</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) एरक सिम्</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> साल और महुआ के नए फूलों को देवताओं को अर्पित करने तथा प्रकृति का उल्लास मनाने वाला पर्व 'बाहा पर्व' कहलाता है।</div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="s-mcq-card" data-ans="2">
+                    <div class="s-mcq-q">प्रश्न 10. संताली भाषा की पहली छपी हुई पुस्तक 'An Introduction to the Santal Language' (1852) के लेखक कौन हैं?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) एल.ओ. स्क्रेफ्सरूड</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) पी.ओ. बोडिंग</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) रेव. जे. फिलिप्स (Rev. J. Phillips)</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) डॉ. डोमन साहु 'समीर'</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> रेव. जे. फिलिप्स ने 1852 में यह पुस्तक प्रकाशित की थी जो संताली की प्रथम मुद्रित पुस्तक है।</div>
+                </div>
+
+                <!-- Q11 -->
+                <div class="s-mcq-card" data-ans="0">
+                    <div class="s-mcq-q">प्रश्न 11. संताली भाषा का प्रथम साप्ताहिक पत्र 'होड़ो संवाद' (1947) देवघर से किसने संपादित किया था?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) डॉ. डोमन साहु 'समीर'</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) पंडित रघुनाथ मुर्मू</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) शारदा प्रसाद किसकू</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) जादुमणि बेसरा</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> डॉ. डोमन साहु 'समीर' (संताली साहित्य के भारतेंदु) ने 1947 में 'होड़ो संवाद' का संपादन किया था।</div>
+                </div>
+
+                <!-- Q12 -->
+                <div class="s-mcq-card" data-ans="3">
+                    <div class="s-mcq-q">प्रश्न 12. संताली व्याकरण में 'अवरुद्ध व्यंजन' (Checked Consonants / Glottalized Stops) के अंतर्गत मुख्य रूप से कौन-सी ध्वनियाँ आती हैं?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) अ, आ, इ, ई</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) य, र, ल, व</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) श, ष, स, ह</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) क्, च्, त्, प् (जहाँ वायु कंठद्वार पर अवरुद्ध होती है)</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> संताली और मुंडा परिवार की भाषाओं की मूल पहचान 'Checked Consonants' (क्, च्, त्, प्) हैं।</div>
+                </div>
+
+                <!-- Q13 -->
+                <div class="s-mcq-card" data-ans="1">
+                    <div class="s-mcq-q">प्रश्न 13. संताली में द्विवचन (Dual Number) दर्शाने के लिए शब्दों के अंत में सामान्यतः कौन-सा प्रत्यय जोड़ा जाता है?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) -को (Ko)</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) -किन् (Kin) या -बारया</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) -ते (Te)</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) -रे (Re)</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> संताली में ठीक दो व्यक्तियों/वस्तुओं के लिए द्विवचन प्रत्यय '-किन्' (जैसे कोड़ाकिन्) का प्रयोग होता है।</div>
+                </div>
+
+                <!-- Q14 -->
+                <div class="s-mcq-card" data-ans="2">
+                    <div class="s-mcq-q">प्रश्न 14. संताली संज्ञा के संदर्भ में 'जातिक ञुतुम' (जातिवाचक संज्ञा) का सही उदाहरण कौन-सा है?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) पंडित रघुनाथ मुर्मू</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) मया (प्रेम)</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) कोड़ा (लड़का), गाय, बोन (जंगल)</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) गोठ (मवेशियों का झुंड)</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> 'कोड़ा' (लड़का) और 'बोन' (जंगल) पूरी जाति या वर्ग का बोध कराते हैं, अतः ये जातिवाचक संज्ञा हैं।</div>
+                </div>
+
+                <!-- Q15 -->
+                <div class="s-mcq-card" data-ans="0">
+                    <div class="s-mcq-q">प्रश्न 15. संताली में पहेलियों को क्या कहा जाता है? (जैसे—'उजला ओड़ाक् रे करिया होड़' → आँख की पुतली)</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) कुदूम (Kudum)</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) गाम-काहनी</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) भेन्ता</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) ओड़ोक्</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> संताल लोकसंस्कृति में मौखिक पहेलियों को 'कुदूम' कहा जाता है।</div>
+                </div>
+
+                <!-- Q16 -->
+                <div class="s-mcq-card" data-ans="1">
+                    <div class="s-mcq-q">प्रश्न 16. बहुभाषी कक्षा में संथाली मातृभाषा वाले छात्र के शिक्षण के संबंध में शिक्षक का सबसे उचित दृष्टिकोण क्या होना चाहिए?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) छात्र को स्कूल में अपनी मातृभाषा बोलने से प्रतिबंधित करना चाहिए।</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) छात्र की मातृभाषा का सम्मान करते हुए उसे अधिगम के लिए एक 'संसाधन' और 'सेतु' मानना चाहिए।</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) केवल मानक हिंदी में ही संपूर्ण शिक्षण देना चाहिए।</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) संताली भाषा की उपेक्षा करनी चाहिए।</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> NEP 2020 और NCF 2005 के अनुसार मातृभाषा और बहुभाषिकता कक्षा में एक मूल्यवान संसाधन होती हैं।</div>
+                </div>
+
+                <!-- Q17 -->
+                <div class="s-mcq-card" data-ans="2">
+                    <div class="s-mcq-q">प्रश्न 17. राष्ट्रीय शिक्षा नीति (NEP 2020) के अनुसार प्रारंभिक स्तर (कम से कम कक्षा 5 तक) शिक्षा का माध्यम क्या होना चाहिए?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) केवल अंग्रेजी</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) केवल संस्कृत</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) बच्चों की मातृभाषा / स्थानीय या क्षेत्रीय भाषा (जैसे संताली)</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) विदेशी भाषा</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> NEP 2020 के प्रावधानों के तहत प्रारंभिक शिक्षा मातृभाषा या क्षेत्रीय भाषा के माध्यम से दी जानी चाहिए।</div>
+                </div>
+
+                <!-- Q18 -->
+                <div class="s-mcq-card" data-ans="3">
+                    <div class="s-mcq-q">प्रश्न 18. संताली भाषा में 'दाः' (Da') शब्द का क्या अर्थ है?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) आग</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) सूरज</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) पहाड़</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) पानी / जल</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> संताली शब्दावली में 'दाः' का अर्थ पानी या जल होता है।</div>
+                </div>
+
+                <!-- Q19 -->
+                <div class="s-mcq-card" data-ans="0">
+                    <div class="s-mcq-q">प्रश्न 19. संताली संख्या प्रणाली में 'इसि' (Isi) का क्या अर्थ है?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) बीस (20) — संताली गिनती का आधार</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) दस (10)</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) सौ (100)</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) पचास (50)</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> संताली में बीस की संख्या को 'इसि' कहा जाता है (जैसे बार इसि = 40)।</div>
+                </div>
+
+                <!-- Q20 -->
+                <div class="s-mcq-card" data-ans="1">
+                    <div class="s-mcq-q">प्रश्न 20. संताली नाटक 'बिदु चांदान' के रचनाकार कौन हैं?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) डॉ. डोमन साहु 'समीर'</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) पंडित रघुनाथ मुर्मू ('गुरु गोमके')</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) शारदा प्रसाद किसकू</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) जादुमणि बेसरा</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> 'बिदु चांदान' पं. रघुनाथ मुर्मू द्वारा रचित प्रसिद्ध संताली नाटक है।</div>
+                </div>
+
+                <!-- Q21 -->
+                <div class="s-mcq-card" data-ans="2">
+                    <div class="s-mcq-q">प्रश्न 21. संताली में 'सोहराय पर्व' मुख्य रूप से किससे जुड़ा है?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) केवल धान की बुआई से</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) भाई-बहन के प्रेम से</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) नई फसल आने की खुशी और मवेशियों (गोहाल पूजा) के सम्मान से</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) केवल वर्षा की प्रार्थना से</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> सोहराय पर्व कार्तिक अमावस्या के समय नई फसल घर आने और मवेशियों के सम्मान में मनाया जाने वाला 5 दिवसीय महापर्व है।</div>
+                </div>
+
+                <!-- Q22 -->
+                <div class="s-mcq-card" data-ans="3">
+                    <div class="s-mcq-q">प्रश्न 22. संताली काव्य संग्रह 'भाबना' के रचनाकार कौन हैं जिन्हें इस कृति के लिए प्रथम संताली साहित्य अकादमी पुरस्कार (2005) मिला था?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) शारदा प्रसाद किसकू</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) डोमन हांसदा</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) अर्जुन चरण हेम्ब्रम</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) जादुमणि बेसरा</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> जादुमणि बेसरा को उनकी काव्य कृति 'भाबना' के लिए 2005 में प्रथम संताली साहित्य अकादमी पुरस्कार प्रदान किया गया था।</div>
+                </div>
+
+                <!-- Q23 -->
+                <div class="s-mcq-card" data-ans="0">
+                    <div class="s-mcq-q">प्रश्न 23. संताली व्याकरण में 'जीबान जानंग' (सजीव प्राणीवाचक लिंग) के अंतर्गत किसे रखा जाता है?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) मनुष्य, देवी-देवता और सभी जीव-जंतु</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) घर, पानी, पत्थर और पेड़</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) केवल निर्जीव वस्तुएँ</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) केवल नदियाँ और पहाड़</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> संताली लिंग-विधान में मनुष्य, देवता और जीव-जंतु 'जीबान जानंग' (सजीव) में आते हैं, जबकि निर्जीव 'बिन-जीबान' में आते हैं।</div>
+                </div>
+
+                <!-- Q24 -->
+                <div class="s-mcq-card" data-ans="1">
+                    <div class="s-mcq-q">प्रश्न 24. संताली में 'जाहेर थान' (Jaher Than) क्या है?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) पक्के मकानों का मंदिर</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) गाँव के बाहर साल (सखुआ) और महुआ वृक्षों का पवित्र प्राकृतिक पूजा-कुंज</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) राजा का दरबार</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) बाजार स्थल</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> संतालों का कोई मंदिर पक्का नहीं होता; प्रत्येक गाँव के बाहर सखुआ पेड़ों का प्राकृतिक कुंज 'जाहेर थान' कहलाता है।</div>
+                </div>
+
+                <!-- Q25 -->
+                <div class="s-mcq-card" data-ans="2">
+                    <div class="s-mcq-q">प्रश्न 25. संताली में 'नितोक् नांग' (Nitok Naang) किस काल को कहा जाता है?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) भूतकाल</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) भविष्यत काल</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) वर्तमान काल (रहा है / काना)</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) आज्ञावाचक काल</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> संताली में वर्तमान काल को 'नितोक् नांग' (Nitok Naang) कहा जाता है (जैसे 'ञि काम कान्या' = मैं काम कर रहा हूँ)।</div>
+                </div>
+
+                <!-- Q26 -->
+                <div class="s-mcq-card" data-ans="3">
+                    <div class="s-mcq-q">प्रश्न 26. बहुभाषी कक्षा में संताली पढ़ाते समय शिक्षक के लिए सबसे उपयुक्त शिक्षण अधिगम सामग्री (TLM) कौन-सी होगी?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) केवल अमूर्त अंग्रेजी पाठ्यपुस्तकें</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) कठिन व्याकरण के चार्ट</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) मानक हिंदी शब्दकोश</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) द्विभाषिक (संताली-हिंदी) स्थानीय लोककथाएँ, चित्र और स्थानीय परिवेश की वस्तुएँ</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> बहुभाषी कक्षा में स्थानीय परिवेश, द्विभाषिक सामग्री और चित्रों का प्रयोग बच्चों के अधिगम को सर्वाधिक मजबूत करता है।</div>
+                </div>
+
+                <!-- Q27 -->
+                <div class="s-mcq-card" data-ans="0">
+                    <div class="s-mcq-q">प्रश्न 27. संताल समुदाय के 12 गोत्रों (पारिस) में 'मुर्मू' गोत्र का पारंपरिक सामाजिक कार्य क्या माना जाता है?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) पुजारी / धार्मिक पुरोहित वर्ग (नायके)</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) राजा / शासक वर्ग</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) सिपाही / योद्धा वर्ग</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) संगीतकार व शिल्पकार वर्ग</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (A)</strong> | <strong>व्याख्या:</strong> मुर्मू गोत्र के लोग संताल समाज में पारंपरिक रूप से धार्मिक पुरोहित/पुजारी (नायके) वर्ग से जुड़े माने जाते हैं।</div>
+                </div>
+
+                <!-- Q28 -->
+                <div class="s-mcq-card" data-ans="1">
+                    <div class="s-mcq-q">प्रश्न 28. भाषा शिक्षण में 'निदानात्मक परीक्षण' (Diagnostic Test) का मुख्य उद्देश्य क्या होता है?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) बच्चों की रैंकिंग तय करना</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) बच्चों की सीखने की कठिनाइयों, कमजोरियों और त्रुटियों का कारण पता लगाना</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) वार्षिक परीक्षा का स्कोर कार्ड बनाना</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) छात्रों को दंड देना</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (B)</strong> | <strong>व्याख्या:</strong> निदानात्मक परीक्षण का उद्देश्य छात्र की अधिगम कठिनाइयों और कमजोरियों के कारणों का पता लगाना होता है।</div>
+                </div>
+
+                <!-- Q29 -->
+                <div class="s-mcq-card" data-ans="2">
+                    <div class="s-mcq-q">प्रश्न 29. संताली लोकगीतों में 'दोंग गीत' (Dong Geet) मुख्य रूप से किस अवसर पर गाए जाते हैं?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) धान की बुआई के समय</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) शिकार के समय</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) विवाह संस्कारों के विभिन्न चरणों के समय</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) फसल कटाई के समय</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (C)</strong> | <strong>व्याख्या:</strong> संताल समाज में विवाह संस्कारों के समय गाए जाने वाले अत्यंत लोकप्रिय और पारंपरिक गीत 'दोंग गीत' कहलाते हैं।</div>
+                </div>
+
+                <!-- Q30 -->
+                <div class="s-mcq-card" data-ans="3">
+                    <div class="s-mcq-q">प्रश्न 30. संताली में 'गाम-काहनी' (Gam-Kahani) किसे कहा जाता है?</div>
+                    <div class="s-mcq-options">
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 0)">(A) विवाह गीत</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 1)">(B) शोक गीत</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 2)">(C) धार्मिक मंत्र</button>
+                        <button class="s-mcq-btn" onclick="checkSAns(this, 3)">(D) बुजुर्गों द्वारा संध्या के समय चौपालों पर सुनाई जाने वाली लोककथाएँ</button>
+                    </div>
+                    <div class="s-mcq-exp"><strong>✅ सही उत्तर: (D)</strong> | <strong>व्याख्या:</strong> बुजुर्गों द्वारा संध्या समय बच्चों को सुनाई जाने वाली नीति, जादू और पशु-पक्षियों की कथाओं को संताली में 'गाम-काहनी' कहते हैं।</div>
+                </div>
+            </div>
+
+            <!-- Interactive Quiz Script -->
+            <script>
+                let sAttempted = 0;
+                let sCorrect = 0;
+
+                function checkSAns(btn, selectedIndex) {
+                    const card = btn.closest('.s-mcq-card');
+                    const correctAns = parseInt(card.getAttribute('data-ans'));
+                    const allBtns = card.querySelectorAll('.s-mcq-btn');
+                    const expBox = card.querySelector('.s-mcq-exp');
+
+                    allBtns.forEach(b => b.disabled = true);
+
+                    sAttempted++;
+                    if (selectedIndex === correctAns) {
+                        btn.classList.add('correct');
+                        sCorrect++;
+                    } else {
+                        btn.classList.add('wrong');
+                        allBtns[correctAns].classList.add('correct');
+                    }
+
+                    expBox.style.display = 'block';
+                    updateSScoreboard();
+                }
+
+                function updateSScoreboard() {
+                    document.getElementById('s-attempted').innerText = sAttempted;
+                    document.getElementById('s-correct').innerText = sCorrect;
+                }
+
+                function showAllSanthaliAnswers() {
+                    const cards = document.querySelectorAll('.s-mcq-card');
+                    cards.forEach(card => {
+                        const correctAns = parseInt(card.getAttribute('data-ans'));
+                        const allBtns = card.querySelectorAll('.s-mcq-btn');
+                        const expBox = card.querySelector('.s-mcq-exp');
+                        allBtns[correctAns].classList.add('correct');
+                        expBox.style.display = 'block';
+                    });
+                }
+
+                function resetSanthaliQuiz() {
+                    sAttempted = 0;
+                    sCorrect = 0;
+                    updateSScoreboard();
+                    const cards = document.querySelectorAll('.s-mcq-card');
+                    cards.forEach(card => {
+                        const allBtns = card.querySelectorAll('.s-mcq-btn');
+                        const expBox = card.querySelector('.s-mcq-exp');
+                        allBtns.forEach(b => {
+                            b.disabled = false;
+                            b.classList.remove('correct', 'wrong');
+                        });
+                        expBox.style.display = 'none';
+                    });
+                }
+            </script>
+        </div>
+        <!-- ==================== END OF UNIT 4 ==================== -->
+
+        <!-- संदर्भ ग्रंथ सूची -->
+        <div class="readings-box">
+            <h3 id="sec-22">📖 अनुशंसित प्रामाणिक संदर्भ ग्रंथ (Suggested Readings for JHTET Santhali)</h3>
+            <ul>
+                <li>डॉ. डोमन साहु 'समीर': <em>संताली प्रवेशिका</em> एवं <em>हिन्दी-संताली शब्दकोश</em></li>
+                <li>पं. रघुनाथ मुर्मू: <em>रोड़ोङ (Ranal - संताली व्याकरण)</em> एवं <em>बिदु चांदान</em></li>
+                <li>पी.ओ. बोडिंग (P.O. Bodding) एवं एल.ओ. स्क्रेफ्सरूड: <em>A Santali Grammar & Santal Folk Tales</em></li>
+                <li>डॉ. कृष्ण चंद्र टुडू: <em>संताली भाषा और साहित्य का इतिहास</em> (TRL विभाग, रांची विश्वविद्यालय)</li>
+            </ul>
+        </div>
+    </div>
+    </div>
+<button id="toIndex" class="no-print" onclick="document.getElementById('top-index').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="विषय-सूची पर वापस जाएँ" title="विषय-सूची पर जाएँ">📑</button>
+<script>
+window.addEventListener('scroll', function(){
+    var b = document.getElementById('toIndex');
+    if (b) b.style.display = document.documentElement.scrollTop > 500 ? 'block' : 'none';
+}, {passive:true});
+</script>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
+</html>
+
