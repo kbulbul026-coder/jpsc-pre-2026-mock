@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAC JHTET 2026 - संताली भाषा एवं ओल चिकी लिपि (इकाई 1 + 20 MCQs)</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #0d9488;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --success: #16a34a;
+            --error: #dc2626;
+            --accent: #fef08a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 4px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary);
+            margin: 0 0 10px 0;
+            font-size: 28px;
+        }
+
+        .badge {
+            background-color: var(--accent);
+            color: #854d0e;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        h2 {
+            color: var(--primary);
+            border-left: 5px solid var(--secondary);
+            padding-left: 12px;
+            margin-top: 35px;
+            font-size: 22px;
+        }
+
+        h3 {
+            color: var(--secondary);
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        p, li {
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary);
+        }
+
+        .highlight-box {
+            background-color: #eff6ff;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        /* Quiz System Styles */
+        .quiz-container {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .question-card {
+            display: none;
+        }
+
+        .question-card.active {
+            display: block;
+        }
+
+        .question-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .option-item {
+            background: white;
+            border: 1px solid #cbd5e1;
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option-item:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+        }
+
+        .option-item.correct {
+            background-color: #dcfce7 !important;
+            border-color: var(--success) !important;
+            color: #14532d;
+            font-weight: bold;
+        }
+
+        .option-item.incorrect {
+            background-color: #fee2e2 !important;
+            border-color: var(--error) !important;
+            color: #7f1d1d;
+        }
+
+        .explanation {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #f0fdf4;
+            border: 1px dashed var(--success);
+            border-radius: 6px;
+            font-size: 15px;
+            display: none;
+        }
+
+        .nav-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+        }
+
+        .btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #0f766e;
+        }
+
+        .btn:disabled {
+            background: #cbd5e1;
+            cursor: not-allowed;
+        }
+
+        .result-screen {
+            text-align: center;
+            display: none;
+            padding: 40px 20px;
+        }
+
+        .score-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 25px auto;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+        }
+
+        .verdict {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>JAC JHTET 2026 — संताली भाषा (खण्ड II)</h1>
+        <div class="badge">🎯 इकाई 1: विस्तृत नोट्स + 20 प्रामाणिक MCQs सेट</div>
+    </header>
+
+    <!-- Detailed Notes Section -->
+    <section class="notes-section">
+        <h2>इकाई 1: संताली भाषा और ओल चिकी (ᱚᱞ ᱪᱤᱠᱤ) लिपि का संपूर्ण विवरण</h2>
+        
+        <h3>1. भाषाई पृष्ठभूमि एवं भौगोलिक विस्तार</h3>
+        <p>संताली भाषा भारतीय उपमहाद्वीप की एक अत्यंत प्राचीन और समृद्ध भाषा है। यह मुख्य रूप से भारत के झारखंड, ओडिशा, पश्चिम बंगाल, बिहार, असम और पड़ोसी देश बांग्लादेश, नेपाल में खेरवाड़ समुदाय (संताल आदिवासियों) द्वारा बोली जाती है।</p>
+        <ul>
+            <li><strong>भाषा परिवार:</strong> संताली भाषा <strong>ऑस्ट्रो-एशियाटिक (Austro-Asiatic)</strong> भाषा परिवार की <strong>मुंडा (Munda)</strong> उप-शाखा के अंतर्गत आती है।</li>
+            <li><strong>प्रकृति:</strong> संरचनात्मक रूप से यह एक <strong>संश्लिष्ट-योगात्मक (Agglutinative)</strong> भाषा है, जहाँ मूल धातु के साथ प्रत्यय जोड़कर नए शब्दों और क्रिया रूपों का निर्माण प्रचुरता से होता है।</li>
+        </ul>
+
+        <h3>2. संवैधानिक मान्यता एवं इतिहास</h3>
+        <p>संताली भाषा को भारतीय गणतंत्र में एक महत्वपूर्ण भाषाई गौरव प्राप्त है:</p>
+        <div class="highlight-box">
+            <strong>8वीं अनुसूची में समावेशन:</strong> संताली भाषा को <strong>92वें संविधान संशोधन अधिनियम, 2003</strong> द्वारा भारतीय संविधान की आठवीं अनुसूची में शामिल किया गया था। यह संशोधन वर्ष 2004 से आधिकारिक तौर पर प्रभावी हुआ। इसके साथ ही बोडो, डोगरी और मैथिली को भी यह गौरव प्राप्त हुआ था। आठवीं अनुसूची में शामिल होने वाली यह भारत की एकमात्र मुंडा/आदिवासी भाषा है।
+        </div>
+        <ul>
+            <li><strong>झारखंड में स्थान:</strong> झारखंड राज्य में संताली भाषा को <strong>द्वितीय राजभाषा (Official Secondary Language)</strong> का वैधानिक दर्जा प्राप्त है।</li>
+        </ul>
+
+        <h3>3. ओल चिकी (ᱚᱞ ᱪᱤᱠᱤ) लिपि का इतिहास</h3>
+        <p>ओल चिकी लिपि के आविष्कार से पूर्व संताली भाषा को अलग-अलग क्षेत्रों में रोमन (Latin), देवनागरी, बांग्ला और उड़िया लिपियों में लिखा जाता था, जिससे इसके सटीक ध्वन्यात्मक उच्चारण को व्यक्त करने में कठिनाई होती थी।</p>
+        <ul>
+            <li><strong>आविष्कारक:</strong> महान भाषाविद्, दार्शनिक और नाटककार <strong>पंडित रघुनाथ मुर्मू</strong>। संताली समाज में उन्हें आदरपूर्वक <strong>"गुरु गोमके"</strong> (महान शिक्षक) कहा जाता है।</li>
+            <li><strong>आविष्कार वर्ष:</strong> लिपि का आविष्कार वर्ष <strong>1925</strong> में पूर्ण हुआ था, जबकि व्यापक जनसामान्य के बीच इसका आधिकारिक और सार्वजनिक प्रकटीकरण वर्ष 1941 में किया गया।</li>
+            <li><strong>जन्म स्थान:</strong> पंडित रघुनाथ मुर्मू का जन्म ओडिशा के मयूरभंज जिले के <strong>डांडबोश (दहबोश)</strong> गाँव में हुआ था।</li>
+            <li><strong>लेखन की दिशा:</strong> ओल चिकी लिपि पूर्णतः वैज्ञानिक है और विश्व की आधुनिक लिपियों की तरह ही <strong>बाएँ से दाएँ (Left to Right)</strong> लिखी जाती है।</li>
+        </ul>
+
+        <h3>4. वर्णमाला संरचना (Alphabet Architecture)</h3>
+        <p>ओल चिकी वर्णमाला की कुल संख्या <strong>30 मूल वर्ण</strong> है। इन वर्णों की आकृतियाँ प्रकृति के विभिन्न तत्वों, मानव शरीर की मुद्राओं और दैनिक जीवन की वस्तुओं से प्रेरित होकर बनाई गई हैं।</p>
+        
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>वर्ण प्रकार</th>
+                        <th>संताली पारिभाषिक नाम</th>
+                        <th>संख्या</th>
+                        <th>उदाहरण / विवरण</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>स्वर वर्ण</strong></td>
+                        <td>राहा आड़ांग (ᱨᱟᱦᱟ ᱟᱲᱟᱝ)</td>
+                        <td>06</td>
+                        <td>ᱚ (ओ), ᱟ (आ), ᱤ (इ), ᱩ (उ), ᱮ (ए), ᱳ (ओ-)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>व्यंजन वर्ण</strong></td>
+                        <td>केचेद आड़ांग (ᱠᱮᱪᱮᱫ ᱟᱲᱟᱝ)</td>
+                        <td>24</td>
+                        <td>ᱛ (त), ᱜ (ग), ᱝ (ं), ᱞ (ल), आदि।</td>
+                    </tr>
+                    <tr style="font-weight: bold; background: #f8fafc;">
+                        <td>कुल वर्ण</td>
+                        <td>-</td>
+                        <td>30</td>
+                        <td>मूल वर्णमाला संरचना</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>5. संशोधक चिह्न (Diacritics / Diacritical Marks)</h3>
+        <p>संताली भाषा की विशिष्ट ध्वनियों, नासिक्य उच्चारणों और आंशिक वायु-अवरोधों को शुद्ध रूप से व्यक्त करने के लिए ओल चिकी में <strong>6 संशोधक चिह्नों</strong> का प्रयोग किया जाता है:</p>
+        <ol>
+            <li><strong>मु हा तुदुक (Mu Hatuḍuk):</strong> यह अनुनासिक (Nasalization) चिह्न है, जो स्वर वर्णों को नासिक्य ध्वनि देता है।</li>
+            <li><strong>गहला तुदुक (Găhlă Tuḍuk):</strong> यह वर्ण के नीचे लगता है और ध्वनि को गंभीर/गहरा (Deepening or low-pitch) बनाता है।</li>
+            <li><strong>ओहसिक (Ohsik):</strong> यह स्वर की मात्रा को अल्प या संकुचित करने के लिए प्रयुक्त होता है।</li>
+            <li><strong>फारक (Pharak):</strong> यह अवग्रह की तरह कार्य करता है, जो दो अक्षरों के बीच के उच्चारण में सूक्ष्म ठहराव लाता है।</li>
+            <li><strong>टुदुक (Tuḍuk) एवं अड़ंग (Arang) चिह्न:</strong> अन्य विशिष्ट क्षेत्रीय ध्वन्यात्मक विविधताओं को नियंत्रित करने के लिए प्रयुक्त होते हैं।</li>
+        </ol>
+
+        <h3>6. दाशमिक संख्या प्रणाली (Numeral System)</h3>
+        <p>ओल चिकी लिपि की अपनी एक स्वतंत्र और पूर्ण अंक प्रणाली है, जो शून्य (0) से नौ (9) तक चलती है:</p>
+        <p>० ( Shunya/𱼀 ), १ ( mited/𱼁 ), २ ( bar/𱼂 ), ३ ( pe/𱼃 ), ४ ( pon/𱼄 ), ५ ( mone/𱼅 ), ६ ( turui/𱼆 ), ७ ( eya/𱼇 ), ८ ( iral/𱼈 ), ९ ( are/𱼉 )।</p>
+    </section>
+
+    <!-- Quiz Interactive Section -->
+    <section class="quiz-container">
+        <div class="quiz-header">
+            <h2 style="margin:0; border:none; padding:0;">📝 अभ्यास सेट: इकाई 1 (20 महत्वपूर्ण MCQs)</h2>
+            <div>प्रश्न: <span id="idx-display">1</span>/20</div>
+        </div>
+
+        <div id="quiz-cards-wrapper">
+            <!-- Questions dynamically generated by JS -->
+        </div>
+
+        <div class="nav-actions">
+            <button class="btn" id="prev-btn" onclick="moveQuestion(-1)" disabled>◀ पिछला</button>
+            <button class="btn" id="next-btn" onclick="checkAndNext()">अगला प्रश्न ▶</button>
+        </div>
+
+        <div class="result-screen" id="result-screen">
+            <h2>आपका परीक्षा परिणाम</h2>
+            <div class="score-circle" id="final-score">0/30</div>
+            <div class="verdict" id="verdict"></div>
+            <button class="btn" onclick="restartQuiz()">पुनः प्रयास करें (Restart)</button>
+        </div>
+    </section>
+</div>
+
+<script>
+    const mcqs = [
+        {
+            q: "संताली भाषा मुख्य रूप से किस भाषा परिवार के अंतर्गत वर्गीकृत की जाती है?",
+            o: ["द्रविड़ भाषा परिवार", "ऑस्ट्रो-एशियाटिक (मुंडा) परिवार", "इंडो-आर्यन परिवार", "चीनी-तिब्बती परिवार"],
+            c: 1,
+            e: "संताली भाषा ऑस्ट्रो-एशियाटिक भाषा परिवार की मुंडा उप-शाखा से संबंधित है।"
+        },
+        {
+            q: "ओल चिकी (ᱚᱞ ᱪᱤᱠᱤ) लिपि का आविष्कार किस वर्ष किया गया था?",
+            o: ["वर्ष 1915", "वर्ष 1925", "वर्ष 1941", "वर्ष 1950"],
+            c: 1,
+            e: "ओल चिकी लिपि का आविष्कार पंडित रघुनाथ मुर्मू द्वारा वर्ष 1925 में किया गया था।"
+        },
+        {
+            q: "ओल चिकी लिपि के आविष्कारक पंडित रघुनाथ मुर्मू को संताली समाज में किस आदरणीय उपाधि से जाना जाता है?",
+            o: ["धरती आबा", "गुरु गोमके", "मरांग गोमके", "सिदो-कान्हू"],
+            c: 1,
+            e: "पंडित रघुनाथ मुर्मू को संताली भाषा और लिपि के उत्थान के लिए 'गुरु गोमके' (महान शिक्षक) कहा जाता है।"
+        },
+        {
+            q: "भारतीय संविधान की किस अनुसूची में संताली भाषा को शामिल किया गया है?",
+            o: ["सातवीं अनुसूची", "आठवीं अनुसूची", "नौवीं अनुसूची", "दसवीं अनुसूची"],
+            c: 1,
+            e: "संताली को संविधान की आठवीं अनुसूची में शामिल करके आधिकारिक राष्ट्रीय भाषाओं का दर्जा दिया गया है।"
+        },
+        {
+            q: "किस संविधान संशोधन अधिनियम द्वारा संताली भाषा को 8वीं अनुसूची में शामिल किया गया था?",
+            o: ["86वां संशोधन अधिनियम", "91वां संशोधन अधिनियम", "92वां संशोधन अधिनियम", "103वां संशोधन अधिनियम"],
+            c: 2,
+            e: "92वें संविधान संशोधन अधिनियम, 2003 के माध्यम से संताली को शामिल किया गया था।"
+        },
+        {
+            q: "ओल चिकी वर्णमाला में कुल मूल वर्णों (Letters) की संख्या कितनी है?",
+            o: ["25", "30", "35", "52"],
+            c: 1,
+            e: "ओल चिकी वर्णमाला में कुल 30 मूल वर्ण होते हैं।"
+        },
+        {
+            q: "ओल चिकी वर्णमाला में स्वर वर्णों (राहा आड़ांग - ᱨᱟᱦᱟ ᱟᱲᱟᱝ) की कुल संख्या कितनी है?",
+            o: ["4", "5", "6", "8"],
+            c: 2,
+            e: "वर्णमाला में कुल 6 स्वर वर्ण (राहा आड़ांग) मौजूद हैं।"
+        },
+        {
+            q: "ओल चिकी वर्णमाला में कुल कितने व्यंजन वर्ण (केचेद आड़ांग - ᱠᱮᱪᱮᱫ ᱟᱲᱟᱝ) होते हैं?",
+            o: ["20", "22", "24", "26"],
+            c: 2,
+            e: "30 मूल वर्णों में से 6 स्वर और शेष 24 व्यंजन वर्ण (केचेद आड़ांग) हैं।"
+        },
+        {
+            q: "पंडित रघुनाथ मुर्मू का जन्म झारखंड के पड़ोसी राज्य ओडिशा के किस जिले के डांडबोश गाँव में हुआ था?",
+            o: ["मयूरभंज", "केंदुझर", "बालासोर", "सुंदरगढ़"],
+            c: 0,
+            e: "गुरु गोमके का जन्म ओडिशा के मयूरभंज जिले के रायरंगपुर के पास डांडबोश गाँव में हुआ था।"
+        },
+        {
+            q: "ओल चिकी लिपि के संदर्भ में लेखन और पठन की दिशा क्या है?",
+            o: ["दाएँ से बाएँ", "बाएँ से दाएँ", "ऊपर से नीचे", "नीचे से ऊपर"],
+            c: 1,
+            e: "यह लिपि पूरी तरह वैज्ञानिक है और आधुनिक लिपियों की तरह बाएँ से दाएँ लिखी जाती है।"
+        },
+        {
+            q: "संताली भाषा में अनुनासिक ध्वनि (Nasalization) को दर्शाने के लिए किस संशोधक चिह्न का प्रयोग किया जाता है?",
+            o: ["गहला तुदुक", "ओहसिक", "मु हा तुदुक", "फारक"],
+            c: 2,
+            e: "अनुनासिक या नाक से निकलने वाली ध्वनि को प्रकट करने के लिए 'मु हा तुदुक' का प्रयोग किया जाता है।"
+        },
+        {
+            q: "ध्वनि को गंभीर या गहरा (Deepening Effect) बनाने के लिए किस ओल चिकी संशोधक चिह्न का उपयोग किया जाता है?",
+            o: ["गहला तुदुक", "फारक", "ओहसिक", "टुदुक"],
+            c: 0,
+            e: "वर्णों के निचले हिस्से में प्रयुक्त होने वाला 'गहला तुदुक' ध्वनि को गहराई और गंभीरता प्रदान करता है।"
+        },
+        {
+            q: "झारखंड राज्य में संताली भाषा को कौन सा आधिकारिक भाषाई दर्जा प्राप्त है?",
+            o: ["मुख्य राजभाषा", "द्वितीय राजभाषा", "कोई आधिकारिक दर्जा नहीं", "सिर्फ जनजातीय भाषा"],
+            c: 1,
+            e: "झारखंड में संताली भाषा को द्वितीय राजभाषा (Official Secondary Language) का दर्जा प्राप्त है।"
+        },
+        {
+            q: "92वां संविधान संशोधन अधिनियम किस वर्ष पारित हुआ था जिसके तहत संताली को संवैधानिक दर्जा मिला?",
+            o: ["वर्ष 2000", "वर्ष 2001", "वर्ष 2003", "वर्ष 2005"],
+            c: 2,
+            e: "यह ऐतिहासिक संशोधन संसद द्वारा वर्ष 2003 में पारित किया गया था।"
+        },
+        {
+            q: "ओल चिकी लिपि का आधिकारिक और सार्वजनिक प्रकटीकरण (Public Demonstration) किस वर्ष किया गया था?",
+            o: ["1925", "1930", "1941", "1947"],
+            c: 2,
+            e: "आविष्कार 1925 में हुआ था, लेकिन व्यापक प्रचार और सार्वजनिक प्रकटीकरण 1941 में हुआ।"
+        },
+        {
+            q: "संरचनात्मक और व्याकरणिक दृष्टि से संताली किस प्रकार की भाषा का सटीक उदाहरण है?",
+            o: ["वियोगात्मक भाषा", "संश्लिष्ट-योगात्मक (Agglutinative)", "अयोगात्मक भाषा", "प्रश्लिष्ट भाषा"],
+            c: 1,
+            e: "संताली एक संश्लिष्ट-योगात्मक भाषा है जिसमें मूल धातुओं के साथ विभिन्न प्रत्यय जोड़कर शब्दों का विस्तार किया जाता है।"
+        },
+        {
+            q: "ओल चिकी के किस संशोधक चिह्न का कार्य अवग्रह (Phonetic Pause) की तरह दो वर्णों के बीच सूक्ष्म ठहराव उत्पन्न करना है?",
+            o: ["ओहसिक", "फारक", "मु हा तुदुक", "गहला तुदुक"],
+            c: 1,
+            e: "'फारक' चिह्न दो वर्णों के उच्चारण के मध्य एक सूक्ष्म दूरी या ठहराव (Pause) निर्मित करता है।"
+        },
+        {
+            q: "ओल चिकी लिपि की वर्णमाला आकृतियाँ मुख्य रूप से किससे प्रेरित होकर तैयार की गई हैं?",
+            o: ["विदेशी लिपियों से", "प्रकृति, मानव मुद्राओं और दैनिक जीवन की वस्तुओं से", "प्राचीन राजाओं के चिह्नों से", "केवल ज्यामितीय रेखाओं से"],
+            c: 1,
+            e: "इस लिपि के वर्ण पूर्णतः मौलिक हैं, जो प्रकृति, जीव-जंतुओं, मानव शारीरिक मुद्राओं और संताल संस्कृति की वस्तुओं पर आधारित हैं।"
+        },
+        {
+            q: "संताली भाषा के साथ अन्य किन तीन भाषाओं को 92वें संविधान संशोधन द्वारा 8वीं अनुसूची में शामिल किया गया था?",
+            o: ["मैथिली, डोगरी, सिंधी", "बोडो, डोगरी, मैथिली", "बोडो, नेपाली, मणिपुरी", "कोंकणी, डोगरी, मैथिली"],
+            c: 1,
+            e: "वर्ष 2003 में चार भाषाएँ जोड़ी गई थीं: बोडो, डोगरी, मैथिली और संताली।"
+        },
+        {
+            q: "ओल चिकी लिपि में स्वर की मात्रा को अल्प या संकुचित (Shortening the vowel) करने के लिए किस चिह्न का उपयोग होता है?",
+            o: ["फारक", "ओहसिक", "मु हा तुदुक", "गहला तुदुक"],
+            c: 1,
+            e: "स्वर तरंग को छोटा या संकुचित करने के लिए 'ओहसिक' संशोधक चिह्न का प्रयोग किया जाता है।"
+        }
+    ];
+
+    let currentIdx = 0;
+    let userAnswers = new Array(mcqs.length).fill(null);
+
+    const wrapper = document.getElementById("quiz-cards-wrapper");
+    const idxDisplay = document.getElementById("idx-display");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const resultScreen = document.getElementById("result-screen");
+    const finalScore = document.getElementById("final-score");
+    const verdict = document.getElementById("verdict");
+
+    function initQuiz() {
+        wrapper.innerHTML = "";
+        mcqs.forEach((item, qIdx) => {
+            let card = document.createElement("div");
+            card.className = `question-card ${qIdx === 0 ? 'active' : ''}`;
+            card.id = `q-card-${qIdx}`;
+
+            let qText = document.createElement("div");
+            qText.className = "question-text";
+            qText.innerText = `Q${qIdx + 1}. ${item.q}`;
+            card.appendChild(qText);
+
+            let oList = document.createElement("ul");
+            oList.className = "options-list";
+
+            item.o.forEach((opt, oIdx) => {
+                let li = document.createElement("li");
+                li.className = "option-item";
+                li.innerText = opt;
+                li.onclick = () => selectOption(qIdx, oIdx, li);
+                oList.appendChild(li);
+            });
+
+            card.appendChild(oList);
+
+            let exp = document.createElement("div");
+            exp.className = "explanation";
+            exp.id = `exp-${qIdx}`;
+            exp.innerText = `💡 व्याख्या: ${item.e}`;
+            card.appendChild(exp);
+
+            wrapper.appendChild(card);
+        });
+    }
+
+    function selectOption(qIdx, oIdx, element) {
+        if (userAnswers[qIdx] !== null) return; // static after one click
+        
+        userAnswers[qIdx] = oIdx;
+        let correctIdx = mcqs[qIdx].c;
+        let card = document.getElementById(`q-card-${qIdx}`);
+        let items = card.getElementsByClassName("option-item");
+
+        if (oIdx === correctIdx) {
+            element.classList.add("correct");
+        } else {
+            element.classList.add("incorrect");
+            items[correctIdx].classList.add("correct");
+        }
+
+        document.getElementById(`exp-${qIdx}`).style.display = "block";
+    }
+
+    function moveQuestion(step) {
+        let activeCard = document.getElementById(`q-card-${currentIdx}`);
+        activeCard.classList.remove("active");
+
+        currentIdx += step;
+        
+        let nextCard = document.getElementById(`q-card-${currentIdx}`);
+        nextCard.classList.add("active");
+
+        idxDisplay.innerText = currentIdx + 1;
+        prevBtn.disabled = currentIdx === 0;
+        
+        if (currentIdx === mcqs.length - 1) {
+            nextBtn.innerText = "परिणाम देखें ➔";
+        } else {
+            nextBtn.innerText = "अगला प्रश्न ▶";
+        }
+    }
+
+    function checkAndNext() {
+        if (userAnswers[currentIdx] === null) {
+            alert("कृपया आगे बढ़ने से पहले इस प्रश्न का उत्तर चुनें!");
+            return;
+        }
+
+        if (currentIdx < mcqs.length - 1) {
+            moveQuestion(1);
+        } else {
+            showResults();
+        }
+    }
+
+    function showResults() {
+        document.getElementById("quiz-cards-wrapper").style.display = "none";
+        prevBtn.style.display = "none";
+        nextBtn.style.display = "none";
+        document.querySelector(".quiz-header").style.display = "none";
+
+        let score = userAnswers.reduce((acc, ans, idx) => {
+            return ans === mcqs[idx].c ? acc + 1 : acc;
+        }, 0);
+
+        // Scaling to 30 marks framework of JHTET
+        let scaled = Math.round((score / mcqs.length) * 30);
+        finalScore.innerText = `${scaled}/30`;
+
+        resultScreen.style.display = "block";
+
+        if (scaled >= 28) {
+            verdict.innerHTML = `<span style='color: var(--success);'>🎉 उत्कृष्ट प्रदर्शन! आप JHTET 2026 में 28+ के अपने लक्ष्य को प्राप्त कर चुके हैं। आपकी बुनियादी समझ अचूक है।</span>`;
+        } else if (scaled >= 24) {
+            verdict.innerHTML = `<span style='color: var(--secondary);'>👍 सराहनीय प्रयास! आपका स्कोर अच्छा है, लेकिन 28+ का सटीक स्कोर हासिल करने के लिए संशोधक चिह्नों का पुनः रिवीजन करें।</span>`;
+        } else {
+            verdict.innerHTML = `<span style='color: var(--error);'>⚠️ ध्यानाकर्षण की आवश्यकता! वर्णमाला के वर्गीकरण और संवैधानिक संशोधनों को नोट्स से दोबारा ध्यानपूर्वक पढ़ें।</span>`;
+        }
+    }
+
+    function restartQuiz() {
+        currentIdx = 0;
+        userAnswers.fill(null);
+        
+        document.getElementById("quiz-cards-wrapper").style.display = "block";
+        prevBtn.style.display = "block";
+        nextBtn.style.display = "block";
+        document.querySelector(".quiz-header").style.display = "flex";
+        resultScreen.style.display = "none";
+        
+        nextBtn.innerText = "अगला प्रश्न ▶";
+        prevBtn.disabled = true;
+        idxDisplay.innerText = "1";
+        
+        initQuiz();
+    }
+
+    initQuiz();
+</script>
+</body>
+</html>

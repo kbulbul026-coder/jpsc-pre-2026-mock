@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JHTET 2026 - संताली भाषा शिक्षण शास्त्र (इकाई 5)</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --secondary: #0f766e;
+            --success: #16a34a;
+            --error: #dc2626;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        header {
+            text-align: center;
+            border-bottom: 4px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 { color: var(--primary); margin: 0; font-size: 26px; }
+        h2 { color: var(--primary); border-left: 5px solid var(--secondary); padding-left: 10px; margin-top: 30px; font-size: 20px; }
+        h3 { color: var(--secondary); font-size: 16px; margin-bottom: 5px; margin-top: 15px; }
+        .badge {
+            background: #fef08a;
+            color: #854d0e;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .notes-section {
+            background: var(--light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+        .important-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background-color: var(--primary); color: white; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        .quiz-container {
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            background: #fff;
+        }
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        .question-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .options-list { list-style: none; padding: 0; }
+        .option-item {
+            background: var(--light);
+            border: 1px solid var(--border);
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option-item:hover { background: #e2e8f0; }
+        .option-item.correct { background-color: #dcfce7 !important; border-color: var(--success) !important; color: #14532d; font-weight: bold; }
+        .option-item.incorrect { background-color: #fee2e2 !important; border-color: var(--error) !important; color: #7f1d1d; }
+        .explanation {
+            background: #f0fdf4;
+            border: 1px dashed var(--success);
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            display: none;
+            font-size: 14px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+        }
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .btn-next { background: var(--secondary); color: white; }
+        .btn-next:hover { background: #0d9488; }
+        .result-screen { text-align: center; display: none; padding: 40px 0; }
+        .score-circle {
+            width: 140px; height: 140px; border-radius: 50%;
+            background: var(--primary); color: white;
+            font-size: 36px; font-weight: bold;
+            display: flex; align-items: center; justify-content: center;
+            margin: 25px auto; box-shadow: 0 4px 15px rgba(30,58,138,0.3);
+        }
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .container { padding: 18px; }
+            h1 { font-size: 20px; }
+            .table-wrap { overflow-x: auto; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>JAC JHTET 2026 — संताली भाषा शिक्षण शास्त्र</h1>
+        <div class="badge">🎯 इकाई 5: Pedagogy (MLE, भाषाई कौशल, उपचारात्मक शिक्षण) + 20 MCQs</div>
+    </header>
+    <div class="notes-section">
+        <h2>📋 प्रामाणिक नोट्स (Detailed Pedagogy Notes)</h2>
+        <h3>1. मातृभाषा आधारित बहुभाषी शिक्षण (MLE - Multilingual Education)</h3>
+        <ul>
+            <li><strong>NEP 2020 का दृष्टिकोण:</strong> प्राथमिक स्तर (कक्षा 5 तक, संभव हो तो कक्षा 8 तक) पर शिक्षा का माध्यम बच्चे की गृह-भाषा/मातृभाषा (जैसे संताली) होना चाहिए।</li>
+            <li><strong>संज्ञानात्मक लाभ:</strong> मातृभाषा में सीखने से मानसिक व तार्किक विकास तीव्र होता है, Dropout Rate कम होती है।</li>
+            <li><strong>शिक्षण सूत्र:</strong> हमेशा <strong>'ज्ञात से अज्ञात की ओर'</strong> और <strong>'मूर्त से अमूर्त की ओर'</strong> बढ़ें — पहले संताली, फिर हिन्दी/अंग्रेजी।</li>
+        </ul>
+        <h3>2. संताली भाषाई कौशल विकास (LSRW Skills)</h3>
+        <div class="table-wrap">
+        <table>
+            <tr><th>भाषाई कौशल (LSRW)</th><th>संताली शब्द</th><th>प्रकार एवं विधि</th></tr>
+            <tr><td><b>Listening (सुनना)</b></td><td><b>ᱟᱸᱡᱚᱢ (Aanjom)</b></td><td>ग्रहणात्मक कौशल — लोककथाएँ (काहनी), पहेलियाँ (कुदुम) सुनना।</td></tr>
+            <tr><td><b>Speaking (बोलना)</b></td><td><b>ᱨᱚᱲ (Ror)</b></td><td>अभिव्यक्तात्मक कौशल — बाल-संसद, सोहराय/बाहा गीत गायन।</td></tr>
+            <tr><td><b>Reading (पढ़ना)</b></td><td><b>ᱯᱟᱲᱦᱟᱣ (Parhaw)</b></td><td>ग्रहणात्मक कौशल — ओल चिकी बाल पत्रिकाओं का पठन।</td></tr>
+            <tr><td><b>Writing (लिखना)</b></td><td><b>ᱚᱞ (Ol)</b></td><td>अभिव्यक्तात्मक व सबसे जटिल — वाक्य विन्यास व संशोधक चिह्न अभ्यास।</td></tr>
+        </table>
+        </div>
+        <h3>3. निदानात्मक एवं उपचारात्मक शिक्षण</h3>
+        <div class="important-box"><strong>🔍 निदानात्मक शिक्षण:</strong> बच्चों की कठिनाइयों व मूल कारणों की <strong>पहचान</strong> करना।</div>
+        <div class="important-box"><strong>🛠️ उपचारात्मक शिक्षण:</strong> पहचानी गई कमियों को दूर करने हेतु <strong>पुनः शिक्षण (Re-teaching)</strong>, खेल-खेल में बिना तनाव।</div>
+    </div>
+    <div class="quiz-container" id="quiz-block">
+        <div class="quiz-header">
+            <div>प्रश्न: <span id="qn-current">1</span> / 20</div>
+            <div>लाइव स्कोर: <span id="qn-score">0</span></div>
+        </div>
+        <div id="question-area">
+            <div class="question-text" id="qn-text">Loading...</div>
+            <ul class="options-list" id="qn-options"></ul>
+            <div class="explanation" id="qn-exp"></div>
+        </div>
+        <div class="nav-buttons">
+            <button class="btn btn-next" id="prev-btn" onclick="moveQuestion(-1)" style="visibility:hidden;">❮ पिछला</button>
+            <button class="btn btn-next" id="next-btn" onclick="moveQuestion(1)">अगला प्रश्न ➔</button>
+        </div>
+    </div>
+    <div class="result-screen" id="result-block">
+        <h2>📝 आपका परिणाम (इकाई 5)</h2>
+        <div class="score-circle" id="scaled-score">0/30</div>
+        <div id="verdict-text" style="font-size:18px;font-weight:bold;margin-bottom:20px;"></div>
+        <button class="btn btn-next" onclick="restartQuiz()">🔄 पुनः प्रयास करें</button>
+    </div>
+</div>
+<script>
+const quizData = [
+{q:"राष्ट्रीय शिक्षा नीति (NEP 2020) के अनुसार प्राथमिक स्तर (कक्षा 5) तक शिक्षा का माध्यम क्या होना चाहिए?",o:["राष्ट्रभाषा (हिन्दी)","अंतर्राष्ट्रीय भाषा (अंग्रेजी)","बच्चे की मातृभाषा/गृहभाषा","क्षेत्र की आधिकारिक प्रशासनिक भाषा"],c:2,e:"NEP 2020 में प्राथमिक कक्षाओं में मातृभाषा माध्यम अनिवार्य है।"},
+{q:"संताली भाषा शिक्षण में 'ग्रहणात्मक कौशल' (Receptive Skills) के अंतर्गत कौन-से कौशल आते हैं?",o:["बोलना और लिखना","सुनना और पढ़ना (Aanjom & Parhaw)","सुनना और बोलना","पढ़ना और लिखना"],c:1,e:"सुनना (आंजोम) और पढ़ना (पड़ाव) ग्रहणात्मक कौशल हैं।"},
+{q:"अभिव्यक्तात्मक कौशल (Productive Skills) कौन-से हैं?",o:["सुनना और पढ़ना","बोलना और लिखना (Ror & Ol)","केवल लिखना","सुनना और लिखना"],c:1,e:"बोलना (रोड़) और लिखना (ओल) अभिव्यक्तात्मक कौशल हैं।"},
+{q:"संताल बच्चे को हिन्दी सिखाते समय किस शिक्षण सूत्र का पालन करें?",o:["अज्ञात से ज्ञात की ओर","अमूर्त से मूर्त की ओर","ज्ञात से अज्ञात की ओर (मातृभाषा से द्वितीय भाषा)","कठिन से सरल की ओर"],c:2,e:"मातृभाषा से द्वितीय भाषा की ओर ले जाना मनोवैज्ञानिक है।"},
+{q:"संताली में 'सुनने के कौशल' को क्या कहा जाता है?",o:["रोड़ (Ror)","आंजोम (Aanjom)","ओल (Ol)","पड़ाव"],c:1,e:"श्रवण कौशल को 'आंजोम' कहा जाता है।"},
+{q:"भाषाई त्रुटियों के प्रति शिक्षक का दृष्टिकोण क्या हो?",o:["कठोर दंड","त्रुटियाँ सीखने का स्वाभाविक हिस्सा हैं","बुद्धि की कमी","ध्यान न दें"],c:1,e:"त्रुटियाँ अधिगम का अनिवार्य अंग हैं।"},
+{q:"लोककथाएँ सुनाकर चर्चा करना किस कौशल का विकास है?",o:["केवल लेखन","केवल पठन","श्रवण और मौखिक अभिव्यक्ति (Aanjom & Ror)","व्याकरण"],c:2,e:"सुनने से आंजोम, चर्चा से रोड़ विकसित होता है।"},
+{q:"वर्णों को देखकर उच्चारण व अर्थ समझना क्या कहलाता है?",o:["आंजोम","रोड़","पड़ाव / पाढ़हाव (Reading)","ओल"],c:2,e:"यह पठन कौशल 'पाढ़हाव' है।"},
+{q:"MLE का प्राथमिक उद्देश्य क्या है?",o:["जनजातीय भाषा समाप्त करना","केवल अंग्रेजी सिखाना","गृह-भाषा का सम्मान करते हुए बहुभाषिकता से जोड़ना","व्याकरण रटाना"],c:2,e:"मातृभाषा से शुरू कर अन्य भाषाओं में दक्ष बनाना।"},
+{q:"बच्चा ओल चिकी में संशोधक चिह्न छोड़ देता है, क्या करें?",o:["कक्षा से बाहर","शून्य अंक","निदानात्मक परीक्षण करना चाहिए","लिखने की सजा"],c:2,e:"मूल कारण जानने हेतु निदानात्मक परीक्षण करें।"},
+{q:"सबसे अंतिम और जटिल कौशल कौन-सा है?",o:["आंजोम (Listening)","पड़ाव (Reading)","रोड़ (Speaking)","ओल (Writing)"],c:3,e:"LSRW क्रम में लिखना सबसे जटिल है।"},
+{q:"उपचारात्मक शिक्षण का मुख्य कार्य क्या है?",o:["नाम काटना","कमियों को दूर करने हेतु सुधारात्मक पुनः शिक्षण","परीक्षा आयोजित करना","शिकायत करना"],c:1,e:"कमियों को दूर करने हेतु विशेष शिक्षण।"},
+{q:"CCE के लिए सर्वश्रेष्ठ विधि कौन-सी है?",o:["सत्रांत लिखित परीक्षा","व्यावहारिक भाषा प्रयोग का निरंतर अवलोकन","केवल मौखिक प्रश्नोत्तरी","वर्तनी परीक्षा"],c:1,e:"दैनिक अवलोकन सबसे प्रामाणिक है।"},
+{q:"पाठ्यपुस्तक में किस सामग्री को वरीयता दें?",o:["कठिन वैज्ञानिक लेख","अमूर्त कहानियाँ","स्थानीय परिवेश, लोकगीत, मुहावरे","विदेशी कहानियाँ"],c:2,e:"स्थानीय संस्कृति से जुड़ी सामग्री से तेजी से सीखते हैं।"},
+{q:"मातृभाषा शिक्षण से किस क्षमता का विकास होता है?",o:["रटने की क्षमता","तार्किक और मौलिक चिंतन","नकल करने की क्षमता","चुप रहने की प्रवृत्ति"],c:1,e:"मौलिक विचार व तार्किक चिंतन बढ़ता है।"},
+{q:"'रोड़' विकास हेतु कौन-सी गतिविधि अनुपयोगी है?",o:["रोल प्ले","बिना समझे चुपचाप रटना","अनुभव सुनाना","संवाद करना"],c:1,e:"बिना समझे रटना बाधक है।"},
+{q:"'बाल-केंद्रित' उपागम का अर्थ क्या है?",o:["शिक्षक का पूर्ण नियंत्रण","बच्चों के अनुभव व सहभागिता को प्राथमिकता","केवल अभ्यास हल करवाना","पूर्ण सन्नाटा"],c:1,e:"बच्चों की आवश्यकताओं को केंद्र में रखना।"},
+{q:"अर्थ ग्रहण के साथ पढ़ने हेतु सबसे महत्वपूर्ण क्या है?",o:["तेज गति से पढ़ना","संदर्भ अनुसार अर्थ समझना","सुंदर लिखावट","विराम चिह्न अनदेखा करना"],c:1,e:"संदर्भ अनुसार अर्थ समझना ही वास्तविक पठन है।"},
+{q:"उपचारात्मक शिक्षण कब आयोजित करें?",o:["वर्ष में एक बार","निदानात्मक मूल्यांकन के तुरंत बाद","प्रवेश से पहले","छुट्टियों में"],c:1,e:"कमजोरी पहचान के तुरंत बाद सुधार योजना।"},
+{q:"समावेशी शिक्षक को क्या करना चाहिए?",o:["मातृभाषा प्रतिबंधित करें","मातृभाषा को संसाधन मानकर योजना बनाएँ","पीछे बैठाएँ","जुर्माना लगाएँ"],c:1,e:"मातृभाषा को मूल्यवान संसाधन मानें।"}
+];
+let currentIdx = 0;
+let score = 0;
+let userAnswers = new Array(quizData.length).fill(null);
+const qnCurrent = document.getElementById("qn-current");
+const qnScore = document.getElementById("qn-score");
+const qnText = document.getElementById("qn-text");
+const qnOptions = document.getElementById("qn-options");
+const qnExp = document.getElementById("qn-exp");
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
+const quizBlock = document.getElementById("quiz-block");
+const resultBlock = document.getElementById("result-block");
+const scaledScore = document.getElementById("scaled-score");
+const verdictText = document.getElementById("verdict-text");
+function loadQuestion() {
+    qnExp.style.display = "none";
+    let data = quizData[currentIdx];
+    qnCurrent.innerText = currentIdx + 1;
+    qnText.innerText = `Q${currentIdx + 1}. ${data.q}`;
+    qnOptions.innerHTML = "";
+    data.o.forEach((opt, idx) => {
+        let li = document.createElement("li");
+        li.className = "option-item";
+        li.innerText = opt;
+        if (userAnswers[currentIdx] !== null) {
+            if (idx === data.c) li.classList.add("correct");
+            if (userAnswers[currentIdx] === idx && idx !== data.c) li.classList.add("incorrect");
+        } else {
+            li.onclick = () => selectOption(li, idx);
+        }
+        qnOptions.appendChild(li);
+    });
+    if (userAnswers[currentIdx] !== null) {
+        qnExp.innerText = "💡 व्याख्या: " + data.e;
+        qnExp.style.display = "block";
+    }
+    prevBtn.style.visibility = currentIdx === 0 ? "hidden" : "visible";
+    nextBtn.innerText = currentIdx === quizData.length - 1 ? "पूर्ण परिणाम देखें ➔" : "अगला प्रश्न ➔";
+}
+function selectOption(element, idx) {
+    if (userAnswers[currentIdx] !== null) return;
+    let data = quizData[currentIdx];
+    userAnswers[currentIdx] = idx;
+    let items = qnOptions.getElementsByClassName("option-item");
+    if (idx === data.c) {
+        element.classList.add("correct");
+        score++;
+        qnScore.innerText = score;
+    } else {
+        element.classList.add("incorrect");
+        items[data.c].classList.add("correct");
+    }
+    qnExp.innerText = "💡 व्याख्या: " + data.e;
+    qnExp.style.display = "block";
+}
+function moveQuestion(step) {
+    if (step === 1 && userAnswers[currentIdx] === null) {
+        alert("कृपया आगे बढ़ने से पहले किसी एक विकल्प का चयन करें!");
+        return;
+    }
+    currentIdx += step;
+    if (currentIdx >= quizData.length) {
+        showFinalResults();
+    } else {
+        loadQuestion();
+    }
+}
+function showFinalResults() {
+    quizBlock.style.display = "none";
+    resultBlock.style.display = "block";
+    let scaled = Math.round((score / quizData.length) * 30);
+    scaledScore.innerText = `${scaled}/30`;
+    if (scaled >= 28) {
+        verdictText.innerHTML = "🎉 उत्कृष्ट! JHTET 2026 में 30 में से 28+ अंक निश्चित!";
+    } else if (scaled >= 24) {
+        verdictText.innerHTML = "👍 शानदार स्कोर! निदानात्मक व उपचारात्मक का अंतर फिर देखें।";
+    } else {
+        verdictText.innerHTML = "⚠️ NEP 2020 और LSRW नोट्स फिर पढ़ें।";
+    }
+    window.scrollTo({top:0, behavior:"smooth"});
+}
+function restartQuiz() {
+    currentIdx = 0;
+    score = 0;
+    userAnswers.fill(null);
+    qnScore.innerText = "0";
+    quizBlock.style.display = "block";
+    resultBlock.style.display = "none";
+    loadQuestion();
+}
+loadQuestion();
+</script>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
+</html>
