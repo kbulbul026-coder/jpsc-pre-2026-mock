@@ -1,0 +1,2778 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#17365d">
+  <title>JHTET 2026 | सामाजिक एवं राजनीतिक जीवन</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Noto Sans Devanagari", "Mangal", Arial, sans-serif;
+      line-height: 1.8;
+      background: #f3f6fb;
+      color: #202b3c;
+    }
+
+    header {
+      background: linear-gradient(135deg, #17365d, #245b88);
+      color: #fff;
+      padding: 30px 18px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: clamp(23px, 5vw, 34px);
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 15px;
+      opacity: 0.95;
+    }
+
+    .container {
+      width: min(100% - 28px, 850px);
+      margin: 22px auto;
+    }
+
+    .notice {
+      background: #fff8df;
+      border-left: 5px solid #e5a000;
+      padding: 14px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    .index-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 3px 14px rgba(25, 45, 75, 0.08);
+    }
+
+    .index-card h2 {
+      color: #17365d;
+      font-size: 21px;
+      margin-bottom: 14px;
+      border-bottom: 2px solid #e6edf5;
+      padding-bottom: 10px;
+    }
+
+    .topic-list {
+      list-style: none;
+      counter-reset: topic;
+    }
+
+    .topic-list li {
+      counter-increment: topic;
+      margin: 10px 0;
+    }
+
+    .topic-list a {
+      display: block;
+      text-decoration: none;
+      color: #203a5c;
+      background: #f4f7fc;
+      border: 1px solid #e1e9f4;
+      padding: 12px 14px;
+      border-radius: 9px;
+      transition: 0.2s;
+    }
+
+    .topic-list a::before {
+      content: counter(topic) ". ";
+      font-weight: bold;
+      color: #1769aa;
+    }
+
+    .topic-list a:hover,
+    .topic-list a:focus {
+      background: #e7f1ff;
+      border-color: #76a9e0;
+    }
+
+    .study-note {
+      margin-top: 20px;
+      background: #eaf5ee;
+      border-left: 5px solid #27864b;
+      padding: 14px;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      color: #64748b;
+      padding: 22px 12px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 24px 14px;
+      }
+
+      .index-card {
+        padding: 15px;
+      }
+
+      .topic-list a {
+        padding: 11px;
+      }
+    }
+  
+    /* ===== SPL: full topic index ===== */
+    .spl-hint { font-size: .85rem; font-weight: 500; color: #5b6b82; }
+    .spl-unit { margin: 16px 0 6px; }
+    .spl-unit-title { font-weight: 700; margin-bottom: 8px; }
+    .spl-unit-title a { color: #1769aa; text-decoration: none; }
+    .spl-unit-title a:hover { text-decoration: underline; }
+    .spl-count { font-size: .8rem; font-weight: 600; color: #fff; background: #1769aa; border-radius: 20px; padding: 2px 10px; margin-left: 6px; }
+    .spl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px; }
+    .spl-link { display: block; text-decoration: none; color: #203a5c; background: #f4f7fc; border: 1px solid #e1e9f4; padding: 9px 12px; border-radius: 8px; font-size: .92rem; transition: .15s; }
+    .spl-link:hover { background: #e7f1ff; border-color: #76a9e0; font-weight: 600; transform: translateX(3px); }
+    h3[id^="sec-"] { scroll-margin-top: 16px; }
+    /* ===== floating back-to-index ===== */
+    #toIndex { position: fixed; bottom: 24px; right: 24px; width: 54px; height: 54px; border-radius: 50%;
+      background: #1769aa; color: #fff; border: 2px solid #fff; font-size: 1.5rem; line-height: 1; cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,.28); display: none; z-index: 100; transition: transform .15s ease; }
+    #toIndex:hover { transform: scale(1.12); background: #0f4e80; }
+    @media (max-width: 640px) {
+      .spl-grid { grid-template-columns: 1fr; }
+      .spl-hint { display: block; margin-top: 4px; }
+      #toIndex { bottom: 16px; right: 16px; width: 48px; height: 48px; font-size: 1.3rem; }
+    }
+    @media print { #toIndex { display: none !important; } }
+  
+    /* ===== Readability upgrade ===== */
+    body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+
+    /* 1. Typography: bada, saaf text */
+    p { font-size: 16px; line-height: 1.9; margin: 0 0 14px; opacity: 1; }
+    li { line-height: 1.85; margin-bottom: 7px; }
+
+    /* 2. Key terms highlight */
+    p strong, li strong, td strong { color: #143a63; }
+
+    /* 3. Heading hierarchy: h3 ko accent bar */
+    h2 { font-size: 23px; margin: 36px 0 16px; }
+    h3 { font-size: 18px; color: #17365d; background: #edf3fa; border-left: 5px solid #1769aa;
+         padding: 10px 14px; border-radius: 0 8px 8px 0; margin: 28px 0 14px; line-height: 1.6; }
+
+    /* 4. Tables: zebra + hover + behtar header */
+    table { font-size: 15px; }
+    thead tr th { background: #d7e5f5 !important; color: #17365d; }
+    tbody tr:nth-child(even) td { background: #f7fafd; }
+    tbody tr:hover td { background: #e9f2fc; }
+    td, th { vertical-align: top; line-height: 1.75; }
+
+    /* 5. Lists: neele markers, saaf indent */
+    ul:not(.topic-list) { padding-left: 22px; }
+    ol:not(.topic-list) { padding-left: 22px; }
+    ul:not(.topic-list) > li::marker { color: #1769aa; font-weight: 700; }
+    ol:not(.topic-list) > li::marker { color: #1769aa; font-weight: 700; }
+
+    /* 6. Text selection */
+    ::selection { background: #bcd7f0; }
+
+    @media (max-width: 640px) {
+      p { font-size: 15.5px; }
+      h2 { font-size: 20px; }
+      h3 { font-size: 16.5px; padding: 9px 12px; }
+      table { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      td, th { white-space: normal; }
+    }
+    @media print {
+      body { background: #fff; }
+      .index-card { box-shadow: none; border: 1px solid #ddd; }
+      h3 { background: #f2f2f2; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      thead tr th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>JHTET परीक्षा 2026</h1>
+    <p>कक्षा 6–8 | सामाजिक विज्ञान</p>
+    <p><strong>C. सामाजिक एवं राजनीतिक जीवन</strong></p>
+  </header>
+
+  <main class="container">
+
+    <div class="notice">
+      <strong>अध्ययन निर्देश:</strong>
+      सभी सात विषयों को क्रमवार पढ़ें। प्रत्येक विषय के विस्तृत नोट्स,
+      महत्वपूर्ण तथ्य और अभ्यास प्रश्न अलग-अलग जोड़े जाएंगे।
+    </div>
+
+    <section class="index-card" id="master-index">
+      <h2>📑 Master Index — विषय सूची <span class="spl-hint">— 97 विषय | क्लिक करके सीधे पहुँचें</span></h2>
+      <div class="spl-unit"><div class="spl-unit-title"><a href="#topic1">1. विविधता की समझ (Understanding Diversity)</a> <span class="spl-count">9 विषय</span></div>
+      <div class="spl-grid">
+        <a class="spl-link" href="#sec-1">1.1 विविधता का अर्थ</a>
+        <a class="spl-link" href="#sec-2">1.2 भारत में विविधता के प्रमुख आधार</a>
+        <a class="spl-link" href="#sec-3">1.3 विविधता के कारण</a>
+        <a class="spl-link" href="#sec-4">1.4 विविधता और समानता में संबंध</a>
+        <a class="spl-link" href="#sec-5">1.5 विविधता में एकता</a>
+        <a class="spl-link" href="#sec-6">1.6 विविधता का सम्मान क्यों आवश्यक है?</a>
+        <a class="spl-link" href="#sec-7">1.7 महत्वपूर्ण शब्दावली</a>
+        <a class="spl-link" href="#sec-8">1.8 परीक्षा के लिए महत्वपूर्ण तथ्य</a>
+        <a class="spl-link" href="#sec-9">1.9 अभ्यास प्रश्न (MCQ)</a>
+      </div></div>
+      <div class="spl-unit"><div class="spl-unit-title"><a href="#topic2">2. संविधान (Constitution)</a> <span class="spl-count">11 विषय</span></div>
+      <div class="spl-grid">
+        <a class="spl-link" href="#sec-10">2.1 संविधान का अर्थ</a>
+        <a class="spl-link" href="#sec-11">2.2 संविधान की आवश्यकता क्यों होती है?</a>
+        <a class="spl-link" href="#sec-12">2.3 भारतीय संविधान का निर्माण</a>
+        <a class="spl-link" href="#sec-13">2.4 भारतीय संविधान की प्रमुख विशेषताएँ</a>
+        <a class="spl-link" href="#sec-14">2.5 संविधान की प्रस्तावना</a>
+        <a class="spl-link" href="#sec-15">2.6 लोकतंत्र और संविधान का संबंध</a>
+        <a class="spl-link" href="#sec-16">2.7 संविधान और कानून का शासन</a>
+        <a class="spl-link" href="#sec-17">2.8 संविधान में संशोधन</a>
+        <a class="spl-link" href="#sec-18">2.9 महत्वपूर्ण शब्दावली</a>
+        <a class="spl-link" href="#sec-19">2.10 परीक्षा के लिए महत्वपूर्ण तथ्य</a>
+        <a class="spl-link" href="#sec-20">2.11 अभ्यास प्रश्न (MCQ)</a>
+      </div></div>
+      <div class="spl-unit"><div class="spl-unit-title"><a href="#topic3">3. मौलिक अधिकार एवं कर्तव्य</a> <span class="spl-count">16 विषय</span></div>
+      <div class="spl-grid">
+        <a class="spl-link" href="#sec-21">3.1 मौलिक अधिकार का अर्थ</a>
+        <a class="spl-link" href="#sec-22">3.2 भारत के छह मौलिक अधिकार</a>
+        <a class="spl-link" href="#sec-23">3.3 समानता का अधिकार</a>
+        <a class="spl-link" href="#sec-24">3.4 स्वतंत्रता का अधिकार</a>
+        <a class="spl-link" href="#sec-25">3.5 शोषण के विरुद्ध अधिकार</a>
+        <a class="spl-link" href="#sec-26">3.6 धार्मिक स्वतंत्रता का अधिकार</a>
+        <a class="spl-link" href="#sec-27">3.7 सांस्कृतिक एवं शैक्षिक अधिकार</a>
+        <a class="spl-link" href="#sec-28">3.8 संवैधानिक उपचारों का अधिकार</a>
+        <a class="spl-link" href="#sec-29">3.9 शिक्षा का अधिकार</a>
+        <a class="spl-link" href="#sec-30">3.10 संपत्ति का अधिकार</a>
+        <a class="spl-link" href="#sec-31">3.11 मौलिक कर्तव्य का अर्थ</a>
+        <a class="spl-link" href="#sec-32">3.12 भारत के 11 मौलिक कर्तव्य</a>
+        <a class="spl-link" href="#sec-33">3.13 मौलिक कर्तव्य कब जोड़े गए?</a>
+        <a class="spl-link" href="#sec-34">3.14 मौलिक अधिकार और मौलिक कर्तव्य में अंतर</a>
+        <a class="spl-link" href="#sec-35">3.15 परीक्षा के लिए महत्वपूर्ण तथ्य</a>
+        <a class="spl-link" href="#sec-36">3.16 अभ्यास प्रश्न (MCQ)</a>
+      </div></div>
+      <div class="spl-unit"><div class="spl-unit-title"><a href="#topic4">4. राज्य सरकार (State Government)</a> <span class="spl-count">14 विषय</span></div>
+      <div class="spl-grid">
+        <a class="spl-link" href="#sec-37">4.1 राज्य सरकार का अर्थ</a>
+        <a class="spl-link" href="#sec-38">4.2 राज्य सरकार के प्रमुख अंग</a>
+        <a class="spl-link" href="#sec-39">4.3 विधायक (MLA) कौन होता है?</a>
+        <a class="spl-link" href="#sec-40">4.4 विधानसभा क्या है?</a>
+        <a class="spl-link" href="#sec-41">4.5 सत्तारूढ़ दल और विपक्ष</a>
+        <a class="spl-link" href="#sec-42">4.6 मुख्यमंत्री कौन होता है?</a>
+        <a class="spl-link" href="#sec-43">4.7 मंत्रिपरिषद और मंत्री</a>
+        <a class="spl-link" href="#sec-44">4.8 राज्यपाल की भूमिका</a>
+        <a class="spl-link" href="#sec-45">4.9 राज्य सरकार कानून कैसे बनाती है?</a>
+        <a class="spl-link" href="#sec-46">4.10 जनता राज्य सरकार तक अपनी बात कैसे पहुँचाती है?</a>
+        <a class="spl-link" href="#sec-47">4.11 राज्य सरकार और केंद्र सरकार में अंतर</a>
+        <a class="spl-link" href="#sec-48">4.12 झारखंड के संदर्भ में समझें</a>
+        <a class="spl-link" href="#sec-49">4.13 परीक्षा के लिए महत्वपूर्ण तथ्य</a>
+        <a class="spl-link" href="#sec-50">4.14 अभ्यास प्रश्न (MCQ)</a>
+      </div></div>
+      <div class="spl-unit"><div class="spl-unit-title"><a href="#topic5">5. स्थानीय सरकार (Local Government)</a> <span class="spl-count">16 विषय</span></div>
+      <div class="spl-grid">
+        <a class="spl-link" href="#sec-51">1. स्थानीय सरकार का अर्थ</a>
+        <a class="spl-link" href="#sec-52">2. स्थानीय सरकार की आवश्यकता</a>
+        <a class="spl-link" href="#sec-53">3. सत्ता का विकेंद्रीकरण</a>
+        <a class="spl-link" href="#sec-54">4. स्थानीय सरकार के प्रमुख प्रकार</a>
+        <a class="spl-link" href="#sec-55">5. ग्रामीण स्थानीय सरकार: पंचायती राज</a>
+        <a class="spl-link" href="#sec-56">6. ग्राम सभा (Gram Sabha)</a>
+        <a class="spl-link" href="#sec-57">7. ग्राम पंचायत (Gram Panchayat)</a>
+        <a class="spl-link" href="#sec-58">8. पंचायत समिति और जिला परिषद</a>
+        <a class="spl-link" href="#sec-59">9. शहरी स्थानीय सरकार</a>
+        <a class="spl-link" href="#sec-60">10. शहरी निकायों के प्रमुख कार्य</a>
+        <a class="spl-link" href="#sec-61">11. स्थानीय सरकार की आय के स्रोत</a>
+        <a class="spl-link" href="#sec-62">12. स्थानीय सरकार और लोकतंत्र</a>
+        <a class="spl-link" href="#sec-63">13. संवैधानिक तथ्य</a>
+        <a class="spl-link" href="#sec-64">14. महत्त्वपूर्ण शब्दावली</a>
+        <a class="spl-link" href="#sec-65">15. अभ्यास प्रश्न (MCQs)</a>
+        <a class="spl-link" href="#sec-66">16. त्वरित पुनरावृत्ति</a>
+      </div></div>
+      <div class="spl-unit"><div class="spl-unit-title"><a href="#topic6">6. लोकतंत्र में समानता (Equality in Democracy)</a> <span class="spl-count">14 विषय</span></div>
+      <div class="spl-grid">
+        <a class="spl-link" href="#sec-67">1. समानता का अर्थ</a>
+        <a class="spl-link" href="#sec-68">2. लोकतंत्र में समानता क्यों आवश्यक है?</a>
+        <a class="spl-link" href="#sec-69">3. भारतीय संविधान और समानता</a>
+        <a class="spl-link" href="#sec-70">4. कानून के समक्ष समानता</a>
+        <a class="spl-link" href="#sec-71">5. भेदभाव क्या है?</a>
+        <a class="spl-link" href="#sec-72">6. अस्पृश्यता का उन्मूलन</a>
+        <a class="spl-link" href="#sec-73">7. सार्वभौमिक वयस्क मताधिकार</a>
+        <a class="spl-link" href="#sec-74">8. समानता और मानवीय गरिमा</a>
+        <a class="spl-link" href="#sec-75">9. समानता बढ़ाने में सरकार की भूमिका</a>
+        <a class="spl-link" href="#sec-76">10. समानता के सामने चुनौतियाँ</a>
+        <a class="spl-link" href="#sec-77">11. समानता और वास्तविक जीवन</a>
+        <a class="spl-link" href="#sec-78">12. महत्त्वपूर्ण शब्दावली</a>
+        <a class="spl-link" href="#sec-79">13. अभ्यास प्रश्न (MCQs)</a>
+        <a class="spl-link" href="#sec-80">14. त्वरित पुनरावृत्ति</a>
+      </div></div>
+      <div class="spl-unit"><div class="spl-unit-title"><a href="#topic7">7. संसदीय सरकार (Parliamentary Government)</a> <span class="spl-count">17 विषय</span></div>
+      <div class="spl-grid">
+        <a class="spl-link" href="#sec-81">1. संसदीय सरकार का अर्थ</a>
+        <a class="spl-link" href="#sec-82">2. संसदीय सरकार की प्रमुख विशेषताएँ</a>
+        <a class="spl-link" href="#sec-83">3. भारतीय संसद की संरचना</a>
+        <a class="spl-link" href="#sec-84">4. लोकसभा (Lok Sabha)</a>
+        <a class="spl-link" href="#sec-85">5. राज्यसभा (Rajya Sabha)</a>
+        <a class="spl-link" href="#sec-86">6. लोकसभा और राज्यसभा में अंतर</a>
+        <a class="spl-link" href="#sec-87">7. राष्ट्रपति की भूमिका</a>
+        <a class="spl-link" href="#sec-88">8. प्रधानमंत्री और मंत्रिपरिषद</a>
+        <a class="spl-link" href="#sec-89">9. सरकार कैसे बनती है?</a>
+        <a class="spl-link" href="#sec-90">10. संसद के प्रमुख कार्य</a>
+        <a class="spl-link" href="#sec-91">11. विपक्ष की भूमिका</a>
+        <a class="spl-link" href="#sec-92">12. प्रश्नकाल और संसदीय चर्चा</a>
+        <a class="spl-link" href="#sec-93">13. संसदीय सरकार और राज्य सरकार</a>
+        <a class="spl-link" href="#sec-94">14. महत्त्वपूर्ण संवैधानिक तथ्य</a>
+        <a class="spl-link" href="#sec-95">15. महत्त्वपूर्ण शब्दावली</a>
+        <a class="spl-link" href="#sec-96">16. अभ्यास प्रश्न (MCQs)</a>
+        <a class="spl-link" href="#sec-97">17. त्वरित पुनरावृत्ति</a>
+      </div></div>
+    </section>
+
+    <!--
+      विषय 1 से 7 के विस्तृत HTML सेक्शन
+      इसी main container में, study-note के बाद
+      और </main> से पहले जोड़े जाएंगे।
+
+
+<!-- विषय 1: विविधता की समझ -->
+<section id="topic1" class="index-card" style="margin-top:22px;">
+
+  <h2>1. विविधता की समझ (Understanding Diversity)</h2>
+
+  <p>
+    भारत एक ऐसा देश है जहाँ विभिन्न भाषाएँ, धर्म, रीति-रिवाज,
+    खान-पान, पहनावे और जीवन-शैलियाँ देखने को मिलती हैं।
+    लोगों के बीच इन भिन्नताओं को <strong>विविधता</strong> कहा जाता है।
+  </p>
+
+  <h3 id="sec-1">1.1 विविधता का अर्थ</h3>
+  <p>
+    विविधता का अर्थ है व्यक्तियों या समुदायों के बीच पाई जाने वाली
+    भिन्नता। ये भिन्नताएँ भाषा, संस्कृति, धर्म, क्षेत्र, खान-पान,
+    पहनावे तथा जीवन जीने के तरीकों में दिखाई दे सकती हैं।
+  </p>
+
+  <h3 id="sec-2">1.2 भारत में विविधता के प्रमुख आधार</h3>
+
+  <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;margin:12px 0;">
+      <thead>
+        <tr style="background:#e7eff9;">
+          <th style="border:1px solid #ccd6e3;padding:10px;">आधार</th>
+          <th style="border:1px solid #ccd6e3;padding:10px;">व्याख्या एवं उदाहरण</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:10px;">भाषा</td>
+          <td style="border:1px solid #ccd6e3;padding:10px;">
+            भारत में हिंदी, बांग्ला, तमिल, तेलुगु, मराठी, ओड़िया
+            और अनेक अन्य भाषाएँ बोली जाती हैं।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:10px;">धर्म</td>
+          <td style="border:1px solid #ccd6e3;padding:10px;">
+            भारत में हिंदू, मुस्लिम, सिख, ईसाई, बौद्ध, जैन
+            और अन्य धार्मिक समुदाय रहते हैं।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:10px;">खान-पान</td>
+          <td style="border:1px solid #ccd6e3;padding:10px;">
+            अलग-अलग क्षेत्रों में चावल, रोटी, दाल, मछली,
+            बाजरा तथा अन्य स्थानीय खाद्य पदार्थ प्रचलित हैं।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:10px;">पहनावा</td>
+          <td style="border:1px solid #ccd6e3;padding:10px;">
+            साड़ी, धोती, सलवार-कमीज, विभिन्न प्रकार के
+            पारंपरिक वस्त्र और आधुनिक कपड़े पहने जाते हैं।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:10px;">त्योहार</td>
+          <td style="border:1px solid #ccd6e3;padding:10px;">
+            दीपावली, ईद, क्रिसमस, गुरुपर्व, बुद्ध पूर्णिमा,
+            छठ और अनेक क्षेत्रीय त्योहार मनाए जाते हैं।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:10px;">भौगोलिक स्थिति</td>
+          <td style="border:1px solid #ccd6e3;padding:10px;">
+            हिमालय, मैदान, पठार, रेगिस्तान, तटीय क्षेत्र
+            और द्वीपों में रहने वाले लोगों की जीवन-शैली
+            में अंतर हो सकता है।
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="sec-3">1.3 विविधता के कारण</h3>
+  <ul>
+    <li><strong>भौगोलिक परिस्थितियाँ:</strong> जलवायु, मिट्टी, जल और प्राकृतिक संसाधनों में अंतर।</li>
+    <li><strong>ऐतिहासिक कारण:</strong> विभिन्न समुदायों के आगमन, संपर्क और ऐतिहासिक घटनाओं का प्रभाव।</li>
+    <li><strong>सामाजिक एवं सांस्कृतिक कारण:</strong> परंपराओं, रीति-रिवाजों और सामाजिक जीवन में अंतर।</li>
+    <li><strong>आर्थिक कारण:</strong> आजीविका, व्यवसाय और उपलब्ध संसाधनों में भिन्नता।</li>
+    <li><strong>भाषाई कारण:</strong> अलग-अलग भाषाओं और बोलियों का विकास।</li>
+  </ul>
+
+  <h3 id="sec-4">1.4 विविधता और समानता में संबंध</h3>
+  <p>
+    विविधता का अर्थ यह नहीं है कि सभी लोगों के अधिकार अलग-अलग हों।
+    लोगों की भाषा, धर्म या संस्कृति भिन्न हो सकती है, फिर भी सभी
+    व्यक्तियों को समान सम्मान और समान अधिकार मिलने चाहिए।
+  </p>
+
+  <h3 id="sec-5">1.5 विविधता में एकता</h3>
+  <p>
+    विविधता में एकता का अर्थ है कि भिन्नताओं के बावजूद लोग
+    साझा सामाजिक और राष्ट्रीय जीवन में भाग लेते हैं।
+    भारत में अनेक भाषाओं, संस्कृतियों और परंपराओं के लोग
+    भारतीय नागरिकता तथा साझा संवैधानिक मूल्यों से जुड़े हैं।
+  </p>
+
+  <h3 id="sec-6">1.6 विविधता का सम्मान क्यों आवश्यक है?</h3>
+  <ul>
+    <li>समाज में आपसी सम्मान और सहयोग बढ़ता है।</li>
+    <li>भेदभाव और पूर्वाग्रह को कम करने में सहायता मिलती है।</li>
+    <li>अलग-अलग समुदायों की संस्कृति और परंपराओं को समझने का अवसर मिलता है।</li>
+    <li>शांतिपूर्ण सह-अस्तित्व और सामाजिक सद्भाव को प्रोत्साहन मिलता है।</li>
+  </ul>
+
+  <h3 id="sec-7">1.7 महत्वपूर्ण शब्दावली</h3>
+
+  <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;">
+      <tbody>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            <strong>विविधता (Diversity)</strong>
+          </td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            लोगों या समुदायों के बीच भिन्नताएँ।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            <strong>संस्कृति (Culture)</strong>
+          </td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            किसी समुदाय के रीति-रिवाज, परंपराएँ, कला और जीवन-पद्धति।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            <strong>पूर्वाग्रह (Prejudice)</strong>
+          </td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            पर्याप्त जानकारी के बिना किसी व्यक्ति या समूह के बारे में
+            पहले से राय बना लेना।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            <strong>भेदभाव (Discrimination)</strong>
+          </td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            किसी व्यक्ति या समूह के साथ अनुचित या असमान व्यवहार करना।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            <strong>सह-अस्तित्व (Coexistence)</strong>
+          </td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            अलग-अलग पहचान वाले लोगों का साथ रहना।
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="sec-8">1.8 परीक्षा के लिए महत्वपूर्ण तथ्य</h3>
+  <ol>
+    <li>विविधता का अर्थ भिन्नता है।</li>
+    <li>भाषा, धर्म, खान-पान, पहनावा और भौगोलिक परिस्थितियाँ विविधता के प्रमुख आधार हैं।</li>
+    <li>भारत में अनेक भाषाएँ और सांस्कृतिक परंपराएँ प्रचलित हैं।</li>
+    <li>विविधता का सम्मान सामाजिक सद्भाव को बढ़ावा देता है।</li>
+    <li>पूर्वाग्रह और भेदभाव अलग-अलग अवधारणाएँ हैं।</li>
+    <li>विभिन्न पहचान होने के बावजूद सभी व्यक्तियों को समान सम्मान मिलना चाहिए।</li>
+  </ol>
+
+  <h3 id="sec-9">1.9 अभ्यास प्रश्न (MCQ)</h3>
+  <p>सही विकल्प चुनें। उत्तर जाँचने के लिए प्रत्येक प्रश्न के नीचे विकल्प चुनें।</p>
+
+  <form id="diversityQuiz">
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 1.</strong> विविधता का सही अर्थ क्या है?</legend>
+      <label><input type="radio" name="q1" value="a"> सभी लोगों का एक जैसा होना</label><br>
+      <label><input type="radio" name="q1" value="b"> लोगों के बीच पाई जाने वाली भिन्नताएँ</label><br>
+      <label><input type="radio" name="q1" value="c"> केवल भाषा में अंतर</label><br>
+      <label><input type="radio" name="q1" value="d"> केवल धर्म में अंतर</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 2.</strong> इनमें से विविधता का आधार कौन-सा है?</legend>
+      <label><input type="radio" name="q2" value="a"> भाषा</label><br>
+      <label><input type="radio" name="q2" value="b"> खान-पान</label><br>
+      <label><input type="radio" name="q2" value="c"> भौगोलिक परिस्थितियाँ</label><br>
+      <label><input type="radio" name="q2" value="d"> उपर्युक्त सभी</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 3.</strong> पूर्वाग्रह का क्या अर्थ है?</legend>
+      <label><input type="radio" name="q3" value="a"> किसी विषय का वैज्ञानिक अध्ययन</label><br>
+      <label><input type="radio" name="q3" value="b"> पर्याप्त जानकारी के बिना पहले से राय बना लेना</label><br>
+      <label><input type="radio" name="q3" value="c"> सभी का सम्मान करना</label><br>
+      <label><input type="radio" name="q3" value="d"> सहयोग करना</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 4.</strong> भेदभाव का अर्थ क्या है?</legend>
+      <label><input type="radio" name="q4" value="a"> सबके साथ समान व्यवहार</label><br>
+      <label><input type="radio" name="q4" value="b"> संस्कृति का आदान-प्रदान</label><br>
+      <label><input type="radio" name="q4" value="c"> अनुचित या असमान व्यवहार</label><br>
+      <label><input type="radio" name="q4" value="d"> त्योहार मनाना</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 5.</strong> विविधता के प्रति सही दृष्टिकोण कौन-सा है?</legend>
+      <label><input type="radio" name="q5" value="a"> दूसरी संस्कृतियों का अपमान करना</label><br>
+      <label><input type="radio" name="q5" value="b"> भिन्नताओं के कारण भेदभाव करना</label><br>
+      <label><input type="radio" name="q5" value="c"> सभी भिन्नताओं को समाप्त करना</label><br>
+      <label><input type="radio" name="q5" value="d"> भिन्नताओं का सम्मान करना</label>
+    </fieldset>
+
+    <button type="button" onclick="checkDiversityQuiz()"
+      style="background:#17365d;color:white;border:0;border-radius:7px;padding:11px 18px;cursor:pointer;">
+      उत्तर जाँचें
+    </button>
+
+    <button type="reset" onclick="document.getElementById('diversityResult').textContent=''"
+      style="background:#e8edf4;color:#203a5c;border:0;border-radius:7px;padding:11px 18px;cursor:pointer;">
+      फिर से करें
+    </button>
+
+    <p id="diversityResult" role="status" aria-live="polite"
+       style="margin-top:14px;font-weight:bold;"></p>
+
+  </form>
+
+  <script>
+    function checkDiversityQuiz() {
+      const answers = {
+        q1: "b",
+        q2: "d",
+        q3: "b",
+        q4: "c",
+        q5: "d"
+      };
+
+      let score = 0;
+      let unanswered = 0;
+
+      for (const question in answers) {
+        const selected = document.querySelector(
+          'input[name="' + question + '"]:checked'
+        );
+
+        if (!selected) {
+          unanswered++;
+        } else if (selected.value === answers[question]) {
+          score++;
+        }
+      }
+
+      const result = document.getElementById("diversityResult");
+
+      if (unanswered > 0) {
+        result.textContent =
+          "कृपया सभी 5 प्रश्नों के उत्तर चुनें। अभी " +
+          unanswered + " प्रश्न बाकी हैं।";
+        return;
+      }
+
+      result.textContent =
+        "आपका स्कोर: " + score + "/5। " +
+        (score === 5
+          ? "बहुत अच्छा! सभी उत्तर सही हैं।"
+          : "गलत उत्तरों को नोट्स से दोबारा पढ़ें और फिर प्रयास करें।");
+    }
+  </script>
+
+  <div style="background:#eaf5ee;border-left:5px solid #27864b;padding:13px;margin-top:20px;border-radius:8px;">
+    <strong>विषय 1 पूरा करें:</strong>
+    नोट्स पढ़ने के बाद MCQ हल करें। फिर अगले विषय
+    <strong>2. संविधान (Constitution)</strong> का HTML सेक्शन जोड़ें।
+  </div>
+
+</section>
+<!-- विषय 1 समाप्त -->
+
+<!-- विषय 2: संविधान -->
+<section id="topic2" class="index-card" style="margin-top:22px;">
+
+  <h2>2. संविधान (Constitution)</h2>
+
+  <p>
+    संविधान किसी देश के शासन को चलाने वाले मूल नियमों और सिद्धांतों
+    का संग्रह होता है। यह बताता है कि सरकार कैसे बनेगी, उसकी शक्तियाँ
+    क्या होंगी, नागरिकों के अधिकार क्या होंगे और शासन किस प्रकार
+    कानून के अनुसार संचालित होगा।
+  </p>
+
+  <h3 id="sec-10">2.1 संविधान का अर्थ</h3>
+  <p>
+    संविधान देश का सर्वोच्च मूल कानून है। सरकार के विभिन्न अंगों की
+    संरचना, शक्तियों और कार्यों का निर्धारण संविधान के आधार पर होता है।
+    सरकार को संविधान के अनुरूप कार्य करना चाहिए।
+  </p>
+
+  <h3 id="sec-11">2.2 संविधान की आवश्यकता क्यों होती है?</h3>
+  <ul>
+    <li>देश के शासन को चलाने के लिए निश्चित नियम निर्धारित करना।</li>
+    <li>सरकार की शक्तियों और सीमाओं को स्पष्ट करना।</li>
+    <li>नागरिकों के अधिकारों की रक्षा करना।</li>
+    <li>सरकार के विभिन्न अंगों के कार्य और संबंध निर्धारित करना।</li>
+    <li>मनमाने शासन और शक्ति के दुरुपयोग पर रोक लगाने में सहायता करना।</li>
+    <li>समानता, न्याय और लोकतांत्रिक मूल्यों को आधार प्रदान करना।</li>
+  </ul>
+
+  <h3 id="sec-12">2.3 भारतीय संविधान का निर्माण</h3>
+  <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;margin:12px 0;">
+      <thead>
+        <tr style="background:#e7eff9;">
+          <th style="border:1px solid #ccd6e3;padding:10px;">महत्वपूर्ण घटना</th>
+          <th style="border:1px solid #ccd6e3;padding:10px;">तथ्य</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:10px;">संविधान सभा की पहली बैठक</td>
+          <td style="border:1px solid #ccd6e3;padding:10px;">9 दिसंबर 1946</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:10px;">प्रारूप समिति के अध्यक्ष</td>
+          <td style="border:1px solid #ccd6e3;padding:10px;">डॉ. भीमराव आंबेडकर</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:10px;">संविधान अंगीकृत किया गया</td>
+          <td style="border:1px solid #ccd6e3;padding:10px;">26 नवंबर 1949</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:10px;">संविधान लागू हुआ</td>
+          <td style="border:1px solid #ccd6e3;padding:10px;">26 जनवरी 1950</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:10px;">संविधान सभा के अध्यक्ष</td>
+          <td style="border:1px solid #ccd6e3;padding:10px;">डॉ. राजेंद्र प्रसाद</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    <strong>महत्वपूर्ण:</strong> 26 नवंबर को संविधान दिवस और
+    26 जनवरी को गणतंत्र दिवस मनाया जाता है।
+  </p>
+
+  <h3 id="sec-13">2.4 भारतीय संविधान की प्रमुख विशेषताएँ</h3>
+  <ul>
+    <li><strong>लिखित संविधान:</strong> संविधान के प्रावधान एक विस्तृत लिखित दस्तावेज में व्यवस्थित हैं।</li>
+    <li><strong>लोकतांत्रिक शासन:</strong> जनता चुनाव के माध्यम से अपने प्रतिनिधियों को चुनती है।</li>
+    <li><strong>संसदीय शासन प्रणाली:</strong> केंद्र और राज्यों में संसदीय शासन की व्यवस्था है।</li>
+    <li><strong>संघीय व्यवस्था:</strong> केंद्र और राज्यों के बीच शक्तियों का संवैधानिक बँटवारा है।</li>
+    <li><strong>मौलिक अधिकार:</strong> संविधान नागरिकों और अन्य व्यक्तियों को निर्धारित संवैधानिक अधिकार प्रदान करता है।</li>
+    <li><strong>स्वतंत्र न्यायपालिका:</strong> न्यायपालिका कानून की व्याख्या करती है और संवैधानिक अधिकारों की रक्षा में महत्वपूर्ण भूमिका निभाती है।</li>
+    <li><strong>धर्मनिरपेक्षता:</strong> राज्य किसी एक धर्म को अपना राजधर्म घोषित नहीं करता और धार्मिक स्वतंत्रता को संवैधानिक संरक्षण प्राप्त है।</li>
+  </ul>
+
+  <h3 id="sec-14">2.5 संविधान की प्रस्तावना</h3>
+  <p>
+    प्रस्तावना संविधान के आदर्शों और उद्देश्यों का परिचय देती है।
+    इसकी शुरुआत <strong>“हम, भारत के लोग”</strong> शब्दों से होती है।
+  </p>
+
+  <p>प्रस्तावना में भारत को इस प्रकार वर्णित किया गया है:</p>
+  <ul>
+    <li>सम्पूर्ण प्रभुत्व-संपन्न</li>
+    <li>समाजवादी</li>
+    <li>पंथनिरपेक्ष</li>
+    <li>लोकतंत्रात्मक</li>
+    <li>गणराज्य</li>
+  </ul>
+
+  <p>प्रस्तावना के प्रमुख आदर्श हैं:</p>
+  <ul>
+    <li><strong>न्याय:</strong> सामाजिक, आर्थिक और राजनीतिक न्याय।</li>
+    <li><strong>स्वतंत्रता:</strong> विचार, अभिव्यक्ति, विश्वास, धर्म और उपासना की स्वतंत्रता।</li>
+    <li><strong>समता:</strong> प्रतिष्ठा और अवसर की समता।</li>
+    <li><strong>बंधुता:</strong> व्यक्ति की गरिमा तथा राष्ट्र की एकता और अखंडता सुनिश्चित करना।</li>
+  </ul>
+
+  <h3 id="sec-15">2.6 लोकतंत्र और संविधान का संबंध</h3>
+  <p>
+    लोकतंत्र में जनता शासन का आधार होती है। संविधान यह सुनिश्चित करने
+    में मदद करता है कि सरकार निर्धारित नियमों के अनुसार काम करे।
+    चुनाव, नागरिक अधिकार, कानून का शासन और जवाबदेही लोकतांत्रिक
+    व्यवस्था के महत्वपूर्ण पहलू हैं।
+  </p>
+
+  <h3 id="sec-16">2.7 संविधान और कानून का शासन</h3>
+  <p>
+    कानून के शासन (Rule of Law) का अर्थ है कि शासन कानून के अनुसार
+    चले। किसी व्यक्ति या अधिकारी को केवल अपने पद या शक्ति के आधार पर
+    कानून से ऊपर नहीं माना जाता। कानून का समान और निष्पक्ष अनुपालन
+    संवैधानिक शासन का महत्वपूर्ण सिद्धांत है।
+  </p>
+
+  <h3 id="sec-17">2.8 संविधान में संशोधन</h3>
+  <p>
+    समय और आवश्यकताओं के अनुसार संविधान में निर्धारित प्रक्रिया के
+    अंतर्गत परिवर्तन किया जा सकता है। इसे संविधान संशोधन कहते हैं।
+    भारत में संविधान संशोधन की प्रक्रिया मुख्य रूप से अनुच्छेद 368
+    में दी गई है। संशोधन की प्रक्रिया के अनुसार कुछ मामलों में
+    संसद के विशेष बहुमत के साथ कम-से-कम आधे राज्यों के विधानमंडलों
+    की स्वीकृति भी आवश्यक होती है।
+  </p>
+
+  <h3 id="sec-18">2.9 महत्वपूर्ण शब्दावली</h3>
+  <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;margin:12px 0;">
+      <tbody>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            <strong>संविधान (Constitution)</strong>
+          </td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            शासन के मूल नियमों और सिद्धांतों का दस्तावेज।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            <strong>प्रस्तावना (Preamble)</strong>
+          </td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            संविधान के आदर्शों और उद्देश्यों का परिचय।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            <strong>लोकतंत्र (Democracy)</strong>
+          </td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            ऐसी शासन व्यवस्था जिसमें जनता की भूमिका केंद्रीय होती है।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            <strong>गणराज्य (Republic)</strong>
+          </td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            ऐसी व्यवस्था जिसमें राष्ट्राध्यक्ष का पद वंशानुगत राजतंत्र पर आधारित नहीं होता।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            <strong>धर्मनिरपेक्षता (Secularism)</strong>
+          </td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            सभी धर्मों के प्रति संवैधानिक समानता और धार्मिक स्वतंत्रता का सम्मान।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            <strong>संविधान संशोधन (Amendment)</strong>
+          </td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            निर्धारित संवैधानिक प्रक्रिया से संविधान में परिवर्तन।
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="sec-19">2.10 परीक्षा के लिए महत्वपूर्ण तथ्य</h3>
+  <ol>
+    <li>भारतीय संविधान 26 नवंबर 1949 को अंगीकृत किया गया।</li>
+    <li>भारतीय संविधान 26 जनवरी 1950 को लागू हुआ।</li>
+    <li>संविधान सभा की पहली बैठक 9 दिसंबर 1946 को हुई थी।</li>
+    <li>डॉ. भीमराव आंबेडकर प्रारूप समिति के अध्यक्ष थे।</li>
+    <li>डॉ. राजेंद्र प्रसाद संविधान सभा के अध्यक्ष थे।</li>
+    <li>प्रस्तावना के आरंभिक शब्द हैं — “हम, भारत के लोग”।</li>
+    <li>संविधान संशोधन की प्रक्रिया मुख्य रूप से अनुच्छेद 368 में है।</li>
+    <li>संविधान दिवस 26 नवंबर और गणतंत्र दिवस 26 जनवरी को मनाया जाता है।</li>
+  </ol>
+
+  <h3 id="sec-20">2.11 अभ्यास प्रश्न (MCQ)</h3>
+  <p>सभी प्रश्नों के उत्तर चुनें और फिर “उत्तर जाँचें” पर टैप करें।</p>
+
+  <form id="constitutionQuiz">
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 1.</strong> भारतीय संविधान कब लागू हुआ?</legend>
+      <label><input type="radio" name="c1" value="a"> 15 अगस्त 1947</label><br>
+      <label><input type="radio" name="c1" value="b"> 26 नवंबर 1949</label><br>
+      <label><input type="radio" name="c1" value="c"> 26 जनवरी 1950</label><br>
+      <label><input type="radio" name="c1" value="d"> 9 दिसंबर 1946</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 2.</strong> प्रारूप समिति के अध्यक्ष कौन थे?</legend>
+      <label><input type="radio" name="c2" value="a"> डॉ. राजेंद्र प्रसाद</label><br>
+      <label><input type="radio" name="c2" value="b"> डॉ. भीमराव आंबेडकर</label><br>
+      <label><input type="radio" name="c2" value="c"> जवाहरलाल नेहरू</label><br>
+      <label><input type="radio" name="c2" value="d"> सरदार वल्लभभाई पटेल</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 3.</strong> संविधान की प्रस्तावना किन शब्दों से शुरू होती है?</legend>
+      <label><input type="radio" name="c3" value="a"> भारत सरकार</label><br>
+      <label><input type="radio" name="c3" value="b"> संसद की ओर से</label><br>
+      <label><input type="radio" name="c3" value="c"> हम, भारत के लोग</label><br>
+      <label><input type="radio" name="c3" value="d"> भारत के राष्ट्रपति</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 4.</strong> संविधान संशोधन की प्रक्रिया मुख्य रूप से किस अनुच्छेद में है?</legend>
+      <label><input type="radio" name="c4" value="a"> अनुच्छेद 14</label><br>
+      <label><input type="radio" name="c4" value="b"> अनुच्छेद 21</label><br>
+      <label><input type="radio" name="c4" value="c"> अनुच्छेद 32</label><br>
+      <label><input type="radio" name="c4" value="d"> अनुच्छेद 368</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 5.</strong> संविधान की आवश्यकता क्यों होती है?</legend>
+      <label><input type="radio" name="c5" value="a"> सरकार की शक्तियाँ और सीमाएँ निर्धारित करने के लिए</label><br>
+      <label><input type="radio" name="c5" value="b"> नागरिकों के अधिकारों की रक्षा के लिए</label><br>
+      <label><input type="radio" name="c5" value="c"> शासन के मूल नियम तय करने के लिए</label><br>
+      <label><input type="radio" name="c5" value="d"> उपर्युक्त सभी</label>
+    </fieldset>
+
+    <button type="button" onclick="checkConstitutionQuiz()"
+      style="background:#17365d;color:white;border:0;border-radius:7px;padding:11px 18px;cursor:pointer;">
+      उत्तर जाँचें
+    </button>
+
+    <button type="reset"
+      onclick="document.getElementById('constitutionResult').textContent=''"
+      style="background:#e8edf4;color:#203a5c;border:0;border-radius:7px;padding:11px 18px;cursor:pointer;">
+      फिर से करें
+    </button>
+
+    <p id="constitutionResult" role="status" aria-live="polite"
+       style="margin-top:14px;font-weight:bold;"></p>
+
+  </form>
+
+  <script>
+    function checkConstitutionQuiz() {
+      const answers = {
+        c1: "c",
+        c2: "b",
+        c3: "c",
+        c4: "d",
+        c5: "d"
+      };
+
+      let score = 0;
+      let unanswered = 0;
+
+      for (const question in answers) {
+        const selected = document.querySelector(
+          'input[name="' + question + '"]:checked'
+        );
+
+        if (!selected) {
+          unanswered++;
+        } else if (selected.value === answers[question]) {
+          score++;
+        }
+      }
+
+      const result = document.getElementById("constitutionResult");
+
+      if (unanswered > 0) {
+        result.textContent =
+          "कृपया सभी 5 प्रश्नों के उत्तर चुनें। अभी " +
+          unanswered + " प्रश्न बाकी हैं।";
+        return;
+      }
+
+      result.textContent =
+        "आपका स्कोर: " + score + "/5। " +
+        (score === 5
+          ? "बहुत अच्छा! सभी उत्तर सही हैं।"
+          : "गलत उत्तरों को नोट्स से दोबारा पढ़ें और फिर प्रयास करें।");
+    }
+  </script>
+
+  <div style="background:#eaf5ee;border-left:5px solid #27864b;padding:13px;margin-top:20px;border-radius:8px;">
+    <strong>विषय 2 पूरा करें:</strong>
+    नोट्स पढ़ें, महत्वपूर्ण तथ्य दोहराएँ और MCQ हल करें।
+    इसके बाद अगला विषय है
+    <strong>3. मौलिक अधिकार एवं कर्तव्य</strong>।
+  </div>
+
+</section>
+<!-- विषय 2 समाप्त -->
+
+<!-- विषय 3: मौलिक अधिकार एवं कर्तव्य -->
+<section id="topic3" class="index-card" style="margin-top:22px;">
+
+  <h2>3. मौलिक अधिकार एवं कर्तव्य</h2>
+  <p><strong>Fundamental Rights and Fundamental Duties</strong></p>
+
+  <p>
+    भारतीय संविधान नागरिकों के अधिकारों और कर्तव्यों को विशेष
+    महत्व देता है। मौलिक अधिकार व्यक्ति की स्वतंत्रता, समानता और
+    गरिमा की रक्षा करते हैं, जबकि मौलिक कर्तव्य नागरिकों को देश,
+    समाज, पर्यावरण और संवैधानिक मूल्यों के प्रति जिम्मेदार बनाते हैं।
+  </p>
+
+  <h3 id="sec-21">3.1 मौलिक अधिकार का अर्थ</h3>
+  <p>
+    मौलिक अधिकार वे बुनियादी अधिकार हैं जिन्हें भारतीय संविधान
+    संरक्षण प्रदान करता है। इनका उद्देश्य व्यक्ति की स्वतंत्रता,
+    समानता और गरिमा को सुरक्षित रखना है। मौलिक अधिकार संविधान के
+    भाग III में अनुच्छेद 12 से 35 तक दिए गए हैं।
+  </p>
+
+  <h3 id="sec-22">3.2 भारत के छह मौलिक अधिकार</h3>
+
+  <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;margin:12px 0;">
+      <thead>
+        <tr style="background:#e7eff9;">
+          <th style="border:1px solid #ccd6e3;padding:9px;">क्रम</th>
+          <th style="border:1px solid #ccd6e3;padding:9px;">मौलिक अधिकार</th>
+          <th style="border:1px solid #ccd6e3;padding:9px;">मुख्य जानकारी</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">1</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            समानता का अधिकार
+          </td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            अनुच्छेद 14–18; कानून के समक्ष समानता तथा
+            अस्पृश्यता का उन्मूलन।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">2</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            स्वतंत्रता का अधिकार
+          </td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            अनुच्छेद 19–22 सहित अनुच्छेद 21A; स्वतंत्रता,
+            जीवन एवं व्यक्तिगत स्वतंत्रता और शिक्षा का अधिकार।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">3</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            शोषण के विरुद्ध अधिकार
+          </td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            अनुच्छेद 23–24; मानव तस्करी, बेगार तथा
+            निर्धारित परिस्थितियों में बालकों के खतरनाक
+            कार्यों में नियोजन पर रोक।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">4</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            धार्मिक स्वतंत्रता का अधिकार
+          </td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            अनुच्छेद 25–28; धर्म मानने, आचरण करने और
+            प्रचार करने की स्वतंत्रता, संवैधानिक सीमाओं के अधीन।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">5</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            सांस्कृतिक एवं शैक्षिक अधिकार
+          </td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            अनुच्छेद 29–30; भाषा, लिपि और संस्कृति के संरक्षण
+            तथा अल्पसंख्यकों के शैक्षिक संस्थान स्थापित एवं
+            संचालित करने के अधिकार।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">6</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            संवैधानिक उपचारों का अधिकार
+          </td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            अनुच्छेद 32; मौलिक अधिकारों के प्रवर्तन के लिए
+            सर्वोच्च न्यायालय जाने का अधिकार।
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="sec-23">3.3 समानता का अधिकार</h3>
+  <p>
+    समानता का अधिकार कानून के समक्ष समानता और कानूनों के समान
+    संरक्षण की गारंटी देता है। यह धर्म, मूलवंश, जाति, लिंग या
+    जन्मस्थान आदि के आधार पर निर्धारित प्रकार के भेदभाव पर रोक
+    लगाता है। यह अस्पृश्यता को समाप्त करता है और उपाधियों के
+    संबंध में संवैधानिक प्रावधान करता है।
+  </p>
+  <p><strong>मुख्य अनुच्छेद:</strong> 14 से 18</p>
+
+  <h3 id="sec-24">3.4 स्वतंत्रता का अधिकार</h3>
+  <p>
+    इसमें अभिव्यक्ति, शांतिपूर्वक सभा करने, संघ बनाने, देश में
+    आवागमन, निवास और व्यवसाय करने जैसी स्वतंत्रताएँ शामिल हैं।
+    इन स्वतंत्रताओं पर संविधान के अनुसार उचित प्रतिबंध लगाए
+    जा सकते हैं।
+  </p>
+  <p>
+    अनुच्छेद 21 जीवन और व्यक्तिगत स्वतंत्रता की रक्षा करता है।
+    अनुच्छेद 21A छह से चौदह वर्ष की आयु के बच्चों के लिए
+    निःशुल्क और अनिवार्य शिक्षा का प्रावधान करता है।
+  </p>
+
+  <h3 id="sec-25">3.5 शोषण के विरुद्ध अधिकार</h3>
+  <p>
+    यह अधिकार मानव तस्करी, बेगार और कुछ अन्य प्रकार के
+    जबरन श्रम पर रोक लगाता है। अनुच्छेद 24 के अंतर्गत
+    चौदह वर्ष से कम आयु के बच्चों को कारखानों, खानों और
+    अन्य खतरनाक नियोजनों में काम पर लगाने पर रोक है।
+  </p>
+
+  <h3 id="sec-26">3.6 धार्मिक स्वतंत्रता का अधिकार</h3>
+  <p>
+    प्रत्येक व्यक्ति को संविधान और कानून की सीमाओं के भीतर
+    अपने धर्म को मानने, उसका पालन करने और उसका प्रचार करने
+    की स्वतंत्रता प्राप्त है। यह अधिकार सार्वजनिक व्यवस्था,
+    नैतिकता और स्वास्थ्य जैसे संवैधानिक प्रतिबंधों के अधीन है।
+  </p>
+
+  <h3 id="sec-27">3.7 सांस्कृतिक एवं शैक्षिक अधिकार</h3>
+  <p>
+    भारत की भाषाई और धार्मिक विविधता के संरक्षण में इन अधिकारों
+    की महत्वपूर्ण भूमिका है। कुछ समुदाय अपनी भाषा, लिपि और
+    संस्कृति का संरक्षण कर सकते हैं। धार्मिक और भाषाई
+    अल्पसंख्यकों को शैक्षिक संस्थान स्थापित एवं संचालित करने
+    का संवैधानिक अधिकार प्राप्त है।
+  </p>
+
+  <h3 id="sec-28">3.8 संवैधानिक उपचारों का अधिकार</h3>
+  <p>
+    यदि मौलिक अधिकारों का उल्लंघन होता है, तो व्यक्ति उनके
+    प्रवर्तन के लिए सर्वोच्च न्यायालय जा सकता है। उच्च
+    न्यायालयों को भी अनुच्छेद 226 के अंतर्गत रिट जारी करने
+    की शक्ति प्राप्त है।
+  </p>
+  <p>
+    डॉ. भीमराव आंबेडकर ने अनुच्छेद 32 को संविधान का
+    <strong>“हृदय और आत्मा”</strong> कहा था।
+  </p>
+
+  <h3 id="sec-29">3.9 शिक्षा का अधिकार</h3>
+  <p>
+    अनुच्छेद 21A के अनुसार छह से चौदह वर्ष की आयु के सभी
+    बच्चों के लिए राज्य निःशुल्क और अनिवार्य शिक्षा उपलब्ध
+    कराने का प्रावधान करता है। शिक्षा का अधिकार संविधान के
+    86वें संशोधन अधिनियम, 2002 द्वारा जोड़ा गया।
+  </p>
+
+  <h3 id="sec-30">3.10 संपत्ति का अधिकार</h3>
+  <p>
+    संपत्ति का अधिकार अब मौलिक अधिकार नहीं है। इसे 44वें
+    संविधान संशोधन के बाद मौलिक अधिकारों की सूची से हटाया गया।
+    वर्तमान में संपत्ति का अधिकार अनुच्छेद 300A के अंतर्गत
+    एक संवैधानिक अधिकार है।
+  </p>
+
+  <h3 id="sec-31">3.11 मौलिक कर्तव्य का अर्थ</h3>
+  <p>
+    मौलिक कर्तव्य वे जिम्मेदारियाँ हैं जिनका पालन नागरिकों से
+    अपेक्षित है। ये संविधान के भाग IVA में अनुच्छेद 51A के
+    अंतर्गत दिए गए हैं। इनका उद्देश्य नागरिकों में राष्ट्र के
+    प्रति जिम्मेदारी, सामाजिक सद्भाव और पर्यावरण संरक्षण की
+    भावना विकसित करना है।
+  </p>
+
+  <h3 id="sec-32">3.12 भारत के 11 मौलिक कर्तव्य</h3>
+  <ol>
+    <li>संविधान का पालन करना तथा उसके आदर्शों, संस्थाओं, राष्ट्रीय ध्वज और राष्ट्रगान का आदर करना।</li>
+    <li>स्वतंत्रता संग्राम को प्रेरित करने वाले उच्च आदर्शों को संजोए रखना और उनका पालन करना।</li>
+    <li>भारत की संप्रभुता, एकता और अखंडता की रक्षा करना।</li>
+    <li>देश की रक्षा करना और आवश्यकता पड़ने पर राष्ट्रीय सेवा करना।</li>
+    <li>सभी लोगों में सद्भाव और समान भ्रातृत्व की भावना बढ़ाना तथा महिलाओं की गरिमा के विरुद्ध प्रथाओं का त्याग करना।</li>
+    <li>भारत की समन्वित संस्कृति की गौरवशाली परंपरा का महत्व समझना और उसका संरक्षण करना।</li>
+    <li>प्राकृतिक पर्यावरण, जैसे वन, झील, नदी और वन्यजीवों की रक्षा करना तथा जीवों के प्रति दया रखना।</li>
+    <li>वैज्ञानिक दृष्टिकोण, मानववाद और ज्ञानार्जन तथा सुधार की भावना विकसित करना।</li>
+    <li>सार्वजनिक संपत्ति की रक्षा करना और हिंसा से दूर रहना।</li>
+    <li>व्यक्तिगत और सामूहिक गतिविधियों के सभी क्षेत्रों में उत्कृष्टता की ओर बढ़ना।</li>
+    <li>माता-पिता या अभिभावक का छह से चौदह वर्ष की आयु के अपने बच्चे या संरक्षणाधीन बच्चे को शिक्षा के अवसर प्रदान करना।</li>
+  </ol>
+
+  <h3 id="sec-33">3.13 मौलिक कर्तव्य कब जोड़े गए?</h3>
+  <ul>
+    <li>42वें संविधान संशोधन अधिनियम, 1976 द्वारा मौलिक कर्तव्य जोड़े गए।</li>
+    <li>शुरुआत में 10 मौलिक कर्तव्य थे।</li>
+    <li>86वें संविधान संशोधन अधिनियम, 2002 द्वारा 11वाँ कर्तव्य जोड़ा गया।</li>
+    <li>वर्तमान में संविधान में 11 मौलिक कर्तव्य हैं।</li>
+  </ul>
+
+  <h3 id="sec-34">3.14 मौलिक अधिकार और मौलिक कर्तव्य में अंतर</h3>
+
+  <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;margin:12px 0;">
+      <thead>
+        <tr style="background:#e7eff9;">
+          <th style="border:1px solid #ccd6e3;padding:9px;">आधार</th>
+          <th style="border:1px solid #ccd6e3;padding:9px;">मौलिक अधिकार</th>
+          <th style="border:1px solid #ccd6e3;padding:9px;">मौलिक कर्तव्य</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">भाग</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">भाग III</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">भाग IVA</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">अनुच्छेद</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">12–35</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">51A</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">मुख्य उद्देश्य</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">व्यक्ति की स्वतंत्रता और अधिकारों की रक्षा</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">जिम्मेदार नागरिक आचरण को प्रोत्साहित करना</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">उदाहरण</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">समानता और धार्मिक स्वतंत्रता</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">पर्यावरण की रक्षा और सार्वजनिक संपत्ति का संरक्षण</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="sec-35">3.15 परीक्षा के लिए महत्वपूर्ण तथ्य</h3>
+  <ol>
+    <li>मौलिक अधिकार: भाग III, अनुच्छेद 12–35।</li>
+    <li>मौलिक कर्तव्य: भाग IVA, अनुच्छेद 51A।</li>
+    <li>भारत में छह प्रमुख श्रेणियों के मौलिक अधिकार हैं।</li>
+    <li>मौलिक कर्तव्यों की वर्तमान संख्या 11 है।</li>
+    <li>42वें संशोधन, 1976 द्वारा मौलिक कर्तव्य जोड़े गए।</li>
+    <li>86वें संशोधन, 2002 द्वारा 11वाँ मौलिक कर्तव्य जोड़ा गया और अनुच्छेद 21A शामिल किया गया।</li>
+    <li>अनुच्छेद 32 मौलिक अधिकारों के प्रवर्तन के लिए सर्वोच्च न्यायालय जाने का अधिकार देता है।</li>
+    <li>संपत्ति का अधिकार अनुच्छेद 300A के अंतर्गत संवैधानिक अधिकार है, मौलिक अधिकार नहीं।</li>
+  </ol>
+
+  <h3 id="sec-36">3.16 अभ्यास प्रश्न (MCQ)</h3>
+  <p>सभी प्रश्नों के उत्तर चुनें और फिर “उत्तर जाँचें” पर टैप करें।</p>
+
+  <form id="rightsDutiesQuiz">
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 1.</strong> मौलिक अधिकार संविधान के किस भाग में हैं?</legend>
+      <label><input type="radio" name="r1" value="a"> भाग II</label><br>
+      <label><input type="radio" name="r1" value="b"> भाग III</label><br>
+      <label><input type="radio" name="r1" value="c"> भाग IV</label><br>
+      <label><input type="radio" name="r1" value="d"> भाग IVA</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 2.</strong> मौलिक कर्तव्य किस अनुच्छेद में दिए गए हैं?</legend>
+      <label><input type="radio" name="r2" value="a"> अनुच्छेद 14</label><br>
+      <label><input type="radio" name="r2" value="b"> अनुच्छेद 21</label><br>
+      <label><input type="radio" name="r2" value="c"> अनुच्छेद 51A</label><br>
+      <label><input type="radio" name="r2" value="d"> अनुच्छेद 300A</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 3.</strong> वर्तमान में मौलिक कर्तव्यों की संख्या कितनी है?</legend>
+      <label><input type="radio" name="r3" value="a"> 8</label><br>
+      <label><input type="radio" name="r3" value="b"> 10</label><br>
+      <label><input type="radio" name="r3" value="c"> 11</label><br>
+      <label><input type="radio" name="r3" value="d"> 12</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 4.</strong> मौलिक कर्तव्य किस संशोधन से जोड़े गए?</legend>
+      <label><input type="radio" name="r4" value="a"> 42वाँ संशोधन</label><br>
+      <label><input type="radio" name="r4" value="b"> 44वाँ संशोधन</label><br>
+      <label><input type="radio" name="r4" value="c"> 52वाँ संशोधन</label><br>
+      <label><input type="radio" name="r4" value="d"> 86वाँ संशोधन</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 5.</strong> शिक्षा का अधिकार किस अनुच्छेद में है?</legend>
+      <label><input type="radio" name="r5" value="a"> अनुच्छेद 19</label><br>
+      <label><input type="radio" name="r5" value="b"> अनुच्छेद 21A</label><br>
+      <label><input type="radio" name="r5" value="c"> अनुच्छेद 25</label><br>
+      <label><input type="radio" name="r5" value="d"> अनुच्छेद 32</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 6.</strong> संपत्ति का अधिकार वर्तमान में किस अनुच्छेद में है?</legend>
+      <label><input type="radio" name="r6" value="a"> अनुच्छेद 14</label><br>
+      <label><input type="radio" name="r6" value="b"> अनुच्छेद 21</label><br>
+      <label><input type="radio" name="r6" value="c"> अनुच्छेद 32</label><br>
+      <label><input type="radio" name="r6" value="d"> अनुच्छेद 300A</label>
+    </fieldset>
+
+    <button type="button" onclick="checkRightsDutiesQuiz()"
+      style="background:#17365d;color:white;border:0;border-radius:7px;padding:11px 18px;cursor:pointer;">
+      उत्तर जाँचें
+    </button>
+
+    <button type="reset"
+      onclick="document.getElementById('rightsDutiesResult').textContent=''"
+      style="background:#e8edf4;color:#203a5c;border:0;border-radius:7px;padding:11px 18px;cursor:pointer;">
+      फिर से करें
+    </button>
+
+    <p id="rightsDutiesResult" role="status" aria-live="polite"
+       style="margin-top:14px;font-weight:bold;"></p>
+
+  </form>
+
+  <script>
+    function checkRightsDutiesQuiz() {
+      const answers = {
+        r1: "b",
+        r2: "c",
+        r3: "c",
+        r4: "a",
+        r5: "b",
+        r6: "d"
+      };
+
+      let score = 0;
+      let unanswered = 0;
+
+      for (const question in answers) {
+        const selected = document.querySelector(
+          'input[name="' + question + '"]:checked'
+        );
+
+        if (!selected) {
+          unanswered++;
+        } else if (selected.value === answers[question]) {
+          score++;
+        }
+      }
+
+      const result = document.getElementById("rightsDutiesResult");
+
+      if (unanswered > 0) {
+        result.textContent =
+          "कृपया सभी 6 प्रश्नों के उत्तर चुनें। अभी " +
+          unanswered + " प्रश्न बाकी हैं।";
+        return;
+      }
+
+      result.textContent =
+        "आपका स्कोर: " + score + "/6। " +
+        (score === 6
+          ? "बहुत अच्छा! सभी उत्तर सही हैं।"
+          : "गलत उत्तरों को नोट्स से दोबारा पढ़ें और फिर प्रयास करें।");
+    }
+  </script>
+
+  <div style="background:#eaf5ee;border-left:5px solid #27864b;padding:13px;margin-top:20px;border-radius:8px;">
+    <strong>विषय 3 पूरा करें:</strong>
+    नोट्स दोहराएँ और MCQ हल करें। अगला विषय है
+    <strong>4. राज्य सरकार</strong>।
+  </div>
+
+</section>
+<!-- विषय 3 समाप्त -->
+
+<!-- विषय 4: राज्य सरकार -->
+<section id="topic4" class="index-card" style="margin-top:22px;">
+
+  <h2>4. राज्य सरकार (State Government)</h2>
+
+  <p>
+    भारत में सरकार तीन स्तरों पर काम करती है:
+    स्थानीय सरकार, राज्य सरकार और केंद्र सरकार।
+    राज्य सरकार अपने राज्य के लोगों से जुड़े अनेक विषयों,
+    जैसे स्वास्थ्य, कृषि, पुलिस और सार्वजनिक व्यवस्था,
+    स्कूल शिक्षा तथा राज्य के विकास से संबंधित कार्य करती है।
+  </p>
+
+  <h3 id="sec-37">4.1 राज्य सरकार का अर्थ</h3>
+  <p>
+    राज्य सरकार वह शासन व्यवस्था है जो किसी राज्य के प्रशासन,
+    कानूनों के क्रियान्वयन और विकास से जुड़े कार्यों का संचालन
+    करती है। भारतीय संविधान के अनुसार राज्य में राज्यपाल,
+    मुख्यमंत्री, मंत्रिपरिषद और राज्य विधानमंडल की महत्वपूर्ण
+    भूमिकाएँ होती हैं।
+  </p>
+
+  <h3 id="sec-38">4.2 राज्य सरकार के प्रमुख अंग</h3>
+
+  <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;margin:12px 0;">
+      <thead>
+        <tr style="background:#e7eff9;">
+          <th style="border:1px solid #ccd6e3;padding:9px;">अंग</th>
+          <th style="border:1px solid #ccd6e3;padding:9px;">मुख्य कार्य</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">विधायिका</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            राज्य के विषयों पर कानून बनाना, बजट पर विचार करना
+            और सरकार के कामकाज की जाँच करना।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">कार्यपालिका</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            कानूनों और सरकारी नीतियों को लागू करना तथा
+            प्रशासन चलाना।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">न्यायपालिका</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            कानून के अनुसार न्याय करना तथा अधिकारों और
+            संवैधानिक प्रावधानों की रक्षा करना।
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="sec-39">4.3 विधायक (MLA) कौन होता है?</h3>
+  <p>
+    MLA का पूरा नाम Member of the Legislative Assembly है।
+    हिंदी में इसे विधानसभा का सदस्य या विधायक कहते हैं।
+    राज्य को अलग-अलग विधानसभा निर्वाचन क्षेत्रों में बाँटा
+    जाता है। प्रत्येक निर्वाचन क्षेत्र से मतदाता अपना
+    प्रतिनिधि चुनते हैं।
+  </p>
+
+  <p>विधायक के प्रमुख कार्य:</p>
+  <ul>
+    <li>अपने निर्वाचन क्षेत्र के लोगों की समस्याएँ उठाना।</li>
+    <li>विधानसभा में चर्चा और कानून निर्माण में भाग लेना।</li>
+    <li>सरकार के कामकाज पर प्रश्न पूछना और जवाबदेही सुनिश्चित करने में भूमिका निभाना।</li>
+    <li>बजट तथा जनहित से जुड़े विषयों पर विचार करना।</li>
+    <li>क्षेत्र के विकास से संबंधित आवश्यकताओं को संबंधित अधिकारियों तक पहुँचाना।</li>
+  </ul>
+
+  <h3 id="sec-40">4.4 विधानसभा क्या है?</h3>
+  <p>
+    विधानसभा राज्य विधानमंडल का वह सदन है जिसके सदस्य
+    जनता द्वारा चुने जाते हैं। अधिकांश राज्यों में एक सदनीय
+    विधानमंडल है। कुछ राज्यों में विधानसभा के साथ विधान परिषद
+    भी होती है।
+  </p>
+
+  <p>विधानसभा के प्रमुख कार्य:</p>
+  <ul>
+    <li>राज्य के अधिकार क्षेत्र में आने वाले विषयों पर कानून बनाना।</li>
+    <li>सरकार की नीतियों और कार्यों पर चर्चा करना।</li>
+    <li>सरकारी खर्च और बजट पर विचार करना।</li>
+    <li>प्रश्नों, बहस और अन्य संसदीय प्रक्रियाओं के माध्यम से सरकार से जवाब माँगना।</li>
+    <li>मंत्रिपरिषद की सामूहिक जवाबदेही सुनिश्चित करना।</li>
+  </ul>
+
+  <h3 id="sec-41">4.5 सत्तारूढ़ दल और विपक्ष</h3>
+  <p>
+    विधानसभा चुनाव के बाद जिस दल या गठबंधन को सदन में
+    बहुमत का समर्थन प्राप्त होता है, वह सामान्यतः सरकार बनाता है।
+    इसे सत्तारूढ़ दल या गठबंधन कहा जाता है। जो दल सरकार में
+    शामिल नहीं होते, वे विपक्ष की भूमिका निभा सकते हैं।
+  </p>
+
+  <p><strong>विपक्ष के प्रमुख कार्य:</strong></p>
+  <ul>
+    <li>सरकार की नीतियों और निर्णयों पर सवाल उठाना।</li>
+    <li>जनता की समस्याओं को विधानसभा में रखना।</li>
+    <li>सरकार से जानकारी और जवाब माँगना।</li>
+    <li>वैकल्पिक सुझाव और नीतियाँ प्रस्तुत करना।</li>
+  </ul>
+
+  <h3 id="sec-42">4.6 मुख्यमंत्री कौन होता है?</h3>
+  <p>
+    मुख्यमंत्री राज्य सरकार का प्रमुख होता है। राज्यपाल
+    मुख्यमंत्री की नियुक्ति करते हैं। सामान्यतः विधानसभा में
+    बहुमत का समर्थन प्राप्त दल या गठबंधन का नेता मुख्यमंत्री
+    बनता है।
+  </p>
+
+  <p>मुख्यमंत्री के प्रमुख कार्य:</p>
+  <ul>
+    <li>राज्य सरकार के कामकाज का नेतृत्व करना।</li>
+    <li>मंत्रिपरिषद का नेतृत्व करना।</li>
+    <li>विभिन्न विभागों के कार्यों में समन्वय करना।</li>
+    <li>राज्य की नीतियों और विकास योजनाओं को दिशा देना।</li>
+    <li>राज्यपाल को मंत्रिपरिषद के निर्णयों और प्रशासन से संबंधित जानकारी देना।</li>
+    <li>विधानसभा के प्रति मंत्रिपरिषद की जवाबदेही बनाए रखना।</li>
+  </ul>
+
+  <h3 id="sec-43">4.7 मंत्रिपरिषद और मंत्री</h3>
+  <p>
+    मुख्यमंत्री के नेतृत्व में मंत्रिपरिषद राज्य के प्रशासन
+    का संचालन करती है। मंत्रियों को अलग-अलग विभागों की
+    जिम्मेदारी दी जा सकती है।
+  </p>
+
+  <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;margin:12px 0;">
+      <thead>
+        <tr style="background:#e7eff9;">
+          <th style="border:1px solid #ccd6e3;padding:9px;">विभाग</th>
+          <th style="border:1px solid #ccd6e3;padding:9px;">सामान्य कार्य</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">शिक्षा</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            विद्यालयों, शिक्षकों और शिक्षा संबंधी योजनाओं का प्रशासन।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">स्वास्थ्य</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            सरकारी स्वास्थ्य सेवाओं और अस्पतालों से जुड़े कार्य।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">कृषि</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            कृषि योजनाओं और किसानों से जुड़े कार्यक्रमों का संचालन।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">गृह</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            राज्य में पुलिस और आंतरिक सुरक्षा से संबंधित प्रशासनिक कार्य।
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">लोक निर्माण</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">
+            राज्य के अधिकार क्षेत्र में आने वाली सड़कों और
+            अन्य सार्वजनिक निर्माण कार्यों का संचालन।
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="sec-44">4.8 राज्यपाल की भूमिका</h3>
+  <p>
+    राज्यपाल राज्य के संवैधानिक प्रमुख होते हैं। राज्यपाल की
+    नियुक्ति राष्ट्रपति करते हैं। संविधान के अनुसार राज्यपाल
+    सामान्यतः मुख्यमंत्री के नेतृत्व वाली मंत्रिपरिषद की
+    सलाह पर कार्य करते हैं, सिवाय उन मामलों के जहाँ संविधान
+    विवेकाधीन कार्य की अनुमति देता है।
+  </p>
+
+  <p>राज्यपाल की प्रमुख भूमिकाएँ:</p>
+  <ul>
+    <li>मुख्यमंत्री की नियुक्ति करना।</li>
+    <li>मुख्यमंत्री की सलाह पर अन्य मंत्रियों की नियुक्ति करना।</li>
+    <li>राज्य विधानमंडल का सत्र बुलाना और संवैधानिक प्रक्रियाओं का पालन करना।</li>
+    <li>विधानमंडल द्वारा पारित विधेयकों पर संविधान के अनुसार निर्णय लेना।</li>
+    <li>संविधान में निर्धारित परिस्थितियों में अध्यादेश जारी करना।</li>
+  </ul>
+
+  <h3 id="sec-45">4.9 राज्य सरकार कानून कैसे बनाती है?</h3>
+  <ol>
+    <li>किसी सार्वजनिक समस्या या आवश्यकता की पहचान होती है।</li>
+    <li>विधेयक विधानसभा में प्रस्तुत किया जाता है।</li>
+    <li>सदन में विधेयक पर चर्चा होती है और निर्धारित प्रक्रिया के अनुसार मतदान होता है।</li>
+    <li>आवश्यक संवैधानिक प्रक्रिया पूरी होने के बाद विधेयक राज्यपाल के समक्ष प्रस्तुत किया जाता है।</li>
+    <li>राज्यपाल संविधान के अनुच्छेद 200 के अनुसार विधेयक पर कार्रवाई करते हैं।</li>
+    <li>कानून बनने के बाद संबंधित विभाग उसे लागू करते हैं।</li>
+  </ol>
+
+  <p>
+    ध्यान दें: सभी विधेयकों की प्रक्रिया एक जैसी नहीं होती।
+    विधान परिषद वाले राज्यों में कुछ विधेयकों के लिए दोनों
+    सदनों की भूमिका होती है। धन विधेयक के लिए विशेष प्रक्रिया
+    लागू होती है।
+  </p>
+
+  <h3 id="sec-46">4.10 जनता राज्य सरकार तक अपनी बात कैसे पहुँचाती है?</h3>
+  <ul>
+    <li>अपने विधायक से संपर्क करके।</li>
+    <li>जनसुनवाई और सार्वजनिक बैठकों में भाग लेकर।</li>
+    <li>शिकायत या आवेदन संबंधित विभाग को देकर।</li>
+    <li>स्थानीय निकायों और प्रशासनिक कार्यालयों से संपर्क करके।</li>
+    <li>लोकतांत्रिक तरीके से अपनी माँगें और विचार व्यक्त करके।</li>
+  </ul>
+
+  <h3 id="sec-47">4.11 राज्य सरकार और केंद्र सरकार में अंतर</h3>
+  <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;margin:12px 0;">
+      <thead>
+        <tr style="background:#e7eff9;">
+          <th style="border:1px solid #ccd6e3;padding:9px;">आधार</th>
+          <th style="border:1px solid #ccd6e3;padding:9px;">राज्य सरकार</th>
+          <th style="border:1px solid #ccd6e3;padding:9px;">केंद्र सरकार</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">विधायिका</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">राज्य विधानमंडल</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">संसद</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">प्रमुख</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">मुख्यमंत्री सरकार का नेतृत्व करते हैं</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">प्रधानमंत्री सरकार का नेतृत्व करते हैं</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">संवैधानिक प्रमुख</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">राज्यपाल</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">राष्ट्रपति</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ccd6e3;padding:9px;">कार्य क्षेत्र</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">राज्य के अधिकार क्षेत्र के विषय</td>
+          <td style="border:1px solid #ccd6e3;padding:9px;">संघ सूची और संविधान के अनुसार अन्य विषय</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="sec-48">4.12 झारखंड के संदर्भ में समझें</h3>
+  <p>
+    झारखंड में भी राज्य सरकार की संरचना में राज्यपाल,
+    मुख्यमंत्री, मंत्रिपरिषद और विधानसभा की भूमिका होती है।
+    राज्य के विधायक विधानसभा में अपने निर्वाचन क्षेत्रों
+    के मुद्दे उठाते हैं। शिक्षा, स्वास्थ्य, कृषि और राज्य
+    के विकास से जुड़े कई कार्य संबंधित विभागों के माध्यम
+    से किए जाते हैं।
+  </p>
+
+  <h3 id="sec-49">4.13 परीक्षा के लिए महत्वपूर्ण तथ्य</h3>
+  <ol>
+    <li>MLA का अर्थ Member of the Legislative Assembly है।</li>
+    <li>विधायक जनता द्वारा विधानसभा निर्वाचन क्षेत्र से चुने जाते हैं।</li>
+    <li>मुख्यमंत्री राज्य सरकार का नेतृत्व करते हैं।</li>
+    <li>राज्यपाल राज्य के संवैधानिक प्रमुख होते हैं।</li>
+    <li>राज्यपाल की नियुक्ति राष्ट्रपति करते हैं।</li>
+    <li>मंत्रिपरिषद विधानसभा के प्रति सामूहिक रूप से उत्तरदायी होती है।</li>
+    <li>राज्य विधानमंडल राज्य के अधिकार क्षेत्र के विषयों पर कानून बना सकता है।</li>
+    <li>राज्य विधानमंडल की संरचना संविधान के अनुच्छेद 168 में दी गई है।</li>
+    <li>राज्यपाल से संबंधित प्रावधान अनुच्छेद 153 से शुरू होते हैं।</li>
+    <li>मुख्यमंत्री और मंत्रियों से संबंधित प्रमुख प्रावधान अनुच्छेद 163–164 में हैं।</li>
+  </ol>
+
+  <h3 id="sec-50">4.14 अभ्यास प्रश्न (MCQ)</h3>
+  <p>सभी प्रश्नों के उत्तर चुनें और फिर “उत्तर जाँचें” पर टैप करें।</p>
+
+  <form id="stateGovernmentQuiz">
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 1.</strong> MLA का पूरा नाम क्या है?</legend>
+      <label><input type="radio" name="s1" value="a"> Member of Local Administration</label><br>
+      <label><input type="radio" name="s1" value="b"> Member of the Legislative Assembly</label><br>
+      <label><input type="radio" name="s1" value="c"> Minister of Legislative Affairs</label><br>
+      <label><input type="radio" name="s1" value="d"> Member of Legal Authority</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 2.</strong> राज्यपाल की नियुक्ति कौन करता है?</legend>
+      <label><input type="radio" name="s2" value="a"> मुख्यमंत्री</label><br>
+      <label><input type="radio" name="s2" value="b"> विधानसभा अध्यक्ष</label><br>
+      <label><input type="radio" name="s2" value="c"> राष्ट्रपति</label><br>
+      <label><input type="radio" name="s2" value="d"> राज्य के विधायक</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 3.</strong> राज्य सरकार का नेतृत्व कौन करता है?</legend>
+      <label><input type="radio" name="s3" value="a"> मुख्यमंत्री</label><br>
+      <label><input type="radio" name="s3" value="b"> राष्ट्रपति</label><br>
+      <label><input type="radio" name="s3" value="c"> लोकसभा अध्यक्ष</label><br>
+      <label><input type="radio" name="s3" value="d"> मुख्य न्यायाधीश</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 4.</strong> मंत्रिपरिषद सामूहिक रूप से किसके प्रति उत्तरदायी होती है?</legend>
+      <label><input type="radio" name="s4" value="a"> केवल पुलिस विभाग</label><br>
+      <label><input type="radio" name="s4" value="b"> विधानसभा</label><br>
+      <label><input type="radio" name="s4" value="c"> निर्वाचन आयोग</label><br>
+      <label><input type="radio" name="s4" value="d"> नगर परिषद</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 5.</strong> विधानसभा का प्रमुख कार्य कौन-सा है?</legend>
+      <label><input type="radio" name="s5" value="a"> केवल न्यायिक फैसले देना</label><br>
+      <label><input type="radio" name="s5" value="b"> केवल चुनाव कराना</label><br>
+      <label><input type="radio" name="s5" value="c"> कानून बनाना और सरकार से जवाब माँगना</label><br>
+      <label><input type="radio" name="s5" value="d"> मुद्रा जारी करना</label>
+    </fieldset>
+
+    <fieldset style="border:1px solid #d5dfeb;border-radius:8px;padding:12px;margin:12px 0;">
+      <legend><strong>प्रश्न 6.</strong> राज्यपाल से संबंधित प्रावधान किस अनुच्छेद से शुरू होते हैं?</legend>
+      <label><input type="radio" name="s6" value="a"> अनुच्छेद 14</label><br>
+      <label><input type="radio" name="s6" value="b"> अनुच्छेद 51A</label><br>
+      <label><input type="radio" name="s6" value="c"> अनुच्छेद 153</label><br>
+      <label><input type="radio" name="s6" value="d"> अनुच्छेद 300A</label>
+    </fieldset>
+
+    <button type="button" onclick="checkStateGovernmentQuiz()"
+      style="background:#17365d;color:white;border:0;border-radius:7px;padding:11px 18px;cursor:pointer;">
+      उत्तर जाँचें
+    </button>
+
+    <button type="reset"
+      onclick="document.getElementById('stateGovernmentResult').textContent=''"
+      style="background:#e8edf4;color:#203a5c;border:0;border-radius:7px;padding:11px 18px;cursor:pointer;">
+      फिर से करें
+    </button>
+
+    <p id="stateGovernmentResult" role="status" aria-live="polite"
+       style="margin-top:14px;font-weight:bold;"></p>
+
+  </form>
+
+  <script>
+    function checkStateGovernmentQuiz() {
+      const answers = {
+        s1: "b",
+        s2: "c",
+        s3: "a",
+        s4: "b",
+        s5: "c",
+        s6: "c"
+      };
+
+      let score = 0;
+      let unanswered = 0;
+
+      for (const question in answers) {
+        const selected = document.querySelector(
+          'input[name="' + question + '"]:checked'
+        );
+
+        if (!selected) {
+          unanswered++;
+        } else if (selected.value === answers[question]) {
+          score++;
+        }
+      }
+
+      const result = document.getElementById("stateGovernmentResult");
+
+      if (unanswered > 0) {
+        result.textContent =
+          "कृपया सभी 6 प्रश्नों के उत्तर चुनें। अभी " +
+          unanswered + " प्रश्न बाकी हैं।";
+        return;
+      }
+
+      result.textContent =
+        "आपका स्कोर: " + score + "/6। " +
+        (score === 6
+          ? "बहुत अच्छा! सभी उत्तर सही हैं।"
+          : "गलत उत्तरों को नोट्स से दोबारा पढ़ें और फिर प्रयास करें।");
+    }
+  </script>
+
+  <div style="background:#eaf5ee;border-left:5px solid #27864b;padding:13px;margin-top:20px;border-radius:8px;">
+    <strong>विषय 4 पूरा करें:</strong>
+    नोट्स दोहराएँ और MCQ हल करें। अगला विषय है
+    <strong>5. स्थानीय सरकार</strong>।
+  </div>
+
+  <p style="margin-top:15px;font-size:13px;color:#64748b;">
+    अध्ययन-स्रोत:
+    NCERT, कक्षा 7, सामाजिक एवं राजनीतिक जीवन — “How the State Government Works”;
+    भारत का संविधान, भाग VI।
+  </p>
+
+</section>
+<!-- विषय 4 समाप्त -->
+
+<!-- विषय 5: स्थानीय सरकार -->
+<section id="topic5" class="index-card topic-section">
+  <h2>5. स्थानीय सरकार (Local Government)</h2>
+
+  <p>
+    <strong>अध्ययन उद्देश्य:</strong> स्थानीय सरकार का अर्थ, ग्रामीण और
+    शहरी स्थानीय संस्थाएँ, पंचायती राज व्यवस्था, ग्राम सभा, ग्राम पंचायत
+    तथा स्थानीय निकायों के प्रमुख कार्यों को समझना।
+  </p>
+
+  <h3 id="sec-51">1. स्थानीय सरकार का अर्थ</h3>
+  <p>
+    स्थानीय सरकार वह व्यवस्था है जिसके माध्यम से गाँव, कस्बे और शहर के
+    स्थानीय मामलों का प्रबंधन स्थानीय स्तर पर किया जाता है। इसका उद्देश्य
+    स्थानीय आवश्यकताओं को समझकर सार्वजनिक सुविधाओं और विकास कार्यों को
+    लोगों की भागीदारी से संचालित करना है।
+  </p>
+
+  <p>
+    उदाहरण के लिए, गाँव में नाली, पेयजल और सड़क की समस्या या शहर में
+    कचरा-सफाई, स्ट्रीट लाइट और जल निकासी की समस्या स्थानीय सरकार से
+    संबंधित हो सकती है।
+  </p>
+
+  <h3 id="sec-52">2. स्थानीय सरकार की आवश्यकता</h3>
+  <ul>
+    <li>स्थानीय समस्याओं का समाधान स्थानीय स्तर पर करने के लिए।</li>
+    <li>लोगों को निर्णय लेने की प्रक्रिया में भाग लेने का अवसर देने के लिए।</li>
+    <li>पेयजल, सफाई, सड़क और रोशनी जैसी सुविधाओं के प्रबंधन के लिए।</li>
+    <li>स्थानीय विकास योजनाओं को तैयार करने और लागू करने के लिए।</li>
+    <li>स्थानीय प्रतिनिधियों को जनता के प्रति जवाबदेह बनाने के लिए।</li>
+  </ul>
+
+  <h3 id="sec-53">3. सत्ता का विकेंद्रीकरण</h3>
+  <p>
+    जब निर्णय लेने और प्रशासन चलाने की कुछ शक्तियाँ उच्च स्तर की सरकार
+    से स्थानीय संस्थाओं को दी जाती हैं, तो इसे
+    <strong>सत्ता का विकेंद्रीकरण (Decentralisation of Power)</strong>
+    कहते हैं।
+  </p>
+  <p>
+    इससे स्थानीय लोग अपनी आवश्यकताओं और समस्याओं को सामने रख सकते हैं।
+    वास्तविक अधिकार और जिम्मेदारियाँ संविधान तथा संबंधित राज्य के कानूनों
+    के अनुसार निर्धारित होती हैं।
+  </p>
+
+  <h3 id="sec-54">4. स्थानीय सरकार के प्रमुख प्रकार</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>क्षेत्र</th>
+        <th>प्रमुख संस्थाएँ</th>
+        <th>उदाहरण</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ग्रामीण क्षेत्र</td>
+        <td>ग्राम पंचायत, पंचायत समिति/मध्यवर्ती पंचायत, जिला परिषद</td>
+        <td>गाँव की सड़क और जल व्यवस्था</td>
+      </tr>
+      <tr>
+        <td>शहरी क्षेत्र</td>
+        <td>नगर पंचायत, नगरपालिका/नगर परिषद, नगर निगम</td>
+        <td>शहरी सफाई और कचरा प्रबंधन</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    <em>ध्यान दें:</em> संस्थाओं के नाम, गठन और कुछ व्यवस्थाएँ राज्य के
+    कानूनों तथा क्षेत्र की प्रकृति के अनुसार अलग हो सकती हैं।
+  </p>
+
+  <h3 id="sec-55">5. ग्रामीण स्थानीय सरकार: पंचायती राज</h3>
+  <p>
+    ग्रामीण क्षेत्रों में स्थानीय स्वशासन की व्यवस्था को सामान्यतः
+    <strong>पंचायती राज व्यवस्था (Panchayati Raj System)</strong> कहा जाता है।
+    सामान्यतः इसके तीन स्तर होते हैं:
+  </p>
+  <ol>
+    <li><strong>ग्राम स्तर:</strong> ग्राम पंचायत</li>
+    <li><strong>मध्यवर्ती स्तर:</strong> पंचायत समिति या समकक्ष संस्था</li>
+    <li><strong>जिला स्तर:</strong> जिला परिषद या समकक्ष संस्था</li>
+  </ol>
+  <p>
+    संविधान के अनुच्छेद 243B में ग्राम, मध्यवर्ती और जिला स्तर पर पंचायतों
+    का प्रावधान है। जिन राज्यों की जनसंख्या बीस लाख से अधिक नहीं है,
+    वहाँ मध्यवर्ती स्तर की पंचायत बनाना अनिवार्य नहीं है।
+  </p>
+
+  <h3 id="sec-56">6. ग्राम सभा (Gram Sabha)</h3>
+  <p>
+    ग्राम सभा में उस गाँव की पंचायत के क्षेत्र से संबंधित मतदाता सूची में
+    पंजीकृत सभी व्यक्ति शामिल होते हैं। यह ग्रामीण लोकतंत्र में लोगों की
+    प्रत्यक्ष भागीदारी का महत्वपूर्ण मंच है।
+  </p>
+  <ul>
+    <li>गाँव की आवश्यकताओं और समस्याओं पर चर्चा करना।</li>
+    <li>स्थानीय विकास योजनाओं पर विचार करना।</li>
+    <li>पंचायत के कार्यों और खर्च के बारे में सवाल पूछना।</li>
+    <li>लोगों को स्थानीय निर्णयों में भाग लेने का अवसर देना।</li>
+  </ul>
+  <p>
+    ग्राम सभा के अधिकार, कार्य और बैठक संबंधी नियम संबंधित राज्य के कानूनों
+    के अनुसार निर्धारित होते हैं।
+  </p>
+
+  <h3 id="sec-57">7. ग्राम पंचायत (Gram Panchayat)</h3>
+  <p>
+    ग्राम पंचायत गाँव के स्तर पर कार्य करने वाली निर्वाचित स्थानीय संस्था है।
+    इसके निर्वाचित सदस्यों और प्रमुख के चयन की प्रक्रिया राज्य के कानूनों
+    के अनुसार होती है। कई राज्यों में पंचायत प्रमुख को सरपंच या मुखिया कहा जाता है।
+  </p>
+  <p><strong>ग्राम पंचायत के सामान्य कार्य:</strong></p>
+  <ul>
+    <li>स्थानीय सड़कों और गलियों की देखभाल।</li>
+    <li>पेयजल और स्वच्छता संबंधी सुविधाओं में सहायता।</li>
+    <li>नालियों तथा सार्वजनिक स्थानों की सफाई से जुड़े कार्य।</li>
+    <li>ग्राम विकास योजनाओं के निर्माण और क्रियान्वयन में भागीदारी।</li>
+    <li>राज्य के नियमों के अनुसार निर्धारित स्थानीय अभिलेख और सेवाएँ संभालना।</li>
+  </ul>
+
+  <h3 id="sec-58">8. पंचायत समिति और जिला परिषद</h3>
+  <ul>
+    <li>
+      <strong>पंचायत समिति:</strong> मध्यवर्ती या प्रखंड स्तर पर अनेक
+      ग्राम पंचायतों से संबंधित विकास कार्यों के समन्वय में भूमिका निभाती है।
+    </li>
+    <li>
+      <strong>जिला परिषद:</strong> जिला स्तर पर ग्रामीण विकास योजनाओं के
+      समन्वय और संबंधित कार्यों में भूमिका निभाती है।
+    </li>
+  </ul>
+  <p>
+    इनके सटीक अधिकार, संरचना और कार्य राज्य के कानूनों के अनुसार तय होते हैं।
+  </p>
+
+  <h3 id="sec-59">9. शहरी स्थानीय सरकार</h3>
+  <p>
+    शहरी क्षेत्रों में स्थानीय प्रशासन के लिए विभिन्न प्रकार की नगर संस्थाएँ
+    बनाई जाती हैं। क्षेत्र की प्रकृति, आकार और राज्य के कानून के अनुसार
+    इनके प्रकार अलग हो सकते हैं।
+  </p>
+  <ul>
+    <li>
+      <strong>नगर पंचायत:</strong> ऐसे क्षेत्र के लिए जो ग्रामीण से शहरी
+      स्वरूप की ओर बढ़ रहा हो।
+    </li>
+    <li>
+      <strong>नगरपालिका/नगर परिषद:</strong> सामान्यतः छोटे या मध्यम शहरी
+      क्षेत्रों के स्थानीय प्रशासन के लिए।
+    </li>
+    <li>
+      <strong>नगर निगम:</strong> सामान्यतः बड़े शहरी क्षेत्रों के प्रशासन के लिए।
+    </li>
+  </ul>
+
+  <h3 id="sec-60">10. शहरी निकायों के प्रमुख कार्य</h3>
+  <ul>
+    <li>शहर की सफाई और ठोस कचरे का प्रबंधन।</li>
+    <li>सड़कों, नालियों और सार्वजनिक सुविधाओं का रखरखाव।</li>
+    <li>स्ट्रीट लाइट और सार्वजनिक स्थानों से जुड़े कार्य।</li>
+    <li>नगर नियोजन और स्थानीय विकास में भूमिका।</li>
+    <li>पेयजल, स्वच्छता और अन्य नागरिक सेवाओं में संबंधित जिम्मेदारियाँ।</li>
+  </ul>
+
+  <h3 id="sec-61">11. स्थानीय सरकार की आय के स्रोत</h3>
+  <p>स्थानीय संस्थाओं को धन विभिन्न स्रोतों से मिल सकता है:</p>
+  <ul>
+    <li>कानून के अनुसार लगाए जाने वाले स्थानीय कर और शुल्क।</li>
+    <li>राज्य सरकार से मिलने वाले अनुदान।</li>
+    <li>केंद्र या राज्य की योजनाओं के अंतर्गत प्राप्त धन।</li>
+    <li>अन्य वैधानिक स्रोत और निर्धारित फीस।</li>
+  </ul>
+  <p>
+    सभी संस्थाएँ हर प्रकार का कर या शुल्क नहीं लगा सकतीं। उनकी वित्तीय
+    शक्तियाँ संबंधित कानूनों और नियमों से निर्धारित होती हैं।
+  </p>
+
+  <h3 id="sec-62">12. स्थानीय सरकार और लोकतंत्र</h3>
+  <p>
+    स्थानीय सरकार लोकतंत्र को जमीनी स्तर तक पहुँचाती है। नागरिक मतदान,
+    ग्राम सभा या वार्ड बैठकों में भागीदारी, शिकायत दर्ज करने और विकास
+    संबंधी सुझाव देने के माध्यम से स्थानीय प्रशासन से जुड़ सकते हैं।
+  </p>
+  <p>
+    स्थानीय प्रतिनिधियों से प्रश्न पूछना, सार्वजनिक खर्च की जानकारी माँगना
+    और स्थानीय समस्याओं को शांतिपूर्ण ढंग से उठाना नागरिक भागीदारी के
+    महत्वपूर्ण तरीके हैं।
+  </p>
+
+  <h3 id="sec-63">13. संवैधानिक तथ्य</h3>
+  <ul>
+    <li>
+      <strong>73वाँ संविधान संशोधन अधिनियम, 1992:</strong>
+      पंचायती राज संस्थाओं से संबंधित संवैधानिक प्रावधान।
+    </li>
+    <li>
+      <strong>भाग IX:</strong> पंचायतों से संबंधित प्रावधान,
+      अनुच्छेद 243 से 243-O।
+    </li>
+    <li>
+      <strong>अनुच्छेद 243A:</strong> ग्राम सभा।
+    </li>
+    <li>
+      <strong>अनुच्छेद 243B:</strong> पंचायतों का गठन।
+    </li>
+    <li>
+      <strong>अनुच्छेद 243G:</strong> पंचायतों की शक्तियाँ, अधिकार और
+      जिम्मेदारियाँ राज्य के कानूनों के अधीन।
+    </li>
+    <li>
+      <strong>74वाँ संविधान संशोधन अधिनियम, 1992:</strong>
+      नगरपालिकाओं से संबंधित संवैधानिक प्रावधान।
+    </li>
+    <li>
+      <strong>भाग IX-A:</strong> नगरपालिकाओं से संबंधित प्रावधान,
+      अनुच्छेद 243P से 243-ZG।
+    </li>
+  </ul>
+
+  <h3 id="sec-64">14. महत्त्वपूर्ण शब्दावली</h3>
+  <table>
+    <thead>
+      <tr><th>शब्द</th><th>अर्थ</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>स्थानीय सरकार</td><td>स्थानीय क्षेत्र के प्रशासन की व्यवस्था</td></tr>
+      <tr><td>विकेंद्रीकरण</td><td>शक्तियों और जिम्मेदारियों का निचले स्तरों तक हस्तांतरण</td></tr>
+      <tr><td>ग्राम सभा</td><td>गाँव की पंचायत के क्षेत्र की मतदाता सूची में पंजीकृत व्यक्तियों का निकाय</td></tr>
+      <tr><td>ग्राम पंचायत</td><td>ग्राम स्तर की स्थानीय स्वशासन संस्था</td></tr>
+      <tr><td>पंचायती राज</td><td>ग्रामीण स्थानीय स्वशासन की व्यवस्था</td></tr>
+      <tr><td>नगरपालिका</td><td>शहरी स्थानीय शासन की एक संस्था</td></tr>
+      <tr><td>जवाबदेही</td><td>अपने कार्यों और निर्णयों के लिए उत्तरदायी होना</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="sec-65">15. अभ्यास प्रश्न (MCQs)</h3>
+  <ol>
+    <li>
+      स्थानीय सरकार का प्रमुख उद्देश्य क्या है?
+      <ol type="a">
+        <li>केवल राष्ट्रीय रक्षा करना</li>
+        <li>स्थानीय समस्याओं और सेवाओं का प्रबंधन करना</li>
+        <li>विदेश नीति बनाना</li>
+        <li>सर्वोच्च न्यायालय चलाना</li>
+      </ol>
+    </li>
+    <li>
+      ग्राम सभा में सामान्यतः कौन शामिल होते हैं?
+      <ol type="a">
+        <li>केवल ग्राम पंचायत के सदस्य</li>
+        <li>केवल सरकारी कर्मचारी</li>
+        <li>संबंधित क्षेत्र की मतदाता सूची में पंजीकृत व्यक्ति</li>
+        <li>केवल गाँव के बुजुर्ग</li>
+      </ol>
+    </li>
+    <li>
+      पंचायती राज व्यवस्था मुख्यतः किस क्षेत्र से संबंधित है?
+      <ol type="a">
+        <li>ग्रामीण क्षेत्र</li>
+        <li>केवल महानगर</li>
+        <li>केवल संसद</li>
+        <li>केवल राज्य सचिवालय</li>
+      </ol>
+    </li>
+    <li>
+      पंचायतों से संबंधित संवैधानिक प्रावधान किस भाग में हैं?
+      <ol type="a">
+        <li>भाग III</li>
+        <li>भाग IV</li>
+        <li>भाग IX</li>
+        <li>भाग IX-A</li>
+      </ol>
+    </li>
+    <li>
+      नगर निगम सामान्यतः किस क्षेत्र के प्रशासन से संबंधित है?
+      <ol type="a">
+        <li>बड़े शहरी क्षेत्र</li>
+        <li>केवल एक खेत</li>
+        <li>केवल ग्राम सभा</li>
+        <li>केवल जिला न्यायालय</li>
+      </ol>
+    </li>
+    <li>
+      सत्ता के विकेंद्रीकरण का अर्थ क्या है?
+      <ol type="a">
+        <li>सारी शक्तियाँ एक व्यक्ति को देना</li>
+        <li>निर्णय लेने की शक्तियाँ स्थानीय स्तर तक पहुँचाना</li>
+        <li>चुनाव समाप्त करना</li>
+        <li>स्थानीय संस्थाएँ बंद करना</li>
+      </ol>
+    </li>
+  </ol>
+
+  <details>
+    <summary><strong>उत्तरमाला देखने के लिए यहाँ क्लिक करें</strong></summary>
+    <ol>
+      <li>विकल्प (b) — स्थानीय समस्याओं और सेवाओं का प्रबंधन।</li>
+      <li>विकल्प (c) — संबंधित क्षेत्र की मतदाता सूची में पंजीकृत व्यक्ति।</li>
+      <li>विकल्प (a) — ग्रामीण क्षेत्र।</li>
+      <li>विकल्प (c) — भाग IX।</li>
+      <li>विकल्प (a) — बड़े शहरी क्षेत्र।</li>
+      <li>विकल्प (b) — निर्णय लेने की शक्तियाँ स्थानीय स्तर तक पहुँचाना।</li>
+    </ol>
+  </details>
+
+  <h3 id="sec-66">16. त्वरित पुनरावृत्ति</h3>
+  <ul>
+    <li>स्थानीय सरकार ग्रामीण और शहरी दोनों क्षेत्रों में काम करती है।</li>
+    <li>ग्रामीण स्थानीय शासन में पंचायती राज संस्थाएँ महत्वपूर्ण हैं।</li>
+    <li>ग्राम सभा लोगों की प्रत्यक्ष भागीदारी का मंच है।</li>
+    <li>शहरी क्षेत्रों में नगर पंचायत, नगरपालिका और नगर निगम जैसी संस्थाएँ होती हैं।</li>
+    <li>पंचायतों और नगरपालिकाओं से संबंधित संवैधानिक प्रावधान क्रमशः भाग IX और भाग IX-A में हैं।</li>
+  </ul>
+
+  <p class="source-note">
+    <strong>संदर्भ:</strong> भारतीय संविधान, भाग IX और भाग IX-A;
+    पंचायती राज मंत्रालय, भारत सरकार; तथा स्थानीय शासन से संबंधित
+    सामाजिक विज्ञान की पाठ्यपुस्तकें।
+  </p>
+</section>
+<!-- विषय 5 समाप्त -->
+
+<!-- विषय 6: लोकतंत्र में समानता -->
+<section id="topic6" class="index-card topic-section">
+  <h2>6. लोकतंत्र में समानता (Equality in Democracy)</h2>
+
+  <p>
+    <strong>अध्ययन उद्देश्य:</strong> समानता का अर्थ, लोकतंत्र में समानता
+    का महत्त्व, भारतीय संविधान में समानता के प्रावधान, सार्वभौमिक वयस्क
+    मताधिकार, मानवीय गरिमा और सामाजिक असमानता को समझना।
+  </p>
+
+  <h3 id="sec-67">1. समानता का अर्थ</h3>
+  <p>
+    समानता (Equality) का अर्थ है कि प्रत्येक व्यक्ति को समान मानवीय
+    गरिमा और अधिकार प्राप्त हों तथा उसके साथ अनुचित भेदभाव न किया जाए।
+    किसी व्यक्ति के धर्म, जाति, लिंग, जन्मस्थान या आर्थिक स्थिति के कारण
+    उसे कमतर नहीं समझना चाहिए।
+  </p>
+  <p>
+    समानता का अर्थ यह नहीं है कि सभी व्यक्तियों की आय, योग्यता, काम या
+    परिस्थितियाँ बिल्कुल एक जैसी हों। इसका मुख्य आशय है कि सभी व्यक्तियों
+    को सम्मान, अधिकार और अवसरों के मामले में न्यायपूर्ण व्यवहार मिले।
+  </p>
+
+  <h3 id="sec-68">2. लोकतंत्र में समानता क्यों आवश्यक है?</h3>
+  <ul>
+    <li>सभी नागरिकों की गरिमा और सम्मान बनाए रखने के लिए।</li>
+    <li>नागरिकों को समान राजनीतिक अधिकार देने के लिए।</li>
+    <li>जाति, धर्म और लिंग के आधार पर होने वाले भेदभाव को रोकने के लिए।</li>
+    <li>शिक्षा, रोजगार और सार्वजनिक सुविधाओं तक उचित पहुँच बढ़ाने के लिए।</li>
+    <li>लोकतंत्र में सभी लोगों की भागीदारी सुनिश्चित करने के लिए।</li>
+  </ul>
+
+  <h3 id="sec-69">3. भारतीय संविधान और समानता</h3>
+  <p>
+    भारतीय संविधान समानता को एक महत्वपूर्ण संवैधानिक मूल्य मानता है।
+    मौलिक अधिकारों के अंतर्गत अनुच्छेद 14 से 18 तक समानता के अधिकार
+    से संबंधित प्रावधान हैं।
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>अनुच्छेद</th>
+        <th>मुख्य प्रावधान</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>अनुच्छेद 14</td>
+        <td>कानून के समक्ष समानता और कानूनों का समान संरक्षण।</td>
+      </tr>
+      <tr>
+        <td>अनुच्छेद 15</td>
+        <td>धर्म, मूलवंश, जाति, लिंग या जन्मस्थान के आधार पर भेदभाव का निषेध; संविधान में निर्धारित विशेष प्रावधानों की भी अनुमति।</td>
+      </tr>
+      <tr>
+        <td>अनुच्छेद 16</td>
+        <td>सरकारी रोजगार में अवसर की समानता, संविधान के प्रावधानों के अधीन।</td>
+      </tr>
+      <tr>
+        <td>अनुच्छेद 17</td>
+        <td>अस्पृश्यता का उन्मूलन और उसके किसी भी रूप के आचरण का निषेध।</td>
+      </tr>
+      <tr>
+        <td>अनुच्छेद 18</td>
+        <td>उपाधियों का उन्मूलन, संविधान में दिए गए अपवादों के अधीन।</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="sec-70">4. कानून के समक्ष समानता</h3>
+  <p>
+    कानून के समक्ष समानता (Equality Before Law) का अर्थ है कि कोई भी
+    व्यक्ति कानून से ऊपर नहीं है। सामान्यतः सभी व्यक्तियों पर कानून
+    लागू होता है और कानून का संरक्षण सभी को प्राप्त है।
+  </p>
+  <p>
+    उदाहरण: किसी व्यक्ति को केवल उसकी सामाजिक या आर्थिक स्थिति के कारण
+    कानून से ऊपर नहीं माना जा सकता।
+  </p>
+
+  <h3 id="sec-71">5. भेदभाव क्या है?</h3>
+  <p>
+    जब किसी व्यक्ति या समूह के साथ उसकी पहचान या परिस्थिति के आधार पर
+    अनुचित और असमान व्यवहार किया जाता है, तो उसे भेदभाव
+    (Discrimination) कहा जाता है।
+  </p>
+  <p><strong>भेदभाव के उदाहरण:</strong></p>
+  <ul>
+    <li>जाति के आधार पर किसी व्यक्ति को सार्वजनिक स्थान में प्रवेश से रोकना।</li>
+    <li>लिंग के आधार पर किसी को शिक्षा या अवसर से वंचित करना।</li>
+    <li>धर्म के आधार पर किसी नागरिक के साथ अनुचित व्यवहार करना।</li>
+    <li>दिव्यांग व्यक्ति के लिए आवश्यक पहुँच-सुविधाएँ उपलब्ध न कराना, जिससे उसकी भागीदारी बाधित हो।</li>
+  </ul>
+  <p>
+    प्रत्येक परिस्थिति का कानूनी मूल्यांकन संबंधित कानून और तथ्यों के
+    आधार पर किया जाता है।
+  </p>
+
+  <h3 id="sec-72">6. अस्पृश्यता का उन्मूलन</h3>
+  <p>
+    अस्पृश्यता (Untouchability) एक ऐसी भेदभावपूर्ण प्रथा है जिसमें कुछ
+    लोगों को जाति के आधार पर हीन समझकर उनसे दूरी बनाई जाती है या उन्हें
+    समान अधिकारों और सुविधाओं से वंचित किया जाता है।
+  </p>
+  <p>
+    भारतीय संविधान का अनुच्छेद 17 अस्पृश्यता को समाप्त करता है और इसके
+    किसी भी रूप में आचरण को निषिद्ध करता है। अस्पृश्यता से संबंधित
+    प्रतिबंधों के उल्लंघन पर लागू कानूनों के अनुसार कार्रवाई हो सकती है।
+  </p>
+
+  <h3 id="sec-73">7. सार्वभौमिक वयस्क मताधिकार</h3>
+  <p>
+    सार्वभौमिक वयस्क मताधिकार (Universal Adult Franchise) का अर्थ है कि
+    निर्धारित कानूनी शर्तें पूरी करने वाले वयस्क नागरिकों को मतदान का
+    अधिकार प्राप्त हो। भारत में सामान्यतः 18 वर्ष या उससे अधिक आयु के
+    पात्र नागरिक मतदान कर सकते हैं।
+  </p>
+  <ul>
+    <li>मतदान का अधिकार धन या जाति पर आधारित नहीं है।</li>
+    <li>पात्र मतदाताओं को समान मताधिकार प्राप्त होता है।</li>
+    <li>यह राजनीतिक समानता और लोकतांत्रिक भागीदारी का महत्वपूर्ण आधार है।</li>
+  </ul>
+
+  <h3 id="sec-74">8. समानता और मानवीय गरिमा</h3>
+  <p>
+    मानवीय गरिमा (Human Dignity) का अर्थ है प्रत्येक व्यक्ति को सम्मान
+    के योग्य समझना। किसी व्यक्ति के काम, भाषा, जाति, लिंग, धर्म,
+    दिव्यांगता या आर्थिक स्थिति के कारण उसका अपमान करना समानता की
+    भावना के विरुद्ध है।
+  </p>
+  <p>
+    उदाहरण: सफाईकर्मी, शिक्षक, किसान, मजदूर और अधिकारी—सभी को मनुष्य
+    होने के नाते सम्मान मिलना चाहिए। काम के प्रकार के आधार पर किसी की
+    गरिमा कम नहीं होती।
+  </p>
+
+  <h3 id="sec-75">9. समानता बढ़ाने में सरकार की भूमिका</h3>
+  <ul>
+    <li>भेदभाव रोकने के लिए कानून बनाना और उन्हें लागू करना।</li>
+    <li>शिक्षा और सार्वजनिक सुविधाओं तक पहुँच बढ़ाना।</li>
+    <li>वंचित समुदायों के लिए संवैधानिक प्रावधानों और कल्याणकारी योजनाओं को लागू करना।</li>
+    <li>महिलाओं, बच्चों और दिव्यांग व्यक्तियों की भागीदारी में आने वाली बाधाएँ कम करना।</li>
+    <li>शिकायतों के निवारण और न्याय प्राप्त करने की व्यवस्थाएँ उपलब्ध कराना।</li>
+  </ul>
+  <p>
+    सरकारी योजनाओं का उद्देश्य अवसरों और सुविधाओं में मौजूद बाधाओं को
+    कम करना हो सकता है। योजनाओं के पात्रता-नियम और लाभ अलग-अलग हो सकते हैं।
+  </p>
+
+  <h3 id="sec-76">10. समानता के सामने चुनौतियाँ</h3>
+  <ul>
+    <li>जाति और लिंग के आधार पर भेदभाव।</li>
+    <li>आर्थिक असमानता और गुणवत्तापूर्ण शिक्षा तक असमान पहुँच।</li>
+    <li>सामाजिक पूर्वाग्रह और रूढ़िवादी धारणाएँ।</li>
+    <li>सार्वजनिक स्थानों तथा सेवाओं तक पहुँच में बाधाएँ।</li>
+    <li>कानूनी अधिकार होने के बावजूद व्यवहार में असमानता का बने रहना।</li>
+  </ul>
+  <p>
+    समानता स्थापित करना केवल कानून बनाने से पूरा नहीं होता। इसके लिए
+    कानूनों का प्रभावी पालन, नागरिक जागरूकता और सामाजिक व्यवहार में
+    सकारात्मक बदलाव भी आवश्यक हैं।
+  </p>
+
+  <h3 id="sec-77">11. समानता और वास्तविक जीवन</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>स्थिति</th>
+        <th>समानता से जुड़ा विचार</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>सभी पात्र वयस्कों को मतदान का अधिकार</td>
+        <td>राजनीतिक समानता</td>
+      </tr>
+      <tr>
+        <td>सार्वजनिक स्थानों पर अनुचित भेदभाव न करना</td>
+        <td>समान अधिकार और पहुँच</td>
+      </tr>
+      <tr>
+        <td>विद्यालय में सभी विद्यार्थियों के साथ सम्मानजनक व्यवहार</td>
+        <td>गरिमा और समान अवसर</td>
+      </tr>
+      <tr>
+        <td>दिव्यांग विद्यार्थियों के लिए सुलभ भवन और सुविधाएँ</td>
+        <td>भागीदारी में बाधाएँ कम करना</td>
+      </tr>
+      <tr>
+        <td>भेदभाव की शिकायत पर निष्पक्ष कार्रवाई</td>
+        <td>कानून का संरक्षण</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="sec-78">12. महत्त्वपूर्ण शब्दावली</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>शब्द</th>
+        <th>अर्थ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>समानता (Equality)</td>
+        <td>समान मानवीय गरिमा और अधिकारों का सिद्धांत</td>
+      </tr>
+      <tr>
+        <td>भेदभाव (Discrimination)</td>
+        <td>अनुचित आधार पर असमान व्यवहार</td>
+      </tr>
+      <tr>
+        <td>गरिमा (Dignity)</td>
+        <td>प्रत्येक व्यक्ति का सम्मान</td>
+      </tr>
+      <tr>
+        <td>मताधिकार (Right to Vote)</td>
+        <td>चुनाव में मतदान करने का कानूनी अधिकार</td>
+      </tr>
+      <tr>
+        <td>वयस्क मताधिकार</td>
+        <td>पात्र वयस्क नागरिकों को मतदान का अधिकार</td>
+      </tr>
+      <tr>
+        <td>अस्पृश्यता (Untouchability)</td>
+        <td>जाति-आधारित बहिष्कार की भेदभावपूर्ण प्रथा</td>
+      </tr>
+      <tr>
+        <td>राजनीतिक समानता</td>
+        <td>राजनीतिक प्रक्रिया में समान अधिकार और भागीदारी का सिद्धांत</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="sec-79">13. अभ्यास प्रश्न (MCQs)</h3>
+  <ol>
+    <li>
+      भारतीय संविधान का कौन-सा अनुच्छेद कानून के समक्ष समानता से संबंधित है?
+      <ol type="a">
+        <li>अनुच्छेद 14</li>
+        <li>अनुच्छेद 19</li>
+        <li>अनुच्छेद 21A</li>
+        <li>अनुच्छेद 32</li>
+      </ol>
+    </li>
+    <li>
+      अस्पृश्यता का उन्मूलन किस अनुच्छेद में किया गया है?
+      <ol type="a">
+        <li>अनुच्छेद 15</li>
+        <li>अनुच्छेद 16</li>
+        <li>अनुच्छेद 17</li>
+        <li>अनुच्छेद 18</li>
+      </ol>
+    </li>
+    <li>
+      भारत में सामान्यतः मतदान करने की न्यूनतम आयु कितनी है?
+      <ol type="a">
+        <li>16 वर्ष</li>
+        <li>18 वर्ष</li>
+        <li>21 वर्ष</li>
+        <li>25 वर्ष</li>
+      </ol>
+    </li>
+    <li>
+      सार्वभौमिक वयस्क मताधिकार किस विचार को मजबूत करता है?
+      <ol type="a">
+        <li>राजनीतिक समानता</li>
+        <li>केवल आर्थिक असमानता</li>
+        <li>वंशानुगत शासन</li>
+        <li>सामाजिक बहिष्कार</li>
+      </ol>
+    </li>
+    <li>
+      धर्म, मूलवंश, जाति, लिंग या जन्मस्थान के आधार पर भेदभाव के निषेध
+      से मुख्यतः कौन-सा अनुच्छेद संबंधित है?
+      <ol type="a">
+        <li>अनुच्छेद 14</li>
+        <li>अनुच्छेद 15</li>
+        <li>अनुच्छेद 17</li>
+        <li>अनुच्छेद 18</li>
+      </ol>
+    </li>
+    <li>
+      मानवीय गरिमा का सही अर्थ क्या है?
+      <ol type="a">
+        <li>केवल अमीर लोगों का सम्मान</li>
+        <li>केवल उच्च पद पर बैठे लोगों का सम्मान</li>
+        <li>प्रत्येक व्यक्ति को सम्मान के योग्य मानना</li>
+        <li>व्यक्तियों के अधिकारों को सीमित करना</li>
+      </ol>
+    </li>
+  </ol>
+
+  <details>
+    <summary><strong>उत्तरमाला देखने के लिए यहाँ क्लिक करें</strong></summary>
+    <ol>
+      <li>विकल्प (a) — अनुच्छेद 14।</li>
+      <li>विकल्प (c) — अनुच्छेद 17।</li>
+      <li>विकल्प (b) — 18 वर्ष।</li>
+      <li>विकल्प (a) — राजनीतिक समानता।</li>
+      <li>विकल्प (b) — अनुच्छेद 15।</li>
+      <li>विकल्प (c) — प्रत्येक व्यक्ति को सम्मान के योग्य मानना।</li>
+    </ol>
+  </details>
+
+  <h3 id="sec-80">14. त्वरित पुनरावृत्ति</h3>
+  <ul>
+    <li>समानता लोकतंत्र का एक मूलभूत मूल्य है।</li>
+    <li>अनुच्छेद 14 से 18 तक समानता के अधिकार से जुड़े प्रावधान हैं।</li>
+    <li>अनुच्छेद 17 अस्पृश्यता का उन्मूलन करता है।</li>
+    <li>भारत में पात्र नागरिक सामान्यतः 18 वर्ष की आयु से मतदान कर सकते हैं।</li>
+    <li>कानूनी समानता के बावजूद सामाजिक और आर्थिक असमानताएँ बनी रह सकती हैं।</li>
+    <li>समानता के लिए अधिकारों के साथ सम्मान, अवसर और प्रभावी क्रियान्वयन भी जरूरी हैं।</li>
+  </ul>
+
+  <p class="source-note">
+    <strong>संदर्भ:</strong> NCERT, कक्षा 7, Social and Political Life-II,
+    अध्याय “On Equality”; भारतीय संविधान, अनुच्छेद 14–18 तथा मतदान की
+    आयु से संबंधित संवैधानिक प्रावधान।
+    <a href="https://sathee.iitk.ac.in/hi/sathee-ssc/student-corner/ncert-books/class-07/social-science/social-and-political-life-2/chapter-01-on-equality/"
+       target="_blank" rel="noopener noreferrer">हिंदी अध्ययन-स्रोत देखें</a>.
+  </p>
+</section>
+<!-- विषय 6 समाप्त -->
+
+<!-- विषय 7: संसदीय सरकार -->
+<section id="topic7" class="index-card topic-section">
+  <h2>7. संसदीय सरकार (Parliamentary Government)</h2>
+
+  <p>
+    <strong>अध्ययन उद्देश्य:</strong> संसदीय शासन का अर्थ, भारतीय संसद की
+    संरचना, लोकसभा और राज्यसभा, राष्ट्रपति, प्रधानमंत्री, मंत्रिपरिषद,
+    विपक्ष तथा सरकार की जवाबदेही को समझना।
+  </p>
+
+  <h3 id="sec-81">1. संसदीय सरकार का अर्थ</h3>
+  <p>
+    संसदीय सरकार (Parliamentary Government) वह शासन व्यवस्था है जिसमें
+    कार्यपालिका संसद के प्रति उत्तरदायी होती है। भारत में प्रधानमंत्री
+    और मंत्रिपरिषद केंद्र सरकार के दैनिक प्रशासन का संचालन करते हैं।
+    मंत्रिपरिषद सामूहिक रूप से लोकसभा के प्रति उत्तरदायी होती है।
+  </p>
+  <p>
+    भारत में नागरिक चुनावों के माध्यम से अपने प्रतिनिधियों को चुनते हैं।
+    निर्वाचित प्रतिनिधि संसद में जनता के मुद्दे उठाते हैं, कानून बनाने
+    की प्रक्रिया में भाग लेते हैं और सरकार के कार्यों पर चर्चा करते हैं।
+  </p>
+
+  <h3 id="sec-82">2. संसदीय सरकार की प्रमुख विशेषताएँ</h3>
+  <ul>
+    <li>सरकार का गठन संसदीय व्यवस्था और लोकसभा में समर्थन के आधार पर होता है।</li>
+    <li>प्रधानमंत्री केंद्र सरकार का प्रमुख होता है।</li>
+    <li>राष्ट्रपति भारत का संवैधानिक राष्ट्राध्यक्ष है।</li>
+    <li>मंत्रिपरिषद सामूहिक रूप से लोकसभा के प्रति उत्तरदायी होती है।</li>
+    <li>संसद कानून बनाने, बजट पर विचार करने और सरकार से सवाल पूछने का मंच है।</li>
+    <li>विपक्ष सरकार की नीतियों और निर्णयों की जाँच करता है तथा वैकल्पिक विचार रखता है।</li>
+  </ul>
+
+  <h3 id="sec-83">3. भारतीय संसद की संरचना</h3>
+  <p>
+    संविधान के अनुच्छेद 79 के अनुसार संघ की संसद में राष्ट्रपति और
+    दो सदन शामिल हैं:
+  </p>
+  <ol>
+    <li><strong>राष्ट्रपति (President of India)</strong></li>
+    <li><strong>लोकसभा (Lok Sabha) — जनता का सदन</strong></li>
+    <li><strong>राज्यसभा (Rajya Sabha) — राज्यों की परिषद</strong></li>
+  </ol>
+
+  <h3 id="sec-84">4. लोकसभा (Lok Sabha)</h3>
+  <p>
+    लोकसभा संसद का वह सदन है जिसके सदस्य संसदीय निर्वाचन क्षेत्रों से
+    जनता द्वारा सीधे चुने जाते हैं। लोकसभा को जनता का सदन कहा जाता है।
+  </p>
+  <ul>
+    <li>लोकसभा के सदस्य प्रत्यक्ष चुनाव से चुने जाते हैं।</li>
+    <li>सामान्य स्थिति में लोकसभा का कार्यकाल पहली बैठक से पाँच वर्ष होता है, जब तक इसे पहले भंग न कर दिया जाए।</li>
+    <li>सरकार को लोकसभा का विश्वास और समर्थन बनाए रखना होता है।</li>
+    <li>धन विधेयक के मामले में लोकसभा की विशेष भूमिका होती है।</li>
+  </ul>
+
+  <h3 id="sec-85">5. राज्यसभा (Rajya Sabha)</h3>
+  <p>
+    राज्यसभा संसद का उच्च सदन है। यह राज्यों और कुछ केंद्रशासित प्रदेशों
+    का प्रतिनिधित्व करती है। इसके अधिकांश सदस्य संबंधित निर्वाचक मंडलों
+    के माध्यम से अप्रत्यक्ष रूप से चुने जाते हैं और कुछ सदस्य राष्ट्रपति
+    द्वारा मनोनीत किए जाते हैं।
+  </p>
+  <ul>
+    <li>राज्यसभा एक स्थायी सदन है; इसे लोकसभा की तरह भंग नहीं किया जाता।</li>
+    <li>इसके सदस्यों का कार्यकाल छह वर्ष होता है।</li>
+    <li>सामान्यतः प्रत्येक दो वर्ष में इसके लगभग एक-तिहाई सदस्य सेवानिवृत्त होते हैं।</li>
+    <li>सामान्य विधेयकों पर विचार और कानून निर्माण में इसकी महत्वपूर्ण भूमिका है।</li>
+  </ul>
+
+  <h3 id="sec-86">6. लोकसभा और राज्यसभा में अंतर</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>आधार</th>
+        <th>लोकसभा</th>
+        <th>राज्यसभा</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>दूसरा नाम</td>
+        <td>जनता का सदन</td>
+        <td>राज्यों की परिषद</td>
+      </tr>
+      <tr>
+        <td>चुनाव</td>
+        <td>जनता द्वारा सीधे चुनाव</td>
+        <td>मुख्यतः अप्रत्यक्ष चुनाव; कुछ सदस्य मनोनीत</td>
+      </tr>
+      <tr>
+        <td>कार्यकाल</td>
+        <td>सामान्यतः पाँच वर्ष</td>
+        <td>स्थायी सदन; सदस्य का कार्यकाल छह वर्ष</td>
+      </tr>
+      <tr>
+        <td>सरकार की जवाबदेही</td>
+        <td>मंत्रिपरिषद सामूहिक रूप से इसके प्रति उत्तरदायी है</td>
+        <td>सरकार से प्रश्न और चर्चा कर सकती है, लेकिन इसके विश्वास मत से सरकार नहीं बनती या गिरती</td>
+      </tr>
+      <tr>
+        <td>धन विधेयक</td>
+        <td>विशेष संवैधानिक भूमिका</td>
+        <td>सिफारिशें दे सकती है; निर्धारित समय-सीमा लागू होती है</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="sec-87">7. राष्ट्रपति की भूमिका</h3>
+  <p>
+    राष्ट्रपति भारत का संवैधानिक राष्ट्राध्यक्ष है। संविधान के अनुसार
+    संघ की कार्यपालिका की शक्तियाँ राष्ट्रपति में निहित होती हैं और
+    उनका प्रयोग संविधान के प्रावधानों के अनुसार किया जाता है।
+  </p>
+  <ul>
+    <li>राष्ट्रपति प्रधानमंत्री की नियुक्ति करता है।</li>
+    <li>प्रधानमंत्री की सलाह पर अन्य मंत्रियों की नियुक्ति करता है।</li>
+    <li>राष्ट्रपति संसद का एक संवैधानिक अंग है।</li>
+    <li>विधेयकों पर संविधान के अनुसार स्वीकृति देने सहित उसकी विधायी भूमिका होती है।</li>
+  </ul>
+  <p>
+    सामान्यतः राष्ट्रपति प्रधानमंत्री के नेतृत्व वाली मंत्रिपरिषद की
+    सलाह के अनुसार कार्य करता है, जैसा संविधान में निर्धारित है।
+  </p>
+
+  <h3 id="sec-88">8. प्रधानमंत्री और मंत्रिपरिषद</h3>
+  <p>
+    प्रधानमंत्री केंद्र सरकार का प्रमुख होता है। वह मंत्रिपरिषद का नेतृत्व
+    करता है और सरकार की नीतियों तथा प्रशासन के समन्वय में महत्वपूर्ण भूमिका
+    निभाता है।
+  </p>
+  <ul>
+    <li>मंत्रियों के कामकाज का समन्वय करना।</li>
+    <li>सरकार की नीतियों और कार्यक्रमों को दिशा देना।</li>
+    <li>महत्वपूर्ण राष्ट्रीय विषयों पर निर्णय प्रक्रिया का नेतृत्व करना।</li>
+    <li>संसद में सरकार की नीतियों और कार्यों का पक्ष रखना।</li>
+  </ul>
+  <p>
+    संविधान के अनुच्छेद 75(3) के अनुसार मंत्रिपरिषद सामूहिक रूप से
+    लोकसभा के प्रति उत्तरदायी होती है।
+  </p>
+
+  <h3 id="sec-89">9. सरकार कैसे बनती है?</h3>
+  <ol>
+    <li>नागरिक आम चुनाव में अपने निर्वाचन क्षेत्र के उम्मीदवारों को वोट देते हैं।</li>
+    <li>लोकसभा के लिए निर्वाचित प्रतिनिधियों का चयन होता है।</li>
+    <li>जिस दल या गठबंधन को लोकसभा में बहुमत का समर्थन प्राप्त हो, वह सरकार बनाने का प्रयास करता है।</li>
+    <li>राष्ट्रपति प्रधानमंत्री की नियुक्ति करता है।</li>
+    <li>प्रधानमंत्री के नेतृत्व में मंत्रिपरिषद का गठन होता है।</li>
+    <li>सरकार को लोकसभा का विश्वास बनाए रखना होता है।</li>
+  </ol>
+  <p>
+    यदि किसी दल को स्पष्ट बहुमत न मिले, तो दलों का गठबंधन या अन्य
+    संसदीय समर्थन सरकार गठन में भूमिका निभा सकता है।
+  </p>
+
+  <h3 id="sec-90">10. संसद के प्रमुख कार्य</h3>
+  <ul>
+    <li>
+      <strong>कानून निर्माण:</strong> नए कानून बनाना तथा मौजूदा कानूनों में
+      संशोधन या उन्हें निरस्त करने की प्रक्रिया में भाग लेना।
+    </li>
+    <li>
+      <strong>सरकार पर नियंत्रण:</strong> प्रश्नों, चर्चाओं और संसदीय
+      प्रक्रियाओं के माध्यम से सरकार से जवाब माँगना।
+    </li>
+    <li>
+      <strong>वित्तीय नियंत्रण:</strong> बजट और सार्वजनिक धन के उपयोग पर
+      विचार करना तथा संवैधानिक प्रक्रिया के अनुसार स्वीकृति देना।
+    </li>
+    <li>
+      <strong>जनता का प्रतिनिधित्व:</strong> नागरिकों की समस्याओं और
+      आवश्यकताओं को संसद में उठाना।
+    </li>
+    <li>
+      <strong>राष्ट्रीय मुद्दों पर चर्चा:</strong> महत्वपूर्ण नीतियों और
+      सार्वजनिक विषयों पर बहस करना।
+    </li>
+  </ul>
+
+  <h3 id="sec-91">11. विपक्ष की भूमिका</h3>
+  <p>
+    विपक्ष में वे दल या सदस्य होते हैं जो सरकार का हिस्सा नहीं होते।
+    संसदीय लोकतंत्र में विपक्ष की महत्वपूर्ण भूमिका है।
+  </p>
+  <ul>
+    <li>सरकार के निर्णयों और नीतियों पर सवाल उठाना।</li>
+    <li>नीतियों की कमियों और संभावित प्रभावों पर चर्चा करना।</li>
+    <li>जनता से जुड़े मुद्दों को संसद में प्रस्तुत करना।</li>
+    <li>वैकल्पिक नीतियाँ और सुझाव देना।</li>
+    <li>सरकार को जवाबदेह बनाए रखने में योगदान देना।</li>
+  </ul>
+  <p>
+    लोकतंत्र में सरकार और विपक्ष दोनों की भूमिका संसदीय बहस, जवाबदेही
+    और जनप्रतिनिधित्व को मजबूत कर सकती है।
+  </p>
+
+  <h3 id="sec-92">12. प्रश्नकाल और संसदीय चर्चा</h3>
+  <p>
+    प्रश्नकाल में सांसद मंत्रियों से सरकारी कामकाज, योजनाओं और नीतियों
+    के बारे में प्रश्न पूछ सकते हैं। इससे सरकार को जानकारी देनी पड़ती है
+    और सार्वजनिक मुद्दे सामने आते हैं।
+  </p>
+  <p>
+    संसदीय बहस के माध्यम से सदस्य विधेयकों, बजट और राष्ट्रीय महत्व के
+    विषयों पर अपने विचार रखते हैं। इन प्रक्रियाओं से सरकार के कामकाज
+    की जाँच और जनता के प्रति जवाबदेही को बढ़ावा मिलता है।
+  </p>
+
+  <h3 id="sec-93">13. संसदीय सरकार और राज्य सरकार</h3>
+  <p>
+    भारत में केंद्र के साथ-साथ राज्यों में भी संसदीय शासन की व्यवस्था है।
+    राज्य स्तर पर राज्यपाल संवैधानिक प्रमुख होता है और मुख्यमंत्री
+    मंत्रिपरिषद का नेतृत्व करता है।
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>केंद्र सरकार</th>
+        <th>राज्य सरकार</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>राष्ट्रपति संवैधानिक प्रमुख</td>
+        <td>राज्यपाल संवैधानिक प्रमुख</td>
+      </tr>
+      <tr>
+        <td>प्रधानमंत्री सरकार का प्रमुख</td>
+        <td>मुख्यमंत्री सरकार का प्रमुख</td>
+      </tr>
+      <tr>
+        <td>संसद</td>
+        <td>राज्य विधानमंडल</td>
+      </tr>
+      <tr>
+        <td>मंत्रिपरिषद लोकसभा के प्रति सामूहिक रूप से उत्तरदायी</td>
+        <td>मंत्रिपरिषद राज्य की विधान सभा के प्रति सामूहिक रूप से उत्तरदायी</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="sec-94">14. महत्त्वपूर्ण संवैधानिक तथ्य</h3>
+  <ul>
+    <li><strong>अनुच्छेद 74:</strong> राष्ट्रपति की सहायता और सलाह के लिए प्रधानमंत्री के नेतृत्व में मंत्रिपरिषद।</li>
+    <li><strong>अनुच्छेद 75(3):</strong> मंत्रिपरिषद की लोकसभा के प्रति सामूहिक जिम्मेदारी।</li>
+    <li><strong>अनुच्छेद 79:</strong> संघ की संसद की संरचना।</li>
+    <li><strong>अनुच्छेद 80:</strong> राज्यसभा की संरचना।</li>
+    <li><strong>अनुच्छेद 81:</strong> लोकसभा की संरचना।</li>
+    <li><strong>अनुच्छेद 83:</strong> संसद के सदनों की अवधि से संबंधित प्रावधान।</li>
+    <li><strong>अनुच्छेद 326:</strong> लोकसभा और राज्य विधानसभाओं के चुनाव वयस्क मताधिकार के आधार पर।</li>
+  </ul>
+
+  <h3 id="sec-95">15. महत्त्वपूर्ण शब्दावली</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>शब्द</th>
+        <th>अर्थ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>संसद (Parliament)</td><td>केंद्र स्तर की विधायी संस्था</td></tr>
+      <tr><td>लोकसभा</td><td>जनता का सदन</td></tr>
+      <tr><td>राज्यसभा</td><td>राज्यों की परिषद</td></tr>
+      <tr><td>कार्यपालिका (Executive)</td><td>सरकारी नीतियों और प्रशासन को चलाने वाला अंग</td></tr>
+      <tr><td>मंत्रिपरिषद</td><td>प्रधानमंत्री के नेतृत्व में मंत्रियों का समूह</td></tr>
+      <tr><td>बहुमत (Majority)</td><td>निर्णय या समर्थन के लिए आवश्यक आधे से अधिक मतों/सदस्यों की स्थिति, संदर्भ के अनुसार</td></tr>
+      <tr><td>विपक्ष (Opposition)</td><td>सरकार का हिस्सा न होने वाले दल या सदस्य</td></tr>
+      <tr><td>जवाबदेही (Accountability)</td><td>अपने निर्णयों और कार्यों के लिए उत्तर देना</td></tr>
+      <tr><td>प्रश्नकाल (Question Hour)</td><td>संसद में मंत्रियों से प्रश्न पूछने की निर्धारित प्रक्रिया</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="sec-96">16. अभ्यास प्रश्न (MCQs)</h3>
+  <ol>
+    <li>
+      भारतीय संसद में कौन-कौन शामिल हैं?
+      <ol type="a">
+        <li>केवल लोकसभा</li>
+        <li>केवल राज्यसभा</li>
+        <li>राष्ट्रपति, लोकसभा और राज्यसभा</li>
+        <li>केवल प्रधानमंत्री और मंत्री</li>
+      </ol>
+    </li>
+    <li>
+      केंद्र सरकार का प्रमुख कौन होता है?
+      <ol type="a">
+        <li>राष्ट्रपति</li>
+        <li>प्रधानमंत्री</li>
+        <li>लोकसभा अध्यक्ष</li>
+        <li>राज्यपाल</li>
+      </ol>
+    </li>
+    <li>
+      मंत्रिपरिषद सामूहिक रूप से किसके प्रति उत्तरदायी होती है?
+      <ol type="a">
+        <li>राज्यसभा</li>
+        <li>सर्वोच्च न्यायालय</li>
+        <li>लोकसभा</li>
+        <li>निर्वाचन आयोग</li>
+      </ol>
+    </li>
+    <li>
+      कौन-सा सदन स्थायी सदन है?
+      <ol type="a">
+        <li>लोकसभा</li>
+        <li>राज्यसभा</li>
+        <li>ग्राम सभा</li>
+        <li>विधानसभा</li>
+      </ol>
+    </li>
+    <li>
+      संसद में प्रश्नकाल का प्रमुख उद्देश्य क्या है?
+      <ol type="a">
+        <li>सरकार से जानकारी माँगना और जवाबदेही बढ़ाना</li>
+        <li>अदालतों के फैसले देना</li>
+        <li>चुनाव कराना</li>
+        <li>स्थानीय पंचायतों का गठन करना</li>
+      </ol>
+    </li>
+    <li>
+      संसदीय लोकतंत्र में विपक्ष का एक प्रमुख कार्य क्या है?
+      <ol type="a">
+        <li>सभी चुनाव रोकना</li>
+        <li>सरकार से सवाल करना और वैकल्पिक विचार प्रस्तुत करना</li>
+        <li>न्यायपालिका का संचालन करना</li>
+        <li>संसद को समाप्त करना</li>
+      </ol>
+    </li>
+  </ol>
+
+  <details>
+    <summary><strong>उत्तरमाला देखने के लिए यहाँ क्लिक करें</strong></summary>
+    <ol>
+      <li>विकल्प (c) — राष्ट्रपति, लोकसभा और राज्यसभा।</li>
+      <li>विकल्प (b) — प्रधानमंत्री।</li>
+      <li>विकल्प (c) — लोकसभा।</li>
+      <li>विकल्प (b) — राज्यसभा।</li>
+      <li>विकल्प (a) — सरकार से जानकारी माँगना और जवाबदेही बढ़ाना।</li>
+      <li>विकल्प (b) — सवाल करना और वैकल्पिक विचार प्रस्तुत करना।</li>
+    </ol>
+  </details>
+
+  <h3 id="sec-97">17. त्वरित पुनरावृत्ति</h3>
+  <ul>
+    <li>भारत में संसदीय शासन व्यवस्था है।</li>
+    <li>संसद में राष्ट्रपति और दोनों सदन शामिल हैं।</li>
+    <li>लोकसभा के सदस्य जनता द्वारा सीधे चुने जाते हैं।</li>
+    <li>राज्यसभा स्थायी सदन है।</li>
+    <li>प्रधानमंत्री मंत्रिपरिषद का नेतृत्व करता है।</li>
+    <li>मंत्रिपरिषद सामूहिक रूप से लोकसभा के प्रति उत्तरदायी है।</li>
+    <li>संसद कानून बनाती है, वित्तीय मामलों पर विचार करती है और सरकार से जवाब माँगती है।</li>
+    <li>विपक्ष लोकतंत्र में जाँच, बहस और वैकल्पिक सुझावों की भूमिका निभाता है।</li>
+  </ul>
+
+  <p class="source-note">
+    <strong>संदर्भ:</strong> भारतीय संविधान, अनुच्छेद 74, 75, 79–83 और 326;
+    NCERT सामाजिक एवं राजनीतिक जीवन, संसद और कानून निर्माण से संबंधित अध्याय;
+    संसद की आधिकारिक वेबसाइट।
+    <a href="https://sansad.in/ls/about/introduction"
+       target="_blank" rel="noopener noreferrer">संसद का परिचय</a> |
+    <a href="https://sathee.iitk.ac.in/hi/sathee-ssc/student-corner/ncert-books/class-08/social-science/social-and-political-life-03/chapter-03-parliament-and-the-making-of-laws/"
+       target="_blank" rel="noopener noreferrer">NCERT आधारित अध्ययन-स्रोत</a>
+  </p>
+</section>
+<!-- विषय 7 समाप्त -->
+
+
+    -->
+
+  </main>
+
+  <footer>
+    JHTET 2026 तैयारी | सामाजिक एवं राजनीतिक जीवन
+  </footer>
+
+<button id="toIndex" onclick="document.getElementById('master-index').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="विषय-सूची पर वापस जाएँ" title="📑 विषय-सूची पर जाएँ">📑</button>
+<script>
+window.addEventListener('scroll', function(){
+    var b = document.getElementById('toIndex');
+    if (b) b.style.display = document.documentElement.scrollTop > 500 ? 'block' : 'none';
+}, {passive:true});
+</script>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
+</html>
