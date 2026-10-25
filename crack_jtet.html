@@ -186,13 +186,13 @@
         <h1>🎯 JHTET 2026 परीक्षा तैयारी एवं मास्टर पोर्टल</h1>
         <p>नवीनतम आधिकारिक पाठ्यक्रम (JAC Syllabus) पर आधारित 150-प्रश्नों के फुल मॉक टेस्ट, विषयवार मास्टर गाइड और लाइव अभ्यास प्रश्न</p>
         <div class="toolbar">
-            <input type="text" id="searchInput" class="search-box" placeholder="🔍 विषय खोजें (जैसे: इतिहास, भूगोल, सिविक्स, खोरठा, संथाली, CDP, विज्ञान)..." onkeyup="filterCards()">
+            <input type="text" id="searchInput" class="search-box" placeholder="🔍 विषय खोजें (जैसे: इतिहास, भूगोल, अर्थशास्त्र, सिविक्स, खोरठा, संथाली, CDP)..." onkeyup="filterCards()">
             <button class="share-btn" onclick="sharePortal()">📲 उम्मीदवारों को शेयर करें</button>
         </div>
     </header>
 
     <div class="filter-tabs" id="education">
-        <button class="tab-btn active" onclick="filterByCategory('all', this)">सभी (10)</button>
+        <button class="tab-btn active" onclick="filterByCategory('all', this)">सभी (11)</button>
         <button class="tab-btn" onclick="filterByCategory('mock', this)">🏆 150-प्रश्न महा-मॉक</button>
         <button class="tab-btn" onclick="filterByCategory('core', this)">📘 मुख्य विषय (SST/CDP/कंप्यूटर)</button>
         <button class="tab-btn" onclick="filterByCategory('lang', this)">🌾 जनजातीय व क्षेत्रीय भाषा</button>
@@ -250,7 +250,17 @@
             <a href="jhtet-master-index.html" class="btn" style="background: linear-gradient(135deg, #1e3a8a, #0d9488); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(13, 148, 136, 0.28);">भूगोल मास्टर हब खोलें ➔</a>
         </div>
 
-        <!-- 6. JHTET 2026 Level-2 Child Development & Pedagogy (CDP) Master Portal Card -->
+        <!-- 6. JHTET 2026 Economics 10-Topic Master Study Portal Card -->
+        <div class="card" data-category="core" style="border-color: #174ea6; box-shadow: 0 4px 18px rgba(23, 78, 166, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #123875; background: #e8f0fe; font-weight: bold; border: 1px solid #bfdbfe;">📈 JHTET 2026 अर्थशास्त्र मास्टर पोर्टल (10 विषय)</div>
+                <h2 style="color: #0f172a;">सामाजिक विज्ञान: अर्थशास्त्र<br><span style="font-size: 1.1rem; color: #174ea6;">(JHTET Paper 2 • Class 6-8 Economics)</span></h2>
+                <p style="color: #475569;">अर्थशास्त्र के 10 विषयों की संपूर्ण अध्ययन सामग्री: आजीविका के साधन, व्यावसायिक क्रिया, मुद्रा एवं विनिमय, जनसंख्या वृद्धि (भारत व झारखंड), सार्वजनिक वितरण प्रणाली (PDS), बचत व फसलें, सहकारी संस्थाएँ, बाजार, आर्थिक-सामाजिक मूल्य एवं वित्तीय साक्षरता (MCQs व पुनरावृत्ति सहित)!</p>
+            </div>
+            <a href="jhtet-economics.html" class="btn" style="background: linear-gradient(135deg, #123875, #174ea6); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(23, 78, 166, 0.28);">अर्थशास्त्र मास्टर पोर्टल खोलें ➔</a>
+        </div>
+
+        <!-- 7. JHTET 2026 Level-2 Child Development & Pedagogy (CDP) Master Portal Card -->
         <div class="card" data-category="core" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
             <div>
                 <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🧠 JHTET 2026 CDP इनसाइक्लोपीडिया (30 अंक)</div>
@@ -260,7 +270,7 @@
             <a href="jhtet_cdp_master_portal3.html" class="btn" style="background: linear-gradient(135deg, #0f766e, #047857); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">संपूर्ण CDP मास्टर गाइड पढ़ें ➔</a>
         </div>
 
-        <!-- 7. JHTET 2026 Paper-2 Computer Knowledge (10 Marks) Master Portal Card -->
+        <!-- 8. JHTET 2026 Paper-2 Computer Knowledge (10 Marks) Master Portal Card -->
         <div class="card" data-category="core" style="border-color: #0d9488; box-shadow: 0 4px 18px rgba(13, 148, 136, 0.16); background: #ffffff;">
             <div>
                 <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🖥️ JHTET 2026 कंप्यूटर ज्ञान (10 अंक)</div>
@@ -270,7 +280,7 @@
             <a href="jhtet_computer_portal3.html" class="btn" style="background: linear-gradient(135deg, #0f766e, #0284c7); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">कंप्यूटर मास्टर पोर्टल खोलें ➔</a>
         </div>
 
-        <!-- 8. JHTET 2026 Level-2 Regional Language Khortha Portal Card -->
+        <!-- 9. JHTET 2026 Level-2 Regional Language Khortha Portal Card -->
         <div class="card" data-category="lang" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
             <div>
                 <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🌾 JHTET 2026 खोरठा मास्टर पोर्टल (30 अंक)</div>
@@ -280,7 +290,7 @@
             <a href="jhtet_khortha_master_portal3.html" class="btn" style="background: linear-gradient(135deg, #0f766e, #047857); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">संपूर्ण खोरठा मास्टर गाइड पढ़ें ➔</a>
         </div>
 
-        <!-- 9. JHTET 2026 Level-2 Regional Language Santhali Portal Card -->
+        <!-- 10. JHTET 2026 Level-2 Regional Language Santhali Portal Card -->
         <div class="card" data-category="lang" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
             <div>
                 <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🏹 JHTET 2026 संथाली मास्टर पोर्टल (30 अंक)</div>
@@ -290,7 +300,7 @@
             <a href="jhtet_santhali_master_portal2.html" class="btn" style="background: linear-gradient(135deg, #0f766e, #047857); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">संपूर्ण संथाली मास्टर गाइड पढ़ें ➔</a>
         </div>
 
-        <!-- 10. JHTET 2026 Santhali 5-Unit Master Index Hub Card -->
+        <!-- 11. JHTET 2026 Santhali 5-Unit Master Index Hub Card -->
         <div class="card" data-category="lang" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
             <div>
                 <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🏹 JHTET संथाली 5-इकाई मास्टर हब (100 MCQs)</div>
@@ -330,7 +340,7 @@
         }
 
         function sharePortal() {
-            const shareText = "🎯 JHTET 2026 परीक्षा तैयारी पोर्टल: 150-प्रश्नों के सिलेबस आधारित मॉक टेस्ट, SST (इतिहास, भूगोल, नागरिक शास्त्र), CDP, कंप्यूटर, खोरठा और संथाली मास्टर गाइड यहाँ से पढ़ें:";
+            const shareText = "🎯 JHTET 2026 परीक्षा तैयारी पोर्टल: 150-प्रश्नों के सिलेबस आधारित मॉक टेस्ट, SST (इतिहास, भूगोल, नागरिक शास्त्र, अर्थशास्त्र), CDP, कंप्यूटर, खोरठा और संथाली मास्टर गाइड यहाँ से पढ़ें:";
             const shareUrl = window.location.href;
             if (navigator.share) {
                 navigator.share({
@@ -347,4 +357,3 @@
 
 </body>
 </html>
-
