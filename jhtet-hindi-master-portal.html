@@ -1,0 +1,3826 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JHTET 2026 Paper 2 हिंदी उच्च प्राथमिक स्तर की अध्ययन सामग्री">
+  <title>JHTET 2026 | हिंदी मास्टर पोर्टल</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans Devanagari", sans-serif;
+      background: #f3f6fb;
+      color: #1f2937;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #173b70;
+      color: white;
+      text-align: center;
+      padding: 24px 16px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 25px;
+    }
+
+    header p {
+      margin: 0;
+    }
+
+    .container {
+      width: min(100% - 24px, 900px);
+      margin: 20px auto;
+    }
+
+    .notice {
+      background: #fff7d6;
+      border-left: 5px solid #e3a008;
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .card {
+      display: block;
+      padding: 18px;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #e0e7f0;
+      box-shadow: 0 3px 10px #0000000a;
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      color: #173b70;
+    }
+
+    .card p {
+      margin: 0 0 12px;
+    }
+
+    .lesson-content {
+      margin-top: 14px;
+      padding: 16px;
+      background: #fbfdff;
+      border: 1px solid #dbe5f0;
+      border-radius: 10px;
+      box-shadow: none;
+      overflow-wrap: anywhere;
+    }
+
+    .lesson-content h3 {
+      margin: 8px 0 12px;
+      color: #173b70;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .table-wrap { max-width: 100%; overflow-x: auto; margin: 10px 0 16px; }
+
+    .lesson-content table {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      border-collapse: collapse;
+    }
+
+    .lesson-content img,
+    .lesson-content input,
+    .lesson-content button,
+    .lesson-content select {
+      max-width: 100%;
+    }
+
+    .lesson-content button {
+      min-height: 40px;
+      cursor: pointer;
+    }
+
+    .lesson-content input[type="radio"],
+    .lesson-content input[type="checkbox"] {
+      width: auto;
+      min-height: auto;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: min(100% - 16px, 900px);
+        margin: 12px auto;
+      }
+
+      .card {
+        padding: 14px;
+      }
+
+      .lesson-content {
+        padding: 12px;
+      }
+
+      header h1 {
+        font-size: 22px;
+      }
+    }
+
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .quick-links a {
+      display: inline-block;
+      padding: 6px 10px;
+      background: white;
+      color: #173b70;
+      border: 1px solid #cbd5e1;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .quick-links a:focus,
+    .quick-links a:hover {
+      background: #eaf2ff;
+      text-decoration: underline;
+    }
+
+    .topics {
+      padding-left: 22px;
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      margin-top: 28px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #cbd5e1;
+    }
+
+    footer {
+      margin-top: 32px;
+      padding: 18px;
+      text-align: center;
+      background: #e5eaf2;
+      font-size: 14px;
+    }
+
+    @media (min-width: 650px) {
+      .menu {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>JHTET 2026 — हिंदी मास्टर पोर्टल</h1>
+    <p>Paper 2 | उच्च प्राथमिक स्तर</p>
+    <p>नोट्स • अभ्यास प्रश्न • MCQ • मॉक टेस्ट</p>
+  </header>
+
+  <main class="container">
+    <div class="notice">
+      <strong>अध्ययन सूचना:</strong>
+      यह पोर्टल आपके दिए गए हिंदी सिलेबस पर आधारित प्रारंभिक संस्करण है।
+      आधिकारिक परीक्षा सूचना से सिलेबस का मिलान अवश्य करें।
+    </div>
+
+
+    <nav class="notice" aria-label="विषय सूची">
+      <strong>त्वरित विषय सूची:</strong>
+      <div class="quick-links">
+        <a href="#shabd-bhed">शब्द-भेद</a>
+        <a href="#sangya-sarvanam">संज्ञा-सर्वनाम</a>
+        <a href="#visheshan-kriya">विशेषण-क्रिया</a>
+        <a href="#karak-kaal">कारक-काल</a>
+        <a href="#vakya-rachna-shuddhi">वाक्य-शुद्धि</a>
+        <a href="#sandhi-samas">संधि-समास</a>
+        <a href="#upsarg-pratyay">उपसर्ग-प्रत्यय</a>
+        <a href="#paryayvachi-vilom">पर्यायवाची-विलोम</a>
+        <a href="#anek-shabdon-ke-liye-ek-shabd">अनेक शब्दों के लिए एक शब्द</a>
+        <a href="#alankar">अलंकार</a>
+        <a href="#muhavare-lokoktiyan">मुहावरे-लोकोक्तियाँ</a>
+        <a href="#bhasha-shikshan-siddhant-vidhiyan">शिक्षण विधियाँ</a>
+        <a href="#bhasha-kaushal-evam-samajh">भाषा-कौशल</a>
+        <a href="#sampreshan-kaushal-vikas">संप्रेषण-कौशल</a>
+        <a href="#bhasha-shikshan-kathinai-nivaran">शिक्षण कठिनाइयों का निराकरण</a>
+      </div>
+    </nav>
+
+    <h2 class="section-title">A. भाषायी समझ एवं निष्कर्ष</h2>
+
+    <section class="menu">
+      <article class="card">
+        <h2>1. अपठित उद्धरण</h2>
+        <p>पाठ को समझने और उससे निष्कर्ष निकालने का अभ्यास।</p>
+        <ul class="topics">
+          <li>मुख्य विचार पहचानना</li>
+          <li>संदर्भानुसार शब्दार्थ</li>
+          <li>पाठ पर आधारित प्रश्न</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>2. गद्यांश</h2>
+        <p>गद्यांश पढ़कर प्रश्नों के उत्तर देने का अभ्यास।</p>
+        <ul class="topics">
+          <li>शीर्षक एवं केंद्रीय विचार</li>
+          <li>तथ्य और निष्कर्ष</li>
+          <li>अर्थ-बोध</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>3. पद्यांश</h2>
+        <p>कविता के भाव और अर्थ को समझने का अभ्यास।</p>
+        <ul class="topics">
+          <li>कविता का भावार्थ</li>
+          <li>मुख्य भाव</li>
+          <li>पद्यांश आधारित प्रश्न</li>
+        </ul>
+      </article>
+    </section>
+
+    <h2 class="section-title">B. व्याकरण</h2>
+
+    <section class="menu">
+      <article class="card">
+        <h2>4. शब्द-भेद</h2>
+        <p>शब्दों के प्रकार और वाक्य में उनका प्रयोग।</p>
+
+        <section class="lesson-content" id="shabd-bhed" aria-labelledby="shabd-bhed-title">
+          <h3 id="shabd-bhed-title">4. शब्द-भेद (Parts of Speech)</h3>
+
+          <h4>शब्द-भेद की परिभाषा</h4>
+          <p>वाक्य में प्रयोग, अर्थ और व्याकरणिक कार्य के आधार पर शब्दों को अलग-अलग वर्गों में बाँटा जाता है। इन वर्गों को <strong>शब्द-भेद</strong> कहते हैं।</p>
+
+          <h4>1. विकारी शब्द</h4>
+          <p>जिन शब्दों के रूप में लिंग, वचन, पुरुष, कारक या काल के कारण परिवर्तन हो सकता है, उन्हें विकारी शब्द कहते हैं। इनके चार प्रमुख भेद हैं:</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>शब्द-भेद</th><th>परिभाषा</th><th>उदाहरण</th></tr></thead>
+              <tbody>
+                <tr><td><strong>संज्ञा</strong></td><td>व्यक्ति, वस्तु, स्थान, प्राणी या भाव का नाम</td><td>राम, पुस्तक, दिल्ली, ईमानदारी</td></tr>
+                <tr><td><strong>सर्वनाम</strong></td><td>संज्ञा के स्थान पर प्रयुक्त शब्द</td><td>मैं, तुम, वह, कौन</td></tr>
+                <tr><td><strong>विशेषण</strong></td><td>संज्ञा या सर्वनाम की विशेषता बताने वाला शब्द</td><td>सुंदर, अच्छा, पाँच, थोड़ा</td></tr>
+                <tr><td><strong>क्रिया</strong></td><td>कार्य, घटना या अवस्था का बोध कराने वाला शब्द</td><td>पढ़ना, दौड़ना, सोना, है</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4>2. अविकारी शब्द (अव्यय)</h4>
+          <p>जिन शब्दों के रूप में सामान्यतः लिंग, वचन, पुरुष आदि के कारण परिवर्तन नहीं होता, उन्हें अविकारी या अव्यय शब्द कहते हैं।</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>शब्द-भेद</th><th>कार्य</th><th>उदाहरण</th></tr></thead>
+              <tbody>
+                <tr><td><strong>क्रिया-विशेषण</strong></td><td>क्रिया की विशेषता बताता है</td><td>धीरे, जल्दी, वहाँ</td></tr>
+                <tr><td><strong>संबंधबोधक</strong></td><td>शब्दों के बीच संबंध बताता है</td><td>के पास, के लिए, के बिना</td></tr>
+                <tr><td><strong>समुच्चयबोधक</strong></td><td>शब्दों या वाक्यों को जोड़ता है</td><td>और, लेकिन, अथवा</td></tr>
+                <tr><td><strong>विस्मयादिबोधक</strong></td><td>हर्ष, शोक, आश्चर्य आदि भाव प्रकट करता है</td><td>वाह!, अरे!, हाय!</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>परीक्षा-सूचना:</strong> अलग-अलग व्याकरण पुस्तकों में अव्यय के वर्गीकरण या नामों में थोड़ा अंतर मिल सकता है। प्रश्न में दिए गए वाक्य के संदर्भ को ध्यान से देखें।</p>
+
+          <h4>वाक्य से शब्द-भेद पहचानें</h4>
+          <p><strong>वाक्य:</strong> राम धीरे-धीरे सुंदर पुस्तक पढ़ता है।</p>
+          <ul>
+            <li><strong>राम</strong> — संज्ञा</li>
+            <li><strong>धीरे-धीरे</strong> — क्रिया-विशेषण</li>
+            <li><strong>सुंदर</strong> — विशेषण</li>
+            <li><strong>पुस्तक</strong> — संज्ञा</li>
+            <li><strong>पढ़ता है</strong> — क्रिया</li>
+          </ul>
+          <p><strong>याद रखने की ट्रिक:</strong> शब्द का भेद पहचानते समय केवल शब्द को अलग से न देखें; वाक्य में उसका काम भी देखें।</p>
+
+          <h4>अभ्यास प्रश्न (MCQ)</h4>
+          <div class="quiz-question">
+            <p><strong>प्रश्न 1.</strong> ‘वह विद्यालय जाता है।’ वाक्य में ‘वह’ कौन-सा शब्द है?</p>
+            <label><input type="radio" name="sbq1" value="a"> A. संज्ञा</label><br>
+            <label><input type="radio" name="sbq1" value="b"> B. सर्वनाम</label><br>
+            <label><input type="radio" name="sbq1" value="c"> C. विशेषण</label><br>
+            <label><input type="radio" name="sbq1" value="d"> D. क्रिया</label>
+            <button type="button" onclick="checkShabdBhedAnswer(1,'b')">उत्तर जाँचें</button>
+            <p id="sbf1" class="feedback" aria-live="polite"></p>
+          </div>
+          <div class="quiz-question">
+            <p><strong>प्रश्न 2.</strong> ‘सीता मधुर गीत गाती है।’ वाक्य में ‘मधुर’ क्या है?</p>
+            <label><input type="radio" name="sbq2" value="a"> A. क्रिया</label><br>
+            <label><input type="radio" name="sbq2" value="b"> B. सर्वनाम</label><br>
+            <label><input type="radio" name="sbq2" value="c"> C. विशेषण</label><br>
+            <label><input type="radio" name="sbq2" value="d"> D. संज्ञा</label>
+            <button type="button" onclick="checkShabdBhedAnswer(2,'c')">उत्तर जाँचें</button>
+            <p id="sbf2" class="feedback" aria-live="polite"></p>
+          </div>
+          <div class="quiz-question">
+            <p><strong>प्रश्न 3.</strong> इनमें से क्रिया-विशेषण कौन-सा है?</p>
+            <label><input type="radio" name="sbq3" value="a"> A. सुंदर</label><br>
+            <label><input type="radio" name="sbq3" value="b"> B. धीरे</label><br>
+            <label><input type="radio" name="sbq3" value="c"> C. मोहन</label><br>
+            <label><input type="radio" name="sbq3" value="d"> D. पुस्तक</label>
+            <button type="button" onclick="checkShabdBhedAnswer(3,'b')">उत्तर जाँचें</button>
+            <p id="sbf3" class="feedback" aria-live="polite"></p>
+          </div>
+          <div class="quiz-question">
+            <p><strong>प्रश्न 4.</strong> ‘राम और श्याम मित्र हैं।’ वाक्य में ‘और’ क्या है?</p>
+            <label><input type="radio" name="sbq4" value="a"> A. संबंधबोधक</label><br>
+            <label><input type="radio" name="sbq4" value="b"> B. विस्मयादिबोधक</label><br>
+            <label><input type="radio" name="sbq4" value="c"> C. समुच्चयबोधक</label><br>
+            <label><input type="radio" name="sbq4" value="d"> D. विशेषण</label>
+            <button type="button" onclick="checkShabdBhedAnswer(4,'c')">उत्तर जाँचें</button>
+            <p id="sbf4" class="feedback" aria-live="polite"></p>
+          </div>
+          <div class="quiz-question">
+            <p><strong>प्रश्न 5.</strong> इनमें से विस्मयादिबोधक शब्द कौन-सा है?</p>
+            <label><input type="radio" name="sbq5" value="a"> A. लेकिन</label><br>
+            <label><input type="radio" name="sbq5" value="b"> B. वाह!</label><br>
+            <label><input type="radio" name="sbq5" value="c"> C. धीरे</label><br>
+            <label><input type="radio" name="sbq5" value="d"> D. के लिए</label>
+            <button type="button" onclick="checkShabdBhedAnswer(5,'b')">उत्तर जाँचें</button>
+            <p id="sbf5" class="feedback" aria-live="polite"></p>
+          </div>
+          <div class="quiz-question">
+            <p><strong>प्रश्न 6.</strong> इनमें से कौन-सा अविकारी शब्द है?</p>
+            <label><input type="radio" name="sbq6" value="a"> A. लड़का</label><br>
+            <label><input type="radio" name="sbq6" value="b"> B. अच्छी</label><br>
+            <label><input type="radio" name="sbq6" value="c"> C. जल्दी</label><br>
+            <label><input type="radio" name="sbq6" value="d"> D. पुस्तकें</label>
+            <button type="button" onclick="checkShabdBhedAnswer(6,'c')">उत्तर जाँचें</button>
+            <p id="sbf6" class="feedback" aria-live="polite"></p>
+          </div>
+          <div class="quiz-question">
+            <p><strong>प्रश्न 7.</strong> ‘पाँच विद्यार्थी आए।’ वाक्य में ‘पाँच’ क्या है?</p>
+            <label><input type="radio" name="sbq7" value="a"> A. संज्ञा</label><br>
+            <label><input type="radio" name="sbq7" value="b"> B. संख्यावाचक विशेषण</label><br>
+            <label><input type="radio" name="sbq7" value="c"> C. क्रिया</label><br>
+            <label><input type="radio" name="sbq7" value="d"> D. सर्वनाम</label>
+            <button type="button" onclick="checkShabdBhedAnswer(7,'b')">उत्तर जाँचें</button>
+            <p id="sbf7" class="feedback" aria-live="polite"></p>
+          </div>
+          <div class="quiz-question">
+            <p><strong>प्रश्न 8.</strong> ‘बच्चे मैदान में खेल रहे हैं।’ वाक्य में क्रिया कौन-सी है?</p>
+            <label><input type="radio" name="sbq8" value="a"> A. बच्चे</label><br>
+            <label><input type="radio" name="sbq8" value="b"> B. मैदान</label><br>
+            <label><input type="radio" name="sbq8" value="c"> C. में</label><br>
+            <label><input type="radio" name="sbq8" value="d"> D. खेल रहे हैं</label>
+            <button type="button" onclick="checkShabdBhedAnswer(8,'d')">उत्तर जाँचें</button>
+            <p id="sbf8" class="feedback" aria-live="polite"></p>
+          </div>
+        </section>
+
+      </article>
+
+      <article class="card">
+        <h2>5. संज्ञा एवं सर्वनाम</h2>
+        <p>परिभाषाएँ, भेद, उदाहरण और अभ्यास।</p>
+
+<!-- हिंदी व्याकरण: संज्ञा एवं सर्वनाम -->
+<section class="lesson-content" id="sangya-sarvanam" style="margin-top:20px;">
+
+  <h3>संज्ञा एवं सर्वनाम</h3>
+
+  <h3>1. संज्ञा की परिभाषा</h3>
+  <p>
+    किसी व्यक्ति, वस्तु, स्थान, प्राणी, गुण या भाव के नाम को संज्ञा कहते हैं।
+  </p>
+
+  <h3>संज्ञा के प्रमुख भेद</h3>
+
+  <ol>
+    <li><strong>व्यक्तिवाचक संज्ञा:</strong> किसी विशेष व्यक्ति, स्थान या वस्तु का नाम।<br>
+      उदाहरण: राम, राँची, भारत।
+    </li>
+
+    <li><strong>जातिवाचक संज्ञा:</strong> किसी जाति या वर्ग के सामान्य नाम का बोध।<br>
+      उदाहरण: लड़का, नदी, पुस्तक।
+    </li>
+
+    <li><strong>भाववाचक संज्ञा:</strong> गुण, अवस्था या भाव का बोध।<br>
+      उदाहरण: सुंदरता, बचपन, ईमानदारी।
+    </li>
+
+    <li><strong>द्रव्यवाचक संज्ञा:</strong> किसी पदार्थ या द्रव्य का बोध।<br>
+      उदाहरण: पानी, सोना, दूध।
+    </li>
+
+    <li><strong>समूहवाचक संज्ञा:</strong> किसी समूह का बोध।<br>
+      उदाहरण: सेना, झुंड, भीड़।
+    </li>
+  </ol>
+
+  <h3>2. सर्वनाम की परिभाषा</h3>
+  <p>
+    जो शब्द संज्ञा के स्थान पर प्रयोग किए जाते हैं, उन्हें सर्वनाम कहते हैं।
+  </p>
+
+  <h3>सर्वनाम के प्रमुख भेद</h3>
+
+  <ol>
+    <li><strong>पुरुषवाचक:</strong> मैं, हम, तुम, वह।</li>
+    <li><strong>निजवाचक:</strong> स्वयं, खुद।</li>
+    <li><strong>निश्चयवाचक:</strong> यह, वह।</li>
+    <li><strong>अनिश्चयवाचक:</strong> कोई, कुछ।</li>
+    <li><strong>प्रश्नवाचक:</strong> कौन, क्या।</li>
+    <li><strong>संबंधवाचक:</strong> जो, सो; जैसा, वैसा।</li>
+  </ol>
+
+  <h3>अभ्यास प्रश्न (MCQ)</h3>
+
+  <form id="hindiQuiz">
+
+    <p><strong>प्रश्न 1.</strong> 'राम' किस प्रकार की संज्ञा है?</p>
+    <label><input type="radio" name="q1" value="a"> जातिवाचक</label><br>
+    <label><input type="radio" name="q1" value="b"> व्यक्तिवाचक</label><br>
+    <label><input type="radio" name="q1" value="c"> भाववाचक</label><br>
+
+    <p><strong>प्रश्न 2.</strong> 'सुंदरता' किस प्रकार की संज्ञा है?</p>
+    <label><input type="radio" name="q2" value="a"> भाववाचक</label><br>
+    <label><input type="radio" name="q2" value="b"> व्यक्तिवाचक</label><br>
+    <label><input type="radio" name="q2" value="c"> समूहवाचक</label><br>
+
+    <p><strong>प्रश्न 3.</strong> संज्ञा के स्थान पर प्रयुक्त होने वाला शब्द क्या कहलाता है?</p>
+    <label><input type="radio" name="q3" value="a"> विशेषण</label><br>
+    <label><input type="radio" name="q3" value="b"> क्रिया</label><br>
+    <label><input type="radio" name="q3" value="c"> सर्वनाम</label><br>
+
+    <button type="button" onclick="checkHindiQuiz()">
+      उत्तर जाँचें
+    </button>
+
+    <p id="quizResult" aria-live="polite"></p>
+
+  </form>
+
+  <script>
+    function checkHindiQuiz() {
+      const answers = {
+        q1: "b",
+        q2: "a",
+        q3: "c"
+      };
+
+      let score = 0;
+      let attempted = 0;
+
+      for (const question in answers) {
+        const selected = document.querySelector(
+          'input[name="' + question + '"]:checked'
+        );
+
+        if (selected) {
+          attempted++;
+          if (selected.value === answers[question]) {
+            score++;
+          }
+        }
+      }
+
+      const result = document.getElementById("quizResult");
+
+      if (attempted < 3) {
+        result.textContent =
+          "कृपया पहले तीनों प्रश्नों के उत्तर चुनें।";
+        return;
+      }
+
+      result.textContent =
+        "आपका स्कोर: " + score + " / 3";
+    }
+  </script>
+
+</section>
+<!-- पाठ समाप्त -->
+
+
+
+
+      </article>
+
+      <article class="card">
+        <h2>6. लिंग एवं वचन</h2>
+        <p>लिंग और वचन की पहचान तथा परिवर्तन।</p>
+
+<div class="grammar-notes" id="ling-vachan"
+     style="margin-top:16px; padding:14px; background:#f8fafc; border-radius:10px;">
+
+  <h3>1. लिंग की परिभाषा</h3>
+
+  <p>
+    संज्ञा के जिस रूप से किसी व्यक्ति या प्राणी की जाति का बोध होता है,
+    उसे लिंग कहते हैं।
+  </p>
+
+  <h3>लिंग के प्रकार</h3>
+
+  <ol>
+    <li>
+      <strong>पुल्लिंग:</strong> पुरुष जाति का बोध कराने वाले शब्द।
+      <br>उदाहरण: लड़का, राजा, घोड़ा, पिता।
+    </li>
+    <li>
+      <strong>स्त्रीलिंग:</strong> स्त्री जाति का बोध कराने वाले शब्द।
+      <br>उदाहरण: लड़की, रानी, घोड़ी, माता।
+    </li>
+  </ol>
+
+  <h3>लिंग परिवर्तन के उदाहरण</h3>
+
+  <table style="width:100%; border-collapse:collapse;">
+    <thead>
+      <tr style="background:#dbeafe;">
+        <th style="border:1px solid #cbd5e1; padding:8px;">पुल्लिंग</th>
+        <th style="border:1px solid #cbd5e1; padding:8px;">स्त्रीलिंग</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border:1px solid #cbd5e1; padding:8px;">लड़का</td>
+        <td style="border:1px solid #cbd5e1; padding:8px;">लड़की</td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #cbd5e1; padding:8px;">राजा</td>
+        <td style="border:1px solid #cbd5e1; padding:8px;">रानी</td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #cbd5e1; padding:8px;">पुत्र</td>
+        <td style="border:1px solid #cbd5e1; padding:8px;">पुत्री</td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #cbd5e1; padding:8px;">घोड़ा</td>
+        <td style="border:1px solid #cbd5e1; padding:8px;">घोड़ी</td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #cbd5e1; padding:8px;">अध्यापक</td>
+        <td style="border:1px solid #cbd5e1; padding:8px;">अध्यापिका</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>2. वचन की परिभाषा</h3>
+
+  <p>
+    संज्ञा या सर्वनाम के जिस रूप से एक या अनेक का बोध होता है,
+    उसे वचन कहते हैं।
+  </p>
+
+  <h3>वचन के प्रकार</h3>
+
+  <ol>
+    <li>
+      <strong>एकवचन:</strong> जिससे एक व्यक्ति या वस्तु का बोध हो।
+      <br>उदाहरण: बच्चा, पुस्तक, नदी।
+    </li>
+    <li>
+      <strong>बहुवचन:</strong> जिससे एक से अधिक व्यक्तियों या वस्तुओं का बोध हो।
+      <br>उदाहरण: बच्चे, पुस्तकें, नदियाँ।
+    </li>
+  </ol>
+
+  <h3>वचन परिवर्तन के उदाहरण</h3>
+
+  <table style="width:100%; border-collapse:collapse;">
+    <thead>
+      <tr style="background:#dbeafe;">
+        <th style="border:1px solid #cbd5e1; padding:8px;">एकवचन</th>
+        <th style="border:1px solid #cbd5e1; padding:8px;">बहुवचन</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border:1px solid #cbd5e1; padding:8px;">लड़का</td>
+        <td style="border:1px solid #cbd5e1; padding:8px;">लड़के</td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #cbd5e1; padding:8px;">लड़की</td>
+        <td style="border:1px solid #cbd5e1; padding:8px;">लड़कियाँ</td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #cbd5e1; padding:8px;">पुस्तक</td>
+        <td style="border:1px solid #cbd5e1; padding:8px;">पुस्तकें</td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #cbd5e1; padding:8px;">नदी</td>
+        <td style="border:1px solid #cbd5e1; padding:8px;">नदियाँ</td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #cbd5e1; padding:8px;">वस्तु</td>
+        <td style="border:1px solid #cbd5e1; padding:8px;">वस्तुएँ</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>अभ्यास प्रश्न (MCQ)</h3>
+
+  <form class="lingQuiz">
+
+    <p><strong>प्रश्न 1.</strong> 'रानी' कौन-सा लिंग है?</p>
+    <label><input type="radio" name="lingq1" value="a"> पुल्लिंग</label><br>
+    <label><input type="radio" name="lingq1" value="b"> स्त्रीलिंग</label><br>
+    <label><input type="radio" name="lingq1" value="c"> दोनों</label><br>
+
+    <p><strong>प्रश्न 2.</strong> 'पुस्तकें' कौन-सा वचन है?</p>
+    <label><input type="radio" name="lingq2" value="a"> एकवचन</label><br>
+    <label><input type="radio" name="lingq2" value="b"> बहुवचन</label><br>
+    <label><input type="radio" name="lingq2" value="c"> इनमें से कोई नहीं</label><br>
+
+    <p><strong>प्रश्न 3.</strong> 'घोड़ा' का स्त्रीलिंग क्या है?</p>
+    <label><input type="radio" name="lingq3" value="a"> घोड़ी</label><br>
+    <label><input type="radio" name="lingq3" value="b"> घोड़े</label><br>
+    <label><input type="radio" name="lingq3" value="c"> घोड़ियाँ</label><br>
+
+    <button type="button" onclick="checkLingQuiz(this)">
+      उत्तर जाँचें
+    </button>
+
+    <p class="lingResult" aria-live="polite"></p>
+
+  </form>
+
+  <script>
+    function checkLingQuiz(button) {
+      const form = button.closest("form");
+      const answers = {
+        lingq1: "b",
+        lingq2: "b",
+        lingq3: "a"
+      };
+
+      let score = 0;
+      let attempted = 0;
+
+      for (const question in answers) {
+        const selected = form.querySelector(
+          'input[name="' + question + '"]:checked'
+        );
+
+        if (selected) {
+          attempted++;
+          if (selected.value === answers[question]) {
+            score++;
+          }
+        }
+      }
+
+      const result = form.querySelector(".lingResult");
+
+      if (attempted < 3) {
+        result.textContent = "पहले तीनों प्रश्नों के उत्तर चुनें।";
+      } else {
+        result.textContent = "आपका स्कोर: " + score + " / 3";
+      }
+    }
+  </script>
+
+</div>
+
+      </article>
+
+      <article class="card">
+        <h2>7. विशेषण एवं क्रिया</h2>
+        <p>विशेषण और क्रिया के प्रयोग को समझें।</p>
+      
+<!-- विशेषण एवं क्रिया: अध्ययन सामग्री -->
+<section class="lesson-content" id="visheshan-kriya">
+  <h3>विशेषण एवं क्रिया</h3>
+
+  <h4>1. विशेषण (Adjective)</h4>
+  <p>
+    जो शब्द संज्ञा या सर्वनाम की विशेषता बताते हैं, उन्हें
+    <strong>विशेषण</strong> कहते हैं।
+  </p>
+
+  <p><strong>उदाहरण:</strong> सुंदर फूल, पाँच विद्यार्थी, थोड़ा पानी।</p>
+
+  <h4>विशेषण के प्रमुख भेद</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>भेद</th>
+        <th>अर्थ</th>
+        <th>उदाहरण</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>गुणवाचक</td>
+        <td>गुण, रंग या आकार बताए</td>
+        <td>सुंदर फूल, लाल कपड़ा</td>
+      </tr>
+      <tr>
+        <td>संख्यावाचक</td>
+        <td>संख्या या क्रम बताए</td>
+        <td>चार लड़के, पहला स्थान</td>
+      </tr>
+      <tr>
+        <td>परिमाणवाचक</td>
+        <td>मात्रा बताए</td>
+        <td>थोड़ा पानी, अधिक दूध</td>
+      </tr>
+      <tr>
+        <td>सार्वनामिक</td>
+        <td>सर्वनाम से बना विशेषण</td>
+        <td>यह पुस्तक, वह लड़का</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>2. क्रिया (Verb)</h4>
+  <p>
+    जिस शब्द से किसी कार्य के करने, होने या अवस्था का बोध हो,
+    उसे <strong>क्रिया</strong> कहते हैं।
+  </p>
+
+  <p><strong>उदाहरण:</strong> राम पढ़ता है। बच्चा सो रहा है। पक्षी उड़ते हैं।</p>
+
+  <h4>क्रिया के प्रमुख भेद</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>भेद</th>
+        <th>अर्थ</th>
+        <th>उदाहरण</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>सकर्मक क्रिया</td>
+        <td>जिस क्रिया का प्रभाव कर्म पर पड़े</td>
+        <td>सीमा पुस्तक पढ़ती है।</td>
+      </tr>
+      <tr>
+        <td>अकर्मक क्रिया</td>
+        <td>जिसमें कर्म की आवश्यकता नहीं होती</td>
+        <td>बच्चा सोता है।</td>
+      </tr>
+      <tr>
+        <td>मुख्य क्रिया</td>
+        <td>वाक्य की मुख्य क्रिया</td>
+        <td>वह खेलता है।</td>
+      </tr>
+      <tr>
+        <td>सहायक क्रिया</td>
+        <td>मुख्य क्रिया की सहायता करे</td>
+        <td>वह पढ़ रहा है।</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>3. अभ्यास प्रश्न (MCQ)</h4>
+
+  <div class="quiz-question" data-answer="b">
+    <p><strong>प्रश्न 1.</strong> “मीठा आम” में विशेषण कौन-सा है?</p>
+    <label><input type="radio" name="vkq1" value="a"> आम</label><br>
+    <label><input type="radio" name="vkq1" value="b"> मीठा</label><br>
+    <label><input type="radio" name="vkq1" value="c"> में</label><br>
+    <button type="button" onclick="checkVKAnswer('vkq1','b','vkf1')">उत्तर जाँचें</button>
+    <p id="vkf1" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question" data-answer="a">
+    <p><strong>प्रश्न 2.</strong> “मोहन दौड़ता है।” वाक्य में क्रिया कौन-सी है?</p>
+    <label><input type="radio" name="vkq2" value="a"> दौड़ता है</label><br>
+    <label><input type="radio" name="vkq2" value="b"> मोहन</label><br>
+    <label><input type="radio" name="vkq2" value="c"> कोई नहीं</label><br>
+    <button type="button" onclick="checkVKAnswer('vkq2','a','vkf2')">उत्तर जाँचें</button>
+    <p id="vkf2" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question" data-answer="c">
+    <p><strong>प्रश्न 3.</strong> “बच्चा सोता है।” में क्रिया किस प्रकार की है?</p>
+    <label><input type="radio" name="vkq3" value="a"> सकर्मक</label><br>
+    <label><input type="radio" name="vkq3" value="b"> सहायक</label><br>
+    <label><input type="radio" name="vkq3" value="c"> अकर्मक</label><br>
+    <button type="button" onclick="checkVKAnswer('vkq3','c','vkf3')">उत्तर जाँचें</button>
+    <p id="vkf3" aria-live="polite"></p>
+  </div>
+</section>
+
+<script>
+function checkVKAnswer(questionName, correctAnswer, feedbackId) {
+  const selected = document.querySelector(
+    'input[name="' + questionName + '"]:checked'
+  );
+  const feedback = document.getElementById(feedbackId);
+
+  if (!selected) {
+    feedback.textContent = "कृपया पहले एक उत्तर चुनें।";
+    return;
+  }
+
+  if (selected.value === correctAnswer) {
+    feedback.textContent = "सही उत्तर! बहुत अच्छा।";
+  } else {
+    feedback.textContent = "उत्तर सही नहीं है। दोबारा प्रयास करें।";
+  }
+}
+</script>
+<!-- विशेषण एवं क्रिया सामग्री समाप्त -->
+
+
+</article>
+
+      <article class="card">
+        <h2>8. कारक एवं काल</h2>
+        <p>कारक-चिह्न और काल के प्रकार।</p>
+
+
+<!-- कारक एवं काल: अध्ययन सामग्री -->
+<section class="lesson-content" id="karak-kaal">
+  <h3>कारक एवं काल</h3>
+
+  <h4>1. कारक (Case)</h4>
+  <p>
+    संज्ञा या सर्वनाम का वाक्य के अन्य शब्दों, विशेषकर क्रिया, के साथ
+    जो संबंध होता है, उसे कारक कहते हैं।
+  </p>
+
+  <h4>कारक के आठ भेद</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>कारक</th>
+        <th>कारक-चिह्न</th>
+        <th>उदाहरण</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>कर्ता</td>
+        <td>ने (कई वाक्यों में चिह्न नहीं)</td>
+        <td>राम ने खाना खाया।</td>
+      </tr>
+      <tr>
+        <td>कर्म</td>
+        <td>को (कई वाक्यों में चिह्न नहीं)</td>
+        <td>सीमा ने मोहन को बुलाया।</td>
+      </tr>
+      <tr>
+        <td>करण</td>
+        <td>से, के द्वारा</td>
+        <td>वह कलम से लिखता है।</td>
+      </tr>
+      <tr>
+        <td>संप्रदान</td>
+        <td>के लिए, को</td>
+        <td>माँ ने बच्चे के लिए खाना बनाया।</td>
+      </tr>
+      <tr>
+        <td>अपादान</td>
+        <td>से (अलग होने का भाव)</td>
+        <td>पेड़ से पत्ता गिरा।</td>
+      </tr>
+      <tr>
+        <td>संबंध</td>
+        <td>का, के, की</td>
+        <td>यह राम की पुस्तक है।</td>
+      </tr>
+      <tr>
+        <td>अधिकरण</td>
+        <td>में, पर</td>
+        <td>किताब मेज पर है।</td>
+      </tr>
+      <tr>
+        <td>संबोधन</td>
+        <td>हे!, अरे!, ओ!</td>
+        <td>हे मित्र! मेरी बात सुनो।</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>याद रखने का क्रम:</strong> कर्ता, कर्म, करण, संप्रदान, अपादान, संबंध, अधिकरण और संबोधन।</p>
+
+  <h4>2. काल (Tense)</h4>
+  <p>
+    क्रिया के जिस रूप से कार्य के होने के समय का बोध होता है,
+    उसे काल कहते हैं।
+  </p>
+
+  <h4>काल के तीन मुख्य भेद</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>काल</th>
+        <th>अर्थ</th>
+        <th>उदाहरण</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>वर्तमान काल</td>
+        <td>कार्य अभी हो रहा है या वर्तमान से संबंधित है</td>
+        <td>राम पढ़ता है।</td>
+      </tr>
+      <tr>
+        <td>भूतकाल</td>
+        <td>कार्य पहले हो चुका है या पहले हुआ था</td>
+        <td>राम ने पढ़ा।</td>
+      </tr>
+      <tr>
+        <td>भविष्यत् काल</td>
+        <td>कार्य आगे होगा</td>
+        <td>राम पढ़ेगा।</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>काल पहचानने के उदाहरण</h4>
+  <ul>
+    <li>सीमा गाना गाती है। — वर्तमान काल</li>
+    <li>सीमा ने गाना गाया। — भूतकाल</li>
+    <li>सीमा गाना गाएगी। — भविष्यत् काल</li>
+  </ul>
+
+  <h4>3. अभ्यास प्रश्न (MCQ)</h4>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 1.</strong> “राम ने पत्र लिखा।” में “ने” किस कारक का चिह्न है?</p>
+    <label><input type="radio" name="kkq1" value="a"> कर्म कारक</label><br>
+    <label><input type="radio" name="kkq1" value="b"> कर्ता कारक</label><br>
+    <label><input type="radio" name="kkq1" value="c"> संबंध कारक</label><br>
+    <button type="button" onclick="checkKKAnswer('kkq1','b','kkf1')">उत्तर जाँचें</button>
+    <p id="kkf1" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 2.</strong> “बच्चा गेंद से खेलता है।” में “से” किस कारक का चिह्न है?</p>
+    <label><input type="radio" name="kkq2" value="a"> करण कारक</label><br>
+    <label><input type="radio" name="kkq2" value="b"> संबंध कारक</label><br>
+    <label><input type="radio" name="kkq2" value="c"> संबोधन कारक</label><br>
+    <button type="button" onclick="checkKKAnswer('kkq2','a','kkf2')">उत्तर जाँचें</button>
+    <p id="kkf2" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 3.</strong> “मैं कल पटना जाऊँगा।” वाक्य किस काल में है?</p>
+    <label><input type="radio" name="kkq3" value="a"> वर्तमान काल</label><br>
+    <label><input type="radio" name="kkq3" value="b"> भूतकाल</label><br>
+    <label><input type="radio" name="kkq3" value="c"> भविष्यत् काल</label><br>
+    <button type="button" onclick="checkKKAnswer('kkq3','c','kkf3')">उत्तर जाँचें</button>
+    <p id="kkf3" aria-live="polite"></p>
+  </div>
+</section>
+
+<script>
+function checkKKAnswer(questionName, correctAnswer, feedbackId) {
+  const selected = document.querySelector(
+    'input[name="' + questionName + '"]:checked'
+  );
+  const feedback = document.getElementById(feedbackId);
+
+  if (!selected) {
+    feedback.textContent = "कृपया पहले एक उत्तर चुनें।";
+    return;
+  }
+
+  if (selected.value === correctAnswer) {
+    feedback.textContent = "सही उत्तर! बहुत अच्छा।";
+  } else {
+    feedback.textContent = "उत्तर सही नहीं है। फिर से प्रयास करें।";
+  }
+}
+</script>
+<!-- कारक एवं काल सामग्री समाप्त -->
+      </article>
+
+      <article class="card">
+        <h2>9. वाक्य-रचना</h2>
+        <p>वाक्य के अंग और सही वाक्य-निर्माण।</p>
+
+<!-- वाक्य-रचना एवं वाक्य-शुद्धि -->
+<section class="lesson-content" id="vakya-rachna-shuddhi">
+  <h3>वाक्य-रचना एवं वाक्य-शुद्धि</h3>
+
+  <h4>1. वाक्य की परिभाषा</h4>
+  <p>
+    शब्दों का ऐसा व्यवस्थित समूह, जिससे पूर्ण अर्थ प्रकट हो,
+    वाक्य कहलाता है।
+  </p>
+
+  <p><strong>उदाहरण:</strong> विद्यार्थी पुस्तक पढ़ता है।</p>
+
+  <h4>2. वाक्य के प्रमुख अंग</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>अंग</th>
+        <th>अर्थ</th>
+        <th>उदाहरण</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>उद्देश्य</td>
+        <td>जिसके बारे में वाक्य में कुछ कहा जाए</td>
+        <td>राम खेलता है। — राम</td>
+      </tr>
+      <tr>
+        <td>विधेय</td>
+        <td>उद्देश्य के बारे में जो कहा जाए</td>
+        <td>राम खेलता है। — खेलता है</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>3. रचना के आधार पर वाक्य के भेद</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>वाक्य का प्रकार</th>
+        <th>परिभाषा</th>
+        <th>उदाहरण</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>सरल वाक्य</td>
+        <td>जिसमें एक मुख्य उपवाक्य हो</td>
+        <td>मोहन विद्यालय जाता है।</td>
+      </tr>
+      <tr>
+        <td>संयुक्त वाक्य</td>
+        <td>दो या अधिक स्वतंत्र उपवाक्य संयोजक से जुड़े हों</td>
+        <td>मोहन पढ़ता है और सोहन खेलता है।</td>
+      </tr>
+      <tr>
+        <td>मिश्र वाक्य</td>
+        <td>एक प्रधान उपवाक्य और एक या अधिक आश्रित उपवाक्य हों</td>
+        <td>जो विद्यार्थी मेहनत करता है, वह सफल होता है।</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>4. अर्थ के आधार पर वाक्य के प्रमुख प्रकार</h4>
+  <ul>
+    <li><strong>विधानवाचक:</strong> आज मौसम अच्छा है।</li>
+    <li><strong>निषेधवाचक:</strong> वह आज नहीं आएगा।</li>
+    <li><strong>प्रश्नवाचक:</strong> तुम कहाँ जा रहे हो?</li>
+    <li><strong>आज्ञावाचक:</strong> कृपया बैठ जाइए।</li>
+    <li><strong>इच्छावाचक:</strong> ईश्वर तुम्हें सफल करे।</li>
+    <li><strong>विस्मयादिबोधक:</strong> वाह! कितना सुंदर दृश्य है!</li>
+    <li><strong>संदेहवाचक:</strong> शायद आज वर्षा हो।</li>
+  </ul>
+
+  <h4>5. वाक्य-शुद्धि</h4>
+  <p>
+    वाक्य-शुद्धि में व्याकरण, लिंग, वचन, कारक, क्रिया तथा शब्दों के
+    उचित प्रयोग से संबंधित त्रुटियों को ठीक किया जाता है।
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>अशुद्ध वाक्य</th>
+        <th>शुद्ध वाक्य</th>
+        <th>कारण</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>सीता बाजार गया।</td>
+        <td>सीता बाजार गई।</td>
+        <td>लिंग संबंधी त्रुटि</td>
+      </tr>
+      <tr>
+        <td>लड़कियाँ खेल रहा हैं।</td>
+        <td>लड़कियाँ खेल रही हैं।</td>
+        <td>लिंग-वचन के अनुसार क्रिया</td>
+      </tr>
+      <tr>
+        <td>मेरे को पानी चाहिए।</td>
+        <td>मुझे पानी चाहिए।</td>
+        <td>मानक भाषा-प्रयोग</td>
+      </tr>
+      <tr>
+        <td>वह वापस लौट आया।</td>
+        <td>वह लौट आया।</td>
+        <td>अनावश्यक शब्द का प्रयोग</td>
+      </tr>
+      <tr>
+        <td>राम और श्याम बाजार गया।</td>
+        <td>राम और श्याम बाजार गए।</td>
+        <td>कर्ता के वचन के अनुसार क्रिया</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>6. अभ्यास प्रश्न (MCQ)</h4>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 1.</strong> “जो मेहनत करता है, वह सफल होता है।” रचना के आधार पर यह कौन-सा वाक्य है?</p>
+    <label><input type="radio" name="vrsq1" value="a"> सरल वाक्य</label><br>
+    <label><input type="radio" name="vrsq1" value="b"> संयुक्त वाक्य</label><br>
+    <label><input type="radio" name="vrsq1" value="c"> मिश्र वाक्य</label><br>
+    <button type="button" onclick="checkVRSAnswer('vrsq1','c','vrsf1')">उत्तर जाँचें</button>
+    <p id="vrsf1" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 2.</strong> इनमें से शुद्ध वाक्य कौन-सा है?</p>
+    <label><input type="radio" name="vrsq2" value="a"> सीता बाजार गया।</label><br>
+    <label><input type="radio" name="vrsq2" value="b"> सीता बाजार गई।</label><br>
+    <label><input type="radio" name="vrsq2" value="c"> सीता बाजार गए।</label><br>
+    <button type="button" onclick="checkVRSAnswer('vrsq2','b','vrsf2')">उत्तर जाँचें</button>
+    <p id="vrsf2" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 3.</strong> “तुम कहाँ जा रहे हो?” अर्थ के आधार पर कौन-सा वाक्य है?</p>
+    <label><input type="radio" name="vrsq3" value="a"> प्रश्नवाचक</label><br>
+    <label><input type="radio" name="vrsq3" value="b"> इच्छावाचक</label><br>
+    <label><input type="radio" name="vrsq3" value="c"> निषेधवाचक</label><br>
+    <button type="button" onclick="checkVRSAnswer('vrsq3','a','vrsf3')">उत्तर जाँचें</button>
+    <p id="vrsf3" aria-live="polite"></p>
+  </div>
+</section>
+
+<script>
+function checkVRSAnswer(questionName, correctAnswer, feedbackId) {
+  const selected = document.querySelector(
+    'input[name="' + questionName + '"]:checked'
+  );
+  const feedback = document.getElementById(feedbackId);
+
+  if (!selected) {
+    feedback.textContent = "कृपया पहले एक उत्तर चुनें।";
+    return;
+  }
+
+  if (selected.value === correctAnswer) {
+    feedback.textContent = "सही उत्तर! बहुत अच्छा।";
+  } else {
+    feedback.textContent = "उत्तर सही नहीं है। दोबारा प्रयास करें।";
+  }
+}
+</script>
+<!-- वाक्य-रचना एवं वाक्य-शुद्धि समाप्त -->
+      </article>
+
+      <article class="card">
+        <h2>10. संधि एवं समास</h2>
+        <p>प्रकार, पहचान और उदाहरण।</p>
+
+
+<!-- संधि एवं समास: अध्ययन सामग्री -->
+<section class="lesson-content" id="sandhi-samas">
+  <h3>संधि एवं समास</h3>
+
+  <h4>1. संधि (Sandhi)</h4>
+  <p>
+    दो वर्णों के पास-पास आने पर उनमें होने वाले ध्वनि-संबंधी परिवर्तन
+    को संधि कहते हैं।
+  </p>
+
+  <h4>संधि के प्रमुख भेद</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>भेद</th>
+        <th>अर्थ</th>
+        <th>उदाहरण</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>स्वर संधि</td>
+        <td>स्वरों के मेल से होने वाला परिवर्तन</td>
+        <td>विद्या + आलय = विद्यालय</td>
+      </tr>
+      <tr>
+        <td>व्यंजन संधि</td>
+        <td>व्यंजन के मेल से होने वाला परिवर्तन</td>
+        <td>सत् + जन = सज्जन</td>
+      </tr>
+      <tr>
+        <td>विसर्ग संधि</td>
+        <td>विसर्ग (ः) के कारण होने वाला परिवर्तन</td>
+        <td>मनः + हर = मनोहर</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>स्वर संधि के प्रमुख प्रकार</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>प्रकार</th>
+        <th>उदाहरण</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>दीर्घ संधि</td>
+        <td>विद्या + आलय = विद्यालय</td>
+      </tr>
+      <tr>
+        <td>गुण संधि</td>
+        <td>नर + इन्द्र = नरेन्द्र</td>
+      </tr>
+      <tr>
+        <td>वृद्धि संधि</td>
+        <td>सदा + एव = सदैव</td>
+      </tr>
+      <tr>
+        <td>यण संधि</td>
+        <td>इति + आदि = इत्यादि</td>
+      </tr>
+      <tr>
+        <td>अयादि संधि</td>
+        <td>ने + अन = नयन</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>2. समास (Compound)</h4>
+  <p>
+    दो या दो से अधिक शब्दों के मेल से संक्षिप्त शब्द बनाने की प्रक्रिया
+    को समास कहते हैं। समास में बने शब्द को समस्त पद तथा उसका विस्तार
+    समास-विग्रह कहलाता है।
+  </p>
+
+  <h4>समास के प्रमुख भेद</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>समास</th>
+        <th>पहचान</th>
+        <th>उदाहरण एवं विग्रह</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>अव्ययीभाव</td>
+        <td>पहला पद प्रायः अव्यय प्रधान होता है</td>
+        <td>प्रतिदिन = प्रत्येक दिन</td>
+      </tr>
+      <tr>
+        <td>तत्पुरुष</td>
+        <td>उत्तरपद प्रधान; कारक-चिह्न का लोप</td>
+        <td>राजपुत्र = राजा का पुत्र</td>
+      </tr>
+      <tr>
+        <td>कर्मधारय</td>
+        <td>विशेषण-विशेष्य या उपमान-उपमेय का संबंध</td>
+        <td>नीलकमल = नीला है जो कमल</td>
+      </tr>
+      <tr>
+        <td>द्विगु</td>
+        <td>पहला पद संख्यावाचक होता है</td>
+        <td>नवरत्न = नौ रत्नों का समूह</td>
+      </tr>
+      <tr>
+        <td>द्वंद्व</td>
+        <td>दोनों पद समान रूप से प्रधान</td>
+        <td>माता-पिता = माता और पिता</td>
+      </tr>
+      <tr>
+        <td>बहुव्रीहि</td>
+        <td>समस्त पद किसी अन्य व्यक्ति या वस्तु का बोध कराए</td>
+        <td>दशानन = दस मुख हैं जिसके (रावण)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>3. संधि और समास में अंतर</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>आधार</th>
+        <th>संधि</th>
+        <th>समास</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>मुख्य आधार</td>
+        <td>वर्णों या ध्वनियों में परिवर्तन</td>
+        <td>शब्दों का संक्षिप्त मेल</td>
+      </tr>
+      <tr>
+        <td>विच्छेद</td>
+        <td>संधि-विच्छेद</td>
+        <td>समास-विग्रह</td>
+      </tr>
+      <tr>
+        <td>उदाहरण</td>
+        <td>महा + ईश = महेश</td>
+        <td>राजपुत्र = राजा का पुत्र</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>4. अभ्यास प्रश्न (MCQ)</h4>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 1.</strong> “विद्यालय” का सही संधि-विच्छेद क्या है?</p>
+    <label><input type="radio" name="ssq1" value="a"> विद्या + आलय</label><br>
+    <label><input type="radio" name="ssq1" value="b"> विद् + यालय</label><br>
+    <label><input type="radio" name="ssq1" value="c"> विद्या + लय</label><br>
+    <button type="button" onclick="checkSSAnswer('ssq1','a','ssf1')">उत्तर जाँचें</button>
+    <p id="ssf1" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 2.</strong> “सदैव” में कौन-सी संधि है?</p>
+    <label><input type="radio" name="ssq2" value="a"> दीर्घ संधि</label><br>
+    <label><input type="radio" name="ssq2" value="b"> वृद्धि संधि</label><br>
+    <label><input type="radio" name="ssq2" value="c"> व्यंजन संधि</label><br>
+    <button type="button" onclick="checkSSAnswer('ssq2','b','ssf2')">उत्तर जाँचें</button>
+    <p id="ssf2" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 3.</strong> “माता-पिता” में कौन-सा समास है?</p>
+    <label><input type="radio" name="ssq3" value="a"> द्वंद्व</label><br>
+    <label><input type="radio" name="ssq3" value="b"> तत्पुरुष</label><br>
+    <label><input type="radio" name="ssq3" value="c"> बहुव्रीहि</label><br>
+    <button type="button" onclick="checkSSAnswer('ssq3','a','ssf3')">उत्तर जाँचें</button>
+    <p id="ssf3" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 4.</strong> “राजपुत्र” का सही समास-विग्रह क्या है?</p>
+    <label><input type="radio" name="ssq4" value="a"> राजा और पुत्र</label><br>
+    <label><input type="radio" name="ssq4" value="b"> राजा का पुत्र</label><br>
+    <label><input type="radio" name="ssq4" value="c"> पुत्र जैसा राजा</label><br>
+    <button type="button" onclick="checkSSAnswer('ssq4','b','ssf4')">उत्तर जाँचें</button>
+    <p id="ssf4" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 5.</strong> “दशानन” किस समास का उदाहरण है?</p>
+    <label><input type="radio" name="ssq5" value="a"> द्विगु</label><br>
+    <label><input type="radio" name="ssq5" value="b"> कर्मधारय</label><br>
+    <label><input type="radio" name="ssq5" value="c"> बहुव्रीहि</label><br>
+    <button type="button" onclick="checkSSAnswer('ssq5','c','ssf5')">उत्तर जाँचें</button>
+    <p id="ssf5" aria-live="polite"></p>
+  </div>
+</section>
+
+<script>
+function checkSSAnswer(questionName, correctAnswer, feedbackId) {
+  const selected = document.querySelector(
+    'input[name="' + questionName + '"]:checked'
+  );
+  const feedback = document.getElementById(feedbackId);
+
+  if (!selected) {
+    feedback.textContent = "कृपया पहले एक उत्तर चुनें।";
+    return;
+  }
+
+  if (selected.value === correctAnswer) {
+    feedback.textContent = "सही उत्तर! बहुत अच्छा।";
+  } else {
+    feedback.textContent = "उत्तर सही नहीं है। दोबारा प्रयास करें।";
+  }
+}
+</script>
+<!-- संधि एवं समास सामग्री समाप्त -->
+
+
+      </article>
+
+      <article class="card">
+        <h2>11. उपसर्ग एवं प्रत्यय</h2>
+        <p>शब्द-निर्माण और उनके उदाहरण।</p>
+
+<!-- उपसर्ग एवं प्रत्यय: अध्ययन सामग्री -->
+<section class="lesson-content" id="upsarg-pratyay">
+  <h3>उपसर्ग एवं प्रत्यय</h3>
+
+  <h4>1. उपसर्ग (Prefix)</h4>
+  <p>
+    जो शब्दांश किसी मूल शब्द के पहले जुड़कर उसके अर्थ में परिवर्तन
+    या विशेषता उत्पन्न करता है, उसे उपसर्ग कहते हैं।
+  </p>
+
+  <p><strong>उदाहरण:</strong> अ + सत्य = असत्य, प्र + हार = प्रहार।</p>
+
+  <h4>प्रमुख उपसर्ग एवं उदाहरण</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>उपसर्ग</th>
+        <th>मूल शब्द</th>
+        <th>नया शब्द</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>अ</td><td>सत्य</td><td>असत्य</td></tr>
+      <tr><td>अन</td><td>पढ़</td><td>अनपढ़</td></tr>
+      <tr><td>सु</td><td>पुत्र</td><td>सुपुत्र</td></tr>
+      <tr><td>दुर्</td><td>भाग्य</td><td>दुर्भाग्य</td></tr>
+      <tr><td>प्र</td><td>हार</td><td>प्रहार</td></tr>
+      <tr><td>उप</td><td>कार</td><td>उपकार</td></tr>
+      <tr><td>प्रति</td><td>दिन</td><td>प्रतिदिन</td></tr>
+      <tr><td>निर्</td><td>दोष</td><td>निर्दोष</td></tr>
+      <tr><td>बे</td><td>ईमान</td><td>बेईमान</td></tr>
+      <tr><td>बद</td><td>नाम</td><td>बदनाम</td></tr>
+    </tbody>
+  </table>
+
+  <h4>2. प्रत्यय (Suffix)</h4>
+  <p>
+    जो शब्दांश किसी मूल शब्द या शब्द-रूप के अंत में जुड़कर नया शब्द
+    बनाता है, उसे प्रत्यय कहते हैं।
+  </p>
+
+  <p><strong>उदाहरण:</strong> सुंदर + ता = सुंदरता, अपना + पन = अपनापन।</p>
+
+  <h4>प्रत्यय के प्रमुख भेद</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>भेद</th>
+        <th>अर्थ</th>
+        <th>उदाहरण</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>कृत प्रत्यय</td>
+        <td>धातु के अंत में जुड़कर शब्द बनाए</td>
+        <td>लिख् + अक = लेखक</td>
+      </tr>
+      <tr>
+        <td>तद्धित प्रत्यय</td>
+        <td>संज्ञा, सर्वनाम या विशेषण जैसे शब्दों के आधार पर नया शब्द बनाए</td>
+        <td>सुंदर + ता = सुंदरता</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>कुछ सामान्य प्रत्यय एवं उदाहरण</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>प्रत्यय</th>
+        <th>मूल शब्द</th>
+        <th>नया शब्द</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>ता</td><td>सुंदर</td><td>सुंदरता</td></tr>
+      <tr><td>पन</td><td>बच्चा</td><td>बचपन</td></tr>
+      <tr><td>ई</td><td>गरीब</td><td>गरीबी</td></tr>
+      <tr><td>कार</td><td>कला</td><td>कलाकार</td></tr>
+      <tr><td>वान</td><td>धन</td><td>धनवान</td></tr>
+      <tr><td>मय</td><td>आनंद</td><td>आनंदमय</td></tr>
+    </tbody>
+  </table>
+
+  <h4>3. उपसर्ग एवं प्रत्यय में अंतर</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>आधार</th>
+        <th>उपसर्ग</th>
+        <th>प्रत्यय</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>स्थान</td>
+        <td>मूल शब्द के पहले जुड़ता है</td>
+        <td>मूल शब्द के अंत में जुड़ता है</td>
+      </tr>
+      <tr>
+        <td>उदाहरण</td>
+        <td>अ + सत्य = असत्य</td>
+        <td>सुंदर + ता = सुंदरता</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>4. अभ्यास प्रश्न (MCQ)</h4>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 1.</strong> “असत्य” शब्द में उपसर्ग कौन-सा है?</p>
+    <label><input type="radio" name="upq1" value="a"> सत्य</label><br>
+    <label><input type="radio" name="upq1" value="b"> अ</label><br>
+    <label><input type="radio" name="upq1" value="c"> त्य</label><br>
+    <button type="button" onclick="checkUPAnswer('upq1','b','upf1')">उत्तर जाँचें</button>
+    <p id="upf1" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 2.</strong> “सुंदरता” शब्द में प्रत्यय कौन-सा है?</p>
+    <label><input type="radio" name="upq2" value="a"> सुंदर</label><br>
+    <label><input type="radio" name="upq2" value="b"> सु</label><br>
+    <label><input type="radio" name="upq2" value="c"> ता</label><br>
+    <button type="button" onclick="checkUPAnswer('upq2','c','upf2')">उत्तर जाँचें</button>
+    <p id="upf2" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 3.</strong> “लेखक” शब्द में “अक” किस प्रकार का प्रत्यय है?</p>
+    <label><input type="radio" name="upq3" value="a"> कृत प्रत्यय</label><br>
+    <label><input type="radio" name="upq3" value="b"> तद्धित प्रत्यय</label><br>
+    <label><input type="radio" name="upq3" value="c"> उपसर्ग</label><br>
+    <button type="button" onclick="checkUPAnswer('upq3','a','upf3')">उत्तर जाँचें</button>
+    <p id="upf3" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 4.</strong> “प्रतिदिन” शब्द में उपसर्ग कौन-सा है?</p>
+    <label><input type="radio" name="upq4" value="a"> दिन</label><br>
+    <label><input type="radio" name="upq4" value="b"> प्रति</label><br>
+    <label><input type="radio" name="upq4" value="c"> ति</label><br>
+    <button type="button" onclick="checkUPAnswer('upq4','b','upf4')">उत्तर जाँचें</button>
+    <p id="upf4" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 5.</strong> “बचपन” शब्द में प्रत्यय कौन-सा है?</p>
+    <label><input type="radio" name="upq5" value="a"> बच</label><br>
+    <label><input type="radio" name="upq5" value="b"> चपन</label><br>
+    <label><input type="radio" name="upq5" value="c"> पन</label><br>
+    <button type="button" onclick="checkUPAnswer('upq5','c','upf5')">उत्तर जाँचें</button>
+    <p id="upf5" aria-live="polite"></p>
+  </div>
+</section>
+
+<script>
+function checkUPAnswer(questionName, correctAnswer, feedbackId) {
+  const selected = document.querySelector(
+    'input[name="' + questionName + '"]:checked'
+  );
+  const feedback = document.getElementById(feedbackId);
+
+  if (!selected) {
+    feedback.textContent = "कृपया पहले एक उत्तर चुनें।";
+    return;
+  }
+
+  if (selected.value === correctAnswer) {
+    feedback.textContent = "सही उत्तर! बहुत अच्छा।";
+  } else {
+    feedback.textContent = "उत्तर सही नहीं है। दोबारा प्रयास करें।";
+  }
+}
+</script>
+<!-- उपसर्ग एवं प्रत्यय सामग्री समाप्त -->
+
+
+      </article>
+
+      <article class="card">
+        <h2>12. पर्यायवाची एवं विपरीतार्थक</h2>
+        <p>समानार्थी और विपरीत अर्थ वाले शब्द।</p>
+
+<!-- पर्यायवाची एवं विपरीतार्थक शब्द -->
+<section class="lesson-content" id="paryayvachi-vilom">
+  <h3>पर्यायवाची एवं विपरीतार्थक शब्द</h3>
+
+  <h4>1. पर्यायवाची शब्द (Synonyms)</h4>
+  <p>
+    समान या लगभग समान अर्थ प्रकट करने वाले शब्दों को
+    <strong>पर्यायवाची शब्द</strong> कहते हैं।
+  </p>
+
+  <h4>महत्त्वपूर्ण पर्यायवाची शब्द</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>शब्द</th>
+        <th>पर्यायवाची शब्द</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>सूर्य</td>
+        <td>रवि, भानु, आदित्य, दिनकर</td>
+      </tr>
+      <tr>
+        <td>चंद्रमा</td>
+        <td>चंद्र, शशि, इंदु, निशाकर</td>
+      </tr>
+      <tr>
+        <td>पृथ्वी</td>
+        <td>धरती, धरा, वसुंधरा, भूमि</td>
+      </tr>
+      <tr>
+        <td>जल</td>
+        <td>नीर, पानी, तोय, वारि</td>
+      </tr>
+      <tr>
+        <td>अग्नि</td>
+        <td>आग, अनल, पावक, वह्नि</td>
+      </tr>
+      <tr>
+        <td>वायु</td>
+        <td>हवा, पवन, समीर, अनिल</td>
+      </tr>
+      <tr>
+        <td>आकाश</td>
+        <td>नभ, गगन, अंबर, व्योम</td>
+      </tr>
+      <tr>
+        <td>राजा</td>
+        <td>नरेश, नृप, भूप, महीप</td>
+      </tr>
+      <tr>
+        <td>कमल</td>
+        <td>पंकज, सरोज, नीरज, जलज</td>
+      </tr>
+      <tr>
+        <td>वन</td>
+        <td>जंगल, अरण्य, कानन, विपिन</td>
+      </tr>
+      <tr>
+        <td>समुद्र</td>
+        <td>सागर, सिंधु, जलधि, रत्नाकर</td>
+      </tr>
+      <tr>
+        <td>बादल</td>
+        <td>मेघ, घन, जलद, वारिद</td>
+      </tr>
+      <tr>
+        <td>मित्र</td>
+        <td>दोस्त, सखा, सुहृद, साथी</td>
+      </tr>
+      <tr>
+        <td>घर</td>
+        <td>गृह, भवन, आवास, निवास</td>
+      </tr>
+      <tr>
+        <td>रात</td>
+        <td>रात्रि, निशा, रजनी, यामिनी</td>
+      </tr>
+      <tr>
+        <td>फूल</td>
+        <td>पुष्प, सुमन, कुसुम, प्रसून</td>
+      </tr>
+      <tr>
+        <td>हाथी</td>
+        <td>गज, हस्ती, कुंजर, द्विप</td>
+      </tr>
+      <tr>
+        <td>घोड़ा</td>
+        <td>अश्व, हय, तुरंग, घोटक</td>
+      </tr>
+      <tr>
+        <td>नदी</td>
+        <td>सरिता, तटिनी, तरंगिणी</td>
+      </tr>
+      <tr>
+        <td>लक्ष्मी</td>
+        <td>श्री, कमला, रमा</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>2. विपरीतार्थक शब्द (Antonyms)</h4>
+  <p>
+    एक-दूसरे के विपरीत अर्थ प्रकट करने वाले शब्दों को
+    <strong>विपरीतार्थक या विलोम शब्द</strong> कहते हैं।
+  </p>
+
+  <h4>महत्त्वपूर्ण विलोम शब्द</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>शब्द</th>
+        <th>विलोम शब्द</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>दिन</td><td>रात</td></tr>
+      <tr><td>सुख</td><td>दुःख</td></tr>
+      <tr><td>लाभ</td><td>हानि</td></tr>
+      <tr><td>आशा</td><td>निराशा</td></tr>
+      <tr><td>सफल</td><td>असफल</td></tr>
+      <tr><td>उन्नति</td><td>अवनति</td></tr>
+      <tr><td>आदर</td><td>अनादर</td></tr>
+      <tr><td>आस्तिक</td><td>नास्तिक</td></tr>
+      <tr><td>आदि</td><td>अंत</td></tr>
+      <tr><td>नया</td><td>पुराना</td></tr>
+      <tr><td>कठिन</td><td>सरल</td></tr>
+      <tr><td>निकट</td><td>दूर</td></tr>
+      <tr><td>प्रकाश</td><td>अंधकार</td></tr>
+      <tr><td>स्वतंत्र</td><td>परतंत्र</td></tr>
+      <tr><td>स्थूल</td><td>सूक्ष्म</td></tr>
+      <tr><td>उचित</td><td>अनुचित</td></tr>
+      <tr><td>शुद्ध</td><td>अशुद्ध</td></tr>
+      <tr><td>मित्र</td><td>शत्रु</td></tr>
+      <tr><td>जीवन</td><td>मरण</td></tr>
+      <tr><td>प्राचीन</td><td>आधुनिक</td></tr>
+      <tr><td>उदार</td><td>कृपण</td></tr>
+      <tr><td>आय</td><td>व्यय</td></tr>
+      <tr><td>सजीव</td><td>निर्जीव</td></tr>
+      <tr><td>उपस्थित</td><td>अनुपस्थित</td></tr>
+      <tr><td>न्याय</td><td>अन्याय</td></tr>
+    </tbody>
+  </table>
+
+  <h4>3. याद रखने की युक्ति</h4>
+  <ul>
+    <li>पर्यायवाची में अर्थ समान या लगभग समान होता है।</li>
+    <li>विलोम में अर्थ विपरीत होता है।</li>
+    <li>शब्दों को केवल रटने के बजाय वाक्यों में प्रयोग करके याद करें।</li>
+    <li>परीक्षा में दिए गए संदर्भ के अनुसार सही शब्द चुनें।</li>
+  </ul>
+
+  <h4>4. अभ्यास प्रश्न (MCQ)</h4>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 1.</strong> “सूर्य” का पर्यायवाची कौन-सा है?</p>
+    <label><input type="radio" name="pvq1" value="a"> निशा</label><br>
+    <label><input type="radio" name="pvq1" value="b"> रवि</label><br>
+    <label><input type="radio" name="pvq1" value="c"> धरा</label><br>
+    <button type="button" onclick="checkPVAnswer('pvq1','b','pvf1')">उत्तर जाँचें</button>
+    <p id="pvf1" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 2.</strong> “पृथ्वी” का पर्यायवाची कौन-सा है?</p>
+    <label><input type="radio" name="pvq2" value="a"> वसुंधरा</label><br>
+    <label><input type="radio" name="pvq2" value="b"> पावक</label><br>
+    <label><input type="radio" name="pvq2" value="c"> गगन</label><br>
+    <button type="button" onclick="checkPVAnswer('pvq2','a','pvf2')">उत्तर जाँचें</button>
+    <p id="pvf2" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 3.</strong> “उन्नति” का विलोम क्या है?</p>
+    <label><input type="radio" name="pvq3" value="a"> प्रगति</label><br>
+    <label><input type="radio" name="pvq3" value="b"> विकास</label><br>
+    <label><input type="radio" name="pvq3" value="c"> अवनति</label><br>
+    <button type="button" onclick="checkPVAnswer('pvq3','c','pvf3')">उत्तर जाँचें</button>
+    <p id="pvf3" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 4.</strong> “स्वतंत्र” का विलोम क्या है?</p>
+    <label><input type="radio" name="pvq4" value="a"> स्वाधीन</label><br>
+    <label><input type="radio" name="pvq4" value="b"> परतंत्र</label><br>
+    <label><input type="radio" name="pvq4" value="c"> स्वतंत्रता</label><br>
+    <button type="button" onclick="checkPVAnswer('pvq4','b','pvf4')">उत्तर जाँचें</button>
+    <p id="pvf4" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 5.</strong> “कमल” का पर्यायवाची कौन-सा है?</p>
+    <label><input type="radio" name="pvq5" value="a"> पंकज</label><br>
+    <label><input type="radio" name="pvq5" value="b"> अनिल</label><br>
+    <label><input type="radio" name="pvq5" value="c"> नरेश</label><br>
+    <button type="button" onclick="checkPVAnswer('pvq5','a','pvf5')">उत्तर जाँचें</button>
+    <p id="pvf5" aria-live="polite"></p>
+  </div>
+</section>
+
+<script>
+function checkPVAnswer(questionName, correctAnswer, feedbackId) {
+  const selected = document.querySelector(
+    'input[name="' + questionName + '"]:checked'
+  );
+  const feedback = document.getElementById(feedbackId);
+
+  if (!selected) {
+    feedback.textContent = "कृपया पहले एक उत्तर चुनें।";
+    return;
+  }
+
+  if (selected.value === correctAnswer) {
+    feedback.textContent = "सही उत्तर! बहुत अच्छा।";
+  } else {
+    feedback.textContent = "उत्तर सही नहीं है। फिर से प्रयास करें।";
+  }
+}
+</script>
+<!-- पर्यायवाची एवं विपरीतार्थक शब्द समाप्त -->
+
+      </article>
+
+      <article class="card">
+        <h2>13. अनेक शब्दों के लिए एक शब्द</h2>
+        <p>वाक्यांश के लिए एक उपयुक्त शब्द।</p>
+
+<!-- अनेक शब्दों के लिए एक शब्द -->
+<section class="lesson-content" id="anek-shabdon-ke-liye-ek-shabd">
+  <h3>अनेक शब्दों के लिए एक शब्द</h3>
+
+  <h4>1. परिभाषा</h4>
+  <p>
+    जब किसी वाक्यांश या अनेक शब्दों के समूह के स्थान पर एक ही सार्थक
+    शब्द का प्रयोग किया जाता है, तो उसे अनेक शब्दों के लिए एक शब्द
+    कहते हैं।
+  </p>
+
+  <h4>2. महत्त्वपूर्ण उदाहरण</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>अनेक शब्द</th>
+        <th>एक शब्द</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>जो कभी न मरे</td>
+        <td>अमर</td>
+      </tr>
+      <tr>
+        <td>जो सब कुछ जानता हो</td>
+        <td>सर्वज्ञ</td>
+      </tr>
+      <tr>
+        <td>जो ईश्वर में विश्वास रखता हो</td>
+        <td>आस्तिक</td>
+      </tr>
+      <tr>
+        <td>जो ईश्वर में विश्वास न रखता हो</td>
+        <td>नास्तिक</td>
+      </tr>
+      <tr>
+        <td>जो दूसरों का भला करे</td>
+        <td>परोपकारी</td>
+      </tr>
+      <tr>
+        <td>जो दूसरों का उपकार माने</td>
+        <td>कृतज्ञ</td>
+      </tr>
+      <tr>
+        <td>जो दूसरों पर उपकार न माने</td>
+        <td>कृतघ्न</td>
+      </tr>
+      <tr>
+        <td>जो पढ़ा-लिखा न हो</td>
+        <td>निरक्षर</td>
+      </tr>
+      <tr>
+        <td>जो पढ़ना-लिखना जानता हो</td>
+        <td>साक्षर</td>
+      </tr>
+      <tr>
+        <td>जो देखने योग्य हो</td>
+        <td>दर्शनीय</td>
+      </tr>
+      <tr>
+        <td>जो सुनने योग्य हो</td>
+        <td>श्रवणीय</td>
+      </tr>
+      <tr>
+        <td>जो क्षमा करने योग्य हो</td>
+        <td>क्षम्य</td>
+      </tr>
+      <tr>
+        <td>जिसका कोई शत्रु न हो</td>
+        <td>अजातशत्रु</td>
+      </tr>
+      <tr>
+        <td>जो कम बोलता हो</td>
+        <td>मितभाषी</td>
+      </tr>
+      <tr>
+        <td>जो बहुत बोलता हो</td>
+        <td>वाचाल</td>
+      </tr>
+      <tr>
+        <td>जो सत्य बोलता हो</td>
+        <td>सत्यवादी</td>
+      </tr>
+      <tr>
+        <td>जो देश से प्रेम करता हो</td>
+        <td>देशभक्त</td>
+      </tr>
+      <tr>
+        <td>जो अपने देश से विश्वासघात करे</td>
+        <td>देशद्रोही</td>
+      </tr>
+      <tr>
+        <td>जो उपकार को याद रखता हो</td>
+        <td>कृतज्ञ</td>
+      </tr>
+      <tr>
+        <td>जो किए गए उपकार को भूल जाए</td>
+        <td>कृतघ्न</td>
+      </tr>
+      <tr>
+        <td>जो सब जगह विद्यमान हो</td>
+        <td>सर्वव्यापी</td>
+      </tr>
+      <tr>
+        <td>जो आसानी से प्राप्त न हो</td>
+        <td>दुर्लभ</td>
+      </tr>
+      <tr>
+        <td>जो नष्ट न हो सके</td>
+        <td>अविनाशी</td>
+      </tr>
+      <tr>
+        <td>जो पहले कभी न हुआ हो</td>
+        <td>अभूतपूर्व</td>
+      </tr>
+      <tr>
+        <td>जो कानून के विरुद्ध हो</td>
+        <td>अवैध</td>
+      </tr>
+      <tr>
+        <td>जो कानून के अनुसार हो</td>
+        <td>वैध</td>
+      </tr>
+      <tr>
+        <td>जो अपने ऊपर निर्भर हो</td>
+        <td>आत्मनिर्भर</td>
+      </tr>
+      <tr>
+        <td>जो दूसरों पर निर्भर हो</td>
+        <td>परावलंबी</td>
+      </tr>
+      <tr>
+        <td>जिसका अंत न हो</td>
+        <td>अनंत</td>
+      </tr>
+      <tr>
+        <td>जो निडर हो</td>
+        <td>निर्भीक</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>3. परीक्षा के लिए विशेष शब्द</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>अनेक शब्द</th>
+        <th>एक शब्द</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>जो कम खर्च करता हो</td>
+        <td>मितव्ययी</td>
+      </tr>
+      <tr>
+        <td>जो खर्च करने में बहुत उदार हो</td>
+        <td>खर्चीला</td>
+      </tr>
+      <tr>
+        <td>जिसका वर्णन न किया जा सके</td>
+        <td>अवर्णनीय</td>
+      </tr>
+      <tr>
+        <td>जिसे भुलाया न जा सके</td>
+        <td>अविस्मरणीय</td>
+      </tr>
+      <tr>
+        <td>जिसकी तुलना न हो सके</td>
+        <td>अतुलनीय</td>
+      </tr>
+      <tr>
+        <td>जो देखने में सुंदर हो</td>
+        <td>सुरम्य</td>
+      </tr>
+      <tr>
+        <td>जो सबका प्रिय हो</td>
+        <td>लोकप्रिय</td>
+      </tr>
+      <tr>
+        <td>जो अपने कर्तव्य का पालन करे</td>
+        <td>कर्तव्यनिष्ठ</td>
+      </tr>
+      <tr>
+        <td>जो समय का पालन करे</td>
+        <td>समयनिष्ठ</td>
+      </tr>
+      <tr>
+        <td>जो किसी पक्ष का समर्थन न करे</td>
+        <td>निष्पक्ष</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>4. अभ्यास प्रश्न (MCQ)</h4>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 1.</strong> “जो कभी न मरे” के लिए एक शब्द क्या है?</p>
+    <label><input type="radio" name="asq1" value="a"> नश्वर</label><br>
+    <label><input type="radio" name="asq1" value="b"> अमर</label><br>
+    <label><input type="radio" name="asq1" value="c"> मर्त्य</label><br>
+    <button type="button" onclick="checkASAnswer('asq1','b','asf1')">उत्तर जाँचें</button>
+    <p id="asf1" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 2.</strong> “जो सब कुछ जानता हो” उसे क्या कहते हैं?</p>
+    <label><input type="radio" name="asq2" value="a"> सर्वज्ञ</label><br>
+    <label><input type="radio" name="asq2" value="b"> मितभाषी</label><br>
+    <label><input type="radio" name="asq2" value="c"> निरक्षर</label><br>
+    <button type="button" onclick="checkASAnswer('asq2','a','asf2')">उत्तर जाँचें</button>
+    <p id="asf2" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 3.</strong> “जो दूसरों का उपकार माने” उसके लिए सही शब्द है—</p>
+    <label><input type="radio" name="asq3" value="a"> कृतघ्न</label><br>
+    <label><input type="radio" name="asq3" value="b"> स्वार्थी</label><br>
+    <label><input type="radio" name="asq3" value="c"> कृतज्ञ</label><br>
+    <button type="button" onclick="checkASAnswer('asq3','c','asf3')">उत्तर जाँचें</button>
+    <p id="asf3" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 4.</strong> “जो कम खर्च करता हो” उसे क्या कहते हैं?</p>
+    <label><input type="radio" name="asq4" value="a"> मितव्ययी</label><br>
+    <label><input type="radio" name="asq4" value="b"> वाचाल</label><br>
+    <label><input type="radio" name="asq4" value="c"> खर्चीला</label><br>
+    <button type="button" onclick="checkASAnswer('asq4','a','asf4')">उत्तर जाँचें</button>
+    <p id="asf4" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 5.</strong> “जिसकी तुलना न हो सके” के लिए सही शब्द है—</p>
+    <label><input type="radio" name="asq5" value="a"> लोकप्रिय</label><br>
+    <label><input type="radio" name="asq5" value="b"> अतुलनीय</label><br>
+    <label><input type="radio" name="asq5" value="c"> अवैध</label><br>
+    <button type="button" onclick="checkASAnswer('asq5','b','asf5')">उत्तर जाँचें</button>
+    <p id="asf5" aria-live="polite"></p>
+  </div>
+</section>
+
+<script>
+function checkASAnswer(questionName, correctAnswer, feedbackId) {
+  const selected = document.querySelector(
+    'input[name="' + questionName + '"]:checked'
+  );
+  const feedback = document.getElementById(feedbackId);
+
+  if (!selected) {
+    feedback.textContent = "कृपया पहले एक उत्तर चुनें।";
+    return;
+  }
+
+  if (selected.value === correctAnswer) {
+    feedback.textContent = "सही उत्तर! बहुत अच्छा।";
+  } else {
+    feedback.textContent = "उत्तर सही नहीं है। दोबारा प्रयास करें।";
+  }
+}
+</script>
+<!-- अनेक शब्दों के लिए एक शब्द सामग्री समाप्त -->
+      </article>
+
+      <article class="card">
+        <h2>14. अलंकार</h2>
+        <p>अलंकार की पहचान और उदाहरण।</p>
+
+
+<!-- 14. अलंकार -->
+<section class="lesson-content" id="alankar">
+  <h3>14. अलंकार</h3>
+
+  <h3>1. अलंकार की परिभाषा</h3>
+  <p>
+    काव्य की शोभा बढ़ाने वाले तत्वों को <strong>अलंकार</strong> कहते हैं।
+    जिस प्रकार आभूषण शरीर की सुंदरता बढ़ाते हैं, उसी प्रकार अलंकार
+    काव्य की सुंदरता और प्रभाव को बढ़ाते हैं।
+  </p>
+
+  <h3>2. अलंकार के प्रमुख भेद</h3>
+  <p>अलंकार के तीन प्रमुख भेद माने जाते हैं:</p>
+  <ol>
+    <li><strong>शब्दालंकार:</strong> जहाँ शब्दों की विशेषता से काव्य में सुंदरता आती है।</li>
+    <li><strong>अर्थालंकार:</strong> जहाँ अर्थ की विशेषता से काव्य में सुंदरता आती है।</li>
+    <li><strong>उभयालंकार:</strong> जहाँ शब्द और अर्थ दोनों की विशेषता से काव्य की शोभा बढ़ती है।</li>
+  </ol>
+
+  <h3>3. प्रमुख अलंकार एवं उदाहरण</h3>
+
+  <div class="note-card">
+    <h4>(क) अनुप्रास अलंकार</h4>
+    <p><strong>पहचान:</strong> एक ही वर्ण की बार-बार आवृत्ति होने पर अनुप्रास अलंकार होता है।</p>
+    <p><strong>उदाहरण:</strong> चारु चंद्र की चंचल किरणें।</p>
+    <p>यहाँ 'च' वर्ण की आवृत्ति हुई है।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(ख) यमक अलंकार</h4>
+    <p><strong>पहचान:</strong> एक ही शब्द का एक से अधिक बार प्रयोग हो, लेकिन हर बार उसका अर्थ अलग हो, तो यमक अलंकार होता है।</p>
+    <p><strong>उदाहरण:</strong> कनक-कनक ते सौ गुनी, मादकता अधिकाय।</p>
+    <p>यहाँ 'कनक' शब्द का प्रयोग धतूरा और सोना—दो अलग अर्थों में हुआ है।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(ग) श्लेष अलंकार</h4>
+    <p><strong>पहचान:</strong> एक ही शब्द से एक से अधिक अर्थ निकलते हैं, तो श्लेष अलंकार होता है।</p>
+    <p><strong>उदाहरण:</strong> रहिमन पानी राखिए, बिन पानी सब सून।</p>
+    <p>यहाँ 'पानी' का अर्थ प्रसंग के अनुसार जल, मान-सम्मान या चमक हो सकता है।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(घ) उपमा अलंकार</h4>
+    <p><strong>पहचान:</strong> जब किसी वस्तु या व्यक्ति की तुलना किसी दूसरी वस्तु या व्यक्ति से की जाती है, तो उपमा अलंकार होता है।</p>
+    <p><strong>उदाहरण:</strong> उसका मुख चंद्रमा के समान सुंदर है।</p>
+    <p>यहाँ मुख की तुलना चंद्रमा से की गई है। 'समान' उपमा का वाचक शब्द है।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(ङ) रूपक अलंकार</h4>
+    <p><strong>पहचान:</strong> जब उपमेय पर उपमान का सीधा आरोप कर दिया जाता है, तो रूपक अलंकार होता है।</p>
+    <p><strong>उदाहरण:</strong> उसका मुख चंद्रमा है।</p>
+    <p>यहाँ मुख को सीधे चंद्रमा कहा गया है।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(च) उत्प्रेक्षा अलंकार</h4>
+    <p><strong>पहचान:</strong> जहाँ किसी वस्तु में दूसरी वस्तु की संभावना या कल्पना की जाती है, वहाँ उत्प्रेक्षा अलंकार होता है।</p>
+    <p><strong>उदाहरण:</strong> उसका मुख मानो चंद्रमा हो।</p>
+    <p>यहाँ मुख में चंद्रमा होने की संभावना व्यक्त की गई है।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(छ) अतिशयोक्ति अलंकार</h4>
+    <p><strong>पहचान:</strong> जब किसी बात को बहुत बढ़ा-चढ़ाकर कहा जाता है, तो अतिशयोक्ति अलंकार होता है।</p>
+    <p><strong>उदाहरण:</strong> हनुमान की पूँछ में लगन न पाई आग, लंका सिगरी जल गई।</p>
+    <p>यहाँ घटना को बढ़ा-चढ़ाकर प्रस्तुत किया गया है।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(ज) मानवीकरण अलंकार</h4>
+    <p><strong>पहचान:</strong> जब निर्जीव वस्तु या प्रकृति को मनुष्य के समान कार्य करते हुए दिखाया जाता है, तो मानवीकरण अलंकार होता है।</p>
+    <p><strong>उदाहरण:</strong> फूल हँस रहे हैं।</p>
+    <p>यहाँ फूलों को मनुष्य की तरह हँसते हुए दिखाया गया है।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(झ) विरोधाभास अलंकार</h4>
+    <p><strong>पहचान:</strong> जहाँ कथन में वास्तविक विरोध न होते हुए भी विरोध का आभास होता है, वहाँ विरोधाभास अलंकार होता है।</p>
+    <p><strong>उदाहरण:</strong> शीतल ज्वाला जलती है।</p>
+    <p>यहाँ 'शीतल' और 'ज्वाला' में विरोध का आभास होता है।</p>
+  </div>
+
+  <h3>4. परीक्षा के लिए महत्त्वपूर्ण अंतर</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>अलंकार</th>
+        <th>मुख्य पहचान</th>
+        <th>उदाहरण</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>अनुप्रास</td>
+        <td>वर्ण की आवृत्ति</td>
+        <td>चारु चंद्र की चंचल किरणें</td>
+      </tr>
+      <tr>
+        <td>यमक</td>
+        <td>एक शब्द की आवृत्ति, अर्थ अलग-अलग</td>
+        <td>कनक-कनक ते सौ गुनी</td>
+      </tr>
+      <tr>
+        <td>श्लेष</td>
+        <td>एक शब्द से अनेक अर्थ</td>
+        <td>रहिमन पानी राखिए</td>
+      </tr>
+      <tr>
+        <td>उपमा</td>
+        <td>तुलना</td>
+        <td>मुख चंद्रमा के समान है</td>
+      </tr>
+      <tr>
+        <td>रूपक</td>
+        <td>सीधा आरोप</td>
+        <td>मुख चंद्रमा है</td>
+      </tr>
+      <tr>
+        <td>उत्प्रेक्षा</td>
+        <td>संभावना या कल्पना</td>
+        <td>मुख मानो चंद्रमा हो</td>
+      </tr>
+      <tr>
+        <td>अतिशयोक्ति</td>
+        <td>बढ़ा-चढ़ाकर वर्णन</td>
+        <td>आँसुओं की नदी बह गई</td>
+      </tr>
+      <tr>
+        <td>मानवीकरण</td>
+        <td>निर्जीव को मानवीय गुण</td>
+        <td>फूल हँस रहे हैं</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>5. अभ्यास प्रश्न (MCQ)</h3>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 1.</strong> “उसका मुख चंद्रमा के समान सुंदर है।” इसमें कौन-सा अलंकार है?</p>
+    <label><input type="radio" name="alq1" value="a"> रूपक</label><br>
+    <label><input type="radio" name="alq1" value="b"> उपमा</label><br>
+    <label><input type="radio" name="alq1" value="c"> यमक</label><br>
+    <button type="button" onclick="checkAlankarAnswer('alq1','b','alf1')">उत्तर जाँचें</button>
+    <p id="alf1" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 2.</strong> “फूल हँस रहे हैं।” इसमें कौन-सा अलंकार है?</p>
+    <label><input type="radio" name="alq2" value="a"> मानवीकरण</label><br>
+    <label><input type="radio" name="alq2" value="b"> अतिशयोक्ति</label><br>
+    <label><input type="radio" name="alq2" value="c"> उपमा</label><br>
+    <button type="button" onclick="checkAlankarAnswer('alq2','a','alf2')">उत्तर जाँचें</button>
+    <p id="alf2" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 3.</strong> “चारु चंद्र की चंचल किरणें” में कौन-सा अलंकार है?</p>
+    <label><input type="radio" name="alq3" value="a"> रूपक</label><br>
+    <label><input type="radio" name="alq3" value="b"> अनुप्रास</label><br>
+    <label><input type="radio" name="alq3" value="c"> उत्प्रेक्षा</label><br>
+    <button type="button" onclick="checkAlankarAnswer('alq3','b','alf3')">उत्तर जाँचें</button>
+    <p id="alf3" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 4.</strong> किसी बात को बढ़ा-चढ़ाकर कहना किस अलंकार की पहचान है?</p>
+    <label><input type="radio" name="alq4" value="a"> श्लेष</label><br>
+    <label><input type="radio" name="alq4" value="b"> यमक</label><br>
+    <label><input type="radio" name="alq4" value="c"> अतिशयोक्ति</label><br>
+    <button type="button" onclick="checkAlankarAnswer('alq4','c','alf4')">उत्तर जाँचें</button>
+    <p id="alf4" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 5.</strong> “उसका मुख चंद्रमा है।” इसमें कौन-सा अलंकार है?</p>
+    <label><input type="radio" name="alq5" value="a"> उपमा</label><br>
+    <label><input type="radio" name="alq5" value="b"> रूपक</label><br>
+    <label><input type="radio" name="alq5" value="c"> अनुप्रास</label><br>
+    <button type="button" onclick="checkAlankarAnswer('alq5','b','alf5')">उत्तर जाँचें</button>
+    <p id="alf5" aria-live="polite"></p>
+  </div>
+</section>
+
+<script>
+function checkAlankarAnswer(questionName, correctAnswer, feedbackId) {
+  const selected = document.querySelector(
+    'input[name="' + questionName + '"]:checked'
+  );
+  const feedback = document.getElementById(feedbackId);
+
+  if (!selected) {
+    feedback.textContent = "कृपया पहले एक उत्तर चुनें।";
+    return;
+  }
+
+  if (selected.value === correctAnswer) {
+    feedback.textContent = "सही उत्तर! बहुत अच्छा।";
+  } else {
+    feedback.textContent = "उत्तर सही नहीं है। दोबारा प्रयास करें।";
+  }
+}
+</script>
+      </article>
+
+      <article class="card">
+        <h2>15. मुहावरे एवं लोकोक्तियाँ</h2>
+        <p>अर्थ, प्रयोग और प्रश्नों का अभ्यास।</p>
+      
+<!-- 15. मुहावरे एवं लोकोक्तियाँ -->
+<section class="lesson-content" id="muhavare-lokoktiyan">
+
+  <h3>15. मुहावरे एवं लोकोक्तियाँ</h3>
+
+  <h3>1. मुहावरे की परिभाषा</h3>
+  <p>
+    मुहावरा ऐसा वाक्यांश होता है, जिसका अर्थ उसके शब्दों के सामान्य अर्थ से
+    अलग और विशेष होता है। मुहावरे का प्रयोग वाक्य में किया जाता है।
+  </p>
+
+  <h3>2. महत्त्वपूर्ण मुहावरे एवं उनके अर्थ</h3>
+
+  <div class="note-card">
+    <table>
+      <thead>
+        <tr>
+          <th>मुहावरा</th>
+          <th>अर्थ</th>
+          <th>वाक्य में प्रयोग</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>आँखों का तारा</td>
+          <td>बहुत प्यारा</td>
+          <td>रीना अपने माता-पिता की आँखों का तारा है।</td>
+        </tr>
+        <tr>
+          <td>नाक कटना</td>
+          <td>अपमान होना</td>
+          <td>गलत काम करके उसने परिवार की नाक कटवा दी।</td>
+        </tr>
+        <tr>
+          <td>दाँत खट्टे करना</td>
+          <td>बुरी तरह परास्त करना</td>
+          <td>हमारे सैनिकों ने शत्रुओं के दाँत खट्टे कर दिए।</td>
+        </tr>
+        <tr>
+          <td>नौ दो ग्यारह होना</td>
+          <td>भाग जाना</td>
+          <td>पुलिस को देखकर चोर नौ दो ग्यारह हो गया।</td>
+        </tr>
+        <tr>
+          <td>हाथ-पाँव फूलना</td>
+          <td>घबरा जाना</td>
+          <td>कठिन प्रश्न देखकर उसके हाथ-पाँव फूल गए।</td>
+        </tr>
+        <tr>
+          <td>कमर कसना</td>
+          <td>तैयार हो जाना</td>
+          <td>विद्यार्थियों ने परीक्षा की तैयारी के लिए कमर कस ली।</td>
+        </tr>
+        <tr>
+          <td>रंगे हाथ पकड़ा जाना</td>
+          <td>गलत काम करते समय पकड़ा जाना</td>
+          <td>चोर चोरी करते हुए रंगे हाथ पकड़ा गया।</td>
+        </tr>
+        <tr>
+          <td>पानी-पानी होना</td>
+          <td>बहुत लज्जित होना</td>
+          <td>गलती सामने आने पर वह पानी-पानी हो गया।</td>
+        </tr>
+        <tr>
+          <td>आसमान सिर पर उठाना</td>
+          <td>बहुत शोर मचाना</td>
+          <td>बच्चों ने खेलते समय आसमान सिर पर उठा लिया।</td>
+        </tr>
+        <tr>
+          <td>आँखें दिखाना</td>
+          <td>धमकाना</td>
+          <td>वह छोटी-सी बात पर सबको आँखें दिखाने लगा।</td>
+        </tr>
+        <tr>
+          <td>कान भरना</td>
+          <td>किसी के विरुद्ध भड़काना</td>
+          <td>उसने मालिक के कान भरकर दोनों में विवाद करा दिया।</td>
+        </tr>
+        <tr>
+          <td>मुँह की खाना</td>
+          <td>हार जाना या अपमानित होना</td>
+          <td>बिना तैयारी के बहस करने गया और मुँह की खाई।</td>
+        </tr>
+        <tr>
+          <td>खून-पसीना एक करना</td>
+          <td>बहुत मेहनत करना</td>
+          <td>किसान फसल उगाने में खून-पसीना एक कर देता है।</td>
+        </tr>
+        <tr>
+          <td>टस से मस न होना</td>
+          <td>अपनी जगह या निर्णय से न हटना</td>
+          <td>बहुत समझाने पर भी वह टस से मस नहीं हुआ।</td>
+        </tr>
+        <tr>
+          <td>आग-बबूला होना</td>
+          <td>बहुत क्रोधित होना</td>
+          <td>झूठ सुनकर शिक्षक आग-बबूला हो गए।</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>3. लोकोक्ति की परिभाषा</h3>
+  <p>
+    लोकोक्ति लोक-अनुभव पर आधारित ऐसा प्रचलित कथन है, जिसमें कोई सीख,
+    अनुभव या जीवन का सत्य व्यक्त होता है। इसे कहावत भी कहते हैं।
+  </p>
+
+  <h3>4. महत्त्वपूर्ण लोकोक्तियाँ एवं उनके अर्थ</h3>
+
+  <div class="note-card">
+    <table>
+      <thead>
+        <tr>
+          <th>लोकोक्ति</th>
+          <th>अर्थ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>जहाँ चाह, वहाँ राह।</td>
+          <td>दृढ़ इच्छा होने पर उपाय मिल जाता है।</td>
+        </tr>
+        <tr>
+          <td>जैसी करनी, वैसी भरनी।</td>
+          <td>मनुष्य को अपने कर्मों का फल मिलता है।</td>
+        </tr>
+        <tr>
+          <td>एकता में बल है।</td>
+          <td>मिल-जुलकर रहने से शक्ति बढ़ती है।</td>
+        </tr>
+        <tr>
+          <td>नाच न जाने, आँगन टेढ़ा।</td>
+          <td>अपनी कमी का दोष दूसरों पर डालना।</td>
+        </tr>
+        <tr>
+          <td>अधजल गगरी छलकत जाए।</td>
+          <td>कम ज्ञान वाला व्यक्ति अक्सर अधिक दिखावा करता है।</td>
+        </tr>
+        <tr>
+          <td>घर का भेदी लंका ढाए।</td>
+          <td>अपना ही व्यक्ति भेद बताकर बड़ा नुकसान कर सकता है।</td>
+        </tr>
+        <tr>
+          <td>देर आए, दुरुस्त आए।</td>
+          <td>देर से सही, पर ठीक काम होना अच्छा है।</td>
+        </tr>
+        <tr>
+          <td>ऊँची दुकान, फीका पकवान।</td>
+          <td>दिखावा अधिक, पर गुणवत्ता कम होना।</td>
+        </tr>
+        <tr>
+          <td>बूँद-बूँद से घड़ा भरता है।</td>
+          <td>थोड़ा-थोड़ा जोड़ने से बड़ी मात्रा बनती है।</td>
+        </tr>
+        <tr>
+          <td>अब पछताए होत क्या, जब चिड़िया चुग गई खेत।</td>
+          <td>समय निकल जाने के बाद पछताने से लाभ नहीं होता।</td>
+        </tr>
+        <tr>
+          <td>एक अनार, सौ बीमार।</td>
+          <td>वस्तु कम और चाहने वाले अधिक होना।</td>
+        </tr>
+        <tr>
+          <td>दूर के ढोल सुहावने।</td>
+          <td>दूर की चीजें वास्तविकता से अधिक अच्छी लगती हैं।</td>
+        </tr>
+        <tr>
+          <td>बंदर क्या जाने अदरक का स्वाद।</td>
+          <td>अयोग्य व्यक्ति किसी वस्तु के गुण को नहीं समझ पाता।</td>
+        </tr>
+        <tr>
+          <td>एक पंथ, दो काज।</td>
+          <td>एक ही प्रयास से दो काम हो जाना।</td>
+        </tr>
+        <tr>
+          <td>थोथा चना बाजे घना।</td>
+          <td>कम गुण वाला व्यक्ति अधिक दिखावा करता है।</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>5. मुहावरे और लोकोक्ति में अंतर</h3>
+
+  <div class="note-card">
+    <table>
+      <thead>
+        <tr>
+          <th>आधार</th>
+          <th>मुहावरा</th>
+          <th>लोकोक्ति</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>स्वरूप</td>
+          <td>विशेष अर्थ वाला वाक्यांश</td>
+          <td>लोक-अनुभव पर आधारित प्रचलित कथन</td>
+        </tr>
+        <tr>
+          <td>उद्देश्य</td>
+          <td>भाषा को प्रभावशाली बनाना</td>
+          <td>अनुभव, सीख या सत्य व्यक्त करना</td>
+        </tr>
+        <tr>
+          <td>उदाहरण</td>
+          <td>नाक कटना</td>
+          <td>जैसी करनी, वैसी भरनी।</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>6. अभ्यास प्रश्न (MCQ)</h3>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 1.</strong> 'आँखों का तारा' मुहावरे का सही अर्थ क्या है?</p>
+    <label><input type="radio" name="mlq1" value="a"> आँख में दर्द होना</label><br>
+    <label><input type="radio" name="mlq1" value="b"> बहुत प्यारा होना</label><br>
+    <label><input type="radio" name="mlq1" value="c"> क्रोधित होना</label><br>
+    <button type="button" onclick="checkMLAnswer('mlq1','b','mlf1')">उत्तर जाँचें</button>
+    <p id="mlf1" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 2.</strong> 'नौ दो ग्यारह होना' का अर्थ क्या है?</p>
+    <label><input type="radio" name="mlq2" value="a"> हिसाब लगाना</label><br>
+    <label><input type="radio" name="mlq2" value="b"> देर से आना</label><br>
+    <label><input type="radio" name="mlq2" value="c"> भाग जाना</label><br>
+    <button type="button" onclick="checkMLAnswer('mlq2','c','mlf2')">उत्तर जाँचें</button>
+    <p id="mlf2" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 3.</strong> 'जहाँ चाह, वहाँ राह' क्या है?</p>
+    <label><input type="radio" name="mlq3" value="a"> मुहावरा</label><br>
+    <label><input type="radio" name="mlq3" value="b"> लोकोक्ति</label><br>
+    <label><input type="radio" name="mlq3" value="c"> संधि</label><br>
+    <button type="button" onclick="checkMLAnswer('mlq3','b','mlf3')">उत्तर जाँचें</button>
+    <p id="mlf3" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 4.</strong> 'नाच न जाने, आँगन टेढ़ा' का अर्थ क्या है?</p>
+    <label><input type="radio" name="mlq4" value="a"> अपनी कमी का दोष दूसरों पर डालना</label><br>
+    <label><input type="radio" name="mlq4" value="b"> नृत्य सीखना</label><br>
+    <label><input type="radio" name="mlq4" value="c"> घर सजाना</label><br>
+    <button type="button" onclick="checkMLAnswer('mlq4','a','mlf4')">उत्तर जाँचें</button>
+    <p id="mlf4" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 5.</strong> 'खून-पसीना एक करना' का अर्थ क्या है?</p>
+    <label><input type="radio" name="mlq5" value="a"> बीमार होना</label><br>
+    <label><input type="radio" name="mlq5" value="b"> बहुत मेहनत करना</label><br>
+    <label><input type="radio" name="mlq5" value="c"> डर जाना</label><br>
+    <button type="button" onclick="checkMLAnswer('mlq5','b','mlf5')">उत्तर जाँचें</button>
+    <p id="mlf5" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 6.</strong> 'बूँद-बूँद से घड़ा भरता है' का संदेश क्या है?</p>
+    <label><input type="radio" name="mlq6" value="a"> पानी व्यर्थ बहाना चाहिए</label><br>
+    <label><input type="radio" name="mlq6" value="b"> बड़े काम असंभव हैं</label><br>
+    <label><input type="radio" name="mlq6" value="c"> थोड़ा-थोड़ा जोड़ने से बड़ी मात्रा बनती है</label><br>
+    <button type="button" onclick="checkMLAnswer('mlq6','c','mlf6')">उत्तर जाँचें</button>
+    <p id="mlf6" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 7.</strong> 'हाथ-पाँव फूलना' का अर्थ क्या है?</p>
+    <label><input type="radio" name="mlq7" value="a"> घबरा जाना</label><br>
+    <label><input type="radio" name="mlq7" value="b"> प्रसन्न होना</label><br>
+    <label><input type="radio" name="mlq7" value="c"> आराम करना</label><br>
+    <button type="button" onclick="checkMLAnswer('mlq7','a','mlf7')">उत्तर जाँचें</button>
+    <p id="mlf7" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 8.</strong> 'घर का भेदी लंका ढाए' का अर्थ क्या है?</p>
+    <label><input type="radio" name="mlq8" value="a"> घर बनाना</label><br>
+    <label><input type="radio" name="mlq8" value="b"> अपना व्यक्ति बड़ा नुकसान कर सकता है</label><br>
+    <label><input type="radio" name="mlq8" value="c"> यात्रा पर जाना</label><br>
+    <button type="button" onclick="checkMLAnswer('mlq8','b','mlf8')">उत्तर जाँचें</button>
+    <p id="mlf8" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 9.</strong> 'कमर कसना' मुहावरे का अर्थ क्या है?</p>
+    <label><input type="radio" name="mlq9" value="a"> थक जाना</label><br>
+    <label><input type="radio" name="mlq9" value="b"> पीछे हटना</label><br>
+    <label><input type="radio" name="mlq9" value="c"> तैयार हो जाना</label><br>
+    <button type="button" onclick="checkMLAnswer('mlq9','c','mlf9')">उत्तर जाँचें</button>
+    <p id="mlf9" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 10.</strong> 'देर आए, दुरुस्त आए' का सही अर्थ क्या है?</p>
+    <label><input type="radio" name="mlq10" value="a"> देर से सही, पर ठीक काम होना अच्छा है</label><br>
+    <label><input type="radio" name="mlq10" value="b"> हमेशा देर करनी चाहिए</label><br>
+    <label><input type="radio" name="mlq10" value="c"> काम नहीं करना चाहिए</label><br>
+    <button type="button" onclick="checkMLAnswer('mlq10','a','mlf10')">उत्तर जाँचें</button>
+    <p id="mlf10" aria-live="polite"></p>
+  </div>
+
+</section>
+
+<script>
+function checkMLAnswer(questionName, correctAnswer, feedbackId) {
+  const selected = document.querySelector(
+    'input[name="' + questionName + '"]:checked'
+  );
+  const feedback = document.getElementById(feedbackId);
+
+  if (!selected) {
+    feedback.textContent = "कृपया पहले एक उत्तर चुनें।";
+    return;
+  }
+
+  if (selected.value === correctAnswer) {
+    feedback.textContent = "सही उत्तर! बहुत अच्छा।";
+  } else {
+    feedback.textContent = "उत्तर सही नहीं है। दोबारा प्रयास करें।";
+  }
+}
+</script>
+
+</article>
+    </section>
+
+    <h2 class="section-title">C. शिक्षण-शास्त्रीय आयाम</h2>
+
+    <section class="menu">
+      <article class="card">
+        <h2>16. भाषा-शिक्षण के सिद्धांत एवं विधियाँ</h2>
+        <p>भाषा सिखाने के सिद्धांत और शिक्षण-विधियाँ।</p>
+<!-- 16. भाषा-शिक्षण के सिद्धांत एवं विधियाँ -->
+<section class="lesson-content" id="bhasha-shikshan-siddhant-vidhiyan">
+
+  <h3>16. भाषा-शिक्षण के सिद्धांत एवं विधियाँ</h3>
+
+  <h3>1. भाषा-शिक्षण का अर्थ</h3>
+  <p>
+    भाषा-शिक्षण वह व्यवस्थित प्रक्रिया है, जिसके माध्यम से विद्यार्थियों में
+    सुनने, बोलने, पढ़ने और लिखने की क्षमता विकसित की जाती है।
+    इसका उद्देश्य केवल व्याकरण के नियम याद कराना नहीं, बल्कि भाषा का
+    सार्थक एवं प्रभावी प्रयोग करना भी है।
+  </p>
+
+  <h3>2. भाषा-शिक्षण के प्रमुख उद्देश्य</h3>
+  <ul>
+    <li>विद्यार्थियों की सुनने और समझने की क्षमता विकसित करना।</li>
+    <li>स्पष्ट, शुद्ध और प्रभावशाली मौखिक अभिव्यक्ति विकसित करना।</li>
+    <li>पठन-बोध तथा स्वतंत्र रूप से पढ़ने की आदत विकसित करना।</li>
+    <li>विचारों को व्यवस्थित एवं स्पष्ट रूप से लिखना सिखाना।</li>
+    <li>शब्द-भंडार और व्याकरणिक समझ बढ़ाना।</li>
+    <li>साहित्य, संस्कृति और विविध भाषायी अनुभवों के प्रति सम्मान विकसित करना।</li>
+  </ul>
+
+  <h3>3. भाषा-शिक्षण के प्रमुख सिद्धांत</h3>
+
+  <div class="note-card">
+    <h4>(क) ज्ञात से अज्ञात का सिद्धांत</h4>
+    <p>
+      नई जानकारी को विद्यार्थियों के पहले से मौजूद ज्ञान और अनुभवों से
+      जोड़कर सिखाना चाहिए।
+    </p>
+    <p><strong>उदाहरण:</strong> संज्ञा पढ़ाने से पहले बच्चों से उनके आसपास की वस्तुओं और व्यक्तियों के नाम पूछना।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(ख) सरल से कठिन का सिद्धांत</h4>
+    <p>
+      शिक्षण की शुरुआत सरल विषयों से करके धीरे-धीरे कठिन विषयों की ओर बढ़ना चाहिए।
+    </p>
+    <p><strong>उदाहरण:</strong> पहले छोटे वाक्य, फिर संयुक्त और मिश्र वाक्य सिखाना।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(ग) मूर्त से अमूर्त का सिद्धांत</h4>
+    <p>
+      पहले प्रत्यक्ष वस्तुओं, चित्रों या अनुभवों के माध्यम से समझाना और फिर
+      अमूर्त विचारों की ओर बढ़ना उपयोगी होता है।
+    </p>
+    <p><strong>उदाहरण:</strong> वस्तुओं को दिखाकर उनके नाम सिखाना और फिर संज्ञा की परिभाषा समझाना।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(घ) अभ्यास का सिद्धांत</h4>
+    <p>
+      भाषा-कौशल के विकास के लिए नियमित और अर्थपूर्ण अभ्यास आवश्यक है।
+    </p>
+    <p><strong>उदाहरण:</strong> पढ़ने, बातचीत करने, कहानी सुनाने और अनुच्छेद लिखने का अभ्यास।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(ङ) क्रियाशीलता एवं सहभागिता का सिद्धांत</h4>
+    <p>
+      विद्यार्थी भाषा सीखने की प्रक्रिया में सक्रिय रूप से भाग लें।
+      केवल शिक्षक का व्याख्यान सुनना पर्याप्त नहीं है।
+    </p>
+    <p><strong>उदाहरण:</strong> भूमिका-अभिनय, समूह-चर्चा और कहानी पूरी करने की गतिविधियाँ।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(च) व्यक्तिगत भिन्नताओं का सिद्धांत</h4>
+    <p>
+      विद्यार्थियों की सीखने की गति, रुचि, भाषायी पृष्ठभूमि और आवश्यकताएँ
+      अलग-अलग हो सकती हैं। शिक्षण में इनका ध्यान रखना चाहिए।
+    </p>
+  </div>
+
+  <div class="note-card">
+    <h4>(छ) मातृभाषा एवं पूर्व अनुभव का सिद्धांत</h4>
+    <p>
+      विद्यार्थियों की घर की भाषा और पूर्व अनुभव सीखने के उपयोगी संसाधन हैं।
+      आवश्यकता के अनुसार उनका सहायक रूप में उपयोग किया जा सकता है।
+    </p>
+  </div>
+
+  <div class="note-card">
+    <h4>(ज) भाषा का संदर्भपूर्ण प्रयोग</h4>
+    <p>
+      भाषा को वास्तविक जीवन की परिस्थितियों से जोड़कर सिखाना चाहिए।
+      इससे विद्यार्थी भाषा का प्रयोग केवल नियम याद करने के बजाय
+      संप्रेषण के लिए करना सीखते हैं।
+    </p>
+    <p><strong>उदाहरण:</strong> बाजार में संवाद, पत्र-लेखन या किसी घटना का वर्णन।</p>
+  </div>
+
+  <h3>4. भाषा-शिक्षण की प्रमुख विधियाँ</h3>
+
+  <div class="note-card">
+    <h4>(क) व्याकरण-अनुवाद विधि</h4>
+    <p><strong>मुख्य विशेषता:</strong> व्याकरण के नियमों और एक भाषा से दूसरी भाषा में अनुवाद पर बल।</p>
+    <p><strong>लाभ:</strong> व्याकरणिक नियमों और लिखित पाठ को समझने में सहायता मिल सकती है।</p>
+    <p><strong>सीमा:</strong> मौखिक संप्रेषण और स्वाभाविक बातचीत का पर्याप्त अभ्यास नहीं हो पाता।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(ख) प्रत्यक्ष विधि</h4>
+    <p><strong>मुख्य विशेषता:</strong> लक्ष्य भाषा के माध्यम से अर्थ समझाना; जहाँ संभव हो, अनुवाद से बचना।</p>
+    <p><strong>लाभ:</strong> सुनने, बोलने और सीधे भाषा समझने का अभ्यास होता है।</p>
+    <p><strong>सीमा:</strong> कुछ अमूर्त या जटिल अवधारणाओं को समझाने में अतिरिक्त समय और संसाधन लग सकते हैं।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(ग) द्विभाषी विधि</h4>
+    <p><strong>मुख्य विशेषता:</strong> लक्ष्य भाषा सिखाते समय आवश्यकतानुसार मातृभाषा या परिचित भाषा का सहारा लेना।</p>
+    <p><strong>लाभ:</strong> कठिन अर्थ और अवधारणाएँ स्पष्ट करने में सहायता मिल सकती है।</p>
+    <p><strong>सीमा:</strong> यदि लक्ष्य भाषा का स्वतंत्र प्रयोग कम हो, तो विद्यार्थियों को उसमें अभ्यास के कम अवसर मिल सकते हैं।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(घ) श्रवण-भाषण विधि</h4>
+    <p><strong>मुख्य विशेषता:</strong> सुनने और बोलने के अभ्यास के माध्यम से भाषा के नमूनों को सीखना।</p>
+    <p><strong>लाभ:</strong> उच्चारण, सुनने और मौखिक अभ्यास पर ध्यान दिया जाता है।</p>
+    <p><strong>सीमा:</strong> यदि केवल दोहराव पर जोर दिया जाए, तो स्वतंत्र अभिव्यक्ति और अर्थपूर्ण संवाद सीमित रह सकते हैं।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(ङ) संप्रेषणात्मक भाषा-शिक्षण विधि</h4>
+    <p><strong>मुख्य विशेषता:</strong> वास्तविक परिस्थितियों में अर्थपूर्ण संवाद और भाषा के उपयोग पर बल।</p>
+    <p><strong>लाभ:</strong> बोलने, सुनने, विचार व्यक्त करने और संवाद करने का अवसर मिलता है।</p>
+    <p><strong>उदाहरण:</strong> जोड़ी में बातचीत, सूचना साझा करना और समस्या-समाधान गतिविधियाँ।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(च) गतिविधि-आधारित विधि</h4>
+    <p><strong>मुख्य विशेषता:</strong> खेल, कहानी, भूमिका-अभिनय, चित्र-वर्णन और समूह-कार्य के माध्यम से सीखना।</p>
+    <p><strong>लाभ:</strong> सहभागिता, रुचि और भाषा के व्यावहारिक प्रयोग को बढ़ावा मिलता है।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(छ) आगमन विधि</h4>
+    <p><strong>मुख्य विशेषता:</strong> उदाहरणों और निरीक्षण के आधार पर नियम तक पहुँचना।</p>
+    <p><strong>उदाहरण:</strong> कई वाक्यों में संज्ञा शब्द पहचानने के बाद संज्ञा की सामान्य विशेषताएँ निकालना।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(ज) निगमन विधि</h4>
+    <p><strong>मुख्य विशेषता:</strong> पहले नियम बताना और फिर उसके उदाहरणों पर लागू करना।</p>
+    <p><strong>उदाहरण:</strong> संज्ञा की परिभाषा समझाकर वाक्यों में संज्ञा शब्द पहचानने को कहना।</p>
+  </div>
+
+  <h3>5. आगमन और निगमन विधि में अंतर</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>आधार</th>
+        <th>आगमन विधि</th>
+        <th>निगमन विधि</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>शुरुआत</td>
+        <td>उदाहरणों से</td>
+        <td>नियम से</td>
+      </tr>
+      <tr>
+        <td>प्रक्रिया</td>
+        <td>विशिष्ट से सामान्य</td>
+        <td>सामान्य से विशिष्ट</td>
+      </tr>
+      <tr>
+        <td>विद्यार्थी की भूमिका</td>
+        <td>निरीक्षण करके नियम खोजता है</td>
+        <td>दिए गए नियम को उदाहरणों पर लागू करता है</td>
+      </tr>
+      <tr>
+        <td>उदाहरण</td>
+        <td>वाक्यों से संज्ञा के नियम समझना</td>
+        <td>संज्ञा का नियम पढ़कर वाक्यों में संज्ञा खोजना</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>6. परीक्षा के लिए महत्त्वपूर्ण बिंदु</h3>
+  <ul>
+    <li>भाषा के चार प्रमुख कौशल हैं—सुनना, बोलना, पढ़ना और लिखना।</li>
+    <li>आगमन विधि में उदाहरणों से नियम की ओर बढ़ते हैं।</li>
+    <li>निगमन विधि में नियम से उदाहरणों की ओर बढ़ते हैं।</li>
+    <li>संप्रेषणात्मक विधि में अर्थपूर्ण संवाद और वास्तविक भाषा-प्रयोग पर बल दिया जाता है।</li>
+    <li>व्याकरण-अनुवाद विधि में व्याकरण और अनुवाद प्रमुख होते हैं।</li>
+    <li>प्रत्यक्ष विधि में लक्ष्य भाषा के माध्यम से सीखने पर जोर दिया जाता है।</li>
+    <li>प्रभावी भाषा-शिक्षण में विद्यार्थियों की जरूरतों, अनुभवों और सहभागिता का ध्यान रखा जाता है।</li>
+  </ul>
+
+  <h3>7. अभ्यास प्रश्न (MCQ)</h3>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 1.</strong> भाषा के चार प्रमुख कौशल कौन-से हैं?</p>
+    <label><input type="radio" name="bssq1" value="a"> सुनना, बोलना, पढ़ना और लिखना</label><br>
+    <label><input type="radio" name="bssq1" value="b"> देखना, दौड़ना, खेलना और लिखना</label><br>
+    <label><input type="radio" name="bssq1" value="c"> याद करना, सोना, बोलना और गिनना</label><br>
+    <button type="button" onclick="checkBSSAnswer('bssq1','a','bssf1')">उत्तर जाँचें</button>
+    <p id="bssf1" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 2.</strong> उदाहरणों से नियम तक पहुँचने वाली विधि कौन-सी है?</p>
+    <label><input type="radio" name="bssq2" value="a"> निगमन विधि</label><br>
+    <label><input type="radio" name="bssq2" value="b"> आगमन विधि</label><br>
+    <label><input type="radio" name="bssq2" value="c"> व्याकरण-अनुवाद विधि</label><br>
+    <button type="button" onclick="checkBSSAnswer('bssq2','b','bssf2')">उत्तर जाँचें</button>
+    <p id="bssf2" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 3.</strong> पहले नियम बताकर फिर उदाहरण देने की प्रक्रिया क्या कहलाती है?</p>
+    <label><input type="radio" name="bssq3" value="a"> आगमन विधि</label><br>
+    <label><input type="radio" name="bssq3" value="b"> गतिविधि-आधारित विधि</label><br>
+    <label><input type="radio" name="bssq3" value="c"> निगमन विधि</label><br>
+    <button type="button" onclick="checkBSSAnswer('bssq3','c','bssf3')">उत्तर जाँचें</button>
+    <p id="bssf3" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 4.</strong> वास्तविक परिस्थितियों में अर्थपूर्ण संवाद पर किस विधि में विशेष बल दिया जाता है?</p>
+    <label><input type="radio" name="bssq4" value="a"> संप्रेषणात्मक भाषा-शिक्षण विधि</label><br>
+    <label><input type="radio" name="bssq4" value="b"> केवल अनुवाद विधि</label><br>
+    <label><input type="radio" name="bssq4" value="c"> केवल लिखित अभ्यास</label><br>
+    <button type="button" onclick="checkBSSAnswer('bssq4','a','bssf4')">उत्तर जाँचें</button>
+    <p id="bssf4" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 5.</strong> व्याकरण-अनुवाद विधि की प्रमुख विशेषता क्या है?</p>
+    <label><input type="radio" name="bssq5" value="a"> केवल खेलों से सीखना</label><br>
+    <label><input type="radio" name="bssq5" value="b"> व्याकरण के नियम और अनुवाद</label><br>
+    <label><input type="radio" name="bssq5" value="c"> केवल मौखिक बातचीत</label><br>
+    <button type="button" onclick="checkBSSAnswer('bssq5','b','bssf5')">उत्तर जाँचें</button>
+    <p id="bssf5" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 6.</strong> ज्ञात से अज्ञात सिद्धांत का क्या अर्थ है?</p>
+    <label><input type="radio" name="bssq6" value="a"> पहले कठिन विषय पढ़ाना</label><br>
+    <label><input type="radio" name="bssq6" value="b"> विद्यार्थियों के पूर्व ज्ञान से नई जानकारी जोड़ना</label><br>
+    <label><input type="radio" name="bssq6" value="c"> केवल पाठ याद कराना</label><br>
+    <button type="button" onclick="checkBSSAnswer('bssq6','b','bssf6')">उत्तर जाँचें</button>
+    <p id="bssf6" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 7.</strong> भूमिका-अभिनय और समूह-कार्य किस प्रकार के शिक्षण के उदाहरण हैं?</p>
+    <label><input type="radio" name="bssq7" value="a"> गतिविधि-आधारित शिक्षण</label><br>
+    <label><input type="radio" name="bssq7" value="b"> केवल अनुवाद</label><br>
+    <label><input type="radio" name="bssq7" value="c"> केवल व्याख्यान</label><br>
+    <button type="button" onclick="checkBSSAnswer('bssq7','a','bssf7')">उत्तर जाँचें</button>
+    <p id="bssf7" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 8.</strong> प्रत्यक्ष विधि में सामान्यतः किस पर बल दिया जाता है?</p>
+    <label><input type="radio" name="bssq8" value="a"> हर वाक्य का अनुवाद</label><br>
+    <label><input type="radio" name="bssq8" value="b"> लक्ष्य भाषा के माध्यम से अर्थ समझना</label><br>
+    <label><input type="radio" name="bssq8" value="c"> केवल नियम लिखना</label><br>
+    <button type="button" onclick="checkBSSAnswer('bssq8','b','bssf8')">उत्तर जाँचें</button>
+    <p id="bssf8" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 9.</strong> व्यक्तिगत भिन्नताओं के सिद्धांत के अनुसार शिक्षक को क्या करना चाहिए?</p>
+    <label><input type="radio" name="bssq9" value="a"> सभी विद्यार्थियों से बिल्कुल समान गति की अपेक्षा करना</label><br>
+    <label><input type="radio" name="bssq9" value="b"> विद्यार्थियों की जरूरतों और सीखने की गति का ध्यान रखना</label><br>
+    <label><input type="radio" name="bssq9" value="c"> कमजोर विद्यार्थियों को अनदेखा करना</label><br>
+    <button type="button" onclick="checkBSSAnswer('bssq9','b','bssf9')">उत्तर जाँचें</button>
+    <p id="bssf9" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 10.</strong> भाषा-शिक्षण का व्यापक उद्देश्य क्या है?</p>
+    <label><input type="radio" name="bssq10" value="a"> केवल व्याकरण के नियम याद करना</label><br>
+    <label><input type="radio" name="bssq10" value="b"> केवल परीक्षा में अंक प्राप्त करना</label><br>
+    <label><input type="radio" name="bssq10" value="c"> भाषा को समझना और प्रभावी ढंग से प्रयोग करना</label><br>
+    <button type="button" onclick="checkBSSAnswer('bssq10','c','bssf10')">उत्तर जाँचें</button>
+    <p id="bssf10" aria-live="polite"></p>
+  </div>
+
+</section>
+
+<script>
+function checkBSSAnswer(questionName, correctAnswer, feedbackId) {
+  const selected = document.querySelector(
+    'input[name="' + questionName + '"]:checked'
+  );
+  const feedback = document.getElementById(feedbackId);
+
+  if (!selected) {
+    feedback.textContent = "कृपया पहले एक उत्तर चुनें।";
+    return;
+  }
+
+  if (selected.value === correctAnswer) {
+    feedback.textContent = "सही उत्तर! बहुत अच्छा।";
+  } else {
+    feedback.textContent = "उत्तर सही नहीं है। दोबारा प्रयास करें।";
+  }
+}
+</script>      
+
+</article>
+
+      <article class="card">
+        <h2>17. भाषा-कौशल एवं समझ</h2>
+        <p>सुनना, बोलना, पढ़ना और लिखना।</p>
+      
+<!-- 17. भाषा-कौशल एवं समझ -->
+<section class="lesson-content" id="bhasha-kaushal-evam-samajh">
+
+  <h3>17. भाषा-कौशल एवं समझ</h3>
+
+  <h3>1. भाषा-कौशल का अर्थ</h3>
+  <p>
+    भाषा-कौशल वे क्षमताएँ हैं, जिनके माध्यम से व्यक्ति भाषा को समझता है
+    और अपने विचारों, भावनाओं तथा अनुभवों को व्यक्त करता है।
+    भाषा के चार प्रमुख कौशल हैं—सुनना, बोलना, पढ़ना और लिखना।
+  </p>
+
+  <h3>2. भाषा के चार प्रमुख कौशल</h3>
+
+  <div class="note-card">
+    <h4>(क) श्रवण-कौशल (Listening Skill)</h4>
+    <p>
+      ध्वनियों, शब्दों, वाक्यों और मौखिक संदेशों को ध्यानपूर्वक सुनकर
+      उनका अर्थ समझने की क्षमता श्रवण-कौशल कहलाती है।
+    </p>
+    <p><strong>उदाहरण:</strong> शिक्षक की कहानी सुनकर उसके मुख्य विचार बताना।</p>
+    <p><strong>विकास की गतिविधियाँ:</strong> कहानी सुनना, निर्देश सुनकर कार्य करना,
+      कविता सुनना और सुनी गई सामग्री पर प्रश्नों के उत्तर देना।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(ख) वाचन या मौखिक अभिव्यक्ति-कौशल (Speaking Skill)</h4>
+    <p>
+      अपने विचारों, भावनाओं और सूचनाओं को मौखिक रूप से स्पष्ट एवं प्रभावी
+      ढंग से व्यक्त करने की क्षमता बोलने का कौशल कहलाती है।
+    </p>
+    <p><strong>उदाहरण:</strong> किसी कहानी को अपने शब्दों में सुनाना।</p>
+    <p><strong>विकास की गतिविधियाँ:</strong> समूह-चर्चा, भूमिका-अभिनय,
+      प्रश्नोत्तर, भाषण और चित्र देखकर बोलना।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(ग) पठन-कौशल (Reading Skill)</h4>
+    <p>
+      लिखित या मुद्रित सामग्री को पढ़कर उसके शब्दों, विचारों और अर्थ को
+      समझने की क्षमता पठन-कौशल कहलाती है।
+    </p>
+    <p><strong>उदाहरण:</strong> किसी अनुच्छेद को पढ़कर उसके मुख्य विचार बताना।</p>
+    <p><strong>विकास की गतिविधियाँ:</strong> मौन पठन, सस्वर पठन,
+      कहानी पढ़ना, शीर्षक पहचानना और पठन के बाद प्रश्नों के उत्तर देना।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(घ) लेखन-कौशल (Writing Skill)</h4>
+    <p>
+      विचारों और सूचनाओं को लिखित रूप में व्यवस्थित, स्पष्ट और अर्थपूर्ण
+      ढंग से प्रस्तुत करने की क्षमता लेखन-कौशल कहलाती है।
+    </p>
+    <p><strong>उदाहरण:</strong> किसी घटना पर अनुच्छेद लिखना।</p>
+    <p><strong>विकास की गतिविधियाँ:</strong> चित्र-वर्णन, कहानी-लेखन,
+      पत्र-लेखन, डायरी-लेखन और अनुच्छेद-लेखन।</p>
+  </div>
+
+  <h3>3. ग्रहणात्मक एवं अभिव्यक्तात्मक कौशल</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>कौशल का प्रकार</th>
+        <th>कौशल</th>
+        <th>मुख्य कार्य</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ग्रहणात्मक (Receptive)</td>
+        <td>सुनना और पढ़ना</td>
+        <td>सूचना एवं अर्थ ग्रहण करना</td>
+      </tr>
+      <tr>
+        <td>अभिव्यक्तात्मक (Productive)</td>
+        <td>बोलना और लिखना</td>
+        <td>विचारों एवं सूचनाओं को व्यक्त करना</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    <strong>ध्यान दें:</strong> चारों कौशल एक-दूसरे से जुड़े हुए हैं।
+    प्रभावी भाषा-शिक्षण में इनका संतुलित अभ्यास आवश्यक है।
+  </p>
+
+  <h3>4. भाषा-बोध या भाषा-समझ (Language Comprehension)</h3>
+  <p>
+    भाषा-बोध का अर्थ केवल शब्दों को पढ़ना या सुनना नहीं, बल्कि उनके अर्थ,
+    संदर्भ, उद्देश्य और निहित विचारों को समझना है।
+  </p>
+
+  <h4>भाषा-बोध के प्रमुख स्तर</h4>
+  <ol>
+    <li><strong>प्रत्यक्ष बोध:</strong> सामग्री में स्पष्ट रूप से दी गई जानकारी समझना।</li>
+    <li><strong>अनुमानात्मक बोध:</strong> उपलब्ध संकेतों के आधार पर निष्कर्ष निकालना।</li>
+    <li><strong>विश्लेषणात्मक बोध:</strong> विचारों, कारणों और घटनाओं के संबंधों को समझना।</li>
+    <li><strong>आलोचनात्मक बोध:</strong> तर्कों और सूचनाओं का विवेकपूर्ण मूल्यांकन करना।</li>
+  </ol>
+
+  <h3>5. श्रवण-बोध विकसित करने की विधियाँ</h3>
+  <ul>
+    <li>कहानी, कविता और संवाद सुनाना।</li>
+    <li>मौखिक निर्देश सुनकर उनका पालन करने को कहना।</li>
+    <li>सुनी गई सामग्री के मुख्य विचार पूछना।</li>
+    <li>किसी घटना के कारण और परिणाम पर चर्चा करना।</li>
+    <li>विद्यार्थियों को ध्यानपूर्वक सुनने और उचित प्रतिक्रिया देने के अवसर देना।</li>
+  </ul>
+
+  <h3>6. पठन-बोध विकसित करने की विधियाँ</h3>
+  <ul>
+    <li>पाठ पढ़ने से पहले शीर्षक और चित्रों पर चर्चा करना।</li>
+    <li>पाठ पढ़ते समय मुख्य शब्दों और विचारों की पहचान करना।</li>
+    <li>पठन के बाद प्रश्नों के उत्तर देना।</li>
+    <li>पाठ का सारांश अपने शब्दों में लिखना या सुनाना।</li>
+    <li>पाठ के आधार पर अनुमान लगाना और निष्कर्ष निकालना।</li>
+  </ul>
+
+  <h3>7. भाषा-कौशल के विकास में शिक्षक की भूमिका</h3>
+  <ul>
+    <li>विद्यार्थियों को बोलने, सुनने, पढ़ने और लिखने के पर्याप्त अवसर देना।</li>
+    <li>गलतियों को सीखने की प्रक्रिया का हिस्सा मानकर उपयोगी प्रतिक्रिया देना।</li>
+    <li>बच्चों की भाषायी पृष्ठभूमि और व्यक्तिगत भिन्नताओं का सम्मान करना।</li>
+    <li>कहानियों, चित्रों, पुस्तकों और वास्तविक परिस्थितियों का उपयोग करना।</li>
+    <li>केवल रटने के बजाय अर्थ समझने और स्वतंत्र अभिव्यक्ति को प्रोत्साहित करना।</li>
+    <li>विद्यार्थियों की प्रगति का नियमित आकलन करना।</li>
+  </ul>
+
+  <h3>8. अभ्यास प्रश्न (MCQ)</h3>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 1.</strong> भाषा के चार प्रमुख कौशल कौन-से हैं?</p>
+    <label><input type="radio" name="bksq1" value="a"> सुनना, बोलना, पढ़ना और लिखना</label><br>
+    <label><input type="radio" name="bksq1" value="b"> देखना, दौड़ना, खेलना और लिखना</label><br>
+    <label><input type="radio" name="bksq1" value="c"> सोना, पढ़ना, गिनना और खेलना</label><br>
+    <button type="button" onclick="checkBKSAnswer('bksq1','a','bksf1')">उत्तर जाँचें</button>
+    <p id="bksf1" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 2.</strong> इनमें से कौन-सा ग्रहणात्मक कौशल है?</p>
+    <label><input type="radio" name="bksq2" value="a"> लेखन</label><br>
+    <label><input type="radio" name="bksq2" value="b"> बोलना</label><br>
+    <label><input type="radio" name="bksq2" value="c"> सुनना</label><br>
+    <button type="button" onclick="checkBKSAnswer('bksq2','c','bksf2')">उत्तर जाँचें</button>
+    <p id="bksf2" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 3.</strong> इनमें से कौन-सा अभिव्यक्तात्मक कौशल है?</p>
+    <label><input type="radio" name="bksq3" value="a"> सुनना</label><br>
+    <label><input type="radio" name="bksq3" value="b"> लिखना</label><br>
+    <label><input type="radio" name="bksq3" value="c"> पढ़ना</label><br>
+    <button type="button" onclick="checkBKSAnswer('bksq3','b','bksf3')">उत्तर जाँचें</button>
+    <p id="bksf3" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 4.</strong> किसी अनुच्छेद को पढ़कर उसका मुख्य विचार बताना किसका उदाहरण है?</p>
+    <label><input type="radio" name="bksq4" value="a"> पठन-बोध</label><br>
+    <label><input type="radio" name="bksq4" value="b"> केवल उच्चारण</label><br>
+    <label><input type="radio" name="bksq4" value="c"> केवल लेखन</label><br>
+    <button type="button" onclick="checkBKSAnswer('bksq4','a','bksf4')">उत्तर जाँचें</button>
+    <p id="bksf4" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 5.</strong> सुनी गई कहानी के आधार पर प्रश्नों के उत्तर देना किस कौशल को विकसित करता है?</p>
+    <label><input type="radio" name="bksq5" value="a"> श्रवण-बोध</label><br>
+    <label><input type="radio" name="bksq5" value="b"> केवल हस्तलेखन</label><br>
+    <label><input type="radio" name="bksq5" value="c"> केवल वर्तनी</label><br>
+    <button type="button" onclick="checkBKSAnswer('bksq5','a','bksf5')">उत्तर जाँचें</button>
+    <p id="bksf5" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 6.</strong> सामग्री में स्पष्ट रूप से दी गई जानकारी को समझना क्या कहलाता है?</p>
+    <label><input type="radio" name="bksq6" value="a"> आलोचनात्मक बोध</label><br>
+    <label><input type="radio" name="bksq6" value="b"> प्रत्यक्ष बोध</label><br>
+    <label><input type="radio" name="bksq6" value="c"> अनुमानात्मक बोध</label><br>
+    <button type="button" onclick="checkBKSAnswer('bksq6','b','bksf6')">उत्तर जाँचें</button>
+    <p id="bksf6" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 7.</strong> संकेतों के आधार पर ऐसी जानकारी समझना जो सीधे न कही गई हो, क्या कहलाता है?</p>
+    <label><input type="radio" name="bksq7" value="a"> अनुमानात्मक बोध</label><br>
+    <label><input type="radio" name="bksq7" value="b"> केवल प्रतिलिपि लेखन</label><br>
+    <label><input type="radio" name="bksq7" value="c"> सस्वर पठन</label><br>
+    <button type="button" onclick="checkBKSAnswer('bksq7','a','bksf7')">उत्तर जाँचें</button>
+    <p id="bksf7" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 8.</strong> कहानी को अपने शब्दों में सुनाना किस कौशल का उदाहरण है?</p>
+    <label><input type="radio" name="bksq8" value="a"> बोलना</label><br>
+    <label><input type="radio" name="bksq8" value="b"> सुनना</label><br>
+    <label><input type="radio" name="bksq8" value="c"> पढ़ना</label><br>
+    <button type="button" onclick="checkBKSAnswer('bksq8','a','bksf8')">उत्तर जाँचें</button>
+    <p id="bksf8" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 9.</strong> भाषा-शिक्षण में विद्यार्थियों की गलतियों पर शिक्षक की उचित प्रतिक्रिया कैसी होनी चाहिए?</p>
+    <label><input type="radio" name="bksq9" value="a"> हर गलती पर विद्यार्थी को बोलने से रोकना</label><br>
+    <label><input type="radio" name="bksq9" value="b"> गलती को सीखने का अवसर मानकर उपयोगी प्रतिक्रिया देना</label><br>
+    <label><input type="radio" name="bksq9" value="c"> गलतियों को कभी न सुधारना</label><br>
+    <button type="button" onclick="checkBKSAnswer('bksq9','b','bksf9')">उत्तर जाँचें</button>
+    <p id="bksf9" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 10.</strong> भाषा-कौशलों के प्रभावी विकास के लिए क्या आवश्यक है?</p>
+    <label><input type="radio" name="bksq10" value="a"> केवल व्याकरण के नियम याद करना</label><br>
+    <label><input type="radio" name="bksq10" value="b"> केवल पाठ्यपुस्तक पढ़ना</label><br>
+    <label><input type="radio" name="bksq10" value="c"> चारों कौशलों का अर्थपूर्ण और संतुलित अभ्यास</label><br>
+    <button type="button" onclick="checkBKSAnswer('bksq10','c','bksf10')">उत्तर जाँचें</button>
+    <p id="bksf10" aria-live="polite"></p>
+  </div>
+
+</section>
+
+<script>
+function checkBKSAnswer(questionName, correctAnswer, feedbackId) {
+  const selected = document.querySelector(
+    'input[name="' + questionName + '"]:checked'
+  );
+  const feedback = document.getElementById(feedbackId);
+
+  if (!selected) {
+    feedback.textContent = "कृपया पहले एक उत्तर चुनें।";
+    return;
+  }
+
+  if (selected.value === correctAnswer) {
+    feedback.textContent = "सही उत्तर! बहुत अच्छा।";
+  } else {
+    feedback.textContent = "उत्तर सही नहीं है। दोबारा प्रयास करें।";
+  }
+}
+</script>
+
+</article>
+
+      <article class="card">
+        <h2>18. संप्रेषण-कौशल का विकास</h2>
+        <p>प्रभावी भाषा और संप्रेषण का अभ्यास।</p>
+      
+<!-- 18. संप्रेषण-कौशल का विकास -->
+<section class="lesson-content" id="sampreshan-kaushal-vikas">
+
+  <h3>18. संप्रेषण-कौशल का विकास</h3>
+
+  <h3>1. संप्रेषण का अर्थ</h3>
+  <p>
+    संप्रेषण (Communication) वह प्रक्रिया है, जिसके माध्यम से व्यक्ति
+    अपने विचारों, भावनाओं, सूचनाओं और अनुभवों का आदान-प्रदान करता है।
+    प्रभावी संप्रेषण में संदेश को स्पष्ट रूप से व्यक्त करना और दूसरे व्यक्ति
+    द्वारा उसे उचित रूप से समझना महत्त्वपूर्ण है।
+  </p>
+
+  <h3>2. संप्रेषण के प्रमुख उद्देश्य</h3>
+  <ul>
+    <li>विचारों और सूचनाओं का आदान-प्रदान करना।</li>
+    <li>दूसरों के विचारों और भावनाओं को समझना।</li>
+    <li>ज्ञान और अनुभव साझा करना।</li>
+    <li>सहयोग, सहभागिता और सामाजिक संबंध विकसित करना।</li>
+    <li>समस्याओं पर चर्चा करके समाधान खोजने में सहायता करना।</li>
+    <li>कक्षा में सीखने-सिखाने की प्रक्रिया को प्रभावी बनाना।</li>
+  </ul>
+
+  <h3>3. संप्रेषण की प्रक्रिया</h3>
+  <div class="note-card">
+    <ol>
+      <li><strong>प्रेषक (Sender):</strong> संदेश भेजने वाला व्यक्ति।</li>
+      <li><strong>संदेश (Message):</strong> वह विचार, सूचना या भावना जिसे व्यक्त किया जाता है।</li>
+      <li><strong>माध्यम (Channel):</strong> संदेश पहुँचाने का साधन, जैसे बोलना, लिखना या संकेत।</li>
+      <li><strong>प्राप्तकर्ता (Receiver):</strong> संदेश प्राप्त करने वाला व्यक्ति।</li>
+      <li><strong>प्रतिक्रिया (Feedback):</strong> संदेश प्राप्त होने के बाद मिलने वाली प्रतिक्रिया।</li>
+    </ol>
+    <p>
+      <strong>उदाहरण:</strong> शिक्षक प्रश्न पूछता है, विद्यार्थी उत्तर देता है
+      और शिक्षक उत्तर पर प्रतिक्रिया देता है। यह कक्षा में संप्रेषण का उदाहरण है।
+    </p>
+  </div>
+
+  <h3>4. संप्रेषण के प्रमुख प्रकार</h3>
+
+  <div class="note-card">
+    <h4>(क) मौखिक संप्रेषण (Verbal Communication)</h4>
+    <p>
+      जब शब्दों के माध्यम से बोलकर या लिखकर संदेश दिया जाता है,
+      तो उसे मौखिक या शब्द-आधारित संप्रेषण कहा जाता है।
+    </p>
+    <p><strong>उदाहरण:</strong> बातचीत, भाषण, चर्चा और लिखित संदेश।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(ख) अमौखिक संप्रेषण (Non-verbal Communication)</h4>
+    <p>
+      जब भाव, हाव-भाव, शारीरिक मुद्रा, आँखों के संकेत और अन्य अशाब्दिक
+      माध्यमों से संदेश व्यक्त होता है, तो उसे अमौखिक संप्रेषण कहते हैं।
+    </p>
+    <p><strong>उदाहरण:</strong> मुस्कुराना, सिर हिलाना और हाथ से संकेत करना।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(ग) एकपक्षीय संप्रेषण</h4>
+    <p>
+      जब संदेश मुख्यतः एक दिशा में जाता है और प्राप्तकर्ता को तत्काल
+      प्रतिक्रिया देने का अवसर नहीं मिलता, तो उसे एकपक्षीय संप्रेषण कहते हैं।
+    </p>
+    <p><strong>उदाहरण:</strong> बिना चर्चा के केवल सूचना पढ़कर सुनाना।</p>
+  </div>
+
+  <div class="note-card">
+    <h4>(घ) द्विपक्षीय संप्रेषण</h4>
+    <p>
+      जब संदेश भेजने वाला और प्राप्तकर्ता दोनों प्रतिक्रिया एवं विचारों
+      का आदान-प्रदान करते हैं, तो उसे द्विपक्षीय संप्रेषण कहते हैं।
+    </p>
+    <p><strong>उदाहरण:</strong> शिक्षक और विद्यार्थी के बीच प्रश्नोत्तर।</p>
+  </div>
+
+  <h3>5. प्रभावी संप्रेषण की विशेषताएँ</h3>
+  <ul>
+    <li><strong>स्पष्टता:</strong> संदेश सरल और आसानी से समझ आने वाला हो।</li>
+    <li><strong>संक्षिप्तता:</strong> अनावश्यक विस्तार से बचा जाए।</li>
+    <li><strong>शुद्धता:</strong> सूचना और भाषा यथासंभव सही हों।</li>
+    <li><strong>उपयुक्तता:</strong> संदेश श्रोता की आयु, स्तर और आवश्यकता के अनुकूल हो।</li>
+    <li><strong>सक्रिय श्रवण:</strong> दूसरे व्यक्ति की बात ध्यानपूर्वक सुनी जाए।</li>
+    <li><strong>प्रतिक्रिया:</strong> यह जाँचा जाए कि संदेश ठीक से समझा गया या नहीं।</li>
+    <li><strong>सम्मान:</strong> दूसरों के विचारों और भावनाओं का सम्मान किया जाए।</li>
+  </ul>
+
+  <h3>6. संप्रेषण में आने वाली बाधाएँ</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>बाधा</th>
+        <th>अर्थ या उदाहरण</th>
+        <th>संभावित समाधान</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>भाषायी बाधा</td>
+        <td>कठिन शब्द या अपरिचित भाषा</td>
+        <td>सरल भाषा और परिचित उदाहरणों का प्रयोग</td>
+      </tr>
+      <tr>
+        <td>शोर</td>
+        <td>आसपास की आवाजों से संदेश स्पष्ट न सुनाई देना</td>
+        <td>शांत वातावरण बनाना</td>
+      </tr>
+      <tr>
+        <td>मनोवैज्ञानिक बाधा</td>
+        <td>डर, तनाव या संकोच</td>
+        <td>सहयोगपूर्ण और सुरक्षित वातावरण बनाना</td>
+      </tr>
+      <tr>
+        <td>सांस्कृतिक बाधा</td>
+        <td>संकेतों या शब्दों के अर्थ में अंतर</td>
+        <td>विविध पृष्ठभूमियों का सम्मान और अर्थ स्पष्ट करना</td>
+      </tr>
+      <tr>
+        <td>ध्यान की कमी</td>
+        <td>संदेश सुनते समय ध्यान भटकना</td>
+        <td>सक्रिय श्रवण और सहभागिता को प्रोत्साहित करना</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>7. कक्षा में संप्रेषण-कौशल विकसित करने की गतिविधियाँ</h3>
+  <ul>
+    <li><strong>समूह-चर्चा:</strong> विद्यार्थी अपने विचार रखते हैं और दूसरों की बात सुनते हैं।</li>
+    <li><strong>भूमिका-अभिनय:</strong> वास्तविक जीवन की परिस्थितियों में संवाद का अभ्यास होता है।</li>
+    <li><strong>कहानी सुनाना:</strong> क्रमबद्ध अभिव्यक्ति और ध्यानपूर्वक सुनने का अभ्यास होता है।</li>
+    <li><strong>प्रश्नोत्तर:</strong> विचार स्पष्ट करने और प्रतिक्रिया देने का अवसर मिलता है।</li>
+    <li><strong>चित्र-वर्णन:</strong> चित्र देखकर शब्दों और वाक्यों में विचार व्यक्त किए जाते हैं।</li>
+    <li><strong>जोड़ी में बातचीत:</strong> विद्यार्थी एक-दूसरे से संवाद करना सीखते हैं।</li>
+    <li><strong>प्रस्तुतीकरण:</strong> विद्यार्थी किसी विषय पर अपने विचार व्यवस्थित ढंग से प्रस्तुत करते हैं।</li>
+  </ul>
+
+  <h3>8. संप्रेषण-कौशल के विकास में शिक्षक की भूमिका</h3>
+  <ul>
+    <li>विद्यार्थियों को निर्भय होकर बोलने और प्रश्न पूछने का अवसर देना।</li>
+    <li>ध्यानपूर्वक सुनने और दूसरों की बात बीच में न काटने की आदत विकसित करना।</li>
+    <li>गलतियों पर अपमानित करने के बजाय रचनात्मक प्रतिक्रिया देना।</li>
+    <li>सरल, स्पष्ट और विद्यार्थियों के स्तर के अनुकूल भाषा का प्रयोग करना।</li>
+    <li>कक्षा में सभी विद्यार्थियों की सहभागिता सुनिश्चित करना।</li>
+    <li>विद्यार्थियों को मौखिक और लिखित अभिव्यक्ति के पर्याप्त अवसर देना।</li>
+  </ul>
+
+  <h3>9. परीक्षा के लिए महत्त्वपूर्ण बिंदु</h3>
+  <ul>
+    <li>संप्रेषण का उद्देश्य विचारों और सूचनाओं का आदान-प्रदान करना है।</li>
+    <li>प्रेषक, संदेश, माध्यम, प्राप्तकर्ता और प्रतिक्रिया संप्रेषण के प्रमुख घटक हैं।</li>
+    <li>अमौखिक संप्रेषण में हाव-भाव, शारीरिक मुद्रा और संकेत शामिल होते हैं।</li>
+    <li>द्विपक्षीय संप्रेषण में प्रतिक्रिया और संवाद का महत्त्व होता है।</li>
+    <li>भाषायी, मनोवैज्ञानिक और पर्यावरणीय कारण संप्रेषण में बाधा बन सकते हैं।</li>
+    <li>सक्रिय श्रवण और स्पष्ट अभिव्यक्ति प्रभावी संप्रेषण के महत्त्वपूर्ण पक्ष हैं।</li>
+  </ul>
+
+  <h3>10. अभ्यास प्रश्न (MCQ)</h3>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 1.</strong> संप्रेषण का मुख्य उद्देश्य क्या है?</p>
+    <label><input type="radio" name="skq1" value="a"> केवल नियम याद करना</label><br>
+    <label><input type="radio" name="skq1" value="b"> विचारों और सूचनाओं का आदान-प्रदान करना</label><br>
+    <label><input type="radio" name="skq1" value="c"> केवल लिखना</label><br>
+    <button type="button" onclick="checkSKAnswer('skq1','b','skf1')">उत्तर जाँचें</button>
+    <p id="skf1" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 2.</strong> संदेश भेजने वाले व्यक्ति को क्या कहते हैं?</p>
+    <label><input type="radio" name="skq2" value="a"> प्राप्तकर्ता</label><br>
+    <label><input type="radio" name="skq2" value="b"> माध्यम</label><br>
+    <label><input type="radio" name="skq2" value="c"> प्रेषक</label><br>
+    <button type="button" onclick="checkSKAnswer('skq2','c','skf2')">उत्तर जाँचें</button>
+    <p id="skf2" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 3.</strong> संप्रेषण में प्रतिक्रिया (Feedback) का क्या महत्त्व है?</p>
+    <label><input type="radio" name="skq3" value="a"> यह समझने में सहायता मिलती है कि संदेश समझा गया या नहीं</label><br>
+    <label><input type="radio" name="skq3" value="b"> इससे संवाद हमेशा बंद हो जाता है</label><br>
+    <label><input type="radio" name="skq3" value="c"> इसका कोई उपयोग नहीं है</label><br>
+    <button type="button" onclick="checkSKAnswer('skq3','a','skf3')">उत्तर जाँचें</button>
+    <p id="skf3" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 4.</strong> मुस्कुराना और सिर हिलाना किस प्रकार के संप्रेषण के उदाहरण हैं?</p>
+    <label><input type="radio" name="skq4" value="a"> केवल लिखित संप्रेषण</label><br>
+    <label><input type="radio" name="skq4" value="b"> अमौखिक संप्रेषण</label><br>
+    <label><input type="radio" name="skq4" value="c"> केवल औपचारिक पत्राचार</label><br>
+    <button type="button" onclick="checkSKAnswer('skq4','b','skf4')">उत्तर जाँचें</button>
+    <p id="skf4" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 5.</strong> शिक्षक और विद्यार्थी के बीच प्रश्नोत्तर किसका उदाहरण है?</p>
+    <label><input type="radio" name="skq5" value="a"> द्विपक्षीय संप्रेषण</label><br>
+    <label><input type="radio" name="skq5" value="b"> केवल एकपक्षीय संप्रेषण</label><br>
+    <label><input type="radio" name="skq5" value="c"> संप्रेषण का अभाव</label><br>
+    <button type="button" onclick="checkSKAnswer('skq5','a','skf5')">उत्तर जाँचें</button>
+    <p id="skf5" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 6.</strong> कठिन और अपरिचित शब्दों के कारण उत्पन्न बाधा क्या कहलाती है?</p>
+    <label><input type="radio" name="skq6" value="a"> पर्यावरणीय बाधा</label><br>
+    <label><input type="radio" name="skq6" value="b"> भाषायी बाधा</label><br>
+    <label><input type="radio" name="skq6" value="c"> शारीरिक गतिविधि</label><br>
+    <button type="button" onclick="checkSKAnswer('skq6','b','skf6')">उत्तर जाँचें</button>
+    <p id="skf6" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 7.</strong> सक्रिय श्रवण का अर्थ क्या है?</p>
+    <label><input type="radio" name="skq7" value="a"> बिना ध्यान दिए सुनना</label><br>
+    <label><input type="radio" name="skq7" value="b"> केवल अपनी बात कहना</label><br>
+    <label><input type="radio" name="skq7" value="c"> ध्यानपूर्वक सुनना और अर्थ समझना</label><br>
+    <button type="button" onclick="checkSKAnswer('skq7','c','skf7')">उत्तर जाँचें</button>
+    <p id="skf7" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 8.</strong> विद्यार्थियों में संवाद-कौशल विकसित करने के लिए कौन-सी गतिविधि उपयोगी है?</p>
+    <label><input type="radio" name="skq8" value="a"> समूह-चर्चा</label><br>
+    <label><input type="radio" name="skq8" value="b"> सभी प्रश्नों को अनदेखा करना</label><br>
+    <label><input type="radio" name="skq8" value="c"> केवल चुपचाप बैठना</label><br>
+    <button type="button" onclick="checkSKAnswer('skq8','a','skf8')">उत्तर जाँचें</button>
+    <p id="skf8" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 9.</strong> संप्रेषण में मनोवैज्ञानिक बाधा का उदाहरण क्या है?</p>
+    <label><input type="radio" name="skq9" value="a"> स्पष्ट संदेश</label><br>
+    <label><input type="radio" name="skq9" value="b"> डर और संकोच</label><br>
+    <label><input type="radio" name="skq9" value="c"> उपयुक्त माध्यम</label><br>
+    <button type="button" onclick="checkSKAnswer('skq9','b','skf9')">उत्तर जाँचें</button>
+    <p id="skf9" aria-live="polite"></p>
+  </div>
+
+  <div class="quiz-question">
+    <p><strong>प्रश्न 10.</strong> प्रभावी संप्रेषण के लिए कौन-सा व्यवहार उचित है?</p>
+    <label><input type="radio" name="skq10" value="a"> दूसरों की बात बीच में काटना</label><br>
+    <label><input type="radio" name="skq10" value="b"> कठिन भाषा का अनावश्यक प्रयोग करना</label><br>
+    <label><input type="radio" name="skq10" value="c"> स्पष्ट बोलना और ध्यानपूर्वक सुनना</label><br>
+    <button type="button" onclick="checkSKAnswer('skq10','c','skf10')">उत्तर जाँचें</button>
+    <p id="skf10" aria-live="polite"></p>
+  </div>
+
+</section>
+
+<script>
+function checkSKAnswer(questionName, correctAnswer, feedbackId) {
+  const selected = document.querySelector(
+    'input[name="' + questionName + '"]:checked'
+  );
+  const feedback = document.getElementById(feedbackId);
+
+  if (!selected) {
+    feedback.textContent = "कृपया पहले एक उत्तर चुनें।";
+    return;
+  }
+
+  if (selected.value === correctAnswer) {
+    feedback.textContent = "सही उत्तर! बहुत अच्छा।";
+  } else {
+    feedback.textContent = "उत्तर सही नहीं है। दोबारा प्रयास करें।";
+  }
+}
+</script>
+
+
+</article>
+
+      <article class="card">
+        <h2>19. भाषा-शिक्षण की कठिनाइयों एवं विसंगतियों का निराकरण</h2>
+        <p>शिक्षण संबंधी कठिनाइयों और विसंगतियों का निराकरण।</p>
+      
+<!-- टॉपिक 19: भाषा-शिक्षण की कठिनाइयों एवं विसंगतियों का निराकरण -->
+<div class="lesson-content" id="bhasha-shikshan-kathinai-nivaran">
+
+  <h3>19. भाषा-शिक्षण की कठिनाइयों एवं विसंगतियों का निराकरण</h3>
+
+  <div class="note-card">
+    <h3>1. भाषा-शिक्षण की कठिनाइयों का अर्थ</h3>
+    <p>
+      भाषा-शिक्षण की कठिनाइयाँ वे समस्याएँ हैं जिनके कारण विद्यार्थी
+      भाषा को सुनने, बोलने, पढ़ने, लिखने, समझने या उचित रूप से व्यक्त
+      करने में कठिनाई अनुभव करते हैं।
+    </p>
+    <p>
+      इन कठिनाइयों को दूर करने के लिए शिक्षक को विद्यार्थियों की
+      आवश्यकताओं को पहचानकर उपयुक्त शिक्षण-विधियों, अभ्यासों और
+      सहयोग का उपयोग करना चाहिए।
+    </p>
+  </div>
+
+  <div class="note-card">
+    <h3>2. भाषा-शिक्षण में आने वाली प्रमुख कठिनाइयाँ</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>कठिनाई</th>
+          <th>उदाहरण</th>
+          <th>संभावित उपाय</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>सुनने में कठिनाई</td>
+          <td>निर्देश या कहानी का अर्थ समझने में परेशानी</td>
+          <td>स्पष्ट उच्चारण, छोटे निर्देश और दोहराव</td>
+        </tr>
+        <tr>
+          <td>बोलने में कठिनाई</td>
+          <td>विचार व्यक्त करने में झिझक</td>
+          <td>संवाद, कहानी-कथन और समूह-चर्चा</td>
+        </tr>
+        <tr>
+          <td>पढ़ने में कठिनाई</td>
+          <td>शब्द पहचानने या गद्यांश समझने में परेशानी</td>
+          <td>स्तरानुसार पठन-अभ्यास और निर्देशित पठन</td>
+        </tr>
+        <tr>
+          <td>लिखने में कठिनाई</td>
+          <td>वर्तनी, वाक्य-रचना या विचार लिखने में गलती</td>
+          <td>नमूना लेखन, अभ्यास और रचनात्मक लेखन</td>
+        </tr>
+        <tr>
+          <td>व्याकरण संबंधी कठिनाई</td>
+          <td>लिंग, वचन, काल या कारक का गलत प्रयोग</td>
+          <td>उदाहरण, अभ्यास और संदर्भ में व्याकरण-शिक्षण</td>
+        </tr>
+        <tr>
+          <td>शब्द-भंडार की कमी</td>
+          <td>उचित शब्द खोजने में परेशानी</td>
+          <td>पठन, शब्द-खेल और शब्द-संग्रह बनाना</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-card">
+    <h3>3. भाषा-शिक्षण की कठिनाइयों के कारण</h3>
+    <ul>
+      <li><strong>विद्यार्थी से संबंधित कारण:</strong> पूर्वज्ञान में कमी, अभ्यास की कमी, झिझक या सीखने की अलग-अलग गति।</li>
+      <li><strong>भाषा से संबंधित कारण:</strong> कठिन शब्दावली, जटिल वाक्य और अपरिचित भाषायी संरचनाएँ।</li>
+      <li><strong>परिवार एवं परिवेश:</strong> भाषा-अभ्यास के सीमित अवसर या घर और विद्यालय की भाषा में अंतर।</li>
+      <li><strong>शिक्षण से संबंधित कारण:</strong> एक ही विधि का लगातार प्रयोग, कम सहभागिता या अपर्याप्त प्रतिक्रिया।</li>
+      <li><strong>शिक्षण-सामग्री:</strong> विद्यार्थी के स्तर के अनुकूल सामग्री का अभाव।</li>
+      <li><strong>भावनात्मक कारण:</strong> गलती करने का डर, आत्मविश्वास की कमी या कक्षा में उपहास का भय।</li>
+    </ul>
+    <p>
+      ध्यान दें: किसी विद्यार्थी की कठिनाई का कारण केवल उसकी क्षमता को
+      मान लेना उचित नहीं है। शिक्षक को परिस्थिति, पूर्वज्ञान, शिक्षण-विधि
+      और उपलब्ध अवसरों की भी जाँच करनी चाहिए।
+    </p>
+  </div>
+
+  <div class="note-card">
+    <h3>4. भाषायी त्रुटि और भूल में अंतर</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>आधार</th>
+          <th>त्रुटि (Error)</th>
+          <th>भूल (Mistake)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>स्वरूप</td>
+          <td>नियम या अवधारणा की समझ में कमी के कारण बार-बार होने वाली गलती</td>
+          <td>जानकारी होने के बावजूद असावधानी या जल्दबाजी से हुई गलती</td>
+        </tr>
+        <tr>
+          <td>उदाहरण</td>
+          <td>विद्यार्थी बार-बार लिंग के नियम का गलत प्रयोग करता है।</td>
+          <td>विद्यार्थी सामान्यतः सही लिखता है, लेकिन एक बार असावधानी से गलत लिख देता है।</td>
+        </tr>
+        <tr>
+          <td>उपाय</td>
+          <td>नियम को फिर से समझाना और अतिरिक्त अभ्यास देना</td>
+          <td>स्वयं जाँचने और सुधारने का अवसर देना</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      यह अंतर समझने में सहायक है, लेकिन किसी एक गलती के आधार पर
+      विद्यार्थी की कठिनाई का निश्चित निष्कर्ष नहीं निकालना चाहिए।
+    </p>
+  </div>
+
+  <div class="note-card">
+    <h3>5. उपचारात्मक शिक्षण (Remedial Teaching)</h3>
+    <p>
+      उपचारात्मक शिक्षण वह प्रक्रिया है जिसमें विद्यार्थी की विशिष्ट
+      सीखने की कठिनाई की पहचान करके उसे दूर करने के लिए योजनाबद्ध
+      अतिरिक्त सहायता और अभ्यास दिया जाता है।
+    </p>
+
+    <h4>उपचारात्मक शिक्षण के प्रमुख चरण</h4>
+    <ol>
+      <li><strong>कठिनाई की पहचान:</strong> विद्यार्थी किस कौशल या विषय में कठिनाई अनुभव कर रहा है, यह जानना।</li>
+      <li><strong>निदानात्मक आकलन:</strong> प्रश्नों, बातचीत, पठन या लेखन के नमूनों से कठिनाई के संभावित कारण समझना।</li>
+      <li><strong>योजना बनाना:</strong> विद्यार्थी की आवश्यकता के अनुसार लक्ष्य और अभ्यास तय करना।</li>
+      <li><strong>उपयुक्त गतिविधियाँ:</strong> चित्र, उदाहरण, खेल, संवाद और छोटे अभ्यासों का उपयोग करना।</li>
+      <li><strong>निरंतर प्रतिक्रिया:</strong> विद्यार्थी को बताना कि उसने क्या सही किया और कहाँ सुधार कर सकता है।</li>
+      <li><strong>पुनः आकलन:</strong> देखना कि सहायता से प्रगति हुई या नहीं; आवश्यकता होने पर योजना बदलना।</li>
+    </ol>
+  </div>
+
+  <div class="note-card">
+    <h3>6. कठिनाइयों के निराकरण की प्रभावी रणनीतियाँ</h3>
+    <ul>
+      <li><strong>विद्यार्थी-केंद्रित शिक्षण:</strong> विद्यार्थियों की जरूरतों, रुचियों और पूर्वज्ञान के अनुसार पढ़ाना।</li>
+      <li><strong>बहु-संवेदी गतिविधियाँ:</strong> जहाँ उपयोगी हो, वहाँ सुनने, देखने, बोलने और लिखने के अवसर देना।</li>
+      <li><strong>सरल से कठिन की ओर:</strong> पहले सरल उदाहरण और फिर जटिल अभ्यास देना।</li>
+      <li><strong>पर्याप्त अभ्यास:</strong> पढ़ने, लिखने, सुनने और बोलने का नियमित अभ्यास कराना।</li>
+      <li><strong>सहपाठी सहयोग:</strong> जोड़ी में काम और छोटे समूहों में सीखने के अवसर देना।</li>
+      <li><strong>सकारात्मक वातावरण:</strong> गलती करने पर अपमानित करने के बजाय सुधार का अवसर देना।</li>
+      <li><strong>विभेदीकृत शिक्षण:</strong> अलग-अलग स्तर के विद्यार्थियों को उनकी आवश्यकता के अनुसार अलग सहायता देना।</li>
+      <li><strong>निरंतर आकलन:</strong> केवल अंतिम परीक्षा नहीं, बल्कि दैनिक कार्य और प्रगति का भी अवलोकन करना।</li>
+    </ul>
+  </div>
+
+  <div class="note-card">
+    <h3>7. बहुभाषी कक्षा में भाषा-शिक्षण</h3>
+    <p>
+      बहुभाषी कक्षा में विद्यार्थियों की घरेलू भाषा या मातृभाषा विद्यालय
+      की भाषा से अलग हो सकती है। ऐसी स्थिति में शिक्षक को विद्यार्थियों
+      की भाषायी पृष्ठभूमि का सम्मान करना चाहिए।
+    </p>
+    <ul>
+      <li>पूर्वज्ञान से जोड़कर नई भाषा सिखाएँ।</li>
+      <li>चित्रों, वस्तुओं, संकेतों और संदर्भों का उपयोग करें।</li>
+      <li>जहाँ उपयोगी हो, मातृभाषा और विद्यालय की भाषा के बीच संबंध स्पष्ट करें।</li>
+      <li>विद्यार्थियों को बिना उपहास के बोलने और प्रश्न पूछने का अवसर दें।</li>
+      <li>भाषायी विविधता को सीखने का संसाधन मानें, कमजोरी नहीं।</li>
+    </ul>
+  </div>
+
+  <div class="note-card">
+    <h3>8. विशेष सीखने की कठिनाइयों के प्रति संवेदनशीलता</h3>
+    <p>
+      कुछ विद्यार्थियों को पढ़ने, लिखने या भाषा-संसाधित करने में लंबे समय
+      तक कठिनाई हो सकती है। उदाहरण के लिए, डिस्लेक्सिया (Dyslexia) मुख्यतः
+      पढ़ने से जुड़ी विशिष्ट सीखने की कठिनाई है। ऐसी कठिनाइयों की पहचान
+      और निदान के लिए योग्य विशेषज्ञ की सहायता आवश्यक हो सकती है।
+    </p>
+    <ul>
+      <li>विद्यार्थी को आलसी या कमजोर कहकर लेबल न करें।</li>
+      <li>उसे अतिरिक्त समय और उपयुक्त शिक्षण-सहायता दें।</li>
+      <li>प्रगति का नियमित रिकॉर्ड रखें।</li>
+      <li>आवश्यकता होने पर अभिभावकों और विशेषज्ञों के साथ सहयोग करें।</li>
+    </ul>
+    <p>
+      शिक्षक का कार्य सहयोग देना और सीखने के अवसर बेहतर बनाना है;
+      केवल कक्षा के प्रदर्शन के आधार पर चिकित्सकीय निदान करना नहीं।
+    </p>
+  </div>
+
+  <div class="note-card">
+    <h3>9. परीक्षा के लिए महत्त्वपूर्ण तथ्य</h3>
+    <ul>
+      <li>उपचारात्मक शिक्षण का उद्देश्य पहचानी गई सीखने की कठिनाई को दूर करने में सहायता देना है।</li>
+      <li>निदानात्मक आकलन का उपयोग कठिनाई और उसकी संभावित वजह समझने के लिए किया जाता है।</li>
+      <li>गलतियों पर दंड देने के बजाय रचनात्मक प्रतिक्रिया और सुधार का अवसर देना चाहिए।</li>
+      <li>भाषा सीखने में सुनना, बोलना, पढ़ना और लिखना परस्पर संबंधित कौशल हैं।</li>
+      <li>बहुभाषी कक्षा में विद्यार्थियों की भाषायी पृष्ठभूमि का सम्मान आवश्यक है।</li>
+      <li>एक ही शिक्षण-विधि सभी विद्यार्थियों के लिए समान रूप से प्रभावी हो, यह आवश्यक नहीं है।</li>
+      <li>निरंतर आकलन से शिक्षक को शिक्षण-योजना में आवश्यक बदलाव करने में सहायता मिलती है।</li>
+    </ul>
+  </div>
+
+  <div class="note-card">
+    <h3>10. अभ्यास प्रश्न (MCQ)</h3>
+    <p>प्रत्येक प्रश्न का सही विकल्प चुनें और फिर उत्तर जाँचें।</p>
+
+    <div class="quiz-question">
+      <p><strong>प्रश्न 1.</strong> उपचारात्मक शिक्षण का मुख्य उद्देश्य क्या है?</p>
+      <label><input type="radio" name="bknq1" value="a"> विद्यार्थियों को दंड देना</label><br>
+      <label><input type="radio" name="bknq1" value="b"> सीखने की पहचानी गई कठिनाइयों को दूर करने में सहायता देना</label><br>
+      <label><input type="radio" name="bknq1" value="c"> केवल परीक्षा लेना</label><br>
+      <label><input type="radio" name="bknq1" value="d"> पाठ्यक्रम को कठिन बनाना</label>
+      <button type="button" onclick="checkBhashaSamadhanAnswer('bknq1','b','bknf1')">उत्तर जाँचें</button>
+      <p id="bknf1"></p>
+    </div>
+
+    <div class="quiz-question">
+      <p><strong>प्रश्न 2.</strong> निदानात्मक आकलन का उपयोग किसलिए किया जाता है?</p>
+      <label><input type="radio" name="bknq2" value="a"> केवल अंक देने के लिए</label><br>
+      <label><input type="radio" name="bknq2" value="b"> विद्यार्थियों की तुलना करने के लिए</label><br>
+      <label><input type="radio" name="bknq2" value="c"> कठिनाई और उसके संभावित कारण समझने के लिए</label><br>
+      <label><input type="radio" name="bknq2" value="d"> गृहकार्य समाप्त कराने के लिए</label>
+      <button type="button" onclick="checkBhashaSamadhanAnswer('bknq2','c','bknf2')">उत्तर जाँचें</button>
+      <p id="bknf2"></p>
+    </div>
+
+    <div class="quiz-question">
+      <p><strong>प्रश्न 3.</strong> विद्यार्थी बार-बार लिंग के नियम का गलत प्रयोग करता है। शिक्षक को क्या करना चाहिए?</p>
+      <label><input type="radio" name="bknq3" value="a"> उसे कक्षा से बाहर कर देना चाहिए</label><br>
+      <label><input type="radio" name="bknq3" value="b"> उसकी गलती पर हँसना चाहिए</label><br>
+      <label><input type="radio" name="bknq3" value="c"> कठिनाई पहचानकर उदाहरणों के साथ अतिरिक्त अभ्यास देना चाहिए</label><br>
+      <label><input type="radio" name="bknq3" value="d"> उसे भाषा सीखने से रोक देना चाहिए</label>
+      <button type="button" onclick="checkBhashaSamadhanAnswer('bknq3','c','bknf3')">उत्तर जाँचें</button>
+      <p id="bknf3"></p>
+    </div>
+
+    <div class="quiz-question">
+      <p><strong>प्रश्न 4.</strong> बहुभाषी कक्षा में शिक्षक का उचित दृष्टिकोण क्या है?</p>
+      <label><input type="radio" name="bknq4" value="a"> घरेलू भाषाओं का उपहास करना</label><br>
+      <label><input type="radio" name="bknq4" value="b"> केवल एक भाषा जानने वाले विद्यार्थियों को अवसर देना</label><br>
+      <label><input type="radio" name="bknq4" value="c"> विद्यार्थियों की भाषायी पृष्ठभूमि का सम्मान करना</label><br>
+      <label><input type="radio" name="bknq4" value="d"> विद्यार्थियों को बोलने से रोकना</label>
+      <button type="button" onclick="checkBhashaSamadhanAnswer('bknq4','c','bknf4')">उत्तर जाँचें</button>
+      <p id="bknf4"></p>
+    </div>
+
+    <div class="quiz-question">
+      <p><strong>प्रश्न 5.</strong> गलती करने वाले विद्यार्थी को शिक्षक कैसी प्रतिक्रिया दे?</p>
+      <label><input type="radio" name="bknq5" value="a"> अपमानजनक</label><br>
+      <label><input type="radio" name="bknq5" value="b"> रचनात्मक और सुधार में सहायक</label><br>
+      <label><input type="radio" name="bknq5" value="c"> पूरी तरह अनदेखी करने वाली</label><br>
+      <label><input type="radio" name="bknq5" value="d"> दंड पर आधारित</label>
+      <button type="button" onclick="checkBhashaSamadhanAnswer('bknq5','b','bknf5')">उत्तर जाँचें</button>
+      <p id="bknf5"></p>
+    </div>
+
+    <div class="quiz-question">
+      <p><strong>प्रश्न 6.</strong> भाषा के चार प्रमुख कौशल कौन-से हैं?</p>
+      <label><input type="radio" name="bknq6" value="a"> सोचना, खेलना, दौड़ना, गिनना</label><br>
+      <label><input type="radio" name="bknq6" value="b"> सुनना, बोलना, पढ़ना, लिखना</label><br>
+      <label><input type="radio" name="bknq6" value="c"> देखना, चलना, गाना, सोना</label><br>
+      <label><input type="radio" name="bknq6" value="d"> याद करना, गिनना, दौड़ना, चित्र बनाना</label>
+      <button type="button" onclick="checkBhashaSamadhanAnswer('bknq6','b','bknf6')">उत्तर जाँचें</button>
+      <p id="bknf6"></p>
+    </div>
+
+    <div class="quiz-question">
+      <p><strong>प्रश्न 7.</strong> विद्यार्थी की एक असावधानीपूर्ण गलती पर शिक्षक को सबसे पहले क्या करना चाहिए?</p>
+      <label><input type="radio" name="bknq7" value="a"> स्थायी कठिनाई मान लेना चाहिए</label><br>
+      <label><input type="radio" name="bknq7" value="b"> विद्यार्थी को दंड देना चाहिए</label><br>
+      <label><input type="radio" name="bknq7" value="c"> उसे स्वयं जाँचकर सुधारने का अवसर देना चाहिए</label><br>
+      <label><input type="radio" name="bknq7" value="d"> उसे आगे पढ़ने से रोकना चाहिए</label>
+      <button type="button" onclick="checkBhashaSamadhanAnswer('bknq7','c','bknf7')">उत्तर जाँचें</button>
+      <p id="bknf7"></p>
+    </div>
+
+    <div class="quiz-question">
+      <p><strong>प्रश्न 8.</strong> विभेदीकृत शिक्षण का क्या अर्थ है?</p>
+      <label><input type="radio" name="bknq8" value="a"> सभी को बिना बदलाव के एक ही सहायता देना</label><br>
+      <label><input type="radio" name="bknq8" value="b"> विद्यार्थियों की आवश्यकताओं के अनुसार शिक्षण और सहायता में बदलाव करना</label><br>
+      <label><input type="radio" name="bknq8" value="c"> कमजोर विद्यार्थियों को कक्षा से अलग करना</label><br>
+      <label><input type="radio" name="bknq8" value="d"> केवल तेज विद्यार्थियों को पढ़ाना</label>
+      <button type="button" onclick="checkBhashaSamadhanAnswer('bknq8','b','bknf8')">उत्तर जाँचें</button>
+      <p id="bknf8"></p>
+    </div>
+
+    <div class="quiz-question">
+      <p><strong>प्रश्न 9.</strong> डिस्लेक्सिया मुख्यतः किससे संबंधित विशिष्ट सीखने की कठिनाई है?</p>
+      <label><input type="radio" name="bknq9" value="a"> पढ़ने से</label><br>
+      <label><input type="radio" name="bknq9" value="b"> दौड़ने से</label><br>
+      <label><input type="radio" name="bknq9" value="c"> गाने से</label><br>
+      <label><input type="radio" name="bknq9" value="d"> चित्र रंगने से</label>
+      <button type="button" onclick="checkBhashaSamadhanAnswer('bknq9','a','bknf9')">उत्तर जाँचें</button>
+      <p id="bknf9"></p>
+    </div>
+
+    <div class="quiz-question">
+      <p><strong>प्रश्न 10.</strong> उपचारात्मक शिक्षण के बाद पुनः आकलन क्यों किया जाता है?</p>
+      <label><input type="radio" name="bknq10" value="a"> विद्यार्थी को अधिक गृहकार्य देने के लिए</label><br>
+      <label><input type="radio" name="bknq10" value="b"> यह जाँचने के लिए कि विद्यार्थी की प्रगति हुई या नहीं</label><br>
+      <label><input type="radio" name="bknq10" value="c"> पाठ्यक्रम रोकने के लिए</label><br>
+      <label><input type="radio" name="bknq10" value="d"> केवल उपस्थिति दर्ज करने के लिए</label>
+      <button type="button" onclick="checkBhashaSamadhanAnswer('bknq10','b','bknf10')">उत्तर जाँचें</button>
+      <p id="bknf10"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+function checkBhashaSamadhanAnswer(questionName, correctAnswer, feedbackId) {
+  const selected = document.querySelector(
+    'input[name="' + questionName + '"]:checked'
+  );
+  const feedback = document.getElementById(feedbackId);
+
+  if (!selected) {
+    feedback.textContent = "कृपया पहले एक विकल्प चुनें।";
+    feedback.style.color = "#b45309";
+    return;
+  }
+
+  if (selected.value === correctAnswer) {
+    feedback.textContent = "सही उत्तर! बहुत अच्छा।";
+    feedback.style.color = "#15803d";
+  } else {
+    feedback.textContent = "उत्तर सही नहीं है। नोट्स दोबारा पढ़कर प्रयास करें।";
+    feedback.style.color = "#b91c1c";
+  }
+}
+
+    function checkShabdBhedAnswer(questionNumber, correctAnswer) {
+      const selected = document.querySelector('input[name="sbq' + questionNumber + '"]:checked');
+      const feedback = document.getElementById('sbf' + questionNumber);
+      if (!selected) {
+        feedback.textContent = 'कृपया पहले एक विकल्प चुनें।';
+        feedback.className = 'feedback incorrect';
+        return;
+      }
+      if (selected.value === correctAnswer) {
+        feedback.textContent = 'सही उत्तर! बहुत अच्छा।';
+        feedback.className = 'feedback correct';
+      } else {
+        feedback.textContent = 'उत्तर सही नहीं है। फिर से प्रयास करें।';
+        feedback.className = 'feedback incorrect';
+      }
+    }
+
+</script>
+
+
+</article>
+    </section>
+  </main>
+
+  <footer>
+    JHTET 2026 हिंदी अध्ययन पोर्टल | अध्ययन के लिए तैयार किया गया
+  </footer>
+</body>
+</html>
