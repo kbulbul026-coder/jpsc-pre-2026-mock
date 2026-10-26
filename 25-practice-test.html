@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#172554">
+<title>25. Full-Length Practice Test | JHTET English Paper II</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--ink:#172033;--muted:#596579;--accent:#1d4ed8;--soft:#dbeafe;--line:#dbe2ea;--good:#166534;--bad:#b91c1c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Noto Sans Devanagari",sans-serif}
+header{background:linear-gradient(135deg,#172554,#1d4ed8);color:#fff;padding:28px 16px}.wrap{max-width:980px;margin:auto;padding:0 14px}
+header h1{margin:0 0 8px;font-size:clamp(1.5rem,4vw,2.3rem);line-height:1.25}header p{margin:6px 0;color:#e5edff}
+nav{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}nav a,.btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;border:0;cursor:pointer}
+nav a{background:#fff;color:#1e3a8a;border:1px solid var(--line)}main{padding:20px 0 36px}.card{background:var(--card);padding:clamp(16px,3vw,24px);margin:16px 0;border:1px solid var(--line);border-radius:16px;box-shadow:0 5px 18px #14213d0a}
+h2{font-size:1.4rem;color:#1e3a8a;margin-top:0}h3{margin-bottom:6px;color:#243b65}p{margin:8px 0}ul,ol{padding-left:24px}li{margin:5px 0}.pill{display:inline-block;background:var(--soft);color:#1e40af;padding:3px 9px;border-radius:999px;font-size:.88rem;font-weight:700}
+.note{background:#eff6ff;border-left:4px solid var(--accent);padding:12px 14px;border-radius:8px;margin:12px 0}.muted{color:var(--muted)}
+.question{padding:16px 0;border-bottom:1px solid var(--line)}.question p{font-weight:700}.options label{display:block;padding:8px 10px;margin:6px 0;border:1px solid var(--line);border-radius:8px;cursor:pointer}.options label:has(input:checked){background:#eff6ff;border-color:#60a5fa}
+.btn{background:var(--accent);color:white;margin:8px 6px 0 0}.btn.secondary{background:#475569}.result{padding:14px;border-radius:10px;margin-top:14px;background:#f1f5f9;font-weight:700}.explanation{font-weight:400;font-size:.94rem;color:var(--muted);margin-top:5px}.correct{border-left:4px solid var(--good);padding-left:10px}.incorrect{border-left:4px solid var(--bad);padding-left:10px}
+.passage{background:#f8fafc;border:1px solid var(--line);padding:14px;border-radius:10px;margin:12px 0}
+footer{text-align:center;color:var(--muted);padding:20px}
+@media(max-width:600px){nav a{flex:1;text-align:center}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<span class="pill">JHTET 2026 • English Paper II</span>
+<h1>25. Full-Length Practice Test</h1>
+<p>Comprehension • Language Pedagogy • Grammar</p>
+<p>हिंदी निर्देशों के साथ 30 प्रश्नों की मिश्रित अभ्यास परीक्षा</p>
+<nav><a href="JHTET-English.html">मुख्य अध्ययन पृष्ठ</a><a href="24-language-nep-2020.html">← पिछला मॉड्यूल</a></nav>
+</div></header>
+<main class="wrap">
+<section class="card">
+<h2>परीक्षा निर्देश</h2>
+<ul><li>कुल प्रश्न: <strong>30</strong> | प्रत्येक प्रश्न: <strong>1 अंक</strong> | अधिकतम अंक: <strong>30</strong>।</li><li>सुझाया गया अभ्यास समय: <strong>35 मिनट</strong>। यह स्व-अभ्यास टेस्ट है, आधिकारिक JHTET प्रश्नपत्र नहीं।</li><li>हर प्रश्न में केवल एक विकल्प चुनें। अंत में “उत्तर जाँचें” दबाएँ।</li><li>गलत उत्तरों की व्याख्या पढ़ें और जिन विषयों में गलती हुई, संबंधित मॉड्यूल दोहराएँ।</li></ul>
+<div class="note"><strong>विषय-वितरण:</strong> Comprehension (5), Language Pedagogy (10), Grammar (15)। यह अभ्यास के लिए बनाया गया संतुलित सेट है, आधिकारिक परीक्षा का निश्चित blueprint नहीं।</div>
+</section>
+
+<section class="card" id="reading">
+<h2>Section A — Reading Comprehension (प्रश्न 1–5)</h2>
+<div class="passage">
+<strong>Passage</strong>
+<p>Reading is not simply the act of recognizing printed words. A thoughtful reader connects new information with prior knowledge, asks questions, and checks whether the text supports an inference. For example, when a story describes dark clouds, strong winds, and people closing their windows, a reader may infer that a storm is approaching. However, a good reader also distinguishes an inference from a fact directly stated in the text. Teachers can support comprehension by inviting learners to predict, summarize, discuss vocabulary in context, and cite textual evidence for their answers.</p>
+</div>
+<div id="readingQuestions"></div>
+</section>
+
+<section class="card" id="pedagogy">
+<h2>Section B — Language Pedagogy (प्रश्न 6–15)</h2>
+<div id="pedagogyQuestions"></div>
+</section>
+
+<section class="card" id="grammar">
+<h2>Section C — Grammar and Vocabulary (प्रश्न 16–30)</h2>
+<div id="grammarQuestions"></div>
+</section>
+
+<section class="card">
+<h2>परिणाम</h2>
+<form id="quizForm">
+<button class="btn" type="button" onclick="gradeQuiz()">उत्तर जाँचें</button>
+<button class="btn secondary" type="button" onclick="resetQuiz()">फिर से प्रयास करें</button>
+</form>
+<div id="result" class="result" hidden aria-live="polite"></div>
+<div id="review"></div>
+</section>
+<section class="card">
+<h2>मुख्य अध्ययन पृष्ठ में जोड़ें</h2>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f5f9;padding:12px;border-radius:8px"><code>&lt;a href="25-practice-test.html"&gt;
+  25. Full-Length Practice Test
+  (Comprehension, Pedagogy and Grammar)
+&lt;/a&gt;</code></pre>
+<nav><a href="JHTET-English.html">मुख्य अध्ययन पृष्ठ</a><a href="24-language-nep-2020.html">← 24. Language in NEP 2020</a></nav>
+<p class="muted">Android पर फ़ाइल डाउनलोड करें और Downloads फ़ोल्डर से Chrome या HTML Viewer में खोलें।</p>
+</section>
+</main>
+<footer>JHTET English Paper II • Self-practice test</footer>
+<script>
+const sections = [
+{target:"readingQuestions",start:1,items:[
+{q:"What is thoughtful reading mainly about?",o:["Recognizing printed words only","Connecting information, asking questions, and checking evidence","Reading as fast as possible","Memorizing every sentence"],a:1,e:"Passage के अनुसार thoughtful reading में prior knowledge, questions और textual evidence शामिल हैं।"},
+{q:"Dark clouds, strong winds, and closed windows may suggest:",o:["A festival","A storm approaching","A sunny morning","A classroom lesson"],a:1,e:"ये संकेत तूफान आने का inference देते हैं।"},
+{q:"Which statement is directly supported by the passage?",o:["All readers make perfect inferences","Teachers should ban discussion","Teachers can ask learners to summarize","Every story predicts weather"],a:2,e:"Passage स्पष्ट कहता है कि शिक्षक learners से summary बनाने को कह सकते हैं।"},
+{q:"The word “infer” is closest in meaning to:",o:["Guess without clues","Reach a conclusion from clues","Copy exactly","Forget"],a:1,e:"Infer का अर्थ उपलब्ध संकेतों से निष्कर्ष निकालना है।"},
+{q:"A good reader distinguishes an inference from:",o:["A title","A directly stated fact","A paragraph","A question mark"],a:1,e:"पाठ में inference और directly stated fact के बीच अंतर बताया गया है।"}
+]},
+{target:"pedagogyQuestions",start:6,items:[
+{q:"Language acquisition is generally associated with:",o:["Meaningful exposure and natural communication","Only memorizing grammar rules","Copying a dictionary","Silence in class"],a:0,e:"Acquisition अक्सर सार्थक भाषा-संपर्क और संवाद से जुड़ा माना जाता है।"},
+{q:"The main purpose of communicative language teaching is to:",o:["Memorize rule names only","Use language meaningfully to communicate","Avoid pair work","Correct every error immediately"],a:1,e:"Communicative approach में अर्थपूर्ण संचार और भाषा का वास्तविक उपयोग केंद्रीय है।"},
+{q:"Which is a useful pre-reading activity?",o:["Predicting from the title or picture","Testing spelling before any context","Copying the whole passage","Avoiding prior knowledge"],a:0,e:"शीर्षक या चित्र से अनुमान लगाना prior knowledge सक्रिय करता है।"},
+{q:"A learner-centered classroom usually gives learners:",o:["No opportunities to speak","Active participation and meaningful tasks","Only lectures","No feedback"],a:1,e:"Learner-centered teaching में सक्रिय सहभागिता और अर्थपूर्ण गतिविधियाँ होती हैं।"},
+{q:"Which activity best develops listening comprehension?",o:["Listening to a short announcement and selecting key details","Copying a paragraph silently","Writing spellings without listening","Learning punctuation names"],a:0,e:"सुनकर मुख्य जानकारी चुनना listening comprehension का अभ्यास है।"},
+{q:"In a multilingual classroom, a teacher should:",o:["Mock home languages","Use learners’ language resources respectfully","Assume all learners have identical backgrounds","Forbid peer support"],a:1,e:"घरेलू भाषाओं का सम्मानपूर्वक उपयोग सीखने का संसाधन बन सकता है।"},
+{q:"Formative assessment is mainly used to:",o:["Support learning through ongoing feedback","Rank students only at the end","Replace all teaching","Punish mistakes"],a:0,e:"Formative assessment सीखने के दौरान feedback देकर सुधार में मदद करता है।"},
+{q:"Which is an authentic speaking assessment?",o:["Role-play in a real-life situation","Only a written spelling test","Copying a grammar chart","Silent reading only"],a:0,e:"Role-play में वास्तविक संवाद जैसी स्थिति में speaking देखी जाती है।"},
+{q:"Remedial teaching should begin by:",o:["Repeating the same lesson without diagnosis","Identifying specific learning difficulties","Giving punishment","Removing the learner from class"],a:1,e:"पहले कठिनाई की पहचान करें, फिर उसी के अनुरूप सहायता दें।"},
+{q:"Under NEP 2020, the language approach emphasizes:",o:["Respect for multilingualism and Indian languages","One identical language combination for every state","Stopping the learning of English","Ignoring the home language"],a:0,e:"NEP 2020 बहुभाषिकता, भारतीय भाषाओं और लचीलेपन को महत्व देती है।"}
+]},
+{target:"grammarQuestions",start:16,items:[
+{q:"Choose the correct verb: “She ___ to school every day.”",o:["go","goes","going","gone"],a:1,e:"Third-person singular subject “She” के साथ simple present में “goes” होगा।"},
+{q:"Choose the correct sentence.",o:["They was happy.","They were happy.","They is happy.","They be happy."],a:1,e:"Plural subject “They” के साथ past form “were” आता है।"},
+{q:"Identify the adjective: “The bright moon appeared.”",o:["moon","appeared","bright","the"],a:2,e:"Bright, moon की विशेषता बताता है; इसलिए adjective है।"},
+{q:"Choose the correct article: “He is ___ honest man.”",o:["a","an","the only","no article always"],a:1,e:"Honest में h silent है और शुरुआत vowel sound से होती है; इसलिए “an”।"},
+{q:"Choose the correct subject-verb agreement.",o:["The list of items are long.","The list of items is long.","The list are long.","The items list is are long."],a:1,e:"मुख्य subject “list” singular है; “of items” prepositional phrase है।"},
+{q:"Which is a phrase rather than a clause?",o:["because she ran","when he arrived","under the old bridge","they are ready"],a:2,e:"“Under the old bridge” में subject-verb वाला clause नहीं है।"},
+{q:"Choose the correct passive form: “The teacher praised Rina.”",o:["Rina praised the teacher.","Rina was praised by the teacher.","Rina is praise by teacher.","The teacher was praised Rina."],a:1,e:"Simple past active का passive: object + was/were + past participle।"},
+{q:"Choose the correct reported speech: He said, “I am tired.”",o:["He said that I am tired.","He said that he was tired.","He says he tired.","He said that he is tiring."],a:1,e:"सामान्य backshift में am → was और I → he होता है।"},
+{q:"Which word is a prefix in “unhappy”?",o:["happy","un-","-py","hap"],a:1,e:"Prefix शब्द के आरंभ में जुड़ता है; un- का अर्थ न/विपरीत है।"},
+{q:"Choose a synonym of “rapid”.",o:["slow","quick","weak","silent"],a:1,e:"Rapid का समानार्थी quick है।"},
+{q:"Choose an antonym of “ancient”.",o:["old","historic","modern","early"],a:2,e:"Ancient का विलोम modern है।"},
+{q:"“The wind whispered through the trees” uses:",o:["Personification","Alliteration only","Irony","Literal technical language"],a:0,e:"हवा को मनुष्य जैसी क्रिया “whispered” दी गई है; यह personification है।"},
+{q:"Which sentence is compound?",o:["Although it rained, we played.","It rained, but we played.","Playing in rain.","When the rain stopped."],a:1,e:"Compound sentence में दो independent clauses coordinating conjunction से जुड़ते हैं।"},
+{q:"A morpheme is:",o:["The smallest meaningful or grammatical unit","Always a complete sentence","A punctuation mark","A type of poem only"],a:0,e:"Morpheme अर्थ या grammatical function रखने वाली सबसे छोटी इकाई है।"},
+{q:"Which is a common-gender noun in traditional grammar?",o:["queen","father","student","table"],a:2,e:"Student किसी भी gender के विद्यार्थी के लिए प्रयुक्त हो सकता है।"}
+]}
+];
+const all=[];
+function render(){
+ sections.forEach(s=>{
+  const root=document.getElementById(s.target);
+  root.innerHTML=s.items.map((x,i)=>{
+   const n=s.start+i;all.push({...x,n});
+   return `<div class="question" id="qbox${n}"><p>${n}. ${x.q}</p><div class="options">${x.o.map((op,j)=>`<label><input type="radio" name="q${n}" value="${j}"> ${String.fromCharCode(65+j)}. ${op}</label>`).join('')}</div><div class="explanation" id="exp${n}" hidden></div></div>`;
+  }).join('');
+ });
+}
+function gradeQuiz(){
+ let score=0,answered=0;
+ all.forEach(x=>{
+  const sel=document.querySelector(`input[name="q${x.n}"]:checked`),box=document.getElementById(`qbox${x.n}`),exp=document.getElementById(`exp${x.n}`);
+  box.classList.remove('correct','incorrect');if(sel)answered++;
+  if(sel&&Number(sel.value)===x.a){score++;box.classList.add('correct')}else box.classList.add('incorrect');
+  exp.hidden=false;exp.innerHTML=`<strong>${sel&&Number(sel.value)===x.a?'सही उत्तर':'सही उत्तर: '+String.fromCharCode(65+x.a)+'. '+x.o[x.a]}</strong><br>${x.e}`;
+ });
+ const r=document.getElementById('result');r.hidden=false;
+ r.innerHTML=`आपका स्कोर: ${score} / ${all.length} (${Math.round(score/all.length*100)}%)<br><span style="font-weight:400">उत्तर दिए: ${answered} / ${all.length}. ${score>=25?'बहुत अच्छा! अब कठिन प्रश्नों और समयबद्ध अभ्यास पर ध्यान दें।':score>=18?'अच्छा प्रयास। गलत उत्तरों की व्याख्या दोहराएँ।':'कमज़ोर विषय पहचानें और संबंधित मॉड्यूल दोबारा पढ़ें।'}</span>`;
+ r.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function resetQuiz(){
+ document.getElementById('quizForm').reset();document.getElementById('result').hidden=true;
+ all.forEach(x=>{const b=document.getElementById(`qbox${x.n}`),e=document.getElementById(`exp${x.n}`);b.classList.remove('correct','incorrect');e.hidden=true;e.innerHTML='';});
+ document.querySelectorAll('input[type=radio]').forEach(el=>el.checked=false);
+ document.getElementById('reading').scrollIntoView({behavior:'smooth'});
+}
+render();
+</script>
+</body>
+</html>
