@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Diverse Classroom | JHTET 2026 English Paper 2</title>
+
+<style>
+:root{
+  --bg:#f3f6fb;
+  --card:#ffffff;
+  --text:#1e293b;
+  --muted:#64748b;
+  --primary:#1d4ed8;
+  --secondary:#0f766e;
+  --border:#dbe4f0;
+  --soft:#eaf1ff;
+  --green:#dcfce7;
+  --orange:#fff7ed;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  line-height:1.75;
+}
+header{
+  background:linear-gradient(135deg,#172554,#1d4ed8,#0f766e);
+  color:white;
+  padding:28px 16px;
+}
+.header-inner{max-width:950px;margin:auto}
+header h1{
+  font-size:clamp(25px,5vw,36px);
+  line-height:1.4;
+  margin:12px 0;
+}
+header p{margin:6px 0;color:#e0f2fe}
+.badge{
+  display:inline-block;
+  padding:4px 10px;
+  border:1px solid #bfdbfe;
+  border-radius:20px;
+  font-size:13px;
+}
+nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:white;
+  border-bottom:1px solid var(--border);
+  padding:10px;
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+}
+nav a{
+  flex-shrink:0;
+  text-decoration:none;
+  color:var(--primary);
+  background:var(--soft);
+  padding:7px 12px;
+  border-radius:8px;
+  font-size:14px;
+}
+main{max-width:950px;margin:20px auto;padding:0 13px}
+.card{
+  background:var(--card);
+  padding:20px;
+  margin:15px 0;
+  border:1px solid var(--border);
+  border-radius:15px;
+  box-shadow:0 3px 12px #0f172a08;
+}
+h2{color:#1d4ed8;font-size:23px;margin-top:0}
+h3{color:#0f766e;font-size:18px}
+p{margin:9px 0}
+ul,ol{padding-left:23px}
+li{margin:6px 0}
+.note{
+  padding:13px 15px;
+  border-left:4px solid var(--primary);
+  background:var(--soft);
+  border-radius:8px;
+  margin:12px 0;
+}
+.success{
+  background:var(--green);
+  padding:13px;
+  border-radius:8px;
+  margin:12px 0;
+}
+.warning{
+  background:var(--orange);
+  padding:13px;
+  border-left:4px solid #ea580c;
+  border-radius:8px;
+  margin:12px 0;
+}
+.term{font-weight:bold;color:#1d4ed8}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th,td{
+  padding:10px;
+  border:1px solid var(--border);
+  text-align:left;
+  vertical-align:top;
+}
+th{background:var(--soft)}
+.example{
+  padding:12px;
+  border:1px solid var(--border);
+  background:#f8fafc;
+  border-radius:9px;
+  margin:10px 0;
+}
+.question{
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:14px;
+  margin:14px 0;
+}
+.question p{font-weight:bold}
+.option{
+  display:block;
+  margin:8px 0;
+  padding:9px 10px;
+  background:#f8fafc;
+  border:1px solid var(--border);
+  border-radius:8px;
+  cursor:pointer;
+}
+.option input{margin-right:8px}
+button,.btn{
+  display:inline-block;
+  border:0;
+  border-radius:9px;
+  padding:11px 15px;
+  background:var(--primary);
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+  text-decoration:none;
+  margin:5px 5px 5px 0;
+}
+button.secondary{background:var(--secondary)}
+#result,#answerKey{
+  padding:15px;
+  border-radius:10px;
+  margin-top:14px;
+  display:none;
+}
+.small{font-size:14px;color:var(--muted)}
+footer{
+  text-align:center;
+  padding:25px 12px;
+  color:var(--muted);
+}
+@media(max-width:600px){
+  .card{padding:15px}
+  h2{font-size:21px}
+  th,td{padding:8px;font-size:14px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <span class="badge">JHTET 2026 • English Paper 2</span>
+    <h1>Diverse Classroom</h1>
+    <p>विविध कक्षा में भाषा-शिक्षण की चुनौतियाँ</p>
+    <p>Pedagogy of Language Development</p>
+    <p>Upper Primary Level • कक्षा 6–8</p>
+  </div>
+</header>
+
+<nav>
+  <a href="JHTET-English.html">मुख्य पेज</a>
+  <a href="#intro">परिचय</a>
+  <a href="#diversity">विविधता</a>
+  <a href="#challenges">चुनौतियाँ</a>
+  <a href="#multilingual">बहुभाषिकता</a>
+  <a href="#inclusive">समावेशी शिक्षण</a>
+  <a href="#assessment">रणनीतियाँ</a>
+  <a href="#mcq">MCQ टेस्ट</a>
+</nav>
+
+<main>
+
+<section class="card" id="intro">
+  <h2>1. विविध कक्षा का अर्थ</h2>
+
+  <p>
+    <strong>Diverse Classroom (विविध कक्षा)</strong> ऐसी कक्षा है जिसमें
+    विद्यार्थियों की भाषा, सामाजिक-सांस्कृतिक पृष्ठभूमि, पूर्वज्ञान,
+    रुचियों, सीखने की गति, क्षमताओं और शैक्षिक आवश्यकताओं में अंतर हो सकता है।
+  </p>
+
+  <p>
+    भाषा की कक्षा में सभी विद्यार्थी समान अनुभव या समान भाषाई ज्ञान लेकर
+    नहीं आते। कुछ विद्यार्थी घर में हिंदी बोलते हैं, कुछ स्थानीय या
+    जनजातीय भाषाओं का प्रयोग करते हैं और कुछ विद्यार्थी अंग्रेज़ी से
+    पहले ही अधिक परिचित हो सकते हैं।
+  </p>
+
+  <div class="note">
+    <strong>मुख्य विचार:</strong>
+    विविधता को केवल समस्या के रूप में नहीं देखना चाहिए।
+    उचित शिक्षण रणनीतियों के माध्यम से अलग-अलग अनुभव और भाषाएँ
+    सीखने के उपयोगी संसाधन बन सकते हैं।
+  </div>
+
+  <h3>विविध कक्षा की प्रमुख विशेषताएँ</h3>
+
+  <ul>
+    <li>विद्यार्थियों की घरेलू भाषाएँ अलग-अलग हो सकती हैं।</li>
+    <li>अंग्रेज़ी का पूर्वज्ञान सभी विद्यार्थियों में समान नहीं होता।</li>
+    <li>सीखने की गति और अभ्यास की आवश्यकता अलग हो सकती है।</li>
+    <li>विद्यार्थियों की रुचियाँ और जीवन-अनुभव भिन्न हो सकते हैं।</li>
+    <li>कुछ विद्यार्थियों को अतिरिक्त शैक्षिक सहायता की आवश्यकता हो सकती है।</li>
+    <li>संसाधनों और सीखने के अवसरों तक पहुँच में अंतर हो सकता है।</li>
+  </ul>
+</section>
+
+<section class="card" id="diversity">
+  <h2>2. कक्षा में विविधता के प्रकार</h2>
+
+  <div class="table-wrap">
+    <table>
+      <tr>
+        <th>विविधता का प्रकार</th>
+        <th>अर्थ</th>
+        <th>कक्षा का उदाहरण</th>
+      </tr>
+      <tr>
+        <td>भाषाई विविधता</td>
+        <td>विद्यार्थियों की भाषाओं और भाषा-ज्ञान में अंतर।</td>
+        <td>कुछ विद्यार्थी संथाली, हिंदी या अन्य स्थानीय भाषा बोलते हैं।</td>
+      </tr>
+      <tr>
+        <td>सामाजिक-सांस्कृतिक विविधता</td>
+        <td>परिवार, समुदाय, परंपराओं और अनुभवों में अंतर।</td>
+        <td>विद्यार्थियों के दैनिक जीवन के अनुभव अलग-अलग हैं।</td>
+      </tr>
+      <tr>
+        <td>सीखने की गति में विविधता</td>
+        <td>सीखने और अभ्यास करने की गति में अंतर।</td>
+        <td>कुछ विद्यार्थी जल्दी पढ़ते हैं, जबकि कुछ को अतिरिक्त अभ्यास चाहिए।</td>
+      </tr>
+      <tr>
+        <td>पूर्वज्ञान में विविधता</td>
+        <td>पहले से सीखी गई जानकारी में अंतर।</td>
+        <td>कुछ विद्यार्थी पहले से अंग्रेज़ी के वाक्य बना सकते हैं।</td>
+      </tr>
+      <tr>
+        <td>रुचि में विविधता</td>
+        <td>विषयों और गतिविधियों की पसंद में अंतर।</td>
+        <td>किसी को खेल, किसी को कहानी और किसी को विज्ञान पसंद है।</td>
+      </tr>
+      <tr>
+        <td>शैक्षिक आवश्यकता में विविधता</td>
+        <td>सीखने के लिए अलग-अलग सहायता या अनुकूलन की आवश्यकता।</td>
+        <td>किसी विद्यार्थी को बड़े अक्षरों या अतिरिक्त समय की जरूरत हो सकती है।</td>
+      </tr>
+    </table>
+  </div>
+
+  <h3>शिक्षक के लिए इसका क्या अर्थ है?</h3>
+
+  <p>
+    शिक्षक को यह मानकर नहीं चलना चाहिए कि सभी विद्यार्थी एक ही तरीके से,
+    एक ही गति से और एक ही स्तर पर सीखेंगे। पाठ, गतिविधियाँ और मूल्यांकन
+    विद्यार्थियों की आवश्यकताओं के अनुसार लचीले होने चाहिए।
+  </p>
+
+  <div class="success">
+    <strong>परीक्षा संकेत:</strong>
+    विविध कक्षा में प्रभावी शिक्षण का अर्थ है विद्यार्थियों के अंतर को
+    पहचानना और सभी को सीखने में भाग लेने के उचित अवसर देना।
+  </div>
+</section>
+
+<section class="card" id="challenges">
+  <h2>3. विविध कक्षा में भाषा-शिक्षण की चुनौतियाँ</h2>
+
+  <h3>3.1 भाषाई कठिनाइयाँ</h3>
+
+  <ul>
+    <li>विद्यार्थियों को अंग्रेज़ी शब्दावली का सीमित ज्ञान हो सकता है।</li>
+    <li>कुछ विद्यार्थियों को अंग्रेज़ी सुनने और समझने के कम अवसर मिलते हैं।</li>
+    <li>घरेलू भाषा और विद्यालय में प्रयुक्त भाषा में अंतर हो सकता है।</li>
+    <li>कुछ ध्वनियों, शब्दों या वाक्य-संरचनाओं को समझने में कठिनाई हो सकती है।</li>
+  </ul>
+
+  <h3>3.2 सामाजिक और भावनात्मक चुनौतियाँ</h3>
+
+  <ul>
+    <li>गलत उत्तर देने या दूसरों के हँसने का डर।</li>
+    <li>कक्षा में बोलने में झिझक।</li>
+    <li>कुछ विद्यार्थियों का चर्चा में अधिक भाग लेना और दूसरों का कम भाग लेना।</li>
+    <li>अलग भाषा या पृष्ठभूमि के कारण उपेक्षित महसूस करना।</li>
+  </ul>
+
+  <h3>3.3 संसाधनों से जुड़ी चुनौतियाँ</h3>
+
+  <ul>
+    <li>पुस्तकों और अतिरिक्त अध्ययन सामग्री की सीमित उपलब्धता।</li>
+    <li>घर पर अंग्रेज़ी अभ्यास के अवसरों में अंतर।</li>
+    <li>डिजिटल उपकरणों या इंटरनेट तक असमान पहुँच।</li>
+    <li>बड़ी कक्षा में प्रत्येक विद्यार्थी पर व्यक्तिगत ध्यान देने में कठिनाई।</li>
+  </ul>
+
+  <h3>3.4 शिक्षक को किन बातों से बचना चाहिए?</h3>
+
+  <ul>
+    <li>सभी विद्यार्थियों से समान गति से सीखने की अपेक्षा करना।</li>
+    <li>किसी विद्यार्थी की घरेलू भाषा का मजाक उड़ाना।</li>
+    <li>कम अंग्रेज़ी जानने वाले विद्यार्थी को कमजोर या अयोग्य मान लेना।</li>
+    <li>केवल तेज और आत्मविश्वासी विद्यार्थियों को बोलने के अवसर देना।</li>
+    <li>गलतियों के कारण विद्यार्थियों को बार-बार अपमानित करना।</li>
+  </ul>
+
+  <div class="warning">
+    <strong>महत्त्वपूर्ण:</strong>
+    अंग्रेज़ी में कम दक्षता का अर्थ यह नहीं है कि विद्यार्थी में सोचने,
+    समझने या सीखने की क्षमता कम है। उसकी भाषा-सीखने की वर्तमान अवस्था
+    और पूर्वज्ञान को ध्यान में रखना चाहिए।
+  </div>
+</section>
+
+<section class="card" id="multilingual">
+  <h2>4. बहुभाषिक कक्षा (Multilingual Classroom)</h2>
+
+  <p>
+    बहुभाषिक कक्षा में विद्यार्थी एक से अधिक भाषाओं का उपयोग कर सकते हैं।
+    उनकी घरेलू भाषा, समुदाय की भाषा और विद्यालय में पढ़ाई जाने वाली भाषा
+    अलग-अलग हो सकती हैं।
+  </p>
+
+  <h3>4.1 बहुभाषिकता एक संसाधन</h3>
+
+  <ul>
+    <li>विद्यार्थी अपनी परिचित भाषा की सहायता से नई अवधारणा समझ सकते हैं।</li>
+    <li>दो भाषाओं के शब्दों और अर्थों की तुलना की जा सकती है।</li>
+    <li>स्थानीय कहानियों और अनुभवों को अंग्रेज़ी सीखने से जोड़ा जा सकता है।</li>
+    <li>विद्यार्थी एक-दूसरे की भाषाओं और संस्कृतियों का सम्मान करना सीख सकते हैं।</li>
+    <li>पूर्वज्ञान को नई भाषा सीखने के आधार के रूप में इस्तेमाल किया जा सकता है।</li>
+  </ul>
+
+  <h3>4.2 कक्षा में उपयोग के उदाहरण</h3>
+
+  <div class="example">
+    <strong>उदाहरण 1: शब्दावली</strong>
+    <p>
+      शिक्षक किसी परिचित वस्तु को दिखाता है, विद्यार्थी उसकी घरेलू भाषा
+      में पहचान बताते हैं और फिर उसका अंग्रेज़ी शब्द सीखते हैं।
+    </p>
+  </div>
+
+  <div class="example">
+    <strong>उदाहरण 2: कहानी</strong>
+    <p>
+      विद्यार्थी पहले परिचित भाषा में कहानी का अर्थ समझते हैं और फिर
+      सरल अंग्रेज़ी वाक्यों में कहानी का सार बताते हैं।
+    </p>
+  </div>
+
+  <div class="example">
+    <strong>उदाहरण 3: समूह-कार्य</strong>
+    <p>
+      विद्यार्थी अपने अनुभव साझा करते हैं और शिक्षक उनकी बातों को
+      अंग्रेज़ी के नए शब्दों तथा वाक्य-रूपों से जोड़ता है।
+    </p>
+  </div>
+
+  <h3>4.3 शिक्षक की भूमिका</h3>
+
+  <ul>
+    <li>विद्यार्थियों की भाषाई पृष्ठभूमि का सम्मान करना।</li>
+    <li>आवश्यकतानुसार परिचित भाषा को समझने के सहायक साधन के रूप में उपयोग करना।</li>
+    <li>अंग्रेज़ी में सुनने, बोलने, पढ़ने और लिखने के पर्याप्त अवसर देना।</li>
+    <li>भाषाओं की तुलना करते समय विद्यार्थियों को अपमानित न करना।</li>
+    <li>नई शब्दावली को चित्रों, उदाहरणों और संदर्भों से समझाना।</li>
+  </ul>
+
+  <div class="note">
+    <strong>परीक्षा के लिए याद रखें:</strong>
+    बहुभाषिकता को अपने-आप में बाधा नहीं मानना चाहिए।
+    विद्यार्थियों की परिचित भाषाएँ नई भाषा सीखने में सहायक संसाधन बन सकती हैं।
+  </div>
+</section>
+
+<section class="card" id="inclusive">
+  <h2>5. समावेशी भाषा-शिक्षण (Inclusive Language Teaching)</h2>
+
+  <p>
+    समावेशी शिक्षण का उद्देश्य यह सुनिश्चित करना है कि सभी विद्यार्थियों को
+    सीखने, सहभागिता करने और अपनी क्षमताओं का विकास करने के अवसर मिलें।
+    इसके लिए शिक्षक विद्यार्थियों की अलग-अलग आवश्यकताओं को पहचानता है।
+  </p>
+
+  <h3>5.1 समावेशी कक्षा की विशेषताएँ</h3>
+
+  <ul>
+    <li>सभी विद्यार्थियों के प्रति सम्मानपूर्ण व्यवहार।</li>
+    <li>भेदभाव और उपहास से मुक्त वातावरण।</li>
+    <li>विविध प्रकार की शिक्षण सामग्री और गतिविधियाँ।</li>
+    <li>आवश्यकतानुसार अतिरिक्त सहायता।</li>
+    <li>सभी विद्यार्थियों को भाग लेने के अवसर।</li>
+    <li>विद्यार्थियों की प्रगति के अनुसार प्रतिक्रिया और मार्गदर्शन।</li>
+  </ul>
+
+  <h3>5.2 व्यावहारिक शिक्षण रणनीतियाँ</h3>
+
+  <div class="table-wrap">
+    <table>
+      <tr>
+        <th>रणनीति</th>
+        <th>कक्षा में उपयोग</th>
+      </tr>
+      <tr>
+        <td>Differentiated Instruction</td>
+        <td>विद्यार्थियों की तैयारी और आवश्यकताओं के अनुसार गतिविधियों या सहायता में अंतर रखना।</td>
+      </tr>
+      <tr>
+        <td>Flexible Grouping</td>
+        <td>कभी समान स्तर और कभी अलग-अलग स्तर के विद्यार्थियों को समूह में रखना।</td>
+      </tr>
+      <tr>
+        <td>Visual Support</td>
+        <td>चित्र, चार्ट, संकेत और उदाहरणों का उपयोग करना।</td>
+      </tr>
+      <tr>
+        <td>Peer Learning</td>
+        <td>विद्यार्थियों को साथी के साथ सीखने और विचार साझा करने देना।</td>
+      </tr>
+      <tr>
+        <td>Scaffolding</td>
+        <td>शुरुआत में संकेत, उदाहरण और चरणबद्ध सहायता देना; दक्षता बढ़ने पर सहायता धीरे-धीरे कम करना।</td>
+      </tr>
+      <tr>
+        <td>Flexible Assessment</td>
+        <td>उद्देश्य के अनुसार मौखिक उत्तर, लिखित कार्य, चित्र या अन्य उपयुक्त माध्यमों से सीखने की जाँच करना।</td>
+      </tr>
+    </table>
+  </div>
+
+  <h3>5.3 विशेष शैक्षिक आवश्यकताओं वाले विद्यार्थी</h3>
+
+  <p>
+    कुछ विद्यार्थियों को पढ़ने, सुनने, देखने, लिखने, ध्यान केंद्रित करने
+    या निर्देश समझने में अतिरिक्त सहायता की आवश्यकता हो सकती है।
+    सहायता विद्यार्थी की वास्तविक आवश्यकता के अनुसार होनी चाहिए।
+  </p>
+
+  <ul>
+    <li>निर्देशों को छोटे और स्पष्ट चरणों में देना।</li>
+    <li>जहाँ उपयुक्त हो, बड़े अक्षर या स्पष्ट दृश्य सामग्री देना।</li>
+    <li>अभ्यास के लिए अतिरिक्त समय देना, यदि आवश्यक हो।</li>
+    <li>सुनने के निर्देशों के साथ लिखित या दृश्य संकेत देना।</li>
+    <li>विद्यार्थी की गरिमा और गोपनीयता का सम्मान करना।</li>
+    <li>विद्यालय की उपलब्ध सहायता और विशेषज्ञ मार्गदर्शन का उपयोग करना।</li>
+  </ul>
+
+  <div class="success">
+    <strong>मुख्य सिद्धांत:</strong>
+    समान अवसर देने का अर्थ हमेशा सभी को बिल्कुल एक जैसी सहायता देना नहीं है।
+    कभी-कभी समान सहभागिता सुनिश्चित करने के लिए अलग-अलग प्रकार की सहायता
+    आवश्यक होती है।
+  </div>
+</section>
+
+<section class="card" id="strategies">
+  <h2>6. अलग-अलग स्तरों के विद्यार्थियों के लिए रणनीतियाँ</h2>
+
+  <h3>स्थिति 1: विद्यार्थी अंग्रेज़ी में शुरुआती स्तर पर है</h3>
+  <ul>
+    <li>चित्रों और परिचित वस्तुओं से शुरुआत करें।</li>
+    <li>छोटे और सरल वाक्य प्रस्तुत करें।</li>
+    <li>उदाहरण देकर अभ्यास कराएँ।</li>
+    <li>पहले सुनने और समझने, फिर बोलने के अवसर दें।</li>
+  </ul>
+
+  <h3>स्थिति 2: विद्यार्थी जल्दी सीखता है</h3>
+  <ul>
+    <li>उसे कहानी का विस्तृत सार लिखने दें।</li>
+    <li>अतिरिक्त प्रश्न और रचनात्मक कार्य दें।</li>
+    <li>उसे समूह में सहयोगी भूमिका दें, लेकिन हमेशा शिक्षक की जिम्मेदारी न सौंपें।</li>
+  </ul>
+
+  <h3>स्थिति 3: विद्यार्थी बोलने में झिझकता है</h3>
+  <ul>
+    <li>पहले जोड़ी में बोलने का अवसर दें।</li>
+    <li>उत्तर देने से पहले सोचने का समय दें।</li>
+    <li>छोटे उत्तरों से शुरुआत करें।</li>
+    <li>प्रयास की सराहना करें और अपमानजनक तुलना से बचें।</li>
+  </ul>
+
+  <h3>स्थिति 4: कक्षा में कई घरेलू भाषाएँ हैं</h3>
+  <ul>
+    <li>विद्यार्थियों के परिचित शब्दों और अनुभवों को शामिल करें।</li>
+    <li>चित्रों और संदर्भों की सहायता से अंग्रेज़ी शब्द सिखाएँ।</li>
+    <li>विद्यार्थियों को भाषा-संबंधी अनुभव साझा करने दें।</li>
+    <li>सभी भाषाओं के प्रति सम्मान बनाए रखें।</li>
+  </ul>
+
+  <h3>उदाहरणात्मक पाठ योजना</h3>
+
+  <div class="table-wrap">
+    <table>
+      <tr>
+        <th>चरण</th>
+        <th>शिक्षक की गतिविधि</th>
+        <th>उद्देश्य</th>
+      </tr>
+      <tr>
+        <td>1. पूर्वज्ञान</td>
+        <td>चित्र दिखाकर परिचित शब्द पूछना।</td>
+        <td>पूर्वज्ञान को सक्रिय करना।</td>
+      </tr>
+      <tr>
+        <td>2. प्रस्तुतीकरण</td>
+        <td>नए अंग्रेज़ी शब्द और सरल वाक्य समझाना।</td>
+        <td>नई भाषा से परिचित कराना।</td>
+      </tr>
+      <tr>
+        <td>3. निर्देशित अभ्यास</td>
+        <td>उदाहरणों और संकेतों की सहायता से अभ्यास कराना।</td>
+        <td>आवश्यक सहायता उपलब्ध कराना।</td>
+      </tr>
+      <tr>
+        <td>4. समूह गतिविधि</td>
+        <td>विद्यार्थियों से जोड़ी या समूह में संवाद कराना।</td>
+        <td>सहयोग और संचार बढ़ाना।</td>
+      </tr>
+      <tr>
+        <td>5. मूल्यांकन</td>
+        <td>मौखिक या लिखित उत्तरों से समझ की जाँच करना।</td>
+        <td>सीखने की प्रगति समझना।</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section class="card" id="assessment">
+  <h2>7. विविध कक्षा में मूल्यांकन</h2>
+
+  <p>
+    मूल्यांकन का उद्देश्य केवल अंक देना नहीं, बल्कि यह समझना भी है कि
+    विद्यार्थियों ने क्या सीखा है, उन्हें कहाँ कठिनाई हो रही है और
+    आगे किस प्रकार की सहायता उपयोगी होगी।
+  </p>
+
+  <h3>7.1 Formative Assessment — निर्माणात्मक मूल्यांकन</h3>
+
+  <p>
+    सीखने की प्रक्रिया के दौरान किया जाने वाला मूल्यांकन, जिसका उपयोग
+    शिक्षण और सीखने में सुधार के लिए किया जाता है।
+  </p>
+
+  <p><strong>उदाहरण:</strong> मौखिक प्रश्न, कक्षा-अवलोकन, छोटी प्रश्नोत्तरी और अभ्यास पर प्रतिक्रिया।</p>
+
+  <h3>7.2 Summative Assessment — संकलनात्मक मूल्यांकन</h3>
+
+  <p>
+    किसी पाठ्य-अवधि या इकाई के अंत में उपलब्धि का आकलन करने वाला मूल्यांकन।
+  </p>
+
+  <p><strong>उदाहरण:</strong> इकाई के अंत की परीक्षा या निर्धारित पाठ्य-विषय का अंतिम परीक्षण।</p>
+
+  <h3>7.3 प्रभावी मूल्यांकन के सिद्धांत</h3>
+
+  <ul>
+    <li>सीखने के उद्देश्यों से जुड़े प्रश्न पूछें।</li>
+    <li>केवल याद करने के बजाय समझ और भाषा-प्रयोग को भी जाँचें।</li>
+    <li>विद्यार्थियों की प्रगति पर उपयोगी प्रतिक्रिया दें।</li>
+    <li>भाषाई पृष्ठभूमि के कारण होने वाली कठिनाई को ध्यान में रखें।</li>
+    <li>जहाँ उचित हो, अलग-अलग प्रकार के प्रश्न और कार्य दें।</li>
+    <li>मूल्यांकन के मानदंड स्पष्ट रखें।</li>
+  </ul>
+
+  <div class="note">
+    <strong>परीक्षा संकेत:</strong>
+    Formative Assessment का उपयोग सीखने के दौरान सुधार के लिए किया जाता है।
+    Summative Assessment का उपयोग किसी अवधि या इकाई के अंत में उपलब्धि
+    का आकलन करने के लिए किया जाता है।
+  </div>
+</section>
+
+<section class="card" id="exam">
+  <h2>8. परीक्षा के लिए महत्त्वपूर्ण तथ्य</h2>
+
+  <ol>
+    <li>Diverse Classroom में विद्यार्थियों की पृष्ठभूमि, भाषा और सीखने की आवश्यकताएँ अलग हो सकती हैं।</li>
+    <li>भाषाई विविधता को सीखने के संसाधन के रूप में उपयोग किया जा सकता है।</li>
+    <li>सभी विद्यार्थियों से एक ही गति से सीखने की अपेक्षा करना उचित नहीं है।</li>
+    <li>समावेशी शिक्षण सभी विद्यार्थियों की सहभागिता के अवसर बढ़ाता है।</li>
+    <li>Differentiated Instruction में विद्यार्थियों की आवश्यकताओं के अनुसार शिक्षण में बदलाव किया जाता है।</li>
+    <li>Scaffolding में शुरुआत में सहायता दी जाती है और दक्षता बढ़ने पर उसे धीरे-धीरे कम किया जाता है।</li>
+    <li>Peer Learning में विद्यार्थी एक-दूसरे से सीखते हैं।</li>
+    <li>बहुभाषिक कक्षा में घरेलू भाषाएँ समझने और सीखने में सहायक हो सकती हैं।</li>
+    <li>Formative Assessment का उद्देश्य सीखने में सुधार करना है।</li>
+    <li>Summative Assessment किसी अवधि के अंत में उपलब्धि का आकलन करता है।</li>
+    <li>भय-मुक्त वातावरण विद्यार्थियों को सक्रिय सहभागिता के लिए प्रोत्साहित करता है।</li>
+    <li>शिक्षक को विद्यार्थियों की गरिमा, आवश्यकताओं और अनुभवों का सम्मान करना चाहिए।</li>
+  </ol>
+
+  <div class="note">
+    <strong>त्वरित सूत्र:</strong><br>
+    Diversity = अलग-अलग अनुभव और आवश्यकताएँ।<br>
+    Inclusion = सभी की सार्थक सहभागिता।<br>
+    Scaffolding = शुरुआत में सहायता, फिर धीरे-धीरे स्वतंत्रता।<br>
+    Formative Assessment = सीखते समय सुधार।<br>
+    Summative Assessment = अवधि के अंत में उपलब्धि का आकलन।
+  </div>
+</section>
+
+<section class="card" id="mcq">
+  <h2>9. अभ्यास MCQ टेस्ट</h2>
+  <p>सही विकल्प चुनें। सभी प्रश्नों के उत्तर देने के बाद अपना स्कोर जाँचें।</p>
+
+  <form id="quiz">
+
+    <div class="question">
+      <p>1. Diverse Classroom का सबसे उपयुक्त अर्थ क्या है?</p>
+      <label class="option"><input type="radio" name="q1" value="a"> ऐसी कक्षा जहाँ सभी विद्यार्थी बिल्कुल समान हों।</label>
+      <label class="option"><input type="radio" name="q1" value="b"> ऐसी कक्षा जहाँ केवल एक भाषा बोली जाती हो।</label>
+      <label class="option"><input type="radio" name="q1" value="c"> ऐसी कक्षा जहाँ विद्यार्थियों की पृष्ठभूमि और आवश्यकताओं में विविधता हो।</label>
+      <label class="option"><input type="radio" name="q1" value="d"> ऐसी कक्षा जहाँ कोई गतिविधि न हो।</label>
+    </div>
+
+    <div class="question">
+      <p>2. बहुभाषिक कक्षा में शिक्षक को क्या करना चाहिए?</p>
+      <label class="option"><input type="radio" name="q2" value="a"> सभी घरेलू भाषाओं का मजाक उड़ाना।</label>
+      <label class="option"><input type="radio" name="q2" value="b"> परिचित भाषाओं को सीखने के संसाधन के रूप में उपयोग करना।</label>
+      <label class="option"><input type="radio" name="q2" value="c"> विद्यार्थियों को बोलने से रोकना।</label>
+      <label class="option"><input type="radio" name="q2" value="d"> केवल तेज विद्यार्थियों को पढ़ाना।</label>
+    </div>
+
+    <div class="question">
+      <p>3. समावेशी शिक्षण का प्रमुख उद्देश्य क्या है?</p>
+      <label class="option"><input type="radio" name="q3" value="a"> केवल उच्च उपलब्धि वाले विद्यार्थियों को अवसर देना।</label>
+      <label class="option"><input type="radio" name="q3" value="b"> सभी विद्यार्थियों से एक जैसी गति की अपेक्षा करना।</label>
+      <label class="option"><input type="radio" name="q3" value="c"> कठिनाइयों वाले विद्यार्थियों को अलग कर देना।</label>
+      <label class="option"><input type="radio" name="q3" value="d"> सभी विद्यार्थियों को सीखने और भाग लेने के अवसर देना।</label>
+    </div>
+
+    <div class="question">
+      <p>4. Differentiated Instruction का अर्थ क्या है?</p>
+      <label class="option"><input type="radio" name="q4" value="a"> विद्यार्थियों की आवश्यकताओं के अनुसार शिक्षण में बदलाव करना।</label>
+      <label class="option"><input type="radio" name="q4" value="b"> सभी को हमेशा एक ही कार्य देना।</label>
+      <label class="option"><input type="radio" name="q4" value="c"> केवल परीक्षा लेना।</label>
+      <label class="option"><input type="radio" name="q4" value="d"> गतिविधियों को बंद करना।</label>
+    </div>
+
+    <div class="question">
+      <p>5. Scaffolding में क्या किया जाता है?</p>
+      <label class="option"><input type="radio" name="q5" value="a"> विद्यार्थी को कोई सहायता नहीं दी जाती।</label>
+      <label class="option"><input type="radio" name="q5" value="b"> केवल कठिन प्रश्न दिए जाते हैं।</label>
+      <label class="option"><input type="radio" name="q5" value="c"> आवश्यक सहायता देकर धीरे-धीरे स्वतंत्रता बढ़ाई जाती है।</label>
+      <label class="option"><input type="radio" name="q5" value="d"> सभी गतिविधियाँ शिक्षक करता है।</label>
+    </div>
+
+    <div class="question">
+      <p>6. Formative Assessment कब किया जाता है?</p>
+      <label class="option"><input type="radio" name="q6" value="a"> केवल विद्यालय छोड़ने पर।</label>
+      <label class="option"><input type="radio" name="q6" value="b"> सीखने की प्रक्रिया के दौरान।</label>
+      <label class="option"><input type="radio" name="q6" value="c"> केवल वर्ष के अंतिम दिन।</label>
+      <label class="option"><input type="radio" name="q6" value="d"> केवल प्रवेश के समय।</label>
+    </div>
+
+    <div class="question">
+      <p>7. Summative Assessment का सामान्य उद्देश्य क्या है?</p>
+      <label class="option"><input type="radio" name="q7" value="a"> केवल उपस्थिति दर्ज करना।</label>
+      <label class="option"><input type="radio" name="q7" value="b"> केवल समूह बनाना।</label>
+      <label class="option"><input type="radio" name="q7" value="c"> केवल मौखिक गतिविधियाँ कराना।</label>
+      <label class="option"><input type="radio" name="q7" value="d"> किसी अवधि के अंत में उपलब्धि का आकलन करना।</label>
+    </div>
+
+    <div class="question">
+      <p>8. विद्यार्थी अंग्रेज़ी बोलने से डरता है। शिक्षक की सबसे उपयुक्त प्रतिक्रिया क्या है?</p>
+      <label class="option"><input type="radio" name="q8" value="a"> उसे छोटे, सुरक्षित और सहयोगी अभ्यास के अवसर देना।</label>
+      <label class="option"><input type="radio" name="q8" value="b"> उसे कक्षा में अपमानित करना।</label>
+      <label class="option"><input type="radio" name="q8" value="c"> उसे सभी गतिविधियों से बाहर रखना।</label>
+      <label class="option"><input type="radio" name="q8" value="d"> उसे कभी उत्तर न देने देना।</label>
+    </div>
+
+    <div class="question">
+      <p>9. Peer Learning का अर्थ क्या है?</p>
+      <label class="option"><input type="radio" name="q9" value="a"> केवल शिक्षक से सीखना।</label>
+      <label class="option"><input type="radio" name="q9" value="b"> केवल अकेले काम करना।</label>
+      <label class="option"><input type="radio" name="q9" value="c"> साथियों के सहयोग से सीखना।</label>
+      <label class="option"><input type="radio" name="q9" value="d"> सीखने की प्रक्रिया रोकना।</label>
+    </div>
+
+    <div class="question">
+      <p>10. विविध कक्षा में शिक्षक को किससे बचना चाहिए?</p>
+      <label class="option"><input type="radio" name="q10" value="a"> अलग-अलग गतिविधियाँ देने से।</label>
+      <label class="option"><input type="radio" name="q10" value="b"> विद्यार्थियों की तुलना करके उन्हें अपमानित करने से।</label>
+      <label class="option"><input type="radio" name="q10" value="c"> चित्रों का उपयोग करने से।</label>
+      <label class="option"><input type="radio" name="q10" value="d"> सहयोगात्मक अभ्यास कराने से।</label>
+    </div>
+
+    <div class="question">
+      <p>11. घरेलू भाषा का उपयोग नई भाषा सीखने में कैसे मदद कर सकता है?</p>
+      <label class="option"><input type="radio" name="q11" value="a"> इससे सीखना हमेशा असंभव हो जाता है।</label>
+      <label class="option"><input type="radio" name="q11" value="b"> यह अंग्रेज़ी सीखने को पूरी तरह रोक देता है।</label>
+      <label class="option"><input type="radio" name="q11" value="c"> इसका सीखने से कोई संबंध नहीं हो सकता।</label>
+      <label class="option"><input type="radio" name="q11" value="d"> यह परिचित अर्थों और पूर्वज्ञान को जोड़ने में मदद कर सकती है।</label>
+    </div>
+
+    <div class="question">
+      <p>12. Flexible Grouping का अर्थ क्या है?</p>
+      <label class="option"><input type="radio" name="q12" value="a"> गतिविधि के उद्देश्य के अनुसार समूहों को बदलना।</label>
+      <label class="option"><input type="radio" name="q12" value="b"> विद्यार्थियों को कभी समूह में न रखना।</label>
+      <label class="option"><input type="radio" name="q12" value="c"> हमेशा एक ही समूह रखना।</label>
+      <label class="option"><input type="radio" name="q12" value="d"> केवल एक विद्यार्थी को काम देना।</label>
+    </div>
+
+    <div class="question">
+      <p>13. यदि विद्यार्थी को निर्देश समझने में कठिनाई होती है, तो शिक्षक क्या कर सकता है?</p>
+      <label class="option"><input type="radio" name="q13" value="a"> निर्देश और कठिन बना सकता है।</label>
+      <label class="option"><input type="radio" name="q13" value="b"> विद्यार्थी को हमेशा अनदेखा कर सकता है।</label>
+      <label class="option"><input type="radio" name="q13" value="c"> निर्देश छोटे चरणों में और स्पष्ट उदाहरणों के साथ दे सकता है।</label>
+      <label class="option"><input type="radio" name="q13" value="d"> उसे सभी गतिविधियों से बाहर कर सकता है।</label>
+    </div>
+
+    <div class="question">
+      <p>14. बहुभाषिकता के बारे में उचित दृष्टिकोण कौन-सा है?</p>
+      <label class="option"><input type="radio" name="q14" value="a"> सभी स्थानीय भाषाएँ सीखने में बाधा हैं।</label>
+      <label class="option"><input type="radio" name="q14" value="b"> भाषाई विविधता सीखने का उपयोगी संसाधन हो सकती है।</label>
+      <label class="option"><input type="radio" name="q14" value="c"> केवल एक भाषा बोलने वाले विद्यार्थी सीख सकते हैं।</label>
+      <label class="option"><input type="radio" name="q14" value="d"> विद्यार्थियों को अपनी भाषा का उपयोग करने से हमेशा रोकना चाहिए।</label>
+    </div>
+
+    <div class="question">
+      <p>15. Visual Support का उदाहरण कौन-सा है?</p>
+      <label class="option"><input type="radio" name="q15" value="a"> केवल कठिन मौखिक निर्देश देना।</label>
+      <label class="option"><input type="radio" name="q15" value="b"> विद्यार्थियों को चुप रखना।</label>
+      <label class="option"><input type="radio" name="q15" value="c"> बिना उदाहरण के नियम याद कराना।</label>
+      <label class="option"><input type="radio" name="q15" value="d"> चित्रों, चार्ट और संकेतों का उपयोग करना।</label>
+    </div>
+
+    <div class="question">
+      <p>16. विविध कक्षा में शिक्षक को सीखने की गति के बारे में क्या समझना चाहिए?</p>
+      <label class="option"><input type="radio" name="q16" value="a"> सभी विद्यार्थी समान गति से सीखेंगे।</label>
+      <label class="option"><input type="radio" name="q16" value="b"> धीमी गति से सीखने वाला विद्यार्थी सीख नहीं सकता।</label>
+      <label class="option"><input type="radio" name="q16" value="c"> विद्यार्थियों की सीखने की गति अलग हो सकती है।</label>
+      <label class="option"><input type="radio" name="q16" value="d"> अतिरिक्त अभ्यास कभी उपयोगी नहीं होता।</label>
+    </div>
+
+    <div class="question">
+      <p>17. समावेशी कक्षा में विद्यार्थियों के साथ कैसा व्यवहार होना चाहिए?</p>
+      <label class="option"><input type="radio" name="q17" value="a"> सम्मानपूर्ण और सहयोगी।</label>
+      <label class="option"><input type="radio" name="q17" value="b"> अपमानजनक।</label>
+      <label class="option"><input type="radio" name="q17" value="c"> भेदभावपूर्ण।</label>
+      <label class="option"><input type="radio" name="q17" value="d"> केवल अंकों पर आधारित।</label>
+    </div>
+
+    <div class="question">
+      <p>18. निर्माणात्मक मूल्यांकन का एक उदाहरण कौन-सा है?</p>
+      <label class="option"><input type="radio" name="q18" value="a"> केवल अंतिम प्रमाणपत्र देना।</label>
+      <label class="option"><input type="radio" name="q18" value="b"> कक्षा में छोटे प्रश्न पूछकर समझ जाँचना और प्रतिक्रिया देना।</label>
+      <label class="option"><input type="radio" name="q18" value="c"> पूरे वर्ष कोई प्रतिक्रिया न देना।</label>
+      <label class="option"><input type="radio" name="q18" value="d"> केवल उपस्थिति गिनना।</label>
+    </div>
+
+    <div class="question">
+      <p>19. बहुभाषिक कक्षा में स्थानीय कहानियों का उपयोग क्यों किया जा सकता है?</p>
+      <label class="option"><input type="radio" name="q19" value="a"> ताकि अंग्रेज़ी का अभ्यास पूरी तरह बंद हो जाए।</label>
+      <label class="option"><input type="radio" name="q19" value="b"> ताकि विद्यार्थियों की भाषाओं को कम महत्त्व दिया जाए।</label>
+      <label class="option"><input type="radio" name="q19" value="c"> ताकि परिचित अनुभवों को भाषा-सीखने से जोड़ा जा सके।</label>
+      <label class="option"><input type="radio" name="q19" value="d"> ताकि सभी विद्यार्थी एक जैसा अनुभव रखें।</label>
+    </div>
+
+    <div class="question">
+      <p>20. विविध कक्षा में प्रभावी भाषा-शिक्षण का सर्वोत्तम दृष्टिकोण कौन-सा है?</p>
+      <label class="option"><input type="radio" name="q20" value="a"> सभी को बिना सहायता एक जैसा कार्य देना।</label>
+      <label class="option"><input type="radio" name="q20" value="b"> केवल तेज विद्यार्थियों पर ध्यान देना।</label>
+      <label class="option"><input type="radio" name="q20" value="c"> भाषाई अंतर को अनदेखा करना।</label>
+      <label class="option"><input type="radio" name="q20" value="d"> विविध आवश्यकताओं को पहचानकर उचित सहायता और सहभागिता के अवसर देना।</label>
+    </div>
+
+    <button type="button" onclick="checkAnswers()">उत्तर जाँचें</button>
+    <button type="button" class="secondary" onclick="showAnswers()">सही उत्तर देखें</button>
+    <button type="reset" class="secondary" onclick="resetQuiz()">फिर से प्रयास करें</button>
+
+    <div id="result" aria-live="polite"></div>
+    <div id="answerKey"></div>
+
+  </form>
+</section>
+
+<section class="card">
+  <h2>10. त्वरित पुनरावृत्ति</h2>
+
+  <ul>
+    <li>Diverse Classroom = विविध भाषाओं, अनुभवों और आवश्यकताओं वाली कक्षा।</li>
+    <li>Inclusive Teaching = सभी विद्यार्थियों को सीखने और भाग लेने के अवसर।</li>
+    <li>Multilingualism = एक से अधिक भाषाओं का उपयोग या ज्ञान।</li>
+    <li>Differentiated Instruction = आवश्यकताओं के अनुसार शिक्षण में बदलाव।</li>
+    <li>Scaffolding = चरणबद्ध सहायता और धीरे-धीरे स्वतंत्रता।</li>
+    <li>Peer Learning = साथियों के सहयोग से सीखना।</li>
+    <li>Formative Assessment = सीखने के दौरान सुधार।</li>
+    <li>Summative Assessment = अवधि के अंत में उपलब्धि का आकलन।</li>
+    <li>प्रभावी शिक्षक = संवेदनशील, सहयोगी और विद्यार्थियों की आवश्यकताओं के प्रति सजग।</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>11. मुख्य पेज पर वापस जाएँ</h2>
+  <p>सभी टॉपिक की सूची देखने के लिए मुख्य पेज खोलें।</p>
+  <a class="btn" href="JHTET-English.html">JHTET English — मुख्य पेज</a>
+</section>
+
+</main>
+
+<footer>
+  <p>JHTET 2026 • English Paper 2 • Upper Primary</p>
+  <p class="small">यह अभ्यास सामग्री परीक्षा की तैयारी के लिए तैयार की गई है। आधिकारिक पाठ्यक्रम को प्राथमिकता दें।</p>
+</footer>
+
+<script>
+const answers = {
+  q1:"c", q2:"b", q3:"d", q4:"a", q5:"c",
+  q6:"b", q7:"d", q8:"a", q9:"c", q10:"b",
+  q11:"d", q12:"a", q13:"c", q14:"b", q15:"d",
+  q16:"c", q17:"a", q18:"b", q19:"c", q20:"d"
+};
+
+const explanations = {
+  q1:"विविध कक्षा में विद्यार्थियों की भाषाई, सामाजिक और शैक्षिक पृष्ठभूमि अलग हो सकती है।",
+  q2:"परिचित भाषाएँ अर्थ समझने और नई भाषा सीखने में सहायक हो सकती हैं।",
+  q3:"समावेशी शिक्षण सभी विद्यार्थियों को सीखने और भाग लेने के अवसर देता है।",
+  q4:"Differentiated Instruction में विद्यार्थियों की आवश्यकताओं के अनुसार शिक्षण में बदलाव किया जाता है।",
+  q5:"Scaffolding में आवश्यक सहायता दी जाती है और दक्षता बढ़ने पर सहायता धीरे-धीरे कम की जाती है।",
+  q6:"Formative Assessment सीखने की प्रक्रिया के दौरान प्रगति समझने और सुधार करने में मदद करता है।",
+  q7:"Summative Assessment किसी अवधि या इकाई के अंत में उपलब्धि का आकलन करता है।",
+  q8:"सुरक्षित और सहयोगी वातावरण विद्यार्थियों को बोलने और सीखने के लिए प्रोत्साहित करता है।",
+  q9:"Peer Learning में विद्यार्थी साथियों के सहयोग से सीखते हैं।",
+  q10:"अपमानजनक तुलना से बचना चाहिए और सभी विद्यार्थियों की गरिमा का सम्मान करना चाहिए।",
+  q11:"घरेलू भाषा परिचित अर्थों और पूर्वज्ञान को नई भाषा से जोड़ने में मदद कर सकती है।",
+  q12:"Flexible Grouping में गतिविधि और उद्देश्य के अनुसार समूह बदले जा सकते हैं।",
+  q13:"स्पष्ट और छोटे चरणों वाले निर्देश समझने में सहायता कर सकते हैं।",
+  q14:"बहुभाषिकता सीखने के लिए उपयोगी संसाधन बन सकती है।",
+  q15:"चित्र, चार्ट और संकेत Visual Support के उदाहरण हैं।",
+  q16:"विद्यार्थियों की सीखने की गति और आवश्यकताएँ अलग हो सकती हैं।",
+  q17:"समावेशी कक्षा में सम्मानपूर्ण और सहयोगी व्यवहार आवश्यक है।",
+  q18:"कक्षा में छोटे प्रश्न और उपयोगी प्रतिक्रिया Formative Assessment के उदाहरण हैं।",
+  q19:"स्थानीय कहानियाँ परिचित अनुभवों को भाषा-सीखने से जोड़ सकती हैं।",
+  q20:"प्रभावी शिक्षण विविध आवश्यकताओं को पहचानता है और उचित सहायता देता है।"
+};
+
+function checkAnswers(){
+  let score = 0;
+  let attempted = 0;
+  const total = Object.keys(answers).length;
+
+  for(const q in answers){
+    const selected = document.querySelector(
+      'input[name="' + q + '"]:checked'
+    );
+
+    if(selected){
+      attempted++;
+      if(selected.value === answers[q]){
+        score++;
+      }
+    }
+  }
+
+  const result = document.getElementById("result");
+  result.style.display = "block";
+  result.style.background = score >= 15 ? "#dcfce7" : "#eaf1ff";
+
+  result.innerHTML =
+    "<h3>आपका परिणाम</h3>" +
+    "<p><strong>अंक: " + score + " / " + total + "</strong></p>" +
+    "<p>प्रयास किए गए प्रश्न: " + attempted + " / " + total + "</p>" +
+    "<p>" +
+    (score >= 15
+      ? "बहुत अच्छा! अब कठिन प्रश्नों की पुनरावृत्ति करें।"
+      : "अच्छा प्रयास! नोट्स दोबारा पढ़ें और फिर से अभ्यास करें।") +
+    "</p>";
+}
+
+function showAnswers(){
+  const box = document.getElementById("answerKey");
+  let html = "<h3>सही उत्तर एवं स्पष्टीकरण</h3><ol>";
+
+  for(let i = 1; i <= 20; i++){
+    const q = "q" + i;
+
+    html += "<li><strong>विकल्प " +
+      answers[q].toUpperCase() +
+      ".</strong> " + explanations[q] + "</li>";
+  }
+
+  html += "</ol>";
+  box.innerHTML = html;
+  box.style.display = "block";
+  box.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function resetQuiz(){
+  document.getElementById("result").style.display = "none";
+  document.getElementById("answerKey").style.display = "none";
+}
+</script>
+
+</body>
+</html>

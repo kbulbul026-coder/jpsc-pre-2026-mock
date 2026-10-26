@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>JHTET 2026 English Paper 2 | Study Index</title>
+
+  <meta name="description"
+        content="JHTET 2026 English Paper 2 Upper Primary के लिए हिंदी में नोट्स, Grammar, Pedagogy और Practice Test.">
+
+  <style>
+    :root {
+      --primary: #173b67;
+      --secondary: #2563eb;
+      --background: #f3f6fb;
+      --card: #ffffff;
+      --text: #182230;
+      --muted: #65748b;
+      --border: #dce4ef;
+      --green: #15803d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans Devanagari", sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #173b67, #2563eb);
+      color: white;
+      padding: 30px 18px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(25px, 5vw, 36px);
+    }
+
+    header p {
+      margin: 5px 0;
+    }
+
+    .container {
+      width: min(100% - 24px, 1000px);
+      margin: 22px auto;
+    }
+
+    .intro,
+    .progress-box,
+    .topic-card,
+    .notice {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 17px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      color: var(--primary);
+      margin-top: 0;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 16px;
+      margin: 10px 0 18px;
+      background: white;
+    }
+
+    .section-title {
+      color: var(--primary);
+      border-left: 5px solid var(--secondary);
+      padding-left: 10px;
+      margin: 28px 0 14px;
+    }
+
+    .topic-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: transform 0.15s;
+    }
+
+    .topic-card:active {
+      transform: scale(0.99);
+    }
+
+    .topic-number {
+      min-width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      background: #e8efff;
+      color: var(--primary);
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .topic-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .topic-content h3 {
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .topic-content p {
+      color: var(--muted);
+      margin: 4px 0 0;
+      font-size: 14px;
+    }
+
+    .topic-link {
+      display: inline-block;
+      color: white;
+      background: var(--secondary);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .topic-link:hover {
+      background: var(--primary);
+    }
+
+    .topic-card.completed {
+      border-color: #86c99a;
+      background: #f0fff4;
+    }
+
+    .topic-card.completed .topic-number {
+      background: #dcfce7;
+      color: var(--green);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 12px;
+      background: #e5eaf2;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--green);
+      transition: width 0.25s;
+    }
+
+    .button {
+      border: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 14px;
+      cursor: pointer;
+      margin: 5px 5px 5px 0;
+    }
+
+    .button-primary {
+      color: white;
+      background: var(--primary);
+    }
+
+    .button-light {
+      color: var(--text);
+      background: #e8edf5;
+    }
+
+    .notice {
+      border-left: 5px solid #f59e0b;
+    }
+
+    footer {
+      background: #102b4c;
+      color: white;
+      text-align: center;
+      padding: 22px 12px;
+      margin-top: 35px;
+    }
+
+    .empty-message {
+      display: none;
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    @media (max-width: 520px) {
+      .topic-card {
+        flex-wrap: wrap;
+      }
+
+      .topic-content {
+        flex-basis: calc(100% - 60px);
+      }
+
+      .topic-link {
+        margin-left: 54px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>JHTET 2026</h1>
+  <p><strong>English Paper 2 — Upper Primary</strong></p>
+  <p>अंग्रेज़ी विषय: अध्ययन सामग्री एवं अभ्यास</p>
+</header>
+
+<main class="container">
+
+  <section class="intro">
+    <h2>अध्ययन केंद्र</h2>
+
+    <p>
+      इस वेबसाइट में JHTET 2026 English Paper 2 के लिए
+      Comprehension, Language Pedagogy, Grammar और Practice Test
+      को अलग-अलग HTML फ़ाइलों में व्यवस्थित किया जाएगा।
+    </p>
+
+    <p>
+      प्रत्येक विषय में विस्तृत नोट्स, उदाहरण, महत्वपूर्ण नियम
+      और अभ्यास प्रश्न शामिल किए जा सकते हैं।
+    </p>
+  </section>
+
+  <section class="progress-box">
+    <h2>आपकी अध्ययन प्रगति</h2>
+
+    <p id="progressText">0 में से 0 टॉपिक पूरे हुए।</p>
+
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <button class="button button-primary" onclick="showProgress()">
+      प्रगति देखें
+    </button>
+
+    <button class="button button-light" onclick="resetProgress()">
+      प्रगति रीसेट करें
+    </button>
+
+    <p style="color: var(--muted); font-size: 13px;">
+      प्रगति इसी ब्राउज़र में सेव होगी। ब्राउज़र का डेटा मिटाने
+      पर प्रगति भी मिट सकती है।
+    </p>
+  </section>
+
+  <label for="topicSearch"><strong>टॉपिक खोजें:</strong></label>
+
+  <input
+    type="search"
+    id="topicSearch"
+    class="search-box"
+    placeholder="जैसे Tense, Grammar, Pedagogy..."
+    oninput="searchTopics()"
+  >
+
+  <section>
+    <h2 class="section-title">भाग A — Comprehension</h2>
+
+    <div class="topic-card" data-topic="01">
+      <div class="topic-number">01</div>
+      <div class="topic-content">
+        <h3>Unseen Passage और Comprehension</h3>
+        <p>गद्यांश, प्रश्नों के प्रकार, मुख्य विचार, शब्दार्थ और अभ्यास।</p>
+      </div>
+      <a class="topic-link" href="01-comprehension.html">खोलें</a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">भाग B — Pedagogy of Language Development</h2>
+
+    <div class="topic-card" data-topic="02">
+      <div class="topic-number">02</div>
+      <div class="topic-content">
+        <h3>Learning and Acquisition</h3>
+        <p>भाषा सीखने और भाषा अर्जन की अवधारणाएँ।</p>
+      </div>
+      <a class="topic-link" href="02-learning-acquisition.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="03">
+      <div class="topic-number">03</div>
+      <div class="topic-content">
+        <h3>Principles of Language Teaching</h3>
+        <p>भाषा शिक्षण के सिद्धांत और शिक्षण विधियाँ।</p>
+      </div>
+      <a class="topic-link" href="03-principles-language-teaching.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="04">
+      <div class="topic-number">04</div>
+      <div class="topic-content">
+        <h3>Listening and Speaking</h3>
+        <p>सुनने और बोलने का भाषा विकास में योगदान।</p>
+      </div>
+      <a class="topic-link" href="04-listening-speaking.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="05">
+      <div class="topic-number">05</div>
+      <div class="topic-content">
+        <h3>Grammar and Communication</h3>
+        <p>भाषा के संप्रेषणात्मक उपयोग में व्याकरण की भूमिका।</p>
+      </div>
+      <a class="topic-link" href="05-grammar-communication.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="06">
+      <div class="topic-number">06</div>
+      <div class="topic-content">
+        <h3>Challenges in a Diverse Classroom</h3>
+        <p>विविध भाषाई पृष्ठभूमि वाली कक्षा में भाषा शिक्षण।</p>
+      </div>
+      <a class="topic-link" href="06-diverse-classroom.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="07">
+      <div class="topic-number">07</div>
+      <div class="topic-content">
+        <h3>Language Skills</h3>
+        <p>Listening, Speaking, Reading और Writing।</p>
+      </div>
+      <a class="topic-link" href="07-language-skills.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="08">
+      <div class="topic-number">08</div>
+      <div class="topic-content">
+        <h3>Assessment of Language Skills</h3>
+        <p>चार भाषा कौशलों का आकलन और मूल्यांकन।</p>
+      </div>
+      <a class="topic-link" href="08-assessment.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="09">
+      <div class="topic-number">09</div>
+      <div class="topic-content">
+        <h3>Textbooks, Multimedia and Resources</h3>
+        <p>पाठ्यपुस्तक, मल्टीमीडिया और बहुभाषी संसाधन।</p>
+      </div>
+      <a class="topic-link" href="09-teaching-materials.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="10">
+      <div class="topic-number">10</div>
+      <div class="topic-content">
+        <h3>Remedial Teaching</h3>
+        <p>सीखने की कठिनाइयों की पहचान और सुधारात्मक शिक्षण।</p>
+      </div>
+      <a class="topic-link" href="10-remedial-teaching.html">खोलें</a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">भाग C — Grammar and Vocabulary</h2>
+
+    <div class="topic-card" data-topic="11">
+      <div class="topic-number">11</div>
+      <div class="topic-content">
+        <h3>Correct Form of Verb and Tense</h3>
+        <p>क्रिया के सही रूप और Tense के नियम।</p>
+      </div>
+      <a class="topic-link" href="11-verb-tense.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="12">
+      <div class="topic-number">12</div>
+      <div class="topic-content">
+        <h3>Parts of Speech</h3>
+        <p>Noun, Pronoun, Verb, Adjective, Adverb आदि।</p>
+      </div>
+      <a class="topic-link" href="12-parts-of-speech.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="13">
+      <div class="topic-number">13</div>
+      <div class="topic-content">
+        <h3>Subject–Verb Agreement</h3>
+        <p>कर्ता और क्रिया के बीच सही सामंजस्य।</p>
+      </div>
+      <a class="topic-link" href="13-subject-verb-agreement.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="14">
+      <div class="topic-number">14</div>
+      <div class="topic-content">
+        <h3>Phrase, Clause and Phrasal Verbs</h3>
+        <p>वाक्यांश, उपवाक्य और Phrasal Verbs।</p>
+      </div>
+      <a class="topic-link" href="14-phrase-clause-phrasal-verbs.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="15">
+      <div class="topic-number">15</div>
+      <div class="topic-content">
+        <h3>Determiners</h3>
+        <p>A, An, The, Some, Any, Much, Many आदि।</p>
+      </div>
+      <a class="topic-link" href="15-determiners.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="16">
+      <div class="topic-number">16</div>
+      <div class="topic-content">
+        <h3>Active and Passive Voice</h3>
+        <p>वाच्य परिवर्तन के नियम और उदाहरण।</p>
+      </div>
+      <a class="topic-link" href="16-active-passive-voice.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="17">
+      <div class="topic-number">17</div>
+      <div class="topic-content">
+        <h3>Narration</h3>
+        <p>Direct और Indirect Speech के नियम।</p>
+      </div>
+      <a class="topic-link" href="17-narration.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="18">
+      <div class="topic-number">18</div>
+      <div class="topic-content">
+        <h3>Transitive and Intransitive Verbs</h3>
+        <p>सकर्मक और अकर्मक क्रियाएँ।</p>
+      </div>
+      <a class="topic-link" href="18-transitive-intransitive-verbs.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="19">
+      <div class="topic-number">19</div>
+      <div class="topic-content">
+        <h3>Prefix, Suffix and Vocabulary</h3>
+        <p>शब्द निर्माण और शब्दावली।</p>
+      </div>
+      <a class="topic-link" href="19-prefix-suffix-vocabulary.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="20">
+      <div class="topic-number">20</div>
+      <div class="topic-content">
+        <h3>Synonyms, Antonyms, Homonyms and Homophones</h3>
+        <p>समानार्थी, विलोम, समान शब्द और समान उच्चारण वाले शब्द।</p>
+      </div>
+      <a class="topic-link" href="20-synonyms-antonyms-homonyms-homophones.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="21">
+      <div class="topic-number">21</div>
+      <div class="topic-content">
+        <h3>Simple, Compound and Complex Sentences</h3>
+        <p>वाक्यों के प्रकार और रूपांतरण।</p>
+      </div>
+      <a class="topic-link" href="21-sentence-types.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="22">
+      <div class="topic-number">22</div>
+      <div class="topic-content">
+        <h3>Figures of Speech</h3>
+        <p>Simile, Metaphor, Personification, Irony और Alliteration।</p>
+      </div>
+      <a class="topic-link" href="22-figures-of-speech.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="23">
+      <div class="topic-number">23</div>
+      <div class="topic-content">
+        <h3>Sonnet, Morpheme and Gender</h3>
+        <p>सॉनेट, रूपिम और व्याकरणिक लिंग।</p>
+      </div>
+      <a class="topic-link" href="23-sonnet-morpheme-gender.html">खोलें</a>
+    </div>
+
+    <div class="topic-card" data-topic="24">
+      <div class="topic-number">24</div>
+      <div class="topic-content">
+        <h3>Language in NEP 2020</h3>
+        <p>राष्ट्रीय शिक्षा नीति 2020 में भाषा संबंधी प्रावधान।</p>
+      </div>
+      <a class="topic-link" href="24-language-nep-2020.html">खोलें</a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">भाग D — परीक्षा अभ्यास</h2>
+
+    <div class="topic-card" data-topic="25">
+      <div class="topic-number">25</div>
+      <div class="topic-content">
+        <h3>Practice Test</h3>
+        <p>Grammar, Comprehension और Language Pedagogy के अभ्यास प्रश्न।</p>
+      </div>
+      <a class="topic-link" href="25-practice-test.html">खोलें</a>
+    </div>
+  </section>
+
+  <p class="empty-message" id="emptyMessage">
+    इस नाम से कोई टॉपिक नहीं मिला।
+  </p>
+
+  <section class="notice">
+    <h3>महत्वपूर्ण सूचना</h3>
+    <p>
+      यह Index आपके दिए हुए JHTET English Paper 2 syllabus के आधार पर
+      बनाया गया है। विषयों के विवरण को समझने और परीक्षा की तैयारी के
+      लिए संबंधित नोट्स और अभ्यास प्रश्न भी पढ़ें।
+    </p>
+    <p>
+      अभी केवल Index तैयार है। बाकी टॉपिक की HTML फ़ाइलें हमें
+      क्रम से बनानी हैं।
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p><strong>JHTET 2026 — English Paper 2</strong></p>
+  <p>अध्ययन करें • अभ्यास करें • अपनी प्रगति देखें</p>
+</footer>
+
+<script>
+  const topicCards = [...document.querySelectorAll(".topic-card")];
+
+  const progressKey = "jhtetEnglishCompletedTopics";
+
+  function getCompleted() {
+    try {
+      return JSON.parse(localStorage.getItem(progressKey)) || [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function saveCompleted(completed) {
+    localStorage.setItem(progressKey, JSON.stringify(completed));
+  }
+
+  function updateProgress() {
+    const completed = getCompleted();
+
+    topicCards.forEach(card => {
+      const id = card.dataset.topic;
+      const isCompleted = completed.includes(id);
+
+      card.classList.toggle("completed", isCompleted);
+
+      const number = card.querySelector(".topic-number");
+
+      if (isCompleted) {
+        number.textContent = "✓";
+      } else {
+        number.textContent = id;
+      }
+    });
+
+    const total = topicCards.length;
+    const done = completed.filter(id =>
+      topicCards.some(card => card.dataset.topic === id)
+    ).length;
+
+    const percent = total ? (done / total) * 100 : 0;
+
+    document.getElementById("progressText").textContent =
+      `${total} में से ${done} टॉपिक पूरे हुए।`;
+
+    document.getElementById("progressFill").style.width =
+      `${percent}%`;
+  }
+
+  function showProgress() {
+    const completed = getCompleted();
+
+    const done = topicCards.filter(card =>
+      completed.includes(card.dataset.topic)
+    ).length;
+
+    alert(`आपने ${topicCards.length} में से ${done} टॉपिक पूरे किए हैं।`);
+  }
+
+  function resetProgress() {
+    const confirmed = confirm(
+      "क्या आप अपनी सेव की हुई अध्ययन प्रगति रीसेट करना चाहते हैं?"
+    );
+
+    if (confirmed) {
+      localStorage.removeItem(progressKey);
+      updateProgress();
+    }
+  }
+
+  function searchTopics() {
+    const query = document.getElementById("topicSearch")
+      .value.toLowerCase().trim();
+
+    let visible = 0;
+
+    topicCards.forEach(card => {
+      const matches = card.textContent.toLowerCase().includes(query);
+
+      card.style.display = matches ? "flex" : "none";
+
+      if (matches) visible++;
+    });
+
+    document.getElementById("emptyMessage").style.display =
+      visible ? "none" : "block";
+  }
+
+  updateProgress();
+</script>
+
+</body>
+</html>

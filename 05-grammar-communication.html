@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar in Communication | JHTET 2026 English Paper 2</title>
+
+<style>
+:root{
+  --bg:#f3f6fb;
+  --card:#fff;
+  --text:#1e293b;
+  --muted:#64748b;
+  --primary:#1d4ed8;
+  --secondary:#0f766e;
+  --border:#dbe4f0;
+  --soft:#eaf1ff;
+  --green:#dcfce7;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  line-height:1.75;
+}
+header{
+  background:linear-gradient(135deg,#172554,#1d4ed8,#0f766e);
+  color:white;
+  padding:28px 16px;
+}
+.header-inner{max-width:950px;margin:auto}
+header h1{font-size:clamp(25px,5vw,36px);line-height:1.35}
+header p{margin:6px 0;color:#e0f2fe}
+.badge{
+  display:inline-block;
+  padding:4px 10px;
+  border:1px solid #bfdbfe;
+  border-radius:20px;
+  font-size:13px;
+}
+nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:white;
+  border-bottom:1px solid var(--border);
+  padding:10px;
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+}
+nav a{
+  flex-shrink:0;
+  text-decoration:none;
+  color:var(--primary);
+  background:var(--soft);
+  padding:7px 12px;
+  border-radius:8px;
+  font-size:14px;
+}
+main{max-width:950px;margin:20px auto;padding:0 13px}
+.card{
+  background:var(--card);
+  padding:20px;
+  margin:15px 0;
+  border:1px solid var(--border);
+  border-radius:15px;
+  box-shadow:0 3px 12px #0f172a08;
+}
+h2{color:#1d4ed8;font-size:23px;margin-top:0}
+h3{color:#0f766e;font-size:18px}
+p{margin:9px 0}
+ul,ol{padding-left:23px}
+li{margin:6px 0}
+.note{
+  padding:13px 15px;
+  border-left:4px solid var(--primary);
+  background:var(--soft);
+  border-radius:8px;
+  margin:12px 0;
+}
+.success{
+  background:var(--green);
+  padding:12px;
+  border-radius:8px;
+}
+.term{font-weight:bold;color:#1d4ed8}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th,td{padding:10px;border:1px solid var(--border);text-align:left}
+th{background:var(--soft)}
+.example{
+  padding:12px;
+  border:1px solid var(--border);
+  background:#f8fafc;
+  border-radius:9px;
+  margin:10px 0;
+}
+.question{
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:14px;
+  margin:14px 0;
+}
+.question p{font-weight:bold}
+.option{
+  display:block;
+  margin:8px 0;
+  padding:9px 10px;
+  background:#f8fafc;
+  border:1px solid var(--border);
+  border-radius:8px;
+  cursor:pointer;
+}
+.option input{margin-right:8px}
+button,.btn{
+  display:inline-block;
+  border:0;
+  border-radius:9px;
+  padding:11px 15px;
+  background:var(--primary);
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+  text-decoration:none;
+  margin:5px 5px 5px 0;
+}
+button.secondary{background:var(--secondary)}
+#result{
+  padding:15px;
+  border-radius:10px;
+  margin-top:14px;
+  display:none;
+}
+#answerKey{
+  display:none;
+  background:#f0fdf4;
+  padding:12px;
+  border-radius:10px;
+  margin-top:12px;
+}
+.small{font-size:14px;color:var(--muted)}
+footer{text-align:center;padding:25px 12px;color:var(--muted)}
+@media(max-width:600px){
+  .card{padding:15px}
+  h2{font-size:21px}
+  th,td{padding:8px;font-size:14px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <span class="badge">JHTET 2026 • English Paper 2</span>
+    <h1>Grammar in Communicative Language Use</h1>
+    <p>संवाद में व्याकरण का उपयोग</p>
+    <p>Pedagogy of Language Development</p>
+    <p>Upper Primary Level • कक्षा 6–8</p>
+  </div>
+</header>
+
+<nav>
+  <a href="JHTET-English.html">मुख्य पेज</a>
+  <a href="#intro">परिचय</a>
+  <a href="#grammar">व्याकरण की भूमिका</a>
+  <a href="#clt">CLT</a>
+  <a href="#activities">गतिविधियाँ</a>
+  <a href="#assessment">मूल्यांकन</a>
+  <a href="#mcq">MCQ टेस्ट</a>
+</nav>
+
+<main>
+
+<section class="card" id="intro">
+  <h2>1. परिचय: Grammar और Communication</h2>
+
+  <p>
+    <strong>Grammar (व्याकरण)</strong> भाषा के शब्दों और वाक्यों की
+    संरचना तथा उनके प्रयोग से संबंधित नियमों और प्रतिमानों का अध्ययन है।
+    <strong>Communication (संचार)</strong> का अर्थ विचारों, भावनाओं,
+    सूचनाओं और अनुभवों का आदान-प्रदान करना है।
+  </p>
+
+  <p>
+    भाषा-शिक्षण में व्याकरण का उद्देश्य केवल नियम याद कराना नहीं है।
+    विद्यार्थियों को यह भी सीखना चाहिए कि वे विभिन्न परिस्थितियों में
+    व्याकरण का उपयोग करके अपने विचार स्पष्ट रूप से कैसे व्यक्त करें।
+  </p>
+
+  <div class="note">
+    <strong>मुख्य विचार:</strong>
+    व्याकरण भाषा के अर्थपूर्ण उपयोग में सहायता करता है।
+    भाषा-शिक्षण में व्याकरण को बोलने, सुनने, पढ़ने और लिखने की गतिविधियों
+    से जोड़ना उपयोगी है।
+  </div>
+
+  <h3>Grammar और Communication में अंतर</h3>
+
+  <div class="table-wrap">
+    <table>
+      <tr>
+        <th>Grammar</th>
+        <th>Communication</th>
+      </tr>
+      <tr>
+        <td>भाषा की संरचना और नियमों से संबंधित।</td>
+        <td>विचारों और सूचनाओं के आदान-प्रदान से संबंधित।</td>
+      </tr>
+      <tr>
+        <td>सही वाक्य बनाने में मदद करता है।</td>
+        <td>उचित संदर्भ में संदेश पहुँचाने पर ध्यान देता है।</td>
+      </tr>
+      <tr>
+        <td>वाक्य-रचना और भाषा-रूप का ज्ञान शामिल है।</td>
+        <td>श्रोता, उद्देश्य और परिस्थिति के अनुसार भाषा का उपयोग शामिल है।</td>
+      </tr>
+      <tr>
+        <td>अभ्यास में नियम और उदाहरण शामिल हो सकते हैं।</td>
+        <td>अभ्यास में बातचीत, चर्चा और वास्तविक परिस्थितियाँ शामिल हो सकती हैं।</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section class="card" id="grammar">
+  <h2>2. संवाद में व्याकरण की भूमिका</h2>
+
+  <h3>2.1 व्याकरण क्यों आवश्यक है?</h3>
+
+  <ul>
+    <li>विचारों को स्पष्ट और समझने योग्य बनाने में मदद करता है।</li>
+    <li>समय और घटनाओं के क्रम को व्यक्त करने में सहायता करता है।</li>
+    <li>प्रश्न, अनुरोध, सुझाव और निर्देश बनाने में उपयोगी है।</li>
+    <li>शब्दों के बीच संबंध स्पष्ट करता है।</li>
+    <li>बोलने और लिखने में उपयुक्त भाषा-रूप चुनने में मदद करता है।</li>
+    <li>अर्थ में होने वाली अस्पष्टता को कम कर सकता है।</li>
+  </ul>
+
+  <h3>2.2 नियम याद करना और नियम का उपयोग करना</h3>
+
+  <div class="example">
+    <p><strong>केवल नियम याद करना:</strong></p>
+    <p>विद्यार्थी याद करता है कि Simple Present Tense में he, she या it के साथ सामान्यतः क्रिया में -s या -es लगाया जाता है।</p>
+
+    <p><strong>व्यावहारिक उपयोग:</strong></p>
+    <p>विद्यार्थी अपने मित्र के बारे में कहता है: “She plays football every evening.”</p>
+  </div>
+
+  <p>
+    दोनों प्रकार के अभ्यास उपयोगी हो सकते हैं। प्रभावी शिक्षण में
+    नियमों की समझ के साथ उनका अर्थपूर्ण संदर्भ में प्रयोग करने के अवसर
+    भी दिए जाने चाहिए।
+  </p>
+
+  <h3>2.3 संदर्भ के अनुसार Grammar</h3>
+
+  <div class="example">
+    <strong>उदाहरण 1: विनम्र अनुरोध</strong>
+    <p>कम विनम्र: “Give me your book.”</p>
+    <p>विनम्र अनुरोध: “Could you please lend me your book?”</p>
+    <p>दोनों वाक्य अनुरोध व्यक्त करते हैं, लेकिन दूसरे वाक्य का स्वर अधिक विनम्र है।</p>
+  </div>
+
+  <div class="example">
+    <strong>उदाहरण 2: समय बताना</strong>
+    <p>“I play cricket every day.” — नियमित आदत।</p>
+    <p>“I am playing cricket now.” — वर्तमान में जारी गतिविधि।</p>
+    <p>व्याकरणिक रूप बदलने से संदेश का अर्थ भी बदलता है।</p>
+  </div>
+
+  <div class="example">
+    <strong>उदाहरण 3: प्रश्न पूछना</strong>
+    <p>“You are ready.” — कथन।</p>
+    <p>“Are you ready?” — प्रश्न।</p>
+    <p>वाक्य की संरचना संचार के उद्देश्य के अनुसार बदलती है।</p>
+  </div>
+</section>
+
+<section class="card" id="clt">
+  <h2>3. Communicative Language Teaching (CLT)</h2>
+
+  <p>
+    <strong>Communicative Language Teaching (CLT)</strong> भाषा-शिक्षण का
+    ऐसा दृष्टिकोण है जिसमें विद्यार्थियों की संचार करने की क्षमता विकसित
+    करने पर विशेष ध्यान दिया जाता है।
+  </p>
+
+  <h3>3.1 CLT की प्रमुख विशेषताएँ</h3>
+
+  <ul>
+    <li>भाषा का अर्थपूर्ण और उद्देश्यपूर्ण उपयोग।</li>
+    <li>विद्यार्थियों की सक्रिय सहभागिता।</li>
+    <li>जोड़ी और समूह में संवाद।</li>
+    <li>वास्तविक जीवन से जुड़ी परिस्थितियों में भाषा का अभ्यास।</li>
+    <li>संदेश को समझने और स्पष्ट रूप से व्यक्त करने पर ध्यान।</li>
+    <li>सुनने, बोलने, पढ़ने और लिखने के कौशलों को जोड़ना।</li>
+    <li>व्याकरण को संदर्भ और संचार के साथ जोड़ना।</li>
+  </ul>
+
+  <h3>3.2 CLT में शिक्षक की भूमिका</h3>
+
+  <ul>
+    <li><strong>Facilitator:</strong> सीखने की प्रक्रिया को सुगम बनाना।</li>
+    <li><strong>Guide:</strong> आवश्यक मार्गदर्शन देना।</li>
+    <li><strong>Organizer:</strong> गतिविधियों और समूह-कार्य का आयोजन करना।</li>
+    <li><strong>Feedback Provider:</strong> उपयोगी प्रतिक्रिया देना।</li>
+    <li><strong>Observer:</strong> विद्यार्थियों की प्रगति और कठिनाइयों को समझना।</li>
+  </ul>
+
+  <h3>3.3 CLT में विद्यार्थी की भूमिका</h3>
+
+  <ul>
+    <li>संवाद में सक्रिय रूप से भाग लेना।</li>
+    <li>प्रश्न पूछना और उत्तर देना।</li>
+    <li>अपने विचार व्यक्त करना।</li>
+    <li>साथियों के साथ सहयोग करना।</li>
+    <li>सीखी गई भाषा का विभिन्न परिस्थितियों में उपयोग करना।</li>
+  </ul>
+
+  <div class="note">
+    <strong>परीक्षा संकेत:</strong>
+    यदि प्रश्न में वास्तविक जीवन का संवाद, जोड़ी-कार्य, भूमिका-अभिनय या
+    अर्थपूर्ण संचार का उल्लेख हो, तो वह प्रायः Communicative Language
+    Teaching के सिद्धांतों से संबंधित होता है।
+  </div>
+</section>
+
+<section class="card" id="approaches">
+  <h2>4. व्याकरण सिखाने के तरीके</h2>
+
+  <h3>4.1 Deductive Approach — निगमनात्मक विधि</h3>
+
+  <p>
+    इस विधि में शिक्षक पहले व्याकरण का नियम समझाता है और फिर विद्यार्थी
+    उस नियम के उदाहरणों तथा अभ्यासों पर काम करते हैं।
+  </p>
+
+  <div class="example">
+    <strong>उदाहरण:</strong>
+    <ol>
+      <li>शिक्षक Simple Past Tense का नियम बताता है।</li>
+      <li>कुछ उदाहरण देता है।</li>
+      <li>विद्यार्थी वाक्यों को Past Tense में बदलते हैं।</li>
+    </ol>
+  </div>
+
+  <h3>4.2 Inductive Approach — आगमनात्मक विधि</h3>
+
+  <p>
+    इस विधि में विद्यार्थी पहले उदाहरणों का निरीक्षण करते हैं और फिर
+    उनमें दिखाई देने वाले नियम या प्रतिमान को पहचानने का प्रयास करते हैं।
+  </p>
+
+  <div class="example">
+    <strong>उदाहरण:</strong>
+    <p>She plays tennis.</p>
+    <p>He reads books.</p>
+    <p>Ravi walks to school.</p>
+    <p>शिक्षक विद्यार्थियों से पूछता है कि इन वाक्यों में क्रियाओं के अंत
+    में क्या समानता दिखाई देती है। विद्यार्थी उदाहरणों से नियम समझते हैं।</p>
+  </div>
+
+  <h3>4.3 दोनों विधियों की तुलना</h3>
+
+  <div class="table-wrap">
+    <table>
+      <tr>
+        <th>Deductive Approach</th>
+        <th>Inductive Approach</th>
+      </tr>
+      <tr>
+        <td>नियम से उदाहरण की ओर।</td>
+        <td>उदाहरणों से नियम की ओर।</td>
+      </tr>
+      <tr>
+        <td>शिक्षक पहले नियम प्रस्तुत करता है।</td>
+        <td>विद्यार्थी उदाहरणों में प्रतिमान पहचानते हैं।</td>
+      </tr>
+      <tr>
+        <td>नियम की स्पष्ट व्याख्या पर जोर।</td>
+        <td>निरीक्षण और खोज के माध्यम से समझ पर जोर।</td>
+      </tr>
+      <tr>
+        <td>नियम-अभ्यास में उपयोगी हो सकती है।</td>
+        <td>उदाहरणों के आधार पर भाषा-रूप समझने में उपयोगी हो सकती है।</td>
+      </tr>
+    </table>
+  </div>
+
+  <p class="small">
+    दोनों विधियों का चुनाव विद्यार्थियों के स्तर, सीखने के उद्देश्य और
+    पाठ्य-विषय के अनुसार किया जा सकता है।
+  </p>
+</section>
+
+<section class="card" id="activities">
+  <h2>5. Grammar और Communication की कक्षा-गतिविधियाँ</h2>
+
+  <h3>गतिविधि 1: Role Play</h3>
+  <p><strong>विषय:</strong> दुकान पर खरीदारी।</p>
+  <p><strong>लक्ष्य:</strong> प्रश्न पूछना, विनम्र अनुरोध करना और उत्तर देना।</p>
+
+  <div class="example">
+    <p><strong>Customer:</strong> How much is this notebook?</p>
+    <p><strong>Shopkeeper:</strong> It is twenty rupees.</p>
+    <p><strong>Customer:</strong> Could I have two notebooks, please?</p>
+    <p><strong>Shopkeeper:</strong> Certainly.</p>
+  </div>
+
+  <h3>गतिविधि 2: Information Gap</h3>
+  <p>
+    दो विद्यार्थियों को अलग-अलग जानकारी दी जाती है। वे एक-दूसरे से प्रश्न
+    पूछकर अपनी जानकारी पूरी करते हैं।
+  </p>
+  <p><strong>लक्ष्य:</strong> प्रश्न-निर्माण, उत्तर देना और वास्तविक सूचना का आदान-प्रदान।</p>
+
+  <h3>गतिविधि 3: Find Someone Who...</h3>
+  <p>
+    विद्यार्थी अपने साथियों से प्रश्न पूछते हैं, जैसे:
+    “Do you play football?” या “Have you visited a zoo?”
+  </p>
+  <p><strong>लक्ष्य:</strong> प्रश्न-निर्माण और विभिन्न उत्तरों के साथ अभ्यास।</p>
+
+  <h3>गतिविधि 4: Error Correction in Context</h3>
+  <p>
+    शिक्षक संवाद में कुछ त्रुटिपूर्ण वाक्य देता है। विद्यार्थी संदर्भ समझकर
+    उन्हें सुधारते हैं।
+  </p>
+
+  <div class="example">
+    गलत: “She go to school every day.”<br>
+    सही: “She goes to school every day.”
+  </div>
+
+  <h3>गतिविधि 5: Story Completion</h3>
+  <p>
+    शिक्षक कहानी की शुरुआत करता है। विद्यार्थी बारी-बारी से अगले वाक्य
+    जोड़ते हैं। शिक्षक आवश्यकता के अनुसार व्याकरण और अर्थ पर प्रतिक्रिया देता है।
+  </p>
+
+  <h3>गतिविधि 6: Pair Dialogue</h3>
+  <p>
+    विद्यार्थी दो लोगों के बीच बातचीत लिखते और बोलकर प्रस्तुत करते हैं।
+    उदाहरण: मित्र को जन्मदिन की पार्टी में आमंत्रित करना।
+  </p>
+
+  <div class="success">
+    <strong>ध्यान रखें:</strong>
+    गतिविधि का उद्देश्य केवल सही उत्तर चुनना नहीं, बल्कि सीखी गई भाषा का
+    अर्थपूर्ण उपयोग करना भी होना चाहिए।
+  </div>
+</section>
+
+<section class="card" id="assessment">
+  <h2>6. मूल्यांकन और प्रतिक्रिया</h2>
+
+  <h3>6.1 मूल्यांकन के तरीके</h3>
+
+  <ul>
+    <li>संवाद या भूमिका-अभिनय का अवलोकन।</li>
+    <li>विद्यार्थियों के मौखिक उत्तरों का मूल्यांकन।</li>
+    <li>लिखित वाक्यों को संदर्भ के अनुसार सुधारना।</li>
+    <li>जोड़ी-कार्य और समूह-कार्य में सहभागिता देखना।</li>
+    <li>छोटी गतिविधियों के बाद समझ की जाँच करना।</li>
+  </ul>
+
+  <h3>6.2 प्रभावी प्रतिक्रिया कैसी हो?</h3>
+
+  <ul>
+    <li>विद्यार्थी को बताएँ कि उसने क्या सही किया।</li>
+    <li>त्रुटि होने पर सही रूप का उदाहरण दें।</li>
+    <li>विद्यार्थी को सुधार का अवसर दें।</li>
+    <li>जहाँ अर्थ स्पष्ट हो, वहाँ केवल छोटी त्रुटि के कारण संवाद को बार-बार न रोकें।</li>
+    <li>सटीकता (Accuracy) और प्रवाह (Fluency) दोनों के विकास पर ध्यान दें।</li>
+  </ul>
+
+  <div class="note">
+    <strong>उदाहरण:</strong><br>
+    विद्यार्थी: “He go to market yesterday.”<br>
+    शिक्षक: “Good attempt. We can say, ‘He went to the market yesterday.’
+    Can you repeat the sentence?”
+  </div>
+
+  <h3>6.3 Accuracy और Fluency</h3>
+
+  <div class="table-wrap">
+    <table>
+      <tr>
+        <th>Accuracy</th>
+        <th>Fluency</th>
+      </tr>
+      <tr>
+        <td>व्याकरण और भाषा-रूपों की शुद्धता।</td>
+        <td>उचित प्रवाह के साथ भाषा का उपयोग।</td>
+      </tr>
+      <tr>
+        <td>त्रुटियों को पहचानना और सुधारना महत्त्वपूर्ण।</td>
+        <td>बिना अनावश्यक रुकावट के विचार व्यक्त करने का अभ्यास महत्त्वपूर्ण।</td>
+      </tr>
+      <tr>
+        <td>नियंत्रित व्याकरण-अभ्यास उपयोगी हो सकता है।</td>
+        <td>चर्चा, संवाद और भूमिका-अभिनय उपयोगी हो सकते हैं।</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section class="card" id="exam">
+  <h2>7. परीक्षा के लिए महत्त्वपूर्ण तथ्य</h2>
+
+  <ol>
+    <li>Grammar भाषा की संरचना और प्रयोग से संबंधित है।</li>
+    <li>Communication विचारों और सूचनाओं का आदान-प्रदान है।</li>
+    <li>व्याकरण को अर्थपूर्ण संदर्भों में सिखाना उपयोगी है।</li>
+    <li>CLT का मुख्य जोर संचार करने की क्षमता पर है।</li>
+    <li>Role Play वास्तविक परिस्थितियों में भाषा का अभ्यास कराता है।</li>
+    <li>Pair Work विद्यार्थियों को संवाद के अवसर देता है।</li>
+    <li>Deductive Approach में पहले नियम, फिर उदाहरण आते हैं।</li>
+    <li>Inductive Approach में उदाहरणों से नियम पहचाना जाता है।</li>
+    <li>Accuracy का संबंध भाषा की शुद्धता से है।</li>
+    <li>Fluency का संबंध भाषा के प्रवाह से है।</li>
+    <li>विद्यार्थियों को अपनी भाषा का सक्रिय उपयोग करने के अवसर देने चाहिए।</li>
+    <li>प्रतिक्रिया रचनात्मक और सीखने में सहायक होनी चाहिए।</li>
+  </ol>
+
+  <div class="note">
+    <strong>त्वरित सूत्र:</strong><br>
+    Grammar + Context = Meaningful Language Use<br>
+    CLT = Communication + Participation + Meaning<br>
+    Deductive = Rule → Examples<br>
+    Inductive = Examples → Rule
+  </div>
+</section>
+
+<section class="card" id="mcq">
+  <h2>8. अभ्यास MCQ टेस्ट</h2>
+  <p>सही विकल्प चुनें। अंत में अपना स्कोर जाँचें।</p>
+
+  <form id="quiz">
+
+    <div class="question">
+      <p>1. संवाद में व्याकरण सिखाने का प्रमुख उद्देश्य क्या है?</p>
+      <label class="option"><input type="radio" name="q1" value="a"> केवल नियम रटवाना</label>
+      <label class="option"><input type="radio" name="q1" value="b"> अर्थपूर्ण भाषा-प्रयोग में सहायता करना</label>
+      <label class="option"><input type="radio" name="q1" value="c"> संवाद समाप्त करना</label>
+      <label class="option"><input type="radio" name="q1" value="d"> केवल कठिन शब्द याद कराना</label>
+    </div>
+
+    <div class="question">
+      <p>2. Communicative Language Teaching (CLT) का मुख्य जोर किस पर है?</p>
+      <label class="option"><input type="radio" name="q2" value="a"> केवल अनुवाद पर</label>
+      <label class="option"><input type="radio" name="q2" value="b"> केवल लिखावट पर</label>
+      <label class="option"><input type="radio" name="q2" value="c"> अर्थपूर्ण संचार पर</label>
+      <label class="option"><input type="radio" name="q2" value="d"> केवल नियम याद करने पर</label>
+    </div>
+
+    <div class="question">
+      <p>3. Deductive Approach में सामान्यतः क्या पहले प्रस्तुत किया जाता है?</p>
+      <label class="option"><input type="radio" name="q3" value="a"> व्याकरण का नियम</label>
+      <label class="option"><input type="radio" name="q3" value="b"> अंतिम परीक्षा</label>
+      <label class="option"><input type="radio" name="q3" value="c"> केवल कहानी</label>
+      <label class="option"><input type="radio" name="q3" value="d"> केवल गृहकार्य</label>
+    </div>
+
+    <div class="question">
+      <p>4. Inductive Approach में विद्यार्थी किस प्रकार सीखते हैं?</p>
+      <label class="option"><input type="radio" name="q4" value="a"> केवल नियमों की नकल करके</label>
+      <label class="option"><input type="radio" name="q4" value="b"> बिना उदाहरणों के</label>
+      <label class="option"><input type="radio" name="q4" value="c"> केवल परीक्षा देकर</label>
+      <label class="option"><input type="radio" name="q4" value="d"> उदाहरणों से नियम पहचानकर</label>
+    </div>
+
+    <div class="question">
+      <p>5. दुकान पर खरीदारी का Role Play किसमें सहायक है?</p>
+      <label class="option"><input type="radio" name="q5" value="a"> केवल नकल करने में</label>
+      <label class="option"><input type="radio" name="q5" value="b"> अर्थपूर्ण संवाद के अभ्यास में</label>
+      <label class="option"><input type="radio" name="q5" value="c"> विद्यार्थियों को चुप रखने में</label>
+      <label class="option"><input type="radio" name="q5" value="d"> भाषा का उपयोग रोकने में</label>
+    </div>
+
+    <div class="question">
+      <p>6. Accuracy का संबंध किससे है?</p>
+      <label class="option"><input type="radio" name="q6" value="a"> केवल बोलने की गति से</label>
+      <label class="option"><input type="radio" name="q6" value="b"> केवल आवाज की ऊँचाई से</label>
+      <label class="option"><input type="radio" name="q6" value="c"> भाषा-रूपों की शुद्धता से</label>
+      <label class="option"><input type="radio" name="q6" value="d"> केवल लिखावट से</label>
+    </div>
+
+    <div class="question">
+      <p>7. Fluency का संबंध किससे है?</p>
+      <label class="option"><input type="radio" name="q7" value="a"> भाषा के प्रवाह से</label>
+      <label class="option"><input type="radio" name="q7" value="b"> केवल वर्तनी से</label>
+      <label class="option"><input type="radio" name="q7" value="c"> केवल विराम-चिह्नों से</label>
+      <label class="option"><input type="radio" name="q7" value="d"> केवल लिखावट से</label>
+    </div>
+
+    <div class="question">
+      <p>8. CLT में शिक्षक की उपयुक्त भूमिका क्या है?</p>
+      <label class="option"><input type="radio" name="q8" value="a"> विद्यार्थियों को कभी न बोलने देना</label>
+      <label class="option"><input type="radio" name="q8" value="b"> केवल व्याख्यान देना</label>
+      <label class="option"><input type="radio" name="q8" value="c"> प्रत्येक गतिविधि रोक देना</label>
+      <label class="option"><input type="radio" name="q8" value="d"> सीखने का मार्गदर्शन और सुविधा देना</label>
+    </div>
+
+    <div class="question">
+      <p>9. “She plays tennis every day.” किसका उदाहरण है?</p>
+      <label class="option"><input type="radio" name="q9" value="a"> केवल प्रश्न</label>
+      <label class="option"><input type="radio" name="q9" value="b"> Simple Present Tense का प्रयोग</label>
+      <label class="option"><input type="radio" name="q9" value="c"> Imperative Sentence</label>
+      <label class="option"><input type="radio" name="q9" value="d"> Passive Voice</label>
+    </div>
+
+    <div class="question">
+      <p>10. विद्यार्थियों को जोड़ी में संवाद करने का अवसर देने का क्या लाभ है?</p>
+      <label class="option"><input type="radio" name="q10" value="a"> सहभागिता कम होती है</label>
+      <label class="option"><input type="radio" name="q10" value="b"> भाषा का अभ्यास बंद होता है</label>
+      <label class="option"><input type="radio" name="q10" value="c"> अर्थपूर्ण भाषा-प्रयोग का अवसर मिलता है</label>
+      <label class="option"><input type="radio" name="q10" value="d"> केवल शिक्षक सक्रिय रहता है</label>
+    </div>
+
+    <div class="question">
+      <p>11. “Could you please help me?” किसका उदाहरण है?</p>
+      <label class="option"><input type="radio" name="q11" value="a"> विनम्र अनुरोध</label>
+      <label class="option"><input type="radio" name="q11" value="b"> आदेश का एकमात्र रूप</label>
+      <label class="option"><input type="radio" name="q11" value="c"> निषेधात्मक वाक्य</label>
+      <label class="option"><input type="radio" name="q11" value="d"> भूतकाल का कथन</label>
+    </div>
+
+    <div class="question">
+      <p>12. संदर्भ में व्याकरण का अभ्यास कराने का उपयुक्त तरीका कौन-सा है?</p>
+      <label class="option"><input type="radio" name="q12" value="a"> केवल नियमों की सूची लिखवाना</label>
+      <label class="option"><input type="radio" name="q12" value="b"> सभी संवादों को रोकना</label>
+      <label class="option"><input type="radio" name="q12" value="c"> केवल परिभाषाएँ याद करवाना</label>
+      <label class="option"><input type="radio" name="q12" value="d"> वास्तविक परिस्थितियों में वाक्यों का उपयोग कराना</label>
+    </div>
+
+    <div class="question">
+      <p>13. “He go to school every day.” में सही सुधार क्या है?</p>
+      <label class="option"><input type="radio" name="q13" value="a"> He going to school every day.</label>
+      <label class="option"><input type="radio" name="q13" value="b"> He goes to school every day.</label>
+      <label class="option"><input type="radio" name="q13" value="c"> He gone to school every day.</label>
+      <label class="option"><input type="radio" name="q13" value="d"> He go school every day.</label>
+    </div>
+
+    <div class="question">
+      <p>14. Information Gap Activity का मुख्य उद्देश्य क्या है?</p>
+      <label class="option"><input type="radio" name="q14" value="a"> संवाद के अवसर समाप्त करना</label>
+      <label class="option"><input type="radio" name="q14" value="b"> केवल शब्द रटवाना</label>
+      <label class="option"><input type="radio" name="q14" value="c"> प्रश्नों और उत्तरों से जानकारी साझा करना</label>
+      <label class="option"><input type="radio" name="q14" value="d"> विद्यार्थियों को निष्क्रिय रखना</label>
+    </div>
+
+    <div class="question">
+      <p>15. प्रभावी प्रतिक्रिया कैसी होनी चाहिए?</p>
+      <label class="option"><input type="radio" name="q15" value="a"> रचनात्मक और सुधार में सहायक</label>
+      <label class="option"><input type="radio" name="q15" value="b"> अपमानजनक</label>
+      <label class="option"><input type="radio" name="q15" value="c"> अस्पष्ट और अनुपयोगी</label>
+      <label class="option"><input type="radio" name="q15" value="d"> केवल दंड पर आधारित</label>
+    </div>
+
+    <div class="question">
+      <p>16. भाषा-शिक्षण में व्याकरण को किससे जोड़ना चाहिए?</p>
+      <label class="option"><input type="radio" name="q16" value="a"> केवल उपस्थिति से</label>
+      <label class="option"><input type="radio" name="q16" value="b"> केवल अनुशासन से</label>
+      <label class="option"><input type="radio" name="q16" value="c"> केवल लिखावट से</label>
+      <label class="option"><input type="radio" name="q16" value="d"> अर्थपूर्ण भाषा-प्रयोग और संचार से</label>
+    </div>
+
+    <div class="question">
+      <p>17. विद्यार्थी “I am playing now” कहता है। यह वाक्य किस स्थिति को व्यक्त करता है?</p>
+      <label class="option"><input type="radio" name="q17" value="a"> नियमित आदत</label>
+      <label class="option"><input type="radio" name="q17" value="b"> वर्तमान में जारी गतिविधि</label>
+      <label class="option"><input type="radio" name="q17" value="c"> भविष्य की निश्चित योजना ही</label>
+      <label class="option"><input type="radio" name="q17" value="d"> सामान्य भूतकाल</label>
+    </div>
+
+    <div class="question">
+      <p>18. Communicative Language Teaching में विद्यार्थी की भूमिका क्या है?</p>
+      <label class="option"><input type="radio" name="q18" value="a"> हमेशा निष्क्रिय रहना</label>
+      <label class="option"><input type="radio" name="q18" value="b"> केवल नियम लिखना</label>
+      <label class="option"><input type="radio" name="q18" value="c"> संवाद और गतिविधियों में सक्रिय भाग लेना</label>
+      <label class="option"><input type="radio" name="q18" value="d"> सभी प्रश्न छोड़ देना</label>
+    </div>
+
+    <div class="question">
+      <p>19. व्याकरण की त्रुटि होने पर शिक्षक को क्या करना चाहिए?</p>
+      <label class="option"><input type="radio" name="q19" value="a"> हर बार विद्यार्थी को अपमानित करना</label>
+      <label class="option"><input type="radio" name="q19" value="b"> उपयोगी प्रतिक्रिया देकर सुधार का अवसर देना</label>
+      <label class="option"><input type="radio" name="q19" value="c"> बोलने पर प्रतिबंध लगाना</label>
+      <label class="option"><input type="radio" name="q19" value="d"> विद्यार्थी को हमेशा अनदेखा करना</label>
+    </div>
+
+    <div class="question">
+      <p>20. Inductive Approach का सही क्रम कौन-सा है?</p>
+      <label class="option"><input type="radio" name="q20" value="a"> उदाहरण → निरीक्षण → नियम की पहचान</label>
+      <label class="option"><input type="radio" name="q20" value="b"> परीक्षा → दंड → नियम</label>
+      <label class="option"><input type="radio" name="q20" value="c"> नियम → उदाहरण, केवल इसी क्रम में</label>
+      <label class="option"><input type="radio" name="q20" value="d"> बिना उदाहरण के नियम</label>
+    </div>
+
+    <button type="button" onclick="checkAnswers()">उत्तर जाँचें</button>
+    <button type="button" class="secondary" onclick="showAnswers()">सही उत्तर देखें</button>
+    <button type="reset" class="secondary" onclick="resetQuiz()">फिर से प्रयास करें</button>
+
+    <div id="result" aria-live="polite"></div>
+    <div id="answerKey"></div>
+
+  </form>
+</section>
+
+<section class="card">
+  <h2>9. त्वरित पुनरावृत्ति</h2>
+  <ul>
+    <li>Grammar = भाषा की संरचना और प्रयोग।</li>
+    <li>Communication = विचारों और सूचनाओं का आदान-प्रदान।</li>
+    <li>CLT = अर्थपूर्ण संचार पर केंद्रित भाषा-शिक्षण।</li>
+    <li>Deductive = नियम से उदाहरण।</li>
+    <li>Inductive = उदाहरणों से नियम।</li>
+    <li>Accuracy = भाषा की शुद्धता।</li>
+    <li>Fluency = भाषा का प्रवाह।</li>
+    <li>Role Play = वास्तविक परिस्थितियों में संवाद का अभ्यास।</li>
+    <li>अच्छा भाषा-शिक्षण = समझ + अभ्यास + संवाद + उपयोगी प्रतिक्रिया।</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>10. मुख्य पेज पर वापस जाएँ</h2>
+  <p>सभी टॉपिक की सूची के लिए मुख्य पेज खोलें।</p>
+  <a class="btn" href="JHTET-English.html">JHTET English — मुख्य पेज</a>
+</section>
+
+</main>
+
+<footer>
+  <p>JHTET 2026 • English Paper 2 • Upper Primary</p>
+  <p class="small">यह अभ्यास सामग्री परीक्षा की तैयारी के लिए है। आधिकारिक पाठ्यक्रम को प्राथमिकता दें।</p>
+</footer>
+
+<script>
+const answers = {
+  q1:"b", q2:"c", q3:"a", q4:"d", q5:"b",
+  q6:"c", q7:"a", q8:"d", q9:"b", q10:"c",
+  q11:"a", q12:"d", q13:"b", q14:"c", q15:"a",
+  q16:"d", q17:"b", q18:"c", q19:"b", q20:"a"
+};
+
+const explanations = {
+  q1:"व्याकरण का उपयोग अर्थपूर्ण और स्पष्ट भाषा-प्रयोग में सहायता के लिए किया जाता है।",
+  q2:"CLT अर्थपूर्ण संचार और संवाद करने की क्षमता पर जोर देता है।",
+  q3:"Deductive Approach में पहले नियम और फिर उदाहरण प्रस्तुत किए जाते हैं।",
+  q4:"Inductive Approach में विद्यार्थी उदाहरणों का निरीक्षण करके नियम पहचानते हैं।",
+  q5:"Role Play वास्तविक जीवन की परिस्थितियों में भाषा का अभ्यास कराता है।",
+  q6:"Accuracy भाषा-रूपों की शुद्धता से संबंधित है।",
+  q7:"Fluency भाषा के प्रवाह और निरंतर अभिव्यक्ति से संबंधित है।",
+  q8:"CLT में शिक्षक मार्गदर्शक और सीखने की प्रक्रिया को सुगम बनाने वाला होता है।",
+  q9:"Simple Present Tense में he, she या it के साथ सामान्यतः क्रिया में -s या -es आता है।",
+  q10:"जोड़ी में संवाद विद्यार्थियों को भाषा के अर्थपूर्ण उपयोग के अवसर देता है।",
+  q11:"“Could you please help me?” एक विनम्र अनुरोध है।",
+  q12:"संदर्भ में वाक्यों का प्रयोग भाषा-रूप और अर्थ के बीच संबंध स्पष्ट करता है।",
+  q13:"He के साथ Simple Present Tense में सही वाक्य है: “He goes to school every day.”",
+  q14:"Information Gap में विद्यार्थी प्रश्न और उत्तर के माध्यम से जानकारी साझा करते हैं।",
+  q15:"प्रतिक्रिया स्पष्ट, रचनात्मक और सुधार में सहायक होनी चाहिए।",
+  q16:"व्याकरण का अर्थपूर्ण भाषा-प्रयोग और संचार से संबंध स्थापित करना उपयोगी है।",
+  q17:"“I am playing now” वर्तमान में जारी गतिविधि व्यक्त करता है।",
+  q18:"CLT में विद्यार्थी संवाद और गतिविधियों में सक्रिय भाग लेते हैं।",
+  q19:"उपयोगी प्रतिक्रिया विद्यार्थी को अपनी त्रुटि सुधारने में मदद करती है।",
+  q20:"Inductive Approach में उदाहरणों का निरीक्षण करके नियम पहचाना जाता है।"
+};
+
+function checkAnswers(){
+  let score = 0;
+  let attempted = 0;
+  const total = Object.keys(answers).length;
+
+  for(const q in answers){
+    const selected = document.querySelector(
+      'input[name="' + q + '"]:checked'
+    );
+    if(selected){
+      attempted++;
+      if(selected.value === answers[q]){
+        score++;
+      }
+    }
+  }
+
+  const result = document.getElementById("result");
+  result.style.display = "block";
+  result.style.background = score >= 15 ? "#dcfce7" : "#eaf1ff";
+
+  result.innerHTML =
+    "<h3>आपका परिणाम</h3>" +
+    "<p><strong>अंक: " + score + " / " + total + "</strong></p>" +
+    "<p>प्रयास किए गए प्रश्न: " + attempted + " / " + total + "</p>" +
+    "<p>" +
+    (score >= 15
+      ? "बहुत अच्छा! अब गलत उत्तरों की भी पुनरावृत्ति करें।"
+      : "अच्छा प्रयास! नोट्स पढ़ें और फिर से अभ्यास करें।") +
+    "</p>";
+}
+
+function showAnswers(){
+  const box = document.getElementById("answerKey");
+  let html = "<h3>सही उत्तर एवं स्पष्टीकरण</h3><ol>";
+
+  for(let i = 1; i <= 20; i++){
+    const q = "q" + i;
+    const selected = document.querySelector(
+      'input[name="' + q + '"]:checked'
+    );
+
+    html += "<li><strong>विकल्प " +
+      answers[q].toUpperCase() +
+      ".</strong> " + explanations[q] + "</li>";
+  }
+
+  html += "</ol>";
+  box.innerHTML = html;
+  box.style.display = "block";
+  box.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function resetQuiz(){
+  document.getElementById("result").style.display = "none";
+  document.getElementById("answerKey").style.display = "none";
+}
+</script>
+
+</body>
+</html>

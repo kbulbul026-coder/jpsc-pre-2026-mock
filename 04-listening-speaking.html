@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Listening and Speaking | JHTET 2026 English Paper 2</title>
+
+<style>
+:root{
+  --bg:#f3f6fb;
+  --card:#ffffff;
+  --text:#1e293b;
+  --muted:#64748b;
+  --primary:#1d4ed8;
+  --secondary:#0f766e;
+  --border:#dbe4f0;
+  --soft:#eaf1ff;
+  --green:#dcfce7;
+  --red:#fee2e2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  line-height:1.75;
+}
+header{
+  background:linear-gradient(135deg,#172554,#1d4ed8,#0f766e);
+  color:white;
+  padding:28px 16px;
+}
+.header-inner{max-width:950px;margin:auto}
+header h1{font-size:clamp(25px,5vw,36px);line-height:1.35;margin:0 0 12px}
+header p{margin:6px 0;color:#e0f2fe}
+.badge{
+  display:inline-block;
+  padding:4px 10px;
+  border:1px solid #bfdbfe;
+  border-radius:20px;
+  font-size:13px;
+  margin-bottom:12px;
+}
+nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:white;
+  border-bottom:1px solid var(--border);
+  padding:10px;
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+}
+nav a{
+  flex-shrink:0;
+  text-decoration:none;
+  color:var(--primary);
+  background:var(--soft);
+  padding:7px 12px;
+  border-radius:8px;
+  font-size:14px;
+}
+main{max-width:950px;margin:20px auto;padding:0 13px}
+.card{
+  background:var(--card);
+  padding:20px;
+  margin:15px 0;
+  border:1px solid var(--border);
+  border-radius:15px;
+  box-shadow:0 3px 12px #0f172a08;
+}
+h2{color:#1d4ed8;font-size:23px;margin-top:0}
+h3{color:#0f766e;font-size:18px}
+p{margin:9px 0}
+ul,ol{padding-left:23px}
+li{margin:6px 0}
+.note{
+  padding:13px 15px;
+  border-left:4px solid var(--primary);
+  background:var(--soft);
+  border-radius:8px;
+  margin:12px 0;
+}
+.success{
+  background:var(--green);
+  padding:12px;
+  border-radius:8px;
+}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th,td{padding:10px;border:1px solid var(--border);text-align:left}
+th{background:var(--soft)}
+.table-wrap{overflow-x:auto}
+.term{font-weight:bold;color:#1d4ed8}
+.question{
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:14px;
+  margin:14px 0;
+}
+.question p{font-weight:bold}
+.option{
+  display:block;
+  margin:8px 0;
+  padding:9px 10px;
+  background:#f8fafc;
+  border:1px solid var(--border);
+  border-radius:8px;
+  cursor:pointer;
+}
+.option:has(input:checked){background:var(--soft)}
+.option input{margin-right:8px}
+button,.btn{
+  display:inline-block;
+  border:0;
+  border-radius:9px;
+  padding:11px 15px;
+  background:var(--primary);
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+  text-decoration:none;
+  margin:5px 5px 5px 0;
+}
+button.secondary{background:var(--secondary)}
+#result{
+  padding:15px;
+  border-radius:10px;
+  margin-top:14px;
+  display:none;
+}
+.answer{
+  display:none;
+  background:#f0fdf4;
+  padding:10px;
+  border-radius:8px;
+  margin-top:8px;
+}
+footer{
+  text-align:center;
+  padding:25px 12px;
+  color:var(--muted);
+}
+.small{font-size:14px;color:var(--muted)}
+@media(max-width:600px){
+  .card{padding:15px}
+  h2{font-size:21px}
+  th,td{padding:8px;font-size:14px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <span class="badge">JHTET 2026 • English Paper 2</span>
+    <h1>Listening and Speaking</h1>
+    <p>श्रवण एवं भाषण कौशल की भूमिका</p>
+    <p>Pedagogy of Language Development</p>
+    <p>कक्षा 6–8 के भाषा-शिक्षण के संदर्भ में अध्ययन सामग्री</p>
+  </div>
+</header>
+
+<nav>
+  <a href="JHTET-English.html">मुख्य पेज</a>
+  <a href="#intro">परिचय</a>
+  <a href="#listening">Listening</a>
+  <a href="#speaking">Speaking</a>
+  <a href="#classroom">गतिविधियाँ</a>
+  <a href="#assessment">मूल्यांकन</a>
+  <a href="#mcq">MCQ टेस्ट</a>
+</nav>
+
+<main>
+
+<section class="card" id="intro">
+  <h2>1. परिचय: Listening और Speaking क्या हैं?</h2>
+
+  <p>
+    भाषा का मुख्य उद्देश्य विचारों, भावनाओं, अनुभवों और सूचनाओं का
+    आदान-प्रदान करना है। इस प्रक्रिया में सुनना और बोलना महत्त्वपूर्ण
+    मौखिक भाषा-कौशल हैं।
+  </p>
+
+  <ul>
+    <li><span class="term">Listening (श्रवण):</span>
+      ध्वनियों और बोले गए संदेश को ध्यानपूर्वक सुनकर उसका अर्थ समझना।</li>
+
+    <li><span class="term">Speaking (भाषण/बोलना):</span>
+      शब्दों और वाक्यों के माध्यम से विचारों एवं भावनाओं को मौखिक रूप
+      से व्यक्त करना।</li>
+  </ul>
+
+  <div class="note">
+    <strong>परीक्षा के लिए मुख्य विचार:</strong>
+    भाषा केवल व्याकरण के नियम याद करने का विषय नहीं है।
+    इसका उपयोग वास्तविक परिस्थितियों में अर्थपूर्ण संवाद करने के लिए होता है।
+  </div>
+
+  <h3>भाषा के चार प्रमुख कौशल</h3>
+
+  <div class="table-wrap">
+    <table>
+      <tr>
+        <th>कौशल</th>
+        <th>अंग्रेज़ी नाम</th>
+        <th>मुख्य कार्य</th>
+      </tr>
+      <tr>
+        <td>श्रवण</td>
+        <td>Listening</td>
+        <td>सुनकर समझना</td>
+      </tr>
+      <tr>
+        <td>भाषण</td>
+        <td>Speaking</td>
+        <td>बोलकर विचार व्यक्त करना</td>
+      </tr>
+      <tr>
+        <td>पठन</td>
+        <td>Reading</td>
+        <td>लिखित सामग्री पढ़कर समझना</td>
+      </tr>
+      <tr>
+        <td>लेखन</td>
+        <td>Writing</td>
+        <td>लिखित रूप में विचार व्यक्त करना</td>
+      </tr>
+    </table>
+  </div>
+
+  <p class="small">
+    Listening और Reading को सामान्यतः ग्रहणशील कौशल (Receptive Skills)
+    तथा Speaking और Writing को अभिव्यक्तिपरक कौशल (Productive Skills)
+    कहा जाता है।
+  </p>
+</section>
+
+<section class="card" id="listening">
+  <h2>2. Listening Skill — श्रवण कौशल</h2>
+
+  <h3>2.1 अर्थ</h3>
+  <p>
+    Listening केवल आवाज सुनने तक सीमित नहीं है। इसमें ध्यान देना,
+    अर्थ समझना, आवश्यक सूचना पहचानना और संदेश पर प्रतिक्रिया देना शामिल है।
+  </p>
+
+  <h3>2.2 श्रवण कौशल का महत्त्व</h3>
+  <ul>
+    <li>बोले गए शब्दों और वाक्यों को समझने में सहायता करता है।</li>
+    <li>शब्दावली और उच्चारण से परिचित कराता है।</li>
+    <li>संवाद का अर्थ समझने और उचित उत्तर देने में मदद करता है।</li>
+    <li>निर्देशों का पालन करने की क्षमता विकसित करता है।</li>
+    <li>कहानी, कविता, बातचीत और मौखिक सूचना समझने में उपयोगी है।</li>
+    <li>दूसरों के विचार ध्यानपूर्वक सुनने की आदत विकसित करता है।</li>
+  </ul>
+
+  <h3>2.3 Listening के प्रकार</h3>
+
+  <div class="table-wrap">
+    <table>
+      <tr>
+        <th>प्रकार</th>
+        <th>अर्थ</th>
+        <th>उदाहरण</th>
+      </tr>
+      <tr>
+        <td>Listening for Gist</td>
+        <td>संदेश का सामान्य अर्थ समझना</td>
+        <td>कहानी सुनकर उसका मुख्य विषय बताना</td>
+      </tr>
+      <tr>
+        <td>Listening for Specific Information</td>
+        <td>विशिष्ट सूचना पहचानना</td>
+        <td>घोषणा में समय या स्थान सुनना</td>
+      </tr>
+      <tr>
+        <td>Detailed Listening</td>
+        <td>विस्तार से समझना</td>
+        <td>कहानी की घटनाओं का क्रम बताना</td>
+      </tr>
+      <tr>
+        <td>Critical Listening</td>
+        <td>सुनी गई बात का विश्लेषण करना</td>
+        <td>किसी कथन के पक्ष और कारणों पर विचार करना</td>
+      </tr>
+    </table>
+  </div>
+
+  <h3>2.4 कक्षा में Listening कैसे विकसित करें?</h3>
+  <ol>
+    <li>विद्यार्थियों को छोटी कहानी सुनाएँ।</li>
+    <li>कहानी के बाद सरल प्रश्न पूछें।</li>
+    <li>ऑडियो रिकॉर्डिंग या उपयुक्त वीडियो का उपयोग करें।</li>
+    <li>निर्देश सुनकर कार्य करने वाली गतिविधियाँ कराएँ।</li>
+    <li>विद्यार्थियों से मुख्य विचार या सुनी गई सूचना बताने को कहें।</li>
+    <li>जोड़ी में एक विद्यार्थी बोले और दूसरा ध्यानपूर्वक सुनकर सार बताए।</li>
+  </ol>
+
+  <div class="note">
+    <strong>उदाहरण:</strong> शिक्षक कहता है,
+    “Open your book, read the first paragraph, and underline two new words.”
+    विद्यार्थी निर्देश सुनकर कार्य करते हैं।
+    यह Listening Comprehension का अभ्यास है।
+  </div>
+</section>
+
+<section class="card" id="speaking">
+  <h2>3. Speaking Skill — भाषण/बोलने का कौशल</h2>
+
+  <h3>3.1 अर्थ</h3>
+  <p>
+    Speaking वह कौशल है जिसके माध्यम से व्यक्ति मौखिक भाषा का उपयोग
+    करके अपने विचार, भावनाएँ, अनुभव, प्रश्न और सूचनाएँ व्यक्त करता है।
+  </p>
+
+  <h3>3.2 Speaking Skill का महत्त्व</h3>
+  <ul>
+    <li>मौखिक संचार और आत्म-अभिव्यक्ति को विकसित करता है।</li>
+    <li>शब्दावली तथा वाक्य-निर्माण के अभ्यास में सहायता करता है।</li>
+    <li>प्रश्न पूछने और उत्तर देने की क्षमता बढ़ाता है।</li>
+    <li>समूह चर्चा और सहयोगात्मक सीखने में मदद करता है।</li>
+    <li>विचारों को क्रमबद्ध रूप से प्रस्तुत करने का अवसर देता है।</li>
+    <li>दूसरों के साथ बातचीत और सामाजिक सहभागिता को बढ़ावा देता है।</li>
+  </ul>
+
+  <h3>3.3 Speaking के प्रमुख घटक</h3>
+
+  <div class="table-wrap">
+    <table>
+      <tr>
+        <th>घटक</th>
+        <th>अर्थ</th>
+      </tr>
+      <tr>
+        <td>Pronunciation</td>
+        <td>शब्दों का उच्चारण</td>
+      </tr>
+      <tr>
+        <td>Fluency</td>
+        <td>उचित गति और प्रवाह के साथ बोलना</td>
+      </tr>
+      <tr>
+        <td>Accuracy</td>
+        <td>शब्दों और व्याकरण का उपयुक्त प्रयोग</td>
+      </tr>
+      <tr>
+        <td>Vocabulary</td>
+        <td>शब्दों का ज्ञान और सही संदर्भ में प्रयोग</td>
+      </tr>
+      <tr>
+        <td>Interaction</td>
+        <td>दूसरों के साथ बातचीत में भाग लेना</td>
+      </tr>
+      <tr>
+        <td>Comprehensibility</td>
+        <td>बात को समझने योग्य ढंग से प्रस्तुत करना</td>
+      </tr>
+    </table>
+  </div>
+
+  <h3>3.4 Speaking विकसित करने की गतिविधियाँ</h3>
+  <ul>
+    <li><strong>Pair Work:</strong> दो विद्यार्थियों के बीच बातचीत।</li>
+    <li><strong>Role Play:</strong> दुकानदार और ग्राहक जैसी भूमिकाएँ निभाना।</li>
+    <li><strong>Group Discussion:</strong> किसी विषय पर समूह में चर्चा।</li>
+    <li><strong>Picture Description:</strong> चित्र देखकर उसका वर्णन करना।</li>
+    <li><strong>Storytelling:</strong> कहानी सुनाना या अपने शब्दों में दोहराना।</li>
+    <li><strong>Interview:</strong> साथी से प्रश्न पूछना और उत्तर देना।</li>
+    <li><strong>Show and Tell:</strong> किसी वस्तु के बारे में बोलना।</li>
+    <li><strong>Think-Pair-Share:</strong> पहले सोचना, फिर साथी से चर्चा और अंत में विचार साझा करना।</li>
+  </ul>
+
+  <div class="note">
+    <strong>शिक्षक की भूमिका:</strong>
+    ऐसा सुरक्षित और सहयोगी वातावरण बनाना जिसमें विद्यार्थी बिना डर के
+    बोल सकें। शिक्षक को केवल गलतियाँ पकड़ने के बजाय संवाद के अवसर देने चाहिए।
+  </div>
+</section>
+
+<section class="card" id="function">
+  <h2>4. भाषा का कार्य और बच्चों के लिए भाषा एक साधन</h2>
+
+  <p>
+    भाषा बच्चों के लिए केवल विषय-वस्तु नहीं, बल्कि सीखने, सोचने,
+    प्रश्न पूछने, अनुभव साझा करने और दूसरों के साथ सहयोग करने का साधन है।
+  </p>
+
+  <h3>भाषा के प्रमुख कार्य</h3>
+  <ul>
+    <li><strong>Informative:</strong> सूचना देना या प्राप्त करना।</li>
+    <li><strong>Expressive:</strong> भावनाएँ और विचार व्यक्त करना।</li>
+    <li><strong>Social:</strong> दूसरों से संबंध बनाना और संवाद करना।</li>
+    <li><strong>Regulatory:</strong> निर्देश देना या अनुरोध करना।</li>
+    <li><strong>Exploratory:</strong> प्रश्न पूछकर और चर्चा करके सीखना।</li>
+    <li><strong>Imaginative:</strong> कहानी, कल्पना और रचनात्मक विचार व्यक्त करना।</li>
+  </ul>
+
+  <h3>कक्षा में उदाहरण</h3>
+  <p>
+    जब विद्यार्थी अंग्रेज़ी में पूछता है, “Why do plants need sunlight?”,
+    तो वह भाषा का उपयोग जानकारी प्राप्त करने और सीखने के साधन के रूप में
+    कर रहा है।
+  </p>
+
+  <p>
+    जब विद्यार्थी कहता है, “I think we should plant more trees,”
+    तो वह अपने विचार व्यक्त कर रहा है।
+  </p>
+</section>
+
+<section class="card" id="classroom">
+  <h2>5. प्रभावी Listening-Speaking कक्षा</h2>
+
+  <h3>शिक्षक को क्या करना चाहिए?</h3>
+  <ul>
+    <li>विद्यार्थियों के स्तर और अनुभव के अनुकूल गतिविधियाँ चुनें।</li>
+    <li>सरल भाषा में निर्देश दें और आवश्यकता पर उदाहरण प्रस्तुत करें।</li>
+    <li>विद्यार्थियों को व्यक्तिगत, जोड़ी और समूह में बोलने का अवसर दें।</li>
+    <li>गलतियों को सीखने की प्रक्रिया का हिस्सा मानें।</li>
+    <li>केवल तेज बोलने वाले विद्यार्थियों को नहीं, सभी को भाग लेने दें।</li>
+    <li>मातृभाषा और स्थानीय भाषाओं को सीखने के संसाधन के रूप में पहचानें।</li>
+    <li>आवश्यकतानुसार चित्र, ऑडियो, कहानी और अन्य शिक्षण सामग्री का उपयोग करें।</li>
+  </ul>
+
+  <h3>विद्यार्थियों को किन कठिनाइयों का सामना हो सकता है?</h3>
+  <ul>
+    <li>अंग्रेज़ी शब्दावली का सीमित ज्ञान।</li>
+    <li>गलती होने या दूसरों के हँसने का डर।</li>
+    <li>अंग्रेज़ी सुनने के सीमित अवसर।</li>
+    <li>उच्चारण और कुछ ध्वनियों को पहचानने में कठिनाई।</li>
+    <li>बड़ी कक्षा में बोलने के कम अवसर।</li>
+    <li>घर की भाषा और विद्यालय की भाषा में अंतर।</li>
+  </ul>
+
+  <div class="success">
+    <strong>उचित शिक्षण दृष्टिकोण:</strong>
+    विद्यार्थियों को अर्थपूर्ण संवाद, सहयोगात्मक गतिविधियाँ और नियमित अभ्यास
+    उपलब्ध कराएँ। बोलने की प्रत्येक गलती पर तुरंत रोकने से विद्यार्थी
+    झिझक सकते हैं; इसलिए सुधार को संवेदनशील और उपयोगी बनाएँ।
+  </div>
+
+  <h3>उदाहरणात्मक पाठ योजना: “My Daily Routine”</h3>
+
+  <div class="table-wrap">
+    <table>
+      <tr>
+        <th>चरण</th>
+        <th>गतिविधि</th>
+        <th>विकसित कौशल</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>शिक्षक दैनिक दिनचर्या से संबंधित वाक्य बोलता है।</td>
+        <td>Listening</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>विद्यार्थी सुने गए कार्यों की पहचान करते हैं।</td>
+        <td>Listening Comprehension</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>विद्यार्थी जोड़ी में अपनी दिनचर्या बताते हैं।</td>
+        <td>Speaking</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>विद्यार्थी साथी की दिनचर्या का मौखिक सार बताते हैं।</td>
+        <td>Listening + Speaking</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>शिक्षक स्पष्टता, सहभागिता और समझ पर प्रतिक्रिया देता है।</td>
+        <td>Assessment</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section class="card" id="assessment">
+  <h2>6. Listening और Speaking का मूल्यांकन</h2>
+
+  <h3>Listening का मूल्यांकन कैसे करें?</h3>
+  <ul>
+    <li>कहानी या निर्देश सुनकर प्रश्नों के उत्तर देना।</li>
+    <li>सुनी गई घटनाओं को सही क्रम में लगाना।</li>
+    <li>मुख्य विचार या विशिष्ट सूचना पहचानना।</li>
+    <li>सुने गए संदेश के अनुसार कार्य करना।</li>
+  </ul>
+
+  <h3>Speaking का मूल्यांकन कैसे करें?</h3>
+  <ul>
+    <li>चित्र का मौखिक वर्णन।</li>
+    <li>किसी विषय पर छोटा वक्तव्य।</li>
+    <li>भूमिका-अभिनय और संवाद।</li>
+    <li>प्रश्न पूछना तथा उत्तर देना।</li>
+    <li>कहानी सुनाना या किसी घटना का वर्णन करना।</li>
+  </ul>
+
+  <h3>Speaking मूल्यांकन के संभावित मानदंड</h3>
+
+  <div class="table-wrap">
+    <table>
+      <tr>
+        <th>मानदंड</th>
+        <th>क्या देखें?</th>
+      </tr>
+      <tr>
+        <td>समझने योग्य अभिव्यक्ति</td>
+        <td>क्या विद्यार्थी की बात समझी जा सकती है?</td>
+      </tr>
+      <tr>
+        <td>प्रवाह</td>
+        <td>क्या विद्यार्थी विचारों को पर्याप्त निरंतरता से व्यक्त करता है?</td>
+      </tr>
+      <tr>
+        <td>शब्दावली</td>
+        <td>क्या उपयुक्त शब्दों का प्रयोग करता है?</td>
+      </tr>
+      <tr>
+        <td>संवाद सहभागिता</td>
+        <td>क्या प्रश्न पूछता, उत्तर देता और दूसरों को सुनता है?</td>
+      </tr>
+      <tr>
+        <td>वाक्य-प्रयोग</td>
+        <td>क्या संदर्भ के अनुसार वाक्य बना पाता है?</td>
+      </tr>
+    </table>
+  </div>
+
+  <p class="small">
+    मूल्यांकन विद्यार्थियों के स्तर और सीखने के उद्देश्यों के अनुसार होना चाहिए।
+    किसी एक उच्चारण शैली की नकल को ही भाषा-कौशल का एकमात्र मापदंड नहीं बनाना चाहिए।
+  </p>
+</section>
+
+<section class="card" id="exam">
+  <h2>7. परीक्षा के लिए महत्त्वपूर्ण तथ्य</h2>
+
+  <ol>
+    <li>Listening एक ग्रहणशील भाषा-कौशल (Receptive Skill) है।</li>
+    <li>Speaking एक अभिव्यक्तिपरक भाषा-कौशल (Productive Skill) है।</li>
+    <li>Listening में सुनकर अर्थ समझना महत्त्वपूर्ण है, केवल ध्वनि सुनना नहीं।</li>
+    <li>Speaking का उद्देश्य अर्थपूर्ण मौखिक संचार है।</li>
+    <li>Pair Work और Role Play बोलने के अभ्यास के उपयोगी तरीके हैं।</li>
+    <li>कहानी सुनकर मुख्य विचार बताना Listening Comprehension का उदाहरण है।</li>
+    <li>चित्र देखकर उसका वर्णन करना Speaking Activity का उदाहरण है।</li>
+    <li>भाषा का प्रयोग बच्चों को विचार व्यक्त करने और सीखने में मदद करता है।</li>
+    <li>विद्यार्थियों को बोलने के लिए भय-मुक्त वातावरण देना चाहिए।</li>
+    <li>भाषा की त्रुटियाँ सीखने की प्रक्रिया के संकेत हो सकती हैं।</li>
+    <li>शिक्षक को मौखिक भाषा-कौशल के विकास के लिए नियमित अवसर देने चाहिए।</li>
+    <li>Listening और Speaking को वास्तविक संवाद से जोड़ना उपयोगी है।</li>
+  </ol>
+
+  <div class="note">
+    <strong>याद रखने का सूत्र:</strong><br>
+    Listening = सुनना + समझना<br>
+    Speaking = विचार + मौखिक अभिव्यक्ति<br>
+    Effective Communication = सुनना + समझना + उचित प्रतिक्रिया देना
+  </div>
+</section>
+
+<section class="card" id="mcq">
+  <h2>8. अभ्यास MCQ टेस्ट</h2>
+  <p>सभी प्रश्नों के उत्तर चुनें और अंत में “उत्तर जाँचें” पर टैप करें।</p>
+
+  <form id="quiz">
+
+    <div class="question">
+      <p>1. Listening किस प्रकार का भाषा-कौशल है?</p>
+      <label class="option"><input type="radio" name="q1" value="a"> Productive Skill</label>
+      <label class="option"><input type="radio" name="q1" value="b"> Receptive Skill</label>
+      <label class="option"><input type="radio" name="q1" value="c"> केवल Writing Skill</label>
+      <label class="option"><input type="radio" name="q1" value="d"> इनमें से कोई नहीं</label>
+    </div>
+
+    <div class="question">
+      <p>2. Speaking किस प्रकार का भाषा-कौशल है?</p>
+      <label class="option"><input type="radio" name="q2" value="a"> Receptive Skill</label>
+      <label class="option"><input type="radio" name="q2" value="b"> केवल Reading Skill</label>
+      <label class="option"><input type="radio" name="q2" value="c"> Productive Skill</label>
+      <label class="option"><input type="radio" name="q2" value="d"> कोई भाषा-कौशल नहीं</label>
+    </div>
+
+    <div class="question">
+      <p>3. Listening for Gist का अर्थ क्या है?</p>
+      <label class="option"><input type="radio" name="q3" value="a"> सामान्य अर्थ समझना</label>
+      <label class="option"><input type="radio" name="q3" value="b"> प्रत्येक शब्द लिखना</label>
+      <label class="option"><input type="radio" name="q3" value="c"> केवल व्याकरण पढ़ना</label>
+      <label class="option"><input type="radio" name="q3" value="d"> निबंध लिखना</label>
+    </div>
+
+    <div class="question">
+      <p>4. किसी घोषणा में समय सुनकर पहचानना किसका उदाहरण है?</p>
+      <label class="option"><input type="radio" name="q4" value="a"> Extensive Writing</label>
+      <label class="option"><input type="radio" name="q4" value="b"> Reading Aloud</label>
+      <label class="option"><input type="radio" name="q4" value="c"> Specific Information Listening</label>
+      <label class="option"><input type="radio" name="q4" value="d"> Copy Writing</label>
+    </div>
+
+    <div class="question">
+      <p>5. Speaking विकसित करने के लिए कौन-सी गतिविधि उपयोगी है?</p>
+      <label class="option"><input type="radio" name="q5" value="a"> केवल चुपचाप पढ़ना</label>
+      <label class="option"><input type="radio" name="q5" value="b"> Role Play</label>
+      <label class="option"><input type="radio" name="q5" value="c"> केवल नकल करना</label>
+      <label class="option"><input type="radio" name="q5" value="d"> केवल शब्द रटना</label>
+    </div>
+
+    <div class="question">
+      <p>6. Pair Work का मुख्य लाभ क्या है?</p>
+      <label class="option"><input type="radio" name="q6" value="a"> बातचीत के अवसर कम करना</label>
+      <label class="option"><input type="radio" name="q6" value="b"> केवल शिक्षक को बोलने देना</label>
+      <label class="option"><input type="radio" name="q6" value="c"> संवाद और सहभागिता बढ़ाना</label>
+      <label class="option"><input type="radio" name="q6" value="d"> सभी गतिविधियाँ बंद करना</label>
+    </div>
+
+    <div class="question">
+      <p>7. कहानी सुनकर उसके मुख्य विचार बताना किसका उदाहरण है?</p>
+      <label class="option"><input type="radio" name="q7" value="a"> Listening Comprehension</label>
+      <label class="option"><input type="radio" name="q7" value="b"> केवल Handwriting</label>
+      <label class="option"><input type="radio" name="q7" value="c"> केवल Spelling</label>
+      <label class="option"><input type="radio" name="q7" value="d"> केवल Punctuation</label>
+    </div>
+
+    <div class="question">
+      <p>8. चित्र देखकर उसका वर्णन करना किस कौशल का अभ्यास है?</p>
+      <label class="option"><input type="radio" name="q8" value="a"> Listening Only</label>
+      <label class="option"><input type="radio" name="q8" value="b"> Speaking</label>
+      <label class="option"><input type="radio" name="q8" value="c"> केवल Silent Reading</label>
+      <label class="option"><input type="radio" name="q8" value="d"> केवल Dictation</label>
+    </div>
+
+    <div class="question">
+      <p>9. विद्यार्थी अंग्रेज़ी बोलने में डरता है। शिक्षक को क्या करना चाहिए?</p>
+      <label class="option"><input type="radio" name="q9" value="a"> उसे कक्षा से बाहर करना</label>
+      <label class="option"><input type="radio" name="q9" value="b"> हर गलती पर डाँटना</label>
+      <label class="option"><input type="radio" name="q9" value="c"> उसे बोलने से रोकना</label>
+      <label class="option"><input type="radio" name="q9" value="d"> सहयोगी और भय-मुक्त वातावरण देना</label>
+    </div>
+
+    <div class="question">
+      <p>10. भाषा का उपयोग बच्चों के लिए किस रूप में होता है?</p>
+      <label class="option"><input type="radio" name="q10" value="a"> केवल परीक्षा देने के साधन के रूप में</label>
+      <label class="option"><input type="radio" name="q10" value="b"> केवल नियम याद करने के रूप में</label>
+      <label class="option"><input type="radio" name="q10" value="c"> संवाद, सोच और सीखने के साधन के रूप में</label>
+      <label class="option"><input type="radio" name="q10" value="d"> केवल लिखने के साधन के रूप में</label>
+    </div>
+
+    <div class="question">
+      <p>11. Listening में कौन-सी प्रक्रिया शामिल है?</p>
+      <label class="option"><input type="radio" name="q11" value="a"> केवल आवाज सुनना</label>
+      <label class="option"><input type="radio" name="q11" value="b"> सुनना, अर्थ समझना और प्रतिक्रिया देना</label>
+      <label class="option"><input type="radio" name="q11" value="c"> केवल शब्द लिखना</label>
+      <label class="option"><input type="radio" name="q11" value="d"> केवल पाठ याद करना</label>
+    </div>
+
+    <div class="question">
+      <p>12. Speaking का उचित मूल्यांकन किससे किया जा सकता है?</p>
+      <label class="option"><input type="radio" name="q12" value="a"> केवल लिखित परीक्षा से</label>
+      <label class="option"><input type="radio" name="q12" value="b"> केवल उपस्थिति से</label>
+      <label class="option"><input type="radio" name="q12" value="c"> केवल गृहकार्य की संख्या से</label>
+      <label class="option"><input type="radio" name="q12" value="d"> मौखिक प्रस्तुति और संवाद से</label>
+    </div>
+
+    <div class="question">
+      <p>13. Listening for Specific Information में विद्यार्थी क्या करता है?</p>
+      <label class="option"><input type="radio" name="q13" value="a"> विशेष सूचना पहचानता है</label>
+      <label class="option"><input type="radio" name="q13" value="b"> कहानी की नकल लिखता है</label>
+      <label class="option"><input type="radio" name="q13" value="c"> केवल चित्र बनाता है</label>
+      <label class="option"><input type="radio" name="q13" value="d"> बिना सुने उत्तर देता है</label>
+    </div>
+
+    <div class="question">
+      <p>14. शिक्षक को विद्यार्थियों की भाषा-त्रुटियों के प्रति कैसा दृष्टिकोण रखना चाहिए?</p>
+      <label class="option"><input type="radio" name="q14" value="a"> हर गलती पर दंड देना</label>
+      <label class="option"><input type="radio" name="q14" value="b"> बोलने का अवसर समाप्त करना</label>
+      <label class="option"><input type="radio" name="q14" value="c"> त्रुटियों को सीखने की प्रक्रिया का हिस्सा मानना</label>
+      <label class="option"><input type="radio" name="q14" value="d"> विद्यार्थियों की तुलना करना</label>
+    </div>
+
+    <div class="question">
+      <p>15. इनमें से कौन-सा अभिव्यक्तिपरक कौशल है?</p>
+      <label class="option"><input type="radio" name="q15" value="a"> Listening</label>
+      <label class="option"><input type="radio" name="q15" value="b"> Speaking</label>
+      <label class="option"><input type="radio" name="q15" value="c"> केवल सुनना</label>
+      <label class="option"><input type="radio" name="q15" value="d"> इनमें से कोई नहीं</label>
+    </div>
+
+    <div class="question">
+      <p>16. Role Play का उदाहरण कौन-सा है?</p>
+      <label class="option"><input type="radio" name="q16" value="a"> विद्यार्थी चुपचाप बैठें</label>
+      <label class="option"><input type="radio" name="q16" value="b"> केवल शब्दों की सूची लिखें</label>
+      <label class="option"><input type="radio" name="q16" value="c"> केवल पाठ की नकल करें</label>
+      <label class="option"><input type="radio" name="q16" value="d"> विद्यार्थी दुकानदार और ग्राहक बनकर संवाद करें</label>
+    </div>
+
+    <div class="question">
+      <p>17. Fluency का संबंध किससे है?</p>
+      <label class="option"><input type="radio" name="q17" value="a"> बोलने के प्रवाह से</label>
+      <label class="option"><input type="radio" name="q17" value="b"> केवल लिखावट से</label>
+      <label class="option"><input type="radio" name="q17" value="c"> केवल वर्तनी से</label>
+      <label class="option"><input type="radio" name="q17" value="d"> केवल पढ़ने की गति से</label>
+    </div>
+
+    <div class="question">
+      <p>18. भाषा-कक्षा में स्थानीय भाषाओं का उपयोग किस प्रकार किया जा सकता है?</p>
+      <label class="option"><input type="radio" name="q18" value="a"> हमेशा प्रतिबंधित करके</label>
+      <label class="option"><input type="radio" name="q18" value="b"> सीखने और अर्थ समझने के संसाधन के रूप में</label>
+      <label class="option"><input type="radio" name="q18" value="c"> विद्यार्थियों को चुप रखकर</label>
+      <label class="option"><input type="radio" name="q18" value="d"> केवल परीक्षा के बाद</label>
+    </div>
+
+    <div class="question">
+      <p>19. Listening और Speaking को प्रभावी ढंग से कैसे सिखाया जा सकता है?</p>
+      <label class="option"><input type="radio" name="q19" value="a"> केवल नियम रटवाकर</label>
+      <label class="option"><input type="radio" name="q19" value="b"> केवल लिखित गृहकार्य देकर</label>
+      <label class="option"><input type="radio" name="q19" value="c"> अर्थपूर्ण संवाद और नियमित अभ्यास द्वारा</label>
+      <label class="option"><input type="radio" name="q19" value="d"> मौखिक गतिविधियाँ हटाकर</label>
+    </div>
+
+    <div class="question">
+      <p>20. Think-Pair-Share में कौन-से चरण शामिल हैं?</p>
+      <label class="option"><input type="radio" name="q20" value="a"> केवल याद करना</label>
+      <label class="option"><input type="radio" name="q20" value="b"> केवल शिक्षक का व्याख्यान</label>
+      <label class="option"><input type="radio" name="q20" value="c"> केवल लिखित परीक्षा</label>
+      <label class="option"><input type="radio" name="q20" value="d"> सोचना, साथी से चर्चा करना और विचार साझा करना</label>
+    </div>
+
+    <button type="button" onclick="checkAnswers()">उत्तर जाँचें</button>
+    <button type="button" class="secondary" onclick="showAnswers()">सही उत्तर देखें</button>
+    <button type="reset" class="secondary" onclick="resetQuiz()">फिर से प्रयास करें</button>
+
+    <div id="result" aria-live="polite"></div>
+    <div id="answerKey" class="answer"></div>
+
+  </form>
+</section>
+
+<section class="card">
+  <h2>9. त्वरित पुनरावृत्ति</h2>
+  <ul>
+    <li>Listening = Receptive Skill</li>
+    <li>Speaking = Productive Skill</li>
+    <li>Listening for Gist = सामान्य अर्थ समझना</li>
+    <li>Specific Information = विशेष सूचना पहचानना</li>
+    <li>Role Play = संवाद का अभ्यास</li>
+    <li>Pair Work = साथी के साथ अभ्यास</li>
+    <li>Fluency = बोलने का प्रवाह</li>
+    <li>भाषा = संचार, विचार और सीखने का साधन</li>
+    <li>प्रभावी शिक्षक = अवसर देने वाला, सहायक और संवेदनशील शिक्षक</li>
+  </ul>
+</section>
+
+<div class="card">
+  <h2>अगला टॉपिक</h2>
+  <p>अगले पेज पर हम विविध कक्षा में भाषा-शिक्षण की चुनौतियों और भाषा की कठिनाइयों का अध्ययन कर सकते हैं।</p>
+  <a class="btn" href="JHTET-English.html">मुख्य पेज पर लौटें</a>
+</div>
+
+</main>
+
+<footer>
+  <p>JHTET 2026 • English Paper 2 • Upper Primary</p>
+  <p class="small">यह अभ्यास सामग्री परीक्षा की तैयारी के लिए बनाई गई है। आधिकारिक पाठ्यक्रम को प्राथमिकता दें।</p>
+</footer>
+
+<script>
+const answers = {
+  q1:"b", q2:"c", q3:"a", q4:"c", q5:"b",
+  q6:"c", q7:"a", q8:"b", q9:"d", q10:"c",
+  q11:"b", q12:"d", q13:"a", q14:"c", q15:"b",
+  q16:"d", q17:"a", q18:"b", q19:"c", q20:"d"
+};
+
+const explanations = {
+  q1:"Listening ग्रहणशील कौशल है, क्योंकि इसमें सुनकर समझना शामिल है।",
+  q2:"Speaking अभिव्यक्तिपरक कौशल है, क्योंकि इसमें विचार व्यक्त किए जाते हैं।",
+  q3:"Listening for Gist का उद्देश्य संदेश का सामान्य अर्थ समझना है।",
+  q4:"विशिष्ट समय पहचानना Specific Information Listening है।",
+  q5:"Role Play विद्यार्थियों को वास्तविक परिस्थितियों में बोलने का अभ्यास देता है।",
+  q6:"Pair Work संवाद और सहभागिता के अवसर बढ़ाता है।",
+  q7:"कहानी का मुख्य विचार बताना Listening Comprehension का उदाहरण है।",
+  q8:"चित्र का मौखिक वर्णन Speaking का अभ्यास है।",
+  q9:"भय-मुक्त वातावरण विद्यार्थियों का आत्मविश्वास बढ़ाने में मदद करता है।",
+  q10:"भाषा संवाद, विचार और सीखने का साधन है।",
+  q11:"Listening में संदेश सुनना, समझना और प्रतिक्रिया देना शामिल है।",
+  q12:"मौखिक प्रस्तुति और संवाद Speaking के मूल्यांकन के तरीके हैं।",
+  q13:"Specific Information Listening में विशेष सूचना पहचानी जाती है।",
+  q14:"त्रुटियाँ सीखने की प्रक्रिया का हिस्सा हो सकती हैं।",
+  q15:"Speaking Productive Skill है।",
+  q16:"भूमिका-अभिनय में विद्यार्थी भूमिकाएँ निभाकर संवाद करते हैं।",
+  q17:"Fluency बोलने के प्रवाह से संबंधित है।",
+  q18:"स्थानीय भाषाएँ अर्थ समझने और सीखने में सहायक संसाधन हो सकती हैं।",
+  q19:"अर्थपूर्ण संवाद और नियमित अभ्यास मौखिक कौशल विकसित करते हैं।",
+  q20:"Think-Pair-Share में पहले सोचना, फिर चर्चा करना और विचार साझा करना शामिल है।"
+};
+
+function checkAnswers(){
+  let score = 0;
+  let attempted = 0;
+  const total = Object.keys(answers).length;
+
+  for(const q in answers){
+    const selected = document.querySelector('input[name="'+q+'"]:checked');
+    if(selected){
+      attempted++;
+      if(selected.value === answers[q]) score++;
+    }
+  }
+
+  const result = document.getElementById("result");
+  result.style.display = "block";
+  result.style.background = score >= 15 ? "#dcfce7" : "#eaf1ff";
+  result.innerHTML =
+    "<h3>आपका परिणाम</h3>" +
+    "<p><strong>अंक: " + score + " / " + total + "</strong></p>" +
+    "<p>प्रयास किए गए प्रश्न: " + attempted + " / " + total + "</p>" +
+    "<p>" + (score >= 15
+      ? "बहुत अच्छा! अब गलत उत्तरों की भी पुनरावृत्ति करें।"
+      : "अच्छा प्रयास! नोट्स पढ़कर दोबारा अभ्यास करें।") + "</p>";
+}
+
+function showAnswers(){
+  const box = document.getElementById("answerKey");
+  let html = "<h3>उत्तर एवं स्पष्टीकरण</h3><ol>";
+
+  for(let i=1;i<=20;i++){
+    const q = "q"+i;
+    const selected = document.querySelector('input[name="'+q+'"]:checked');
+    const isCorrect = selected && selected.value === answers[q];
+
+    if(selected){
+      selected.parentElement.style.borderColor = isCorrect ? "#16a34a" : "#dc2626";
+    }
+
+    html += "<li><strong>सही विकल्प: " +
+      answers[q].toUpperCase() +
+      ".</strong> " + explanations[q] + "</li>";
+  }
+
+  html += "</ol>";
+  box.innerHTML = html;
+  box.style.display = "block";
+  box.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function resetQuiz(){
+  document.getElementById("result").style.display = "none";
+  document.getElementById("answerKey").style.display = "none";
+  document.querySelectorAll(".option").forEach(function(el){
+    el.style.borderColor = "";
+  });
+}
+</script>
+
+</body>
+</html>

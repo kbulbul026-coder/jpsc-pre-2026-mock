@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JHTET 2026 English | Principles of Language Teaching</title>
+
+<style>
+:root {
+  --primary: #173b67;
+  --secondary: #2563eb;
+  --bg: #f3f6fb;
+  --card: #ffffff;
+  --text: #182230;
+  --muted: #64748b;
+  --border: #dce4ef;
+  --green: #15803d;
+  --orange: #b45309;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, "Noto Sans Devanagari", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+}
+
+header {
+  background: linear-gradient(135deg, #173b67, #2563eb);
+  color: white;
+  text-align: center;
+  padding: 28px 16px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: clamp(23px, 5vw, 34px);
+}
+
+header p {
+  margin: 5px 0;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: white;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+nav a {
+  display: inline-block;
+  margin: 4px 7px;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.container {
+  width: min(100% - 24px, 900px);
+  margin: 22px auto;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 3px 12px rgba(20, 40, 70, 0.04);
+}
+
+h2 {
+  color: var(--primary);
+  font-size: 23px;
+  margin-top: 0;
+}
+
+h3 {
+  color: var(--primary);
+  margin-top: 22px;
+}
+
+.highlight,
+.example,
+.warning {
+  padding: 13px;
+  border-radius: 8px;
+  margin: 14px 0;
+}
+
+.highlight {
+  background: #eaf1ff;
+  border-left: 4px solid var(--secondary);
+}
+
+.example {
+  background: #f0fdf4;
+  border-left: 4px solid var(--green);
+}
+
+.warning {
+  background: #fff7ed;
+  border-left: 4px solid var(--orange);
+}
+
+.english {
+  color: var(--primary);
+  font-size: 17px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: #eaf1ff;
+  color: var(--primary);
+}
+
+.question {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.question p {
+  margin-top: 0;
+}
+
+.option {
+  display: block;
+  padding: 9px;
+  margin: 7px 0;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: #eaf1ff;
+}
+
+.option input {
+  margin-right: 8px;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 11px 16px;
+  margin: 5px 5px 5px 0;
+  background: var(--primary);
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--secondary);
+}
+
+.result {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.correct {
+  color: var(--green);
+}
+
+.incorrect {
+  color: #b91c1c;
+}
+
+.answer-key {
+  display: none;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.progress-track {
+  height: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #e5eaf2;
+  margin: 12px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--green);
+  transition: width 0.3s;
+}
+
+.back-link {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: var(--secondary);
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+footer {
+  background: #102b4c;
+  color: white;
+  text-align: center;
+  padding: 20px 12px;
+  margin-top: 30px;
+}
+
+@media (max-width: 520px) {
+  .card {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 21px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 7px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>JHTET 2026 — English</h1>
+  <p>Paper 2 | Upper Primary Level</p>
+  <p><strong>Topic 03: Principles of Language Teaching</strong></p>
+  <p>भाषा शिक्षण के सिद्धांत</p>
+</header>
+
+<nav>
+  <a href="#intro">परिचय</a>
+  <a href="#principles">सिद्धांत</a>
+  <a href="#methods">विधियाँ</a>
+  <a href="#teacher">शिक्षक की भूमिका</a>
+  <a href="#classroom">कक्षा गतिविधियाँ</a>
+  <a href="#quiz">MCQ टेस्ट</a>
+</nav>
+
+<main class="container">
+
+<section class="card" id="intro">
+  <h2>1. भाषा शिक्षण का अर्थ</h2>
+
+  <p>
+    भाषा शिक्षण (Language Teaching) वह प्रक्रिया है जिसके माध्यम
+    से शिक्षार्थियों को भाषा समझने, बोलने, पढ़ने और लिखने के
+    अवसर दिए जाते हैं। इसमें भाषा के अर्थ, शब्दावली, व्याकरण,
+    उच्चारण और वास्तविक परिस्थितियों में भाषा के उपयोग का
+    विकास शामिल हो सकता है।
+  </p>
+
+  <p>
+    JHTET के संदर्भ में भाषा शिक्षण के सिद्धांत समझने का अर्थ
+    यह जानना है कि शिक्षक विद्यार्थियों को प्रभावी ढंग से भाषा
+    सीखने में कैसे सहायता दे सकता है।
+  </p>
+
+  <div class="highlight">
+    <strong>मुख्य उद्देश्य:</strong>
+    विद्यार्थियों को भाषा का अर्थ समझने, अपने विचार व्यक्त करने,
+    दूसरों की बात समझने और वास्तविक परिस्थितियों में भाषा का
+    उपयुक्त प्रयोग करने में सहायता देना।
+  </div>
+
+  <h3>भाषा शिक्षण के मुख्य क्षेत्र</h3>
+
+  <ul>
+    <li>Listening — सुनना।</li>
+    <li>Speaking — बोलना।</li>
+    <li>Reading — पढ़ना।</li>
+    <li>Writing — लिखना।</li>
+    <li>Vocabulary — शब्दावली।</li>
+    <li>Grammar — व्याकरण।</li>
+    <li>Communication — संप्रेषण।</li>
+  </ul>
+</section>
+
+<section class="card" id="principles">
+  <h2>2. भाषा शिक्षण के प्रमुख सिद्धांत</h2>
+
+  <h3>2.1 Child-Centred Teaching — बाल-केंद्रित शिक्षण</h3>
+
+  <p>
+    बाल-केंद्रित शिक्षण में विद्यार्थियों की आयु, रुचि, आवश्यकताओं,
+    पूर्व ज्ञान और सीखने की गति को ध्यान में रखा जाता है।
+  </p>
+
+  <div class="example">
+    <strong>उदाहरण:</strong>
+    यदि विद्यार्थी खेल पसंद करते हैं, तो शिक्षक शब्दावली सिखाने
+    के लिए शब्द-खेल और चित्र-आधारित गतिविधियाँ आयोजित कर सकता है।
+  </div>
+
+  <p><strong>परीक्षा बिंदु:</strong> शिक्षण में विद्यार्थी सक्रिय भागीदार होता है।</p>
+
+  <h3>2.2 Learning by Doing — करके सीखना</h3>
+
+  <p>
+    विद्यार्थी जब स्वयं किसी गतिविधि में भाग लेते हैं, तब उन्हें
+    भाषा का उपयोग करने का व्यावहारिक अवसर मिलता है।
+  </p>
+
+  <div class="example">
+    <strong>उदाहरण:</strong>
+    विद्यार्थी दुकान पर सामान खरीदने की भूमिका निभाते हैं:
+    <p class="english">Customer: How much is this pen?</p>
+    <p class="english">Shopkeeper: It is ten rupees.</p>
+  </div>
+
+  <h3>2.3 Meaningful Learning — अर्थपूर्ण अधिगम</h3>
+
+  <p>
+    नई जानकारी को विद्यार्थी के पूर्व ज्ञान और वास्तविक अनुभवों
+    से जोड़ने पर सीखना अधिक अर्थपूर्ण हो सकता है।
+  </p>
+
+  <div class="example">
+    <strong>उदाहरण:</strong>
+    फल के नाम सिखाते समय शिक्षक वास्तविक फल या चित्र दिखाकर
+    Apple, Mango और Banana जैसे शब्द समझाता है।
+  </div>
+
+  <h3>2.4 Communication-Based Learning — संप्रेषण आधारित शिक्षण</h3>
+
+  <p>
+    इस दृष्टिकोण में भाषा का उपयोग अर्थपूर्ण बातचीत और विचारों
+    के आदान-प्रदान के लिए किया जाता है।
+  </p>
+
+  <div class="example">
+    <strong>उदाहरण:</strong>
+    विद्यार्थी जोड़ी बनाकर एक-दूसरे से परिचय पूछते हैं और
+    अंग्रेज़ी में उत्तर देते हैं।
+  </div>
+
+  <h3>2.5 Known to Unknown — ज्ञात से अज्ञात की ओर</h3>
+
+  <p>
+    शिक्षक पहले विद्यार्थियों की परिचित जानकारी से शुरुआत करता है
+    और फिर नई अवधारणा तक पहुँचता है।
+  </p>
+
+  <div class="example">
+    <strong>उदाहरण:</strong>
+    विद्यार्थी पहले परिचित वस्तुओं के नाम जानते हैं। शिक्षक
+    उनसे जुड़े नए अंग्रेज़ी शब्द और वाक्य सिखाता है।
+  </div>
+
+  <h3>2.6 Simple to Complex — सरल से जटिल की ओर</h3>
+
+  <p>
+    पहले सरल भाषा संरचनाएँ सिखाई जाती हैं। इसके बाद धीरे-धीरे
+    अधिक जटिल शब्दों, वाक्यों और गतिविधियों की ओर बढ़ा जाता है।
+  </p>
+
+  <div class="example">
+    <p class="english">I play.</p>
+    <p class="english">I play cricket.</p>
+    <p class="english">I play cricket with my friends every evening.</p>
+  </div>
+
+  <h3>2.7 Practice and Reinforcement — अभ्यास और पुनर्बलन</h3>
+
+  <p>
+    नियमित अभ्यास और उपयोगी प्रतिक्रिया विद्यार्थियों को भाषा
+    कौशल मजबूत करने में सहायता दे सकते हैं।
+  </p>
+
+  <div class="example">
+    <strong>उदाहरण:</strong>
+    शिक्षक विद्यार्थियों से नए शब्दों के वाक्य बनवाता है और
+    सही प्रयोग पर प्रोत्साहन देता है।
+  </div>
+
+  <h3>2.8 Individual Differences — व्यक्तिगत भिन्नताएँ</h3>
+
+  <p>
+    सभी विद्यार्थी एक ही गति या तरीके से नहीं सीखते। उनकी
+    भाषाई पृष्ठभूमि, रुचि, पूर्व ज्ञान और सीखने की जरूरतें अलग
+    हो सकती हैं।
+  </p>
+
+  <div class="example">
+    <strong>उदाहरण:</strong>
+    किसी विद्यार्थी को चित्रों से सीखने में मदद मिलती है, जबकि
+    दूसरे को मौखिक उदाहरण या लिखित अभ्यास अधिक उपयोगी लगता है।
+  </div>
+
+  <h3>2.9 Active Participation — सक्रिय भागीदारी</h3>
+
+  <p>
+    विद्यार्थियों को प्रश्न पूछने, उत्तर देने, चर्चा करने,
+    पढ़ने और लिखने में सक्रिय रूप से भाग लेने के अवसर मिलने चाहिए।
+  </p>
+
+  <h3>2.10 Positive Learning Environment — सकारात्मक वातावरण</h3>
+
+  <p>
+    ऐसा वातावरण जहाँ विद्यार्थी बिना अनावश्यक डर के प्रश्न पूछ
+    सकें और भाषा का अभ्यास कर सकें, सीखने में सहायक होता है।
+  </p>
+
+  <h3>2.11 Contextual Teaching — संदर्भ आधारित शिक्षण</h3>
+
+  <p>
+    शब्दों और वाक्यों को संदर्भ में सिखाने से विद्यार्थी उनका
+    अर्थ और प्रयोग समझ सकते हैं।
+  </p>
+
+  <div class="example">
+    <strong>उदाहरण:</strong>
+    शिक्षक केवल “open” शब्द का अर्थ बताने के बजाय कहता है:
+    <p class="english">Please open the door.</p>
+    इससे विद्यार्थी शब्द का वास्तविक प्रयोग समझता है।
+  </div>
+
+  <h3>2.12 Integration of Language Skills — भाषा कौशलों का एकीकरण</h3>
+
+  <p>
+    Listening, Speaking, Reading और Writing अलग-अलग कौशल हैं,
+    लेकिन भाषा शिक्षण में इन्हें आपस में जोड़कर भी सिखाया जा
+    सकता है।
+  </p>
+
+  <div class="example">
+    <strong>उदाहरण:</strong>
+    विद्यार्थी कहानी सुनते हैं, उस पर चर्चा करते हैं, कहानी पढ़ते
+    हैं और फिर उसका छोटा सार लिखते हैं।
+  </div>
+</section>
+
+<section class="card">
+  <h2>3. भाषा शिक्षण के सिद्धांतों का सार</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>सिद्धांत</th>
+        <th>अर्थ</th>
+        <th>कक्षा का उदाहरण</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Child-Centred</td>
+        <td>विद्यार्थी की जरूरतों पर ध्यान</td>
+        <td>रुचि के अनुसार गतिविधियाँ</td>
+      </tr>
+      <tr>
+        <td>Learning by Doing</td>
+        <td>गतिविधि से सीखना</td>
+        <td>Role Play</td>
+      </tr>
+      <tr>
+        <td>Meaningful Learning</td>
+        <td>नए ज्ञान को अनुभव से जोड़ना</td>
+        <td>चित्रों से शब्द सिखाना</td>
+      </tr>
+      <tr>
+        <td>Communication</td>
+        <td>अर्थपूर्ण बातचीत</td>
+        <td>Pair Conversation</td>
+      </tr>
+      <tr>
+        <td>Known to Unknown</td>
+        <td>परिचित से नई जानकारी</td>
+        <td>ज्ञात वस्तुओं से नए शब्द</td>
+      </tr>
+      <tr>
+        <td>Simple to Complex</td>
+        <td>सरल से कठिन संरचना</td>
+        <td>छोटे से बड़े वाक्य</td>
+      </tr>
+      <tr>
+        <td>Individual Differences</td>
+        <td>विद्यार्थियों की भिन्न जरूरतें</td>
+        <td>विभिन्न प्रकार के अभ्यास</td>
+      </tr>
+      <tr>
+        <td>Positive Environment</td>
+        <td>सुरक्षित और सहयोगी माहौल</td>
+        <td>बिना उपहास के बोलने का अवसर</td>
+      </tr>
+      <tr>
+        <td>Contextual Teaching</td>
+        <td>संदर्भ में भाषा सिखाना</td>
+        <td>वाक्य में शब्द का प्रयोग</td>
+      </tr>
+      <tr>
+        <td>Integrated Skills</td>
+        <td>भाषा कौशलों को जोड़ना</td>
+        <td>सुनना, चर्चा करना और लिखना</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="card" id="methods">
+  <h2>4. भाषा शिक्षण की प्रमुख विधियाँ</h2>
+
+  <h3>4.1 Grammar Translation Method</h3>
+
+  <p>
+    इस विधि में व्याकरण के नियम, शब्दार्थ और एक भाषा से दूसरी
+    भाषा में अनुवाद पर जोर दिया जाता है।
+  </p>
+
+  <div class="example">
+    <strong>उदाहरण:</strong>
+    शिक्षक अंग्रेज़ी वाक्य देता है और विद्यार्थी उसका हिंदी में
+    अनुवाद करते हैं।
+  </div>
+
+  <p>
+    <strong>विशेषता:</strong> अनुवाद और व्याकरण समझने में सहायक।
+  </p>
+
+  <p>
+    <strong>सीमा:</strong> यदि केवल इसी विधि का उपयोग हो, तो
+    विद्यार्थियों को वास्तविक बातचीत का पर्याप्त अभ्यास नहीं मिल सकता।
+  </p>
+
+  <h3>4.2 Direct Method</h3>
+
+  <p>
+    Direct Method में लक्ष्य भाषा का प्रयोग करके अर्थ समझाने
+    पर जोर दिया जाता है। अनुवाद पर निर्भरता कम रखी जाती है।
+  </p>
+
+  <div class="example">
+    शिक्षक एक पुस्तक दिखाकर कहता है:
+    <p class="english">This is a book.</p>
+  </div>
+
+  <h3>4.3 Audio-Lingual Method</h3>
+
+  <p>
+    इस विधि में सुनने, बोलने, दोहराने और वाक्य संरचनाओं का
+    अभ्यास करने पर जोर दिया जाता है।
+  </p>
+
+  <div class="example">
+    <p class="english">Teacher: I am reading.</p>
+    <p class="english">Students: I am reading.</p>
+  </div>
+
+  <h3>4.4 Communicative Language Teaching (CLT)</h3>
+
+  <p>
+    Communicative Language Teaching में भाषा के माध्यम से
+    अर्थपूर्ण संवाद करने की क्षमता विकसित करने पर जोर दिया जाता है।
+  </p>
+
+  <div class="example">
+    विद्यार्थी जोड़ी बनाकर रास्ता पूछने और रास्ता बताने का
+    संवाद करते हैं।
+    <p class="english">Excuse me, where is the library?</p>
+    <p class="english">Go straight and turn left.</p>
+  </div>
+
+  <h3>4.5 Task-Based Language Teaching</h3>
+
+  <p>
+    इसमें विद्यार्थी किसी कार्य को पूरा करने के लिए भाषा का
+    उपयोग करते हैं।
+  </p>
+
+  <div class="example">
+    <strong>कार्य:</strong> अंग्रेज़ी में एक छोटा खरीदारी संवाद
+    तैयार करना और उसे कक्षा में प्रस्तुत करना।
+  </div>
+
+  <h3>4.6 Activity-Based Learning</h3>
+
+  <p>
+    इसमें भाषा सीखने के लिए खेल, चित्र, समूह कार्य, कहानी,
+    प्रश्नोत्तरी और अन्य गतिविधियों का उपयोग किया जाता है।
+  </p>
+
+  <h3>विधियों की तुलना</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>विधि</th>
+        <th>मुख्य जोर</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Grammar Translation</td>
+        <td>व्याकरण और अनुवाद</td>
+      </tr>
+      <tr>
+        <td>Direct Method</td>
+        <td>लक्ष्य भाषा में अर्थ समझना</td>
+      </tr>
+      <tr>
+        <td>Audio-Lingual</td>
+        <td>सुनना, दोहराना और संरचना का अभ्यास</td>
+      </tr>
+      <tr>
+        <td>Communicative Language Teaching</td>
+        <td>अर्थपूर्ण संप्रेषण</td>
+      </tr>
+      <tr>
+        <td>Task-Based Teaching</td>
+        <td>कार्य पूरा करने के लिए भाषा का उपयोग</td>
+      </tr>
+      <tr>
+        <td>Activity-Based Learning</td>
+        <td>गतिविधियों के माध्यम से सीखना</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="warning">
+    <strong>परीक्षा सुझाव:</strong>
+    किसी एक विधि को हर परिस्थिति में सर्वोत्तम मानने के बजाय
+    शिक्षार्थियों के स्तर, सीखने के उद्देश्य और कक्षा की जरूरतों
+    के अनुसार उपयुक्त रणनीति चुनने की अवधारणा समझें।
+  </div>
+</section>
+
+<section class="card" id="teacher">
+  <h2>5. शिक्षक की भूमिका</h2>
+
+  <ol>
+    <li>विद्यार्थियों के पूर्व ज्ञान और जरूरतों को पहचानना।</li>
+    <li>सीखने के स्पष्ट उद्देश्य निर्धारित करना।</li>
+    <li>उपयुक्त उदाहरण और शिक्षण सामग्री चुनना।</li>
+    <li>विद्यार्थियों को सक्रिय भागीदारी के अवसर देना।</li>
+    <li>Listening, Speaking, Reading और Writing का अभ्यास कराना।</li>
+    <li>गलतियों पर उपयोगी और सम्मानजनक प्रतिक्रिया देना।</li>
+    <li>विद्यार्थियों की प्रगति का आकलन करना।</li>
+    <li>आवश्यकतानुसार शिक्षण गतिविधियों में बदलाव करना।</li>
+    <li>बहुभाषी और विविध पृष्ठभूमि वाले विद्यार्थियों का सम्मान करना।</li>
+    <li>भाषा के वास्तविक उपयोग के अवसर प्रदान करना।</li>
+  </ol>
+
+  <div class="highlight">
+    <strong>महत्वपूर्ण:</strong>
+    शिक्षक केवल जानकारी देने वाला व्यक्ति नहीं है; वह सीखने
+    की प्रक्रिया को सुगम बनाने वाला Facilitator भी है।
+  </div>
+</section>
+
+<section class="card" id="classroom">
+  <h2>6. कक्षा में उपयोगी गतिविधियाँ</h2>
+
+  <h3>Activity 1: Pair Work</h3>
+  <p>
+    विद्यार्थियों को जोड़ी में बैठाकर सरल प्रश्न पूछने और उत्तर
+    देने का अभ्यास करवाएँ।
+  </p>
+
+  <h3>Activity 2: Picture Description</h3>
+  <p>
+    चित्र दिखाकर विद्यार्थियों से अंग्रेज़ी में उसका वर्णन करवाएँ।
+  </p>
+
+  <h3>Activity 3: Storytelling</h3>
+  <p>
+    एक छोटी कहानी सुनाएँ और विद्यार्थियों से उसके मुख्य पात्र,
+    घटना तथा संदेश के बारे में पूछें।
+  </p>
+
+  <h3>Activity 4: Group Discussion</h3>
+  <p>
+    किसी परिचित विषय पर विद्यार्थियों को छोटे समूहों में
+    विचार साझा करने दें।
+  </p>
+
+  <h3>Activity 5: Language Game</h3>
+  <p>
+    शब्द-खेल, चित्र-शब्द मिलान या सही वाक्य चुनने जैसी गतिविधियाँ
+    आयोजित करें।
+  </p>
+
+  <h3>Activity 6: Real-Life Role Play</h3>
+  <p>
+    बाजार, विद्यालय, पुस्तकालय या बस-स्टैंड जैसी परिस्थितियों
+    पर छोटे संवाद तैयार करवाएँ।
+  </p>
+</section>
+
+<section class="card">
+  <h2>7. परीक्षा के लिए महत्वपूर्ण बिंदु</h2>
+
+  <ul>
+    <li>बाल-केंद्रित शिक्षण में विद्यार्थी की जरूरतें महत्वपूर्ण हैं।</li>
+    <li>Learning by Doing में गतिविधि और प्रत्यक्ष भागीदारी पर जोर है।</li>
+    <li>Known to Unknown का अर्थ परिचित ज्ञान से नई जानकारी की ओर बढ़ना है।</li>
+    <li>Simple to Complex में सरल अवधारणा के बाद अधिक जटिल अवधारणा आती है।</li>
+    <li>Communicative Language Teaching का मुख्य जोर संप्रेषण पर है।</li>
+    <li>Grammar Translation Method में अनुवाद और व्याकरण पर जोर रहता है।</li>
+    <li>Audio-Lingual Method में सुनने, दोहराने और संरचना अभ्यास की भूमिका होती है।</li>
+    <li>Task-Based Teaching में कार्य पूरा करने के लिए भाषा का उपयोग किया जाता है।</li>
+    <li>भाषा कौशलों को अलग-अलग तथा एकीकृत दोनों तरीकों से सिखाया जा सकता है।</li>
+    <li>सहयोगी वातावरण भाषा अभ्यास के अवसर बढ़ाता है।</li>
+  </ul>
+</section>
+
+<section class="card" id="quiz">
+  <h2>8. MCQ अभ्यास टेस्ट</h2>
+
+  <p>
+    प्रत्येक प्रश्न में एक विकल्प चुनें। सभी 20 प्रश्नों के बाद
+    <strong>उत्तर जाँचें</strong> बटन दबाएँ।
+  </p>
+
+  <div class="progress-track">
+    <div class="progress-fill" id="quizProgress"></div>
+  </div>
+
+  <p id="attemptText">0 / 20 प्रश्नों के उत्तर चुने गए हैं।</p>
+
+  <div class="question" data-answer="b">
+    <p><strong>Q1.</strong> बाल-केंद्रित शिक्षण में सबसे अधिक महत्व किसका है?</p>
+    <label class="option"><input type="radio" name="q1" value="a"> (A) केवल पाठ्यपुस्तक का</label>
+    <label class="option"><input type="radio" name="q1" value="b"> (B) विद्यार्थी की जरूरतों और भागीदारी का</label>
+    <label class="option"><input type="radio" name="q1" value="c"> (C) केवल परीक्षा के अंकों का</label>
+    <label class="option"><input type="radio" name="q1" value="d"> (D) केवल शिक्षक के व्याख्यान का</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="c">
+    <p><strong>Q2.</strong> Learning by Doing का अर्थ क्या है?</p>
+    <label class="option"><input type="radio" name="q2" value="a"> (A) बिना भाग लिए सीखना</label>
+    <label class="option"><input type="radio" name="q2" value="b"> (B) केवल नियम याद करना</label>
+    <label class="option"><input type="radio" name="q2" value="c"> (C) गतिविधि करके सीखना</label>
+    <label class="option"><input type="radio" name="q2" value="d"> (D) प्रश्न पूछने से बचना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="a">
+    <p><strong>Q3.</strong> Known to Unknown सिद्धांत का अर्थ क्या है?</p>
+    <label class="option"><input type="radio" name="q3" value="a"> (A) परिचित जानकारी से नई जानकारी की ओर बढ़ना</label>
+    <label class="option"><input type="radio" name="q3" value="b"> (B) कठिन से सरल की ओर जाना</label>
+    <label class="option"><input type="radio" name="q3" value="c"> (C) पढ़ाई रोक देना</label>
+    <label class="option"><input type="radio" name="q3" value="d"> (D) सभी विद्यार्थियों को एक जैसा मानना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="d">
+    <p><strong>Q4.</strong> Communicative Language Teaching का मुख्य उद्देश्य क्या है?</p>
+    <label class="option"><input type="radio" name="q4" value="a"> (A) केवल अनुवाद करना</label>
+    <label class="option"><input type="radio" name="q4" value="b"> (B) केवल वर्तनी याद करना</label>
+    <label class="option"><input type="radio" name="q4" value="c"> (C) केवल नियम लिखना</label>
+    <label class="option"><input type="radio" name="q4" value="d"> (D) अर्थपूर्ण संप्रेषण विकसित करना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="b">
+    <p><strong>Q5.</strong> Grammar Translation Method में किस पर जोर दिया जाता है?</p>
+    <label class="option"><input type="radio" name="q5" value="a"> (A) केवल खेल पर</label>
+    <label class="option"><input type="radio" name="q5" value="b"> (B) व्याकरण और अनुवाद पर</label>
+    <label class="option"><input type="radio" name="q5" value="c"> (C) केवल चित्र बनाने पर</label>
+    <label class="option"><input type="radio" name="q5" value="d"> (D) केवल मौखिक परीक्षा पर</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="c">
+    <p><strong>Q6.</strong> Audio-Lingual Method में किसका अभ्यास महत्वपूर्ण है?</p>
+    <label class="option"><input type="radio" name="q6" value="a"> (A) केवल निबंध लिखना</label>
+    <label class="option"><input type="radio" name="q6" value="b"> (B) केवल अनुवाद</label>
+    <label class="option"><input type="radio" name="q6" value="c"> (C) सुनना, दोहराना और वाक्य संरचनाओं का अभ्यास</label>
+    <label class="option"><input type="radio" name="q6" value="d"> (D) बातचीत बंद करना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="a">
+    <p><strong>Q7.</strong> Simple to Complex सिद्धांत में क्या किया जाता है?</p>
+    <label class="option"><input type="radio" name="q7" value="a"> (A) सरल अवधारणा से अधिक जटिल अवधारणा की ओर बढ़ना</label>
+    <label class="option"><input type="radio" name="q7" value="b"> (B) कठिन अवधारणा से शुरुआत करना</label>
+    <label class="option"><input type="radio" name="q7" value="c"> (C) सभी गतिविधियाँ बंद करना</label>
+    <label class="option"><input type="radio" name="q7" value="d"> (D) केवल परीक्षा लेना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="d">
+    <p><strong>Q8.</strong> व्यक्तिगत भिन्नताओं को ध्यान में रखने का अर्थ क्या है?</p>
+    <label class="option"><input type="radio" name="q8" value="a"> (A) सभी को एक ही गति से सीखने के लिए मजबूर करना</label>
+    <label class="option"><input type="radio" name="q8" value="b"> (B) धीमी गति से सीखने वालों को अनदेखा करना</label>
+    <label class="option"><input type="radio" name="q8" value="c"> (C) केवल तेज विद्यार्थियों को पढ़ाना</label>
+    <label class="option"><input type="radio" name="q8" value="d"> (D) जरूरत के अनुसार सहायता और गतिविधियाँ देना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="b">
+    <p><strong>Q9.</strong> Task-Based Language Teaching में विद्यार्थी क्या करते हैं?</p>
+    <label class="option"><input type="radio" name="q9" value="a"> (A) भाषा का उपयोग पूरी तरह बंद करते हैं</label>
+    <label class="option"><input type="radio" name="q9" value="b"> (B) किसी कार्य को पूरा करने के लिए भाषा का उपयोग करते हैं</label>
+    <label class="option"><input type="radio" name="q9" value="c"> (C) केवल शब्दों की नकल करते हैं</label>
+    <label class="option"><input type="radio" name="q9" value="d"> (D) किसी गतिविधि में भाग नहीं लेते</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="c">
+    <p><strong>Q10.</strong> Contextual Teaching में क्या महत्वपूर्ण है?</p>
+    <label class="option"><input type="radio" name="q10" value="a"> (A) शब्दों को हमेशा संदर्भ से अलग रखना</label>
+    <label class="option"><input type="radio" name="q10" value="b"> (B) केवल शब्दों की सूची याद कराना</label>
+    <label class="option"><input type="radio" name="q10" value="c"> (C) भाषा को परिस्थिति और संदर्भ में समझाना</label>
+    <label class="option"><input type="radio" name="q10" value="d"> (D) वाक्यों का उपयोग न करना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="a">
+    <p><strong>Q11.</strong> भाषा के चार प्रमुख कौशल कौन-से हैं?</p>
+    <label class="option"><input type="radio" name="q11" value="a"> (A) Listening, Speaking, Reading, Writing</label>
+    <label class="option"><input type="radio" name="q11" value="b"> (B) Running, Jumping, Walking, Sleeping</label>
+    <label class="option"><input type="radio" name="q11" value="c"> (C) Drawing, Dancing, Singing, Playing</label>
+    <label class="option"><input type="radio" name="q11" value="d"> (D) Counting, Measuring, Weighing, Sorting</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="d">
+    <p><strong>Q12.</strong> सकारात्मक भाषा कक्षा का एक महत्वपूर्ण गुण क्या है?</p>
+    <label class="option"><input type="radio" name="q12" value="a"> (A) गलतियों पर उपहास</label>
+    <label class="option"><input type="radio" name="q12" value="b"> (B) प्रश्न पूछने पर रोक</label>
+    <label class="option"><input type="radio" name="q12" value="c"> (C) विद्यार्थियों को बोलने से रोकना</label>
+    <label class="option"><input type="radio" name="q12" value="d"> (D) सहयोग और अभ्यास के अवसर</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="b">
+    <p><strong>Q13.</strong> Meaningful Learning में नई जानकारी को किससे जोड़ना उपयोगी है?</p>
+    <label class="option"><input type="radio" name="q13" value="a"> (A) केवल दंड से</label>
+    <label class="option"><input type="radio" name="q13" value="b"> (B) पूर्व ज्ञान और अनुभव से</label>
+    <label class="option"><input type="radio" name="q13" value="c"> (C) केवल रटने से</label>
+    <label class="option"><input type="radio" name="q13" value="d"> (D) बातचीत रोकने से</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="c">
+    <p><strong>Q14.</strong> शिक्षक की Facilitator के रूप में भूमिका क्या है?</p>
+    <label class="option"><input type="radio" name="q14" value="a"> (A) सभी गतिविधियाँ स्वयं करना</label>
+    <label class="option"><input type="radio" name="q14" value="b"> (B) विद्यार्थियों को प्रश्न पूछने से रोकना</label>
+    <label class="option"><input type="radio" name="q14" value="c"> (C) सीखने के अवसर देना और प्रक्रिया में सहायता करना</label>
+    <label class="option"><input type="radio" name="q14" value="d"> (D) विद्यार्थियों की जरूरतों को अनदेखा करना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="a">
+    <p><strong>Q15.</strong> भाषा कौशलों के एकीकरण का उदाहरण कौन-सा है?</p>
+    <label class="option"><input type="radio" name="q15" value="a"> (A) कहानी सुनना, उस पर चर्चा करना, पढ़ना और सार लिखना</label>
+    <label class="option"><input type="radio" name="q15" value="b"> (B) केवल चुपचाप बैठना</label>
+    <label class="option"><input type="radio" name="q15" value="c"> (C) सभी भाषा गतिविधियाँ बंद करना</label>
+    <label class="option"><input type="radio" name="q15" value="d"> (D) केवल एक शब्द बार-बार लिखना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="d">
+    <p><strong>Q16.</strong> Direct Method की प्रमुख विशेषता क्या है?</p>
+    <label class="option"><input type="radio" name="q16" value="a"> (A) केवल लिखित अनुवाद</label>
+    <label class="option"><input type="radio" name="q16" value="b"> (B) लक्ष्य भाषा का प्रयोग न करना</label>
+    <label class="option"><input type="radio" name="q16" value="c"> (C) केवल व्याकरण के नियम याद करना</label>
+    <label class="option"><input type="radio" name="q16" value="d"> (D) लक्ष्य भाषा के माध्यम से अर्थ समझाना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="b">
+    <p><strong>Q17.</strong> Pair Work का प्रमुख लाभ क्या है?</p>
+    <label class="option"><input type="radio" name="q17" value="a"> (A) संवाद के अवसर कम करना</label>
+    <label class="option"><input type="radio" name="q17" value="b"> (B) विद्यार्थियों को भाषा का अभ्यास करने का अवसर देना</label>
+    <label class="option"><input type="radio" name="q17" value="c"> (C) सभी विद्यार्थियों को चुप रखना</label>
+    <label class="option"><input type="radio" name="q17" value="d"> (D) भाषा सुनने से रोकना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="c">
+    <p><strong>Q18.</strong> भाषा सीखते समय विद्यार्थी की गलती पर उचित प्रतिक्रिया क्या है?</p>
+    <label class="option"><input type="radio" name="q18" value="a"> (A) उसका मजाक उड़ाना</label>
+    <label class="option"><input type="radio" name="q18" value="b"> (B) उसे हर गतिविधि से बाहर करना</label>
+    <label class="option"><input type="radio" name="q18" value="c"> (C) गलती समझकर उपयुक्त सहायता देना</label>
+    <label class="option"><input type="radio" name="q18" value="d"> (D) उसे कभी उत्तर न देने देना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="a">
+    <p><strong>Q19.</strong> Activity-Based Learning में किसका उपयोग होता है?</p>
+    <label class="option"><input type="radio" name="q19" value="a"> (A) खेल, समूह कार्य और भाषा गतिविधियाँ</label>
+    <label class="option"><input type="radio" name="q19" value="b"> (B) केवल मौन</label>
+    <label class="option"><input type="radio" name="q19" value="c"> (C) केवल दंड</label>
+    <label class="option"><input type="radio" name="q19" value="d"> (D) किसी भी प्रकार की भागीदारी नहीं</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="d">
+    <p><strong>Q20.</strong> भाषा शिक्षण की उपयुक्त रणनीति चुनते समय शिक्षक को क्या देखना चाहिए?</p>
+    <label class="option"><input type="radio" name="q20" value="a"> (A) केवल अपनी पसंद</label>
+    <label class="option"><input type="radio" name="q20" value="b"> (B) केवल कक्षा की दीवारों का रंग</label>
+    <label class="option"><input type="radio" name="q20" value="c"> (C) केवल विद्यार्थियों की संख्या</label>
+    <label class="option"><input type="radio" name="q20" value="d"> (D) उद्देश्य, विद्यार्थियों का स्तर और कक्षा की जरूरतें</label>
+    <div class="result"></div>
+  </div>
+
+  <button onclick="checkAnswers()">उत्तर जाँचें</button>
+  <button onclick="resetQuiz()">दोबारा प्रयास करें</button>
+
+  <div class="highlight" id="scoreBox" style="display:none;"></div>
+</section>
+
+<section class="card">
+  <h2>9. उत्तर-कुंजी और व्याख्या</h2>
+
+  <button onclick="toggleAnswerKey()">उत्तर-कुंजी दिखाएँ / छिपाएँ</button>
+
+  <div class="answer-key" id="answerKey">
+    <ol>
+      <li><strong>Q1 — B:</strong> बाल-केंद्रित शिक्षण में विद्यार्थी की जरूरतें और भागीदारी महत्वपूर्ण हैं।</li>
+      <li><strong>Q2 — C:</strong> Learning by Doing में गतिविधि के माध्यम से सीखना शामिल है।</li>
+      <li><strong>Q3 — A:</strong> Known to Unknown में परिचित ज्ञान से नई जानकारी की ओर बढ़ते हैं।</li>
+      <li><strong>Q4 — D:</strong> CLT का मुख्य उद्देश्य अर्थपूर्ण संप्रेषण है।</li>
+      <li><strong>Q5 — B:</strong> Grammar Translation Method में व्याकरण और अनुवाद पर जोर होता है।</li>
+      <li><strong>Q6 — C:</strong> Audio-Lingual Method में सुनने, दोहराने और संरचना अभ्यास की भूमिका है।</li>
+      <li><strong>Q7 — A:</strong> Simple to Complex में सरल अवधारणा से जटिल अवधारणा की ओर बढ़ते हैं।</li>
+      <li><strong>Q8 — D:</strong> व्यक्तिगत जरूरतों के अनुसार सहायता देना उपयोगी है।</li>
+      <li><strong>Q9 — B:</strong> Task-Based Teaching में कार्य पूरा करने के लिए भाषा का उपयोग किया जाता है।</li>
+      <li><strong>Q10 — C:</strong> संदर्भ भाषा के अर्थ और प्रयोग को स्पष्ट करने में मदद करता है।</li>
+      <li><strong>Q11 — A:</strong> चार प्रमुख भाषा कौशल Listening, Speaking, Reading और Writing हैं।</li>
+      <li><strong>Q12 — D:</strong> सहयोगी वातावरण में विद्यार्थी भाषा का अभ्यास कर सकते हैं।</li>
+      <li><strong>Q13 — B:</strong> नई जानकारी को पूर्व ज्ञान से जोड़ना अर्थपूर्ण अधिगम में सहायक है।</li>
+      <li><strong>Q14 — C:</strong> Facilitator सीखने की प्रक्रिया में सहायता करता है।</li>
+      <li><strong>Q15 — A:</strong> इसमें भाषा के अनेक कौशल एक गतिविधि-क्रम में जुड़े हैं।</li>
+      <li><strong>Q16 — D:</strong> Direct Method में लक्ष्य भाषा का उपयोग करके अर्थ समझाया जाता है।</li>
+      <li><strong>Q17 — B:</strong> Pair Work से भाषा अभ्यास और बातचीत के अवसर मिलते हैं।</li>
+      <li><strong>Q18 — C:</strong> उपयोगी प्रतिक्रिया विद्यार्थी को सुधारने में मदद कर सकती है।</li>
+      <li><strong>Q19 — A:</strong> Activity-Based Learning में खेल और अन्य गतिविधियों का उपयोग होता है।</li>
+      <li><strong>Q20 — D:</strong> रणनीति का चुनाव उद्देश्य, शिक्षार्थियों के स्तर और जरूरतों के अनुसार होना चाहिए।</li>
+    </ol>
+  </div>
+</section>
+
+<section class="card">
+  <h2>10. Quick Revision</h2>
+
+  <div class="highlight">
+    <p><strong>Child-Centred:</strong> विद्यार्थी की जरूरतों और भागीदारी पर ध्यान।</p>
+    <p><strong>Learning by Doing:</strong> गतिविधि करके सीखना।</p>
+    <p><strong>Known to Unknown:</strong> परिचित से नई जानकारी की ओर।</p>
+    <p><strong>Simple to Complex:</strong> सरल से जटिल की ओर।</p>
+    <p><strong>CLT:</strong> अर्थपूर्ण संप्रेषण पर जोर।</p>
+    <p><strong>Grammar Translation:</strong> व्याकरण और अनुवाद पर जोर।</p>
+    <p><strong>Audio-Lingual:</strong> सुनना, दोहराना और संरचना अभ्यास।</p>
+    <p><strong>Task-Based:</strong> कार्य पूरा करने के लिए भाषा का उपयोग।</p>
+  </div>
+</section>
+
+<section class="card">
+  <h2>11. मुख्य Index पर वापस जाएँ</h2>
+
+  <p>
+    अगला टॉपिक:
+    <strong>Listening and Speaking</strong>
+    — भाषा विकास में सुनने और बोलने की भूमिका।
+  </p>
+
+  <a class="back-link" href="JHTET-English.html">मुख्य Index खोलें</a>
+</section>
+
+</main>
+
+<footer>
+  <p><strong>JHTET 2026 — English Paper 2</strong></p>
+  <p>Topic 03: Principles of Language Teaching</p>
+  <p>पढ़ें • अभ्यास करें • अपनी प्रगति जाँचें</p>
+</footer>
+
+<script>
+const questions = [...document.querySelectorAll(".question")];
+
+function updateAttemptProgress() {
+  let attempted = 0;
+
+  questions.forEach(question => {
+    if (question.querySelector("input:checked")) {
+      attempted++;
+    }
+  });
+
+  document.getElementById("attemptText").textContent =
+    attempted + " / " + questions.length +
+    " प्रश्नों के उत्तर चुने गए हैं।";
+
+  document.getElementById("quizProgress").style.width =
+    (attempted / questions.length * 100) + "%";
+}
+
+document.querySelectorAll(".question input").forEach(input => {
+  input.addEventListener("change", updateAttemptProgress);
+});
+
+function checkAnswers() {
+  let score = 0;
+  let attempted = 0;
+
+  questions.forEach(question => {
+    const correct = question.dataset.answer;
+    const selected = question.querySelector("input:checked");
+    const result = question.querySelector(".result");
+
+    if (!selected) {
+      result.textContent = "उत्तर नहीं चुना गया।";
+      result.className = "result incorrect";
+      return;
+    }
+
+    attempted++;
+
+    if (selected.value === correct) {
+      score++;
+      result.textContent = "सही उत्तर!";
+      result.className = "result correct";
+    } else {
+      result.textContent =
+        "गलत उत्तर। उत्तर-कुंजी में सही उत्तर देखें।";
+      result.className = "result incorrect";
+    }
+  });
+
+  const scoreBox = document.getElementById("scoreBox");
+  scoreBox.style.display = "block";
+  scoreBox.innerHTML =
+    "<strong>आपका स्कोर: " + score + " / " +
+    questions.length + "</strong><br>" +
+    "प्रयास किए गए प्रश्न: " + attempted + " / " +
+    questions.length;
+
+  scoreBox.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+
+function resetQuiz() {
+  document.querySelectorAll(".question input").forEach(input => {
+    input.checked = false;
+  });
+
+  document.querySelectorAll(".question .result").forEach(result => {
+    result.textContent = "";
+    result.className = "result";
+  });
+
+  const scoreBox = document.getElementById("scoreBox");
+  scoreBox.style.display = "none";
+  scoreBox.textContent = "";
+
+  updateAttemptProgress();
+}
+
+function toggleAnswerKey() {
+  const answerKey = document.getElementById("answerKey");
+
+  answerKey.style.display =
+    answerKey.style.display === "block" ? "none" : "block";
+}
+
+updateAttemptProgress();
+</script>
+
+</body>
+</html>

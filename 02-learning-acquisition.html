@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JHTET 2026 English | Learning and Acquisition</title>
+
+<meta name="description"
+content="JHTET 2026 English Paper 2: Learning and Acquisition के विस्तृत हिंदी नोट्स, उदाहरण और MCQ अभ्यास।">
+
+<style>
+:root {
+  --primary: #173b67;
+  --secondary: #2563eb;
+  --background: #f3f6fb;
+  --card: #ffffff;
+  --text: #182230;
+  --muted: #64748b;
+  --border: #dce4ef;
+  --green: #15803d;
+  --orange: #b45309;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, "Noto Sans Devanagari", sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.8;
+}
+
+header {
+  background: linear-gradient(135deg, #173b67, #2563eb);
+  color: white;
+  padding: 28px 16px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: clamp(23px, 5vw, 34px);
+  margin: 0 0 8px;
+}
+
+header p {
+  margin: 5px 0;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: white;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+nav a {
+  display: inline-block;
+  margin: 4px 7px;
+  text-decoration: none;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.container {
+  width: min(100% - 24px, 900px);
+  margin: 22px auto;
+}
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  margin-bottom: 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(20, 40, 70, 0.04);
+}
+
+h2 {
+  color: var(--primary);
+  font-size: 23px;
+  margin-top: 0;
+}
+
+h3 {
+  color: var(--primary);
+  margin-top: 22px;
+}
+
+h4 {
+  margin-bottom: 5px;
+}
+
+.highlight {
+  background: #eaf1ff;
+  border-left: 4px solid var(--secondary);
+  border-radius: 8px;
+  padding: 13px;
+  margin: 14px 0;
+}
+
+.example {
+  background: #f0fdf4;
+  border-left: 4px solid var(--green);
+  border-radius: 8px;
+  padding: 13px;
+  margin: 14px 0;
+}
+
+.warning {
+  background: #fff7ed;
+  border-left: 4px solid var(--orange);
+  border-radius: 8px;
+  padding: 13px;
+  margin: 14px 0;
+}
+
+.english {
+  color: #173b67;
+  font-size: 17px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: #eaf1ff;
+  color: var(--primary);
+}
+
+.question {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 15px;
+  margin: 15px 0;
+  background: white;
+}
+
+.question p {
+  margin-top: 0;
+}
+
+.option {
+  display: block;
+  padding: 9px;
+  margin: 7px 0;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: #eaf1ff;
+}
+
+.option input {
+  margin-right: 8px;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 11px 16px;
+  margin: 5px 5px 5px 0;
+  background: var(--primary);
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--secondary);
+}
+
+.result {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.correct {
+  color: var(--green);
+}
+
+.incorrect {
+  color: #b91c1c;
+}
+
+.answer-key {
+  display: none;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.progress-track {
+  height: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #e5eaf2;
+  margin: 12px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--green);
+  transition: width 0.3s;
+}
+
+.back-link {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: var(--secondary);
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+footer {
+  background: #102b4c;
+  color: white;
+  text-align: center;
+  padding: 20px 12px;
+  margin-top: 30px;
+}
+
+@media (max-width: 520px) {
+  .card {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 21px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 7px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>JHTET 2026 — English</h1>
+  <p>Paper 2 | Upper Primary Level</p>
+  <p><strong>Topic 02: Learning and Acquisition</strong></p>
+  <p>भाषा सीखना और भाषा अर्जन</p>
+</header>
+
+<nav>
+  <a href="#introduction">परिचय</a>
+  <a href="#learning">Learning</a>
+  <a href="#acquisition">Acquisition</a>
+  <a href="#comparison">अंतर</a>
+  <a href="#teacher">शिक्षक की भूमिका</a>
+  <a href="#quiz">MCQ Test</a>
+</nav>
+
+<main class="container">
+
+<!-- SECTION 1 -->
+
+<section class="card" id="introduction">
+  <h2>1. परिचय: Learning and Acquisition</h2>
+
+  <p>
+    भाषा विकास (Language Development) वह प्रक्रिया है जिसके माध्यम
+    से व्यक्ति भाषा को समझना, बोलना, पढ़ना और लिखना सीखता है।
+    बच्चों के भाषा विकास में परिवार, समाज, विद्यालय, बातचीत,
+    सुनने के अवसर और भाषा का अभ्यास महत्वपूर्ण भूमिका निभाते हैं।
+  </p>
+
+  <p>
+    भाषा शिक्षण में <strong>Learning</strong> और
+    <strong>Acquisition</strong> दो महत्वपूर्ण अवधारणाएँ हैं।
+    दोनों भाषा विकास से संबंधित हैं, लेकिन इनके बीच कुछ अंतर
+    समझना आवश्यक है।
+  </p>
+
+  <div class="highlight">
+    <strong>Learning:</strong> भाषा के नियमों और संरचनाओं को
+    समझने के लिए व्यवस्थित अध्ययन या अभ्यास करना।
+    <br><br>
+    <strong>Acquisition:</strong> भाषा के संपर्क और अर्थपूर्ण
+    संवाद के माध्यम से भाषा का स्वाभाविक रूप से विकसित होना।
+  </div>
+
+  <h3>इस टॉपिक से क्या पढ़ना है?</h3>
+
+  <ul>
+    <li>Learning और Acquisition का अर्थ।</li>
+    <li>औपचारिक और अनौपचारिक भाषा अनुभव।</li>
+    <li>भाषा के संपर्क और संवाद का महत्व।</li>
+    <li>बच्चों की भाषा संबंधी गलतियों को समझना।</li>
+    <li>भाषा शिक्षण में शिक्षक की भूमिका।</li>
+    <li>भाषा विकास के अनुकूल कक्षा का वातावरण।</li>
+  </ul>
+</section>
+
+<!-- SECTION 2 -->
+
+<section class="card" id="learning">
+  <h2>2. Learning — भाषा सीखना</h2>
+
+  <h3>परिभाषा</h3>
+
+  <p>
+    Learning वह प्रक्रिया है जिसमें शिक्षार्थी अध्ययन, अभ्यास,
+    निर्देश, प्रतिक्रिया और अनुभव के माध्यम से ज्ञान या कौशल
+    विकसित करता है।
+  </p>
+
+  <p>
+    भाषा के संदर्भ में शिक्षार्थी व्याकरण के नियमों, शब्दों,
+    वाक्य संरचना, वर्तनी और भाषा के सही प्रयोग का अध्ययन कर सकता है।
+  </p>
+
+  <div class="example">
+    <h4>उदाहरण 1: Tense सीखना</h4>
+    शिक्षक समझाता है कि:
+    <p class="english"><strong>I play cricket every day.</strong></p>
+    यह Simple Present Tense का उदाहरण है।
+    विद्यार्थी नियम पढ़ता है और दूसरे वाक्य बनाकर अभ्यास करता है।
+  </div>
+
+  <div class="example">
+    <h4>उदाहरण 2: Vocabulary सीखना</h4>
+    विद्यार्थी सीखता है:
+    <ul>
+      <li>Honest — ईमानदार</li>
+      <li>Brave — साहसी</li>
+      <li>Beautiful — सुंदर</li>
+    </ul>
+    इसके बाद वह इन शब्दों का वाक्यों में प्रयोग करता है।
+  </div>
+
+  <h3>Learning की प्रमुख विशेषताएँ</h3>
+
+  <ol>
+    <li><strong>अध्ययन:</strong> पुस्तक, शिक्षक या अन्य सामग्री से सीखना।</li>
+    <li><strong>अभ्यास:</strong> प्रश्न हल करना और वाक्य बनाना।</li>
+    <li><strong>प्रतिक्रिया:</strong> अपनी गलतियों के बारे में जानकारी प्राप्त करना।</li>
+    <li><strong>नियमों की समझ:</strong> भाषा की संरचना और व्याकरण को समझना।</li>
+    <li><strong>आकलन:</strong> प्रश्नों या गतिविधियों से अपनी प्रगति जाँचना।</li>
+  </ol>
+
+  <h3>कक्षा में Learning के उदाहरण</h3>
+
+  <ul>
+    <li>शिक्षक द्वारा Parts of Speech समझाना।</li>
+    <li>विद्यार्थियों से वाक्यों में गलतियाँ सुधारने को कहना।</li>
+    <li>शब्दों के अर्थ और विलोम शब्द लिखवाना।</li>
+    <li>व्याकरण संबंधी अभ्यास करवाना।</li>
+    <li>विद्यार्थियों को लिखित प्रतिक्रिया देना।</li>
+  </ul>
+</section>
+
+<!-- SECTION 3 -->
+
+<section class="card" id="acquisition">
+  <h2>3. Acquisition — भाषा अर्जन</h2>
+
+  <h3>परिभाषा</h3>
+
+  <p>
+    Acquisition वह प्रक्रिया है जिसके माध्यम से व्यक्ति भाषा के
+    अर्थपूर्ण संपर्क और संवाद में भाग लेते हुए भाषा की समझ तथा
+    प्रयोग करने की क्षमता विकसित करता है।
+  </p>
+
+  <p>
+    बच्चों में भाषा अर्जन परिवार, मित्रों, आसपास के लोगों,
+    कहानियों, खेल और दैनिक बातचीत के माध्यम से विकसित हो सकता है।
+  </p>
+
+  <div class="example">
+    <h4>उदाहरण 1: परिवार में भाषा अर्जन</h4>
+    बच्चा अपने परिवार के सदस्यों को रोज़ बातचीत करते हुए सुनता है।
+    धीरे-धीरे वह शब्दों को समझने और स्वयं बोलने लगता है।
+  </div>
+
+  <div class="example">
+    <h4>उदाहरण 2: अंग्रेज़ी में संवाद</h4>
+    शिक्षक विद्यार्थियों से पूछता है:
+    <p class="english"><strong>What is your name?</strong></p>
+    विद्यार्थी उत्तर देता है:
+    <p class="english"><strong>My name is Ravi.</strong></p>
+    अर्थपूर्ण बातचीत में भाग लेने से विद्यार्थी भाषा को समझने
+    और उसका उपयोग करने के अवसर प्राप्त करता है।
+  </div>
+
+  <h3>Acquisition की प्रमुख विशेषताएँ</h3>
+
+  <ol>
+    <li><strong>अर्थपूर्ण संपर्क:</strong> भाषा का उपयोग वास्तविक परिस्थितियों में करना।</li>
+    <li><strong>सुनना:</strong> दूसरे लोगों की बातचीत सुनना।</li>
+    <li><strong>बातचीत:</strong> प्रश्न पूछना और उत्तर देना।</li>
+    <li><strong>संदर्भ से समझना:</strong> परिस्थिति और बातचीत के आधार पर अर्थ समझना।</li>
+    <li><strong>स्वाभाविक अभ्यास:</strong> भाषा को दैनिक गतिविधियों में उपयोग करना।</li>
+  </ol>
+
+  <h3>कक्षा में Acquisition को बढ़ावा देने वाली गतिविधियाँ</h3>
+
+  <ul>
+    <li>Role Play — भूमिकाएँ निभाकर संवाद करना।</li>
+    <li>Pair Work — जोड़ी में बातचीत करना।</li>
+    <li>Storytelling — कहानी सुनना और सुनाना।</li>
+    <li>Picture Description — चित्र देखकर वर्णन करना।</li>
+    <li>Group Discussion — समूह में विचार साझा करना।</li>
+    <li>Classroom Conversation — कक्षा में अर्थपूर्ण बातचीत करना।</li>
+  </ul>
+
+  <div class="highlight">
+    <strong>ध्यान दें:</strong>
+    भाषा अर्जन का अर्थ केवल बिना पढ़ाए भाषा सीख लेना नहीं है।
+    भाषा के अनुभव, बातचीत, समझ और अभ्यास की इसमें महत्वपूर्ण
+    भूमिका होती है। औपचारिक शिक्षा और स्वाभाविक भाषा अनुभव
+    एक-दूसरे के पूरक भी हो सकते हैं।
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+
+<section class="card" id="comparison">
+  <h2>4. Learning और Acquisition में अंतर</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>आधार</th>
+        <th>Learning</th>
+        <th>Acquisition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>अर्थ</td>
+        <td>अध्ययन और अभ्यास से भाषा सीखना।</td>
+        <td>अर्थपूर्ण संपर्क से भाषा की क्षमता विकसित करना।</td>
+      </tr>
+      <tr>
+        <td>परिस्थिति</td>
+        <td>अक्सर व्यवस्थित या औपचारिक अध्ययन।</td>
+        <td>अक्सर स्वाभाविक या अर्थपूर्ण संवाद।</td>
+      </tr>
+      <tr>
+        <td>मुख्य ध्यान</td>
+        <td>नियम, संरचना और अभ्यास पर हो सकता है।</td>
+        <td>अर्थ समझने और संवाद करने पर अधिक ध्यान हो सकता है।</td>
+      </tr>
+      <tr>
+        <td>उदाहरण</td>
+        <td>व्याकरण का नियम पढ़ना।</td>
+        <td>बातचीत में भाषा का उपयोग करना।</td>
+      </tr>
+      <tr>
+        <td>शिक्षक की भूमिका</td>
+        <td>समझाना, अभ्यास देना और प्रतिक्रिया देना।</td>
+        <td>अर्थपूर्ण संवाद और भाषा अनुभव के अवसर देना।</td>
+      </tr>
+      <tr>
+        <td>आकलन</td>
+        <td>लिखित अभ्यास और नियमों की समझ जाँचना।</td>
+        <td>संदर्भ में भाषा समझने और उपयोग करने की क्षमता देखना।</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="warning">
+    <strong>परीक्षा में सावधानी:</strong>
+    Learning और Acquisition के बीच अंतर समझने के लिए उपयोगी
+    सामान्य तुलना दी गई है। वास्तविक भाषा विकास में दोनों
+    प्रक्रियाएँ एक-दूसरे से जुड़ सकती हैं। इन्हें हर परिस्थिति
+    में पूरी तरह अलग नहीं माना जाना चाहिए।
+  </div>
+</section>
+
+<!-- SECTION 5 -->
+
+<section class="card">
+  <h2>5. भाषा विकास में Input और Interaction</h2>
+
+  <h3>Input — भाषा संबंधी इनपुट</h3>
+
+  <p>
+    Input से आशय उस भाषा से है जिसे शिक्षार्थी सुनता है, पढ़ता है
+    या अन्य माध्यमों से प्राप्त करता है।
+  </p>
+
+  <div class="example">
+    <strong>उदाहरण:</strong>
+    अंग्रेज़ी कहानी सुनना, शिक्षक की बात सुनना, चित्र-पुस्तक पढ़ना
+    और सरल अंग्रेज़ी वीडियो देखना।
+  </div>
+
+  <h3>Interaction — पारस्परिक संवाद</h3>
+
+  <p>
+    Interaction का अर्थ है दूसरों के साथ बातचीत या विचारों का
+    आदान-प्रदान करना। इसमें प्रश्न पूछना, उत्तर देना, अपनी बात
+    स्पष्ट करना और दूसरे व्यक्ति को समझना शामिल है।
+  </p>
+
+  <div class="example">
+    <p class="english"><strong>Teacher:</strong> What do you like to eat?</p>
+    <p class="english"><strong>Student:</strong> I like rice and vegetables.</p>
+    <p>
+      इस संवाद में विद्यार्थी प्रश्न सुनता है, अर्थ समझता है
+      और अपने विचार को अंग्रेज़ी में व्यक्त करता है।
+    </p>
+  </div>
+
+  <h3>अच्छे भाषा वातावरण की विशेषताएँ</h3>
+
+  <ul>
+    <li>विद्यार्थियों को भाषा सुनने और पढ़ने के पर्याप्त अवसर मिलें।</li>
+    <li>विद्यार्थियों को बोलने के लिए प्रोत्साहित किया जाए।</li>
+    <li>गलतियों को सीखने की प्रक्रिया का हिस्सा माना जाए।</li>
+    <li>प्रश्न पूछने और विचार व्यक्त करने की स्वतंत्रता हो।</li>
+    <li>भाषा का प्रयोग वास्तविक और अर्थपूर्ण संदर्भों में हो।</li>
+  </ul>
+</section>
+
+<!-- SECTION 6 -->
+
+<section class="card">
+  <h2>6. बच्चों की भाषा संबंधी गलतियाँ</h2>
+
+  <p>
+    भाषा सीखते समय बच्चे शब्दों, वाक्य संरचना और व्याकरण में
+    गलतियाँ कर सकते हैं। इन गलतियों से शिक्षक को यह समझने में
+    मदद मिल सकती है कि विद्यार्थी किस अवधारणा को समझ रहा है
+    और कहाँ उसे अतिरिक्त सहायता की आवश्यकता है।
+  </p>
+
+  <div class="example">
+    <strong>उदाहरण:</strong><br>
+    विद्यार्थी: <span class="english">He go to school.</span><br>
+    संशोधित वाक्य: <span class="english">He goes to school.</span>
+    <p>
+      शिक्षक विद्यार्थी को Subject–Verb Agreement समझाकर
+      अभ्यास का अवसर दे सकता है।
+    </p>
+  </div>
+
+  <h3>शिक्षक को क्या करना चाहिए?</h3>
+
+  <ol>
+    <li>गलती का कारण समझने का प्रयास करें।</li>
+    <li>विद्यार्थी को बोलने या लिखने से हतोत्साहित न करें।</li>
+    <li>जहाँ आवश्यक हो, सही रूप का उदाहरण दें।</li>
+    <li>अतिरिक्त अभ्यास और सकारात्मक प्रतिक्रिया दें।</li>
+    <li>विद्यार्थी की प्रगति का समय-समय पर आकलन करें।</li>
+  </ol>
+
+  <div class="highlight">
+    <strong>मुख्य विचार:</strong>
+    गलती को केवल दंड देने का कारण न मानें। वह शिक्षार्थी की
+    वर्तमान समझ और आगे की सीखने की आवश्यकता को पहचानने का
+    एक अवसर भी है।
+  </div>
+</section>
+
+<!-- SECTION 7 -->
+
+<section class="card" id="teacher">
+  <h2>7. भाषा शिक्षण में शिक्षक की भूमिका</h2>
+
+  <p>
+    भाषा शिक्षक का कार्य केवल नियम समझाना नहीं है। शिक्षक को
+    ऐसा वातावरण तैयार करना चाहिए जिसमें विद्यार्थी भाषा को
+    समझने, प्रयोग करने और अपनी बात व्यक्त करने के अवसर पाएँ।
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>शिक्षक का कार्य</th>
+        <th>कक्षा में उदाहरण</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>भाषा का मॉडल देना</td>
+        <td>सरल और स्पष्ट भाषा में बातचीत करना।</td>
+      </tr>
+      <tr>
+        <td>संवाद के अवसर देना</td>
+        <td>जोड़ी में प्रश्न-उत्तर करवाना।</td>
+      </tr>
+      <tr>
+        <td>सहायक सामग्री देना</td>
+        <td>चित्र, कहानी, चार्ट और पाठ्यपुस्तक का उपयोग।</td>
+      </tr>
+      <tr>
+        <td>प्रतिक्रिया देना</td>
+        <td>गलतियों को समझाकर सुधारने में मदद करना।</td>
+      </tr>
+      <tr>
+        <td>विविधता का सम्मान करना</td>
+        <td>बच्चों की घरेलू भाषाओं और भाषाई अनुभवों का सम्मान।</td>
+      </tr>
+      <tr>
+        <td>आकलन करना</td>
+        <td>बातचीत, पठन और लेखन की प्रगति देखना।</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SECTION 8 -->
+
+<section class="card">
+  <h2>8. बहुभाषी कक्षा और भाषा विकास</h2>
+
+  <p>
+    बहुभाषी कक्षा (Multilingual Classroom) वह कक्षा है जिसमें
+    विद्यार्थी अलग-अलग भाषाई पृष्ठभूमियों से आ सकते हैं।
+  </p>
+
+  <p>
+    विद्यार्थियों की पहले से विकसित भाषाओं और अनुभवों को सीखने
+    के संसाधन के रूप में उपयोग किया जा सकता है। शिक्षक नई भाषा
+    समझाने के लिए परिचित शब्दों, चित्रों, उदाहरणों और संवाद का
+    सहारा ले सकता है।
+  </p>
+
+  <h3>उदाहरण</h3>
+
+  <p>
+    यदि विद्यार्थी घर में हिंदी, संथाली या किसी अन्य भाषा का
+    उपयोग करता है, तो शिक्षक उसकी भाषाई पृष्ठभूमि का सम्मान
+    करते हुए अंग्रेज़ी सीखने के अवसर दे सकता है।
+  </p>
+
+  <ul>
+    <li>परिचित अनुभवों से नए अंग्रेज़ी शब्द जोड़ना।</li>
+    <li>चित्रों और गतिविधियों से अर्थ स्पष्ट करना।</li>
+    <li>विद्यार्थियों को जोड़ी या समूह में बातचीत कराना।</li>
+    <li>भाषा के कारण किसी विद्यार्थी का उपहास न होने देना।</li>
+  </ul>
+
+  <div class="highlight">
+    <strong>परीक्षा उपयोगी विचार:</strong>
+    विद्यार्थी की मातृभाषा या घर की भाषा को बाधा मानने के बजाय,
+    शिक्षक उसे नई भाषा सीखने में सहायक संसाधन के रूप में
+    उपयोग कर सकता है।
+  </div>
+</section>
+
+<!-- SECTION 9 -->
+
+<section class="card">
+  <h2>9. महत्वपूर्ण परीक्षा बिंदु</h2>
+
+  <ol>
+    <li>Learning में व्यवस्थित अध्ययन और अभ्यास शामिल हो सकते हैं।</li>
+    <li>Acquisition अर्थपूर्ण भाषा संपर्क और संवाद से जुड़ा है।</li>
+    <li>सुनना भाषा समझने के अवसर प्रदान करता है।</li>
+    <li>बोलना भाषा का प्रयोग करने का अवसर देता है।</li>
+    <li>वास्तविक परिस्थितियों में भाषा का प्रयोग उपयोगी है।</li>
+    <li>गलतियाँ सीखने की प्रक्रिया के बारे में जानकारी दे सकती हैं।</li>
+    <li>शिक्षक को सकारात्मक और सहयोगी वातावरण बनाना चाहिए।</li>
+    <li>बहुभाषी कक्षा में विद्यार्थियों की भाषाई पृष्ठभूमि का सम्मान करना चाहिए।</li>
+    <li>भाषा विकास में सुनना, बोलना, पढ़ना और लिखना महत्वपूर्ण कौशल हैं।</li>
+    <li>Learning और Acquisition को हर स्थिति में पूरी तरह अलग नहीं माना जा सकता।</li>
+  </ol>
+</section>
+
+<!-- SECTION 10 -->
+
+<section class="card" id="quiz">
+  <h2>10. MCQ अभ्यास टेस्ट</h2>
+
+  <p>
+    प्रत्येक प्रश्न में एक सही उत्तर चुनें। सभी प्रश्नों के उत्तर
+    चुनने के बाद <strong>उत्तर जाँचें</strong> बटन दबाएँ।
+  </p>
+
+  <div class="progress-track">
+    <div class="progress-fill" id="quizProgress"></div>
+  </div>
+
+  <p id="attemptText">0 / 15 प्रश्नों के उत्तर चुने गए हैं।</p>
+
+  <div class="question" data-answer="b">
+    <p><strong>Q1.</strong> Learning का सबसे उपयुक्त अर्थ क्या है?</p>
+    <label class="option"><input type="radio" name="q1" value="a"> (A) केवल खेलना</label>
+    <label class="option"><input type="radio" name="q1" value="b"> (B) अध्ययन और अभ्यास के माध्यम से सीखना</label>
+    <label class="option"><input type="radio" name="q1" value="c"> (C) केवल सोना</label>
+    <label class="option"><input type="radio" name="q1" value="d"> (D) बातचीत से बचना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="c">
+    <p><strong>Q2.</strong> Acquisition मुख्य रूप से किससे संबंधित है?</p>
+    <label class="option"><input type="radio" name="q2" value="a"> (A) केवल परीक्षा लिखने से</label>
+    <label class="option"><input type="radio" name="q2" value="b"> (B) केवल नियम याद करने से</label>
+    <label class="option"><input type="radio" name="q2" value="c"> (C) अर्थपूर्ण भाषा संपर्क और संवाद से</label>
+    <label class="option"><input type="radio" name="q2" value="d"> (D) भाषा का उपयोग न करने से</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="a">
+    <p><strong>Q3.</strong> व्याकरण के नियम पढ़ना किसका उदाहरण है?</p>
+    <label class="option"><input type="radio" name="q3" value="a"> (A) Learning</label>
+    <label class="option"><input type="radio" name="q3" value="b"> (B) केवल Acquisition</label>
+    <label class="option"><input type="radio" name="q3" value="c"> (C) केवल खेल</label>
+    <label class="option"><input type="radio" name="q3" value="d"> (D) इनमें से कोई नहीं</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="d">
+    <p><strong>Q4.</strong> बच्चे को भाषा का स्वाभाविक अनुभव किससे मिल सकता है?</p>
+    <label class="option"><input type="radio" name="q4" value="a"> (A) बातचीत सुनने से</label>
+    <label class="option"><input type="radio" name="q4" value="b"> (B) कहानी सुनने से</label>
+    <label class="option"><input type="radio" name="q4" value="c"> (C) दूसरों से संवाद करने से</label>
+    <label class="option"><input type="radio" name="q4" value="d"> (D) उपर्युक्त सभी से</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="b">
+    <p><strong>Q5.</strong> भाषा शिक्षण में Interaction का अर्थ क्या है?</p>
+    <label class="option"><input type="radio" name="q5" value="a"> (A) केवल चुप रहना</label>
+    <label class="option"><input type="radio" name="q5" value="b"> (B) पारस्परिक बातचीत और विचारों का आदान-प्रदान</label>
+    <label class="option"><input type="radio" name="q5" value="c"> (C) केवल परीक्षा देना</label>
+    <label class="option"><input type="radio" name="q5" value="d"> (D) पुस्तकों को बंद रखना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="c">
+    <p><strong>Q6.</strong> भाषा संबंधी गलती होने पर शिक्षक को क्या करना चाहिए?</p>
+    <label class="option"><input type="radio" name="q6" value="a"> (A) विद्यार्थी को बोलने से रोक देना</label>
+    <label class="option"><input type="radio" name="q6" value="b"> (B) विद्यार्थी का मजाक उड़ाना</label>
+    <label class="option"><input type="radio" name="q6" value="c"> (C) गलती समझकर उपयुक्त प्रतिक्रिया देना</label>
+    <label class="option"><input type="radio" name="q6" value="d"> (D) विद्यार्थी को कक्षा से बाहर करना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="a">
+    <p><strong>Q7.</strong> निम्न में से कौन-सी गतिविधि अर्थपूर्ण संवाद को बढ़ावा देती है?</p>
+    <label class="option"><input type="radio" name="q7" value="a"> (A) Role Play</label>
+    <label class="option"><input type="radio" name="q7" value="b"> (B) हर समय मौन रहना</label>
+    <label class="option"><input type="radio" name="q7" value="c"> (C) सभी चर्चाएँ रोक देना</label>
+    <label class="option"><input type="radio" name="q7" value="d"> (D) केवल नकल करना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="d">
+    <p><strong>Q8.</strong> Input का अर्थ भाषा विकास के संदर्भ में क्या है?</p>
+    <label class="option"><input type="radio" name="q8" value="a"> (A) केवल अंक प्राप्त करना</label>
+    <label class="option"><input type="radio" name="q8" value="b"> (B) केवल दंड देना</label>
+    <label class="option"><input type="radio" name="q8" value="c"> (C) भाषा सीखने से बचना</label>
+    <label class="option"><input type="radio" name="q8" value="d"> (D) सुनने, पढ़ने या अन्य माध्यम से प्राप्त भाषा</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="b">
+    <p><strong>Q9.</strong> बहुभाषी कक्षा में शिक्षक को क्या करना चाहिए?</p>
+    <label class="option"><input type="radio" name="q9" value="a"> (A) विद्यार्थियों की घरेलू भाषाओं का अपमान करना</label>
+    <label class="option"><input type="radio" name="q9" value="b"> (B) भाषाई विविधता का सम्मान करना</label>
+    <label class="option"><input type="radio" name="q9" value="c"> (C) विद्यार्थियों को संवाद से रोकना</label>
+    <label class="option"><input type="radio" name="q9" value="d"> (D) केवल एक विद्यार्थी को बोलने देना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="c">
+    <p><strong>Q10.</strong> Acquisition को बढ़ावा देने वाली गतिविधि कौन-सी है?</p>
+    <label class="option"><input type="radio" name="q10" value="a"> (A) केवल नियमों की सूची नकल करना</label>
+    <label class="option"><input type="radio" name="q10" value="b"> (B) हर बातचीत पर रोक लगाना</label>
+    <label class="option"><input type="radio" name="q10" value="c"> (C) वास्तविक परिस्थितियों में संवाद करना</label>
+    <label class="option"><input type="radio" name="q10" value="d"> (D) भाषा सुनने से बचना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="a">
+    <p><strong>Q11.</strong> Learning और Acquisition के बारे में कौन-सा कथन सबसे उपयुक्त है?</p>
+    <label class="option"><input type="radio" name="q11" value="a"> (A) दोनों भाषा विकास में योगदान दे सकते हैं।</label>
+    <label class="option"><input type="radio" name="q11" value="b"> (B) दोनों का भाषा से कोई संबंध नहीं है।</label>
+    <label class="option"><input type="radio" name="q11" value="c"> (C) केवल Acquisition से ही सभी भाषा कौशल विकसित होते हैं।</label>
+    <label class="option"><input type="radio" name="q11" value="d"> (D) Learning हमेशा हानिकारक है।</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="d">
+    <p><strong>Q12.</strong> बच्चे को अंग्रेज़ी में बोलने का अवसर देने का अच्छा तरीका कौन-सा है?</p>
+    <label class="option"><input type="radio" name="q12" value="a"> (A) उसे हर समय चुप रखना</label>
+    <label class="option"><input type="radio" name="q12" value="b"> (B) उसके सभी उत्तर अनसुने करना</label>
+    <label class="option"><input type="radio" name="q12" value="c"> (C) गलतियों पर दंड देना</label>
+    <label class="option"><input type="radio" name="q12" value="d"> (D) जोड़ी में बातचीत और प्रश्न-उत्तर करवाना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="b">
+    <p><strong>Q13.</strong> विद्यार्थी कहता है, “He go to school.” शिक्षक का उचित कदम क्या है?</p>
+    <label class="option"><input type="radio" name="q13" value="a"> (A) उसे अंग्रेज़ी बोलने से रोक देना</label>
+    <label class="option"><input type="radio" name="q13" value="b"> (B) सही वाक्य समझाकर अभ्यास करवाना</label>
+    <label class="option"><input type="radio" name="q13" value="c"> (C) उसे कक्षा से निकाल देना</label>
+    <label class="option"><input type="radio" name="q13" value="d"> (D) गलती को हमेशा अनदेखा करना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="c">
+    <p><strong>Q14.</strong> भाषा शिक्षण में Storytelling का एक लाभ क्या है?</p>
+    <label class="option"><input type="radio" name="q14" value="a"> (A) भाषा सुनने के अवसर समाप्त करना</label>
+    <label class="option"><input type="radio" name="q14" value="b"> (B) संवाद को असंभव बनाना</label>
+    <label class="option"><input type="radio" name="q14" value="c"> (C) भाषा समझने और नए शब्दों से परिचित होने के अवसर देना</label>
+    <label class="option"><input type="radio" name="q14" value="d"> (D) सभी विद्यार्थियों को चुप रखना</label>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" data-answer="a">
+    <p><strong>Q15.</strong> भाषा विकास के लिए सबसे सहायक कक्षा वातावरण कौन-सा है?</p>
+    <label class="option"><input type="radio" name="q15" value="a"> (A) सहयोगी वातावरण जहाँ विद्यार्थी सुनें, बोलें, पढ़ें और लिखें</label>
+    <label class="option"><input type="radio" name="q15" value="b"> (B) ऐसा वातावरण जहाँ प्रश्न पूछना मना हो</label>
+    <label class="option"><input type="radio" name="q15" value="c"> (C) ऐसा वातावरण जहाँ गलतियों पर उपहास हो</label>
+    <label class="option"><input type="radio" name="q15" value="d"> (D) ऐसा वातावरण जहाँ बातचीत कभी न हो</label>
+    <div class="result"></div>
+  </div>
+
+  <button onclick="checkAnswers()">उत्तर जाँचें</button>
+  <button onclick="resetQuiz()">दोबारा प्रयास करें</button>
+
+  <div class="highlight" id="scoreBox" style="display:none;"></div>
+</section>
+
+<!-- ANSWER KEY -->
+
+<section class="card">
+  <h2>11. उत्तर-कुंजी और व्याख्या</h2>
+
+  <button onclick="toggleAnswerKey()">उत्तर-कुंजी दिखाएँ / छिपाएँ</button>
+
+  <div class="answer-key" id="answerKey">
+    <ol>
+      <li><strong>Q1 — B:</strong> Learning में अध्ययन और अभ्यास शामिल हो सकते हैं।</li>
+      <li><strong>Q2 — C:</strong> Acquisition अर्थपूर्ण भाषा संपर्क और संवाद से संबंधित है।</li>
+      <li><strong>Q3 — A:</strong> व्याकरण के नियमों का व्यवस्थित अध्ययन Learning का उदाहरण है।</li>
+      <li><strong>Q4 — D:</strong> बातचीत, कहानी और संवाद भाषा अनुभव के अवसर देते हैं।</li>
+      <li><strong>Q5 — B:</strong> Interaction पारस्परिक संवाद और विचारों का आदान-प्रदान है।</li>
+      <li><strong>Q6 — C:</strong> शिक्षक को गलती समझकर उचित प्रतिक्रिया देनी चाहिए।</li>
+      <li><strong>Q7 — A:</strong> Role Play में विद्यार्थी अर्थपूर्ण परिस्थितियों में भाषा का प्रयोग करते हैं।</li>
+      <li><strong>Q8 — D:</strong> Input वह भाषा है जो शिक्षार्थी सुनता, पढ़ता या अन्य माध्यमों से प्राप्त करता है।</li>
+      <li><strong>Q9 — B:</strong> बहुभाषी कक्षा में भाषाई विविधता का सम्मान आवश्यक है।</li>
+      <li><strong>Q10 — C:</strong> वास्तविक संवाद भाषा उपयोग के अवसर प्रदान करता है।</li>
+      <li><strong>Q11 — A:</strong> Learning और Acquisition दोनों भाषा विकास में योगदान दे सकते हैं।</li>
+      <li><strong>Q12 — D:</strong> जोड़ी में बातचीत से बोलने का अभ्यास मिलता है।</li>
+      <li><strong>Q13 — B:</strong> सही वाक्य समझाकर अभ्यास करवाना शिक्षण का उचित तरीका है।</li>
+      <li><strong>Q14 — C:</strong> कहानी सुनने से भाषा समझने और शब्दावली विकसित करने के अवसर मिलते हैं।</li>
+      <li><strong>Q15 — A:</strong> सहयोगी वातावरण में भाषा के चारों कौशलों का अभ्यास संभव है।</li>
+    </ol>
+  </div>
+</section>
+
+<!-- REVISION -->
+
+<section class="card">
+  <h2>12. Quick Revision</h2>
+
+  <div class="highlight">
+    <p><strong>Learning:</strong> अध्ययन, निर्देश और अभ्यास के माध्यम से सीखना।</p>
+    <p><strong>Acquisition:</strong> अर्थपूर्ण संपर्क और संवाद के माध्यम से भाषा क्षमता विकसित करना।</p>
+    <p><strong>Input:</strong> सुनने, पढ़ने या अन्य माध्यमों से प्राप्त भाषा।</p>
+    <p><strong>Interaction:</strong> दूसरों के साथ संवाद और विचारों का आदान-प्रदान।</p>
+    <p><strong>Teacher's Role:</strong> सहयोगी वातावरण बनाना, अवसर देना और उपयोगी प्रतिक्रिया प्रदान करना।</p>
+  </div>
+
+  <h3>स्वयं से पूछें</h3>
+
+  <ol>
+    <li>Learning और Acquisition में क्या अंतर है?</li>
+    <li>अर्थपूर्ण संवाद भाषा विकास में कैसे सहायता करता है?</li>
+    <li>शिक्षक विद्यार्थियों की भाषा संबंधी गलतियों से क्या सीख सकता है?</li>
+    <li>बहुभाषी कक्षा में घर की भाषा का सम्मान क्यों आवश्यक है?</li>
+    <li>भाषा विकास के लिए कौन-सी कक्षा गतिविधियाँ उपयोगी हैं?</li>
+  </ol>
+</section>
+
+<section class="card">
+  <h2>13. मुख्य Index पर वापस जाएँ</h2>
+
+  <p>
+    अगले टॉपिक में हम पढ़ेंगे:
+    <strong>Principles of Language Teaching</strong>
+    — भाषा शिक्षण के सिद्धांत।
+  </p>
+
+  <a class="back-link" href="JHTET-English.html">मुख्य Index खोलें</a>
+</section>
+
+</main>
+
+<footer>
+  <p><strong>JHTET 2026 — English Paper 2</strong></p>
+  <p>Topic 02: Learning and Acquisition</p>
+  <p>नोट्स पढ़ें • अभ्यास करें • अपनी गलतियों से सीखें</p>
+</footer>
+
+<script>
+const questions = [...document.querySelectorAll(".question")];
+
+function updateAttemptProgress() {
+  let attempted = 0;
+
+  questions.forEach(question => {
+    if (question.querySelector("input:checked")) {
+      attempted++;
+    }
+  });
+
+  document.getElementById("attemptText").textContent =
+    attempted + " / " + questions.length +
+    " प्रश्नों के उत्तर चुने गए हैं।";
+
+  document.getElementById("quizProgress").style.width =
+    (attempted / questions.length * 100) + "%";
+}
+
+document.querySelectorAll(".question input").forEach(input => {
+  input.addEventListener("change", updateAttemptProgress);
+});
+
+function checkAnswers() {
+  let score = 0;
+  let attempted = 0;
+
+  questions.forEach(question => {
+    const correct = question.dataset.answer;
+    const selected = question.querySelector("input:checked");
+    const result = question.querySelector(".result");
+
+    if (!selected) {
+      result.textContent = "उत्तर नहीं चुना गया।";
+      result.className = "result incorrect";
+      return;
+    }
+
+    attempted++;
+
+    if (selected.value === correct) {
+      score++;
+      result.textContent = "सही उत्तर!";
+      result.className = "result correct";
+    } else {
+      result.textContent =
+        "गलत उत्तर। उत्तर-कुंजी में सही उत्तर देखें।";
+      result.className = "result incorrect";
+    }
+  });
+
+  const scoreBox = document.getElementById("scoreBox");
+  scoreBox.style.display = "block";
+  scoreBox.innerHTML =
+    "<strong>आपका स्कोर: " + score + " / " +
+    questions.length + "</strong><br>" +
+    "प्रयास किए गए प्रश्न: " + attempted + " / " +
+    questions.length;
+
+  scoreBox.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+
+function resetQuiz() {
+  document.querySelectorAll(".question input").forEach(input => {
+    input.checked = false;
+  });
+
+  document.querySelectorAll(".question .result").forEach(result => {
+    result.textContent = "";
+    result.className = "result";
+  });
+
+  const scoreBox = document.getElementById("scoreBox");
+  scoreBox.style.display = "none";
+  scoreBox.textContent = "";
+
+  updateAttemptProgress();
+}
+
+function toggleAnswerKey() {
+  const answerKey = document.getElementById("answerKey");
+
+  answerKey.style.display =
+    answerKey.style.display === "block" ? "none" : "block";
+}
+
+updateAttemptProgress();
+</script>
+
+</body>
+</html>
