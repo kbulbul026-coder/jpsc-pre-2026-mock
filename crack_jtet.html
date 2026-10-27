@@ -12,6 +12,9 @@
             --text-muted: #475569;
             --primary: #4f46e5;
         }
+        html {
+            scroll-behavior: smooth;
+        }
         * {
             box-sizing: border-box;
             margin: 0;
@@ -22,11 +25,11 @@
             background-color: var(--bg-main);
             color: var(--text-dark);
             line-height: 1.6;
-            padding: 20px 15px 50px;
+            padding: 20px 15px 60px;
         }
         .header-banner {
             max-width: 960px;
-            margin: 0 auto 30px;
+            margin: 0 auto 24px;
             background: linear-gradient(135deg, #1e1b4b, #312e81, #0f766e);
             color: #ffffff;
             padding: 32px 24px;
@@ -82,6 +85,122 @@
         .share-btn:hover {
             transform: scale(1.03);
         }
+
+        /* Quick Master Index Styling */
+        .master-index-box {
+            max-width: 960px;
+            margin: 0 auto 26px;
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+            overflow: hidden;
+        }
+        .index-header {
+            background: linear-gradient(90deg, #0f172a, #1e293b);
+            color: #ffffff;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .index-header h2 {
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .toggle-btn {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 5px 12px;
+            border-radius: 16px;
+            font-size: 0.82rem;
+            cursor: pointer;
+        }
+        .index-content {
+            padding: 18px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 16px;
+        }
+        .index-group {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 14px;
+        }
+        .index-group h3 {
+            font-size: 0.95rem;
+            color: #1e293b;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .index-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+        .index-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            padding: 7px 10px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.88rem;
+            transition: all 0.15s ease;
+        }
+        .index-item:hover {
+            border-color: #6366f1;
+            background: #eef2ff;
+            transform: translateX(3px);
+        }
+        .index-jump {
+            text-decoration: none;
+            color: #0f172a;
+            font-weight: 600;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .index-num {
+            background: #e2e8f0;
+            color: #334155;
+            font-size: 0.75rem;
+            font-weight: bold;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .direct-open {
+            text-decoration: none;
+            font-size: 0.75rem;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-left: 6px;
+            white-space: nowrap;
+        }
+        .direct-open:hover {
+            background: #4f46e5;
+        }
+
         .filter-tabs {
             max-width: 960px;
             margin: 0 auto 24px;
@@ -121,6 +240,15 @@
             flex-direction: column;
             justify-content: space-between;
             transition: transform 0.22s ease, box-shadow 0.22s ease;
+            scroll-margin-top: 20px;
+        }
+        .card:target {
+            outline: 3px solid #4f46e5;
+            animation: pulseHighlight 1.5s ease;
+        }
+        @keyframes pulseHighlight {
+            0% { transform: scale(1.02); }
+            100% { transform: scale(1); }
         }
         .card:hover {
             transform: translateY(-4px);
@@ -155,6 +283,23 @@
             opacity: 0.93;
             transform: translateX(2px);
         }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0f172a;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 30px;
+            font-size: 0.88rem;
+            font-weight: bold;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+            z-index: 99;
+        }
+        .back-to-top:hover {
+            background: #4f46e5;
+        }
         footer {
             text-align: center;
             margin-top: 50px;
@@ -180,7 +325,7 @@
         }
     </style>
 </head>
-<body>
+<body id="top">
 
     <header class="header-banner">
         <h1>🎯 JHTET 2026 परीक्षा तैयारी एवं मास्टर पोर्टल</h1>
@@ -191,8 +336,92 @@
         </div>
     </header>
 
+    <!-- NEW: Master Subject Index (विषय-सूची) -->
+    <section class="master-index-box" id="masterIndex">
+        <div class="index-header" onclick="toggleIndex()">
+            <h2>📑 संपूर्ण विषय-सूची (Master Subject Index — 13 पोर्टल)</h2>
+            <button class="toggle-btn" id="indexToggleBtn">छुपाएँ ▲</button>
+        </div>
+        <div class="index-content" id="indexBody">
+            
+            <!-- Column 1: Mock Tests & SST -->
+            <div class="index-group">
+                <h3>🏆 महा-मॉक एवं सामाजिक अध्ययन (SST)</h3>
+                <ul class="index-list">
+                    <li class="index-item">
+                        <a href="#card-1" class="index-jump" onclick="resetFilter()"><span class="index-num">1</span> SST महा-मॉक (150 प्रश्न)</a>
+                        <a href="jtet26_as_per_Syllabus.html" class="direct-open">खोलें ➔</a>
+                    </li>
+                    <li class="index-item">
+                        <a href="#card-2" class="index-jump" onclick="resetFilter()"><span class="index-num">2</span> विज्ञान एवं गणित महा-मॉक (150)</a>
+                        <a href="jtet26Science_as_per_Syllabus.html" class="direct-open">खोलें ➔</a>
+                    </li>
+                    <li class="index-item">
+                        <a href="#card-3" class="index-jump" onclick="resetFilter()"><span class="index-num">3</span> इतिहास मास्टर इंडेक्स (15 अध्याय)</a>
+                        <a href="jtet_sst_history.html" class="direct-open">खोलें ➔</a>
+                    </li>
+                    <li class="index-item">
+                        <a href="#card-4" class="index-jump" onclick="resetFilter()"><span class="index-num">4</span> नागरिक शास्त्र (Civics • 97 विषय)</a>
+                        <a href="jhtet-social-political-life2.html" class="direct-open">खोलें ➔</a>
+                    </li>
+                    <li class="index-item">
+                        <a href="#card-5" class="index-jump" onclick="resetFilter()"><span class="index-num">5</span> भूगोल मास्टर हब (17 विषय)</a>
+                        <a href="jhtet-master-index.html" class="direct-open">खोलें ➔</a>
+                    </li>
+                    <li class="index-item">
+                        <a href="#card-6" class="index-jump" onclick="resetFilter()"><span class="index-num">6</span> अर्थशास्त्र मास्टर पोर्टल (10 विषय)</a>
+                        <a href="jhtet-economics.html" class="direct-open">खोलें ➔</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 2: CDP, Languages & Computer -->
+            <div class="index-group">
+                <h3>📘 अनिवार्य विषय (CDP, भाषा-1 व कंप्यूटर)</h3>
+                <ul class="index-list">
+                    <li class="index-item">
+                        <a href="#card-7" class="index-jump" onclick="resetFilter()"><span class="index-num">7</span> बाल विकास एवं शिक्षणशास्त्र (CDP)</a>
+                        <a href="jhtet_cdp_master_portal3.html" class="direct-open">खोलें ➔</a>
+                    </li>
+                    <li class="index-item">
+                        <a href="#card-8" class="index-jump" onclick="resetFilter()"><span class="index-num">8</span> हिंदी भाषा एवं पेडागोजी (19 अध्याय)</a>
+                        <a href="jhtet-hindi-master-portal.html" class="direct-open">खोलें ➔</a>
+                    </li>
+                    <li class="index-item">
+                        <a href="#card-9" class="index-jump" onclick="resetFilter()"><span class="index-num">9</span> English & Pedagogy (25 टॉपिक्स)</a>
+                        <a href="JHTET-English.html" class="direct-open">खोलें ➔</a>
+                    </li>
+                    <li class="index-item">
+                        <a href="#card-10" class="index-jump" onclick="resetFilter()"><span class="index-num">10</span> कंप्यूटर एवं डिजिटल शिक्षण (10 अंक)</a>
+                        <a href="jhtet_computer_portal3.html" class="direct-open">खोलें ➔</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Regional & Tribal Languages -->
+            <div class="index-group">
+                <h3>🌾 भाषा-2: जनजातीय एवं क्षेत्रीय भाषा</h3>
+                <ul class="index-list">
+                    <li class="index-item">
+                        <a href="#card-11" class="index-jump" onclick="resetFilter()"><span class="index-num">11</span> खोरठा भाषा मास्टर पोर्टल (30 अंक)</a>
+                        <a href="jhtet_khortha_master_portal3.html" class="direct-open">खोलें ➔</a>
+                    </li>
+                    <li class="index-item">
+                        <a href="#card-12" class="index-jump" onclick="resetFilter()"><span class="index-num">12</span> संथाली भाषा मास्टर पोर्टल (30 अंक)</a>
+                        <a href="jhtet_santhali_master_portal2.html" class="direct-open">खोलें ➔</a>
+                    </li>
+                    <li class="index-item">
+                        <a href="#card-13" class="index-jump" onclick="resetFilter()"><span class="index-num">13</span> संथाली 5-इकाई हब (100 MCQs)</a>
+                        <a href="jhtet_santhali_m_portal.html" class="direct-open">खोलें ➔</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
     <div class="filter-tabs" id="education">
-        <button class="tab-btn active" onclick="filterByCategory('all', this)">सभी (13)</button>
+        <button class="tab-btn active" id="allTabBtn" onclick="filterByCategory('all', this)">सभी (13)</button>
         <button class="tab-btn" onclick="filterByCategory('mock', this)">🏆 150-प्रश्न महा-मॉक</button>
         <button class="tab-btn" onclick="filterByCategory('core', this)">📘 मुख्य विषय (SST/CDP/हिंदी/English/कंप्यूटर)</button>
         <button class="tab-btn" onclick="filterByCategory('lang', this)">🌾 जनजातीय व क्षेत्रीय भाषा</button>
@@ -201,9 +430,9 @@
     <div class="container" id="cardContainer">
 
         <!-- 1. JHTET 2026 Paper-2 Full 150-Question Mock Test (As Per Official Syllabus) Card -->
-        <div class="card" data-category="mock" style="border-color: #4f46e5; box-shadow: 0 4px 18px rgba(79, 70, 229, 0.16); background: #ffffff;">
+        <div class="card" id="card-1" data-category="mock" style="border-color: #4f46e5; box-shadow: 0 4px 18px rgba(79, 70, 229, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #4f46e5; background: #eef2ff; font-weight: bold; border: 1px solid #c7d2fe;">🏆 JHTET 2026 महा-मॉक (पाठ्यक्रम आधारित)</div>
+                <div class="badge" style="color: #4f46e5; background: #eef2ff; font-weight: bold; border: 1px solid #c7d2fe;">🏆 #1 • JHTET 2026 महा-मॉक (पाठ्यक्रम आधारित)</div>
                 <h2 style="color: #0f172a;">JHTET Paper-2 पूर्ण मॉक टेस्ट<br><span style="font-size: 1.1rem; color: #4f46e5;">(Official Syllabus • 150 प्रश्न)</span></h2>
                 <p style="color: #475569;">नवीनतम आधिकारिक सिलेबस के अनुसार 150 प्रश्न: CDP (30) + हिंदी (15) + English (15) + क्षेत्रीय भाषा-2 (30) + सामाजिक अध्ययन (50) + कंप्यूटर ज्ञान व डिजिटल शिक्षण (10)। लाइव टाइमर व प्रिंटेबल स्कोरकार्ड!</p>
             </div>
@@ -211,9 +440,9 @@
         </div>
 
         <!-- 2. JHTET 2026 Paper-2 Full 150-Question Mock Test (Maths & Science Stream) Card -->
-        <div class="card" data-category="mock" style="border-color: #0284c7; box-shadow: 0 4px 18px rgba(2, 132, 199, 0.16); background: #ffffff;">
+        <div class="card" id="card-2" data-category="mock" style="border-color: #0284c7; box-shadow: 0 4px 18px rgba(2, 132, 199, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #0369a1; background: #e0f2fe; font-weight: bold; border: 1px solid #bae6fd;">🔬 JHTET 2026 विज्ञान महा-मॉक (150 प्रश्न)</div>
+                <div class="badge" style="color: #0369a1; background: #e0f2fe; font-weight: bold; border: 1px solid #bae6fd;">🔬 #2 • JHTET 2026 विज्ञान महा-मॉक (150 प्रश्न)</div>
                 <h2 style="color: #0f172a;">JHTET Paper-2 गणित एवं विज्ञान<br><span style="font-size: 1.1rem; color: #0284c7;">(Official Syllabus • Maths & Science)</span></h2>
                 <p style="color: #475569;">नवीनतम आधिकारिक सिलेबस के अनुसार 150 प्रश्न: CDP (30) + हिंदी (15) + English (15) + क्षेत्रीय भाषा-2 (30) + गणित एवं विज्ञान (50) + कंप्यूटर ज्ञान व डिजिटल शिक्षण (10)। लाइव टाइमर व प्रिंटेबल स्कोरकार्ड!</p>
             </div>
@@ -221,9 +450,9 @@
         </div>
 
         <!-- 3. JHTET Paper 2 SST History Master Index Card -->
-        <div class="card" data-category="core" style="border-color: #2980b9; box-shadow: 0 4px 18px rgba(41, 128, 185, 0.16); background: #ffffff;">
+        <div class="card" id="card-3" data-category="core" style="border-color: #2980b9; box-shadow: 0 4px 18px rgba(41, 128, 185, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #2980b9; background: #ebf5fb; font-weight: bold; border: 1px solid #aed6f1;">📜 JHTET 2026 SST इतिहास (मास्टर इंडेक्स)</div>
+                <div class="badge" style="color: #2980b9; background: #ebf5fb; font-weight: bold; border: 1px solid #aed6f1;">📜 #3 • JHTET 2026 SST इतिहास (मास्टर इंडेक्स)</div>
                 <h2 style="color: #1a252f;">सामाजिक अध्ययन: इतिहास<br><span style="font-size: 1.1rem; color: #2980b9;">(JHTET Paper 2 • Class 6-8)</span></h2>
                 <p style="color: #475569;">प्राचीन भारत, मध्यकालीन भारत, आधुनिक भारत एवं स्वतंत्रता संग्राम (15 अध्यायों की संपूर्ण मास्टर सूची): मौर्य साम्राज्य, मुग़ल, संताल विद्रोह, 1857 की क्रांति और राष्ट्रीय आंदोलन!</p>
             </div>
@@ -231,9 +460,9 @@
         </div>
 
         <!-- 4. JHTET 2026 Social & Political Life Master Index Card -->
-        <div class="card" data-category="core" style="border-color: #17365d; box-shadow: 0 4px 18px rgba(23, 54, 93, 0.16); background: #ffffff;">
+        <div class="card" id="card-4" data-category="core" style="border-color: #17365d; box-shadow: 0 4px 18px rgba(23, 54, 93, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #17365d; background: #e7eff9; font-weight: bold; border: 1px solid #b3d1f2;">🏛️ JHTET 2026 सामाजिक व राजनीतिक जीवन</div>
+                <div class="badge" style="color: #17365d; background: #e7eff9; font-weight: bold; border: 1px solid #b3d1f2;">🏛️ #4 • JHTET 2026 सामाजिक व राजनीतिक जीवन</div>
                 <h2 style="color: #0f172a;">सामाजिक एवं राजनीतिक जीवन<br><span style="font-size: 1.1rem; color: #1769aa;">(JHTET Paper 2 • Class 6-8 Civics)</span></h2>
                 <p style="color: #475569;">कक्षा 6–8 नागरिक शास्त्र (Civics) हेतु 97 विषयों की संपूर्ण मास्टर सूची: विविधता की समझ, संविधान, मौलिक अधिकार व कर्तव्य, राज्य सरकार, स्थानीय सरकार (पंचायती राज), समानता और संसदीय सरकार!</p>
             </div>
@@ -241,9 +470,9 @@
         </div>
 
         <!-- 5. JHTET 2026 Geography 17-Topic Master Hub Card -->
-        <div class="card" data-category="core" style="border-color: #0d9488; box-shadow: 0 4px 18px rgba(13, 148, 136, 0.16); background: #ffffff;">
+        <div class="card" id="card-5" data-category="core" style="border-color: #0d9488; box-shadow: 0 4px 18px rgba(13, 148, 136, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🌍 JHTET 2026 भूगोल मास्टर हब (17 विषय)</div>
+                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🌍 #5 • JHTET 2026 भूगोल मास्टर हब (17 विषय)</div>
                 <h2 style="color: #0f172a;">भूगोल: संपूर्ण अध्ययन सूची<br><span style="font-size: 1.1rem; color: #0d9488;">(JHTET Paper 2 • Class 6-8 Geography)</span></h2>
                 <p style="color: #475569;">कक्षा 6–8 भूगोल हेतु 17 विषयों के इंटरैक्टिव स्टडी नोट्स: सौर मंडल, पृथ्वी की गतियाँ, वायुमंडल, जलमंडल, मरुस्थलीय जीवन, प्राकृतिक संसाधन, भारत की स्थिति एवं झारखंड का भूगोल!</p>
             </div>
@@ -251,9 +480,9 @@
         </div>
 
         <!-- 6. JHTET 2026 Economics 10-Topic Master Study Portal Card -->
-        <div class="card" data-category="core" style="border-color: #174ea6; box-shadow: 0 4px 18px rgba(23, 78, 166, 0.16); background: #ffffff;">
+        <div class="card" id="card-6" data-category="core" style="border-color: #174ea6; box-shadow: 0 4px 18px rgba(23, 78, 166, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #123875; background: #e8f0fe; font-weight: bold; border: 1px solid #bfdbfe;">📈 JHTET 2026 अर्थशास्त्र मास्टर पोर्टल (10 विषय)</div>
+                <div class="badge" style="color: #123875; background: #e8f0fe; font-weight: bold; border: 1px solid #bfdbfe;">📈 #6 • JHTET 2026 अर्थशास्त्र मास्टर पोर्टल (10 विषय)</div>
                 <h2 style="color: #0f172a;">सामाजिक विज्ञान: अर्थशास्त्र<br><span style="font-size: 1.1rem; color: #174ea6;">(JHTET Paper 2 • Class 6-8 Economics)</span></h2>
                 <p style="color: #475569;">अर्थशास्त्र के 10 विषयों की संपूर्ण अध्ययन सामग्री: आजीविका के साधन, व्यावसायिक क्रिया, मुद्रा एवं विनिमय, जनसंख्या वृद्धि (भारत व झारखंड), सार्वजनिक वितरण प्रणाली (PDS), बचत व फसलें, सहकारी संस्थाएँ, बाजार, आर्थिक-सामाजिक मूल्य एवं वित्तीय साक्षरता (MCQs व पुनरावृत्ति सहित)!</p>
             </div>
@@ -261,9 +490,9 @@
         </div>
 
         <!-- 7. JHTET 2026 Level-2 Child Development & Pedagogy (CDP) Master Portal Card -->
-        <div class="card" data-category="core" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
+        <div class="card" id="card-7" data-category="core" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🧠 JHTET 2026 CDP इनसाइक्लोपीडिया (30 अंक)</div>
+                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🧠 #7 • JHTET 2026 CDP इनसाइक्लोपीडिया (30 अंक)</div>
                 <h2 style="color: #0f172a;">बाल विकास एवं शिक्षणशास्त्र<br><span style="font-size: 1.1rem; color: #0f766e;">(CDP Master Portal • Level-2)</span></h2>
                 <p style="color: #475569;">पियाजे, वायगोत्स्की, कोहलबर्ग, एरिक्सन, गार्डनर, चोम्स्की, थार्नडाइक, पावलव, स्किनर, कोहलर, बंडूरा, ब्लूम्स टैक्सोनॉमी, अधिगम विकार, NEP 2020, पेडागोजी टैग-वर्ड्स व 30 लाइव MCQs!</p>
             </div>
@@ -271,9 +500,9 @@
         </div>
 
         <!-- 8. JHTET 2026 Paper 2 Hindi Master Study Portal Card -->
-        <div class="card" data-category="core" style="border-color: #173b70; box-shadow: 0 4px 18px rgba(23, 59, 112, 0.16); background: #ffffff;">
+        <div class="card" id="card-8" data-category="core" style="border-color: #173b70; box-shadow: 0 4px 18px rgba(23, 59, 112, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #173b70; background: #eaf2ff; font-weight: bold; border: 1px solid #cbd5e1;">📖 JHTET 2026 हिंदी मास्टर पोर्टल (Paper 2)</div>
+                <div class="badge" style="color: #173b70; background: #eaf2ff; font-weight: bold; border: 1px solid #cbd5e1;">📖 #8 • JHTET 2026 हिंदी मास्टर पोर्टल (Paper 2)</div>
                 <h2 style="color: #0f172a;">हिंदी भाषा एवं शिक्षणशास्त्र<br><span style="font-size: 1.1rem; color: #173b70;">(उच्च प्राथमिक स्तर • 19 संपूर्ण अध्याय)</span></h2>
                 <p style="color: #475569;">भाषायी समझ (गद्यांश-पद्यांश), संपूर्ण व्याकरण (शब्द-भेद, संज्ञा-सर्वनाम, लिंग-वचन, विशेषण-क्रिया, कारक-काल, संधि-समास, उपसर्ग-प्रत्यय, अलंकार, मुहावरे) एवं हिंदी पेडागोजी (भाषा-कौशल, शिक्षण विधियाँ व उपचारात्मक शिक्षण) के इंटरएक्टिव MCQs सहित नोट्स!</p>
             </div>
@@ -281,9 +510,9 @@
         </div>
 
         <!-- 9. JHTET 2026 Paper 2 English Master Study Index Card -->
-        <div class="card" data-category="core" style="border-color: #173b67; box-shadow: 0 4px 18px rgba(23, 59, 103, 0.16); background: #ffffff;">
+        <div class="card" id="card-9" data-category="core" style="border-color: #173b67; box-shadow: 0 4px 18px rgba(23, 59, 103, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #173b67; background: #e8efff; font-weight: bold; border: 1px solid #dce4ef;">📘 JHTET 2026 English मास्टर पोर्टल (Paper 2)</div>
+                <div class="badge" style="color: #173b67; background: #e8efff; font-weight: bold; border: 1px solid #dce4ef;">📘 #9 • JHTET 2026 English मास्टर पोर्टल (Paper 2)</div>
                 <h2 style="color: #0f172a;">English Language & Pedagogy<br><span style="font-size: 1.1rem; color: #2563eb;">(Upper Primary • 25 संपूर्ण टॉपिक्स)</span></h2>
                 <p style="color: #475569;">Comprehension (Unseen Passage), Language Pedagogy (Learning & Acquisition, LSRW Skills, Remedial Teaching, NEP 2020), संपूर्ण Grammar & Vocabulary (Tense, Voice, Narration, Figures of Speech, Sonnet) एवं Practice Test का लाइव प्रोग्रेस ट्रैकर व सर्च-युक्त अध्ययन केंद्र!</p>
             </div>
@@ -291,9 +520,9 @@
         </div>
 
         <!-- 10. JHTET 2026 Paper-2 Computer Knowledge (10 Marks) Master Portal Card -->
-        <div class="card" data-category="core" style="border-color: #0d9488; box-shadow: 0 4px 18px rgba(13, 148, 136, 0.16); background: #ffffff;">
+        <div class="card" id="card-10" data-category="core" style="border-color: #0d9488; box-shadow: 0 4px 18px rgba(13, 148, 136, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🖥️ JHTET 2026 कंप्यूटर ज्ञान (10 अंक)</div>
+                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🖥️ #10 • JHTET 2026 कंप्यूटर ज्ञान (10 अंक)</div>
                 <h2 style="color: #0f172a;">कंप्यूटर एवं डिजिटल शिक्षण<br><span style="font-size: 1.1rem; color: #0f766e;">(Computer Master Portal • Paper-2)</span></h2>
                 <p style="color: #475569;">कंप्यूटर की 5 पीढ़ियाँ, CPU, मेमोरी इकाइयाँ, इनपुट-आउटपुट, कीबोर्ड शॉर्टकट्स (F1–F12, Ctrl/Win), MS Office (Word, Excel, PowerPoint), इंटरनेट, साइबर सुरक्षा, DIKSHA, NISHTHA व 30 लाइव MCQs!</p>
             </div>
@@ -301,9 +530,9 @@
         </div>
 
         <!-- 11. JHTET 2026 Level-2 Regional Language Khortha Portal Card -->
-        <div class="card" data-category="lang" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
+        <div class="card" id="card-11" data-category="lang" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🌾 JHTET 2026 खोरठा मास्टर पोर्टल (30 अंक)</div>
+                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🌾 #11 • JHTET 2026 खोरठा मास्टर पोर्टल (30 अंक)</div>
                 <h2 style="color: #0f172a;">भाषा-2 क्षेत्रीय भाषा: खोरठा<br><span style="font-size: 1.1rem; color: #0f766e;">(Official Syllabus • Level-2)</span></h2>
                 <p style="color: #475569;">नवीनतम JAC सिलेबस (14.03.2026) के अनुसार: खोरठा उद्भव व 16 जिले, देवनागरी वर्तनी व ध्वनि नियम, विस्तृत व्यावहारिक शब्दावली (परिवार, खेती, समय), व्याकरण (संज्ञा-कारक-काल), लोक/शिष्ट साहित्य एवं 30 लाइव MCQs!</p>
             </div>
@@ -311,9 +540,9 @@
         </div>
 
         <!-- 12. JHTET 2026 Level-2 Regional Language Santhali Portal Card -->
-        <div class="card" data-category="lang" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
+        <div class="card" id="card-12" data-category="lang" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🏹 JHTET 2026 संथाली मास्टर पोर्टल (30 अंक)</div>
+                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🏹 #12 • JHTET 2026 संथाली मास्टर पोर्टल (30 अंक)</div>
                 <h2 style="color: #0f172a;">भाषा-2 जनजातीय भाषा: संथाली<br><span style="font-size: 1.1rem; color: #0f766e;">(Official Syllabus • Level-2)</span></h2>
                 <p style="color: #475569;">नवीनतम JAC सिलेबस के अनुसार: संथाली उद्भव व 12 गोत्र (पारिस), ओलचिकी लिपि (1925), 92वाँ संविधान संशोधन (2003), व्याकरण (त्रि-वचन, मध्यसर्ग, कारक), मांझी-परगना शासन व्यवस्था, लोक/शिष्ट साहित्य एवं 30 लाइव MCQs!</p>
             </div>
@@ -321,9 +550,9 @@
         </div>
 
         <!-- 13. JHTET 2026 Santhali 5-Unit Master Index Hub Card -->
-        <div class="card" data-category="lang" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
+        <div class="card" id="card-13" data-category="lang" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🏹 JHTET संथाली 5-इकाई मास्टर हब (100 MCQs)</div>
+                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🏹 #13 • JHTET संथाली 5-इकाई मास्टर हब (100 MCQs)</div>
                 <h2 style="color: #0f172a;">संथाली मास्टर इंडेक्स<br><span style="font-size: 1.1rem; color: #0f766e;">(सभी 5 इकाइयाँ • 100 अभ्यास प्रश्न)</span></h2>
                 <p style="color: #475569;">JHTET भाषा-2 संथाली खंड हेतु सभी 5 इकाइयों का संपूर्ण संग्रह: इकाई 1 (लिपियाँ व इतिहास) + इकाई 2 (व्याकरण) + इकाई 3 (लोकसाहित्य व पर्व) + इकाई 4 (स्वाधीनता सेनानी) + इकाई 5 (भाषा शिक्षण शास्त्र) और प्रत्येक इकाई पर 20-20 लाइव MCQs!</p>
             </div>
@@ -332,11 +561,31 @@
 
     </div>
 
+    <!-- Floating Back to Index Button -->
+    <a href="#masterIndex" class="back-to-top">📑 विषय-सूची ↑</a>
+
     <footer>
         <p>&copy; 2026 JHTET Aspirants Support & Master Portal. उम्मीदवारों के निःशुल्क अभ्यास एवं मार्गदर्शन हेतु समर्पित।</p>
     </footer>
 
     <script>
+        function toggleIndex() {
+            const body = document.getElementById('indexBody');
+            const btn = document.getElementById('indexToggleBtn');
+            if (body.style.display === 'none') {
+                body.style.display = 'grid';
+                btn.innerText = 'छुपाएँ ▲';
+            } else {
+                body.style.display = 'none';
+                btn.innerText = 'दिखाएँ ▼';
+            }
+        }
+
+        function resetFilter() {
+            const allBtn = document.getElementById('allTabBtn');
+            filterByCategory('all', allBtn);
+        }
+
         function filterCards() {
             const query = document.getElementById('searchInput').value.toLowerCase();
             const cards = document.querySelectorAll('#cardContainer .card');
@@ -360,7 +609,7 @@
         }
 
         function sharePortal() {
-            const shareText = "🎯 JHTET 2026 परीक्षा तैयारी पोर्टल: 150-प्रश्नों के सिलेबस आधारित मॉक टेस्ट, SST (इतिहास, भूगोल, नागरिक शास्त्र, अर्थशास्त्र), CDP, हिंदी, English, कंप्यूटर, खोरठा और संथाली मास्टर गाइड यहाँ से पढ़ें:";
+            const shareText = "🎯 JHTET 2026 परीक्षा तैयारी पोर्टल (संपूर्ण 13 विषय इंडेक्स): 150-प्रश्नों के सिलेबस आधारित मॉक टेस्ट, SST (इतिहास, भूगोल, नागरिक शास्त्र, अर्थशास्त्र), CDP, हिंदी, English, कंप्यूटर, खोरठा और संथाली मास्टर गाइड यहाँ से पढ़ें:";
             const shareUrl = window.location.href;
             if (navigator.share) {
                 navigator.share({
@@ -377,4 +626,3 @@
 
 </body>
 </html>
-
