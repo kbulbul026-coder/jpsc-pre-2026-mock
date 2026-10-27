@@ -85,6 +85,24 @@
         .share-btn:hover {
             transform: scale(1.03);
         }
+        .about-btn {
+            background: #fbbf24;
+            color: #0f172a;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .about-btn:hover {
+            transform: scale(1.03);
+            background: #f59e0b;
+        }
 
         /* Quick Master Index Styling */
         .master-index-box {
@@ -301,10 +319,37 @@
             background: #4f46e5;
         }
         footer {
+            max-width: 960px;
+            margin: 50px auto 0;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 28px 20px;
             text-align: center;
-            margin-top: 50px;
-            font-size: 0.92rem;
-            color: #64748b;
+            font-size: 0.94rem;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+        .footer-link {
+            text-decoration: none;
+            color: #1e3a8a;
+            background: #e0e7ff;
+            padding: 7px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            transition: all 0.2s ease;
+        }
+        .footer-link:hover {
+            background: #4f46e5;
+            color: #ffffff;
         }
         @media (min-width: 768px) {
             .card {
@@ -332,11 +377,12 @@
         <p>नवीनतम आधिकारिक पाठ्यक्रम (JAC Syllabus) पर आधारित 150-प्रश्नों के फुल मॉक टेस्ट, विषयवार मास्टर गाइड और लाइव अभ्यास प्रश्न</p>
         <div class="toolbar">
             <input type="text" id="searchInput" class="search-box" placeholder="🔍 विषय खोजें (जैसे: हिंदी, English, इतिहास, भूगोल, अर्थशास्त्र, सिविक्स, खोरठा, संथाली, CDP)..." onkeyup="filterCards()">
+            <a href="about.html" class="about-btn">ℹ️ हमारे बारे में (About Us)</a>
             <button class="share-btn" onclick="sharePortal()">📲 उम्मीदवारों को शेयर करें</button>
         </div>
     </header>
 
-    <!-- NEW: Master Subject Index (विषय-सूची) -->
+    <!-- Master Subject Index (विषय-सूची) -->
     <section class="master-index-box" id="masterIndex">
         <div class="index-header" onclick="toggleIndex()">
             <h2>📑 संपूर्ण विषय-सूची (Master Subject Index — 13 पोर्टल)</h2>
@@ -413,6 +459,10 @@
                     <li class="index-item">
                         <a href="#card-13" class="index-jump" onclick="resetFilter()"><span class="index-num">13</span> संथाली 5-इकाई हब (100 MCQs)</a>
                         <a href="jhtet_santhali_m_portal.html" class="direct-open">खोलें ➔</a>
+                    </li>
+                    <li class="index-item" style="background: #fef3c7; border-color: #fde68a;">
+                        <a href="about.html" class="index-jump" style="color: #92400e;"><span class="index-num" style="background: #f59e0b; color: #fff;">ℹ</span> हमारे बारे में (About Portal & Team)</a>
+                        <a href="about.html" class="direct-open" style="background: #b45309;">जानें ➔</a>
                     </li>
                 </ul>
             </div>
@@ -565,7 +615,15 @@
     <a href="#masterIndex" class="back-to-top">📑 विषय-सूची ↑</a>
 
     <footer>
-        <p>&copy; 2026 JHTET Aspirants Support & Master Portal. उम्मीदवारों के निःशुल्क अभ्यास एवं मार्गदर्शन हेतु समर्पित।</p>
+        <div class="footer-links">
+            <a href="about.html" class="footer-link">ℹ️ हमारे बारे में (About Us)</a>
+            <a href="#masterIndex" class="footer-link">📑 संपूर्ण विषय-सूची</a>
+            <a href="jtet26_as_per_Syllabus.html" class="footer-link">🏆 SST 150-प्रश्न मॉक</a>
+            <a href="jtet26Science_as_per_Syllabus.html" class="footer-link">🔬 विज्ञान 150-प्रश्न मॉक</a>
+        </div>
+        <p><strong>डिजिटल अध्ययन एवं परीक्षा तैयारी पोर्टल (Deoghar, Jharkhand)</strong></p>
+        <p style="margin-top: 4px;">संकल्पना, तकनीकी विकास एवं शैक्षणिक संकलन: <strong>परेश कुमार हांसदा एवं बुलबुल कुमारी (M.A. History)</strong></p>
+        <p style="margin-top: 6px; font-size: 0.85rem; color: #64748b;">&copy; 2026 JHTET Aspirants Support & Master Portal. उम्मीदवारों के निःशुल्क अभ्यास एवं मार्गदर्शन हेतु समर्पित।</p>
     </footer>
 
     <script>
