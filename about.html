@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>हमारे बारे में (About Us) | डिजिटल शिक्षा एवं परीक्षा तैयारी पोर्टल</title>
+  <meta name="description" content="Paresh Kumar Hansda और Bulbul Kumari (M.A. History) की प्रेरणा से विकसित JHTET 2026, SKMU M.A. History, क्षेत्रीय भाषाओं (संथाली, खोरठा, नागपुरी) और वित्तीय साक्षरता का निःशुल्क डिजिटल शैक्षणिक पोर्टल।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-dark: #0f172a;
+      --teal: #0f766e;
+      --teal-light: #ccfbf1;
+      --indigo: #4f46e5;
+      --amber: #d97706;
+      --amber-light: #fef3c7;
+      --rose: #9d174d;
+      --rose-light: #fce7f3;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --muted: #475569;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans Devanagari', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    /* Reading Progress Bar */
+    #read-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #14b8a6, #4f46e5, #f59e0b);
+      z-index: 9999;
+    }
+
+    /* Top Navigation Bar */
+    .top-nav {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 12px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .top-nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #ffffff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      text-decoration: none;
+      color: #e2e8f0;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      background: #fbbf24;
+      color: #0f172a;
+      border-color: #fbbf24;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f766e 100%);
+      color: #ffffff;
+      padding: 64px 20px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .pill {
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: #f8fafc;
+      padding: 5px 16px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .pill-gold {
+      background: #fef3c7;
+      color: #92400e;
+      border-color: #fde68a;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.85rem, 4.5vw, 2.85rem);
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      color: #cbd5e1;
+      max-width: 780px;
+      margin: 0 auto 26px;
+    }
+
+    /* Stats Bar */
+    .stats-grid {
+      max-width: 1100px;
+      margin: -34px auto 40px;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+      border: 1px solid var(--border);
+      border-bottom: 4px solid var(--teal);
+    }
+
+    .stat-num {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 10px 16px 60px;
+    }
+
+    .section-box {
+      background: var(--surface);
+      border-radius: 18px;
+      padding: 34px 30px;
+      margin-bottom: 32px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    }
+
+    .section-header {
+      margin-bottom: 24px;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 12px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--teal);
+      background: var(--teal-light);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.4rem, 3vw, 1.85rem);
+      color: var(--primary-dark);
+      font-weight: 800;
+    }
+
+    /* Dual Founders / Team Grid */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .member-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+    }
+
+    .member-banner {
+      padding: 26px 20px;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .member-banner.paresh {
+      background: linear-gradient(135deg, #1e3a8a, #0f766e);
+    }
+
+    .member-banner.bulbul {
+      background: linear-gradient(135deg, #831843, #4b2e83);
+    }
+
+    .avatar-circle {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: #fbbf24;
+      color: #0f172a;
+      font-size: 2.1rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      border: 4px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .member-banner h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .member-banner p {
+      font-size: 0.88rem;
+      opacity: 0.92;
+      margin-bottom: 12px;
+    }
+
+    .cred-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .cred-tags span {
+      background: rgba(255, 255, 255, 0.18);
+      font-size: 0.76rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .member-body {
+      padding: 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .member-body p {
+      font-size: 0.96rem;
+      color: #334155;
+      margin-bottom: 12px;
+      text-align: justify;
+    }
+
+    .values-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .values-pills span {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
+      padding: 6px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    /* Ecosystem Grid */
+    .eco-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 20px;
+    }
+
+    .eco-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-top: 5px solid var(--primary);
+      border-radius: 14px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .eco-card:hover {
+      transform: translateY(-4px);
+      background: #ffffff;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.07);
+    }
+
+    .eco-card h3 {
+      font-size: 1.2rem;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .eco-card p {
+      font-size: 0.93rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .eco-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .eco-link {
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: #e0e7ff;
+      color: #3730a3;
+      transition: all 0.15s ease;
+    }
+
+    .eco-link:hover {
+      background: #4f46e5;
+      color: #ffffff;
+    }
+
+    /* Features Grid */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+    }
+
+    .feature-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--teal);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .feature-item h4 {
+      font-size: 1.05rem;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+      font-weight: 800;
+    }
+
+    .feature-item p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 36px 20px;
+      font-size: 0.92rem;
+    }
+
+    footer strong {
+      color: #ffffff;
+    }
+
+    @media (max-width: 640px) {
+      .section-box {
+        padding: 22px 18px;
+      }
+      .hero {
+        padding: 44px 16px 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="read-progress"></div>
+
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a href="index.html" class="brand">🏛️ डिजिटल अध्ययन एवं परीक्षा पोर्टल</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-btn">🏠 मुख्य डैशबोर्ड (Home)</a>
+        <a href="crack_jtet.html" class="nav-btn">🎯 JHTET 2026 हब</a>
+        <a href="pgsem2.html" class="nav-btn">🎓 SKMU M.A. History</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-badges">
+        <span class="pill pill-gold">✨ निःशुल्क एवं ओपन-एक्सेस शिक्षा पहल</span>
+        <span class="pill">📍 देवघर, झारखंड (संथाल परगना)</span>
+        <span class="pill">🚀 100% सिलेबस एवं एनसीईआरटी आधारित</span>
+      </div>
+      <h1>ज्ञान, तकनीक और क्षेत्रीय संस्कृति का एकीकृत डिजिटल संगम</h1>
+      <p>झारखंड शिक्षक पात्रता परीक्षा (JHTET 2026), विश्वविद्यालयी उच्च शिक्षा (SKMU M.A. History), जनजातीय व क्षेत्रीय भाषाओं तथा वित्तीय साक्षरता को प्रत्येक विद्यार्थी तक सरल, आधुनिक और इंटरएक्टिव रूप में पहुँचाने का संकल्प।</p>
+    </div>
+  </header>
+
+  <!-- Key Metrics / Impact Stats -->
+  <section class="stats-grid" aria-label="पोर्टल के प्रमुख आँकड़े">
+    <div class="stat-card">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">समर्पित मास्टर अध्ययन पोर्टल्स</div>
+    </div>
+    <div class="stat-card" style="border-bottom-color: #4f46e5;">
+      <div class="stat-num">600+</div>
+      <div class="stat-label">व्याख्या सहित इंटरएक्टिव MCQs</div>
+    </div>
+    <div class="stat-card" style="border-bottom-color: #d97706;">
+      <div class="stat-num">5 भाषाएँ</div>
+      <div class="stat-label">हिंदी, English, संथाली, खोरठा व नागपुरी</div>
+    </div>
+    <div class="stat-card" style="border-bottom-color: #dc2626;">
+      <div class="stat-num">180+</div>
+      <div class="stat-label">संपूर्ण विषयवार अध्ययन इकाइयाँ</div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <!-- 1. Our Vision & Mission -->
+    <section class="section-box">
+      <div class="section-header">
+        <span class="section-tag">🎯 हमारा उद्देश्य एवं दृष्टि (Our Mission)</span>
+        <h2>यह डिजिटल पोर्टल क्यों बनाया गया है?</h2>
+      </div>
+      <p style="margin-bottom: 14px; font-size: 1.03rem;">
+        ग्रामीण और कस्बाई क्षेत्रों के हजारों प्रतिभाशाली विद्यार्थी सही मार्गदर्शन, अद्यतन पाठ्यक्रम (Updated Syllabus) और प्रामाणिक अध्ययन सामग्री के अभाव में प्रतियोगी परीक्षाओं में पीछे रह जाते हैं। विशेषकर <strong>झारखंड की क्षेत्रीय एवं जनजातीय भाषाओं (संथाली, खोरठा, नागपुरी)</strong>, <strong>JHTET उच्च प्राथमिक स्तर (Paper-2)</strong> तथा <strong>सिदो कान्हु मुर्मू विश्वविद्यालय (SKMU) के M.A. History पाठ्यक्रम</strong> के लिए एक ही स्थान पर गुणवत्तापूर्ण, विज्ञापन-मुक्त और इंटरएक्टिव डिजिटल सामग्री का मिलना अत्यंत कठिन था।
+      </p>
+      <p style="font-size: 1.03rem;">
+        इसी कमी को दूर करने के लिए इस <strong>"डिजिटल ऑफिस एवं मास्टर लर्निंग पोर्टल"</strong> का निर्माण किया गया है—जहाँ जटिल से जटिल विषयों को सारणीबद्ध नोट्स, 'परीक्षा ब्रह्मास्त्र' टिप्स, और वास्तविक परीक्षा जैसे लाइव टाइमर वाले मॉक टेस्ट में बदला गया है।
+      </p>
+    </section>
+
+    <!-- 2. About the Founders / Team -->
+    <section class="section-box">
+      <div class="section-header">
+        <span class="section-tag">🤝 संस्थापक एवं शैक्षणिक प्रेरणा (Founders & Visionaries)</span>
+        <h2>इंजीनियरिंग तकनीक और ऐतिहासिक-शैक्षणिक शोध का संगम</h2>
+      </div>
+
+      <div class="team-grid">
+        <!-- Founder 1: Paresh Kumar Hansda -->
+        <div class="member-card">
+          <div class="member-banner paresh">
+            <div class="avatar-circle">P</div>
+            <h3>परेश कुमार हांसदा</h3>
+            <p>(Paresh Kumar Hansda — निर्माता एवं EdTech आर्किटेक्ट)</p>
+            <div class="cred-tags">
+              <span>⚡ B.Tech (Electrical Engg.)</span>
+              <span>💻 Full-Stack Web Developer</span>
+              <span>📈 NISM SEBI Certified</span>
+              <span>🏫 JNV Jasidih Alumnus</span>
+            </div>
+          </div>
+          <div class="member-body">
+            <div>
+              <p>
+                <strong>परेश कुमार हांसदा</strong> (देवघर, झारखंड) एक इलेक्ट्रिकल इंजीनियर और फुल-स्टैक वेब डेवलपर हैं। <strong>जवाहर नवोदय विद्यालय (JNV), जसीडीह</strong> से स्कूली शिक्षा प्राप्त करने के पश्चात उन्होंने इलेक्ट्रिकल इंजीनियरिंग में डिप्लोमा एवं बी.टेक (B.Tech) की उपाधि हासिल की।
+              </p>
+              <p>
+                आधुनिक वेब तकनीकों (HTML5, CSS3, JavaScript, Python, Django) और <strong>NISM SEBI इन्वेस्टर सर्टिफिकेशन</strong> की विशेषज्ञता के साथ उन्होंने इस पूरे प्लेटफॉर्म के सॉफ्टवेयर आर्किटेक्चर, इंटरएक्टिव CBT मॉक टेस्ट इंजन, कंप्यूटर पोर्टल और वित्तीय साक्षरता मॉड्यूल्स का निर्माण किया है।
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Founder 2 / Academic Inspiration: Bulbul Kumari -->
+        <div class="member-card">
+          <div class="member-banner bulbul">
+            <div class="avatar-circle" style="background: #fce7f3; color: #831843;">B</div>
+            <h3>बुलबुल कुमारी</h3>
+            <p>(Bulbul Kumari — शैक्षणिक सह-निर्माता एवं इतिहास अध्येता)</p>
+            <div class="cred-tags">
+              <span>🎓 M.A. in History (SKMU)</span>
+              <span>📜 इतिहास एवं सामाजिक विज्ञान</span>
+              <span>🎯 JHTET & Pedagogy प्रेरणा</span>
+              <span>🏹 संथाली एवं क्षेत्रीय साहित्य</span>
+            </div>
+          </div>
+          <div class="member-body">
+            <div>
+              <p>
+                <strong>बुलबुल कुमारी</strong> (धर्मपत्नी: परेश कुमार हांसदा) वर्तमान में <strong>इतिहास विषय से स्नातकोत्तर (M.A. in History)</strong> कर रही हैं और शिक्षक पात्रता परीक्षा (JHTET) की समर्पित अभ्यर्थी हैं। इस पोर्टल के सभी <strong>M.A. History (Semester-2: Paper V से VIII)</strong> और <strong>सामाजिक अध्ययन (SST)</strong> के विस्तृत अध्ययन नोट्स उन्हीं की शैक्षणिक यात्रा और पाठ्यक्रम को केंद्र में रखकर तैयार किए गए हैं।
+              </p>
+              <p>
+                इतिहास लेखन कौशल, मध्यकालीन यूरोप, संताल परगना के क्षेत्रीय इतिहास, बाल विकास (CDP) और संथाली/खोरठा भाषा के इनसाइक्लोपीडिया को छात्रों के लिए सरल व परीक्षा-उपयोगी बनाने में उनकी अध्ययन दृष्टि इस पोर्टल की मुख्य आधारशिला है।
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="values-pills">
+        <span>🛡️ सत्यनिष्ठा (Integrity)</span>
+        <span>🤝 सेवा (Service)</span>
+        <span>🌱 सतत विकास (Growth)</span>
+        <span>💡 नवाचार (Innovation)</span>
+        <span>⚖️ उत्तरदायित्व (Responsibility)</span>
+      </div>
+    </section>
+
+    <!-- 3. Complete Analysis of Our Educational Ecosystem -->
+    <section class="section-box">
+      <div class="section-header">
+        <span class="section-tag">📚 हमारे प्रमुख अध्ययन स्तंभ (Our Educational Ecosystem)</span>
+        <h2>संपूर्ण अध्ययन एवं मॉक टेस्ट पोर्टलों की संरचना</h2>
+      </div>
+
+      <div class="eco-grid">
+        <!-- Pillar 1: JHTET Full Mock Tests -->
+        <div class="eco-card" style="border-top-color: #4f46e5;">
+          <div>
+            <h3>1. JHTET 2026 महा-मॉक टेस्ट इंजन</h3>
+            <p>JAC के नवीनतम पाठ्यक्रम (14.03.2026) पर आधारित 150 प्रश्नों (150 मिनट) और 30 प्रश्नों के लाइव इंटरएक्टिव टेस्ट। सामान्य (60%), BC (55%) और SC/ST/PwD (52%) कट-ऑफ का स्वतः मूल्यांकन एवं प्रिंटेबल स्कोरकार्ड।</p>
+          </div>
+          <div class="eco-links">
+            <a href="crack_jtet.html" class="eco-link">🎯 JHTET मास्टर हब</a>
+            <a href="jtet26_as_per_Syllabus.html" class="eco-link">📝 SST फुल मॉक (150 Q)</a>
+            <a href="jtet26Science_as_per_Syllabus.html" class="eco-link">🔬 साइंस फुल मॉक (150 Q)</a>
+            <a href="practice302.html" class="eco-link">⚡ 30-प्रश्न क्विक मॉक</a>
+          </div>
+        </div>
+
+        <!-- Pillar 2: CDP & Computer Portals -->
+        <div class="eco-card" style="border-top-color: #0f766e;">
+          <div>
+            <h3>2. बाल विकास (CDP) एवं कंप्यूटर ज्ञान</h3>
+            <p>पियाजे, वायगोत्स्की, कोहलबर्ग, एरिक्सन, गार्डनर, ब्लूम्स टैक्सोनॉमी, NEP 2020 और पेडागोजी टैग-वर्ड्स का इनसाइक्लोपीडिया। साथ ही कंप्यूटर पीढ़ियाँ, MS Office, साइबर सुरक्षा, DIKSHA व NISHTHA का संपूर्ण पोर्टल।</p>
+          </div>
+          <div class="eco-links">
+            <a href="jhtet_cdp_master_portal3.html" class="eco-link">🧠 CDP इनसाइक्लोपीडिया (30 अंक)</a>
+            <a href="jhtet_computer_portal3.html" class="eco-link">🖥️ कंप्यूटर मास्टर पोर्टल (10 अंक)</a>
+          </div>
+        </div>
+
+        <!-- Pillar 3: Tribal & Regional Languages -->
+        <div class="eco-card" style="border-top-color: #047857;">
+          <div>
+            <h3>3. जनजातीय एवं क्षेत्रीय भाषा हब (भाषा-2)</h3>
+            <p><strong>संथाली (होड़ रोड़):</strong> 12 पारिस (गोत्र), ओलचिकी लिपि (1925), अवरुद्ध व्यंजन, त्रि-वचन व मांझी-परगना शासन।<br><strong>खोरठा:</strong> ए.के. झा का खरोष्ठी सिद्धांत, 16 जिले, अभिनिहिति नियम, व्याकरण व लोकसाहित्य।</p>
+          </div>
+          <div class="eco-links">
+            <a href="jhtet_santhali_master_portal2.html" class="eco-link">🏹 संथाली मास्टर पोर्टल</a>
+            <a href="jhtet_santhali_m_portal.html" class="eco-link">📑 संथाली 5-इकाई इंडेक्स</a>
+            <a href="jhtet_khortha_master_portal3.html" class="eco-link">🌾 खोरठा मास्टर पोर्टल</a>
+          </div>
+        </div>
+
+        <!-- Pillar 4: Language-1 (Hindi & English) -->
+        <div class="eco-card" style="border-top-color: #2563eb;">
+          <div>
+            <h3>4. भाषा-1: हिंदी एवं English पोर्टल्स</h3>
+            <p>उच्च प्राथमिक स्तर के लिए हिंदी के 19 अध्याय (अपठित बोध, संधि, समास, अलंकार, भाषा कौशल व उपचारात्मक शिक्षण) तथा English के 25 टॉपिक्स (Comprehension, LSRW Pedagogy, Grammar, Voice, Narration, Figures of Speech)।</p>
+          </div>
+          <div class="eco-links">
+            <a href="jhtet-hindi-master-portal.html" class="eco-link">📖 हिंदी मास्टर पोर्टल</a>
+            <a href="JHTET-English.html" class="eco-link">📘 English स्टडी इंडेक्स</a>
+          </div>
+        </div>
+
+        <!-- Pillar 5: Complete Social Studies (SST) -->
+        <div class="eco-card" style="border-top-color: #d97706;">
+          <div>
+            <h3>5. संपूर्ण सामाजिक विज्ञान (SST — 4 स्तंभ)</h3>
+            <p>कक्षा 6–8 एवं प्रतियोगी परीक्षाओं हेतु इतिहास के 15 अध्याय, नागरिक शास्त्र (Social & Political Life) के 97 उप-विषय, भूगोल के 17 इंटरैक्टिव मॉड्यूल और अर्थशास्त्र के 10 संपूर्ण अध्याय।</p>
+          </div>
+          <div class="eco-links">
+            <a href="jtet_sst_history.html" class="eco-link">📜 इतिहास (15 अध्याय)</a>
+            <a href="jhtet-social-political-life2.html" class="eco-link">🏛️ नागरिक शास्त्र (97 विषय)</a>
+            <a href="jhtet-master-index.html" class="eco-link">🌍 भूगोल (17 मॉड्यूल)</a>
+            <a href="jhtet-economics.html" class="eco-link">📈 अर्थशास्त्र (10 विषय)</a>
+          </div>
+        </div>
+
+        <!-- Pillar 6: University History & Financial Literacy -->
+        <div class="eco-card" style="border-top-color: #831843;">
+          <div>
+            <h3>6. उच्च शिक्षा (SKMU M.A. History) व वित्तीय ज्ञान</h3>
+            <p>बुलबुल कुमारी के स्नातकोत्तर अध्ययन हेतु तैयार सिदो कान्हु मुर्मू विश्वविद्यालय (दुमका) M.A. History Sem-2 (Paper V: इतिहास लेखन, Paper VI: मध्यकालीन यूरोप, Paper VII: संताल परगना, Paper VIII: जेंडर इतिहास) व बेबीलोन का वित्तीय इतिहास।</p>
+          </div>
+          <div class="eco-links">
+            <a href="pgsem2.html" class="eco-link">🎓 SKMU M.A. Sem-2 हब</a>
+            <a href="57.html" class="eco-link">✒️ Paper V (इतिहास लेखन)</a>
+            <a href="paper63.html" class="eco-link">🏰 Paper VI (मध्यकालीन यूरोप)</a>
+            <a href="babylon_sketch.html" class="eco-link">🏺 बेबीलोन ऐतिहासिक परिचय</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Technical Architecture & Pedagogical Design -->
+    <section class="section-box">
+      <div class="section-header">
+        <span class="section-tag">⚙️ तकनीकी विशेषताएँ (Platform Architecture)</span>
+        <h2>हमारे पोर्टल्स छात्रों के लिए खास क्यों हैं?</h2>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4>⏱️ रियल-टाइम CBT परीक्षा अनुभव</h4>
+          <p>150 मिनट का लाइव टाइमर, कलर-कोडेड प्रश्न पैलेट (सही, गलत, बुकमार्क, शेष), और कीबोर्ड शॉर्टकट्स के साथ कंप्यूटर आधारित टेस्ट का वास्तविक अभ्यास।</p>
+        </div>
+        <div class="feature-item">
+          <h4>💾 स्मार्ट लोकल प्रोग्रेस सेविंग</h4>
+          <p>बिना किसी लॉगिन या पासवर्ड के ब्राउज़र के <code>localStorage</code> में आपकी अध्ययन प्रगति, उत्तर और सर्वश्रेष्ठ स्कोर स्वतः सुरक्षित रहते हैं।</p>
+        </div>
+        <div class="feature-item">
+          <h4>📱 लो-बैंडविड्थ एवं मोबाइल फ्रेंडली</h4>
+          <p>ग्रामीण क्षेत्रों के इंटरनेट को ध्यान में रखकर बनाया गया हल्का (Lightweight) आर्किटेक्चर जो स्मार्टफोन, टैबलेट और डेस्कटॉप पर तुरंत खुलता है।</p>
+        </div>
+        <div class="feature-item">
+          <h4>🖨️ वन-क्लिक PDF एवं प्रिंट सपोर्ट</h4>
+          <p>प्रत्येक मास्टर गाइड और मॉक टेस्ट स्कोरकार्ड में समर्पित <code>@media print</code> स्टाइलिंग है, जिससे छात्र एक क्लिक में साफ-सुथरा PDF सेव कर सकते हैं।</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p><strong>डिजिटल अध्ययन एवं परीक्षा तैयारी पोर्टल (Deoghar, Jharkhand)</strong></p>
+    <p style="margin-top: 6px;">संकल्पना, तकनीकी विकास एवं शैक्षणिक संकलन: <strong>परेश कुमार हांसदा एवं बुलबुल कुमारी (M.A. History)</strong></p>
+    <p style="margin-top: 8px; font-size: 0.82rem; opacity: 0.8;">&copy; 2026 सर्वाधिकार सुरक्षित • झारखंड के विद्यार्थियों और भावी शिक्षकों की सफलता को समर्पित 🎯</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var h = document.documentElement;
+      var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      document.getElementById('read-progress').style.width = pct + '%';
+    }, { passive: true });
+  </script>
+</body>
+</html>
