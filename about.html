@@ -19,6 +19,8 @@
       --amber-light: #fef3c7;
       --rose: #9d174d;
       --rose-light: #fce7f3;
+      --whatsapp: #16a34a;
+      --whatsapp-dark: #15803d;
       --bg: #f8fafc;
       --surface: #ffffff;
       --text: #1e293b;
@@ -87,6 +89,7 @@
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
     .nav-btn {
@@ -107,11 +110,25 @@
       border-color: #fbbf24;
     }
 
+    .nav-btn-wa {
+      background: linear-gradient(135deg, #22c55e, #15803d);
+      color: #ffffff;
+      border-color: #4ade80;
+      font-weight: 700;
+    }
+
+    .nav-btn-wa:hover {
+      background: #16a34a;
+      color: #ffffff;
+      border-color: #bbf7d0;
+      transform: translateY(-1px);
+    }
+
     /* Hero Section */
     .hero {
       background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f766e 100%);
       color: #ffffff;
-      padding: 64px 20px 56px;
+      padding: 64px 20px 64px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -157,7 +174,37 @@
       font-size: clamp(1rem, 2.2vw, 1.15rem);
       color: #cbd5e1;
       max-width: 780px;
-      margin: 0 auto 26px;
+      margin: 0 auto 24px;
+    }
+
+    .hero-cta-wrap {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .wa-hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #22c55e, #15803d);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.96rem;
+      padding: 12px 24px;
+      border-radius: 999px;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 10px 24px rgba(21, 128, 61, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .wa-hero-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(21, 128, 61, 0.5);
+      background: linear-gradient(135deg, #16a34a, #166534);
     }
 
     /* Stats Bar */
@@ -433,6 +480,76 @@
       color: var(--muted);
     }
 
+    /* WhatsApp Channel Banner */
+    .whatsapp-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #15803d 100%);
+      color: #ffffff;
+      border-radius: 18px;
+      padding: 34px 30px;
+      margin-bottom: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: 0 12px 28px rgba(6, 78, 59, 0.2);
+      border: 1px solid #34d399;
+    }
+
+    .wa-content {
+      flex: 1 1 520px;
+    }
+
+    .wa-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #ecfdf5;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      letter-spacing: 0.4px;
+    }
+
+    .wa-content h2 {
+      font-size: clamp(1.35rem, 3vw, 1.85rem);
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .wa-content p {
+      font-size: 0.98rem;
+      color: #d1fae5;
+      line-height: 1.65;
+    }
+
+    .wa-cta-box {
+      flex-shrink: 0;
+    }
+
+    .wa-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fbbf24;
+      color: #0f172a;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 14px 26px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+      transition: all 0.2s ease;
+    }
+
+    .wa-cta-btn:hover {
+      background: #fde047;
+      transform: translateY(-2px);
+    }
+
     /* Footer */
     footer {
       background: #0f172a;
@@ -446,8 +563,26 @@
       color: #ffffff;
     }
 
+    .footer-wa-link {
+      display: inline-block;
+      margin-top: 12px;
+      color: #4ade80;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .footer-wa-link:hover {
+      background: #16a34a;
+      color: #ffffff;
+    }
+
     @media (max-width: 640px) {
-      .section-box {
+      .section-box, .whatsapp-banner {
         padding: 22px 18px;
       }
       .hero {
@@ -468,6 +603,7 @@
         <a href="index.html" class="nav-btn">🏠 मुख्य डैशबोर्ड (Home)</a>
         <a href="crack_jtet.html" class="nav-btn">🎯 JHTET 2026 हब</a>
         <a href="pgsem2.html" class="nav-btn">🎓 SKMU M.A. History</a>
+        <a href="https://whatsapp.com/channel/0029VbAwkaGFnSz4bbgzh617" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-wa">🌿 WhatsApp चैनल से जुड़ें</a>
       </div>
     </div>
   </nav>
@@ -482,6 +618,12 @@
       </div>
       <h1>ज्ञान, तकनीक और क्षेत्रीय संस्कृति का एकीकृत डिजिटल संगम</h1>
       <p>झारखंड शिक्षक पात्रता परीक्षा (JHTET 2026), विश्वविद्यालयी उच्च शिक्षा (SKMU M.A. History), जनजातीय व क्षेत्रीय भाषाओं तथा वित्तीय साक्षरता को प्रत्येक विद्यार्थी तक सरल, आधुनिक और इंटरएक्टिव रूप में पहुँचाने का संकल्प।</p>
+      <div class="hero-cta-wrap">
+        <a href="https://whatsapp.com/channel/0029VbAwkaGFnSz4bbgzh617" target="_blank" rel="noopener noreferrer" class="wa-hero-btn">
+          <span>🌿</span>
+          <span>Follow "The Blueprint for a Better Life | Prakriti Maa 🌿" on WhatsApp</span>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -705,12 +847,32 @@
       </div>
     </section>
 
+    <!-- 5. Official WhatsApp Channel Community Callout -->
+    <section class="whatsapp-banner" aria-label="व्हाट्सएप चैनल से जुड़ें">
+      <div class="wa-content">
+        <span class="wa-badge">📢 आधिकारिक व्हाट्सएप चैनल (Official WhatsApp Channel)</span>
+        <h2>The Blueprint for a Better Life | Prakriti Maa 🌿</h2>
+        <p>नवीनतम शैक्षणिक अपडेट्स, JHTET व M.A. History स्टडी नोट्स, वित्तीय साक्षरता, आत्म-अनुशासन और प्रकृति से जुड़े जीवन-दर्शन के लिए हमारे आधिकारिक WhatsApp चैनल को अभी फॉलो करें!</p>
+      </div>
+      <div class="wa-cta-box">
+        <a href="https://whatsapp.com/channel/0029VbAwkaGFnSz4bbgzh617" target="_blank" rel="noopener noreferrer" class="wa-cta-btn">
+          <span>📲</span>
+          <span>Follow Channel on WhatsApp ➔</span>
+        </a>
+      </div>
+    </section>
+
   </main>
 
   <footer>
     <p><strong>डिजिटल अध्ययन एवं परीक्षा तैयारी पोर्टल (Deoghar, Jharkhand)</strong></p>
     <p style="margin-top: 6px;">संकल्पना, तकनीकी विकास एवं शैक्षणिक संकलन: <strong>परेश कुमार हांसदा एवं बुलबुल कुमारी (M.A. History)</strong></p>
-    <p style="margin-top: 8px; font-size: 0.82rem; opacity: 0.8;">&copy; 2026 सर्वाधिकार सुरक्षित • झारखंड के विद्यार्थियों और भावी शिक्षकों की सफलता को समर्पित 🎯</p>
+    <div>
+      <a href="https://whatsapp.com/channel/0029VbAwkaGFnSz4bbgzh617" target="_blank" rel="noopener noreferrer" class="footer-wa-link">
+        🌿 Follow "The Blueprint for a Better Life | Prakriti Maa 🌿" on WhatsApp
+      </a>
+    </div>
+    <p style="margin-top: 12px; font-size: 0.82rem; opacity: 0.8;">&copy; 2026 सर्वाधिकार सुरक्षित • झारखंड के विद्यार्थियों और भावी शिक्षकों की सफलता को समर्पित 🎯</p>
   </footer>
 
   <script>
