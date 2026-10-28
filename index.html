@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digital Office • Paresh Kumar Hansda</title>
+    <title>Digital Office • Paresh Kumar Hansda & Bulbul Kumari</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,19 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4P25J8209D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4P25J8209D"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4P25J8209D');
+    </script>
 
-  gtag('config', 'G-4P25J8209D');
-</script>
-
-
-    
     <style>
         :root {
             --bg: #f8fafc;
@@ -33,32 +27,48 @@
             --surface-soft: #f1f5f9;
             --surface-card: #ffffff;
             --text: #0f172a;
-            --muted: #64748b;
+            --muted: #475569;
             --border: #e2e8f0;
             --primary: #2563eb;
             --primary-hover: #1d4ed8;
             --accent: #d97706;
-            --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
-            --shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
-            --shadow-hover: 0 20px 35px -8px rgba(15, 23, 42, 0.12);
+            --shadow-sm: 0 2px 10px rgba(15, 23, 42, 0.05);
+            --shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.07);
+            --shadow-hover: 0 20px 35px -8px rgba(15, 23, 42, 0.14);
         }
 
         [data-theme="dark"] {
             --bg: #090d16;
             --surface: #0f172a;
             --surface-soft: #1e293b;
-            --surface-card: #111827;
+            --surface-card: #131c2e;
             --text: #f8fafc;
-            --muted: #94a3b8;
-            --border: #1f293d;
+            --muted: #cbd5e1;
+            --border: #26334d;
             --primary: #3b82f6;
             --primary-hover: #60a5fa;
-            --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.45);
-            --shadow-hover: 0 20px 40px -5px rgba(0, 0, 0, 0.65);
+            --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+            --shadow-hover: 0 20px 40px -5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Seamless Dark Mode Adaptation for Inline-Styled Cards */
+        [data-theme="dark"] .card {
+            background: var(--surface-card) !important;
+            color: var(--text) !important;
+        }
+        [data-theme="dark"] .card h2,
+        [data-theme="dark"] .card h3 {
+            color: #f8fafc !important;
+        }
+        [data-theme="dark"] .card p {
+            color: #cbd5e1 !important;
+        }
+        [data-theme="dark"] .card h2 span {
+            filter: brightness(1.35);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; scroll-padding-top: 85px; }
         body {
             font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', system-ui, sans-serif;
             background: var(--bg);
@@ -68,15 +78,18 @@
             overflow-x: hidden;
         }
 
-        /* Reading Progress */
-        .progress-wrap { position: fixed; top: 0; left: 0; width: 100%; height: 4px; z-index: 1000; }
+        /* Reading Progress Bar */
+        .progress-wrap { position: fixed; top: 0; left: 0; width: 100%; height: 4px; z-index: 1001; }
         .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #2563eb, #d97706, #10b981); transition: width 0.1s linear; }
 
         /* Hero Header */
         .hero {
-            padding: 90px 20px 55px;
+            padding: 72px 20px 48px;
             text-align: center;
-            background: radial-gradient(circle at 50% 10%, rgba(37, 99, 235, 0.07), transparent 60%), var(--surface);
+            background:
+                radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.08), transparent 45%),
+                radial-gradient(circle at 80% 10%, rgba(15, 118, 110, 0.08), transparent 45%),
+                var(--surface);
             border-bottom: 1px solid var(--border);
             position: relative;
         }
@@ -84,24 +97,24 @@
             background: var(--surface-soft);
             color: var(--primary);
             border: 1px solid var(--border);
-            padding: 8px 20px;
+            padding: 7px 18px;
             border-radius: 9999px;
             font-weight: 700;
-            font-size: 0.85rem;
-            margin-bottom: 22px;
+            font-size: 0.84rem;
+            margin-bottom: 18px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             box-shadow: var(--shadow-sm);
         }
         .hero h1 {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: clamp(2.4rem, 6.5vw, 4.4rem);
+            font-family: 'Rajdhani', 'Noto Sans Devanagari', sans-serif;
+            font-size: clamp(2.2rem, 5.5vw, 3.9rem);
             color: var(--text);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             letter-spacing: -0.02em;
-            line-height: 1.12;
-            font-weight: 700;
+            line-height: 1.15;
+            font-weight: 800;
         }
         .hero h1 span {
             background: linear-gradient(135deg, #d97706, #f59e0b);
@@ -110,39 +123,62 @@
         }
         .hero p {
             max-width: 780px;
-            margin: auto;
+            margin: 0 auto 24px;
             color: var(--muted);
-            font-size: 1.08rem;
+            font-size: 1.05rem;
             line-height: 1.7;
         }
+
+        /* Quick Stats Pills in Hero */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .stat-pill {
+            background: var(--surface-soft);
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .stat-pill i { color: var(--primary); }
 
         /* Sticky Navigation */
         .top-nav {
             position: sticky;
             top: 0;
             z-index: 999;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
-            padding: 8px 0;
+            padding: 10px 0;
             transition: background 0.3s;
         }
         [data-theme="dark"] .top-nav {
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(15, 23, 42, 0.88);
         }
         .nav-inner {
-            max-width: 1240px;
+            max-width: 1260px;
             margin: auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
-            gap: 15px;
+            gap: 12px;
         }
         .nav-links {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             overflow-x: auto;
             white-space: nowrap;
             padding: 4px 0;
@@ -152,11 +188,14 @@
         .nav-links a {
             text-decoration: none;
             color: var(--muted);
-            font-size: 0.88rem;
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 12px;
+            font-size: 0.86rem;
+            font-weight: 700;
+            padding: 8px 14px;
+            border-radius: 10px;
             transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
         .nav-links a:hover {
             background: var(--surface-soft);
@@ -165,12 +204,12 @@
         .theme-toggle {
             background: var(--surface-soft);
             border: 1px solid var(--border);
-            padding: 8px 16px;
-            border-radius: 12px;
+            padding: 8px 14px;
+            border-radius: 10px;
             cursor: pointer;
             color: var(--text);
-            font-weight: 600;
-            font-size: 0.85rem;
+            font-weight: 700;
+            font-size: 0.84rem;
             display: inline-flex;
             align-items: center;
             gap: 6px;
@@ -183,115 +222,203 @@
         }
 
         /* Main Container */
-        .container { max-width: 1240px; margin: auto; padding: 45px 20px 80px; }
+        .container { max-width: 1260px; margin: auto; padding: 36px 20px 80px; }
 
-        /* Calm Banner */
+        /* Top Intro Grid: Calm Banner + About Us Spotlight */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 24px;
+            margin-bottom: 36px;
+            align-items: stretch;
+        }
         .calm-banner {
             background: linear-gradient(135deg, var(--surface), var(--surface-soft));
-            border-radius: 24px;
-            padding: 35px 30px;
-            margin-bottom: 60px;
+            border-radius: 20px;
+            padding: 28px;
             border: 1px solid var(--border);
             display: flex;
-            gap: 25px;
-            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            gap: 16px;
             box-shadow: var(--shadow-sm);
         }
+        .calm-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
         .calm-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 18px;
-            background: rgba(37, 99, 235, 0.1);
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(37, 99, 235, 0.12);
             color: var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             flex-shrink: 0;
         }
-        .calm-text h2 { margin-bottom: 6px; font-size: 1.45rem; font-weight: 700; color: var(--text); }
-        .calm-text p { color: var(--muted); font-size: 0.98rem; }
+        .calm-text h2 { font-size: 1.35rem; font-weight: 800; color: var(--text); }
+        .calm-text p { color: var(--muted); font-size: 0.94rem; line-height: 1.65; }
+
+        /* Search & Quick Filter Bar */
+        .search-bar-wrap {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 16px 20px;
+            margin-bottom: 45px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+        }
+        .search-input-box {
+            flex: 1 1 320px;
+            position: relative;
+        }
+        .search-input-box i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+        }
+        .search-input {
+            width: 100%;
+            padding: 11px 16px 11px 40px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--surface-soft);
+            color: var(--text);
+            font-size: 0.95rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-input:focus {
+            border-color: var(--primary);
+            background: var(--surface);
+        }
+        .search-count {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--muted);
+        }
 
         /* Section Headings */
         .section-header {
-            margin-bottom: 30px;
-            margin-top: 40px;
+            margin-bottom: 24px;
+            margin-top: 50px;
             display: flex;
             flex-direction: column;
             gap: 6px;
         }
-        .section-header:first-of-type { margin-top: 0; }
         .section-header h2 {
-            font-size: 2rem;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
+            font-size: clamp(1.55rem, 3vw, 2rem);
+            font-family: 'Rajdhani', 'Noto Sans Devanagari', sans-serif;
+            font-weight: 800;
             display: flex;
             align-items: center;
             gap: 12px;
             color: var(--text);
-            letter-spacing: -0.01em;
         }
         .section-header h2::after {
             content: '';
             flex: 1;
-            height: 1px;
+            height: 2px;
             background: var(--border);
             margin-left: 10px;
         }
-        .section-header p { color: var(--muted); font-size: 0.98rem; max-width: 750px; }
+        .section-header p { color: var(--muted); font-size: 0.96rem; max-width: 780px; }
+
+        /* Sub-Section Banner for Large Categories (Education) */
+        .subsection-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: var(--surface-soft);
+            border-left: 5px solid var(--primary);
+            border-radius: 10px;
+            padding: 12px 18px;
+            margin: 28px 0 18px;
+        }
+        .subsection-banner h3 {
+            font-size: 1.12rem;
+            font-weight: 800;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .subsection-banner span {
+            font-size: 0.8rem;
+            font-weight: 700;
+            background: var(--surface);
+            color: var(--muted);
+            padding: 4px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+        }
 
         /* Uniform Card Grid */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 24px;
-            margin-bottom: 45px;
+            gap: 22px;
+            margin-bottom: 36px;
         }
 
         /* Card System */
         .card {
             background: var(--surface-card);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 26px;
+            border-top-width: 4px;
+            border-radius: 18px;
+            padding: 24px;
             box-shadow: var(--shadow);
-            transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
         }
         .card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-hover);
         }
 
         .badge, .card-badge {
             font-size: 0.76rem;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            padding: 6px 14px;
-            border-radius: 10px;
+            letter-spacing: 0.4px;
+            padding: 5px 12px;
+            border-radius: 8px;
             width: fit-content;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             display: inline-flex;
             align-items: center;
             gap: 6px;
         }
 
         .card h2, .card h3 {
-            font-size: 1.35rem;
-            margin-bottom: 12px;
-            line-height: 1.35;
-            font-weight: 700;
+            font-size: 1.28rem;
+            margin-bottom: 10px;
+            line-height: 1.38;
+            font-weight: 800;
             color: var(--text);
         }
         .card p {
             color: var(--muted);
-            font-size: 0.94rem;
+            font-size: 0.92rem;
             line-height: 1.65;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             flex-grow: 1;
         }
 
@@ -299,11 +426,11 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 20px;
-            border-radius: 12px;
+            padding: 11px 18px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             transition: all 0.2s ease;
             gap: 8px;
             border: none;
@@ -311,7 +438,7 @@
             width: 100%;
         }
         .btn:hover {
-            opacity: 0.94;
+            opacity: 0.93;
             transform: translateY(-1px);
         }
 
@@ -343,25 +470,77 @@
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
         }
 
+        /* Empty Search State */
+        #noResultsMsg {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--surface);
+            border: 1px dashed var(--border);
+            border-radius: 16px;
+            margin-bottom: 30px;
+            color: var(--muted);
+        }
+
+        /* Back to Top Floating Button */
+        #backToTop {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 998;
+            transition: transform 0.2s;
+        }
+        #backToTop:hover { transform: translateY(-3px); }
+
         /* Footer */
         footer {
             background: var(--surface);
-            padding: 60px 20px 40px;
+            padding: 55px 20px 40px;
             text-align: center;
             border-top: 1px solid var(--border);
             margin-top: 60px;
         }
         .footer-counter {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             display: inline-block;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .footer-links a {
+            text-decoration: none;
+            font-size: 0.86rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: var(--surface-soft);
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
         }
 
         /* Responsive Tweaks */
+        @media (max-width: 920px) {
+            .intro-grid { grid-template-columns: 1fr; }
+        }
         @media (max-width: 768px) {
-            .hero { padding: 65px 16px 40px; }
-            .nav-inner { flex-direction: column; align-items: stretch; gap: 12px; }
-            .theme-toggle { align-self: flex-end; }
-            .calm-banner { flex-direction: column; text-align: center; padding: 25px 20px; }
+            .hero { padding: 52px 16px 36px; }
+            .nav-inner { flex-wrap: wrap; }
             .grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -376,32 +555,25 @@
     </div>
     <h1>Digital Office:<br><span>Paresh Kumar Hansda</span></h1>
     <p>एक शांत डिजिटल मंच जहाँ ज्ञान, आत्मचिंतन और आधुनिक तकनीक का संगम होता है। यहाँ हम तर्क और विवेक के साथ अपनी शिक्षा बाँटते हैं।</p>
+    <div class="hero-stats">
+        <span class="stat-pill"><i class="fa-solid fa-layer-group"></i> 60+ इंटरएक्टिव पोर्टल्स एवं टूल्स</span>
+        <span class="stat-pill"><i class="fa-solid fa-bullseye"></i> JHTET 2026 & SKMU M.A. History</span>
+        <span class="stat-pill"><i class="fa-solid fa-coins"></i> वित्तीय साक्षरता व स्टोइक दर्शन</span>
+    </div>
 </header>
 
-  <!-- About Us & Platform Overview Card -->
-  <div class="card" style="border-color: #1e3a8a; box-shadow: 0 4px 18px rgba(30, 58, 138, 0.16); background: #ffffff;">
-    <div>
-      <div class="badge" style="color: #1e3a8a; background: #e0e7ff; font-weight: bold; border: 1px solid #c7d2fe;">🏛️ हमारे बारे में (About Us & Vision)</div>
-      <h2 style="color: #0f172a;">डिजिटल अध्ययन पोर्टल परिचय<br><span style="font-size: 1.1rem; color: #1e3a8a;">(परेश कुमार हांसदा एवं बुलबुल कुमारी)</span></h2>
-      <p style="color: #475569;">इलेक्ट्रिकल इंजीनियरिंग व वेब तकनीक (Paresh Kumar Hansda) और इतिहास स्नातकोत्तर अध्ययन (Bulbul Kumari — M.A. History) के संगम से निर्मित इस निःशुल्क शैक्षणिक मंच एवं <strong>"The Blueprint for a Better Life | Prakriti Maa 🌿"</strong> WhatsApp चैनल का संपूर्ण परिचय!</p>
-    </div>
-    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-      <a href="about.html" class="btn" style="background: linear-gradient(135deg, #0f172a, #1e3a8a); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(30, 58, 138, 0.28);">हमारे बारे में पढ़ें ➔</a>
-      <a href="https://whatsapp.com/channel/0029VbAwkaGFnSz4bbgzh617" target="_blank" rel="noopener noreferrer" class="btn" style="background: linear-gradient(135deg, #16a34a, #15803d); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(22, 163, 74, 0.28);">🌿 WhatsApp चैनल ➔</a>
-    </div>
-  </div>
-
-<nav class="top-nav">
+<nav class="top-nav" aria-label="मुख्य नेविगेशन">
     <div class="nav-inner">
         <div class="nav-links">
-            <a href="#emergency"><i class="fa-solid fa-triangle-exclamation"></i> आपातकाल व जनसेवा</a>
-            <a href="#finance"><i class="fa-solid fa-coins"></i> वित्तीय समझ व रणनीति</a>
-            <a href="#education"><i class="fa-solid fa-graduation-cap"></i> उच्च शिक्षा व परीक्षा</a>
-            <a href="#ai-tech"><i class="fa-solid fa-microchip"></i> तकनीक व AI</a>
-            <a href="#philosophy"><i class="fa-solid fa-compass"></i> आत्मचिंतन व दर्शन</a>
-            <a href="#stoic"><i class="fa-solid fa-landmark"></i> दैनिक स्टोइक ध्यान</a>
+            <a href="#about-spotlight"><i class="fa-solid fa-circle-info"></i> परिचय</a>
+            <a href="#education"><i class="fa-solid fa-graduation-cap"></i> JHTET व उच्च शिक्षा (29)</a>
+            <a href="#finance"><i class="fa-solid fa-coins"></i> वित्तीय समझ (10)</a>
+            <a href="#emergency"><i class="fa-solid fa-triangle-exclamation"></i> जनसेवा व सहायता (7)</a>
+            <a href="#ai-tech"><i class="fa-solid fa-microchip"></i> तकनीक व AI (6)</a>
+            <a href="#philosophy"><i class="fa-solid fa-compass"></i> आत्मचिंतन व EQ (12)</a>
+            <a href="#stoic"><i class="fa-solid fa-landmark"></i> स्टोइक ध्यान (9)</a>
         </div>
-        <button class="theme-toggle" id="themeBtn">
+        <button class="theme-toggle" id="themeBtn" type="button">
             <i class="fa-solid fa-moon"></i> <span>Dark Mode</span>
         </button>
     </div>
@@ -409,20 +581,522 @@
 
 <main class="container">
 
-    <section class="calm-banner">
-        <div class="calm-icon">
-            <i class="fa-solid fa-feather-pointed"></i>
+    <!-- TOP INTRO & ABOUT US SPOTLIGHT -->
+    <div class="intro-grid" id="about-spotlight">
+        <section class="calm-banner">
+            <div class="calm-header">
+                <div class="calm-icon">
+                    <i class="fa-solid fa-feather-pointed"></i>
+                </div>
+                <div class="calm-text">
+                    <h2>धीरे पढ़ें • जल्दी नहीं</h2>
+                </div>
+            </div>
+            <div class="calm-text">
+                <p>जीवन की भागदौड़ के बीच, यह स्थान आपको रुकने और सोचने की जगह देता है। यदि मन भारी हो, तो एक-एक सेक्शन को गहराई से समझें। जानकारी सिर्फ डेटा नहीं, वह आपका सहारा बन सकती है।</p>
+                <p style="margin-top:10px; font-style:italic; font-weight: 600; color:var(--primary);">"शांति जगह में नहीं, मन में होती है।"</p>
+            </div>
+        </section>
+
+        <!-- About Us & Platform Overview Card (Properly Integrated in Layout) -->
+        <div class="card" style="border-color: #1e3a8a; box-shadow: 0 4px 18px rgba(30, 58, 138, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #1e3a8a; background: #e0e7ff; font-weight: bold; border: 1px solid #c7d2fe;">🏛️ हमारे बारे में (About Us & Vision)</div>
+                <h2 style="color: #0f172a;">डिजिटल अध्ययन पोर्टल परिचय<br><span style="font-size: 1.05rem; color: #1e3a8a;">(परेश कुमार हांसदा एवं बुलबुल कुमारी)</span></h2>
+                <p style="color: #475569; margin-bottom: 16px;">इलेक्ट्रिकल इंजीनियरिंग व वेब तकनीक (Paresh Kumar Hansda) और इतिहास स्नातकोत्तर अध्ययन (Bulbul Kumari — M.A. History) के संगम से निर्मित इस निःशुल्क शैक्षणिक मंच एवं <strong>"The Blueprint for a Better Life | Prakriti Maa 🌿"</strong> WhatsApp चैनल का संपूर्ण परिचय!</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                <a href="about.html" class="btn" style="background: linear-gradient(135deg, #0f172a, #1e3a8a); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(30, 58, 138, 0.28);">हमारे बारे में पढ़ें ➔</a>
+                <a href="https://whatsapp.com/channel/0029VbAwkaGFnSz4bbgzh617" target="_blank" rel="noopener noreferrer" class="btn" style="background: linear-gradient(135deg, #16a34a, #15803d); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(22, 163, 74, 0.28);">🌿 WhatsApp चैनल ➔</a>
+            </div>
         </div>
-        <div class="calm-text">
-            <h2>धीरे पढ़ें • जल्दी नहीं</h2>
-            <p>जीवन की भागदौड़ के बीच, यह स्थान आपको रुकने और सोचने की जगह देता है। यदि मन भारी हो, तो एक-एक सेक्शन को गहराई से समझें। जानकारी सिर्फ डेटा नहीं, वह आपका सहारा बन सकती है।</p>
-            <p style="margin-top:8px; font-style:italic; color:var(--muted);">"शांति जगह में नहीं, मन में होती है।"</p>
+    </div>
+
+    <!-- INSTANT SEARCH BAR -->
+    <div class="search-bar-wrap">
+        <div class="search-input-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" id="portalSearch" class="search-input" placeholder="किसी भी पोर्टल, विषय या टूल को खोजें (जैसे: JHTET, Santhali, Khortha, SKMU, EMI, Stoic, EQ)..." oninput="filterCards()">
         </div>
+        <div class="search-count" id="searchCountText">कुल 63 पोर्टल उपलब्ध</div>
+    </div>
+
+    <div id="noResultsMsg">
+        <h3>🔍 कोई पोर्टल नहीं मिला</h3>
+        <p>कृपया कोई दूसरा शब्द (जैसे 'JHTET', 'History', 'Loan', 'AI') टाइप करके देखें।</p>
+    </div>
+
+    <!-- ===================================================================
+         SECTION 1: ACADEMIC EDUCATION, JHTET 2026 & UNIVERSITY EXAMS
+    ==================================================================== -->
+    <section id="education" class="section-header">
+        <h2><i class="fa-solid fa-graduation-cap" style="color:var(--primary);"></i> पढ़ाई, शिक्षक पात्रता (JHTET 2026) एवं विश्वविद्यालय</h2>
+        <p>झारखंड शिक्षक पात्रता परीक्षा (JHTET Paper-2), SKMU M.A. History (Semester 1 & 2), JPSC, NEET और प्रतियोगी परीक्षाओं की संपूर्ण अध्ययन सामग्री।</p>
     </section>
 
-    <!-- SECTION 1: EMERGENCY & PUBLIC ASSISTANCE -->
+    <!-- SUB-GROUP 1A: JAC JHTET 2026 MASTER ECOSYSTEM (15 PORTALS) -->
+    <div class="subsection-banner" style="border-left-color: #4f46e5;">
+        <h3>🎯 1A. JAC JHTET 2026 मास्टर अध्ययन एवं महा-मॉक टेस्ट हब</h3>
+        <span>15 समर्पित पोर्टल्स</span>
+    </div>
+    <div class="grid">
+
+        <!-- JHTET 2026 Comprehensive Exam Hub & Mock Portal Card -->
+        <div class="card" style="border-color: #4f46e5; box-shadow: 0 4px 18px rgba(79, 70, 229, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #4f46e5; background: #eef2ff; font-weight: bold; border: 1px solid #c7d2fe;">🎯 JHTET 2026 महा-हब & मॉक पोर्टल</div>
+                <h2 style="color: #0f172a;">JHTET 2026 परीक्षा तैयारी हब<br><span style="font-size: 1.1rem; color: #4f46e5;">(Full Mock & Master Portals)</span></h2>
+                <p style="color: #475569;">झारखंड शिक्षक पात्रता परीक्षा (JHTET 2026) हेतु संपूर्ण तैयारी पोर्टल: Paper-2 सामाजिक अध्ययन एवं विज्ञान महा-मॉक टेस्ट, CDP इनसाइक्लोपीडिया, कंप्यूटर ज्ञान तथा खोरठा व संथाली भाषा के मास्टर गाइड!</p>
+            </div>
+            <a href="crack_jtet.html" class="btn" style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);">JHTET हब खोलें ➔</a>
+        </div>
+
+        <!-- JHTET 2026 Paper-2 Full 150-Question Mock Test (As Per Official Syllabus) Card -->
+        <div class="card" style="border-color: #4f46e5; box-shadow: 0 4px 18px rgba(79, 70, 229, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #4f46e5; background: #eef2ff; font-weight: bold; border: 1px solid #c7d2fe;">🏆 JHTET 2026 महा-मॉक (पाठ्यक्रम आधारित)</div>
+                <h2 style="color: #0f172a;">JHTET Paper-2 पूर्ण मॉक टेस्ट<br><span style="font-size: 1.1rem; color: #4f46e5;">(Official Syllabus • 150 प्रश्न)</span></h2>
+                <p style="color: #475569;">नवीनतम आधिकारिक सिलेबस के अनुसार 150 प्रश्न: CDP (30) + हिंदी (15) + English (15) + क्षेत्रीय भाषा-2 (30) + सामाजिक अध्ययन (50) + कंप्यूटर ज्ञान व डिजिटल शिक्षण (10)। लाइव टाइमर व प्रिंटेबल स्कोरकार्ड!</p>
+            </div>
+            <a href="jtet26_as_per_Syllabus.html" class="btn" style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);">सिलेबस आधारित टेस्ट दें ➔</a>
+        </div>
+
+        <!-- JHTET 2026 Paper-2 Full 150-Question Mock Test (Maths & Science Stream) Card -->
+        <div class="card" style="border-color: #0284c7; box-shadow: 0 4px 18px rgba(2, 132, 199, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #0369a1; background: #e0f2fe; font-weight: bold; border: 1px solid #bae6fd;">🔬 JHTET 2026 विज्ञान महा-मॉक (150 प्रश्न)</div>
+                <h2 style="color: #0f172a;">JHTET Paper-2 गणित एवं विज्ञान<br><span style="font-size: 1.1rem; color: #0284c7;">(Official Syllabus • Maths & Science)</span></h2>
+                <p style="color: #475569;">नवीनतम आधिकारिक सिलेबस के अनुसार 150 प्रश्न: CDP (30) + हिंदी (15) + English (15) + क्षेत्रीय भाषा-2 (30) + गणित एवं विज्ञान (50) + कंप्यूटर ज्ञान व डिजिटल शिक्षण (10)। लाइव टाइमर व प्रिंटेबल स्कोरकार्ड!</p>
+            </div>
+            <a href="jtet26Science_as_per_Syllabus.html" class="btn" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.28);">गणित-विज्ञान टेस्ट दें ➔</a>
+        </div>
+
+        <!-- JHTET 2026 Paper-2 Full 150-Question Mock Test (with Computer Knowledge) Card -->
+        <div class="card" style="border-color: #4f46e5; box-shadow: 0 4px 18px rgba(79, 70, 229, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #4f46e5; background: #eef2ff; font-weight: bold; border: 1px solid #c7d2fe;">🏆 JHTET 2026 महा-मॉक टेस्ट (150 प्रश्न)</div>
+                <h2 style="color: #0f172a;">JHTET Paper-2 पूर्ण मॉक टेस्ट<br><span style="font-size: 1.1rem; color: #4f46e5;">(SST + भाषा-2 + कंप्यूटर ज्ञान)</span></h2>
+                <p style="color: #475569;">संपूर्ण 150 प्रश्नों का नवीनतम मॉक टेस्ट: CDP (30) + हिंदी (15) + English (15) + क्षेत्रीय भाषा-2 (30) + सामाजिक अध्ययन (50) + कंप्यूटर ज्ञान (10)। लाइव 150-मिनट टाइमर, खंडवार विश्लेषण और प्रिंटेबल स्कोरकार्ड!</p>
+            </div>
+            <a href="jtet26.html" class="btn" style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);">150 प्रश्नों का टेस्ट दें ➔</a>
+        </div>
+
+        <!-- JHTET Paper-2 Full 150-Question Mock Test Portal Card -->
+        <div class="card" style="border-color: #4f46e5; box-shadow: 0 4px 18px rgba(79, 70, 229, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #4f46e5; background: #eef2ff; font-weight: bold; border: 1px solid #c7d2fe;">📝 JHTET फुल मॉक टेस्ट (150 प्रश्न)</div>
+                <h2 style="color: #0f172a;">JHTET Paper-2 पूर्ण अभ्यास<br><span style="font-size: 1.1rem; color: #4f46e5;">(150 अंक • 2.5 घंटे • SST Stream)</span></h2>
+                <p style="color: #475569;">पूर्ण 150 प्रश्नों का महा-मॉक टेस्ट: CDP (30) + हिंदी (15) + English (15) + भाषा-2 (30) + सामाजिक अध्ययन (60)। लाइव 150-मिनट टाइमर, खंडवार विश्लेषण, और श्रेणी-वार कट-ऑफ स्कोरकार्ड!</p>
+            </div>
+            <a href="test.html" class="btn" style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);">फुल मॉक टेस्ट शुरू करें ➔</a>
+        </div>
+
+        <!-- JHTET Level-2 Social Studies 30-Question Mock Test Card -->
+        <div class="card" style="border-color: #4f46e5; box-shadow: 0 4px 18px rgba(79, 70, 229, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #4f46e5; background: #eef2ff; font-weight: bold; border: 1px solid #c7d2fe;">🎯 JHTET 2026 मॉक टेस्ट (Level-2)</div>
+                <h2 style="color: #0f172a;">JHTET लेवल-2 (VI–VIII)<br><span style="font-size: 1.1rem; color: #4f46e5;">सामाजिक अध्ययन एवं भाषा-2 पोर्टल</span></h2>
+                <p style="color: #475569;">30 बहुविकल्पीय प्रश्नों का लाइव इंटरएक्टिव मॉक टेस्ट (भाषा खोरठा/नागपुरी/संथाली + SST + CDP), 30-मिनट टाइमर, श्रेणी-वार कट-ऑफ मूल्यांकन (Gen/BC/SC-ST) और त्वरित रिवीजन नोट्स!</p>
+            </div>
+            <a href="practice302.html" class="btn" style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);">मॉक टेस्ट शुरू करें ➔</a>
+        </div>
+
+        <!-- JHTET 2026 Level-2 Child Development & Pedagogy (CDP) Master Portal Card -->
+        <div class="card" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🧠 JHTET 2026 CDP इनसाइक्लोपीडिया (30 अंक)</div>
+                <h2 style="color: #0f172a;">बाल विकास एवं शिक्षणशास्त्र<br><span style="font-size: 1.1rem; color: #0f766e;">(CDP Master Portal • Level-2)</span></h2>
+                <p style="color: #475569;">पियाजे, वायगोत्स्की, कोहलबर्ग, एरिक्सन, गार्डनर, चोम्स्की, थार्नडाइक, पावलव, स्किनर, कोहलर, बंडूरा, ब्लूम्स टैक्सोनॉमी, अधिगम विकार, NEP 2020, पेडागोजी टैग-वर्ड्स व 30 लाइव MCQs!</p>
+            </div>
+            <a href="jhtet_cdp_master_portal3.html" class="btn" style="background: linear-gradient(135deg, #0f766e, #047857); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">संपूर्ण CDP मास्टर गाइड पढ़ें ➔</a>
+        </div>
+
+        <!-- JHTET 2026 Paper-2 Computer Knowledge (10 Marks) Master Portal Card -->
+        <div class="card" style="border-color: #0d9488; box-shadow: 0 4px 18px rgba(13, 148, 136, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🖥️ JHTET 2026 कंप्यूटर ज्ञान (10 अंक)</div>
+                <h2 style="color: #0f172a;">कंप्यूटर एवं डिजिटल शिक्षण<br><span style="font-size: 1.1rem; color: #0f766e;">(Computer Master Portal • Paper-2)</span></h2>
+                <p style="color: #475569;">कंप्यूटर की 5 पीढ़ियाँ, CPU, मेमोरी इकाइयाँ, इनपुट-आउटपुट, कीबोर्ड शॉर्टकट्स (F1–F12, Ctrl/Win), MS Office (Word, Excel, PowerPoint), इंटरनेट, साइबर सुरक्षा, DIKSHA, NISHTHA व 30 लाइव MCQs!</p>
+            </div>
+            <a href="jhtet_computer_portal3.html" class="btn" style="background: linear-gradient(135deg, #0f766e, #0284c7); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">कंप्यूटर मास्टर पोर्टल खोलें ➔</a>
+        </div>
+
+        <!-- JHTET 2026 Level-2 Regional Language Santhali Portal Card -->
+        <div class="card" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🏹 JHTET 2026 संथाली मास्टर पोर्टल (30 अंक)</div>
+                <h2 style="color: #0f172a;">भाषा-2 जनजातीय भाषा: संथाली<br><span style="font-size: 1.1rem; color: #0f766e;">(Official Syllabus • Level-2)</span></h2>
+                <p style="color: #475569;">नवीनतम JAC सिलेबस के अनुसार: संथाली उद्भव व 12 गोत्र (पारिस), ओलचिकी लिपि (1925), 92वाँ संविधान संशोधन (2003), व्याकरण (त्रि-वचन, मध्यसर्ग, कारक), मांझी-परगना शासन व्यवस्था, लोक/शिष्ट साहित्य एवं 30 लाइव MCQs!</p>
+            </div>
+            <a href="jhtet_santhali_master_portal2.html" class="btn" style="background: linear-gradient(135deg, #0f766e, #047857); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">संपूर्ण संथाली मास्टर गाइड पढ़ें ➔</a>
+        </div>
+
+        <!-- JHTET 2026 Santhali 5-Unit Master Index Hub Card -->
+        <div class="card" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🏹 JHTET संथाली 5-इकाई मास्टर हब (100 MCQs)</div>
+                <h2 style="color: #0f172a;">संथाली मास्टर इंडेक्स<br><span style="font-size: 1.1rem; color: #0f766e;">(सभी 5 इकाइयाँ • 100 अभ्यास प्रश्न)</span></h2>
+                <p style="color: #475569;">JHTET भाषा-2 संथाली खंड हेतु सभी 5 इकाइयों का संपूर्ण संग्रह: इकाई 1 (लिपियाँ व इतिहास) + इकाई 2 (व्याकरण) + इकाई 3 (लोकसाहित्य व पर्व) + इकाई 4 (स्वाधीनता सेनानी) + इकाई 5 (भाषा शिक्षण शास्त्र) और प्रत्येक इकाई पर 20-20 लाइव MCQs!</p>
+            </div>
+            <a href="jhtet_santhali_m_portal.html" class="btn" style="background: linear-gradient(135deg, #1e3a8a, #0f766e); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">संथाली मास्टर इंडेक्स खोलें ➔</a>
+        </div>
+
+        <!-- JHTET 2026 Level-2 Regional Language Khortha Portal Card -->
+        <div class="card" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🌾 JHTET 2026 खोरठा मास्टर पोर्टल (30 अंक)</div>
+                <h2 style="color: #0f172a;">भाषा-2 क्षेत्रीय भाषा: खोरठा<br><span style="font-size: 1.1rem; color: #0f766e;">(Official Syllabus • Level-2)</span></h2>
+                <p style="color: #475569;">नवीनतम JAC सिलेबस (14.03.2026) के अनुसार: खोरठा उद्भव व 16 जिले, देवनागरी वर्तनी व ध्वनि नियम, विस्तृत व्यावहारिक शब्दावली (परिवार, खेती, समय), व्याकरण (संज्ञा-कारक-काल), लोक/शिष्ट साहित्य एवं 30 लाइव MCQs!</p>
+            </div>
+            <a href="jhtet_khortha_master_portal3.html" class="btn" style="background: linear-gradient(135deg, #0f766e, #047857); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">संपूर्ण खोरठा मास्टर गाइड पढ़ें ➔</a>
+        </div>
+
+        <!-- JHTET 2026 Paper 2 Hindi Master Study Portal Card -->
+        <div class="card" style="border-color: #173b70; box-shadow: 0 4px 18px rgba(23, 59, 112, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #173b70; background: #eaf2ff; font-weight: bold; border: 1px solid #cbd5e1;">📖 JHTET 2026 हिंदी मास्टर पोर्टल (Paper 2)</div>
+                <h2 style="color: #0f172a;">हिंदी भाषा एवं शिक्षणशास्त्र<br><span style="font-size: 1.1rem; color: #173b70;">(उच्च प्राथमिक स्तर • 19 संपूर्ण अध्याय)</span></h2>
+                <p style="color: #475569;">भाषायी समझ (गद्यांश-पद्यांश), संपूर्ण व्याकरण (शब्द-भेद, संज्ञा-सर्वनाम, लिंग-वचन, विशेषण-क्रिया, कारक-काल, संधि-समास, उपसर्ग-प्रत्यय, अलंकार, मुहावरे) एवं हिंदी पेडागोजी (भाषा-कौशल, शिक्षण विधियाँ व उपचारात्मक शिक्षण) के इंटरएक्टिव MCQs सहित नोट्स!</p>
+            </div>
+            <a href="jhtet-hindi-master-portal1.html" class="btn" style="background: linear-gradient(135deg, #173b70, #2563eb); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(23, 59, 112, 0.28);">हिंदी मास्टर पोर्टल खोलें ➔</a>
+        </div>
+
+        <!-- JHTET 2026 Paper 2 English Master Study Index Card -->
+        <div class="card" style="border-color: #173b67; box-shadow: 0 4px 18px rgba(23, 59, 103, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #173b67; background: #e8efff; font-weight: bold; border: 1px solid #dce4ef;">📘 JHTET 2026 English मास्टर पोर्टल (Paper 2)</div>
+                <h2 style="color: #0f172a;">English Language & Pedagogy<br><span style="font-size: 1.1rem; color: #2563eb;">(Upper Primary • 25 संपूर्ण टॉपिक्स)</span></h2>
+                <p style="color: #475569;">Comprehension (Unseen Passage), Language Pedagogy (Learning & Acquisition, LSRW Skills, Remedial Teaching, NEP 2020), संपूर्ण Grammar & Vocabulary (Tense, Voice, Narration, Figures of Speech, Sonnet) एवं Practice Test का लाइव प्रोग्रेस ट्रैकर व सर्च-युक्त अध्ययन केंद्र!</p>
+            </div>
+            <a href="JHTET-English.html" class="btn" style="background: linear-gradient(135deg, #173b67, #2563eb); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);">English स्टडी पोर्टल खोलें ➔</a>
+        </div>
+
+        <!-- JHTET Paper 2 SST History Master Index Card -->
+        <div class="card" style="border-color: #2980b9; box-shadow: 0 4px 18px rgba(41, 128, 185, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #2980b9; background: #ebf5fb; font-weight: bold; border: 1px solid #aed6f1;">📜 JHTET 2026 SST इतिहास (मास्टर इंडेक्स)</div>
+                <h2 style="color: #1a252f;">सामाजिक अध्ययन: इतिहास<br><span style="font-size: 1.1rem; color: #2980b9;">(JHTET Paper 2 • Class 6-8)</span></h2>
+                <p style="color: #475569;">प्राचीन भारत, मध्यकालीन भारत, आधुनिक भारत एवं स्वतंत्रता संग्राम (15 अध्यायों की संपूर्ण मास्टर सूची): मौर्य साम्राज्य, मुग़ल, संताल विद्रोह, 1857 की क्रांति और राष्ट्रीय आंदोलन!</p>
+            </div>
+            <a href="jtet_sst_history.html" class="btn" style="background: linear-gradient(135deg, #2980b9, #1f618d); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(41, 128, 185, 0.28);">इतिहास इंडेक्स खोलें ➔</a>
+        </div>
+
+        <!-- JHTET 2026 Social & Political Life Master Index Card -->
+        <div class="card" style="border-color: #17365d; box-shadow: 0 4px 18px rgba(23, 54, 93, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #17365d; background: #e7eff9; font-weight: bold; border: 1px solid #b3d1f2;">🏛️ JHTET 2026 सामाजिक व राजनीतिक जीवन</div>
+                <h2 style="color: #0f172a;">सामाजिक एवं राजनीतिक जीवन<br><span style="font-size: 1.1rem; color: #1769aa;">(JHTET Paper 2 • Class 6-8 Civics)</span></h2>
+                <p style="color: #475569;">कक्षा 6–8 नागरिक शास्त्र (Civics) हेतु 97 विषयों की संपूर्ण मास्टर सूची: विविधता की समझ, संविधान, मौलिक अधिकार व कर्तव्य, राज्य सरकार, स्थानीय सरकार (पंचायती राज), समानता और संसदीय सरकार!</p>
+            </div>
+            <a href="jhtet-social-political-life2.html" class="btn" style="background: linear-gradient(135deg, #17365d, #245b88); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(23, 54, 93, 0.28);">सिविक्स मास्टर इंडेक्स खोलें ➔</a>
+        </div>
+
+        <!-- JHTET 2026 Geography 17-Topic Master Hub Card -->
+        <div class="card" style="border-color: #0d9488; box-shadow: 0 4px 18px rgba(13, 148, 136, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🌍 JHTET 2026 भूगोल मास्टर हब (17 विषय)</div>
+                <h2 style="color: #0f172a;">भूगोल: संपूर्ण अध्ययन सूची<br><span style="font-size: 1.1rem; color: #0d9488;">(JHTET Paper 2 • Class 6-8 Geography)</span></h2>
+                <p style="color: #475569;">कक्षा 6–8 भूगोल हेतु 17 विषयों के इंटरैक्टिव स्टडी नोट्स: सौर मंडल, पृथ्वी की गतियाँ, वायुमंडल, जलमंडल, मरुस्थलीय जीवन, प्राकृतिक संसाधन, भारत की स्थिति एवं झारखंड का भूगोल!</p>
+            </div>
+            <a href="jhtet-master-index.html" class="btn" style="background: linear-gradient(135deg, #1e3a8a, #0d9488); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(13, 148, 136, 0.28);">भूगोल मास्टर हब खोलें ➔</a>
+        </div>
+
+        <!-- JHTET 2026 Economics 10-Topic Master Study Portal Card -->
+        <div class="card" style="border-color: #174ea6; box-shadow: 0 4px 18px rgba(23, 78, 166, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #123875; background: #e8f0fe; font-weight: bold; border: 1px solid #bfdbfe;">📈 JHTET 2026 अर्थशास्त्र मास्टर पोर्टल (10 विषय)</div>
+                <h2 style="color: #0f172a;">सामाजिक विज्ञान: अर्थशास्त्र<br><span style="font-size: 1.1rem; color: #174ea6;">(JHTET Paper 2 • Class 6-8 Economics)</span></h2>
+                <p style="color: #475569;">अर्थशास्त्र के 10 विषयों की संपूर्ण अध्ययन सामग्री: आजीविका के साधन, व्यावसायिक क्रिया, मुद्रा एवं विनिमय, जनसंख्या वृद्धि (भारत व झारखंड), सार्वजनिक वितरण प्रणाली (PDS), बचत व फसलें, सहकारी संस्थाएँ, बाजार, आर्थिक-सामाजिक मूल्य एवं वित्तीय साक्षरता (MCQs व पुनरावृत्ति सहित)!</p>
+            </div>
+            <a href="jhtet-economics.html" class="btn" style="background: linear-gradient(135deg, #123875, #174ea6); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(23, 78, 166, 0.28);">अर्थशास्त्र मास्टर पोर्टल खोलें ➔</a>
+        </div>
+
+    </div>
+
+    <!-- SUB-GROUP 1B: SKMU M.A. HISTORY (SEMESTER 2 & SEMESTER 1) -->
+    <div class="subsection-banner" style="border-left-color: #831843;">
+        <h3>🏛️ 1B. सिदो कान्हु मुर्मू विश्वविद्यालय (SKMU) — M.A. History (Sem-2 एवं Sem-1)</h3>
+        <span>10 विश्वविद्यालयी पोर्टल्स</span>
+    </div>
+    <div class="grid">
+
+        <!-- SKMU M.A. History Semester-2 Master Hub Card -->
+        <div class="card" style="border-color: #4b2e83; box-shadow: 0 4px 18px rgba(75, 46, 131, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #4b2e83; background: #eae6f7; font-weight: bold; border: 1px solid #dcd5f2;">🎓 संपूर्ण सेमेस्टर-2 हब (SKMU)</div>
+                <h2 style="color: #0f172a;">एम.ए. इतिहास सेमेस्टर-2<br><span style="font-size: 1.1rem; color: #4b2e83;">(मास्टर अध्ययन कार्ड्स • Paper V–VIII)</span></h2>
+                <p style="color: #475569;">इतिहास लेखन कौशल (Paper V), मध्यकालीन यूरोप (Paper VI), संताल परगना का इतिहास (Paper VII) एवं भारतीय इतिहास में लिंग (Paper VIII)—चारों कोर पेपर्स का एकीकृत डिजिटल अध्ययन संग्रह!</p>
+            </div>
+            <a href="pgsem2.html" class="btn" style="background: linear-gradient(135deg, #4b2e83, #831843); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(75, 46, 131, 0.28);">संपूर्ण सेमेस्टर-2 हब खोलें ➔</a>
+        </div>
+
+        <!-- SKMU M.A. History Sem-2 Paper V -->
+        <div class="card" style="border-color: #4b2e83; box-shadow: 0 4px 15px rgba(75, 46, 131, 0.15);">
+            <div>
+                <div class="badge" style="color: #4b2e83; background: #eae6f7; font-weight: bold; border: 1px solid #dcd5f2;">✒️ इतिहास लेखन कौशल (Sem-2)</div>
+                <h2 style="color: #1a1528;">इतिहास लेखन कौशल<br><span style="font-size: 1.1rem; color: #4b2e83;">(Skill in History Writing • Paper V)</span></h2>
+                <p style="color: #4b5563;">अनुसंधान पद्धति, डेटा व परिकल्पना निर्माण, प्राथमिक-द्वितीयक स्रोत, आंतरिक व बाह्य संश्लेषण, शोध प्रबंध, सिनॉप्सिस, थीसिस लेखन व संदर्भ ग्रंथसूची के संपूर्ण 13 यूनिट्स के अध्ययन नोट्स!</p>
+            </div>
+            <a href="57.html" class="btn" style="background: linear-gradient(135deg, #4b2e83, #6b46c1); color: #ffffff; border: none; font-weight: bold;">संपूर्ण 13 यूनिट्स पढ़ें ➔</a>
+        </div>
+
+        <!-- SKMU M.A. History Sem-2 Paper VI -->
+        <div class="card" style="border-color: #831843; box-shadow: 0 4px 15px rgba(131, 24, 67, 0.15);">
+            <div>
+                <div class="badge" style="color: #831843; background: #fce7f3; font-weight: bold; border: 1px solid #fbcfe8;">🏰 मध्यकालीन यूरोप (SKMU Sem-2)</div>
+                <h2 style="color: #1c1917;">मध्यकालीन यूरोप का इतिहास<br><span style="font-size: 1.1rem; color: #be185d;">(800–1600 A.D. • Paper VI)</span></h2>
+                <p style="color: #57534e;">शार्लेमेन, सामंतवाद, पोपतंत्र बनाम राजतंत्र, फ्रेडरिक बारबारोसा, मध्यकालीन विश्वविद्यालय, पुनर्जागरण, धर्म-सुधार, वाणिज्यिक क्रांति व पूंजीवाद के उदय के 15 संपूर्ण अध्याय!</p>
+            </div>
+            <a href="paper63.html" class="btn" style="background: linear-gradient(135deg, #831843, #be185d); color: #ffffff; border: none; font-weight: bold;">संपूर्ण 15 अध्याय पढ़ें ➔</a>
+        </div>
+
+        <!-- SKMU M.A. History Sem-2 Paper VII -->
+        <div class="card" style="border-color: #355445; box-shadow: 0 4px 15px rgba(53, 84, 69, 0.15);">
+            <div>
+                <div class="badge" style="color: #24352d; background: #e7eee8; font-weight: bold; border: 1px solid #c9d8ce;">🏹 संताल परगना का इतिहास (SKMU Sem-2)</div>
+                <h2 style="color: #1a241f;">संताल परगना का इतिहास<br><span style="font-size: 1.1rem; color: #355445;">(1556–1947 A.D. • Paper VII)</span></h2>
+                <p style="color: #556259;">मुग़ल विजय, खेतौरी राज्य, पहाड़िया विद्रोह, दामिन-इ-कोह, 1855 संताल हूल, गैर-विनियमन प्रशासन, 1872 बंदोबस्त, साफ़ाहोड़ आंदोलन व मलूटी-राजमहल स्थापत्य के संपूर्ण अध्ययन नोट्स!</p>
+            </div>
+            <a href="MA_History_Semester_II_Paper_VII_Santal_Parganas_Master.html" class="btn" style="background: linear-gradient(130deg, #1d2c25, #355445); color: #ffffff; border: none; font-weight: bold;">संपूर्ण पाठ्यक्रम पढ़ें ➔</a>
+        </div>
+
+        <!-- SKMU M.A. History Sem-2 Paper VIII -->
+        <div class="card" style="border-color: #1a365d; box-shadow: 0 4px 15px rgba(26, 54, 93, 0.15);">
+            <div>
+                <div class="badge" style="color: #1a365d; background: #e2e8f0; font-weight: bold; border: 1px solid #cbd5e0;">🌸 जेंडर एवं नारी इतिहास (SKMU Sem-2)</div>
+                <h2 style="color: #1a202c;">भारतीय इतिहास में लिंग<br><span style="font-size: 1.1rem; color: #2c5282;">(Gender in Indian History • Paper VIII)</span></h2>
+                <p style="color: #4a5568;">अभिलेखीय व गैर-अभिलेखीय स्रोत, धर्म में महिलाओं का चित्रण, शिक्षा, कानूनी स्थिति, सुधार व महिला आंदोलन, राजनीतिक भागीदारी तथा झारखंड की आदिवासी महिलाओं के संपूर्ण 9 अध्यायों के प्रामाणिक अध्ययन नोट्स!</p>
+            </div>
+            <a href="paper82.html" class="btn" style="background: linear-gradient(135deg, #1a365d, #2c5282); color: #ffffff; border: none; font-weight: bold;">संपूर्ण 9 इकाइयाँ पढ़ें ➔</a>
+        </div>
+
+        <!-- SKMU Sem-1 Paper I -->
+        <div class="card" style="border-color: #2c3e50; box-shadow: 0 4px 15px rgba(44, 62, 80, 0.1);">
+            <div>
+                <div class="badge" style="color: #2c3e50; background: rgba(44, 62, 80, 0.15);">इतिहास लेखन (SKMU Sem-1)</div>
+                <h2>इतिहास लेखन एवं<br><span style="font-size: 1.1rem; color: #16a085;">अबुल फजल की पद्धति</span></h2>
+                <p>SKMU M.A. हिस्ट्री सेमेस्टर 1 (Paper I)। इतिहास लेखन की परंपराएँ, धर्मनिरपेक्ष दृष्टिकोण, डेटा-संचालित सांख्यिकी और अबुल फजल का आलोचनात्मक मूल्यांकन।</p>
+            </div>
+            <a href="skmu-paper11.html" class="btn" style="background: linear-gradient(135deg, #2c3e50, #16a085); color: #ffffff; border: none; font-weight: bold;">वैज्ञानिक दृष्टि अपनाएँ ➔</a>
+        </div>
+
+        <!-- SKMU Sem-1 Paper II -->
+        <div class="card" style="border-color: #7e1d1d; box-shadow: 0 4px 15px rgba(126, 29, 29, 0.1);">
+            <div>
+                <div class="badge" style="color: #7e1d1d; background: rgba(126, 29, 29, 0.15);">जनजातीय इतिहास (SKMU Sem-1)</div>
+                <h2>भारतीय जनजातीय इतिहास<br><span style="font-size: 1.1rem; color: #d35400;">एवं जयपाल सिंह मुंडा</span></h2>
+                <p>SKMU M.A. हिस्ट्री सेमेस्टर 1 (Paper II)। संविधान निर्माण में आदिवासियों की भूमिका, जयपाल सिंह मुंडा की कूटनीति, पाँचवीं व छठवीं अनुसूची और जनजातीय अस्मिता का वैधानिक संघर्ष।</p>
+            </div>
+            <a href="skmu-paper2.html" class="btn" style="background: linear-gradient(135deg, #7e1d1d, #d35400); color: #ffffff; border: none; font-weight: bold;">अस्मिता का इतिहास पढ़ें ➔</a>
+        </div>
+
+        <!-- SKMU Sem-1 Paper III -->
+        <div class="card" style="border-color: #800020; box-shadow: 0 4px 15px rgba(128, 0, 32, 0.1);">
+            <div>
+                <div class="badge" style="color: #800020; background: rgba(128, 0, 32, 0.15);">अकादमिक इतिहास (SKMU Sem-1)</div>
+                <h2>समकालीन भारत<br><span style="font-size: 1.1rem; color: #800020;">का इतिहास (1947-2000)</span></h2>
+                <p>SKMU M.A. हिस्ट्री सेमेस्टर 1 (Paper III)। रियासतों का एकीकरण, जेपी आंदोलन और दलित पैंथर्स आंदोलन का गहन विश्लेषण और उत्तर-लेखन रणनीति।</p>
+            </div>
+            <a href="skmu-paper31.html" class="btn" style="background: linear-gradient(135deg, #800020, #a02040); color: #ffffff; border: none; font-weight: bold;">पाठ्यक्रम पढ़ें ➔</a>
+        </div>
+
+        <!-- SKMU Sem-1 Paper IV (Ancient World) -->
+        <div class="card" style="border-color: #5c3a21; box-shadow: 0 4px 15px rgba(92, 58, 33, 0.1);">
+            <div>
+                <div class="badge" style="color: #5c3a21; background: rgba(92, 58, 33, 0.15);">प्राचीन विश्व (SKMU Sem-1)</div>
+                <h2>प्राचीन विश्व का<br><span style="font-size: 1.1rem; color: #5c3a21;">इतिहास (Paper IV)</span></h2>
+                <p>SKMU M.A. हिस्ट्री सेमेस्टर 1। प्राचीन यूनानी और रोमन सभ्यताओं का सामाजिक-आर्थिक ढाँचा, दास प्रथा, संस्कृति और उनका ऐतिहासिक तुलनात्मक विश्लेषण।</p>
+            </div>
+            <a href="skmu-paper4.html" class="btn" style="background: linear-gradient(135deg, #5c3a21, #7a4f31); color: #ffffff; border: none; font-weight: bold;">प्राचीन गाथा पढ़ें ➔</a>
+        </div>
+
+        <!-- SKMU Sem-1 Paper IV (Vietnam) -->
+        <div class="card" style="border-color: #5c3a21; box-shadow: 0 4px 15px rgba(92, 58, 33, 0.1);">
+            <div>
+                <div class="badge" style="color: #5c3a21; background: rgba(92, 58, 33, 0.15);">वैश्विक इतिहास (SKMU Sem-1)</div>
+                <h2>वियतनाम संकट और<br><span style="font-size: 1.1rem; color: #5c3a21;">हो चि मिन्ह का संघर्ष</span></h2>
+                <p>SKMU M.A. हिस्ट्री सेमेस्टर 1। वियतनाम का राष्ट्रवाद, हो चि मिन्ह की कूटनीति, गुरिल्ला युद्ध नीति और महाशक्तियों के खिलाफ संप्रभुता की महान गाथा।</p>
+            </div>
+            <a href="skmu-paper41.html" class="btn" style="background: linear-gradient(135deg, #5c3a21, #6e472b); color: #ffffff; border: none; font-weight: bold;">क्रांति का इतिहास पढ़ें ➔</a>
+        </div>
+
+    </div>
+
+    <!-- SUB-GROUP 1C: JPSC, NEET, VBU & COMPETITIVE EXAMS -->
+    <div class="subsection-banner" style="border-left-color: #0284c7;">
+        <h3>🏆 1C. JPSC, NEET मेडिकल, VBU एवं प्रतियोगी परीक्षाएँ</h3>
+        <span>5 पोर्टल्स</span>
+    </div>
+    <div class="grid">
+
+        <!-- Jharkhand Medical Guide -->
+        <div class="card" style="border-color: #0ea5e9; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.15); background: #0f172a; color: #f8fafc;">
+            <div>
+                <div class="badge" style="color: #0ea5e9; background: rgba(14, 165, 233, 0.15); font-weight: bold;">🏥 JCECEB NEET 2026</div>
+                <h2 style="color: #ffffff;">झारखण्ड मेडिकल<br><span style="font-size: 1.1rem; color: #f59e0b;">प्रवेश गाइड 2026</span></h2>
+                <p style="color: #94a3b8;">MBBS/BDS स्टेट कोटा सीटें, JCECEB काउंसिलिंग प्रक्रिया, कॉलेज फीस, कट-ऑफ ट्रेंड्स और e-Kalyan स्कॉलरशिप की संपूर्ण गाइड।</p>
+            </div>
+            <a href="med2.html" class="btn" style="background: linear-gradient(135deg, #0ea5e9, #0284c7); color: #ffffff; border: none; font-weight: bold;">गाइड देखें ➔</a>
+        </div>
+
+        <!-- VBU GE Exam Card -->
+        <div class="card" style="border-color: #ef4444; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.15); position: relative;">
+            <div>
+                <div class="badge" style="color: #ffffff; background: #ef4444; animation: pulse 2s infinite;">⚠️ अर्जेंट अलर्ट (VBU Exam)</div>
+                <h2>VBU GE परीक्षा 2026<br><span style="font-size: 1.1rem; color: #1e3a8a;">अल्टीमेट पोर्टल गाइड</span></h2>
+                <p>सत्र 2015-18 से 2020-23 के जेनरिक इलेक्टिव परीक्षा फॉर्म का लाइव स्टेप-बाय-स्टेप विज़ुअल मैप। अंतिम तिथि 20.07.2026 से पहले फॉर्म भरें।</p>
+            </div>
+            <a href="gen2.html" class="btn" style="background: linear-gradient(135deg, #1e3a8a, #0f172a); color: #ffffff; border: none; font-weight: bold;">पोर्टल गाइड खोलें ➔</a>
+        </div>
+
+        <!-- JPSC Paper 1 -->
+        <div class="card c-blue">
+            <div>
+                <div class="card-badge">JPSC GS-I</div>
+                <h3>सामान्य अध्ययन समीक्षा</h3>
+                <p>इतिहास, भूगोल, और राजव्यवस्था पर आधारित 100 प्रश्नों की आधिकारिक समीक्षा।</p>
+            </div>
+            <a href="paper1.html" class="btn">समीक्षा देखें ➔</a>
+        </div>
+
+        <!-- JPSC Paper 2 -->
+        <div class="card c-blue">
+            <div>
+                <div class="card-badge">JPSC GS-II</div>
+                <h3>झारखण्ड विशेष अध्ययन</h3>
+                <p>झारखण्ड का इतिहास, संस्कृति, कानून और औद्योगिक नीतियों का गहन विश्लेषण।</p>
+            </div>
+            <a href="paper2.html" class="btn">अध्ययन करें ➔</a>
+        </div>
+
+        <!-- RRB NTPC Mock -->
+        <div class="card c-blue">
+            <div>
+                <div class="card-badge">RRB NTPC</div>
+                <h3>CBT-1 मॉक टेस्ट</h3>
+                <p>वास्तविक परीक्षा पैटर्न पर आधारित 100 प्रश्नों का अभ्यास टेस्ट और विस्तृत विश्लेषण।</p>
+            </div>
+            <a href="rrb_ntpc_mock.html" class="btn">टेस्ट शुरू करें ➔</a>
+        </div>
+
+    </div>
+
+    <!-- ===================================================================
+         SECTION 2: FINANCIAL INTELLIGENCE & WEALTH
+    ==================================================================== -->
+    <section id="finance" class="section-header">
+        <h2><i class="fa-solid fa-coins" style="color:#d97706;"></i> वित्तीय समझ और भविष्य निर्माण</h2>
+        <p>लोन, निवेश, बचत, व्यापार, प्राचीन बेबीलोन की नीति-कथाओं और बैंकिंग के असली गणित को अपनी भाषा में समझें।</p>
+    </section>
+    <div class="grid">
+
+        <!-- Financial Education Master Guide -->
+        <div class="card" style="border-color: #f59e0b; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15); background: #0b0f19; color: #f8fafc;">
+            <div>
+                <div class="badge" style="color: #f59e0b; background: rgba(245, 158, 11, 0.15); font-weight: bold;">💰 वित्तीय साक्षरता महाग्रंथ</div>
+                <h2 style="color: #ffffff;">स्कूल और पैसों का असली सच<br><span style="font-size: 1.1rem; color: #fbbf24;">(Financial Education Guide)</span></h2>
+                <p style="color: #94a3b8;">रॉबर्ट कियोसाकी के सिद्धांतों का भारतीय रूपांतरण, कैशफ्लो क्वाड्रेंट (E-S-B-I), एसेट बनाम लायबिलिटी गेम और इंटरएक्टिव क्विज़!</p>
+            </div>
+            <a href="financial_education_hindi.html" class="btn" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: #000000; border: none; font-weight: bold;">महाग्रंथ पढ़ें ➔</a>
+        </div>
+
+        <!-- Bank Deduction & Internet Banking Solution Card -->
+        <div class="card" style="border-color: #1b3f8b; box-shadow: 0 4px 15px rgba(27, 63, 139, 0.15);">
+            <div>
+                <div class="badge" style="color: #1b3f8b; background: rgba(27, 63, 139, 0.12); font-weight: bold;">💳 बैंकिंग साक्षरता व समाधान</div>
+                <h2 style="color: #0c2356;">बैंक कटौती का सच<br><span style="font-size: 1.1rem; color: #1b3f8b;">(Pending AMC & Net Banking)</span></h2>
+                <p>डिविडेंड या UPI से आई छोटी रकम अचानक क्यों कट जाती है? जानिए Pending AMC का पूरा हिसाब-किताब, वास्तविक केस स्टडी और YONO नेट बैंकिंग से समाधान।</p>
+            </div>
+            <a href="ded2.html" class="btn" style="background: linear-gradient(135deg, #1b3f8b, #0c2356); color: #ffffff; border: none; font-weight: bold;">पूरी सच्चाई जानें ➔</a>
+        </div>
+
+        <!-- The Gold Lender of Babylon -->
+        <div class="card" style="border-color: #D4AF37; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.18);">
+            <div>
+                <div class="badge" style="color: #997A15; background: rgba(212, 175, 55, 0.15); font-weight: bold; border: 1px solid rgba(212, 175, 55, 0.3);">🏺 वित्तीय बुद्धिमत्ता व नीति-कथा</div>
+                <h2 style="color: #2B1B10;">बेबीलोन का स्वर्ण ऋणदाता<br><span style="font-size: 1.1rem; color: #A0522D;">(The Gold Lender of Babylon)</span></h2>
+                <p>रोदान के 50 सिक्के, माथोन की संदूकची, किसान-बैल-गधे की प्रेरक कथा और इंटरएक्टिव 4-प्रश्नीय बोध प्रश्नोत्तरी!</p>
+            </div>
+            <a href="6_2.html" class="btn" style="background: linear-gradient(135deg, #B45309, #78350F); color: #ffffff; border: none; font-weight: bold;">अमर कथा पढ़ें ➔</a>
+        </div>
+
+        <!-- An Historical Sketch of Babylon (The Richest Man in Babylon) Card -->
+        <div class="card" style="border-color: #8B5A2B; box-shadow: 0 4px 15px rgba(139, 90, 43, 0.15); background: #FFFEF9;">
+            <div>
+                <div class="badge" style="color: #8B5A2B; background: #FFF4DE; font-weight: bold; border: 1px solid #E8DCC6;">🏛️ प्राचीन सभ्यता व वित्तीय इतिहास</div>
+                <h2 style="color: #2b2b2b;">बेबीलोन का ऐतिहासिक परिचय<br><span style="font-size: 1.1rem; color: #8B5A2B;">(An Historical Sketch of Babylon)</span></h2>
+                <p style="color: #4a4a4a;">यूफ्रेट्स नदी के सूखे मैदान से विश्व के सबसे संपन्न शहर बनने की गाथा—सिंचाई इंजीनियरिंग, मिट्टी की पट्टियों पर लिखे वचन-पत्र, विशाल दीवारें और मानव परिश्रम का अद्भुत इतिहास!</p>
+            </div>
+            <a href="babylon_sketch.html" class="btn" style="background: linear-gradient(135deg, #8B5A2B, #D4A017); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(139, 90, 43, 0.25);">ऐतिहासिक परिचय पढ़ें ➔</a>
+        </div>
+
+        <!-- Who Moved My Cheese -->
+        <div class="card" style="border-color: #f59e0b; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15);">
+            <div>
+                <div class="badge" style="color: #b45309; background: rgba(245, 158, 11, 0.15); font-weight: bold;">🧀 माइंडसेट एवं परिवर्तन</div>
+                <h2>मेरा मक्खन किसने हटाया?<br><span style="font-size: 1.1rem; color: #d97706;">(Who Moved My Cheese?)</span></h2>
+                <p>बदलाव के डर को कैसे हराएं? डॉ. स्पेंसर जॉनसन की कालजयी किताब का भारतीय संदर्भ, चित्रमयी कहानी और लाइव 'कैरेक्टर टेस्ट' क्विज़।</p>
+            </div>
+            <a href="WhoMovedMyCheeseIHT.html" class="btn" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: #ffffff; border: none; font-weight: bold;">नया मक्खन ढूँढें ➔</a>
+        </div>
+
+        <!-- EMI Calculator Digital CA -->
+        <div class="card c-gold">
+            <div>
+                <div class="card-badge">Financial Tool</div>
+                <h3>EMI कैलकुलेटर: डिजिटल CA</h3>
+                <p>लोन की EMI, ब्याज और नेगोशिएशन से होने वाली बचत को सरल हिंदी में समझें।</p>
+            </div>
+            <a href="emi-calculator-2.html" class="btn">कैलकुलेटर देखें ➔</a>
+        </div>
+
+        <!-- EMI vs SIP Smart Calc -->
+        <div class="card c-gold">
+            <div>
+                <div class="card-badge">Financial Tool</div>
+                <h3>EMI vs SIP: Smart Calc</h3>
+                <p>लोन जल्दी चुकाना बेहतर है या निवेश करना? लंबी अवधि के वित्तीय प्रभाव की तुलना करें।</p>
+            </div>
+            <a href="emi_vs_sip2.html" class="btn">तुलना देखें ➔</a>
+        </div>
+
+        <!-- Wedding Savings Calc -->
+        <div class="card c-gold">
+            <div>
+                <div class="card-badge">Wealth Building</div>
+                <h3>शादी बचत कैलकुलेटर</h3>
+                <p>दिखावे के खर्च और Compounding के बीच के अंतर को समझें। भविष्य के करोड़ों का हिसाब करें।</p>
+            </div>
+            <a href="shadi-bachat-calculator.html" class="btn">हिसाब देखें ➔</a>
+        </div>
+
+        <!-- Gold Purity & Hallmark Guide -->
+        <div class="card c-gold">
+            <div>
+                <div class="card-badge">Awareness</div>
+                <h3>सोना कितना सोना है?</h3>
+                <p>BIS कोड, हॉलमार्क और सोना खरीदते समय होने वाली ठगी से बचने की पूरी जानकारी।</p>
+            </div>
+            <a href="sona-kitna-sona.html" class="btn">पूरी सच्चाई ➔</a>
+        </div>
+
+        <!-- Business Ideas Guide -->
+        <div class="card c-purple">
+            <div>
+                <div class="card-badge">Startup</div>
+                <h3>बिज़नेस आइडियाज़ गाइड</h3>
+                <p>कम निवेश वाले, घर-आधारित और टिकाऊ व्यावसायिक विचार। माइक्रोग्रीन से क्लाउड किचन तक।</p>
+            </div>
+            <a href="bidea.html" class="btn">शुरुआत की राह ➔</a>
+        </div>
+
+    </div>
+
+    <!-- ===================================================================
+         SECTION 3: EMERGENCY & PUBLIC ASSISTANCE
+    ==================================================================== -->
     <section id="emergency" class="section-header">
-        <h2>आपातकाल व जनसेवा सहायता</h2>
+        <h2><i class="fa-solid fa-triangle-exclamation" style="color:#dc2626;"></i> आपातकाल व जनसेवा सहायता</h2>
         <p>कठिन समय में सही जानकारी, त्वरित कानूनी सहायता और जनकल्याणकारी योजनाओं के लिए डिजिटल टूल्स।</p>
     </section>
     <div class="grid">
@@ -499,495 +1173,11 @@
 
     </div>
 
-    <!-- SECTION 2: FINANCIAL INTELLIGENCE & WEALTH -->
-    <section id="finance" class="section-header">
-        <h2>वित्तीय समझ और भविष्य निर्माण</h2>
-        <p>लोन, निवेश, बचत, व्यापार और बैंकिंग के असली गणित को अपनी भाषा में समझें।</p>
-    </section>
-    <div class="grid">
-
-        <!-- Financial Education Master Guide -->
-        <div class="card" style="border-color: #f59e0b; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15); background: #0b0f19; color: #f8fafc;">
-            <div>
-                <div class="badge" style="color: #f59e0b; background: rgba(245, 158, 11, 0.15); font-weight: bold;">💰 वित्तीय साक्षरता महाग्रंथ</div>
-                <h2 style="color: #ffffff;">स्कूल और पैसों का असली सच<br><span style="font-size: 1.1rem; color: #fbbf24;">(Financial Education Guide)</span></h2>
-                <p style="color: #94a3b8;">रॉबर्ट कियोसाकी के सिद्धांतों का भारतीय रूपांतरण, कैशफ्लो क्वाड्रेंट (E-S-B-I), एसेट बनाम लायबिलिटी गेम और इंटरएक्टिव क्विज़!</p>
-            </div>
-            <a href="financial_education_hindi.html" class="btn" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: #000000; border: none; font-weight: bold;">महाग्रंथ पढ़ें ➔</a>
-        </div>
-
-        <!-- Bank Deduction & Internet Banking Solution Card -->
-        <div class="card" style="border-color: #1b3f8b; box-shadow: 0 4px 15px rgba(27, 63, 139, 0.15);">
-            <div>
-                <div class="badge" style="color: #1b3f8b; background: rgba(27, 63, 139, 0.12); font-weight: bold;">💳 बैंकिंग साक्षरता व समाधान</div>
-                <h2 style="color: #0c2356;">बैंक कटौती का सच<br><span style="font-size: 1.1rem; color: #1b3f8b;">(Pending AMC & Net Banking)</span></h2>
-                <p>डिविडेंड या UPI से आई छोटी रकम अचानक क्यों कट जाती है? जानिए Pending AMC का पूरा हिसाब-किताब, वास्तविक केस स्टडी और YONO नेट बैंकिंग से समाधान।</p>
-            </div>
-            <a href="ded2.html" class="btn" style="background: linear-gradient(135deg, #1b3f8b, #0c2356); color: #ffffff; border: none; font-weight: bold;">पूरी सच्चाई जानें ➔</a>
-        </div>
-
-        <!-- The Gold Lender of Babylon -->
-        <div class="card" style="border-color: #D4AF37; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.18);">
-            <div>
-                <div class="badge" style="color: #997A15; background: rgba(212, 175, 55, 0.15); font-weight: bold; border: 1px solid rgba(212, 175, 55, 0.3);">🏺 वित्तीय बुद्धिमत्ता व नीति-कथा</div>
-                <h2 style="color: #2B1B10;">बेबीलोन का स्वर्ण ऋणदाता<br><span style="font-size: 1.1rem; color: #A0522D;">(The Gold Lender of Babylon)</span></h2>
-                <p>रोदान के 50 सिक्के, माथोन की संदूकची, किसान-बैल-गधे की प्रेरक कथा और इंटरएक्टिव 4-प्रश्नीय बोध प्रश्नोत्तरी!</p>
-            </div>
-            <a href="6_2.html" class="btn" style="background: linear-gradient(135deg, #B45309, #78350F); color: #ffffff; border: none; font-weight: bold;">अमर कथा पढ़ें ➔</a>
-        </div>
-
-
-        
-
-          <!-- An Historical Sketch of Babylon (The Richest Man in Babylon) Card -->
-  <div class="card" style="border-color: #8B5A2B; box-shadow: 0 4px 15px rgba(139, 90, 43, 0.15); background: #FFFEF9;">
-    <div>
-      <div class="badge" style="color: #8B5A2B; background: #FFF4DE; font-weight: bold; border: 1px solid #E8DCC6;">🏛️ प्राचीन सभ्यता व वित्तीय इतिहास</div>
-      <h2 style="color: #2b2b2b;">बेबीलोन का ऐतिहासिक परिचय<br><span style="font-size: 1.1rem; color: #8B5A2B;">(An Historical Sketch of Babylon)</span></h2>
-      <p style="color: #4a4a4a;">यूफ्रेट्स नदी के सूखे मैदान से विश्व के सबसे संपन्न शहर बनने की गाथा—सिंचाई इंजीनियरिंग, मिट्टी की पट्टियों पर लिखे वचन-पत्र, विशाल दीवारें और मानव परिश्रम का अद्भुत इतिहास!</p>
-    </div>
-    <a href="babylon_sketch.html" class="btn" style="background: linear-gradient(135deg, #8B5A2B, #D4A017); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 10px rgba(139, 90, 43, 0.25);">ऐतिहासिक परिचय पढ़ें ➔</a>
-  </div>
-
-
-        
-        <!-- Who Moved My Cheese -->
-        <div class="card" style="border-color: #f59e0b; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15);">
-            <div>
-                <div class="badge" style="color: #b45309; background: rgba(245, 158, 11, 0.15); font-weight: bold;">🧀 माइंडसेट एवं परिवर्तन</div>
-                <h2>मेरा मक्खन किसने हटाया?<br><span style="font-size: 1.1rem; color: #d97706;">(Who Moved My Cheese?)</span></h2>
-                <p>बदलाव के डर को कैसे हराएं? डॉ. स्पेंसर जॉनसन की कालजयी किताब का भारतीय संदर्भ, चित्रमयी कहानी और लाइव 'कैरेक्टर टेस्ट' क्विज़।</p>
-            </div>
-            <a href="WhoMovedMyCheeseIHT.html" class="btn" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: #ffffff; border: none; font-weight: bold;">नया मक्खन ढूँढें ➔</a>
-        </div>
-
-        <!-- EMI Calculator Digital CA -->
-        <div class="card c-gold">
-            <div>
-                <div class="card-badge">Financial Tool</div>
-                <h3>EMI कैलकुलेटर: डिजिटल CA</h3>
-                <p>लोन की EMI, ब्याज और नेगोशिएशन से होने वाली बचत को सरल हिंदी में समझें।</p>
-            </div>
-            <a href="emi-calculator-2.html" class="btn">कैलकुलेटर देखें ➔</a>
-        </div>
-
-        <!-- EMI vs SIP Smart Calc -->
-        <div class="card c-gold">
-            <div>
-                <div class="card-badge">Financial Tool</div>
-                <h3>EMI vs SIP: Smart Calc</h3>
-                <p>लोन जल्दी चुकाना बेहतर है या निवेश करना? लंबी अवधि के वित्तीय प्रभाव की तुलना करें।</p>
-            </div>
-            <a href="emi_vs_sip2.html" class="btn">तुलना देखें ➔</a>
-        </div>
-
-        <!-- Wedding Savings Calc -->
-        <div class="card c-gold">
-            <div>
-                <div class="card-badge">Wealth Building</div>
-                <h3>शादी बचत कैलकुलेटर</h3>
-                <p>दिखावे के खर्च और Compounding के बीच के अंतर को समझें। भविष्य के करोड़ों का हिसाब करें।</p>
-            </div>
-            <a href="shadi-bachat-calculator.html" class="btn">हिसाब देखें ➔</a>
-        </div>
-
-        <!-- Gold Purity & Hallmark Guide -->
-        <div class="card c-gold">
-            <div>
-                <div class="card-badge">Awareness</div>
-                <h3>सोना कितना सोना है?</h3>
-                <p>BIS कोड, हॉलमार्क और सोना खरीदते समय होने वाली ठगी से बचने की पूरी जानकारी।</p>
-            </div>
-            <a href="sona-kitna-sona.html" class="btn">पूरी सच्चाई ➔</a>
-        </div>
-
-        <!-- Business Ideas Guide -->
-        <div class="card c-purple">
-            <div>
-                <div class="card-badge">Startup</div>
-                <h3>बिज़नेस आइडियाज़ गाइड</h3>
-                <p>कम निवेश वाले, घर-आधारित और टिकाऊ व्यावसायिक विचार। माइक्रोग्रीन से क्लाउड किचन तक।</p>
-            </div>
-            <a href="bidea.html" class="btn">शुरुआत की राह ➔</a>
-        </div>
-
-    </div>
-
-    <!-- SECTION 3: ACADEMIC EDUCATION & HIGHER EXAMS -->
-    <section id="education" class="section-header">
-        <h2>पढ़ाई, विश्वविद्यालय एवं परीक्षा तैयारी</h2>
-        <p>स्नातकोत्तर इतिहास, राज्य लोक सेवा आयोग और मेडिकल प्रवेश की व्यवस्थित सामग्री।</p>
-    </section>
-    <div class="grid">
-
-        <!-- SKMU M.A. History Sem-2 Paper V -->
-        <div class="card" style="border-color: #4b2e83; box-shadow: 0 4px 15px rgba(75, 46, 131, 0.15);">
-            <div>
-                <div class="badge" style="color: #4b2e83; background: #eae6f7; font-weight: bold; border: 1px solid #dcd5f2;">✒️ इतिहास लेखन कौशल (Sem-2)</div>
-                <h2 style="color: #1a1528;">इतिहास लेखन कौशल<br><span style="font-size: 1.1rem; color: #4b2e83;">(Skill in History Writing • Paper V)</span></h2>
-                <p style="color: #4b5563;">अनुसंधान पद्धति, डेटा व परिकल्पना निर्माण, प्राथमिक-द्वितीयक स्रोत, आंतरिक व बाह्य संश्लेषण, शोध प्रबंध, सिनॉप्सिस, थीसिस लेखन व संदर्भ ग्रंथसूची के संपूर्ण 13 यूनिट्स के अध्ययन नोट्स!</p>
-            </div>
-            <a href="57.html" class="btn" style="background: linear-gradient(135deg, #4b2e83, #6b46c1); color: #ffffff; border: none; font-weight: bold;">संपूर्ण 13 यूनिट्स पढ़ें ➔</a>
-        </div>
-
-        <!-- SKMU M.A. History Sem-2 Paper VI -->
-        <div class="card" style="border-color: #831843; box-shadow: 0 4px 15px rgba(131, 24, 67, 0.15);">
-            <div>
-                <div class="badge" style="color: #831843; background: #fce7f3; font-weight: bold; border: 1px solid #fbcfe8;">🏰 मध्यकालीन यूरोप (SKMU Sem-2)</div>
-                <h2 style="color: #1c1917;">मध्यकालीन यूरोप का इतिहास<br><span style="font-size: 1.1rem; color: #be185d;">(800–1600 A.D. • Paper VI)</span></h2>
-                <p style="color: #57534e;">शार्लेमेन, सामंतवाद, पोपतंत्र बनाम राजतंत्र, फ्रेडरिक बारबारोसा, मध्यकालीन विश्वविद्यालय, पुनर्जागरण, धर्म-सुधार, वाणिज्यिक क्रांति व पूंजीवाद के उदय के 15 संपूर्ण अध्याय!</p>
-            </div>
-            <a href="paper63.html" class="btn" style="background: linear-gradient(135deg, #831843, #be185d); color: #ffffff; border: none; font-weight: bold;">संपूर्ण 15 अध्याय पढ़ें ➔</a>
-        </div>
-
-        <!-- SKMU M.A. History Sem-2 Paper VII -->
-        <div class="card" style="border-color: #355445; box-shadow: 0 4px 15px rgba(53, 84, 69, 0.15);">
-            <div>
-                <div class="badge" style="color: #24352d; background: #e7eee8; font-weight: bold; border: 1px solid #c9d8ce;">🏹 संताल परगना का इतिहास (SKMU Sem-2)</div>
-                <h2 style="color: #1a241f;">संताल परगना का इतिहास<br><span style="font-size: 1.1rem; color: #355445;">(1556–1947 A.D. • Paper VII)</span></h2>
-                <p style="color: #556259;">मुग़ल विजय, खेतौरी राज्य, पहाड़िया विद्रोह, दामिन-इ-कोह, 1855 संताल हूल, गैर-विनियमन प्रशासन, 1872 बंदोबस्त, साफ़ाहोड़ आंदोलन व मलूटी-राजमहल स्थापत्य के संपूर्ण अध्ययन नोट्स!</p>
-            </div>
-            <a href="MA_History_Semester_II_Paper_VII_Santal_Parganas_Master.html" class="btn" style="background: linear-gradient(130deg, #1d2c25, #355445); color: #ffffff; border: none; font-weight: bold;">संपूर्ण पाठ्यक्रम पढ़ें ➔</a>
-        </div>
-
-        <!-- SKMU M.A. History Sem-2 Paper VIII -->
-        <div class="card" style="border-color: #1a365d; box-shadow: 0 4px 15px rgba(26, 54, 93, 0.15);">
-            <div>
-                <div class="badge" style="color: #1a365d; background: #e2e8f0; font-weight: bold; border: 1px solid #cbd5e0;">🌸 जेंडर एवं नारी इतिहास (SKMU Sem-2)</div>
-                <h2 style="color: #1a202c;">भारतीय इतिहास में लिंग<br><span style="font-size: 1.1rem; color: #2c5282;">(Gender in Indian History • Paper VIII)</span></h2>
-                <p style="color: #4a5568;">अभिलेखीय व गैर-अभिलेखीय स्रोत, धर्म में महिलाओं का चित्रण, शिक्षा, कानूनी स्थिति, सुधार व महिला आंदोलन, राजनीतिक भागीदारी तथा झारखंड की आदिवासी महिलाओं के संपूर्ण 9 अध्यायों के प्रामाणिक अध्ययन नोट्स!</p>
-            </div>
-            <a href="paper82.html" class="btn" style="background: linear-gradient(135deg, #1a365d, #2c5282); color: #ffffff; border: none; font-weight: bold;">संपूर्ण 9 इकाइयाँ पढ़ें ➔</a>
-        </div>
-
-
-
-          <!-- SKMU M.A. History Semester-2 Master Hub Card -->
-  <div class="card" style="border-color: #4b2e83; box-shadow: 0 4px 18px rgba(75, 46, 131, 0.16); background: #ffffff;">
-    <div class="badge" style="color: #4b2e83; background: #eae6f7; font-weight: bold; border: 1px solid #dcd5f2;">🎓 संपूर्ण सेमेस्टर-2 हब (SKMU)</div>
-    <h2 style="color: #0f172a;">एम.ए. इतिहास सेमेस्टर-2<br><span style="font-size: 1.1rem; color: #4b2e83;">(मास्टर अध्ययन कार्ड्स • Paper V–VIII)</span></h2>
-    <p style="color: #475569;">इतिहास लेखन कौशल (Paper V), मध्यकालीन यूरोप (Paper VI), संताल परगना का इतिहास (Paper VII) एवं भारतीय इतिहास में लिंग (Paper VIII)—चारों कोर पेपर्स का एकीकृत डिजिटल अध्ययन संग्रह!</p>
-    <a href="pgsem2.html" class="btn" style="background: linear-gradient(135deg, #4b2e83, #831843); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(75, 46, 131, 0.28);">संपूर्ण सेमेस्टर-2 हब खोलें ➔</a>
-  </div>
-
-        
-        <!-- SKMU Sem-1 Paper I -->
-        <div class="card" style="border-color: #2c3e50; box-shadow: 0 4px 15px rgba(44, 62, 80, 0.1);">
-            <div>
-                <div class="badge" style="color: #2c3e50; background: rgba(44, 62, 80, 0.15);">इतिहास लेखन (SKMU)</div>
-                <h2>इतिहास लेखन एवं<br><span style="font-size: 1.1rem; color: #16a085;">अबुल फजल की पद्धति</span></h2>
-                <p>SKMU M.A. हिस्ट्री सेमेस्टर 1 (Paper I)। इतिहास लेखन की परंपराएँ, धर्मनिरपेक्ष दृष्टिकोण, डेटा-संचालित सांख्यिकी और अबुल फजल का आलोचनात्मक मूल्यांकन।</p>
-            </div>
-            <a href="skmu-paper11.html" class="btn" style="background: linear-gradient(135deg, #2c3e50, #16a085); color: #ffffff; border: none; font-weight: bold;">वैज्ञानिक दृष्टि अपनाएँ ➔</a>
-        </div>
-
-        <!-- SKMU Sem-1 Paper II -->
-        <div class="card" style="border-color: #7e1d1d; box-shadow: 0 4px 15px rgba(126, 29, 29, 0.1);">
-            <div>
-                <div class="badge" style="color: #7e1d1d; background: rgba(126, 29, 29, 0.15);">जनजातीय इतिहास (SKMU)</div>
-                <h2>भारतीय जनजातीय इतिहास<br><span style="font-size: 1.1rem; color: #d35400;">एवं जयपाल सिंह मुंडा</span></h2>
-                <p>SKMU M.A. हिस्ट्री सेमेस्टर 1 (Paper II)। संविधान निर्माण में आदिवासियों की भूमिका, जयपाल सिंह मुंडा की कूटनीति, पाँचवीं व छठवीं अनुसूची और जनजातीय अस्मिता का वैधानिक संघर्ष।</p>
-            </div>
-            <a href="skmu-paper2.html" class="btn" style="background: linear-gradient(135deg, #7e1d1d, #d35400); color: #ffffff; border: none; font-weight: bold;">अस्मिता का इतिहास पढ़ें ➔</a>
-        </div>
-
-        <!-- SKMU Sem-1 Paper III -->
-        <div class="card" style="border-color: #800020; box-shadow: 0 4px 15px rgba(128, 0, 32, 0.1);">
-            <div>
-                <div class="badge" style="color: #800020; background: rgba(128, 0, 32, 0.15);">अकादमिक इतिहास (SKMU)</div>
-                <h2>समकालीन भारत<br><span style="font-size: 1.1rem; color: #800020;">का इतिहास (1947-2000)</span></h2>
-                <p>SKMU M.A. हिस्ट्री सेमेस्टर 1 (Paper III)। रियासतों का एकीकरण, जेपी आंदोलन और दलित पैंथर्स आंदोलन का गहन विश्लेषण और उत्तर-लेखन रणनीति।</p>
-            </div>
-            <a href="skmu-paper31.html" class="btn" style="background: linear-gradient(135deg, #800020, #a02040); color: #ffffff; border: none; font-weight: bold;">पाठ्यक्रम पढ़ें ➔</a>
-        </div>
-
-        <!-- SKMU Sem-1 Paper IV (Ancient World) -->
-        <div class="card" style="border-color: #5c3a21; box-shadow: 0 4px 15px rgba(92, 58, 33, 0.1);">
-            <div>
-                <div class="badge" style="color: #5c3a21; background: rgba(92, 58, 33, 0.15);">प्राचीन विश्व (SKMU)</div>
-                <h2>प्राचीन विश्व का<br><span style="font-size: 1.1rem; color: #5c3a21;">इतिहास (Paper IV)</span></h2>
-                <p>SKMU M.A. हिस्ट्री सेमेस्टर 1। प्राचीन यूनानी और रोमन सभ्यताओं का सामाजिक-आर्थिक ढाँचा, दासा प्रथा, संस्कृति और उनका ऐतिहासिक तुलनात्मक विश्लेषण।</p>
-            </div>
-            <a href="skmu-paper4.html" class="btn" style="background: linear-gradient(135deg, #5c3a21, #7a4f31); color: #ffffff; border: none; font-weight: bold;">प्राचीन गाथा पढ़ें ➔</a>
-        </div>
-
-        <!-- SKMU Sem-1 Paper IV (Vietnam) -->
-        <div class="card" style="border-color: #5c3a21; box-shadow: 0 4px 15px rgba(92, 58, 33, 0.1);">
-            <div>
-                <div class="badge" style="color: #5c3a21; background: rgba(92, 58, 33, 0.15);">वैश्विक इतिहास (SKMU)</div>
-                <h2>वियतनाम संकट और<br><span style="font-size: 1.1rem; color: #5c3a21;">हो चि मिन्ह का संघर्ष</span></h2>
-                <p>SKMU M.A. हिस्ट्री सेमेस्टर 1। वियतनाम का राष्ट्रवाद, हो चि मिन्ह की कूटनीति, गुरिल्ला युद्ध नीति और महाशक्तियों के खिलाफ संप्रभुता की महान गाथा।</p>
-            </div>
-            <a href="skmu-paper41.html" class="btn" style="background: linear-gradient(135deg, #5c3a21, #6e472b); color: #ffffff; border: none; font-weight: bold;">क्रांति का इतिहास पढ़ें ➔</a>
-        </div>
-
-
-
-          <!-- JHTET Level-2 Social Studies Mock Test & Revision Portal Card -->
-  <div class="card" style="border-color: #4f46e5; box-shadow: 0 4px 18px rgba(79, 70, 229, 0.16); background: #ffffff;">
-    <div class="badge" style="color: #4f46e5; background: #eef2ff; font-weight: bold; border: 1px solid #c7d2fe;">🎯 JHTET 2026 मॉक टेस्ट (Level-2)</div>
-    <h2 style="color: #0f172a;">JHTET लेवल-2 (VI–VIII)<br><span style="font-size: 1.1rem; color: #4f46e5;">सामाजिक अध्ययन एवं भाषा-2 पोर्टल</span></h2>
-    <p style="color: #475569;">30 बहुविकल्पीय प्रश्नों का लाइव इंटरएक्टिव मॉक टेस्ट (भाषा खोरठा/नागपुरी/संथाली + SST + CDP), 30-मिनट टाइमर, श्रेणी-वार कट-ऑफ मूल्यांकन (Gen/BC/SC-ST) और त्वरित रिवीजन नोट्स!</p>
-    <a href="practice302.html" class="btn" style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);">मॉक टेस्ट शुरू करें ➔</a>
-  </div>
-
-
-
-  <!-- JHTET Paper-2 Full 150-Question Mock Test Portal Card -->
-  <div class="card" style="border-color: #4f46e5; box-shadow: 0 4px 18px rgba(79, 70, 229, 0.16); background: #ffffff;">
-    <div class="badge" style="color: #4f46e5; background: #eef2ff; font-weight: bold; border: 1px solid #c7d2fe;">📝 JHTET फुल मॉक टेस्ट (150 प्रश्न)</div>
-    <h2 style="color: #0f172a;">JHTET Paper-2 पूर्ण अभ्यास<br><span style="font-size: 1.1rem; color: #4f46e5;">(150 अंक • 2.5 घंटे • SST Stream)</span></h2>
-    <p style="color: #475569;">पूर्ण 150 प्रश्नों का महा-मॉक टेस्ट: CDP (30) + हिंदी (15) + English (15) + भाषा-2 (30) + सामाजिक अध्ययन (60)। लाइव 150-मिनट टाइमर, खंडवार विश्लेषण, और श्रेणी-वार कट-ऑफ स्कोरकार्ड!</p>
-    <a href="test.html" class="btn" style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);">फुल मॉक टेस्ट शुरू करें ➔</a>
-  </div>
-
-
-
-
-
-          <!-- JHTET 2026 Paper-2 Full 150-Question Mock Test (with Computer Knowledge) Card -->
-  <div class="card" style="border-color: #4f46e5; box-shadow: 0 4px 18px rgba(79, 70, 229, 0.16); background: #ffffff;">
-    <div>
-      <div class="badge" style="color: #4f46e5; background: #eef2ff; font-weight: bold; border: 1px solid #c7d2fe;">🏆 JHTET 2026 महा-मॉक टेस्ट (150 प्रश्न)</div>
-      <h2 style="color: #0f172a;">JHTET Paper-2 पूर्ण मॉक टेस्ट<br><span style="font-size: 1.1rem; color: #4f46e5;">(SST + भाषा-2 + कंप्यूटर ज्ञान)</span></h2>
-      <p style="color: #475569;">संपूर्ण 150 प्रश्नों का नवीनतम मॉक टेस्ट: CDP (30) + हिंदी (15) + English (15) + क्षेत्रीय भाषा-2 (30) + सामाजिक अध्ययन (50) + कंप्यूटर ज्ञान (10)। लाइव 150-मिनट टाइमर, खंडवार विश्लेषण और प्रिंटेबल स्कोरकार्ड!</p>
-    </div>
-    <a href="jtet26.html" class="btn" style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);">150 प्रश्नों का टेस्ट दें ➔</a>
-  </div>
-        
-
-
-          <!-- JHTET 2026 Paper-2 Full 150-Question Mock Test (As Per Official Syllabus) Card -->
-  <div class="card" style="border-color: #4f46e5; box-shadow: 0 4px 18px rgba(79, 70, 229, 0.16); background: #ffffff;">
-    <div>
-      <div class="badge" style="color: #4f46e5; background: #eef2ff; font-weight: bold; border: 1px solid #c7d2fe;">🏆 JHTET 2026 महा-मॉक (पाठ्यक्रम आधारित)</div>
-      <h2 style="color: #0f172a;">JHTET Paper-2 पूर्ण मॉक टेस्ट<br><span style="font-size: 1.1rem; color: #4f46e5;">(Official Syllabus • 150 प्रश्न)</span></h2>
-      <p style="color: #475569;">नवीनतम आधिकारिक सिलेबस के अनुसार 150 प्रश्न: CDP (30) + हिंदी (15) + English (15) + क्षेत्रीय भाषा-2 (30) + सामाजिक अध्ययन (50) + कंप्यूटर ज्ञान व डिजिटल शिक्षण (10)। लाइव टाइमर व प्रिंटेबल स्कोरकार्ड!</p>
-    </div>
-    <a href="jtet26_as_per_Syllabus.html" class="btn" style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);">सिलेबस आधारित टेस्ट दें ➔</a>
-  </div>
-        
-
-
-
-
-          <!-- JHTET 2026 Paper-2 Full 150-Question Mock Test (Maths & Science Stream) Card -->
-  <div class="card" style="border-color: #0284c7; box-shadow: 0 4px 18px rgba(2, 132, 199, 0.16); background: #ffffff;">
-    <div>
-      <div class="badge" style="color: #0369a1; background: #e0f2fe; font-weight: bold; border: 1px solid #bae6fd;">🔬 JHTET 2026 विज्ञान महा-मॉक (150 प्रश्न)</div>
-      <h2 style="color: #0f172a;">JHTET Paper-2 गणित एवं विज्ञान<br><span style="font-size: 1.1rem; color: #0284c7;">(Official Syllabus • Maths & Science)</span></h2>
-      <p style="color: #475569;">नवीनतम आधिकारिक सिलेबस के अनुसार 150 प्रश्न: CDP (30) + हिंदी (15) + English (15) + क्षेत्रीय भाषा-2 (30) + गणित एवं विज्ञान (50) + कंप्यूटर ज्ञान व डिजिटल शिक्षण (10)। लाइव टाइमर व प्रिंटेबल स्कोरकार्ड!</p>
-    </div>
-    <a href="jtet26Science_as_per_Syllabus.html" class="btn" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.28);">गणित-विज्ञान टेस्ट दें ➔</a>
-  </div>
-        
-
-
-          <!-- JHTET 2026 Level-2 Child Development & Pedagogy (CDP) Master Portal Card -->
-  <div class="card" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
-    <div>
-      <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🧠 JHTET 2026 CDP इनसाइक्लोपीडिया (30 अंक)</div>
-      <h2 style="color: #0f172a;">बाल विकास एवं शिक्षणशास्त्र<br><span style="font-size: 1.1rem; color: #0f766e;">(CDP Master Portal • Level-2)</span></h2>
-      <p style="color: #475569;">पियाजे, वायगोत्स्की, कोहलबर्ग, एरिक्सन, गार्डनर, चोम्स्की, थार्नडाइक, पावलव, स्किनर, कोहलर, बंडूरा, ब्लूम्स टैक्सोनॉमी, अधिगम विकार, NEP 2020, पेडागोजी टैग-वर्ड्स व 30 लाइव MCQs!</p>
-    </div>
-    <a href="jhtet_cdp_master_portal3.html" class="btn" style="background: linear-gradient(135deg, #0f766e, #047857); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">संपूर्ण CDP मास्टर गाइड पढ़ें ➔</a>
-  </div>
-
-        
-
-
-
-          <!-- JHTET 2026 Paper-2 Computer Knowledge (10 Marks) Master Portal Card -->
-  <div class="card" style="border-color: #0d9488; box-shadow: 0 4px 18px rgba(13, 148, 136, 0.16); background: #ffffff;">
-    <div>
-      <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🖥️ JHTET 2026 कंप्यूटर ज्ञान (10 अंक)</div>
-      <h2 style="color: #0f172a;">कंप्यूटर एवं डिजिटल शिक्षण<br><span style="font-size: 1.1rem; color: #0f766e;">(Computer Master Portal • Paper-2)</span></h2>
-      <p style="color: #475569;">कंप्यूटर की 5 पीढ़ियाँ, CPU, मेमोरी इकाइयाँ, इनपुट-आउटपुट, कीबोर्ड शॉर्टकट्स (F1–F12, Ctrl/Win), MS Office (Word, Excel, PowerPoint), इंटरनेट, साइबर सुरक्षा, DIKSHA, NISHTHA व 30 लाइव MCQs!</p>
-    </div>
-    <a href="jhtet_computer_portal3.html" class="btn" style="background: linear-gradient(135deg, #0f766e, #0284c7); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">कंप्यूटर मास्टर पोर्टल खोलें ➔</a>
-  </div>
-        
-
-
-
-          <!-- JHTET 2026 Level-2 Regional Language Khortha Portal Card -->
-  <div class="card" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
-    <div>
-      <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🌾 JHTET 2026 खोरठा मास्टर पोर्टल (30 अंक)</div>
-      <h2 style="color: #0f172a;">भाषा-2 क्षेत्रीय भाषा: खोरठा<br><span style="font-size: 1.1rem; color: #0f766e;">(Official Syllabus • Level-2)</span></h2>
-      <p style="color: #475569;">नवीनतम JAC सिलेबस (14.03.2026) के अनुसार: खोरठा उद्भव व 16 जिले, देवनागरी वर्तनी व ध्वनि नियम, विस्तृत व्यावहारिक शब्दावली (परिवार, खेती, समय), व्याकरण (संज्ञा-कारक-काल), लोक/शिष्ट साहित्य एवं 30 लाइव MCQs!</p>
-    </div>
-    <a href="jhtet_khortha_master_portal3.html" class="btn" style="background: linear-gradient(135deg, #0f766e, #047857); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">संपूर्ण खोरठा मास्टर गाइड पढ़ें ➔</a>
-  </div>
-
-
-
-  <!-- JHTET 2026 Level-2 Regional Language Santhali Portal Card -->
-  <div class="card" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
-    <div>
-      <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🏹 JHTET 2026 संथाली मास्टर पोर्टल (30 अंक)</div>
-      <h2 style="color: #0f172a;">भाषा-2 जनजातीय भाषा: संथाली<br><span style="font-size: 1.1rem; color: #0f766e;">(Official Syllabus • Level-2)</span></h2>
-      <p style="color: #475569;">नवीनतम JAC सिलेबस के अनुसार: संथाली उद्भव व 12 गोत्र (पारिस), ओलचिकी लिपि (1925), 92वाँ संविधान संशोधन (2003), व्याकरण (त्रि-वचन, मध्यसर्ग, कारक), मांझी-परगना शासन व्यवस्था, लोक/शिष्ट साहित्य एवं 30 लाइव MCQs!</p>
-    </div>
-    <a href="jhtet_santhali_master_portal2.html" class="btn" style="background: linear-gradient(135deg, #0f766e, #047857); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">संपूर्ण संथाली मास्टर गाइड पढ़ें ➔</a>
-  </div>
-
-
-          <!-- JHTET 2026 Santhali 5-Unit Master Index Hub Card -->
-  <div class="card" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
-    <div>
-      <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🏹 JHTET संथाली 5-इकाई मास्टर हब (100 MCQs)</div>
-      <h2 style="color: #0f172a;">संथाली मास्टर इंडेक्स<br><span style="font-size: 1.1rem; color: #0f766e;">(सभी 5 इकाइयाँ • 100 अभ्यास प्रश्न)</span></h2>
-      <p style="color: #475569;">JHTET भाषा-2 संथाली खंड हेतु सभी 5 इकाइयों का संपूर्ण संग्रह: इकाई 1 (लिपियाँ व इतिहास) + इकाई 2 (व्याकरण) + इकाई 3 (लोकसाहित्य व पर्व) + इकाई 4 (स्वाधीनता सेनानी) + इकाई 5 (भाषा शिक्षण शास्त्र) और प्रत्येक इकाई पर 20-20 लाइव MCQs!</p>
-    </div>
-    <a href="jhtet_santhali_m_portal.html" class="btn" style="background: linear-gradient(135deg, #1e3a8a, #0f766e); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">संथाली मास्टर इंडेक्स खोलें ➔</a>
-  </div>
-
-
-
-          <!-- JHTET 2026 Comprehensive Exam Hub & Mock Portal Card -->
-  <div class="card" style="border-color: #4f46e5; box-shadow: 0 4px 18px rgba(79, 70, 229, 0.16); background: #ffffff;">
-    <div>
-      <div class="badge" style="color: #4f46e5; background: #eef2ff; font-weight: bold; border: 1px solid #c7d2fe;">🎯 JHTET 2026 महा-हब & मॉक पोर्टल</div>
-      <h2 style="color: #0f172a;">JHTET 2026 परीक्षा तैयारी हब<br><span style="font-size: 1.1rem; color: #4f46e5;">(Full Mock & Master Portals)</span></h2>
-      <p style="color: #475569;">झारखंड शिक्षक पात्रता परीक्षा (JHTET 2026) हेतु संपूर्ण तैयारी पोर्टल: Paper-2 सामाजिक अध्ययन एवं विज्ञान महा-मॉक टेस्ट, CDP इनसाइक्लोपीडिया, कंप्यूटर ज्ञान तथा खोरठा व संथाली भाषा के मास्टर गाइड!</p>
-    </div>
-    <a href="crack_jtet.html" class="btn" style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);">JHTET हब खोलें ➔</a>
-  </div>
-
-
-
-
-          <!-- JHTET Paper 2 SST History Master Index Card -->
-  <div class="card" style="border-color: #2980b9; box-shadow: 0 4px 18px rgba(41, 128, 185, 0.16); background: #ffffff;">
-    <div>
-      <div class="badge" style="color: #2980b9; background: #ebf5fb; font-weight: bold; border: 1px solid #aed6f1;">📜 JHTET 2026 SST इतिहास (मास्टर इंडेक्स)</div>
-      <h2 style="color: #1a252f;">सामाजिक अध्ययन: इतिहास<br><span style="font-size: 1.1rem; color: #2980b9;">(JHTET Paper 2 • Class 6-8)</span></h2>
-      <p style="color: #475569;">प्राचीन भारत, मध्यकालीन भारत, आधुनिक भारत एवं स्वतंत्रता संग्राम (15 अध्यायों की संपूर्ण मास्टर सूची): मौर्य साम्राज्य, मुग़ल, संताल विद्रोह, 1857 की क्रांति और राष्ट्रीय आंदोलन!</p>
-    </div>
-    <a href="jtet_sst_history.html" class="btn" style="background: linear-gradient(135deg, #2980b9, #1f618d); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(41, 128, 185, 0.28);">इतिहास इंडेक्स खोलें ➔</a>
-  </div>
-
-  <!-- JHTET 2026 Social & Political Life Master Index Card -->
-  <div class="card" style="border-color: #17365d; box-shadow: 0 4px 18px rgba(23, 54, 93, 0.16); background: #ffffff;">
-    <div>
-      <div class="badge" style="color: #17365d; background: #e7eff9; font-weight: bold; border: 1px solid #b3d1f2;">🏛️ JHTET 2026 सामाजिक व राजनीतिक जीवन</div>
-      <h2 style="color: #0f172a;">सामाजिक एवं राजनीतिक जीवन<br><span style="font-size: 1.1rem; color: #1769aa;">(JHTET Paper 2 • Class 6-8 Civics)</span></h2>
-      <p style="color: #475569;">कक्षा 6–8 नागरिक शास्त्र (Civics) हेतु 97 विषयों की संपूर्ण मास्टर सूची: विविधता की समझ, संविधान, मौलिक अधिकार व कर्तव्य, राज्य सरकार, स्थानीय सरकार (पंचायती राज), समानता और संसदीय सरकार!</p>
-    </div>
-    <a href="jhtet-social-political-life2.html" class="btn" style="background: linear-gradient(135deg, #17365d, #245b88); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(23, 54, 93, 0.28);">सिविक्स मास्टर इंडेक्स खोलें ➔</a>
-  </div>
-
-
-
-        
-
-          <!-- JHTET 2026 Geography 17-Topic Master Hub Card -->
-  <div class="card" style="border-color: #0d9488; box-shadow: 0 4px 18px rgba(13, 148, 136, 0.16); background: #ffffff;">
-    <div>
-      <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🌍 JHTET 2026 भूगोल मास्टर हब (17 विषय)</div>
-      <h2 style="color: #0f172a;">भूगोल: संपूर्ण अध्ययन सूची<br><span style="font-size: 1.1rem; color: #0d9488;">(JHTET Paper 2 • Class 6-8 Geography)</span></h2>
-      <p style="color: #475569;">कक्षा 6–8 भूगोल हेतु 17 विषयों के इंटरैक्टिव स्टडी नोट्स: सौर मंडल, पृथ्वी की गतियाँ, वायुमंडल, जलमंडल, मरुस्थलीय जीवन, प्राकृतिक संसाधन, भारत की स्थिति एवं झारखंड का भूगोल!</p>
-    </div>
-    <a href="jhtet-master-index.html" class="btn" style="background: linear-gradient(135deg, #1e3a8a, #0d9488); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(13, 148, 136, 0.28);">भूगोल मास्टर हब खोलें ➔</a>
-  </div>
-
-
-
-          <!-- JHTET 2026 Economics 10-Topic Master Study Portal Card -->
-  <div class="card" style="border-color: #174ea6; box-shadow: 0 4px 18px rgba(23, 78, 166, 0.16); background: #ffffff;">
-    <div>
-      <div class="badge" style="color: #123875; background: #e8f0fe; font-weight: bold; border: 1px solid #bfdbfe;">📈 JHTET 2026 अर्थशास्त्र मास्टर पोर्टल (10 विषय)</div>
-      <h2 style="color: #0f172a;">सामाजिक विज्ञान: अर्थशास्त्र<br><span style="font-size: 1.1rem; color: #174ea6;">(JHTET Paper 2 • Class 6-8 Economics)</span></h2>
-      <p style="color: #475569;">अर्थशास्त्र के 10 विषयों की संपूर्ण अध्ययन सामग्री: आजीविका के साधन, व्यावसायिक क्रिया, मुद्रा एवं विनिमय, जनसंख्या वृद्धि (भारत व झारखंड), सार्वजनिक वितरण प्रणाली (PDS), बचत व फसलें, सहकारी संस्थाएँ, बाजार, आर्थिक-सामाजिक मूल्य एवं वित्तीय साक्षरता (MCQs व पुनरावृत्ति सहित)!</p>
-    </div>
-    <a href="jhtet-economics.html" class="btn" style="background: linear-gradient(135deg, #123875, #174ea6); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(23, 78, 166, 0.28);">अर्थशास्त्र मास्टर पोर्टल खोलें ➔</a>
-  </div>
-
-          <!-- JHTET 2026 Paper 2 Hindi Master Study Portal Card -->
-  <div class="card" style="border-color: #173b70; box-shadow: 0 4px 18px rgba(23, 59, 112, 0.16); background: #ffffff;">
-    <div>
-      <div class="badge" style="color: #173b70; background: #eaf2ff; font-weight: bold; border: 1px solid #cbd5e1;">📖 JHTET 2026 हिंदी मास्टर पोर्टल (Paper 2)</div>
-      <h2 style="color: #0f172a;">हिंदी भाषा एवं शिक्षणशास्त्र<br><span style="font-size: 1.1rem; color: #173b70;">(उच्च प्राथमिक स्तर • 19 संपूर्ण अध्याय)</span></h2>
-      <p style="color: #475569;">भाषायी समझ (गद्यांश-पद्यांश), संपूर्ण व्याकरण (शब्द-भेद, संज्ञा-सर्वनाम, लिंग-वचन, विशेषण-क्रिया, कारक-काल, संधि-समास, उपसर्ग-प्रत्यय, अलंकार, मुहावरे) एवं हिंदी पेडागोजी (भाषा-कौशल, शिक्षण विधियाँ व उपचारात्मक शिक्षण) के इंटरएक्टिव MCQs सहित नोट्स!</p>
-    </div>
-    <a href="jhtet-hindi-master-portal1.html" class="btn" style="background: linear-gradient(135deg, #173b70, #2563eb); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(23, 59, 112, 0.28);">हिंदी मास्टर पोर्टल खोलें ➔</a>
-  </div>
-
-
-        
-
-          <!-- JHTET 2026 Paper 2 English Master Study Index Card -->
-  <div class="card" style="border-color: #173b67; box-shadow: 0 4px 18px rgba(23, 59, 103, 0.16); background: #ffffff;">
-    <div>
-      <div class="badge" style="color: #173b67; background: #e8efff; font-weight: bold; border: 1px solid #dce4ef;">📘 JHTET 2026 English मास्टर पोर्टल (Paper 2)</div>
-      <h2 style="color: #0f172a;">English Language & Pedagogy<br><span style="font-size: 1.1rem; color: #2563eb;">(Upper Primary • 25 संपूर्ण टॉपिक्स)</span></h2>
-      <p style="color: #475569;">Comprehension (Unseen Passage), Language Pedagogy (Learning & Acquisition, LSRW Skills, Remedial Teaching, NEP 2020), संपूर्ण Grammar & Vocabulary (Tense, Voice, Narration, Figures of Speech, Sonnet) एवं Practice Test का लाइव प्रोग्रेस ट्रैकर व सर्च-युक्त अध्ययन केंद्र!</p>
-    </div>
-    <a href="JHTET-English.html" class="btn" style="background: linear-gradient(135deg, #173b67, #2563eb); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);">English स्टडी पोर्टल खोलें ➔</a>
-  </div>
-
-
-
-        
-        
-        
-
-        <!-- Jharkhand Medical Guide -->
-        <div class="card" style="border-color: #0ea5e9; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.15); background: #0f172a; color: #f8fafc;">
-            <div>
-                <div class="badge" style="color: #0ea5e9; background: rgba(14, 165, 233, 0.15); font-weight: bold;">🏥 JCECEB NEET 2026</div>
-                <h2 style="color: #ffffff;">झारखण्ड मेडिकल<br><span style="font-size: 1.1rem; color: #f59e0b;">प्रवेश गाइड 2026</span></h2>
-                <p style="color: #94a3b8;">MBBS/BDS स्टेट कोटा सीटें, JCECEB काउंसिलिंग प्रक्रिया, कॉलेज फीस, कट-ऑफ ट्रेंड्स और e-Kalyan स्कॉलरशिप की संपूर्ण गाइड।</p>
-            </div>
-            <a href="med2.html" class="btn" style="background: linear-gradient(135deg, #0ea5e9, #0284c7); color: #ffffff; border: none; font-weight: bold;">गाइड देखें ➔</a>
-        </div>
-
-        <!-- VBU GE Exam Card -->
-        <div class="card" style="border-color: #ef4444; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.15); position: relative;">
-            <div>
-                <div class="badge" style="color: #ffffff; background: #ef4444; animation: pulse 2s infinite;">⚠️ अर्जेंट अलर्ट (VBU Exam)</div>
-                <h2>VBU GE परीक्षा 2026<br><span style="font-size: 1.1rem; color: #1e3a8a;">अल्टीमेट पोर्टल गाइड</span></h2>
-                <p>सत्र 2015-18 से 2020-23 के जेनरिक इलेक्टिव परीक्षा फॉर्म का लाइव स्टेप-बाय-स्टेप विज़ुअल मैप। अंतिम तिथि 20.07.2026 से पहले फॉर्म भरें।</p>
-            </div>
-            <a href="gen2.html" class="btn" style="background: linear-gradient(135deg, #1e3a8a, #0f172a); color: #ffffff; border: none; font-weight: bold;">पोर्टल गाइड खोलें ➔</a>
-        </div>
-
-        <!-- JPSC Paper 1 -->
-        <div class="card c-blue">
-            <div>
-                <div class="card-badge">JPSC GS-I</div>
-                <h3>सामान्य अध्ययन समीक्षा</h3>
-                <p>इतिहास, भूगोल, और राजव्यवस्था पर आधारित 100 प्रश्नों की आधिकारिक समीक्षा।</p>
-            </div>
-            <a href="paper1.html" class="btn">समीक्षा देखें ➔</a>
-        </div>
-        
-        <!-- JPSC Paper 2 -->
-        <div class="card c-blue">
-            <div>
-                <div class="card-badge">JPSC GS-II</div>
-                <h3>झारखण्ड विशेष अध्ययन</h3>
-                <p>झारखण्ड का इतिहास, संस्कृति, कानून और औद्योगिक नीतियों का गहन विश्लेषण।</p>
-            </div>
-            <a href="paper2.html" class="btn">अध्ययन करें ➔</a>
-        </div>
-        
-        <!-- RRB NTPC Mock -->
-        <div class="card c-blue">
-            <div>
-                <div class="card-badge">RRB NTPC</div>
-                <h3>CBT-1 मॉक टेस्ट</h3>
-                <p>वास्तविक परीक्षा पैटर्न पर आधारित 100 प्रश्नों का अभ्यास टेस्ट और विस्तृत विश्लेषण।</p>
-            </div>
-            <a href="rrb_ntpc_mock.html" class="btn">टेस्ट शुरू करें ➔</a>
-        </div>
-
-    </div>
-
-    <!-- SECTION 4: TECH, AI & PRODUCTIVITY -->
+    <!-- ===================================================================
+         SECTION 4: TECH, AI & PRODUCTIVITY
+    ==================================================================== -->
     <section id="ai-tech" class="section-header">
-        <h2>तकनीकी शिक्षा, AI एवं उत्पादकता</h2>
+        <h2><i class="fa-solid fa-microchip" style="color:#7c3aed;"></i> तकनीकी शिक्षा, AI एवं उत्पादकता</h2>
         <p>आने वाला समय AI और स्व-प्रबंधन का है। इन टूल्स का सही उपयोग करना सीखें।</p>
     </section>
     <div class="grid">
@@ -1054,9 +1244,11 @@
 
     </div>
 
-    <!-- SECTION 5: PHILOSOPHY & SELF-REFLECTION -->
+    <!-- ===================================================================
+         SECTION 5: PHILOSOPHY & SELF-REFLECTION
+    ==================================================================== -->
     <section id="philosophy" class="section-header">
-        <h2>आत्मचिंतन, जीवन दर्शन एवं EQ</h2>
+        <h2><i class="fa-solid fa-compass" style="color:#0f766e;"></i> आत्मचिंतन, जीवन दर्शन एवं EQ</h2>
         <p>जब बाहरी दुनिया उलझी हुई लगे, तब भीतर की समझ और भावनात्मक परिपक्वता सबसे बड़ी शक्ति बनती है।</p>
     </section>
     <div class="grid">
@@ -1181,13 +1373,13 @@
             <a href="jaago-aam-aadmi.html" class="btn">विशेष रिपोर्ट ➔</a>
         </div>
 
-        
-
     </div>
 
-    <!-- SECTION 6: DAILY MEDITATIONS & STOIC WISDOM -->
+    <!-- ===================================================================
+         SECTION 6: DAILY MEDITATIONS & STOIC WISDOM
+    ==================================================================== -->
     <section id="stoic" class="section-header">
-        <h2>दैनिक ध्यान: Stoic Wisdom & Meditations</h2>
+        <h2><i class="fa-solid fa-landmark" style="color:#475569;"></i> दैनिक ध्यान: Stoic Wisdom & Meditations</h2>
         <p>मार्कस ऑरेलियस के दर्शन के माध्यम से जीवन को स्वीकारने और मन को अडिग रखने की कला।</p>
     </section>
     <div class="grid">
@@ -1286,28 +1478,65 @@
 
 </main>
 
+<button id="backToTop" type="button" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="ऊपर जाएँ">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
 <footer>
     <div class="footer-counter">
         <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://kbulbul026-coder.github.io/jpsc-pre-2026-mock/&count_bg=%23e8b84b&title_bg=%231a1a2e&title=Visitors&edge_flat=true" alt="Counter" />
     </div>
     <p>यह डिजिटल स्पेस उन लोगों के लिए है जो केवल जानकारी नहीं, बल्कि विवेक और स्पष्टता खोज रहे हैं।</p>
-    <p style="margin-top: 6px;"><strong>Digital Office of Paresh Kumar Hansda</strong></p>
-    <p style="font-size:0.85rem; margin-top:10px; color:var(--muted);">ज्ञान • विवेक • मानवता</p>
+    <div class="footer-links">
+        <a href="about.html">🏛️ हमारे बारे में (About Us)</a>
+        <a href="crack_jtet.html">🎯 JHTET 2026 हब</a>
+        <a href="pgsem2.html">🎓 SKMU M.A. History</a>
+        <a href="https://whatsapp.com/channel/0029VbAwkaGFnSz4bbgzh617" target="_blank" rel="noopener noreferrer">🌿 WhatsApp चैनल</a>
+    </div>
+    <p style="margin-top: 8px;"><strong>Digital Office of Paresh Kumar Hansda & Bulbul Kumari (M.A. History)</strong></p>
+    <p style="font-size:0.85rem; margin-top:8px; color:var(--muted);">ज्ञान • विवेक • मानवता</p>
 </footer>
 
 <script>
-    // Reading Progress Bar
+    // Reading Progress Bar & Back to Top Button
     window.addEventListener("scroll", () => {
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
+        const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
         document.getElementById("pBar").style.width = scrolled + "%";
-    });
+
+        const topBtn = document.getElementById("backToTop");
+        if (winScroll > 500) {
+            topBtn.style.display = "flex";
+        } else {
+            topBtn.style.display = "none";
+        }
+    }, { passive: true });
+
+    // Instant Search Filter Across All Cards
+    function filterCards() {
+        const query = document.getElementById("portalSearch").value.toLowerCase().trim();
+        const cards = document.querySelectorAll("main .grid .card");
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            if (!query || text.includes(query)) {
+                card.style.display = "flex";
+                visibleCount++;
+            } else {
+                card.style.display = "none";
+            }
+        });
+
+        document.getElementById("searchCountText").textContent =
+            query ? `${visibleCount} पोर्टल मिले` : `कुल ${cards.length} पोर्टल उपलब्ध`;
+        document.getElementById("noResultsMsg").style.display =
+            visibleCount === 0 ? "block" : "none";
+    }
 
     // Dark Mode Toggle
     const themeBtn = document.getElementById("themeBtn");
-    
-    // Check local storage or preference on load
     const currentTheme = localStorage.getItem("site-theme") || "light";
     if (currentTheme === "dark") {
         document.body.setAttribute("data-theme", "dark");
@@ -1316,7 +1545,7 @@
 
     themeBtn.addEventListener("click", () => {
         const isDark = document.body.getAttribute("data-theme") === "dark";
-        if(isDark) {
+        if (isDark) {
             document.body.removeAttribute("data-theme");
             localStorage.setItem("site-theme", "light");
             themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i> <span>Dark Mode</span>';
