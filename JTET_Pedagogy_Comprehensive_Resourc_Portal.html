@@ -1,0 +1,1536 @@
+
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JTET Pedagogy Comprehensive Study Portal | झारखंड शिक्षक पात्रता परीक्षा</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts Inter & Noto Sans Devanagari -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans Devanagari', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #94a3b8;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #64748b;
+    }
+    .reader-mode-lg {
+      font-size: 1.15rem;
+      line-height: 1.95;
+    }
+    .reader-mode-md {
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+    .reader-mode-sm {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans flex flex-col min-h-screen">
+
+  <!-- Top Progress Bar -->
+  <div id="progressBar" class="fixed top-0 left-0 h-1.5 bg-gradient-to-r from-blue-600 via-indigo-500 to-emerald-500 z-50 transition-all duration-150 w-0"></div>
+
+  <!-- Sticky Top Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      
+      <!-- Brand & Mobile Toggle -->
+      <div class="flex items-center gap-3">
+        <button id="sidebarToggleBtn" aria-label="Toggle Navigation" class="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <i class="fa-solid fa-bars-staggered text-lg"></i>
+        </button>
+        <div>
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
+            JTET 2026 Ready
+          </span>
+          <h1 class="text-base sm:text-lg font-bold text-slate-900 leading-tight truncate">
+            Jharkhand TET Pedagogy <span class="hidden sm:inline text-slate-500 font-normal">| Master Study Portal</span>
+          </h1>
+        </div>
+      </div>
+
+      <!-- Quick Action Toolbar -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Live Quick Search -->
+        <div class="relative hidden md:block w-56 lg:w-72">
+          <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
+            <i class="fa-solid fa-magnifying-glass text-xs"></i>
+          </span>
+          <input type="text" id="searchInput" placeholder="खोजें / Search topic..." class="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+        </div>
+
+        <!-- Font Size Controllers -->
+        <div class="hidden sm:flex items-center border border-slate-200 rounded-lg p-0.5 bg-slate-50">
+          <button id="fontSm" title="Small Text" class="px-2 py-1 text-xs font-semibold text-slate-600 rounded hover:bg-white hover:shadow-xs transition">A-</button>
+          <button id="fontMd" title="Default Text" class="px-2 py-1 text-xs font-semibold bg-white text-blue-600 rounded shadow-xs">A</button>
+          <button id="fontLg" title="Large Text" class="px-2 py-1 text-xs font-semibold text-slate-600 rounded hover:bg-white hover:shadow-xs transition">A+</button>
+        </div>
+
+        <!-- Print Action -->
+        <button onclick="window.print()" class="p-2 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition" title="Print this document">
+          <i class="fa-solid fa-print"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-grow flex gap-8">
+    
+    <!-- Sidebar Navigation Drawer -->
+    <aside id="sidebarNav" class="fixed inset-y-0 left-0 z-50 w-80 bg-white border-r border-slate-200 p-5 shadow-2xl transform -translate-x-full transition-transform duration-200 ease-in-out lg:static lg:translate-x-0 lg:w-72 lg:shadow-none lg:p-0 lg:bg-transparent lg:border-none no-print overflow-y-auto max-h-screen">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-200 lg:hidden mb-4">
+        <h2 class="font-bold text-slate-800 text-sm tracking-wide uppercase">विषय सूची (Index)</h2>
+        <button id="closeSidebarBtn" class="p-1 rounded-md text-slate-500 hover:bg-slate-100">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <div class="sticky top-20 space-y-6">
+        <div class="bg-gradient-to-br from-blue-700 to-indigo-800 text-white p-4 rounded-xl shadow-sm">
+          <div class="flex items-center gap-2 mb-2">
+            <i class="fa-solid fa-graduation-cap text-yellow-300"></i>
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-100">JTET Notes Complete</span>
+          </div>
+          <p class="text-xs text-blue-100 leading-relaxed">
+            यह संपूर्ण अध्ययन सामग्री भाषा शिक्षाशास्त्र (English & Hindi) तथा बाल विकास (CDP) के लिए 100% प्रामाणिक है।
+          </p>
+        </div>
+
+        <nav class="space-y-1 text-sm font-medium">
+          <p class="px-3 text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Section 1: English Pedagogy</p>
+          <a href="#sec-acquisition" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition">
+            <i class="fa-solid fa-book-open text-xs text-blue-500"></i> Language Acquisition & Learning
+          </a>
+          <a href="#sec-krashen" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition">
+            <i class="fa-solid fa-lightbulb text-xs text-amber-500"></i> Krashen's 5 Hypotheses
+          </a>
+          <a href="#sec-principles" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition">
+            <i class="fa-solid fa-compass text-xs text-emerald-500"></i> Principles & Maxims
+          </a>
+          <a href="#sec-lsrw" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition">
+            <i class="fa-solid fa-headphones text-xs text-purple-500"></i> LSRW Skills & Evaluation
+          </a>
+          <a href="#sec-fourblock" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition">
+            <i class="fa-solid fa-cubes text-xs text-indigo-500"></i> Four-Block Literacy Approach
+          </a>
+          <a href="#sec-methods" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition">
+            <i class="fa-solid fa-chalkboard-user text-xs text-sky-500"></i> Methods: GTM, Direct, CLT
+          </a>
+          <a href="#sec-grammar" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition">
+            <i class="fa-solid fa-pen-nib text-xs text-rose-500"></i> Role of Grammar
+          </a>
+          <a href="#sec-disorders" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition">
+            <i class="fa-solid fa-circle-exclamation text-xs text-red-500"></i> Diverse Class & Disorders
+          </a>
+
+          <p class="px-3 pt-4 text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Section 2: भाषा एवं बाल विकास (हिंदी)</p>
+          <a href="#sec-hindi-pedagogy" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition">
+            <i class="fa-solid fa-language text-xs text-teal-600"></i> भाषा शिक्षण के सिद्धांत एवं विधियाँ
+          </a>
+          <a href="#sec-hindi-communication" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition">
+            <i class="fa-solid fa-comments text-xs text-violet-500"></i> संप्रेषण कौशल का विकास
+          </a>
+          <a href="#sec-hindi-tlm" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition">
+            <i class="fa-solid fa-shapes text-xs text-orange-500"></i> शिक्षक उपादान (Teaching Aids & TLM)
+          </a>
+          <a href="#sec-hindi-remedial" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition">
+            <i class="fa-solid fa-kit-medical text-xs text-red-600"></i> उपचारात्मक शिक्षण (Remedial Teaching)
+          </a>
+          <a href="#sec-cdp-core" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition">
+            <i class="fa-solid fa-child text-xs text-emerald-600"></i> बाल विकास: अवस्थाएँ एवं सिद्धांत
+          </a>
+          <a href="#sec-thinkers" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition">
+            <i class="fa-solid fa-brain text-xs text-pink-600"></i> पियाजे, वाइगोत्स्की, कोहलबर्ग
+          </a>
+          <a href="#sec-nep-ncf" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition">
+            <i class="fa-solid fa-award text-xs text-yellow-600"></i> NEP 2020, NCF-SE & ज्ञानसेतु
+          </a>
+          <a href="#sec-cognitive-diff" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition">
+            <i class="fa-solid fa-people-arrows text-xs text-cyan-600"></i> वैचारिक विभिन्नताएँ एवं भ्रांतियाँ
+          </a>
+
+          <p class="px-3 pt-4 text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Section 3: Interactive Practice</p>
+          <a href="#sec-quiz" class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-emerald-50 text-emerald-800 font-semibold hover:bg-emerald-100 transition">
+            <i class="fa-solid fa-circle-check text-xs text-emerald-600"></i> JTET MCQ Mock Practice Lab
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content Stream Area -->
+    <main id="contentContainer" class="flex-1 w-full max-w-4xl mx-auto space-y-10 reader-mode-md transition-all">
+
+      <!-- Hero Banner Card -->
+      <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-6">
+          <div>
+            <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full mb-3">
+              <i class="fa-solid fa-book-bookmark"></i> JTET Special Paper 1 & 2 Pedagogy
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              JTET Pedagogy Master Reference Document
+            </h2>
+            <p class="text-sm text-slate-500 mt-1">
+              भाषा शिक्षण शास्त्र (English & Hindi) • बाल विकास एवं शिक्षाशास्त्र (CDP) • NEP 2020 • NCF-SE 2023
+            </p>
+          </div>
+          <div class="flex gap-2">
+            <button onclick="expandAllDetails(true)" class="text-xs px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-50 text-slate-700 transition font-medium">Expand All</button>
+            <button onclick="expandAllDetails(false)" class="text-xs px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-50 text-slate-700 transition font-medium">Collapse All</button>
+          </div>
+        </div>
+
+        <!-- Highlight Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+            <span class="block text-xl font-bold text-blue-600">100%</span>
+            <span class="text-xs text-slate-500 font-medium">Complete Notes</span>
+          </div>
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+            <span class="block text-xl font-bold text-emerald-600">LSRW</span>
+            <span class="text-xs text-slate-500 font-medium">Full Skill Matrix</span>
+          </div>
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+            <span class="block text-xl font-bold text-purple-600">5+3+3+4</span>
+            <span class="text-xs text-slate-500 font-medium">NEP 2020 Framework</span>
+          </div>
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+            <span class="block text-xl font-bold text-amber-600">30+ MCQs</span>
+            <span class="text-xs text-slate-500 font-medium">Interactive Mock</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 1: LANGUAGE ACQUISITION VS LEARNING -->
+      <section id="sec-acquisition" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold">1</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Learning and Acquisition of English Language</h3>
+            <p class="text-xs text-slate-500">Core concepts, difference, nature, and characteristics</p>
+          </div>
+        </div>
+
+        <div class="space-y-6 text-slate-700">
+          <div>
+            <h4 class="text-lg font-bold text-slate-900 mb-2">1. Meaning of Language</h4>
+            <p>Language is a system of communication through which human beings express their thoughts, feelings, ideas, and experiences.</p>
+            <ul class="list-disc pl-5 mt-2 space-y-1 text-sm sm:text-base">
+              <li><strong>Means of communication:</strong> Exchanges intent and knowledge between people.</li>
+              <li><strong>Social phenomenon:</strong> Originates, survives, and evolves through social interaction.</li>
+              <li><strong>Systematic:</strong> Structured through phonology, morphology, syntax, and semantics.</li>
+              <li><strong>Symbolic and sound-based:</strong> Arbitrary vocal symbols associated with accepted meanings.</li>
+              <li><strong>Constantly changing:</strong> Dynamic; vocabulary and usage adjust over generations.</li>
+              <li>Every language possesses its own unique structural grammar and lexical system.</li>
+            </ul>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-blue-50/70 border border-blue-200">
+              <h5 class="font-bold text-blue-900 mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-seedling text-blue-600"></i> Language Acquisition
+              </h5>
+              <p class="text-sm leading-relaxed mb-3">Natural process of picking up a language through immersion, daily interaction, listening, and exposure without conscious rule study.</p>
+              <ul class="text-xs sm:text-sm space-y-1 list-disc pl-4 text-blue-950">
+                <li>Unconscious / Subconscious process.</li>
+                <li>Begins from early childhood in family & society.</li>
+                <li>No formal instruction or rule memorization needed.</li>
+                <li>Primary focus is <strong>Fluency</strong> and practical communication.</li>
+                <li><em>Example:</em> A child learning Hindi/Santhali naturally at home.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-200">
+              <h5 class="font-bold text-indigo-900 mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-graduation-cap text-indigo-600"></i> Language Learning
+              </h5>
+              <p class="text-sm leading-relaxed mb-3">Conscious and formal process of studying the explicit vocabulary, grammatical mechanics, and syntax of a language.</p>
+              <ul class="text-xs sm:text-sm space-y-1 list-disc pl-4 text-indigo-950">
+                <li>Conscious, planned classroom instruction.</li>
+                <li>Focuses on structural <strong>Accuracy</strong> and formal rules.</li>
+                <li>Involves deliberate reading, writing, correction, and testing.</li>
+                <li>Requires sustained motivation and teacher guidance.</li>
+                <li><em>Example:</em> Learning English as an L2 in formal school setups.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Comparison Table -->
+          <div class="overflow-x-auto rounded-xl border border-slate-200">
+            <table class="w-full text-left text-sm">
+              <thead class="bg-slate-100 text-slate-800 font-semibold uppercase text-xs">
+                <tr>
+                  <th class="p-3">Parameter</th>
+                  <th class="p-3">Language Acquisition</th>
+                  <th class="p-3">Language Learning</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 text-slate-700">
+                <tr>
+                  <td class="p-3 font-semibold">Process Nature</td>
+                  <td class="p-3">Natural & Subconscious</td>
+                  <td class="p-3">Formal & Conscious</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-semibold">Instruction Requirement</td>
+                  <td class="p-3">No formal classroom instruction</td>
+                  <td class="p-3">Requires formal structured teaching</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-semibold">Primary Focus</td>
+                  <td class="p-3">Spoken communication and fluency</td>
+                  <td class="p-3">Grammar rules and structural accuracy</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-semibold">Developmental Path</td>
+                  <td class="p-3">Through continuous social immersion</td>
+                  <td class="p-3">Through textbooks, drills, and guidance</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-semibold">Primary Example</td>
+                  <td class="p-3">Mother tongue (L1)</td>
+                  <td class="p-3">Second language / English (L2) in India</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl text-amber-900 text-sm">
+            <strong>JTET Golden Note:</strong> Acquisition is consistently identified in JTET questions with natural communication and subconscious pickup, whereas learning is identified with conscious knowledge of structural rules.
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: KRASHEN'S HYPOTHESES & STAGES -->
+      <section id="sec-krashen" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold">2</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Stephen Krashen’s Second Language Acquisition Theory</h3>
+            <p class="text-xs text-slate-500">The 5 Core Hypotheses and Stages of Child Language Development</p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div class="grid grid-cols-1 gap-4">
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Hypothesis 1</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">The Acquisition-Learning Hypothesis</h4>
+              <p class="text-sm text-slate-600 mt-1">There are two distinct and independent ways of developing competence in a second language: natural subconscious acquisition and conscious rule learning. Acquisition is responsible for true fluency.</p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Hypothesis 2</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">The Natural Order Hypothesis</h4>
+              <p class="text-sm text-slate-600 mt-1">Learners acquire grammatical structures in an inherently predictable order. This natural sequence cannot be altered simply by changing the instructional order in syllabus books.</p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Hypothesis 3</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">The Monitor Hypothesis</h4>
+              <p class="text-sm text-slate-600 mt-1">Conscious grammar learning serves merely as a "Monitor" or editor. It checks and corrects utterances before or after production only when three conditions are met: sufficient time, focus on form, and knowledge of the rule.</p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <span class="text-xs font-bold uppercase tracking-wider text-rose-600">Hypothesis 4</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">The Input Hypothesis (i + 1)</h4>
+              <p class="text-sm text-slate-600 mt-1">Language is acquired when learners receive "comprehensible input" that contains structures slightly beyond their current level of competence: <strong>$i$</strong> represents the learner's current stage, and <strong>$+1$</strong> is the next linguistic step.</p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Hypothesis 5</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">The Affective Filter Hypothesis</h4>
+              <p class="text-sm text-slate-600 mt-1">Emotional and attitudinal variables (Motivation, Self-confidence, and Anxiety) act as a mental filter. A <strong>Low Affective Filter</strong> (high motivation, high self-esteem, zero fear/anxiety) allows input to pass freely into the Language Acquisition Device.</p>
+            </div>
+          </div>
+
+          <!-- Developmental Stages -->
+          <div class="pt-4 border-t border-slate-100">
+            <h4 class="text-lg font-bold text-slate-900 mb-3">Stages of Language Acquisition in Children</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm">
+                <span class="font-bold text-blue-700">1. Pre-linguistic Stage:</span>
+                <p class="text-slate-600 mt-1">Crying, smiling, gestures, and cooing sounds.</p>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm">
+                <span class="font-bold text-blue-700">2. Babbling Stage (~6 mo):</span>
+                <p class="text-slate-600 mt-1">Repetitive consonant-vowel combinations (ba-ba, ma-ma).</p>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm">
+                <span class="font-bold text-blue-700">3. One-word Stage (~1 yr):</span>
+                <p class="text-slate-600 mt-1">Holophrastic speech; single words denote entire intents ("milk").</p>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm">
+                <span class="font-bold text-blue-700">4. Two-word Stage (~18-24 mo):</span>
+                <p class="text-slate-600 mt-1">Rudimentary word combinations ("more milk", "papa go").</p>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm">
+                <span class="font-bold text-blue-700">5. Telegraphic Stage (~2-3 yr):</span>
+                <p class="text-slate-600 mt-1">Short sentences using content words ("I want water").</p>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm">
+                <span class="font-bold text-blue-700">6. Complex Sentence Stage:</span>
+                <p class="text-slate-600 mt-1">Mastery of grammatical morphemes and intricate sentences.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: PRINCIPLES & MAXIMS -->
+      <section id="sec-principles" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">3</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Principles of Language Teaching & Maxims</h3>
+            <p class="text-xs text-slate-500">Essential psychological, linguistic rules and pedagogical guidelines</p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+            <div class="p-3 rounded-xl border border-slate-200 bg-slate-50">
+              <strong class="text-slate-900 block font-semibold mb-1">Principle of Habit-Formation:</strong>
+              <p class="text-slate-600">Language learning is skill-oriented. Automatic fluency requires continuous drilling and habit construction.</p>
+            </div>
+            <div class="p-3 rounded-xl border border-slate-200 bg-slate-50">
+              <strong class="text-slate-900 block font-semibold mb-1">Natural Sequence (LSRW):</strong>
+              <p class="text-slate-600">Listening $\rightarrow$ Speaking $\rightarrow$ Reading $\rightarrow$ Writing. Oral mastery must precede literacy training.</p>
+            </div>
+            <div class="p-3 rounded-xl border border-slate-200 bg-slate-50">
+              <strong class="text-slate-900 block font-semibold mb-1">Motivation & Interest:</strong>
+              <p class="text-slate-600">The gateway to learning. Intrinsic motivation (curiosity) outperforms extrinsic rewards over time.</p>
+            </div>
+            <div class="p-3 rounded-xl border border-slate-200 bg-slate-50">
+              <strong class="text-slate-900 block font-semibold mb-1">Selection and Gradation:</strong>
+              <p class="text-slate-600"><strong>Selection:</strong> Choosing vocabulary by frequency and utility. <strong>Gradation:</strong> Arranging easy-to-hard order.</p>
+            </div>
+            <div class="p-3 rounded-xl border border-slate-200 bg-slate-50">
+              <strong class="text-slate-900 block font-semibold mb-1">Oral Approach First:</strong>
+              <p class="text-slate-600">Spoken language is primary. Words should be heard and uttered before they are read or scripted.</p>
+            </div>
+            <div class="p-3 rounded-xl border border-slate-200 bg-slate-50">
+              <strong class="text-slate-900 block font-semibold mb-1">Linking with Life / Context:</strong>
+              <p class="text-slate-600">Classroom concepts must tie to practical objects, emotions, and local environments.</p>
+            </div>
+          </div>
+
+          <!-- Maxims Table -->
+          <div>
+            <h4 class="text-base font-bold text-slate-900 mb-3">Universal Maxims of Language Teaching</h4>
+            <div class="overflow-x-auto rounded-xl border border-slate-200">
+              <table class="w-full text-left text-sm">
+                <thead class="bg-slate-100 text-slate-800 font-semibold text-xs uppercase">
+                  <tr>
+                    <th class="p-3">Maxim</th>
+                    <th class="p-3">Pedagogical Meaning</th>
+                    <th class="p-3">Classroom Application</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200 text-slate-700">
+                  <tr>
+                    <td class="p-3 font-semibold text-blue-700">Known to Unknown</td>
+                    <td class="p-3">Anchor new concepts onto pre-existing schema.</td>
+                    <td class="p-3">Use mother tongue vocabulary before introducing equivalent English words.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-semibold text-blue-700">Simple to Complex</td>
+                    <td class="p-3">Introduce basic sentence syntax before composite structures.</td>
+                    <td class="p-3">Teach Simple Present tense before Present Perfect Continuous tense.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-semibold text-blue-700">Concrete to Abstract</td>
+                    <td class="p-3">Direct physical experience precedes mental abstraction.</td>
+                    <td class="p-3">Demonstrate an actual apple before discussing plant biology or abstract nutrition.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-semibold text-blue-700">Induction to Deduction</td>
+                    <td class="p-3">Guide students to deduce rules from observed samples.</td>
+                    <td class="p-3">Show multiple sentences with plural forms before explaining the suffix rule.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-semibold text-blue-700">Analysis to Synthesis</td>
+                    <td class="p-3">Deconstruct wholes into parts, then recombine.</td>
+                    <td class="p-3">Analyze sentences word-by-word, then look at the unified narrative tone.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: LSRW SKILLS MATRIX -->
+      <section id="sec-lsrw" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold">4</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Evaluating Language Comprehension & LSRW Skills</h3>
+            <p class="text-xs text-slate-500">Receptive vs. Productive Skills, Sub-skills, and Assessment Tools</p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="p-4 rounded-xl border border-blue-200 bg-blue-50/50">
+              <span class="inline-block px-2 py-0.5 rounded text-xs font-bold bg-blue-200 text-blue-800 mb-2">Receptive / Oral</span>
+              <h4 class="font-bold text-slate-900 text-base">Listening (L)</h4>
+              <p class="text-xs text-slate-600 mt-1 mb-2">Active mental decoding of acoustic speech signals.</p>
+              <ul class="text-xs space-y-1 list-disc pl-4 text-slate-700">
+                <li>Intensive listening (detail)</li>
+                <li>Extensive listening (gist)</li>
+                <li>Critical & appreciative modes</li>
+                <li>Activities: Dictation, audio tasks</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-xl border border-purple-200 bg-purple-50/50">
+              <span class="inline-block px-2 py-0.5 rounded text-xs font-bold bg-purple-200 text-purple-800 mb-2">Productive / Oral</span>
+              <h4 class="font-bold text-slate-900 text-base">Speaking (S)</h4>
+              <p class="text-xs text-slate-600 mt-1 mb-2">Verbal formulation of ideas with stress and rhythm.</p>
+              <ul class="text-xs space-y-1 list-disc pl-4 text-slate-700">
+                <li>Pronunciation, stress, and pitch</li>
+                <li>Communicative fluency</li>
+                <li>Confidence and interactive ability</li>
+                <li>Activities: Role-play, picture talk</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-xl border border-emerald-200 bg-emerald-50/50">
+              <span class="inline-block px-2 py-0.5 rounded text-xs font-bold bg-emerald-200 text-emerald-800 mb-2">Receptive / Written</span>
+              <h4 class="font-bold text-slate-900 text-base">Reading (R)</h4>
+              <p class="text-xs text-slate-600 mt-1 mb-2">Decoding written symbols and deriving meaning.</p>
+              <ul class="text-xs space-y-1 list-disc pl-4 text-slate-700">
+                <li>Loud Reading (pronunciation)</li>
+                <li>Silent Reading (comprehension)</li>
+                <li><strong>Skimming:</strong> Gist search</li>
+                <li><strong>Scanning:</strong> Specific fact hunt</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-xl border border-rose-200 bg-rose-50/50">
+              <span class="inline-block px-2 py-0.5 rounded text-xs font-bold bg-rose-200 text-rose-800 mb-2">Productive / Written</span>
+              <h4 class="font-bold text-slate-900 text-base">Writing (W)</h4>
+              <p class="text-xs text-slate-600 mt-1 mb-2">Encoding ideas into orthographic symbols and syntax.</p>
+              <ul class="text-xs space-y-1 list-disc pl-4 text-slate-700">
+                <li>Controlled & guided writing</li>
+                <li>Free and creative writing</li>
+                <li>Mechanics, spelling & punctuation</li>
+                <li>Paragraph coherence & cohesion</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Evaluation Matrix Table -->
+          <div>
+            <h4 class="text-base font-bold text-slate-900 mb-2">Language Evaluation Tools & Rubrics</h4>
+            <div class="overflow-x-auto rounded-xl border border-slate-200 text-sm">
+              <table class="w-full text-left">
+                <thead class="bg-slate-100 text-slate-800 font-semibold text-xs uppercase">
+                  <tr>
+                    <th class="p-3">Evaluation Tool</th>
+                    <th class="p-3">Function in Assessment</th>
+                    <th class="p-3">JTET Context</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200 text-slate-700">
+                  <tr>
+                    <td class="p-3 font-semibold">Portfolio</td>
+                    <td class="p-3">Cumulative authentic work sample showing child's growth over time.</td>
+                    <td class="p-3">Continuous & Comprehensive Evaluation (CCE).</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-semibold">Rubric</td>
+                    <td class="p-3">Scoring guide setting clear criteria and achievement levels.</td>
+                    <td class="p-3">Objective evaluation of speaking & creative writing.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-semibold">Checklist</td>
+                    <td class="p-3">Binary recording (Yes/No) of observed skills or behaviors.</td>
+                    <td class="p-3">Assessing mechanics, spelling, and classroom participation.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-semibold">Anecdotal Record</td>
+                    <td class="p-3">Narrative account of significant classroom incidents or social traits.</td>
+                    <td class="p-3">Evaluating affective and social-emotional growth.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: FOUR-BLOCK APPROACH -->
+      <section id="sec-fourblock" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold">5</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">The Four-Block Approach (चार-ब्लॉक दृष्टिकोण)</h3>
+            <p class="text-xs text-slate-500">Multilevel, balanced literacy framework aligned with foundational literacy</p>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-slate-700">
+          <p class="text-sm sm:text-base">The Four-Block Framework provides four distinct daily pathways to literacy, accommodating diverse learning styles without streaming children into rigid tracking:</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <div class="flex items-center gap-2 mb-2 font-bold text-indigo-800">
+                <span class="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs">1</span>
+                Block 1: Guided Reading (निर्देशित पठन)
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600">The teacher models reading strategies, comprehension questioning, and vocabulary context before, during, and after reading level-appropriate texts.</p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <div class="flex items-center gap-2 mb-2 font-bold text-indigo-800">
+                <span class="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs">2</span>
+                Block 2: Self-Selected Reading (स्वयं चुना हुआ पठन)
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600">Children independently choose storybooks, comics, or picture magazines based on individual curiosity, building intrinsic lifelong reading habits.</p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <div class="flex items-center gap-2 mb-2 font-bold text-indigo-800">
+                <span class="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs">3</span>
+                Block 3: Writing (लेखन)
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600">Daily opportunity for mini-lessons, creative drafting, brainstorming, personal journals, and editing. Emphasizes meaning before mechanics.</p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <div class="flex items-center gap-2 mb-2 font-bold text-indigo-800">
+                <span class="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs">4</span>
+                Block 4: Working with Words (शब्दों के साथ कार्य)
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600">Phonics instruction, high-frequency sight words, word families (rhyming patterns), prefixes, suffixes, and orthographic word wall exercises.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: METHODS OF ENGLISH TEACHING -->
+      <section id="sec-methods" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold">6</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Important Methods of English Language Teaching</h3>
+            <p class="text-xs text-slate-500">GTM, Direct, Bilingual, Audio-Lingual, Structural, and CLT</p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <h4 class="font-bold text-slate-900 mb-1">1. Grammar-Translation (GTM)</h4>
+              <p class="text-xs text-slate-600 mb-2">Classical, traditional approach.</p>
+              <ul class="text-xs space-y-1 list-disc pl-4 text-slate-700">
+                <li>Unit of teaching: <strong>Word</strong>.</li>
+                <li>Heavy use of mother tongue.</li>
+                <li>Focus on reading & writing.</li>
+                <li>Listening & speaking neglected.</li>
+                <li>Deductive grammar teaching.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <h4 class="font-bold text-slate-900 mb-1">2. Direct Method (Natural)</h4>
+              <p class="text-xs text-slate-600 mb-2">Complete target language immersion.</p>
+              <ul class="text-xs space-y-1 list-disc pl-4 text-slate-700">
+                <li>Unit of teaching: <strong>Sentence</strong>.</li>
+                <li>Mother tongue strictly prohibited.</li>
+                <li>Focus on oral drilling & speech.</li>
+                <li>Inductive grammar teaching.</li>
+                <li>Meaning through real objects.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <h4 class="font-bold text-slate-900 mb-1">3. Bilingual Method</h4>
+              <p class="text-xs text-slate-600 mb-2">Pioneered by C.J. Dodson.</p>
+              <ul class="text-xs space-y-1 list-disc pl-4 text-slate-700">
+                <li>Midway between GTM & Direct.</li>
+                <li><strong>Teacher only</strong> uses L1 for tough words.</li>
+                <li>Students practice only in L2.</li>
+                <li>Time-efficient and practical.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <h4 class="font-bold text-slate-900 mb-1">4. Audio-Lingual Method</h4>
+              <p class="text-xs text-slate-600 mb-2">Behavioristic Habit Formation.</p>
+              <ul class="text-xs space-y-1 list-disc pl-4 text-slate-700">
+                <li>Emphasis on listening & speaking.</li>
+                <li>Conditioning via pattern drills.</li>
+                <li>Instant error correction.</li>
+                <li>Dialog memorization & mimicry.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <h4 class="font-bold text-slate-900 mb-1">5. Communicative (CLT)</h4>
+              <p class="text-xs text-slate-600 mb-2">Modern child-centered paradigm.</p>
+              <ul class="text-xs space-y-1 list-disc pl-4 text-slate-700">
+                <li>Aim: <strong>Communicative Competence</strong>.</li>
+                <li>Fluency prioritized over accuracy.</li>
+                <li>Authentic real-life role plays.</li>
+                <li>Teacher acts as a facilitator.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <h4 class="font-bold text-slate-900 mb-1">6. Structural Approach</h4>
+              <p class="text-xs text-slate-600 mb-2">Systematic gradation of structures.</p>
+              <ul class="text-xs space-y-1 list-disc pl-4 text-slate-700">
+                <li>Mastery of ~275 structures.</li>
+                <li>Pattern repetition for habits.</li>
+                <li>Subject + Verb + Object sequencing.</li>
+                <li>Grammar through structures.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 7: ROLE OF GRAMMAR -->
+      <section id="sec-grammar" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center font-bold">7</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Critical Perspective on the Role of Grammar</h3>
+            <p class="text-xs text-slate-500">Grammar in context, Inductive vs Deductive approaches, and Competence</p>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-slate-700">
+          <p class="text-sm sm:text-base">Grammar is the foundational blueprint of language. While traditional schooling viewed grammar as an isolated set of memorized prescriptions, modern pedagogical consensus views grammar as a vital tool for meaningful communicative clarity.</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div class="p-4 bg-rose-50/60 rounded-xl border border-rose-200">
+              <h4 class="font-bold text-rose-900 mb-2">Inductive Approach (Rule Discovery)</h4>
+              <ul class="space-y-1 list-disc pl-4 text-xs sm:text-sm text-rose-950">
+                <li>Sequence: <strong>Examples $\rightarrow$ Observation $\rightarrow$ Generalization $\rightarrow$ Rule</strong>.</li>
+                <li>Learner-centered; active inductive reasoning.</li>
+                <li>Example: Students observe "Ram plays", "She writes", discovering singular third-person verb suffixes naturally.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <h4 class="font-bold text-slate-900 mb-2">Deductive Approach (Rule Application)</h4>
+              <ul class="space-y-1 list-disc pl-4 text-xs sm:text-sm text-slate-700">
+                <li>Sequence: <strong>Rule statement $\rightarrow$ Explanation $\rightarrow$ Verification $\rightarrow$ Practice</strong>.</li>
+                <li>Teacher-dominated; faster coverage of syllabus.</li>
+                <li>Risk: Promotes rote memorization with poor communicative retention.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-100 border border-slate-200 text-xs sm:text-sm">
+            <strong>Dell Hymes' Communicative Competence:</strong> Beyond mere structural grammar (Chomsky's Linguistic Competence), true communicative competence requires <em>Sociolinguistic Competence</em> (social appropriateness), <em>Discourse Competence</em> (connecting ideas), and <em>Strategic Competence</em> (overcoming communication barriers).
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 8: DIVERSE CLASSROOMS & DISORDERS -->
+      <section id="sec-disorders" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-red-100 text-red-700 flex items-center justify-center font-bold">8</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Diverse Classrooms, Errors, and Language Disorders</h3>
+            <p class="text-xs text-slate-500">Multilingual asset model, Error vs Mistake, and Neurodevelopmental conditions</p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Multilingualism -->
+          <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-950 text-sm">
+            <h4 class="font-bold text-emerald-900 mb-1 flex items-center gap-2">
+              <i class="fa-solid fa-earth-asia"></i> Multilingualism as a Classroom Resource
+            </h4>
+            <p>In Jharkhand's multilingual landscape (Santhali, Ho, Mundari, Kudukh, Bengali, Khortha, Nagpuri), mother tongues are not cognitive barriers. Modern constructivism promotes <strong>Translanguaging</strong>—allowing learners to use their full linguistic repertoire to access, process, and express complex concepts.</p>
+          </div>
+
+          <!-- Error vs Mistake -->
+          <div>
+            <h4 class="font-bold text-slate-900 text-base mb-2">Error vs. Mistake: The Decisive Distinction</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+              <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+                <span class="font-bold text-red-600 block mb-1">Language Error (त्रुटि):</span>
+                <p class="text-slate-600">Systematic breach resulting from incomplete structural knowledge. The learner cannot self-correct. Requires diagnostic identification and planned instruction.</p>
+              </div>
+              <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+                <span class="font-bold text-amber-600 block mb-1">Language Mistake (भूल):</span>
+                <p class="text-slate-600">Temporary performance slip caused by tiredness, lack of attention, or emotional excitement. The learner knows the rule and self-corrects once prompted.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Disorders -->
+          <div>
+            <h4 class="font-bold text-slate-900 text-base mb-2">High-Yield Language & Learning Disorders</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs sm:text-sm">
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <strong class="text-slate-900">Dyslexia (डिस्लेक्सिया):</strong>
+                <p class="text-slate-600 mt-1">Specific reading disorder involving phonological decoding, word recognition, and reading fluency.</p>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <strong class="text-slate-900">Dysgraphia (डिस्ग्राफिया):</strong>
+                <p class="text-slate-600 mt-1">Writing impairment affecting spatial letter formation, hand coordination, and orthographic coherence.</p>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <strong class="text-slate-900">Aphasia (वाचाघात):</strong>
+                <p class="text-slate-600 mt-1">Language processing impairment caused by physical brain damage affecting verbal formulation or decoding.</p>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <strong class="text-slate-900">Stuttering (हकलाना):</strong>
+                <p class="text-slate-600 mt-1">Speech fluency disorder featuring involuntary sound repetitions, prolongations, or postural blocks.</p>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <strong class="text-slate-900">Receptive Language Disorder:</strong>
+                <p class="text-slate-600 mt-1">Persistent impairment in comprehending spoken or written phrases despite intact hearing.</p>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <strong class="text-slate-900">Expressive Language Disorder:</strong>
+                <p class="text-slate-600 mt-1">Struggles in lexical retrieval, verbal sentence creation, and grammatical synthesis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 9: HINDI PEDAGOGY & COMMUNICATIVE SKILLS -->
+      <section id="sec-hindi-pedagogy" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center font-bold">9</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">भाषा शिक्षण के सिद्धांत, विधियाँ एवं कौशल (हिंदी)</h3>
+            <p class="text-xs text-slate-500">भाषा शिक्षण के मुख्य उद्देश्य, सूत्र और कक्षा-कक्ष रणनीतियाँ</p>
+          </div>
+        </div>
+
+        <div class="space-y-6 text-slate-700">
+          <div>
+            <h4 class="font-bold text-slate-900 text-lg mb-2">भाषा शिक्षण के मुख्य सिद्धांत</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <strong>1. सरल से कठिन की ओर:</strong> पहले सरल शब्द व वाक्य, तत्पश्चात जटिल अनुच्छेद।
+              </div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <strong>2. ज्ञात से अज्ञात की ओर:</strong> पूर्व ज्ञान के आधार पर नई भाषाई संरचनाएं सिखाना।
+              </div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <strong>3. मूर्त से अमूर्त की ओर:</strong> प्रत्यक्ष वस्तु व चित्र दिखाकर अमूर्त विचारों की व्याख्या।
+              </div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <strong>4. अभ्यास का सिद्धांत:</strong> सुनने, बोलने, पढ़ने और लिखने का निरंतर अभ्यास।
+              </div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <strong>5. व्यक्तिगत विभिन्नता:</strong> प्रत्येक बच्चे की सीखने की गति व भाषाई पृष्ठभूमि का सम्मान।
+              </div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <strong>6. जीवन से संबंध:</strong> भाषा शिक्षण को बालक के वास्तविक जीवन अनुभवों से जोड़ना।
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 10 Embedded: Communication -->
+          <div id="sec-hindi-communication" class="pt-4 border-t border-slate-100">
+            <h4 class="font-bold text-slate-900 text-lg mb-2">संप्रेषण कौशल का विकास (Communication Skills)</h4>
+            <p class="text-sm mb-3">संप्रेषण विचारों, भावों और सूचनाओं का द्विमार्गी आदान-प्रदान है। इसमें छह अनिवार्य घटक कार्य करते हैं:</p>
+            
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs sm:text-sm mb-4">
+              <div class="flex flex-wrap items-center justify-center gap-2 font-semibold text-blue-700 text-center">
+                <span class="p-2 bg-white rounded-md shadow-xs border">प्रेषक (Sender)</span> $\rightarrow$
+                <span class="p-2 bg-white rounded-md shadow-xs border">संदेश (Message)</span> $\rightarrow$
+                <span class="p-2 bg-white rounded-md shadow-xs border">संकेतीकरण (Encoding)</span> $\rightarrow$
+                <span class="p-2 bg-white rounded-md shadow-xs border">माध्यम (Channel)</span> $\rightarrow$
+                <span class="p-2 bg-white rounded-md shadow-xs border">प्राप्तकर्ता (Receiver)</span> $\rightarrow$
+                <span class="p-2 bg-white rounded-md shadow-xs border">प्रतिपुष्टि (Feedback)</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm">
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <strong class="text-slate-900 block mb-1">मौखिक संप्रेषण (Verbal):</strong>
+                बोलकर (भाषण, चर्चा) और लिखकर (पत्र, कार्यपत्रक) संदेश प्रेषित करना।
+              </div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <strong class="text-slate-900 block mb-1">अमौखिक संप्रेषण (Non-Verbal):</strong>
+                शारीरिक मुद्रा, चेहरे के भाव, दृष्टि संपर्क (Eye contact) और संकेत।
+              </div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <strong class="text-slate-900 block mb-1">7C सिद्धांत:</strong>
+                Clarity, Completeness, Correctness, Conciseness, Courtesy, Consideration, Concreteness.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 11: TLM & REMEDIAL TEACHING (HINDI) -->
+      <section id="sec-hindi-tlm" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-700 flex items-center justify-center font-bold">10</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">शिक्षक उपादान (TLM) एवं उपचारात्मक शिक्षण</h3>
+            <p class="text-xs text-slate-500">एडगर डेल का अनुभव शंकु, दृश्य-श्रव्य सामग्री और 6-चरणीय उपचारात्मक प्रक्रिया</p>
+          </div>
+        </div>
+
+        <div class="space-y-6 text-slate-700">
+          <!-- TLM Types -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+            <div class="p-4 bg-orange-50/50 rounded-xl border border-orange-200">
+              <h4 class="font-bold text-orange-900 mb-1">1. दृश्य सामग्री (Visual Aids)</h4>
+              <p class="text-xs text-slate-600 mb-2">आँखों से देखकर सीखने वाले साधन।</p>
+              <ul class="text-xs space-y-1 list-disc pl-4 text-slate-700">
+                <li>श्यामपट्ट (Blackboard)</li>
+                <li>चित्र, चार्ट, पोस्टर</li>
+                <li>मानचित्र एवं ग्लोब</li>
+                <li>फ्लैश कार्ड, वास्तविक वस्तुएं</li>
+              </ul>
+            </div>
+
+            <div class="p-4 bg-orange-50/50 rounded-xl border border-orange-200">
+              <h4 class="font-bold text-orange-900 mb-1">2. श्रव्य सामग्री (Audio Aids)</h4>
+              <p class="text-xs text-slate-600 mb-2">कानों से सुनकर सीखने वाले साधन।</p>
+              <ul class="text-xs space-y-1 list-disc pl-4 text-slate-700">
+                <li>रेडियो प्रसारण</li>
+                <li>ऑडियो रिकॉर्डिंग व टेप</li>
+                <li>पॉडकास्ट एवं भाषण</li>
+                <li>ध्वनि पहचान अभ्यास</li>
+              </ul>
+            </div>
+
+            <div class="p-4 bg-orange-50/50 rounded-xl border border-orange-200">
+              <h4 class="font-bold text-orange-900 mb-1">3. दृश्य-श्रव्य (Audio-Visual)</h4>
+              <p class="text-xs text-slate-600 mb-2">देखकर और सुनकर सीखने वाले साधन।</p>
+              <ul class="text-xs space-y-1 list-disc pl-4 text-slate-700">
+                <li>स्मार्ट बोर्ड (Smart Class)</li>
+                <li>शैक्षिक वीडियो व वृत्तचित्र</li>
+                <li>टेलीविजन एवं कंप्यूटर</li>
+                <li>सिमुलेशन एनिमेशन</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Remedial Teaching Section -->
+          <div id="sec-hindi-remedial" class="pt-4 border-t border-slate-100">
+            <h4 class="font-bold text-slate-900 text-lg mb-2">उपचारात्मक शिक्षण (Remedial Teaching)</h4>
+            <p class="text-sm mb-3">निदानात्मक परीक्षण (Diagnostic Test) द्वारा पहचानी गई छात्र की सीखने की कठिनाइयों, गलतियों और कमियों को दूर करने के लिए दिया जाने वाला विशेष शिक्षण।</p>
+
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 mb-4">
+              <h5 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">उपचारात्मक शिक्षण के 6 क्रमिक चरण (JTET अनिवार्य क्रम)</h5>
+              <div class="flex flex-wrap items-center justify-between gap-2 text-xs font-semibold text-slate-700">
+                <span class="px-2.5 py-1.5 bg-white rounded border shadow-2xs">1. समस्या की पहचान</span> $\rightarrow$
+                <span class="px-2.5 py-1.5 bg-white rounded border shadow-2xs">2. कारणों का निदान</span> $\rightarrow$
+                <span class="px-2.5 py-1.5 bg-white rounded border shadow-2xs">3. योजना निर्माण</span> $\rightarrow$
+                <span class="px-2.5 py-1.5 bg-white rounded border shadow-2xs">4. उपचारात्मक शिक्षण</span> $\rightarrow$
+                <span class="px-2.5 py-1.5 bg-white rounded border shadow-2xs">5. पुनः परीक्षण</span> $\rightarrow$
+                <span class="px-2.5 py-1.5 bg-white rounded border shadow-2xs">6. अनुवर्ती कार्य (Follow-up)</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+              <div class="p-3 bg-white rounded-lg border border-slate-200">
+                <strong class="text-blue-700 block mb-1">निदानात्मक शिक्षण (Diagnostic):</strong>
+                कठिनाई की पहचान करता है; बीमारी का कारण खोजना (X-Ray की तरह)।
+              </div>
+              <div class="p-3 bg-white rounded-lg border border-slate-200">
+                <strong class="text-emerald-700 block mb-1">उपचारात्मक शिक्षण (Remedial):</strong>
+                पहचानी गई कठिनाई का समाधान देता है; दवा और उपचार की तरह।
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 12: CDP THEORIES & DEVELOPMENT -->
+      <section id="sec-cdp-core" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">11</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">बाल विकास की अवधारणा एवं प्रमुख अवस्थाएँ</h3>
+            <p class="text-xs text-slate-500">वृद्धि बनाम विकास, सार्वभौमिक सिद्धांत और विकासात्मक चरण</p>
+          </div>
+        </div>
+
+        <div class="space-y-6 text-slate-700">
+          <!-- Growth vs Development -->
+          <div class="overflow-x-auto rounded-xl border border-slate-200 text-sm">
+            <table class="w-full text-left">
+              <thead class="bg-slate-100 text-slate-800 font-semibold text-xs uppercase">
+                <tr>
+                  <th class="p-3">तुलनात्मक आयाम</th>
+                  <th class="p-3">वृद्धि (Growth)</th>
+                  <th class="p-3">विकास (Development)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 text-slate-700">
+                <tr>
+                  <td class="p-3 font-semibold">परिवर्तन का स्वरूप</td>
+                  <td class="p-3">केवल मात्रात्मक (शारीरिक आकार, भार, लंबाई)</td>
+                  <td class="p-3">गुणात्मक एवं मात्रात्मक दोनों (क्षमता, संवेग, बुद्धि)</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-semibold">समय-सीमा</td>
+                  <td class="p-3">परिपक्वता तक (एक निश्चित आयु पर समाप्त)</td>
+                  <td class="p-3">जीवनभर चलने वाली निरंतर प्रक्रिया (Womb to Tomb)</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-semibold">मापन योग्यता</td>
+                  <td class="p-3">सटीक मापा जा सकता है (किलो, सेंटीमीटर)</td>
+                  <td class="p-3">प्रत्यक्ष मापन कठिन; अवलोकन व व्यवहार द्वारा मूल्यांकन</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Developmental Direction Principles -->
+          <div>
+            <h4 class="font-bold text-slate-900 text-base mb-2">विकास की दिशा के दो अति-महत्वपूर्ण सिद्धांत</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+              <div class="p-4 rounded-xl bg-blue-50/70 border border-blue-200">
+                <span class="font-bold text-blue-900 text-sm block mb-1">1. मस्तकाधोमुखी सिद्धांत (Cephalocaudal Sequence):</span>
+                विकास सिर से प्रारंभ होकर नीचे पैरों की ओर बढ़ता है। पहले शिशु सिर और गर्दन पर नियंत्रण पाता है, फिर धड़ और अंत में पैरों से चलना सीखता है।
+              </div>
+              <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-200">
+                <span class="font-bold text-indigo-900 text-sm block mb-1">2. समीप-दूरस्थ सिद्धांत (Proximodistal Sequence):</span>
+                विकास शरीर के केंद्र (रीढ़/धड़) से बाहर के अंगों की ओर होता है। पहले पूरे हाथ और भुजा पर नियंत्रण आता है, फिर कलाई और अंत में उँगलियों पर।
+              </div>
+            </div>
+          </div>
+
+          <!-- Developmental Stages -->
+          <div>
+            <h4 class="font-bold text-slate-900 text-base mb-2">बाल विकास की प्रमुख अवस्थाएँ</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+              <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+                <strong>शैशवावस्था (Infancy: जन्म-2 वर्ष):</strong> तीव्र शारीरिक विकास, इंद्रियों द्वारा ज्ञानार्जन, माता-पिता पर पूर्ण निर्भरता।
+              </div>
+              <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+                <strong>प्रारंभिक बाल्यावस्था (Early Childhood: 2-6 वर्ष):</strong> पूर्व-विद्यालयी आयु, भाषा विकास का अति-संवेदनशील काल, खिलौनों की आयु।
+              </div>
+              <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+                <strong>उत्तर बाल्यावस्था (Late Childhood: 6-12 वर्ष):</strong> विद्यालयी आयु, समूह (गैंग) भावना, तार्किक मूर्त चिंतन का विकास।
+              </div>
+              <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+                <strong>किशोरावस्था (Adolescence: 12-18 वर्ष):</strong> तनाव एवं तूफान का काल (G. Stanley Hall), पहचान संकट (Erikson), अमूर्त चिंतन।
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 13: THINKERS (PIAGET, VYGOTSKY, KOHLBERG) -->
+      <section id="sec-thinkers" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-pink-100 text-pink-700 flex items-center justify-center font-bold">12</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">प्रमुख मनोवैज्ञानिक एवं उनके सिद्धांत</h3>
+            <p class="text-xs text-slate-500">पियाजे की 4 अवस्थाएँ, वाइगोत्स्की का ZPD, एवं कोहलबर्ग के नैतिक स्तर</p>
+          </div>
+        </div>
+
+        <div class="space-y-6 text-slate-700">
+          <!-- Jean Piaget -->
+          <div>
+            <h4 class="font-bold text-slate-900 text-base mb-2">जीन पियाजे (Jean Piaget) - संज्ञानात्मक विकास सिद्धांत</h4>
+            <p class="text-xs sm:text-sm mb-3">बच्चे 'नन्हे वैज्ञानिक' हैं जो स्कीमा (Schema), आत्मसातीकरण (Assimilation), समायोजन (Accommodation) और संतुलनीकरण (Equilibration) से ज्ञान का निर्माण करते हैं।</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <span class="font-bold text-blue-700">1. संवेदी-गामक (0-2 वर्ष):</span>
+                इंद्रियों द्वारा सीखना, गत्यात्मक क्रियाएं, <strong>वस्तु स्थायित्व (Object Permanence)</strong> की प्राप्ति।
+              </div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <span class="font-bold text-blue-700">2. पूर्व-संक्रियात्मक (2-7 वर्ष):</span>
+                प्रतीकात्मक चिंतन, भाषा विकास, आत्मकेंद्रितता (Egocentrism), जीववाद (Animism), संरक्षण का अभाव।
+              </div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <span class="font-bold text-blue-700">3. मूर्त संक्रियात्मक (7-11 वर्ष):</span>
+                तार्किक मूर्त चिंतन, <strong>संरक्षण (Conservation)</strong>, पलटावीपन (Reversibility), वर्गीकरण व श्रेणीकरण।
+              </div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <span class="font-bold text-blue-700">4. औपचारिक संक्रियात्मक (11 वर्ष+):</span>
+                अमूर्त चिंतन, परिकल्पनात्मक-निगमनात्मक तर्क (Hypothetico-Deductive Reasoning), समस्या समाधान।
+              </div>
+            </div>
+          </div>
+
+          <!-- Lev Vygotsky -->
+          <div class="pt-4 border-t border-slate-100">
+            <h4 class="font-bold text-slate-900 text-base mb-2">लेव वाइगोत्स्की (Lev Vygotsky) - सामाजिक-सांस्कृतिक सिद्धांत</h4>
+            <p class="text-xs sm:text-sm mb-3">विकास सामाजिक अंतःक्रिया और संस्कृति का परिणाम है। भाषा विचार निर्माण का प्राथमिक उपकरण है।</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm">
+              <div class="p-3 bg-purple-50 rounded-lg border border-purple-200">
+                <strong class="text-purple-900 block mb-1">ZPD (निकटस्थ विकास क्षेत्र):</strong>
+                बालक के स्वतंत्र वास्तविक स्तर और किसी विशेषज्ञ की सहायता से प्राप्त संभावित स्तर के बीच की दूरी।
+              </div>
+              <div class="p-3 bg-purple-50 rounded-lg border border-purple-200">
+                <strong class="text-purple-900 block mb-1">Scaffolding (पाड़/मचान):</strong>
+                अधिक जानकार अन्य (MKO) द्वारा समस्या समाधान के दौरान दी जाने वाली अस्थायी सहायता (संकेत, आधा हल मॉडल)।
+              </div>
+              <div class="p-3 bg-purple-50 rounded-lg border border-purple-200">
+                <strong class="text-purple-900 block mb-1">निजी वार्ता (Private Speech):</strong>
+                बच्चा अपने विचारों और व्यवहार को नियंत्रित करने हेतु स्वयं से बोलकर बातचीत करता है।
+              </div>
+            </div>
+          </div>
+
+          <!-- Lawrence Kohlberg -->
+          <div class="pt-4 border-t border-slate-100">
+            <h4 class="font-bold text-slate-900 text-base mb-2">लॉरेंस कोहलबर्ग (Lawrence Kohlberg) - नैतिक विकास के 3 स्तर</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm">
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <strong class="text-slate-900 block">1. पूर्व-परंपरागत स्तर:</strong>
+                दंड एवं आज्ञाकारिता उन्मुखीकरण; साधनात्मक सापेक्षतावादी (जैसे को तैसा विनिमय)।
+              </div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <strong class="text-slate-900 block">2. परंपरागत स्तर:</strong>
+                अच्छा लड़का/अच्छी लड़की उन्मुखीकरण; कानून एवं व्यवस्था बनाए रखने का उन्मुखीकरण।
+              </div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <strong class="text-slate-900 block">3. उत्तर-परंपरागत स्तर:</strong>
+                सामाजिक अनुबंध एवं व्यक्तिगत अधिकार; सार्वभौमिक नैतिक सिद्धांत (अंतरात्मा की आवाज)।
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 14: NEP 2020, NCF-SE 2023 & GYAN SETU -->
+      <section id="sec-nep-ncf" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-yellow-100 text-yellow-700 flex items-center justify-center font-bold">13</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">NEP 2020, NCF-SE 2023 एवं झारखंड ज्ञानसेतु</h3>
+            <p class="text-xs text-slate-500">5+3+3+4 ढाँचा, FLN मिशन, HPC और झारखंड विशिष्ट उपचारात्मक कार्यक्रम</p>
+          </div>
+        </div>
+
+        <div class="space-y-6 text-slate-700">
+          <!-- 5+3+3+4 Matrix -->
+          <div>
+            <h4 class="font-bold text-slate-900 text-base mb-3">NEP 2020 का 5+3+3+4 नया शैक्षणिक ढाँचा</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-center">
+              <div class="p-3 rounded-xl border border-blue-200 bg-blue-50/70">
+                <span class="text-xs font-bold uppercase text-blue-700">5 वर्ष</span>
+                <h5 class="font-bold text-slate-900 text-sm mt-1">Foundational</h5>
+                <p class="text-xs text-slate-600 mt-1">आयु 3-8 वर्ष (3 वर्ष आंगनवाड़ी + कक्षा 1-2). खेल व गतिविधि आधारित।</p>
+              </div>
+              <div class="p-3 rounded-xl border border-emerald-200 bg-emerald-50/70">
+                <span class="text-xs font-bold uppercase text-emerald-700">3 वर्ष</span>
+                <h5 class="font-bold text-slate-900 text-sm mt-1">Preparatory</h5>
+                <p class="text-xs text-slate-600 mt-1">आयु 8-11 वर्ष (कक्षा 3-5). खोज, भाषा और प्रारंभिक साक्षरता।</p>
+              </div>
+              <div class="p-3 rounded-xl border border-purple-200 bg-purple-50/70">
+                <span class="text-xs font-bold uppercase text-purple-700">3 वर्ष</span>
+                <h5 class="font-bold text-slate-900 text-sm mt-1">Middle</h5>
+                <p class="text-xs text-slate-600 mt-1">आयु 11-14 वर्ष (कक्षा 6-8). विषय आधारित अमूर्त संप्रत्यय, वोकेशनल शिक्षा।</p>
+              </div>
+              <div class="p-3 rounded-xl border border-rose-200 bg-rose-50/70">
+                <span class="text-xs font-bold uppercase text-rose-700">4 वर्ष</span>
+                <h5 class="font-bold text-slate-900 text-sm mt-1">Secondary</h5>
+                <p class="text-xs text-slate-600 mt-1">आयु 14-18 वर्ष (कक्षा 9-12). आलोचनात्मक चिंतन, बहु-विषयक लचीलापन।</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- High Yield Key Points -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">FLN (बुनियादी साक्षरता एवं संख्या ज्ञान):</strong>
+              कक्षा 3 तक मूलभूत पठन-लेखन और अंकगणितीय कौशल प्राप्त करना सर्वोच्च प्राथमिकता है।
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">मातृभाषा का माध्यम:</strong>
+              जहाँ संभव हो कम से कम कक्षा 5 तक, और वरीयता अनुसार कक्षा 8 तक शिक्षा का माध्यम मातृभाषा या स्थानीय भाषा हो।
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">HPC (समग्र प्रगति कार्ड):</strong>
+              360-डिग्री बहुआयामी प्रगति रिपोर्ट जो संज्ञानात्मक, भावात्मक एवं मनोगत्यात्मक क्षेत्रों का समग्र रिकॉर्ड रखती है।
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-slate-900 block mb-1">PARAKH (परख):</strong>
+              Performance Assessment, Review, and Analysis of Knowledge for Holistic Development—राष्ट्रीय मानक निर्धारक केंद्र।
+            </div>
+          </div>
+
+          <!-- Jharkhand Special: Gyan Setu -->
+          <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-950 text-xs sm:text-sm">
+            <h5 class="font-bold text-amber-900 mb-1 flex items-center gap-2">
+              <i class="fa-solid fa-bridge"></i> झारखंड विशेष: ज्ञानसेतु कार्यक्रम (Gyan Setu Project)
+            </h5>
+            <p class="mb-2">झारखंड सरकार द्वारा सरकारी विद्यालयों में बच्चों के लर्निंग गैप (Learning Gap) को समाप्त करने के लिए यह अभिनव उपचारात्मक कार्यक्रम संचालित किया गया। इसके तहत बालकों को उनकी कक्षा के बजाय वास्तविक अधिगम स्तर के आधार पर तीन वर्गों में बाँटकर उपचारात्मक शिक्षण दिया जाता है:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-center font-semibold mt-2">
+              <div class="p-2 bg-white rounded border border-amber-300">स्तर 1: सुबोध (Subodh)</div>
+              <div class="p-2 bg-white rounded border border-amber-300">स्तर 2: समर्थ (Samarth)</div>
+              <div class="p-2 bg-white rounded border border-amber-300">स्तर 3: प्रगति (Pragati)</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 15: COGNITIVE DIFFERENCES & MISCONCEPTIONS -->
+      <section id="sec-cognitive-diff" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold">14</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">शिक्षार्थियों के बीच वैचारिक विभिन्नताएँ एवं भ्रांतियाँ</h3>
+            <p class="text-xs text-slate-500">Alternative Conceptions, Naive Theories, and Cognitive Dissonance</p>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-slate-700 text-sm sm:text-base">
+          <p>प्रत्येक शिक्षार्थी कक्षा में पूर्व-ज्ञान और अनुभवों का एक अनूठा बंडल लेकर आता है। ग्रामीण और जनजातीय परिवेश के बालक के प्राकृतिक और सामाजिक अनुभव शहरी बालक से भिन्न होते हैं। विचारों की यह विविधता कोई बाधा नहीं, बल्कि कक्षा की समृद्धि है।</p>
+
+          <div class="p-4 bg-cyan-50/70 rounded-xl border border-cyan-200">
+            <h4 class="font-bold text-cyan-900 mb-2">वैकल्पिक अवधारणाएँ या भ्रांतियाँ (Misconceptions):</h4>
+            <p class="text-xs sm:text-sm text-cyan-950 mb-2">बच्चे संसार का अवलोकन कर स्वयं के सहज सिद्धांत (Naive Theories) बना लेते हैं (उदा: "चाँद हमारे साथ चलता है", "भारी वस्तुएं ही पानी में डूबती हैं")।</p>
+            <ul class="text-xs sm:text-sm space-y-1 list-disc pl-4 text-cyan-950">
+              <li>शिक्षक को इन विचारों को 'मूर्खता' मानकर दंडित या खारिज नहीं करना चाहिए।</li>
+              <li>ये दर्शाते हैं कि बच्चा सक्रिय रूप से सोच रहा है।</li>
+              <li><strong>समाधान:</strong> कक्षा में प्रयोगों द्वारा <strong>संज्ञानात्मक विसंगति (Cognitive Dissonance)</strong> उत्पन्न करें (उदा. भारी सूखी लकड़ी को तैराकर और हल्की लोहे की कील को डुबोकर दिखाना), जिससे बालक स्वयं अपने स्कीमा का पुनर्गठन करे।</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 16: INTERACTIVE JTET MOCK PRACTICE LAB -->
+      <section id="sec-quiz" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+              <i class="fa-solid fa-list-check"></i>
+            </div>
+            <div>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900">JTET Mock Practice Lab</h3>
+              <p class="text-xs text-slate-500">उच्च-स्तरीय बहुविकल्पीय अभ्यास प्रश्न (Immediate Feedback & Detailed Analysis)</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 bg-slate-50 px-4 py-2 rounded-xl border border-slate-200">
+            <div class="text-xs font-semibold text-slate-600">
+              Score: <span id="quizScore" class="text-blue-600 font-bold text-sm">0</span> / <span id="quizTotal" class="font-bold">12</span>
+            </div>
+            <button onclick="resetQuiz()" class="text-xs text-slate-500 hover:text-red-600 font-medium">Reset</button>
+          </div>
+        </div>
+
+        <div id="quizContainer" class="space-y-6">
+          <!-- Questions will be rendered dynamically via JS -->
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="pt-8 pb-12 text-center text-xs text-slate-400 border-t border-slate-200 no-print">
+        <p class="font-semibold text-slate-600">JTET Pedagogy Comprehensive Resource Portal</p>
+        <p class="mt-1">Prepared according to Jharkhand Academic Council (JAC) & NEP/NCF Guidelines.</p>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- In-Page Interactive Scripts -->
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    });
+
+    // 2. Mobile Sidebar Navigation Toggle
+    const sidebar = document.getElementById('sidebarNav');
+    const sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
+    const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+
+    sidebarToggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('-translate-x-full');
+    });
+
+    closeSidebarBtn.addEventListener('click', () => {
+      sidebar.classList.add('-translate-x-full');
+    });
+
+    // Close drawer when clicking a link on mobile
+    document.querySelectorAll('#sidebarNav a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 1024) {
+          sidebar.classList.add('-translate-x-full');
+        }
+      });
+    });
+
+    // 3. Reader Mode Font Sizing
+    const content = document.getElementById('contentContainer');
+    const btnSm = document.getElementById('fontSm');
+    const btnMd = document.getElementById('fontMd');
+    const btnLg = document.getElementById('fontLg');
+
+    function setActiveFont(btn) {
+      [btnSm, btnMd, btnLg].forEach(b => {
+        b.classList.remove('bg-white', 'text-blue-600', 'shadow-xs');
+        b.classList.add('text-slate-600');
+      });
+      btn.classList.add('bg-white', 'text-blue-600', 'shadow-xs');
+      btn.classList.remove('text-slate-600');
+    }
+
+    btnSm.addEventListener('click', () => {
+      content.classList.remove('reader-mode-md', 'reader-mode-lg');
+      content.classList.add('reader-mode-sm');
+      setActiveFont(btnSm);
+    });
+
+    btnMd.addEventListener('click', () => {
+      content.classList.remove('reader-mode-sm', 'reader-mode-lg');
+      content.classList.add('reader-mode-md');
+      setActiveFont(btnMd);
+    });
+
+    btnLg.addEventListener('click', () => {
+      content.classList.remove('reader-mode-sm', 'reader-mode-md');
+      content.classList.add('reader-mode-lg');
+      setActiveFont(btnLg);
+    });
+
+    // 4. Quick Live Search Filter
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase().trim();
+      const sections = document.querySelectorAll('main > section');
+
+      sections.forEach(section => {
+        if (!term) {
+          section.style.display = '';
+          return;
+        }
+        const text = section.innerText.toLowerCase();
+        if (text.includes(term)) {
+          section.style.display = '';
+        } else {
+          section.style.display = 'none';
+        }
+      });
+    });
+
+    // 5. Expand / Collapse Details helper
+    function expandAllDetails(expand) {
+      const details = document.querySelectorAll('details');
+      details.forEach(d => d.open = expand);
+    }
+
+    // 6. Interactive Quiz Engine
+    const quizData = [
+      {
+        q: "1. Language acquisition is mainly a:",
+        options: ["Natural process", "Mechanical process", "Translation process", "Examination process"],
+        answer: 0,
+        explanation: "Language acquisition is an unconscious and natural process occurring through everyday exposure and communication without formal rule memorization."
+      },
+      {
+        q: "2. Who proposed the Input Hypothesis (i + 1) in second-language learning?",
+        options: ["Jean Piaget", "Stephen Krashen", "B.F. Skinner", "Jerome Bruner"],
+        answer: 1,
+        explanation: "Stephen Krashen introduced the Input Hypothesis, stating that language acquisition occurs when learners understand input slightly above their present level (i+1)."
+      },
+      {
+        q: "3. Which of the following pair represents 'Receptive' language skills?",
+        options: ["Speaking and Writing", "Listening and Reading", "Reading and Speaking", "Writing and Listening"],
+        answer: 1,
+        explanation: "Listening and Reading are receptive (input) skills because the learner receives and decodes language messages."
+      },
+      {
+        q: "4. The concept of Language Acquisition Device (LAD) is associated with:",
+        options: ["Noam Chomsky", "Lev Vygotsky", "B.F. Skinner", "Jean Piaget"],
+        answer: 0,
+        explanation: "Noam Chomsky theorized that human children possess an innate biological mental capacity for grammar called LAD."
+      },
+      {
+        q: "5. 'Scanning' in reading comprehension specifically refers to:",
+        options: ["Reading quickly for overall general gist", "Searching a text for a specific piece of information", "Reading aloud to practice correct pronunciation", "Reading for recreational enjoyment"],
+        answer: 1,
+        explanation: "Scanning is a targeted reading technique used to extract specific data like numbers, dates, or names quickly."
+      },
+      {
+        q: "6. Which language teaching method strictly avoids the mother tongue and translation?",
+        options: ["Grammar-Translation Method", "Direct Method", "Bilingual Method", "Structural Method"],
+        answer: 1,
+        explanation: "The Direct Method (Natural Method) enforces complete immersion in the target language and strictly prohibits translation."
+      },
+      {
+        q: "7. उपचारात्मक शिक्षण (Remedial Teaching) का आयोजन करने से ठीक पहले कौन-सी प्रक्रिया अनिवार्य है?",
+        options: ["वार्षिक परीक्षा लेना", "निदानात्मक परीक्षण (Diagnostic Assessment)", "अभिभावक बैठक", "दंड देना"],
+        answer: 1,
+        explanation: "उपचारात्मक शिक्षण से पूर्व बालक की विशिष्ट कमजोरियों और कारणों की पहचान हेतु 'निदानात्मक परीक्षण' किया जाता है।"
+      },
+      {
+        q: "8. पियाजे के अनुसार किस अवस्था में बालक 'संरक्षण' (Conservation) और 'पलटावीपन' (Reversibility) की क्षमता हासिल करता है?",
+        options: ["संवेदी-गामक अवस्था", "पूर्व-संक्रियात्मक अवस्था", "मूर्त संक्रियात्मक अवस्था (7-11 वर्ष)", "औपचारिक संक्रियात्मक अवस्था"],
+        answer: 2,
+        explanation: "7 से 11 वर्ष (मूर्त संक्रियात्मक अवस्था) में बालक वस्तुओं के रूप बदलने पर भी मात्रा संरक्षण और तार्किक पलटावीपन समझ जाता है।"
+      },
+      {
+        q: "9. वाइगोत्स्की के अनुसार वयस्क द्वारा दी जाने वाली अस्थायी सहायता को क्या कहा जाता है?",
+        options: ["अनुकूलन (Conditioning)", "पाड़ / मचान (Scaffolding)", "वस्तु स्थायित्व (Object Permanence)", "आत्मकेंद्रित वार्ता"],
+        answer: 1,
+        explanation: "ZPD के भीतर अधिक जानकार अन्य (MKO) द्वारा दी जाने वाली अस्थाई सहायता 'Scaffolding' कहलाती है।"
+      },
+      {
+        q: "10. राष्ट्रीय शिक्षा नीति (NEP 2020) द्वारा अनुशंसित नया स्कूली ढाँचा कौन-सा है?",
+        options: ["10 + 2", "5 + 3 + 3 + 4", "5 + 4 + 4 + 3", "3 + 5 + 3 + 4"],
+        answer: 1,
+        explanation: "NEP 2020 ने 10+2 व्यवस्था के स्थान पर 5 वर्ष (फाउंडेशनल), 3 वर्ष (प्रिपरेटरी), 3 वर्ष (मिडिल) और 4 वर्ष (सेकेंडरी) का ढांचा दिया है।"
+      },
+      {
+        q: "11. झारखंड सरकार द्वारा लर्निंग गैप को कम करने के लिए कौन-सा कार्यक्रम चलाया गया?",
+        options: ["दीक्षा सेतु", "ज्ञानसेतु (सुबोध, समर्थ, प्रगति)", "समग्र शिक्षा सेतु", "कस्तूरबा योजना"],
+        answer: 1,
+        explanation: "झारखंड में सरकारी विद्यालयों में उपचारात्मक शिक्षण हेतु 'ज्ञानसेतु कार्यक्रम' संचालित किया गया।"
+      },
+      {
+        q: "12. जब कोई बालक कहता है कि 'पेड़ जीवित नहीं हैं क्योंकि वे चल नहीं सकते', तो शिक्षक को क्या करना चाहिए?",
+        options: ["उसे डांटकर शांत कर देना", "इसे सक्रिय चिंतन मानकर प्रत्यक्ष प्रयोगों द्वारा संज्ञानात्मक विसंगति पैदा करना", "उसे कक्षा से बाहर करना", "रटकर उत्तर याद करने को कहना"],
+        answer: 1,
+        explanation: "बालक की वैकल्पिक अवधारणाओं को स्वीकार कर ऐसे अनुभव प्रस्तुत करने चाहिए जिससे वह स्वयं वैज्ञानिक तर्क तक पहुँचे।"
+      }
+    ];
+
+    let userAnswers = {};
+
+    function renderQuiz() {
+      const container = document.getElementById('quizContainer');
+      document.getElementById('quizTotal').innerText = quizData.length;
+      container.innerHTML = '';
+
+      quizData.forEach((item, index) => {
+        const qCard = document.createElement('div');
+        qCard.className = 'p-5 rounded-xl border border-slate-200 bg-slate-50/60 transition-all';
+        qCard.id = `qCard_${index}`;
+
+        let optionsHtml = '';
+        item.options.forEach((opt, optIndex) => {
+          optionsHtml += `
+            <button onclick="handleOptionSelect(${index}, ${optIndex})" id="btn_${index}_${optIndex}" class="w-full text-left p-3 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm font-medium text-slate-700 hover:bg-slate-100 hover:border-slate-300 transition-all flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full border border-slate-300 text-slate-500 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">${String.fromCharCode(65 + optIndex)}</span>
+              <span>${opt}</span>
+            </button>
+          `;
+        });
+
+        qCard.innerHTML = `
+          <div class="font-bold text-slate-900 text-sm sm:text-base mb-3 leading-relaxed">${item.q}</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
+            ${optionsHtml}
+          </div>
+          <div id="feedback_${index}" class="hidden p-3 rounded-lg text-xs leading-relaxed"></div>
+        `;
+        container.appendChild(qCard);
+      });
+    }
+
+    function handleOptionSelect(qIndex, selectedOptIndex) {
+      if (userAnswers[qIndex] !== undefined) return; // already answered
+
+      userAnswers[qIndex] = selectedOptIndex;
+      const question = quizData[qIndex];
+      const feedbackBox = document.getElementById(`feedback_${qIndex}`);
+
+      const correctBtn = document.getElementById(`btn_${qIndex}_${question.answer}`);
+      const selectedBtn = document.getElementById(`btn_${qIndex}_${selectedOptIndex}`);
+
+      if (selectedOptIndex === question.answer) {
+        selectedBtn.classList.remove('bg-white', 'text-slate-700');
+        selectedBtn.classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-900', 'font-bold');
+        feedbackBox.className = 'p-3 rounded-lg text-xs bg-emerald-50 border border-emerald-200 text-emerald-900 block mt-2';
+        feedbackBox.innerHTML = `<strong>✓ Correct!</strong> ${question.explanation}`;
+      } else {
+        selectedBtn.classList.remove('bg-white', 'text-slate-700');
+        selectedBtn.classList.add('bg-red-100', 'border-red-500', 'text-red-900');
+        correctBtn.classList.add('bg-emerald-50', 'border-emerald-400', 'text-emerald-900', 'font-bold');
+        feedbackBox.className = 'p-3 rounded-lg text-xs bg-rose-50 border border-rose-200 text-rose-900 block mt-2';
+        feedbackBox.innerHTML = `<strong>✗ Incorrect.</strong> <strong>Correct Answer: (${String.fromCharCode(65 + question.answer)})</strong> ${question.explanation}`;
+      }
+
+      // Update total score
+      let score = 0;
+      Object.keys(userAnswers).forEach(idx => {
+        if (userAnswers[idx] === quizData[idx].answer) {
+          score++;
+        }
+      });
+      document.getElementById('quizScore').innerText = score;
+    }
+
+    function resetQuiz() {
+      userAnswers = {};
+      document.getElementById('quizScore').innerText = '0';
+      renderQuiz();
+    }
+
+    // Initialize Quiz on window load
+    window.onload = function() {
+      renderQuiz();
+    };
+  </script>
+</body>
+</html>
+
