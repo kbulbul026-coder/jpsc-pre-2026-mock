@@ -376,7 +376,7 @@
         <h1>🎯 JHTET 2026 परीक्षा तैयारी एवं मास्टर पोर्टल</h1>
         <p>नवीनतम आधिकारिक पाठ्यक्रम (JAC Syllabus) पर आधारित 150-प्रश्नों के फुल मॉक टेस्ट, विषयवार मास्टर गाइड और लाइव अभ्यास प्रश्न</p>
         <div class="toolbar">
-            <input type="text" id="searchInput" class="search-box" placeholder="🔍 विषय खोजें (जैसे: हिंदी, English, इतिहास, भूगोल, अर्थशास्त्र, सिविक्स, खोरठा, संथाली, CDP)..." onkeyup="filterCards()">
+            <input type="text" id="searchInput" class="search-box" placeholder="🔍 विषय खोजें (जैसे: पेडागोजी, हिंदी, English, इतिहास, भूगोल, अर्थशास्त्र, सिविक्स, खोरठा, संथाली, CDP)..." onkeyup="filterCards()">
             <a href="about.html" class="about-btn">ℹ️ हमारे बारे में (About Us)</a>
             <button class="share-btn" onclick="sharePortal()">📲 उम्मीदवारों को शेयर करें</button>
         </div>
@@ -385,7 +385,7 @@
     <!-- Master Subject Index (विषय-सूची) -->
     <section class="master-index-box" id="masterIndex">
         <div class="index-header" onclick="toggleIndex()">
-            <h2>📑 संपूर्ण विषय-सूची (Master Subject Index — 13 पोर्टल)</h2>
+            <h2>📑 संपूर्ण विषय-सूची (Master Subject Index — 14 पोर्टल)</h2>
             <button class="toggle-btn" id="indexToggleBtn">छुपाएँ ▲</button>
         </div>
         <div class="index-content" id="indexBody">
@@ -423,22 +423,26 @@
 
             <!-- Column 2: CDP, Languages & Computer -->
             <div class="index-group">
-                <h3>📘 अनिवार्य विषय (CDP, भाषा-1 व कंप्यूटर)</h3>
+                <h3>📘 अनिवार्य विषय (CDP, पेडागोजी, भाषा-1 व कंप्यूटर)</h3>
                 <ul class="index-list">
                     <li class="index-item">
                         <a href="#card-7" class="index-jump" onclick="resetFilter()"><span class="index-num">7</span> बाल विकास एवं शिक्षणशास्त्र (CDP)</a>
                         <a href="jhtet_cdp_master_portal3.html" class="direct-open">खोलें ➔</a>
                     </li>
                     <li class="index-item">
-                        <a href="#card-8" class="index-jump" onclick="resetFilter()"><span class="index-num">8</span> हिंदी भाषा एवं पेडागोजी (19 अध्याय)</a>
+                        <a href="#card-8" class="index-jump" onclick="resetFilter()"><span class="index-num">8</span> संपूर्ण पेडागोजी पोर्टल (Eng/Hin/CDP)</a>
+                        <a href="JTET_Pedagogy_v2.html" class="direct-open">खोलें ➔</a>
+                    </li>
+                    <li class="index-item">
+                        <a href="#card-9" class="index-jump" onclick="resetFilter()"><span class="index-num">9</span> हिंदी भाषा एवं पेडागोजी (19 अध्याय)</a>
                         <a href="jhtet-hindi-master-portal.html" class="direct-open">खोलें ➔</a>
                     </li>
                     <li class="index-item">
-                        <a href="#card-9" class="index-jump" onclick="resetFilter()"><span class="index-num">9</span> English & Pedagogy (25 टॉपिक्स)</a>
+                        <a href="#card-10" class="index-jump" onclick="resetFilter()"><span class="index-num">10</span> English & Pedagogy (25 टॉपिक्स)</a>
                         <a href="JHTET-English.html" class="direct-open">खोलें ➔</a>
                     </li>
                     <li class="index-item">
-                        <a href="#card-10" class="index-jump" onclick="resetFilter()"><span class="index-num">10</span> कंप्यूटर एवं डिजिटल शिक्षण (10 अंक)</a>
+                        <a href="#card-11" class="index-jump" onclick="resetFilter()"><span class="index-num">11</span> कंप्यूटर एवं डिजिटल शिक्षण (10 अंक)</a>
                         <a href="jhtet_computer_portal3.html" class="direct-open">खोलें ➔</a>
                     </li>
                 </ul>
@@ -449,15 +453,15 @@
                 <h3>🌾 भाषा-2: जनजातीय एवं क्षेत्रीय भाषा</h3>
                 <ul class="index-list">
                     <li class="index-item">
-                        <a href="#card-11" class="index-jump" onclick="resetFilter()"><span class="index-num">11</span> खोरठा भाषा मास्टर पोर्टल (30 अंक)</a>
+                        <a href="#card-12" class="index-jump" onclick="resetFilter()"><span class="index-num">12</span> खोरठा भाषा मास्टर पोर्टल (30 अंक)</a>
                         <a href="jhtet_khortha_master_portal3.html" class="direct-open">खोलें ➔</a>
                     </li>
                     <li class="index-item">
-                        <a href="#card-12" class="index-jump" onclick="resetFilter()"><span class="index-num">12</span> संथाली भाषा मास्टर पोर्टल (30 अंक)</a>
+                        <a href="#card-13" class="index-jump" onclick="resetFilter()"><span class="index-num">13</span> संथाली भाषा मास्टर पोर्टल (30 अंक)</a>
                         <a href="jhtet_santhali_master_portal2.html" class="direct-open">खोलें ➔</a>
                     </li>
                     <li class="index-item">
-                        <a href="#card-13" class="index-jump" onclick="resetFilter()"><span class="index-num">13</span> संथाली 5-इकाई हब (100 MCQs)</a>
+                        <a href="#card-14" class="index-jump" onclick="resetFilter()"><span class="index-num">14</span> संथाली 5-इकाई हब (100 MCQs)</a>
                         <a href="jhtet_santhali_m_portal.html" class="direct-open">खोलें ➔</a>
                     </li>
                     <li class="index-item" style="background: #fef3c7; border-color: #fde68a;">
@@ -471,9 +475,9 @@
     </section>
 
     <div class="filter-tabs" id="education">
-        <button class="tab-btn active" id="allTabBtn" onclick="filterByCategory('all', this)">सभी (13)</button>
+        <button class="tab-btn active" id="allTabBtn" onclick="filterByCategory('all', this)">सभी (14)</button>
         <button class="tab-btn" onclick="filterByCategory('mock', this)">🏆 150-प्रश्न महा-मॉक</button>
-        <button class="tab-btn" onclick="filterByCategory('core', this)">📘 मुख्य विषय (SST/CDP/हिंदी/English/कंप्यूटर)</button>
+        <button class="tab-btn" onclick="filterByCategory('core', this)">📘 मुख्य विषय (SST/CDP/पेडागोजी/हिंदी/English/कंप्यूटर)</button>
         <button class="tab-btn" onclick="filterByCategory('lang', this)">🌾 जनजातीय व क्षेत्रीय भाषा</button>
     </div>
 
@@ -549,60 +553,70 @@
             <a href="jhtet_cdp_master_portal3.html" class="btn" style="background: linear-gradient(135deg, #0f766e, #047857); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">संपूर्ण CDP मास्टर गाइड पढ़ें ➔</a>
         </div>
 
-        <!-- 8. JHTET 2026 Paper 2 Hindi Master Study Portal Card -->
-        <div class="card" id="card-8" data-category="core" style="border-color: #173b70; box-shadow: 0 4px 18px rgba(23, 59, 112, 0.16); background: #ffffff;">
+        <!-- 8. JTET Pedagogy Comprehensive Study Portal (English, Hindi & CDP) Card -->
+        <div class="card" id="card-8" data-category="core" style="border-color: #2563eb; box-shadow: 0 4px 18px rgba(37, 99, 235, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #173b70; background: #eaf2ff; font-weight: bold; border: 1px solid #cbd5e1;">📖 #8 • JHTET 2026 हिंदी मास्टर पोर्टल (Paper 2)</div>
+                <div class="badge" style="color: #1d4ed8; background: #dbeafe; font-weight: bold; border: 1px solid #93c5fd;">🎓 #8 • JTET संपूर्ण पेडागोजी पोर्टल (Paper 1 & 2)</div>
+                <h2 style="color: #0f172a;">भाषा एवं बाल विकास शिक्षणशास्त्र<br><span style="font-size: 1.1rem; color: #2563eb;">(English + हिंदी Pedagogy + CDP + ज्ञानसेतु)</span></h2>
+                <p style="color: #475569;">भाषा अर्जन व अधिगम, क्रैशन की 5 परिकल्पनाएँ (i+1), LSRW कौशल, Four-Block साक्षरता मॉडल, GTM/Direct/CLT विधियाँ, TLM, उपचारात्मक शिक्षण, पियाजे-वाइगोत्स्की-कोहलबर्ग, NEP 2020 (5+3+3+4), NCF-SE 2023 एवं झारखंड ज्ञानसेतु (सुबोध, समर्थ, प्रगति) व इंटरैक्टिव प्रैक्टिस लैब!</p>
+            </div>
+            <a href="JTET_Pedagogy_v2.html" class="btn" style="background: linear-gradient(135deg, #1d4ed8, #4f46e5); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);">पेडागोजी मास्टर पोर्टल खोलें ➔</a>
+        </div>
+
+        <!-- 9. JHTET 2026 Paper 2 Hindi Master Study Portal Card -->
+        <div class="card" id="card-9" data-category="core" style="border-color: #173b70; box-shadow: 0 4px 18px rgba(23, 59, 112, 0.16); background: #ffffff;">
+            <div>
+                <div class="badge" style="color: #173b70; background: #eaf2ff; font-weight: bold; border: 1px solid #cbd5e1;">📖 #9 • JHTET 2026 हिंदी मास्टर पोर्टल (Paper 2)</div>
                 <h2 style="color: #0f172a;">हिंदी भाषा एवं शिक्षणशास्त्र<br><span style="font-size: 1.1rem; color: #173b70;">(उच्च प्राथमिक स्तर • 19 संपूर्ण अध्याय)</span></h2>
                 <p style="color: #475569;">भाषायी समझ (गद्यांश-पद्यांश), संपूर्ण व्याकरण (शब्द-भेद, संज्ञा-सर्वनाम, लिंग-वचन, विशेषण-क्रिया, कारक-काल, संधि-समास, उपसर्ग-प्रत्यय, अलंकार, मुहावरे) एवं हिंदी पेडागोजी (भाषा-कौशल, शिक्षण विधियाँ व उपचारात्मक शिक्षण) के इंटरएक्टिव MCQs सहित नोट्स!</p>
             </div>
             <a href="jhtet-hindi-master-portal.html" class="btn" style="background: linear-gradient(135deg, #173b70, #2563eb); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(23, 59, 112, 0.28);">हिंदी मास्टर पोर्टल खोलें ➔</a>
         </div>
 
-        <!-- 9. JHTET 2026 Paper 2 English Master Study Index Card -->
-        <div class="card" id="card-9" data-category="core" style="border-color: #173b67; box-shadow: 0 4px 18px rgba(23, 59, 103, 0.16); background: #ffffff;">
+        <!-- 10. JHTET 2026 Paper 2 English Master Study Index Card -->
+        <div class="card" id="card-10" data-category="core" style="border-color: #173b67; box-shadow: 0 4px 18px rgba(23, 59, 103, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #173b67; background: #e8efff; font-weight: bold; border: 1px solid #dce4ef;">📘 #9 • JHTET 2026 English मास्टर पोर्टल (Paper 2)</div>
+                <div class="badge" style="color: #173b67; background: #e8efff; font-weight: bold; border: 1px solid #dce4ef;">📘 #10 • JHTET 2026 English मास्टर पोर्टल (Paper 2)</div>
                 <h2 style="color: #0f172a;">English Language & Pedagogy<br><span style="font-size: 1.1rem; color: #2563eb;">(Upper Primary • 25 संपूर्ण टॉपिक्स)</span></h2>
                 <p style="color: #475569;">Comprehension (Unseen Passage), Language Pedagogy (Learning & Acquisition, LSRW Skills, Remedial Teaching, NEP 2020), संपूर्ण Grammar & Vocabulary (Tense, Voice, Narration, Figures of Speech, Sonnet) एवं Practice Test का लाइव प्रोग्रेस ट्रैकर व सर्च-युक्त अध्ययन केंद्र!</p>
             </div>
             <a href="JHTET-English.html" class="btn" style="background: linear-gradient(135deg, #173b67, #2563eb); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);">English स्टडी पोर्टल खोलें ➔</a>
         </div>
 
-        <!-- 10. JHTET 2026 Paper-2 Computer Knowledge (10 Marks) Master Portal Card -->
-        <div class="card" id="card-10" data-category="core" style="border-color: #0d9488; box-shadow: 0 4px 18px rgba(13, 148, 136, 0.16); background: #ffffff;">
+        <!-- 11. JHTET 2026 Paper-2 Computer Knowledge (10 Marks) Master Portal Card -->
+        <div class="card" id="card-11" data-category="core" style="border-color: #0d9488; box-shadow: 0 4px 18px rgba(13, 148, 136, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🖥️ #10 • JHTET 2026 कंप्यूटर ज्ञान (10 अंक)</div>
+                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🖥️ #11 • JHTET 2026 कंप्यूटर ज्ञान (10 अंक)</div>
                 <h2 style="color: #0f172a;">कंप्यूटर एवं डिजिटल शिक्षण<br><span style="font-size: 1.1rem; color: #0f766e;">(Computer Master Portal • Paper-2)</span></h2>
                 <p style="color: #475569;">कंप्यूटर की 5 पीढ़ियाँ, CPU, मेमोरी इकाइयाँ, इनपुट-आउटपुट, कीबोर्ड शॉर्टकट्स (F1–F12, Ctrl/Win), MS Office (Word, Excel, PowerPoint), इंटरनेट, साइबर सुरक्षा, DIKSHA, NISHTHA व 30 लाइव MCQs!</p>
             </div>
             <a href="jhtet_computer_portal3.html" class="btn" style="background: linear-gradient(135deg, #0f766e, #0284c7); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">कंप्यूटर मास्टर पोर्टल खोलें ➔</a>
         </div>
 
-        <!-- 11. JHTET 2026 Level-2 Regional Language Khortha Portal Card -->
-        <div class="card" id="card-11" data-category="lang" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
+        <!-- 12. JHTET 2026 Level-2 Regional Language Khortha Portal Card -->
+        <div class="card" id="card-12" data-category="lang" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🌾 #11 • JHTET 2026 खोरठा मास्टर पोर्टल (30 अंक)</div>
+                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🌾 #12 • JHTET 2026 खोरठा मास्टर पोर्टल (30 अंक)</div>
                 <h2 style="color: #0f172a;">भाषा-2 क्षेत्रीय भाषा: खोरठा<br><span style="font-size: 1.1rem; color: #0f766e;">(Official Syllabus • Level-2)</span></h2>
                 <p style="color: #475569;">नवीनतम JAC सिलेबस (14.03.2026) के अनुसार: खोरठा उद्भव व 16 जिले, देवनागरी वर्तनी व ध्वनि नियम, विस्तृत व्यावहारिक शब्दावली (परिवार, खेती, समय), व्याकरण (संज्ञा-कारक-काल), लोक/शिष्ट साहित्य एवं 30 लाइव MCQs!</p>
             </div>
             <a href="jhtet_khortha_master_portal3.html" class="btn" style="background: linear-gradient(135deg, #0f766e, #047857); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">संपूर्ण खोरठा मास्टर गाइड पढ़ें ➔</a>
         </div>
 
-        <!-- 12. JHTET 2026 Level-2 Regional Language Santhali Portal Card -->
-        <div class="card" id="card-12" data-category="lang" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
+        <!-- 13. JHTET 2026 Level-2 Regional Language Santhali Portal Card -->
+        <div class="card" id="card-13" data-category="lang" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🏹 #12 • JHTET 2026 संथाली मास्टर पोर्टल (30 अंक)</div>
+                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🏹 #13 • JHTET 2026 संथाली मास्टर पोर्टल (30 अंक)</div>
                 <h2 style="color: #0f172a;">भाषा-2 जनजातीय भाषा: संथाली<br><span style="font-size: 1.1rem; color: #0f766e;">(Official Syllabus • Level-2)</span></h2>
                 <p style="color: #475569;">नवीनतम JAC सिलेबस के अनुसार: संथाली उद्भव व 12 गोत्र (पारिस), ओलचिकी लिपि (1925), 92वाँ संविधान संशोधन (2003), व्याकरण (त्रि-वचन, मध्यसर्ग, कारक), मांझी-परगना शासन व्यवस्था, लोक/शिष्ट साहित्य एवं 30 लाइव MCQs!</p>
             </div>
             <a href="jhtet_santhali_master_portal2.html" class="btn" style="background: linear-gradient(135deg, #0f766e, #047857); color: #ffffff; border: none; font-weight: bold; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.28);">संपूर्ण संथाली मास्टर गाइड पढ़ें ➔</a>
         </div>
 
-        <!-- 13. JHTET 2026 Santhali 5-Unit Master Index Hub Card -->
-        <div class="card" id="card-13" data-category="lang" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
+        <!-- 14. JHTET 2026 Santhali 5-Unit Master Index Hub Card -->
+        <div class="card" id="card-14" data-category="lang" style="border-color: #0f766e; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.16); background: #ffffff;">
             <div>
-                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🏹 #13 • JHTET संथाली 5-इकाई मास्टर हब (100 MCQs)</div>
+                <div class="badge" style="color: #115e59; background: #ccfbf1; font-weight: bold; border: 1px solid #5eead4;">🏹 #14 • JHTET संथाली 5-इकाई मास्टर हब (100 MCQs)</div>
                 <h2 style="color: #0f172a;">संथाली मास्टर इंडेक्स<br><span style="font-size: 1.1rem; color: #0f766e;">(सभी 5 इकाइयाँ • 100 अभ्यास प्रश्न)</span></h2>
                 <p style="color: #475569;">JHTET भाषा-2 संथाली खंड हेतु सभी 5 इकाइयों का संपूर्ण संग्रह: इकाई 1 (लिपियाँ व इतिहास) + इकाई 2 (व्याकरण) + इकाई 3 (लोकसाहित्य व पर्व) + इकाई 4 (स्वाधीनता सेनानी) + इकाई 5 (भाषा शिक्षण शास्त्र) और प्रत्येक इकाई पर 20-20 लाइव MCQs!</p>
             </div>
@@ -618,6 +632,7 @@
         <div class="footer-links">
             <a href="about.html" class="footer-link">ℹ️ हमारे बारे में (About Us)</a>
             <a href="#masterIndex" class="footer-link">📑 संपूर्ण विषय-सूची</a>
+            <a href="JTET_Pedagogy_v2.html" class="footer-link">🎓 संपूर्ण पेडागोजी पोर्टल</a>
             <a href="jtet26_as_per_Syllabus.html" class="footer-link">🏆 SST 150-प्रश्न मॉक</a>
             <a href="jtet26Science_as_per_Syllabus.html" class="footer-link">🔬 विज्ञान 150-प्रश्न मॉक</a>
         </div>
@@ -667,7 +682,7 @@
         }
 
         function sharePortal() {
-            const shareText = "🎯 JHTET 2026 परीक्षा तैयारी पोर्टल (संपूर्ण 13 विषय इंडेक्स): 150-प्रश्नों के सिलेबस आधारित मॉक टेस्ट, SST (इतिहास, भूगोल, नागरिक शास्त्र, अर्थशास्त्र), CDP, हिंदी, English, कंप्यूटर, खोरठा और संथाली मास्टर गाइड यहाँ से पढ़ें:";
+            const shareText = "🎯 JHTET 2026 परीक्षा तैयारी पोर्टल (संपूर्ण 14 विषय इंडेक्स): 150-प्रश्नों के सिलेबस आधारित मॉक टेस्ट, संपूर्ण पेडागोजी (English/Hindi/CDP/ज्ञानसेतु), SST (इतिहास, भूगोल, नागरिक शास्त्र, अर्थशास्त्र), कंप्यूटर, खोरठा और संथाली मास्टर गाइड यहाँ से पढ़ें:";
             const shareUrl = window.location.href;
             if (navigator.share) {
                 navigator.share({
