@@ -1,0 +1,980 @@
+
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silver Oak (SJKVY) — कौशल विकास एवं रोजगार पोर्टल</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        .hero-pattern {
+            background-color: #0f172a;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(30, 58, 138, 0.7) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(185, 28, 28, 0.45) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(15, 118, 110, 0.4) 0px, transparent 50%);
+        }
+        .glass-pill {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .card-hover {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+        }
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-break-inside {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-indigo-600 selection:text-white">
+
+    <!-- Top Government & Official Strip -->
+    <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-2 flex-wrap">
+                <span class="bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded-full font-semibold flex items-center gap-1">
+                    <i class="ph-fill ph-seal-check text-sm"></i> झारखण्ड सरकार (JSDMS)
+                </span>
+                <span class="bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2.5 py-0.5 rounded-full font-semibold">
+                    Skill India | कौशल भारत - कुशल भारत
+                </span>
+            </div>
+            <div class="flex items-center gap-4 font-medium">
+                <a href="tel:18001233444" class="hover:text-white flex items-center gap-1 transition">
+                    <i class="ph-fill ph-phone-call text-emerald-400"></i> टोल-फ्री: 1800-123-3444
+                </a>
+                <a href="https://jsdm.jharkhand.gov.in" target="_blank" class="hidden sm:flex hover:text-white items-center gap-1 transition">
+                    <i class="ph ph-globe text-sky-400"></i> jsdm.jharkhand.gov.in
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navbar -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm no-print">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2">
+            <!-- Brand Logo (Optimized for Mobile Portrait to prevent text wrapping) -->
+            <a href="#" class="flex items-center gap-2 sm:gap-3 min-w-0 shrink">
+                <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-indigo-900 via-indigo-800 to-blue-600 flex items-center justify-center text-white font-black text-base sm:text-xl shadow-md shrink-0">
+                    SO
+                </div>
+                <div class="min-w-0">
+                    <div class="flex items-center gap-1.5 sm:gap-2 whitespace-nowrap">
+                        <span class="font-black text-sm sm:text-lg tracking-tight text-slate-900">SILVER OAK</span>
+                        <span class="text-[10px] sm:text-[11px] font-bold bg-indigo-50 text-indigo-700 px-1.5 sm:px-2 py-0.5 rounded border border-indigo-200 shrink-0">SJKVY</span>
+                    </div>
+                    <p class="text-[10px] sm:text-[11px] font-semibold text-slate-500 -mt-0.5 whitespace-nowrap truncate">
+                        Education to Innovation • धनबाद केंद्र
+                    </p>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-6 text-sm font-bold text-slate-600 shrink-0">
+                <a href="#courses" class="hover:text-indigo-600 transition">प्रशिक्षण कोर्स</a>
+                <a href="#facilities" class="hover:text-indigo-600 transition">निःशुल्क सुविधाएं</a>
+                <a href="#documents" class="hover:text-indigo-600 transition">आवश्यक दस्तावेज</a>
+                <a href="#mess-menu" class="hover:text-indigo-600 transition">हॉस्टल मेस मेन्यू</a>
+                <a href="#contact" class="hover:text-indigo-600 transition">संपर्क व पता</a>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+                <button onclick="window.print()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm p-2 sm:py-2 sm:px-3.5 rounded-xl flex items-center gap-1.5 transition cursor-pointer border border-slate-300/80" title="पम्पलेट प्रिंट या PDF सेव करें">
+                    <i class="ph-bold ph-printer text-base text-indigo-700"></i>
+                    <span class="hidden sm:inline">प्रिंट / PDF</span>
+                </button>
+                <button onclick="openApplyModal('सामान्य नामांकन पूछताछ')" class="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-bold text-xs sm:text-sm py-2 px-3 sm:py-2.5 sm:px-4 rounded-xl shadow-md shadow-red-600/20 flex items-center gap-1 sm:gap-1.5 transition cursor-pointer whitespace-nowrap">
+                    <i class="ph-bold ph-paper-plane-tilt text-sm sm:text-base"></i>
+                    <span>आवेदन करें</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern text-white relative overflow-hidden py-12 md:py-16 px-4 sm:px-6 lg:px-8">
+        <!-- Decorative Blur Circles -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <!-- Left Column: Main Pitch -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 glass-pill px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-amber-300">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                        <span>मुख्यमंत्री सारथी योजना अंतर्गत सक्षम झारखण्ड कौशल विकास योजना</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+                            झारखंड कौशल विकास मिशन द्वारा <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-orange-400">रोजगार उन्मुखी कार्यक्रम</span>
+                        </h1>
+                        <p class="text-slate-300 text-base sm:text-lg font-medium max-w-2xl leading-relaxed">
+                            झारखण्ड के युवाओं के लिए <strong class="text-white">100% निःशुल्क आवासीय कौशल प्रशिक्षण</strong>। रहना, खाना, यूनिफॉर्म, किताबें और प्रशिक्षण के तुरंत बाद सुनिश्चित नौकरी के अवसर।
+                        </p>
+                    </div>
+
+                    <!-- Highlight Pills -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                        <div class="glass-pill p-3.5 rounded-2xl text-center">
+                            <p class="text-2xl font-black text-amber-400">100%</p>
+                            <p class="text-xs text-slate-200 font-semibold mt-0.5">नौकरी के अवसर</p>
+                        </div>
+                        <div class="glass-pill p-3.5 rounded-2xl text-center">
+                            <p class="text-2xl font-black text-emerald-400">₹0 फीस</p>
+                            <p class="text-xs text-slate-200 font-semibold mt-0.5">निःशुल्क प्रशिक्षण</p>
+                        </div>
+                        <div class="glass-pill p-3.5 rounded-2xl text-center">
+                            <p class="text-2xl font-black text-sky-400">फ्री हॉस्टल</p>
+                            <p class="text-xs text-slate-200 font-semibold mt-0.5">रहना एवं 4 समय भोजन</p>
+                        </div>
+                        <div class="glass-pill p-3.5 rounded-2xl text-center">
+                            <p class="text-2xl font-black text-pink-400">18 - 35</p>
+                            <p class="text-xs text-slate-200 font-semibold mt-0.5">आयु सीमा (वर्ष)</p>
+                        </div>
+                    </div>
+
+                    <!-- Hero CTA Buttons -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2 no-print">
+                        <a href="#courses" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-6 py-3.5 rounded-xl shadow-lg shadow-amber-400/20 flex items-center gap-2 transition text-sm sm:text-base">
+                            <span>कोर्स की जानकारी देखें</span>
+                            <i class="ph-bold ph-arrow-down"></i>
+                        </a>
+                        <a href="tel:9942367438" class="glass-pill hover:bg-white/20 text-white font-bold px-5 py-3.5 rounded-xl flex items-center gap-2 transition text-sm sm:text-base">
+                            <i class="ph-fill ph-phone-outgoing text-emerald-400 text-lg"></i>
+                            <span>कॉल करें: 9942367438</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Quick Summary Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white text-slate-900 rounded-3xl p-6 sm:p-7 shadow-2xl border-4 border-amber-400/90 relative">
+                        <div class="absolute -top-4 right-6 bg-red-600 text-white text-xs font-black px-3.5 py-1 rounded-full shadow-md uppercase tracking-wider">
+                            नामांकन प्रारंभ है
+                        </div>
+
+                        <div class="flex items-center gap-3 pb-4 border-b border-slate-100">
+                            <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-700 flex items-center justify-center text-2xl">
+                                <i class="ph-fill ph-buildings"></i>
+                            </div>
+                            <div>
+                                <h2 class="font-black text-lg text-slate-900">SILVER OAK (सिल्वर ओक)</h2>
+                                <p class="text-xs font-semibold text-slate-500">A Unit of Silver Oak Shops & Offices Co-op Housing Society Ltd.</p>
+                            </div>
+                        </div>
+
+                        <div class="py-4 space-y-3 text-sm">
+                            <div class="flex items-start gap-3 bg-emerald-50/90 border border-emerald-200 p-3 rounded-xl">
+                                <i class="ph-fill ph-gift text-emerald-600 text-xl shrink-0 mt-0.5"></i>
+                                <div>
+                                    <p class="font-bold text-emerald-950">संपूर्ण निःशुल्क सुविधा किट:</p>
+                                    <p class="text-emerald-800 text-xs font-medium mt-0.5 leading-relaxed">
+                                        छात्रावास (Hostel), पौष्टिक भोजन, यूनिफॉर्म, बैग, पेन, कॉपी, प्रशिक्षण पुस्तिका एवं आईडी कार्ड बिल्कुल मुफ्त।
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 bg-indigo-50/80 border border-indigo-100 p-3 rounded-xl">
+                                <i class="ph-fill ph-certificate text-indigo-600 text-xl shrink-0 mt-0.5"></i>
+                                <div>
+                                    <p class="font-bold text-indigo-950">सरकारी प्रमाण पत्र + प्लेसमेंट:</p>
+                                    <p class="text-indigo-800 text-xs font-medium mt-0.5 leading-relaxed">
+                                        कंप्यूटर व इंग्लिश कम्युनिकेशन ट्रेनिंग के साथ सरकार द्वारा मान्यता प्राप्त सर्टिफिकेट और 100% जॉब असिस्टेंस।
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 bg-amber-50 border border-amber-200 p-3 rounded-xl">
+                                <i class="ph-fill ph-map-pin-line text-amber-600 text-xl shrink-0 mt-0.5"></i>
+                                <div>
+                                    <p class="font-bold text-amber-950">प्रशिक्षण केंद्र का पता (धनबाद):</p>
+                                    <p class="text-amber-900 text-xs font-semibold mt-0.5">
+                                        बिनोद बिहारी चौक, बंदोबस्त कार्यालय के समीप, नावाडीह, धनबाद, झारखण्ड – 828130
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-2 flex flex-col sm:flex-row gap-2.5 no-print">
+                            <button onclick="openApplyModal('त्वरित नामांकन पंजीकरण')" class="w-full bg-indigo-900 hover:bg-indigo-950 text-white font-bold py-3 px-4 rounded-xl text-sm flex items-center justify-center gap-2 shadow transition cursor-pointer">
+                                <i class="ph-bold ph-whatsapp-logo text-emerald-400 text-lg"></i>
+                                <span>व्हाट्सएप पर सीट बुक करें</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-12 md:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+            <div>
+                <span class="text-xs font-extrabold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200">
+                    उपलब्ध ट्रेड एवं योग्यता
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+                    रोजगारोन्मुखी प्रशिक्षण कोर्स (Training Courses)
+                </h2>
+                <p class="text-sm text-slate-600 font-medium mt-1">
+                    अपनी योग्यता के अनुसार कोर्स चुनें — सभी कोर्स में रहना, खाना और ट्रेनिंग 100% निःशुल्क है
+                </p>
+            </div>
+
+            <!-- Filter Pills -->
+            <div class="flex items-center gap-2 bg-slate-200/70 p-1.5 rounded-xl self-start no-print">
+                <button onclick="filterCourses('all')" id="filter-all" class="course-filter-btn bg-indigo-900 text-white text-xs font-bold px-3.5 py-2 rounded-lg transition cursor-pointer">
+                    सभी कोर्स (3)
+                </button>
+                <button onclick="filterCourses('8th')" id="filter-8th" class="course-filter-btn text-slate-700 hover:text-slate-900 text-xs font-bold px-3.5 py-2 rounded-lg transition cursor-pointer">
+                    8वीं पास योग्य
+                </button>
+                <button onclick="filterCourses('10th')" id="filter-10th" class="course-filter-btn text-slate-700 hover:text-slate-900 text-xs font-bold px-3.5 py-2 rounded-lg transition cursor-pointer">
+                    10वीं पास योग्य
+                </button>
+            </div>
+        </div>
+
+        <!-- Course Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Course 1: GDA -->
+            <div data-qual="10th" class="course-card card-hover bg-white rounded-2xl border-2 border-slate-200/90 overflow-hidden flex flex-col justify-between shadow-sm print-break-inside">
+                <div>
+                    <div class="bg-gradient-to-r from-sky-600 to-indigo-700 p-5 text-white relative">
+                        <span class="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded-md">
+                            हेल्थकेयर सेक्टर
+                        </span>
+                        <h3 class="text-xl font-black mt-3">General Duty Assistant (GDA)</h3>
+                        <p class="text-sky-100 text-xs font-medium mt-1">अस्पताल, नर्सिंग होम एवं स्वास्थ्य सेवा सहायक प्रशिक्षण</p>
+                        <div class="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center text-2xl absolute top-4 right-4">
+                            <i class="ph-fill ph-first-aid-kit"></i>
+                        </div>
+                    </div>
+
+                    <div class="p-5 space-y-4">
+                        <div class="grid grid-cols-3 gap-2 text-center bg-slate-50 p-3 rounded-xl border border-slate-200/70">
+                            <div>
+                                <p class="text-[11px] font-semibold text-slate-500">अवधि</p>
+                                <p class="text-sm font-black text-red-600 mt-0.5">6 Months</p>
+                                <p class="text-[10px] text-slate-500">(6 महीने)</p>
+                            </div>
+                            <div class="border-x border-slate-200">
+                                <p class="text-[11px] font-semibold text-slate-500">योग्यता</p>
+                                <p class="text-sm font-black text-indigo-900 mt-0.5">10th Pass</p>
+                                <p class="text-[10px] text-slate-500">(10वीं पास)</p>
+                            </div>
+                            <div>
+                                <p class="text-[11px] font-semibold text-slate-500">आयु सीमा</p>
+                                <p class="text-sm font-black text-emerald-700 mt-0.5">18 - 35</p>
+                                <p class="text-[10px] text-slate-500">(वर्ष)</p>
+                            </div>
+                        </div>
+
+                        <ul class="space-y-2 text-xs font-semibold text-slate-600">
+                            <li class="flex items-center gap-2">
+                                <i class="ph-fill ph-check-circle text-emerald-600 text-base"></i>
+                                <span>मरीजों की प्राथमिक देखभाल एवं नर्सिंग सहायता</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="ph-fill ph-check-circle text-emerald-600 text-base"></i>
+                                <span>प्रैक्टिकल लैब + कंप्यूटर एवं संवाद कौशल</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="ph-fill ph-check-circle text-emerald-600 text-base"></i>
+                                <span>प्रतिष्ठित अस्पतालों में 100% प्लेसमेंट सहायता</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="p-5 pt-0 no-print">
+                    <button onclick="openApplyModal('General Duty Assistant (GDA) - 6 Months')" class="w-full bg-indigo-50 hover:bg-indigo-900 text-indigo-900 hover:text-white font-bold py-2.5 px-4 rounded-xl border border-indigo-200 transition flex items-center justify-center gap-2 text-sm cursor-pointer">
+                        <span>GDA कोर्स में नामांकन करें</span>
+                        <i class="ph-bold ph-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Course 2: Assistant Beauty Therapist -->
+            <div data-qual="8th" class="course-card card-hover bg-white rounded-2xl border-2 border-slate-200/90 overflow-hidden flex flex-col justify-between shadow-sm print-break-inside">
+                <div>
+                    <div class="bg-gradient-to-r from-pink-600 to-rose-600 p-5 text-white relative">
+                        <span class="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded-md">
+                            ब्यूटी एवं वेलनेस
+                        </span>
+                        <h3 class="text-xl font-black mt-3">Assistant Beauty Therapist</h3>
+                        <p class="text-pink-100 text-xs font-medium mt-1">प्रोफेशनल मेकअप, स्किन केयर एवं सैलून मैनेजमेंट</p>
+                        <div class="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center text-2xl absolute top-4 right-4">
+                            <i class="ph-fill ph-sparkle"></i>
+                        </div>
+                    </div>
+
+                    <div class="p-5 space-y-4">
+                        <div class="grid grid-cols-3 gap-2 text-center bg-slate-50 p-3 rounded-xl border border-slate-200/70">
+                            <div>
+                                <p class="text-[11px] font-semibold text-slate-500">अवधि</p>
+                                <p class="text-sm font-black text-red-600 mt-0.5">2 Months</p>
+                                <p class="text-[10px] text-slate-500">(2 महीने)</p>
+                            </div>
+                            <div class="border-x border-slate-200">
+                                <p class="text-[11px] font-semibold text-slate-500">योग्यता</p>
+                                <p class="text-sm font-black text-indigo-900 mt-0.5">8th Pass</p>
+                                <p class="text-[10px] text-slate-500">(8वीं पास)</p>
+                            </div>
+                            <div>
+                                <p class="text-[11px] font-semibold text-slate-500">आयु सीमा</p>
+                                <p class="text-sm font-black text-emerald-700 mt-0.5">18 - 35</p>
+                                <p class="text-[10px] text-slate-500">(वर्ष)</p>
+                            </div>
+                        </div>
+
+                        <ul class="space-y-2 text-xs font-semibold text-slate-600">
+                            <li class="flex items-center gap-2">
+                                <i class="ph-fill ph-check-circle text-emerald-600 text-base"></i>
+                                <span>आधुनिक ब्यूटी पार्लर एवं स्किन थेरेपी प्रैक्टिकल</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="ph-fill ph-check-circle text-emerald-600 text-base"></i>
+                                <span>कम समय (मात्र 2 माह) में रोजगार व स्वरोजगार</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="ph-fill ph-check-circle text-emerald-600 text-base"></i>
+                                <span>ब्रांडेड सैलून व वेलनेस सेंटर में नौकरी के अवसर</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="p-5 pt-0 no-print">
+                    <button onclick="openApplyModal('Assistant Beauty Therapist - 2 Months')" class="w-full bg-pink-50 hover:bg-pink-600 text-pink-900 hover:text-white font-bold py-2.5 px-4 rounded-xl border border-pink-200 transition flex items-center justify-center gap-2 text-sm cursor-pointer">
+                        <span>Beauty कोर्स में नामांकन करें</span>
+                        <i class="ph-bold ph-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Course 3: Fashion Designer -->
+            <div data-qual="10th" class="course-card card-hover bg-white rounded-2xl border-2 border-slate-200/90 overflow-hidden flex flex-col justify-between shadow-sm print-break-inside">
+                <div>
+                    <div class="bg-gradient-to-r from-purple-700 to-indigo-800 p-5 text-white relative">
+                        <span class="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded-md">
+                            अपैरल एवं डिजाइनिंग
+                        </span>
+                        <h3 class="text-xl font-black mt-3">Fashion Designer</h3>
+                        <p class="text-purple-100 text-xs font-medium mt-1">गारमेंट डिजाइनिंग, कटिंग, स्टिचिंग एवं बुटीक कौशल</p>
+                        <div class="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center text-2xl absolute top-4 right-4">
+                            <i class="ph-fill ph-scissors"></i>
+                        </div>
+                    </div>
+
+                    <div class="p-5 space-y-4">
+                        <div class="grid grid-cols-3 gap-2 text-center bg-slate-50 p-3 rounded-xl border border-slate-200/70">
+                            <div>
+                                <p class="text-[11px] font-semibold text-slate-500">अवधि</p>
+                                <p class="text-sm font-black text-red-600 mt-0.5">3 Months</p>
+                                <p class="text-[10px] text-slate-500">(3 महीने)</p>
+                            </div>
+                            <div class="border-x border-slate-200">
+                                <p class="text-[11px] font-semibold text-slate-500">योग्यता</p>
+                                <p class="text-sm font-black text-indigo-900 mt-0.5">10th Pass</p>
+                                <p class="text-[10px] text-slate-500">(10वीं पास)</p>
+                            </div>
+                            <div>
+                                <p class="text-[11px] font-semibold text-slate-500">आयु सीमा</p>
+                                <p class="text-sm font-black text-emerald-700 mt-0.5">18 - 35</p>
+                                <p class="text-[10px] text-slate-500">(वर्ष)</p>
+                            </div>
+                        </div>
+
+                        <ul class="space-y-2 text-xs font-semibold text-slate-600">
+                            <li class="flex items-center gap-2">
+                                <i class="ph-fill ph-check-circle text-emerald-600 text-base"></i>
+                                <span>आधुनिक सिलाई मशीनों पर ड्रेस मेकिंग व पैटर्न कटिंग</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="ph-fill ph-check-circle text-emerald-600 text-base"></i>
+                                <span>सरकारी प्रमाण पत्र एवं इंडस्ट्रियल विजिट</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="ph-fill ph-check-circle text-emerald-600 text-base"></i>
+                                <span>टेक्सटाइल/अपैरल कंपनियों में 100% प्लेसमेंट अवसर</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="p-5 pt-0 no-print">
+                    <button onclick="openApplyModal('Fashion Designer - 3 Months')" class="w-full bg-purple-50 hover:bg-purple-800 text-purple-900 hover:text-white font-bold py-2.5 px-4 rounded-xl border border-purple-200 transition flex items-center justify-center gap-2 text-sm cursor-pointer">
+                        <span>Fashion कोर्स में नामांकन करें</span>
+                        <i class="ph-bold ph-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Free Facilities & Interactive Document Checklist Section -->
+    <section id="facilities" class="py-12 bg-slate-100/80 border-y border-slate-200 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Left 7 Cols: Facilities Grid -->
+            <div class="lg:col-span-7 space-y-6">
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">
+                        100% सरकारी सहायता प्राप्त
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+                        प्रशिक्षणार्थियों के लिए निःशुल्क सुविधाएं
+                    </h2>
+                    <p class="text-sm text-slate-600 font-medium mt-1">
+                        प्रशिक्षण के दौरान किसी भी प्रकार का शुल्क नहीं लिया जाता है — सभी सुविधाएं पूर्णतः निःशुल्क हैं:
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-3.5">
+                        <div class="w-11 h-11 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-xl shrink-0">
+                            <i class="ph-fill ph-bed"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-base">निःशुल्क छात्रावास व भोजन</h4>
+                            <p class="text-xs text-slate-600 mt-0.5 leading-relaxed">सुरक्षित आवासीय परिसर एवं साप्ताहिक मेन्यू अनुसार प्रतिदिन 4 बार पौष्टिक भोजन।</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-3.5">
+                        <div class="w-11 h-11 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center text-xl shrink-0">
+                            <i class="ph-fill ph-backpack"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-base">यूनिफॉर्म एवं स्टडी किट</h4>
+                            <p class="text-xs text-slate-600 mt-0.5 leading-relaxed">सभी छात्रों को मुफ्त यूनिफॉर्म, बैग, पेन, कॉपी, प्रशिक्षण पुस्तिका एवं पहचान पत्र (ID Card)।</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-3.5">
+                        <div class="w-11 h-11 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl shrink-0">
+                            <i class="ph-fill ph-desktop"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-base">कंप्यूटर एवं स्पोकन इंग्लिश</h4>
+                            <p class="text-xs text-slate-600 mt-0.5 leading-relaxed">कोर्स के साथ-साथ बेसिक कंप्यूटर एवं कम्युनिकेशन स्किल्स (संवाद कौशल) का विशेष प्रशिक्षण।</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-3.5">
+                        <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl shrink-0">
+                            <i class="ph-fill ph-briefcase"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-base">सरकारी प्रमाण पत्र व 100% जॉब</h4>
+                            <p class="text-xs text-slate-600 mt-0.5 leading-relaxed">प्रशिक्षण पूरा होने पर सरकारी प्रमाण पत्र और देश की प्रतिष्ठित कंपनियों में रोजगार का सुगम अवसर।</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special Banner from Pamphlet -->
+                <div class="bg-gradient-to-r from-indigo-900 via-indigo-800 to-blue-900 text-white p-5 rounded-2xl shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-400 text-slate-950 font-black flex items-center justify-center text-xl shrink-0">
+                            100%
+                        </div>
+                        <div>
+                            <h4 class="font-extrabold text-base sm:text-lg text-amber-300">सफल प्रशिक्षण के बाद तुरंत रोजगार</h4>
+                            <p class="text-xs text-indigo-100">झारखण्ड कौशल विकास मिशन सोसाइटी (JSDMS) द्वारा मान्यता प्राप्त केंद्र</p>
+                        </div>
+                    </div>
+                    <a href="tel:9576049666" class="bg-white text-indigo-950 hover:bg-amber-300 font-extrabold text-xs px-4 py-2.5 rounded-xl shrink-0 transition no-print">
+                        📞 9576049666
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right 5 Cols: Interactive Document Readiness Checklist -->
+            <div id="documents" class="lg:col-span-5">
+                <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-indigo-900/15 h-full flex flex-col justify-between print-break-inside">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 pb-3 border-b border-slate-100">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-9 h-9 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-lg">
+                                    <i class="ph-fill ph-files"></i>
+                                </span>
+                                <div>
+                                    <h3 class="font-black text-lg text-slate-900">आवश्यक दस्तावेज</h3>
+                                    <p class="text-[11px] font-semibold text-slate-500">केंद्र आने से पहले अपने दस्तावेजों पर टिक (✓) लगाकर जांचें</p>
+                                </div>
+                            </div>
+                            <span id="doc-counter" class="text-xs font-extrabold bg-indigo-50 text-indigo-700 px-2.5 py-1 rounded-full border border-indigo-200 no-print">
+                                0 / 7 तैयार
+                            </span>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden my-3 no-print">
+                            <div id="doc-progress" class="bg-emerald-500 h-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+
+                        <!-- Checklist Items -->
+                        <div class="space-y-2.5 mt-3">
+                            <label class="flex items-center gap-3 p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition select-none">
+                                <input type="checkbox" onchange="updateDocProgress()" class="doc-check w-4 h-4 accent-indigo-700 rounded cursor-pointer">
+                                <span class="text-sm font-bold text-slate-800">1. पासपोर्ट साइज फोटो <span class="text-xs font-normal text-slate-500">(Passport Size Photo)</span></span>
+                            </label>
+
+                            <label class="flex items-center gap-3 p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition select-none">
+                                <input type="checkbox" onchange="updateDocProgress()" class="doc-check w-4 h-4 accent-indigo-700 rounded cursor-pointer">
+                                <span class="text-sm font-bold text-slate-800">2. शैक्षणिक प्रमाण पत्र <span class="text-xs font-normal text-slate-500">(8वीं / 10वीं मार्कशीट)</span></span>
+                            </label>
+
+                            <label class="flex items-center gap-3 p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition select-none">
+                                <input type="checkbox" onchange="updateDocProgress()" class="doc-check w-4 h-4 accent-indigo-700 rounded cursor-pointer">
+                                <span class="text-sm font-bold text-slate-800">3. आधार कार्ड <span class="text-xs font-normal text-slate-500">(Aadhaar Card)</span></span>
+                            </label>
+
+                            <label class="flex items-center gap-3 p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition select-none">
+                                <input type="checkbox" onchange="updateDocProgress()" class="doc-check w-4 h-4 accent-indigo-700 rounded cursor-pointer">
+                                <span class="text-sm font-bold text-slate-800">4. बैंक पासबुक छाया प्रति <span class="text-xs font-normal text-slate-500">(Bank Passbook Copy)</span></span>
+                            </label>
+
+                            <label class="flex items-center gap-3 p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition select-none">
+                                <input type="checkbox" onchange="updateDocProgress()" class="doc-check w-4 h-4 accent-indigo-700 rounded cursor-pointer">
+                                <span class="text-sm font-bold text-slate-800">5. जाति प्रमाण पत्र <span class="text-xs font-normal text-slate-500">(Caste Certificate)</span></span>
+                            </label>
+
+                            <label class="flex items-center gap-3 p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition select-none">
+                                <input type="checkbox" onchange="updateDocProgress()" class="doc-check w-4 h-4 accent-indigo-700 rounded cursor-pointer">
+                                <span class="text-sm font-bold text-slate-800">6. आवासीय प्रमाण पत्र <span class="text-xs font-normal text-slate-500">(Residential Certificate)</span></span>
+                            </label>
+
+                            <label class="flex items-center gap-3 p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition select-none">
+                                <input type="checkbox" onchange="updateDocProgress()" class="doc-check w-4 h-4 accent-indigo-700 rounded cursor-pointer">
+                                <span class="text-sm font-bold text-slate-800">7. कोविड-19 टीकाकरण प्रमाण पत्र <span class="text-xs font-normal text-slate-500">(COVID-19 Vaccine)</span></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <p id="doc-status-msg" class="text-xs font-semibold text-slate-500 mt-4 bg-slate-50 p-2.5 rounded-lg text-center border border-slate-200/80">
+                        💡 टिप: सभी दस्तावेजों की मूल प्रति (Original) एवं 2-2 फोटोकॉपी साथ लाएं।
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Hostel Mess Menu Section (Integrated from Image 1) -->
+    <section id="mess-menu" class="py-12 md:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto print-break-inside">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
+            <div>
+                <span class="text-xs font-extrabold uppercase tracking-wider text-amber-700 bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
+                    आवासीय छात्रावास भोजन व्यवस्था
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+                    साप्ताहिक भोजन तालिका (Food Menu — Silver Oak)
+                </h2>
+                <p class="text-sm text-slate-600 font-medium mt-1">
+                    प्रशिक्षणार्थियों के स्वास्थ्य को ध्यान में रखते हुए प्रतिदिन 4 समय का पौष्टिक एवं स्वादिष्ट भोजन
+                </p>
+            </div>
+
+            <!-- Today's Day Highlight Badge -->
+            <div class="bg-indigo-900 text-white px-4 py-2.5 rounded-2xl flex items-center gap-2.5 self-start shadow-sm no-print">
+                <i class="ph-fill ph-Bowl-food text-amber-400 text-xl"></i>
+                <div class="text-xs">
+                    <span class="text-indigo-200 block">आज का दिन:</span>
+                    <span id="today-day-label" class="font-extrabold text-sm text-amber-300">सोमवार</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day Selector Tabs for Mobile / Quick View -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-3 mb-4 no-print" id="day-tabs">
+            <button onclick="highlightMenuDay('all')" data-day="all" class="day-tab-btn bg-indigo-900 text-white text-xs font-bold px-3.5 py-2 rounded-xl shrink-0 transition cursor-pointer">पूरा सप्ताह देखें</button>
+            <button onclick="highlightMenuDay('1')" data-day="1" class="day-tab-btn bg-white border border-slate-200 text-slate-700 text-xs font-bold px-3.5 py-2 rounded-xl shrink-0 transition cursor-pointer">सोमवार</button>
+            <button onclick="highlightMenuDay('2')" data-day="2" class="day-tab-btn bg-white border border-slate-200 text-slate-700 text-xs font-bold px-3.5 py-2 rounded-xl shrink-0 transition cursor-pointer">मंगलवार</button>
+            <button onclick="highlightMenuDay('3')" data-day="3" class="day-tab-btn bg-white border border-slate-200 text-slate-700 text-xs font-bold px-3.5 py-2 rounded-xl shrink-0 transition cursor-pointer">बुधवार</button>
+            <button onclick="highlightMenuDay('4')" data-day="4" class="day-tab-btn bg-white border border-slate-200 text-slate-700 text-xs font-bold px-3.5 py-2 rounded-xl shrink-0 transition cursor-pointer">गुरुवार</button>
+            <button onclick="highlightMenuDay('5')" data-day="5" class="day-tab-btn bg-white border border-slate-200 text-slate-700 text-xs font-bold px-3.5 py-2 rounded-xl shrink-0 transition cursor-pointer">शुक्रवार</button>
+            <button onclick="highlightMenuDay('6')" data-day="6" class="day-tab-btn bg-white border border-slate-200 text-slate-700 text-xs font-bold px-3.5 py-2 rounded-xl shrink-0 transition cursor-pointer">शनिवार</button>
+            <button onclick="highlightMenuDay('0')" data-day="0" class="day-tab-btn bg-white border border-slate-200 text-slate-700 text-xs font-bold px-3.5 py-2 rounded-xl shrink-0 transition cursor-pointer">रविवार</button>
+        </div>
+
+        <!-- Responsive Mess Menu Table -->
+        <div class="bg-white rounded-2xl shadow-md border-2 border-slate-200 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[680px]">
+                    <thead>
+                        <tr class="bg-slate-900 text-white text-xs sm:text-sm font-bold">
+                            <th class="py-3.5 px-4 border-r border-slate-700 w-28">दिन (DAY)</th>
+                            <th class="py-3.5 px-4 border-r border-slate-700">☀️ नाश्ता (Breakfast)</th>
+                            <th class="py-3.5 px-4 border-r border-slate-700">🍛 दोपहर का भोजन (Lunch)</th>
+                            <th class="py-3.5 px-4 border-r border-slate-700">☕ शाम का नाश्ता (Snacks)</th>
+                            <th class="py-3.5 px-4">🌙 रात का भोजन (Dinner)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-xs sm:text-sm font-semibold text-slate-800">
+                        <tr data-day-row="1" class="menu-row hover:bg-indigo-50/40 transition">
+                            <td class="py-3.5 px-4 font-black text-indigo-950 bg-slate-50 border-r border-slate-200">सोमवार</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">रोटी + मौसमी सब्जी</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">चावल + दाल + मौसमी सब्जी + अचार + सलाद</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">बिस्कुट + दूध वाली चाय</td>
+                            <td class="py-3.5 px-4">रोटी + चावल + मौसमी सब्जी + दाल</td>
+                        </tr>
+                        <tr data-day-row="2" class="menu-row hover:bg-indigo-50/40 transition">
+                            <td class="py-3.5 px-4 font-black text-indigo-950 bg-slate-50 border-r border-slate-200">मंगलवार</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">पूरी + आलू चना + केला (1 पीस)</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">चावल + मिक्स दाल + मौसमी सब्जी</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">बिस्कुट + दूध वाली चाय</td>
+                            <td class="py-3.5 px-4">रोटी + चावल + सोयाबीन सब्जी</td>
+                        </tr>
+                        <tr data-day-row="3" class="menu-row hover:bg-indigo-50/40 transition">
+                            <td class="py-3.5 px-4 font-black text-indigo-950 bg-slate-50 border-r border-slate-200">बुधवार</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">इडली + सांभर + चटनी</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">चावल + मिक्स दाल + भुजिया + पापड़ + सलाद</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">बिस्कुट + दूध वाली चाय</td>
+                            <td class="py-3.5 px-4 text-rose-700 font-bold">चावल + अंडा (2 पीस) / पनीर</td>
+                        </tr>
+                        <tr data-day-row="4" class="menu-row hover:bg-indigo-50/40 transition">
+                            <td class="py-3.5 px-4 font-black text-indigo-950 bg-slate-50 border-r border-slate-200">गुरुवार</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">पोहा</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">चावल + दाल + अचार + मौसमी सब्जी</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">बिस्कुट + दूध वाली चाय</td>
+                            <td class="py-3.5 px-4 text-emerald-700 font-bold">खीर + पूरी + चावल + सब्जी</td>
+                        </tr>
+                        <tr data-day-row="5" class="menu-row hover:bg-indigo-50/40 transition">
+                            <td class="py-3.5 px-4 font-black text-indigo-950 bg-slate-50 border-r border-slate-200">शुक्रवार</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">रोटी + मौसमी सब्जी + उबला अंडा (1 पीस)</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">चावल + मिक्स दाल + मौसमी सब्जी + पापड़ + सलाद</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200 text-amber-800 font-bold">चाय + पकोड़ा / आलू चॉप</td>
+                            <td class="py-3.5 px-4">रोटी + चावल + मौसमी सब्जी + दाल</td>
+                        </tr>
+                        <tr data-day-row="6" class="menu-row hover:bg-indigo-50/40 transition">
+                            <td class="py-3.5 px-4 font-black text-indigo-950 bg-slate-50 border-r border-slate-200">शनिवार</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">पूरी + छोला</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">खिचड़ी + चोखा + पापड़</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">बिस्कुट + दूध वाली चाय</td>
+                            <td class="py-3.5 px-4">रोटी + चावल + मौसमी सब्जी + दाल</td>
+                        </tr>
+                        <tr data-day-row="0" class="menu-row hover:bg-indigo-50/40 transition">
+                            <td class="py-3.5 px-4 font-black text-indigo-950 bg-slate-50 border-r border-slate-200">रविवार</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200 text-indigo-700 font-bold">पास्ता / चाउमीन</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">चावल + दाल + चोखा + अचार</td>
+                            <td class="py-3.5 px-4 border-r border-slate-200">बिस्कुट + दूध वाली चाय</td>
+                            <td class="py-3.5 px-4 text-rose-700 font-bold">चावल + दाल + चिकन / पनीर</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section id="contact" class="bg-slate-900 text-white py-12 px-4 sm:px-6 lg:px-8 border-t-4 border-amber-400">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="inline-block bg-amber-400 text-slate-950 font-black text-xs px-3 py-1 rounded-md uppercase">
+                        संपर्क एवं नामांकन केंद्र
+                    </div>
+                    <h2 class="text-2xl sm:text-4xl font-black tracking-tight">
+                        SILVER OAK (सिल्वर ओक)
+                    </h2>
+                    <p class="text-slate-400 text-xs sm:text-sm font-semibold">
+                        (A Unit of Silver Oak Shops and Offices Cooperative Housing Society Limited)
+                    </p>
+
+                    <div class="bg-slate-800/90 border border-slate-700 p-4 sm:p-5 rounded-2xl flex items-start gap-3.5">
+                        <i class="ph-fill ph-map-pin text-amber-400 text-2xl shrink-0 mt-0.5"></i>
+                        <div>
+                            <p class="text-xs uppercase tracking-wider text-slate-400 font-bold">केंद्र का पता (Address):</p>
+                            <p class="text-base sm:text-lg font-extrabold text-white mt-0.5">
+                                बिनोद बिहारी चौक, बंदोबस्त कार्यालय के समीप, नावाडीह, धनबाद, झारखण्ड – 828130
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                        <a href="tel:9942367438" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3.5 rounded-xl flex items-center gap-3 transition">
+                            <i class="ph-fill ph-phone-call text-emerald-400 text-2xl"></i>
+                            <div>
+                                <span class="text-[11px] text-slate-400 block">संपर्क नंबर 1</span>
+                                <span class="font-extrabold text-sm">9942367438</span>
+                            </div>
+                        </a>
+                        <a href="tel:9576049666" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3.5 rounded-xl flex items-center gap-3 transition">
+                            <i class="ph-fill ph-phone-call text-emerald-400 text-2xl"></i>
+                            <div>
+                                <span class="text-[11px] text-slate-400 block">संपर्क नंबर 2</span>
+                                <span class="font-extrabold text-sm">9576049666</span>
+                            </div>
+                        </a>
+                        <a href="tel:7739220615" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3.5 rounded-xl flex items-center gap-3 transition">
+                            <i class="ph-fill ph-user-circle text-amber-400 text-2xl"></i>
+                            <div>
+                                <span class="text-[11px] text-slate-400 block">समन्वयक (Shamim)</span>
+                                <span class="font-extrabold text-sm">7739220615</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Digital Links Card -->
+                <div class="lg:col-span-5 bg-slate-800/70 border border-slate-700 rounded-3xl p-6 space-y-4">
+                    <h3 class="font-bold text-lg text-amber-300 flex items-center gap-2">
+                        <i class="ph-fill ph-Share-network"></i> आधिकारिक ईमेल एवं वेबसाइट
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center justify-between bg-slate-900/80 p-3 rounded-xl border border-slate-700/80">
+                            <span class="text-slate-400 font-medium">केंद्र ईमेल:</span>
+                            <a href="mailto:sakshamdhanbad@gmail.com" class="font-bold text-sky-400 hover:underline">sakshamdhanbad@gmail.com</a>
+                        </div>
+                        <div class="flex items-center justify-between bg-slate-900/80 p-3 rounded-xl border border-slate-700/80">
+                            <span class="text-slate-400 font-medium">संस्थान वेबसाइट:</span>
+                            <a href="https://www.silveroakskill.org" target="_blank" class="font-bold text-sky-400 hover:underline">www.silveroakskill.org</a>
+                        </div>
+                        <div class="flex items-center justify-between bg-slate-900/80 p-3 rounded-xl border border-slate-700/80">
+                            <span class="text-slate-400 font-medium">JSDMS पोर्टल:</span>
+                            <a href="https://jsdm.jharkhand.gov.in" target="_blank" class="font-bold text-emerald-400 hover:underline">jsdm.jharkhand.gov.in</a>
+                        </div>
+                        <div class="flex items-center justify-between bg-slate-900/80 p-3 rounded-xl border border-slate-700/80">
+                            <span class="text-slate-400 font-medium">JSDMS टोल-फ्री:</span>
+                            <span class="font-bold text-amber-300">1800-123-3444</span>
+                        </div>
+                    </div>
+
+                    <button onclick="copyContactDetails()" class="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition cursor-pointer no-print">
+                        <i class="ph-bold ph-copy"></i>
+                        <span id="copy-btn-text">केंद्र का पता और फोन नंबर कॉपी करें</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Registration Modal (No Alert Used) -->
+    <div id="apply-modal" class="fixed inset-0 z-50 hidden bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4 no-print">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200 animate-fadeIn">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                <div>
+                    <span class="text-[11px] font-extrabold text-indigo-600 uppercase">निःशुल्क नामांकन फॉर्म</span>
+                    <h3 class="font-black text-lg text-slate-900">अपनी सीट के लिए पूछताछ करें</h3>
+                </div>
+                <button onclick="closeApplyModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 cursor-pointer">
+                    <i class="ph-bold ph-x"></i>
+                </button>
+            </div>
+
+            <form onsubmit="sendWhatsAppInquiry(event)" class="space-y-4 mt-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">आपका नाम (Full Name) *</label>
+                    <input type="text" id="applicant-name" required placeholder="अपना पूरा नाम लिखें" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-indigo-600">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">मोबाइल नंबर *</label>
+                        <input type="tel" id="applicant-phone" required placeholder="10 अंकों का नंबर" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-indigo-600">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">योग्यता (Qualification)</label>
+                        <select id="applicant-qual" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-indigo-600 bg-white">
+                            <option value="8वीं पास">8वीं पास (8th Pass)</option>
+                            <option value="10वीं पास" selected>10वीं पास (10th Pass)</option>
+                            <option value="12वीं / स्नातक">12वीं / स्नातक</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">चयनित प्रशिक्षण कोर्स *</label>
+                    <select id="applicant-course" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-indigo-600 bg-white font-semibold text-indigo-950">
+                        <option value="General Duty Assistant (GDA) - 6 Months">General Duty Assistant (GDA) - 6 Months</option>
+                        <option value="Assistant Beauty Therapist - 2 Months">Assistant Beauty Therapist - 2 Months</option>
+                        <option value="Fashion Designer - 3 Months">Fashion Designer - 3 Months</option>
+                    </select>
+                </div>
+
+                <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-xl text-xs text-emerald-900 font-medium">
+                    ✅ सबमिट करने पर आपका विवरण सीधे सिल्वर ओक धनबाद केंद्र के व्हाट्सएप नंबर (7739220615) पर खुल जाएगा।
+                </div>
+
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-md flex items-center justify-center gap-2 transition cursor-pointer">
+                    <i class="ph-bold ph-whatsapp-logo text-lg"></i>
+                    <span>व्हाट्सएप पर विवरण भेजें</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Course Qualification Filter
+        function filterCourses(qual) {
+            const cards = document.querySelectorAll('.course-card');
+            const buttons = document.querySelectorAll('.course-filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-indigo-900', 'text-white');
+                btn.classList.add('text-slate-700');
+            });
+
+            const activeBtn = document.getElementById('filter-' + qual);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-indigo-900', 'text-white');
+                activeBtn.classList.remove('text-slate-700');
+            }
+
+            cards.forEach(card => {
+                if (qual === 'all') {
+                    card.style.display = 'flex';
+                } else if (qual === '8th') {
+                    card.style.display = card.dataset.qual === '8th' ? 'flex' : 'none';
+                } else if (qual === '10th') {
+                    card.style.display = 'flex'; // 10th pass is eligible for all courses
+                }
+            });
+        }
+
+        // Interactive Document Checklist Progress
+        function updateDocProgress() {
+            const checks = document.querySelectorAll('.doc-check');
+            const checkedCount = Array.from(checks).filter(c => c.checked).length;
+            const total = checks.length;
+            const percent = Math.round((checkedCount / total) * 100);
+
+            document.getElementById('doc-counter').textContent = `${checkedCount} / ${total} तैयार`;
+            document.getElementById('doc-progress').style.width = `${percent}%`;
+
+            const msgEl = document.getElementById('doc-status-msg');
+            if (checkedCount === total) {
+                msgEl.textContent = '🎉 बधाई हो! आपके सभी दस्तावेज नामांकन के लिए तैयार हैं।';
+                msgEl.className = 'text-xs font-bold text-emerald-800 mt-4 bg-emerald-100 p-2.5 rounded-lg text-center border border-emerald-300';
+            } else {
+                msgEl.textContent = `💡 आपके ${checkedCount} दस्तावेज तैयार हैं, शेष ${total - checkedCount} दस्तावेज साथ रखें।`;
+                msgEl.className = 'text-xs font-semibold text-slate-600 mt-4 bg-slate-50 p-2.5 rounded-lg text-center border border-slate-200/80';
+            }
+        }
+
+        // Highlight Today's Day in Mess Menu
+        const hindiDays = ['रविवार', 'सोमवार', 'मंगलवार', 'बुधवार', 'गुरुवार', 'शुक्रवार', 'शनिवार'];
+        function initTodayMenu() {
+            const todayIndex = new Date().getDay();
+            const label = document.getElementById('today-day-label');
+            if (label) label.textContent = hindiDays[todayIndex];
+
+            const todayRow = document.querySelector(`tr[data-day-row="${todayIndex}"]`);
+            if (todayRow) {
+                todayRow.classList.add('bg-amber-50/90', 'ring-2', 'ring-amber-400');
+                const firstCell = todayRow.querySelector('td');
+                if (firstCell) {
+                    firstCell.innerHTML += ' <span class="inline-block bg-amber-400 text-slate-950 text-[10px] font-black px-1.5 py-0.5 rounded ml-1">आज</span>';
+                }
+            }
+        }
+
+        function highlightMenuDay(dayVal) {
+            const rows = document.querySelectorAll('.menu-row');
+            const tabs = document.querySelectorAll('.day-tab-btn');
+
+            tabs.forEach(tab => {
+                if (tab.dataset.day === dayVal) {
+                    tab.className = 'day-tab-btn bg-indigo-900 text-white text-xs font-bold px-3.5 py-2 rounded-xl shrink-0 transition cursor-pointer';
+                } else {
+                    tab.className = 'day-tab-btn bg-white border border-slate-200 text-slate-700 text-xs font-bold px-3.5 py-2 rounded-xl shrink-0 transition cursor-pointer';
+                }
+            });
+
+            rows.forEach(row => {
+                if (dayVal === 'all' || row.dataset.dayRow === dayVal) {
+                    row.style.display = 'table-row';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Modal Handlers
+        function openApplyModal(selectedCourse) {
+            const modal = document.getElementById('apply-modal');
+            const select = document.getElementById('applicant-course');
+            if (selectedCourse && select) {
+                for (let i = 0; i < select.options.length; i++) {
+                    if (select.options[i].value === selectedCourse) {
+                        select.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            modal.classList.remove('hidden');
+        }
+
+        function closeApplyModal() {
+            document.getElementById('apply-modal').classList.add('hidden');
+        }
+
+        function sendWhatsAppInquiry(e) {
+            e.preventDefault();
+            const name = document.getElementById('applicant-name').value.trim();
+            const phone = document.getElementById('applicant-phone').value.trim();
+            const qual = document.getElementById('applicant-qual').value;
+            const course = document.getElementById('applicant-course').value;
+
+            const message = `नमस्ते सिल्वर ओक (SJKVY धनबाद केंद्र),\nमैं निःशुल्क कौशल प्रशिक्षण में नामांकन करना चाहता/चाहती हूँ:\n\n• नाम: ${name}\n• मोबाइल: ${phone}\n• योग्यता: ${qual}\n• कोर्स: ${course}\n\nकृपया मुझे नामांकन प्रक्रिया की जानकारी दें।`;
+            const waUrl = `https://wa.me/917739220615?text=${encodeURIComponent(message)}`;
+            window.open(waUrl, '_blank');
+            closeApplyModal();
+        }
+
+        // Clipboard Copy Helper
+        function copyContactDetails() {
+            const text = "SILVER OAK (SJKVY) धनबाद केंद्र\nपता: बिनोद बिहारी चौक, बंदोबस्त कार्यालय के समीप, नावाडीह, धनबाद, झारखण्ड – 828130\nफोन: 9942367438, 9576049666, 7739220615";
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const btnText = document.getElementById('copy-btn-text');
+            btnText.textContent = "✅ पता और नंबर कॉपी हो गया!";
+            setTimeout(() => {
+                btnText.textContent = "केंद्र का पता और फोन नंबर कॉपी करें";
+            }, 2500);
+        }
+
+        window.onload = initTodayMenu;
+    </script>
+</body>
+</html>
+
