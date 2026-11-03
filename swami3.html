@@ -1,0 +1,846 @@
+
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>प्रतिभागियों के लिए दिशा-निर्देश | रामकृष्ण मिशन आश्रम, राँची (2026-2027)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Sans Devanagari & Tiro Devanagari Hindi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans Devanagari"', 'sans-serif'],
+                        serif: ['"Tiro Devanagari Hindi"', 'serif'],
+                    },
+                    colors: {
+                        saffron: {
+                            50: '#fff8f1',
+                            100: '#ffeedb',
+                            200: '#ffd9b5',
+                            500: '#ff7a00',
+                            600: '#e65c00',
+                            700: '#b83e00',
+                            800: '#8f2f00',
+                            900: '#6b2300',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: #fffaf3;
+            color: #2b2118;
+        }
+        .om-watermark::before {
+            content: "ॐ";
+            position: absolute;
+            font-size: 240px;
+            line-height: 1;
+            opacity: 0.08;
+            right: -20px;
+            top: -30px;
+            transform: rotate(-12deg);
+            pointer-events: none;
+            user-select: none;
+        }
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background: #ffffff !important;
+            }
+            .print-shadow-none {
+                box-shadow: none !important;
+                border: 1px solid #e5e7eb !important;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-saffron-500 selection:text-white">
+
+    <!-- 1. TOP ANNOUNCEMENT BAR -->
+    <div class="bg-[#5c1f06] text-amber-100 text-xs sm:text-sm py-2 px-3 text-center font-semibold tracking-wide border-b border-amber-900/40">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-2">
+            <span class="inline-flex items-center gap-1 bg-amber-500/20 text-amber-300 px-2.5 py-0.5 rounded-full text-xs font-bold border border-amber-400/30">
+                <i class="ph-fill ph-sparkle"></i> 56वीं वार्षिक प्रतियोगिता
+            </span>
+            <span>ऑनलाइन ऑल-इंडिया प्रतियोगिता (2026-2027) — नव वर्ष एवं सशक्त भारत के निर्माण हेतु</span>
+        </div>
+    </div>
+
+    <!-- 2. STICKY NAVIGATION BAR (Mobile Portrait Optimized) -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-orange-200/80 shadow-sm no-print">
+        <div class="max-w-6xl mx-auto px-3 sm:px-6 py-2.5 flex items-center justify-between gap-2">
+            <!-- Brand Identity (Prevent awkward wrapping on mobile portrait) -->
+            <a href="#" class="flex items-center gap-2.5 min-w-0">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-saffron-500 to-saffron-700 text-white flex items-center justify-center shrink-0 font-bold text-xl shadow-md">
+                    ॐ
+                </div>
+                <div class="min-w-0">
+                    <div class="flex items-center gap-1.5 whitespace-nowrap">
+                        <span class="text-sm sm:text-base font-extrabold text-saffron-900 truncate">रामकृष्ण मिशन आश्रम</span>
+                        <span class="hidden xs:inline-block text-[10px] font-bold bg-saffron-100 text-saffron-800 px-2 py-0.5 rounded-md border border-saffron-200">राँची</span>
+                    </div>
+                    <p class="text-[11px] text-stone-600 font-medium whitespace-nowrap truncate">मोराबादी, राँची – 834008 • rkmranchi.org</p>
+                </div>
+            </a>
+
+            <!-- Quick Links & Action Buttons -->
+            <div class="hidden md:flex items-center gap-5 text-sm font-semibold text-stone-700">
+                <a href="#eligibility-checker" class="hover:text-saffron-600 transition">पात्रता जांचें</a>
+                <a href="#competitions" class="hover:text-saffron-600 transition">प्रतियोगिताएँ</a>
+                <a href="#dates" class="hover:text-saffron-600 transition">महत्वपूर्ण तिथियाँ</a>
+                <a href="#prizes" class="hover:text-saffron-600 transition">पुरस्कार (₹1 लाख)</a>
+                <a href="#contact" class="hover:text-saffron-600 transition">संपर्क</a>
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0">
+                <button onclick="window.print()" class="p-2 rounded-lg border border-orange-200 text-saffron-800 hover:bg-saffron-50 transition text-xs font-bold flex items-center gap-1" title="प्रिंट या PDF सेव करें">
+                    <i class="ph-bold ph-printer text-base"></i>
+                    <span class="hidden sm:inline">प्रिंट / PDF</span>
+                </button>
+                <a href="http://www.rkmranchi.org/competition" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-saffron-600 to-saffron-700 hover:from-saffron-700 hover:to-saffron-800 text-white text-xs sm:text-sm font-bold px-3.5 py-2 rounded-xl shadow-md flex items-center gap-1.5 whitespace-nowrap transition">
+                    <span>पंजीकरण करें</span>
+                    <i class="ph-bold ph-arrow-up-right"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3. HERO HEADER SECTION -->
+    <header class="relative bg-gradient-to-br from-[#ff7a00] via-[#e65c00] to-[#9c3300] text-white overflow-hidden om-watermark">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+                <!-- Left Column: Title & Badges -->
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold mb-4">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                        <span>निःशुल्क ऑनलाइन पंजीकरण • सभी को ई-प्रमाणपत्र</span>
+                    </div>
+
+                    <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight mb-2">
+                        प्रतिभागियों के लिए दिशा-निर्देश
+                    </h1>
+                    <p class="text-base sm:text-xl text-amber-100 font-medium mb-6">
+                        Guidelines for Participants (Hindi) — 2026-2027
+                    </p>
+
+                    <!-- Competition Category Pills -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-2.5 mb-7">
+                        <a href="#comp-quiz" class="inline-flex items-center gap-1.5 bg-white text-saffron-800 font-bold text-xs sm:text-sm px-4 py-2 rounded-full shadow hover:bg-amber-50 transition">
+                            <i class="ph-fill ph-MonitorPlay text-saffron-600 text-base"></i>
+                            1. प्रश्नोत्तरी (Quiz)
+                        </a>
+                        <a href="#comp-recitation" class="inline-flex items-center gap-1.5 bg-white text-saffron-800 font-bold text-xs sm:text-sm px-4 py-2 rounded-full shadow hover:bg-amber-50 transition">
+                            <i class="ph-fill ph-microphone-stage text-saffron-600 text-base"></i>
+                            2. सस्वर पाठ (Recitation)
+                        </a>
+                        <a href="#comp-essay" class="inline-flex items-center gap-1.5 bg-white text-saffron-800 font-bold text-xs sm:text-sm px-4 py-2 rounded-full shadow hover:bg-amber-50 transition">
+                            <i class="ph-fill ph-pen-nib text-saffron-600 text-base"></i>
+                            3. निबंध-लेखन (Essay)
+                        </a>
+                    </div>
+
+                    <!-- Primary CTAs -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-3 no-print">
+                        <a href="http://www.rkmranchi.org/competition" target="_blank" rel="noopener noreferrer" class="bg-amber-300 hover:bg-amber-200 text-stone-950 font-black px-6 py-3 rounded-xl shadow-lg flex items-center gap-2 text-sm sm:text-base transition transform hover:-translate-y-0.5">
+                            <i class="ph-bold ph-user-plus text-lg"></i>
+                            ऑनलाइन पंजीकरण करें
+                        </a>
+                        <a href="http://www.rkmranchi.org/competition" target="_blank" rel="noopener noreferrer" class="bg-black/25 hover:bg-black/35 border border-white/30 text-white font-bold px-5 py-3 rounded-xl flex items-center gap-2 text-sm sm:text-base transition">
+                            <i class="ph-bold ph-book-open-text text-lg"></i>
+                            अध्ययन सामग्री डाउनलोड करें
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Organizer Card & Live Countdown -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/25 rounded-2xl p-5 sm:p-6 shadow-2xl">
+                        <div class="flex items-start justify-between gap-3 border-b border-white/20 pb-4 mb-4">
+                            <div>
+                                <span class="text-xs uppercase tracking-wider text-amber-200 font-bold block">आयोजक संस्थान</span>
+                                <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-0.5">रामकृष्ण मिशन आश्रम</h2>
+                                <p class="text-xs sm:text-sm text-amber-100 mt-0.5">मोराबादी, राँची – 834008 (झारखण्ड)</p>
+                            </div>
+                            <span class="bg-amber-400 text-stone-950 font-black text-xs px-3 py-1 rounded-lg shadow">
+                                ₹1,00,000 पुरस्कार
+                            </span>
+                        </div>
+
+                        <!-- Live Countdown Box -->
+                        <div class="bg-black/25 rounded-xl p-4 mb-4 border border-white/15">
+                            <div class="flex items-center justify-between text-xs font-bold text-amber-200 mb-2">
+                                <span class="flex items-center gap-1"><i class="ph-fill ph-clock-countdown text-sm"></i> पंजीकरण की अंतिम तिथि:</span>
+                                <span class="bg-red-500/80 text-white px-2 py-0.5 rounded">30 नवंबर, 2026</span>
+                            </div>
+                            <div id="countdown-timer" class="grid grid-cols-4 gap-2 text-center">
+                                <div class="bg-white/10 rounded-lg py-2">
+                                    <span id="cd-days" class="text-xl sm:text-2xl font-black block">--</span>
+                                    <span class="text-[10px] text-amber-100">दिन</span>
+                                </div>
+                                <div class="bg-white/10 rounded-lg py-2">
+                                    <span id="cd-hours" class="text-xl sm:text-2xl font-black block">--</span>
+                                    <span class="text-[10px] text-amber-100">घंटे</span>
+                                </div>
+                                <div class="bg-white/10 rounded-lg py-2">
+                                    <span id="cd-mins" class="text-xl sm:text-2xl font-black block">--</span>
+                                    <span class="text-[10px] text-amber-100">मिनट</span>
+                                </div>
+                                <div class="bg-white/10 rounded-lg py-2">
+                                    <span id="cd-secs" class="text-xl sm:text-2xl font-black block">--</span>
+                                    <span class="text-[10px] text-amber-100">सेकंड</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Highlights -->
+                        <div class="space-y-2 text-xs sm:text-sm text-amber-50">
+                            <div class="flex items-center gap-2">
+                                <i class="ph-fill ph-check-circle text-green-300 text-base shrink-0"></i>
+                                <span><strong>पात्रता:</strong> कक्षा 5 से 12, UG, PG, शिक्षक एवं झारखण्ड के सभी नागरिक</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="ph-fill ph-calendar-check text-amber-300 text-base shrink-0"></i>
+                                <span><strong>राज्य स्तरीय ऑनलाइन क्विज़:</strong> 6 दिसंबर, 2026</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="ph-fill ph-medal text-amber-300 text-base shrink-0"></i>
+                                <span><strong>सम्मान समारोह:</strong> 12 जनवरी, 2027 (राष्ट्रीय युवा दिवस)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-10">
+
+        <!-- 4. INTERACTIVE ELIGIBILITY & BOOK FINDER (NEW UX FEATURE) -->
+        <section id="eligibility-checker" class="bg-white rounded-2xl shadow-md border-2 border-saffron-200 p-5 sm:p-7 print-shadow-none no-print">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-orange-100 pb-4 mb-5">
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-saffron-600 bg-saffron-50 px-2.5 py-1 rounded-md border border-saffron-200">
+                        <i class="ph-bold ph-magic-wand"></i> स्मार्ट गाइड (Interactive Finder)
+                    </span>
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-stone-900 mt-1">
+                        अपनी कक्षा / श्रेणी चुनें और तुरंत जानकारी पाएं
+                    </h2>
+                    <p class="text-xs sm:text-sm text-stone-600">
+                        नीचे अपनी श्रेणी पर क्लिक करें — आपके लिए लागू प्रतियोगिता, समूह, पुस्तक और समय अपने-आप दिख जाएगा:
+                    </p>
+                </div>
+            </div>
+
+            <!-- Category Selector Buttons -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-5">
+                <button onclick="selectCategory('groupA')" id="btn-groupA" class="cat-btn active-cat text-left p-3.5 rounded-xl border-2 border-saffron-600 bg-saffron-50 transition">
+                    <span class="text-xs font-bold text-saffron-700 block">समूह "क" (Group A)</span>
+                    <span class="text-sm sm:text-base font-extrabold text-stone-900">कक्षा 5 से 7</span>
+                </button>
+                <button onclick="selectCategory('groupB')" id="btn-groupB" class="cat-btn text-left p-3.5 rounded-xl border-2 border-stone-200 hover:border-saffron-300 bg-white transition">
+                    <span class="text-xs font-bold text-stone-500 block">समूह "ख" (Group B)</span>
+                    <span class="text-sm sm:text-base font-extrabold text-stone-900">कक्षा 8</span>
+                </button>
+                <button onclick="selectCategory('groupB2')" id="btn-groupB2" class="cat-btn text-left p-3.5 rounded-xl border-2 border-stone-200 hover:border-saffron-300 bg-white transition">
+                    <span class="text-xs font-bold text-stone-500 block">समूह "ख" (Group B)</span>
+                    <span class="text-sm sm:text-base font-extrabold text-stone-900">कक्षा 9 से 12</span>
+                </button>
+                <button onclick="selectCategory('groupC')" id="btn-groupC" class="cat-btn text-left p-3.5 rounded-xl border-2 border-stone-200 hover:border-saffron-300 bg-white transition">
+                    <span class="text-xs font-bold text-stone-500 block">समूह "ग" (Group C)</span>
+                    <span class="text-sm sm:text-base font-extrabold text-stone-900">UG, PG, शिक्षक व सभी</span>
+                </button>
+            </div>
+
+            <!-- Dynamic Result Card -->
+            <div id="finder-result" class="bg-gradient-to-r from-amber-50/90 to-orange-50/60 rounded-xl p-4 sm:p-5 border border-orange-200">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- 5. ELIGIBILITY & OBJECTIVES GRID -->
+        <section class="grid md:grid-cols-12 gap-6">
+            <!-- Eligibility Summary -->
+            <div class="md:col-span-5 bg-white rounded-2xl shadow-sm border border-orange-200/80 p-6 flex flex-col justify-between print-shadow-none">
+                <div>
+                    <div class="inline-flex items-center gap-2 text-saffron-700 font-extrabold text-lg mb-3">
+                        <span class="w-8 h-8 rounded-lg bg-saffron-100 flex items-center justify-center text-saffron-700">
+                            <i class="ph-fill ph-users-three text-xl"></i>
+                        </span>
+                        <h2>पात्रता एवं परिचय</h2>
+                    </div>
+                    <p class="text-stone-700 text-sm sm:text-base leading-relaxed mb-4">
+                        कक्षा <strong>V से XII</strong> तक के विद्यार्थियों, स्नातक <strong>(UG)</strong>, स्नातकोत्तर <strong>(PG)</strong>, शिक्षकों तथा झारखण्ड के <strong>सभी इच्छुक व्यक्तियों</strong> के लिए निःशुल्क प्रतियोगिताएँ आयोजित की जा रही हैं।
+                    </p>
+                </div>
+                <div class="bg-saffron-50 rounded-xl p-4 border border-saffron-200">
+                    <div class="text-xs font-bold text-saffron-800 uppercase mb-2">तीनों प्रतियोगिताओं की श्रेणियाँ:</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white text-saffron-800 border border-saffron-200 text-xs font-bold px-3 py-1.5 rounded-lg">1. प्रश्नोत्तरी (Quiz)</span>
+                        <span class="bg-white text-saffron-800 border border-saffron-200 text-xs font-bold px-3 py-1.5 rounded-lg">2. सस्वर पाठ (Recitation)</span>
+                        <span class="bg-white text-saffron-800 border border-saffron-200 text-xs font-bold px-3 py-1.5 rounded-lg">3. निबंध-लेखन (Essay)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objectives -->
+            <div class="md:col-span-7 bg-white rounded-2xl shadow-sm border border-orange-200/80 p-6 print-shadow-none">
+                <div class="inline-flex items-center gap-2 text-saffron-700 font-extrabold text-lg mb-3">
+                    <span class="w-8 h-8 rounded-lg bg-saffron-100 flex items-center justify-center text-saffron-700">
+                        <i class="ph-fill ph-target text-xl"></i>
+                    </span>
+                    <h2>प्रतियोगिता का मुख्य उद्देश्य</h2>
+                </div>
+                <div class="space-y-3.5 text-sm sm:text-base text-stone-700 leading-relaxed">
+                    <div class="flex items-start gap-3 bg-stone-50 p-3.5 rounded-xl border border-stone-200/70">
+                        <span class="w-6 h-6 rounded-full bg-saffron-600 text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+                        <p>विद्यार्थियों, शिक्षकों एवं अन्य प्रतिभागियों में स्वामी विवेकानंद के प्रेरणादायी, चरित्र-निर्माणकारी तथा राष्ट्र-निर्माणकारी संदेशों का सच्चा ज्ञान, चिंतन में आत्मसातीकरण, आत्मविश्लेषण एवं उत्तरदायी भारतीय बनने का संकल्प जागृत करना।</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-stone-50 p-3.5 rounded-xl border border-stone-200/70">
+                        <span class="w-6 h-6 rounded-full bg-saffron-600 text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+                        <p>नवीन भारत के संदर्भ में स्वामी विवेकानंद के दृष्टिकोण का व्यापक प्रचार-प्रसार करना।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. DETAILED COMPETITIONS SECTION -->
+        <section id="competitions" class="space-y-6">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-saffron-600">विस्तृत विवरण</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-stone-900 mt-1">तीनों प्रतियोगिताओं के नियम व पाठ्यक्रम</h2>
+            </div>
+
+            <!-- COMPETITION 1: ONLINE QUIZ -->
+            <div id="comp-quiz" class="bg-white rounded-2xl shadow-sm border border-orange-200/90 overflow-hidden print-shadow-none">
+                <div class="bg-gradient-to-r from-saffron-600 to-saffron-700 text-white px-6 py-4 flex flex-wrap items-center justify-between gap-2">
+                    <div class="flex items-center gap-2.5">
+                        <span class="bg-white/20 p-2 rounded-lg"><i class="ph-fill ph-MonitorPlay text-xl"></i></span>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-extrabold">1. प्रश्नोत्तरी प्रतियोगिता (ऑनलाइन)</h3>
+                            <p class="text-xs text-amber-100">माध्यम: हिंदी और अंग्रेजी दोनों में उपलब्ध</p>
+                        </div>
+                    </div>
+                    <span class="bg-amber-300 text-stone-950 text-xs font-black px-3 py-1 rounded-full">
+                        राज्य स्तर: 6 दिसंबर, 2026
+                    </span>
+                </div>
+
+                <div class="p-5 sm:p-6 space-y-5">
+                    <!-- Responsive Table for Quiz Groups -->
+                    <div class="overflow-x-auto rounded-xl border border-orange-200">
+                        <table class="w-full text-left border-collapse text-sm sm:text-base">
+                            <thead>
+                                <tr class="bg-saffron-50 text-saffron-900 border-b border-orange-200">
+                                    <th class="py-3.5 px-4 font-extrabold w-20 text-center">समूह</th>
+                                    <th class="py-3.5 px-4 font-extrabold w-48">कक्षा / पात्रता</th>
+                                    <th class="py-3.5 px-4 font-extrabold">निर्धारित पुस्तक एवं विषय</th>
+                                    <th class="py-3.5 px-4 font-extrabold w-36 text-center">समय (6 दिसंबर)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-orange-100">
+                                <tr class="hover:bg-amber-50/40">
+                                    <td class="py-3.5 px-4 text-center">
+                                        <span class="inline-block bg-saffron-600 text-white font-black px-3 py-1 rounded-lg">क</span>
+                                    </td>
+                                    <td class="py-3.5 px-4 font-bold text-stone-900">कक्षा 5 से 7</td>
+                                    <td class="py-3.5 px-4">
+                                        <div class="font-semibold text-stone-900">हिंदी: <em>"स्वामी विवेकानंद की सरल जीवनी"</em></div>
+                                        <div class="text-stone-700 text-sm">अंग्रेजी: <em>"A Simple Life of Swami Vivekananda"</em></div>
+                                        <span class="inline-block mt-1 text-xs bg-orange-100 text-saffron-800 px-2 py-0.5 rounded font-medium">+ सामान्य ज्ञान, करंट अफेयर्स और गणित पर आधारित</span>
+                                    </td>
+                                    <td class="py-3.5 px-4 text-center font-extrabold text-saffron-800 whitespace-nowrap">प्रातः 10:00 बजे</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50/40 bg-orange-50/20">
+                                    <td class="py-3.5 px-4 text-center">
+                                        <span class="inline-block bg-saffron-600 text-white font-black px-3 py-1 rounded-lg">ख</span>
+                                    </td>
+                                    <td class="py-3.5 px-4 font-bold text-stone-900">कक्षा 8 से 12</td>
+                                    <td class="py-3.5 px-4">
+                                        <div class="font-semibold text-stone-900">हिंदी: <em>"नया भारत गढ़ो"</em></div>
+                                        <div class="text-stone-700 text-sm">अंग्रेजी: <em>"Rebuild India"</em></div>
+                                        <span class="inline-block mt-1 text-xs bg-orange-100 text-saffron-800 px-2 py-0.5 rounded font-medium">+ सामान्य ज्ञान, करंट अफेयर्स और गणित पर आधारित</span>
+                                    </td>
+                                    <td class="py-3.5 px-4 text-center font-extrabold text-saffron-800 whitespace-nowrap">प्रातः 11:00 बजे</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50/40">
+                                    <td class="py-3.5 px-4 text-center">
+                                        <span class="inline-block bg-saffron-600 text-white font-black px-3 py-1 rounded-lg">ग</span>
+                                    </td>
+                                    <td class="py-3.5 px-4 font-bold text-stone-900">स्नातक (UG), स्नातकोत्तर (PG), शिक्षक एवं सभी</td>
+                                    <td class="py-3.5 px-4">
+                                        <div class="font-semibold text-stone-900">हिंदी: <em>"भारत और उसकी समस्याएँ"</em></div>
+                                        <div class="text-stone-700 text-sm">अंग्रेजी: <em>"Swami Vivekananda on India and Her Problems"</em></div>
+                                        <span class="inline-block mt-1 text-xs bg-orange-100 text-saffron-800 px-2 py-0.5 rounded font-medium">+ सामान्य ज्ञान, करंट अफेयर्स और गणित पर आधारित</span>
+                                    </td>
+                                    <td class="py-3.5 px-4 text-center font-extrabold text-saffron-800 whitespace-nowrap">दोपहर 12:00 बजे</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-sm">
+                        <div class="flex items-center gap-2.5 text-stone-800">
+                            <i class="ph-fill ph-info text-saffron-600 text-xl shrink-0"></i>
+                            <span>यह प्रतियोगिता रामकृष्ण मिशन आश्रम, मोराबादी, राँची द्वारा <strong>6 दिसंबर 2026 (रविवार)</strong> को राज्य स्तर पर ऑनलाइन आयोजित की जाएगी।</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMPETITION 2 & 3 SIDE-BY-SIDE GRID -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- COMPETITION 2: RECITATION -->
+                <div id="comp-recitation" class="bg-white rounded-2xl shadow-sm border border-orange-200/90 overflow-hidden flex flex-col justify-between print-shadow-none">
+                    <div>
+                        <div class="bg-stone-900 text-white px-6 py-4 flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <span class="bg-saffron-500/20 text-saffron-400 p-2 rounded-lg"><i class="ph-fill ph-microphone-stage text-xl"></i></span>
+                                <div>
+                                    <h3 class="text-lg font-extrabold">2. सस्वर पाठ प्रतियोगिता</h3>
+                                    <p class="text-xs text-stone-300">केवल हिंदी माध्यम में</p>
+                                </div>
+                            </div>
+                            <span class="bg-saffron-500 text-white text-xs font-bold px-2.5 py-1 rounded-md">कक्षा 5 से 8</span>
+                        </div>
+
+                        <div class="p-5 sm:p-6 space-y-4">
+                            <div class="bg-saffron-50 border border-saffron-200 rounded-xl p-3.5">
+                                <div class="text-xs text-saffron-800 font-bold">पाठ का विषय:</div>
+                                <div class="text-base sm:text-lg font-black text-stone-900">स्वामी विवेकानंद का "शिकागो वक्तव्य"</div>
+                            </div>
+
+                            <h4 class="font-extrabold text-stone-800 text-sm uppercase tracking-wider">तीन चरणों की चयन प्रक्रिया:</h4>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex items-start gap-3 p-3 rounded-xl bg-stone-50 border border-stone-200/80">
+                                    <span class="bg-saffron-600 text-white font-bold text-xs px-2 py-1 rounded">चरण 1</span>
+                                    <div>
+                                        <strong class="text-stone-900 block">विद्यालय / संगठन स्तर (ऑफलाइन)</strong>
+                                        <span class="text-stone-600">इसके प्रथम, द्वितीय और तृतीय विजेता जिला स्तर पर भाग लेंगे।</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 p-3 rounded-xl bg-stone-50 border border-stone-200/80">
+                                    <span class="bg-saffron-600 text-white font-bold text-xs px-2 py-1 rounded">चरण 2</span>
+                                    <div>
+                                        <strong class="text-stone-900 block">जिला स्तर (ऑनलाइन / ऑफलाइन)</strong>
+                                        <span class="text-stone-600">इसके प्रथम, द्वितीय और तृतीय विजेता राज्य स्तर पर भाग लेंगे।</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 p-3 rounded-xl bg-stone-50 border border-stone-200/80">
+                                    <span class="bg-saffron-600 text-white font-bold text-xs px-2 py-1 rounded">चरण 3</span>
+                                    <div>
+                                        <strong class="text-stone-900 block">राज्य स्तर (ऑनलाइन)</strong>
+                                        <span class="text-stone-600">अंतिम राज्य स्तरीय ऑनलाइन प्रस्तुति।</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMPETITION 3: HANDWRITTEN ESSAY -->
+                <div id="comp-essay" class="bg-white rounded-2xl shadow-sm border border-orange-200/90 overflow-hidden flex flex-col justify-between print-shadow-none">
+                    <div>
+                        <div class="bg-stone-900 text-white px-6 py-4 flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <span class="bg-saffron-500/20 text-saffron-400 p-2 rounded-lg"><i class="ph-fill ph-pen-nib text-xl"></i></span>
+                                <div>
+                                    <h3 class="text-lg font-extrabold">3. हस्तलिखित निबंध प्रतियोगिता</h3>
+                                    <p class="text-xs text-stone-300">संस्कृत / हिंदी / बंगला / अंग्रेजी</p>
+                                </div>
+                            </div>
+                            <span class="bg-saffron-500 text-white text-xs font-bold px-2.5 py-1 rounded-md">UG, PG, शिक्षक व सभी</span>
+                        </div>
+
+                        <div class="p-5 sm:p-6 space-y-4">
+                            <div class="bg-saffron-50 border border-saffron-200 rounded-xl p-3.5">
+                                <div class="text-xs text-saffron-800 font-bold">निबंध का विषय:</div>
+                                <div class="text-sm sm:text-base font-black text-stone-900">
+                                    हिंदी: <em>"भारत और उसकी समस्याएँ"</em><br>
+                                    अंग्रेजी: <em>"Swami Vivekananda on India and Her Problems"</em>
+                                </div>
+                                <p class="text-xs text-stone-600 mt-1">
+                                    केंद्रीय विषय और उप-विषय उपर्युक्त पुस्तक के अध्यायों से लेना है। सॉफ्ट कॉपी वेबसाइट पर उपलब्ध है।
+                                </p>
+                            </div>
+
+                            <h4 class="font-extrabold text-stone-800 text-sm uppercase tracking-wider">प्रस्तुतीकरण की विधि:</h4>
+                            <ul class="space-y-2.5 text-sm text-stone-700">
+                                <li class="flex items-start gap-2.5">
+                                    <i class="ph-fill ph-check-square text-saffron-600 text-lg shrink-0 mt-0.5"></i>
+                                    <span>केवल <strong>स्कैन की गई हस्तलिखित (Handwritten)</strong> प्रतियों का ही मूल्यांकन किया जाएगा।</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="ph-fill ph-check-square text-saffron-600 text-lg shrink-0 mt-0.5"></i>
+                                    <span>शब्द सीमा: <strong>800 से 1000 शब्दों</strong> में या <strong>A4 आकार के दो पृष्ठों</strong> में।</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="ph-fill ph-check-square text-saffron-600 text-lg shrink-0 mt-0.5"></i>
+                                    <span>भाषा विकल्प: <strong>संस्कृत, हिंदी, बंगला या अंग्रेजी</strong>।</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="ph-fill ph-cloud-arrow-up text-saffron-600 text-lg shrink-0 mt-0.5"></i>
+                                    <span>अपलोड पोर्टल: <a href="http://www.rkmranchi.org/competition" target="_blank" class="text-saffron-700 font-bold underline">www.rkmranchi.org/competition</a></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. IMPORTANT DATES TIMELINE -->
+        <section id="dates" class="bg-white rounded-2xl shadow-sm border border-orange-200/90 p-6 sm:p-8 print-shadow-none">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6 pb-4 border-b border-orange-100">
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-saffron-600">समय-सारणी</span>
+                    <h2 class="text-xl sm:text-2xl font-black text-stone-900">पंजीकरण एवं महत्वपूर्ण तिथियाँ (2026–2027)</h2>
+                </div>
+                <span class="inline-flex items-center gap-1.5 text-xs font-bold bg-green-100 text-green-800 px-3 py-1.5 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-green-600"></span> पंजीकरण चालू है
+                </span>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-orange-50/70 border border-orange-200 rounded-xl p-4 relative">
+                    <span class="text-xs font-bold text-saffron-700 uppercase block mb-1">चरण 1 • आरंभ</span>
+                    <div class="text-lg sm:text-xl font-black text-stone-900">1 अगस्त, 2026</div>
+                    <p class="text-xs text-stone-600 mt-1">ऑनलाइन पंजीकरण प्रारंभ</p>
+                </div>
+
+                <div class="bg-red-50 border-2 border-red-300 rounded-xl p-4 relative">
+                    <span class="text-xs font-bold text-red-700 uppercase block mb-1">चरण 2 • अंतिम तिथि</span>
+                    <div class="text-lg sm:text-xl font-black text-red-900">30 नवंबर, 2026</div>
+                    <p class="text-xs text-red-700 mt-1 font-medium">पंजीकरण समापन तिथि</p>
+                </div>
+
+                <div class="bg-orange-50/70 border border-orange-200 rounded-xl p-4 relative">
+                    <span class="text-xs font-bold text-saffron-700 uppercase block mb-1">चरण 3 • जिला स्तर</span>
+                    <div class="text-lg sm:text-xl font-black text-stone-900">नवंबर 2026</div>
+                    <p class="text-xs text-stone-600 mt-1">तीसरे एवं चौथे सप्ताह तक</p>
+                </div>
+
+                <div class="bg-amber-100/80 border border-amber-300 rounded-xl p-4 relative">
+                    <span class="text-xs font-bold text-amber-900 uppercase block mb-1">चरण 4 • राज्य स्तर</span>
+                    <div class="text-lg sm:text-xl font-black text-stone-900">दिसंबर 2026</div>
+                    <p class="text-xs text-stone-700 mt-1">द्वितीय सप्ताह (क्विज़: 6 दिसंबर)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. PRIZES & KEY HIGHLIGHTS -->
+        <section id="prizes" class="grid lg:grid-cols-12 gap-6">
+            <!-- Prize Breakdown Card -->
+            <div class="lg:col-span-5 bg-gradient-to-br from-stone-900 via-stone-900 to-[#4a1c05] text-white rounded-2xl p-6 sm:p-7 shadow-lg flex flex-col justify-between">
+                <div>
+                    <div class="inline-flex items-center gap-1.5 bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-bold px-3 py-1 rounded-full mb-3">
+                        <i class="ph-fill ph-trophy"></i> राज्य स्तरीय पुरस्कार
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-black text-amber-300 mb-1">कुल ₹1,00,000/- के पुरस्कार</h2>
+                    <p class="text-xs sm:text-sm text-stone-300 mb-5">नकद पुरस्कार के साथ स्वामी विवेकानंद साहित्य एवं प्रमाण-पत्र प्रदान किया जाएगा।</p>
+
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between bg-white/10 border border-white/15 rounded-xl px-4 py-3">
+                            <div class="flex items-center gap-2.5">
+                                <span class="text-xl">🥇</span>
+                                <span class="font-bold text-sm sm:text-base">प्रथम पुरस्कार (1st Prize)</span>
+                            </div>
+                            <span class="text-lg font-black text-amber-300">₹10,000/-</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-white/10 border border-white/15 rounded-xl px-4 py-3">
+                            <div class="flex items-center gap-2.5">
+                                <span class="text-xl">🥈</span>
+                                <span class="font-bold text-sm sm:text-base">द्वितीय पुरस्कार (2nd Prize)</span>
+                            </div>
+                            <span class="text-lg font-black text-amber-200">₹3,000/-</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-white/10 border border-white/15 rounded-xl px-4 py-3">
+                            <div class="flex items-center gap-2.5">
+                                <span class="text-xl">🥉</span>
+                                <span class="font-bold text-sm sm:text-base">तृतीय पुरस्कार (3rd Prize)</span>
+                            </div>
+                            <span class="text-lg font-black text-amber-100">₹2,000/-</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                            <div class="flex items-center gap-2.5">
+                                <span class="text-xl">🎖️</span>
+                                <span class="font-medium text-xs sm:text-sm">सांत्वना पुरस्कार (5 विद्यार्थियों को)</span>
+                            </div>
+                            <span class="text-base font-bold text-amber-300">₹1,000/- प्रत्येक</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-white/15 flex items-center gap-3 text-xs sm:text-sm text-amber-100">
+                    <i class="ph-fill ph-sparkle text-amber-400 text-2xl shrink-0"></i>
+                    <span><strong>राष्ट्रीय युवा दिवस (12 जनवरी 2027)</strong> को 40 विजेताओं को प्रतिष्ठित व्यक्ति द्वारा सम्मानित किया जाएगा।</span>
+                </div>
+            </div>
+
+            <!-- Key Features & Bookstall Info -->
+            <div class="lg:col-span-7 bg-white rounded-2xl shadow-sm border border-orange-200/90 p-6 sm:p-7 flex flex-col justify-between print-shadow-none">
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-black text-stone-900 mb-4 flex items-center gap-2">
+                        <i class="ph-fill ph-star text-saffron-600"></i> मुख्य विशेषताएँ एवं पुस्तक प्राप्ति
+                    </h2>
+
+                    <ul class="space-y-3.5 text-sm sm:text-base text-stone-700">
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-green-100 text-green-700 font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span>
+                            <span>सभी प्रतियोगी प्रतिभागियों के लिए <strong>निःशुल्क ऑनलाइन पंजीकरण</strong> और <strong>ई-प्रमाणपत्र (E-Certificate)</strong>।</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-green-100 text-green-700 font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span>
+                            <span>सभी पुस्तकें भुगतान (डाक खर्च सहित) पर <strong>केवल आश्रम बुकस्टॉल</strong> से ही उपलब्ध होंगी या वेबसाइट (<a href="http://www.rkmranchi.org/competition" target="_blank" class="text-saffron-700 font-bold underline">rkmranchi.org/competition</a>) से निःशुल्क डाउनलोड की जा सकती हैं।</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-green-100 text-green-700 font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span>
+                            <span>विद्यालय स्तर एवं जिला-स्तर पर केवल सस्वर पाठ प्रतियोगिता के पुरस्कारों का निर्णय विद्यालय अथवा संबंधित जिला नोडल संगठन द्वारा किया जाएगा।</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Ashram Bookstall Contact Sub-card -->
+                <div class="mt-6 bg-amber-50/90 border border-amber-200 rounded-xl p-4">
+                    <div class="flex items-center gap-2 font-extrabold text-saffron-900 text-sm sm:text-base mb-2">
+                        <i class="ph-fill ph-books text-lg text-saffron-600"></i>
+                        <span>आश्रम बुकस्टॉल संपर्क सूत्र (पुस्तक मंगाने हेतु):</span>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-2 text-xs sm:text-sm text-stone-700">
+                        <div><strong>ईमेल:</strong> <a href="mailto:rkmbookstallranchi@gmail.com" class="text-saffron-700 font-semibold hover:underline">rkmbookstallranchi@gmail.com</a></div>
+                        <div><strong>फोन:</strong> <a href="tel:+919835158708" class="font-semibold hover:text-saffron-700">98351-58708</a>, <a href="tel:+919852260686" class="font-semibold hover:text-saffron-700">9852260686</a>, <a href="tel:+918371967833" class="font-semibold hover:text-saffron-700">8371967833</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. CONTACT & HELPLINE SECTION -->
+        <section id="contact" class="bg-stone-900 text-white rounded-2xl p-6 sm:p-8 shadow-lg">
+            <div class="grid md:grid-cols-12 gap-6 items-center">
+                <div class="md:col-span-5 space-y-2">
+                    <span class="text-xs font-bold uppercase tracking-widest text-amber-400">सहायता केंद्र</span>
+                    <h2 class="text-2xl font-black text-white">संपर्क सूत्र (Helpline)</h2>
+                    <p class="text-xs sm:text-sm text-stone-300">किसी भी प्रश्न या सहायता के लिए नीचे दिए गए नंबरों पर कॉल / WhatsApp या ईमेल करें:</p>
+                    <div class="pt-2 space-y-1.5 text-sm">
+                        <p class="flex items-center gap-2">
+                            <i class="ph-fill ph-envelope-simple text-amber-400 text-lg"></i>
+                            <a href="mailto:rkm.competition@gmail.com" class="text-amber-300 font-semibold hover:underline">rkm.competition@gmail.com</a>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <i class="ph-fill ph-globe text-amber-400 text-lg"></i>
+                            <a href="http://www.rkmranchi.org/competition" target="_blank" class="text-amber-300 font-semibold hover:underline">www.rkmranchi.org/competition</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="md:col-span-7">
+                    <div class="text-xs font-bold text-stone-400 uppercase mb-2.5">फोन / WhatsApp नंबर (क्लिक करके कॉल करें):</div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                        <a href="tel:+919631912330" class="bg-white/10 hover:bg-saffron-600 transition rounded-xl p-3 flex items-center gap-2 text-xs sm:text-sm font-bold">
+                            <i class="ph-fill ph-phone-call text-amber-300 text-base"></i> 9631912330
+                        </a>
+                        <a href="tel:+916299913243" class="bg-white/10 hover:bg-saffron-600 transition rounded-xl p-3 flex items-center gap-2 text-xs sm:text-sm font-bold">
+                            <i class="ph-fill ph-phone-call text-amber-300 text-base"></i> 6299913243
+                        </a>
+                        <a href="tel:+919938223862" class="bg-white/10 hover:bg-saffron-600 transition rounded-xl p-3 flex items-center gap-2 text-xs sm:text-sm font-bold">
+                            <i class="ph-fill ph-phone-call text-amber-300 text-base"></i> 9938223862
+                        </a>
+                        <a href="tel:+919835158708" class="bg-white/10 hover:bg-saffron-600 transition rounded-xl p-3 flex items-center gap-2 text-xs sm:text-sm font-bold">
+                            <i class="ph-fill ph-phone-call text-amber-300 text-base"></i> 9835158708
+                        </a>
+                        <a href="tel:+918789686541" class="bg-white/10 hover:bg-saffron-600 transition rounded-xl p-3 flex items-center gap-2 text-xs sm:text-sm font-bold">
+                            <i class="ph-fill ph-phone-call text-amber-300 text-base"></i> 8789686541
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. SWAMI VIVEKANANDA QUOTE & SIGNATORY -->
+        <section class="bg-gradient-to-r from-amber-100/70 via-orange-100/60 to-amber-100/70 border border-orange-200 rounded-2xl p-6 sm:p-8 text-center relative">
+            <p class="font-serif italic text-xl sm:text-2xl text-saffron-900 font-semibold leading-relaxed">
+                "समस्त शक्ति तुम्हारे भीतर है, तुम सबकुछ कर सकते हो।"
+            </p>
+            <p class="text-sm sm:text-base font-extrabold text-saffron-700 mt-2">— स्वामी विवेकानंद</p>
+
+            <div class="mt-6 pt-4 border-t border-orange-200/80 flex flex-col sm:flex-row items-center justify-between text-xs sm:text-sm text-stone-700 gap-2">
+                <span>रामकृष्ण मिशन आश्रम, मोराबादी, राँची – 834008</span>
+                <div class="text-center sm:text-right">
+                    <strong class="text-stone-900 text-sm block">स्वामी भजनानन्द</strong>
+                    <span class="text-xs text-stone-600">(संयोजक)</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-stone-950 text-stone-400 text-xs sm:text-sm py-6 px-4 text-center border-t border-stone-800">
+        <div class="max-w-6xl mx-auto space-y-1">
+            <p class="font-bold text-stone-200">रामकृष्ण मिशन आश्रम, मोराबादी, राँची | <a href="http://www.rkmranchi.org" target="_blank" class="text-amber-400 hover:underline">www.rkmranchi.org</a></p>
+            <p>यह पृष्ठ मूल विज्ञप्ति के आधार पर हिंदी पाठकों एवं प्रतिभागियों की सुविधा के लिए तैयार किया गया है।</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // 1. Category Eligibility & Syllabus Data
+        const categoryData = {
+            groupA: {
+                title: 'समूह "क" (कक्षा 5 से 7 के विद्यार्थी)',
+                competitions: [
+                    {
+                        name: '1. ऑनलाइन प्रश्नोत्तरी (Quiz)',
+                        bookHi: 'स्वामी विवेकानंद की सरल जीवनी',
+                        bookEn: 'A Simple Life of Swami Vivekananda',
+                        extra: 'सामान्य ज्ञान, करंट अफेयर्स और गणित',
+                        schedule: '6 दिसंबर 2026, प्रातः 10:00 बजे'
+                    },
+                    {
+                        name: '2. सस्वर पाठ प्रतियोगिता (केवल हिंदी)',
+                        bookHi: 'स्वामी विवेकानंद का "शिकागो वक्तव्य"',
+                        bookEn: 'केवल हिंदी माध्यम में',
+                        extra: 'तीन चरण: विद्यालय स्तर ➔ जिला स्तर ➔ राज्य स्तर',
+                        schedule: 'विद्यालय एवं जिला स्तर (नवंबर 2026)'
+                    }
+                ]
+            },
+            groupB: {
+                title: 'समूह "ख" (कक्षा 8 के विद्यार्थी)',
+                competitions: [
+                    {
+                        name: '1. ऑनलाइन प्रश्नोत्तरी (Quiz)',
+                        bookHi: 'नया भारत गढ़ो',
+                        bookEn: 'Rebuild India',
+                        extra: 'सामान्य ज्ञान, करंट अफेयर्स और गणित',
+                        schedule: '6 दिसंबर 2026, प्रातः 11:00 बजे'
+                    },
+                    {
+                        name: '2. सस्वर पाठ प्रतियोगिता (केवल हिंदी)',
+                        bookHi: 'स्वामी विवेकानंद का "शिकागो वक्तव्य"',
+                        bookEn: 'केवल हिंदी माध्यम में (कक्षा 5 से 8 तक पात्र)',
+                        extra: 'तीन चरण: विद्यालय स्तर ➔ जिला स्तर ➔ राज्य स्तर',
+                        schedule: 'विद्यालय एवं जिला स्तर (नवंबर 2026)'
+                    }
+                ]
+            },
+            groupB2: {
+                title: 'समूह "ख" (कक्षा 9 से 12 के विद्यार्थी)',
+                competitions: [
+                    {
+                        name: '1. ऑनलाइन प्रश्नोत्तरी (Quiz)',
+                        bookHi: 'नया भारत गढ़ो',
+                        bookEn: 'Rebuild India',
+                        extra: 'सामान्य ज्ञान, करंट अफेयर्स और गणित',
+                        schedule: '6 दिसंबर 2026, प्रातः 11:00 बजे'
+                    }
+                ]
+            },
+            groupC: {
+                title: 'समूह "ग" (स्नातक UG, स्नातकोत्तर PG, शिक्षक एवं अन्य सभी)',
+                competitions: [
+                    {
+                        name: '1. ऑनलाइन प्रश्नोत्तरी (Quiz)',
+                        bookHi: 'भारत और उसकी समस्याएँ',
+                        bookEn: 'Swami Vivekananda on India and Her Problems',
+                        extra: 'सामान्य ज्ञान, करंट अफेयर्स और गणित',
+                        schedule: '6 दिसंबर 2026, दोपहर 12:00 बजे'
+                    },
+                    {
+                        name: '2. हस्तलिखित निबंध प्रतियोगिता (Essay)',
+                        bookHi: 'भारत और उसकी समस्याएँ (अध्यायों पर आधारित)',
+                        bookEn: 'Swami Vivekananda on India and Her Problems',
+                        extra: '800–1000 शब्द (A4 के 2 पृष्ठ) • भाषा: संस्कृत / हिंदी / बंगला / अंग्रेजी • स्कैन कॉपी अपलोड करें',
+                        schedule: 'अंतिम तिथि: 30 नवंबर 2026'
+                    }
+                ]
+            }
+        };
+
+        function selectCategory(key) {
+            // Update button styles
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('border-saffron-600', 'bg-saffron-50');
+                btn.classList.add('border-stone-200', 'bg-white');
+            });
+            const activeBtn = document.getElementById('btn-' + key);
+            if (activeBtn) {
+                activeBtn.classList.remove('border-stone-200', 'bg-white');
+                activeBtn.classList.add('border-saffron-600', 'bg-saffron-50');
+            }
+
+            // Render result
+            const data = categoryData[key];
+            const container = document.getElementById('finder-result');
+            let cardsHtml = data.competitions.map(comp => `
+                <div class="bg-white rounded-xl p-4 border border-orange-200 shadow-sm">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                        <span class="font-extrabold text-saffron-800 text-base">${comp.name}</span>
+                        <span class="text-xs font-bold bg-amber-100 text-amber-900 px-2.5 py-1 rounded-md border border-amber-300">
+                            ⏰ ${comp.schedule}
+                        </span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-stone-700"><strong>निर्धारित पुस्तक (हिंदी):</strong> "${comp.bookHi}"</p>
+                    <p class="text-xs sm:text-sm text-stone-600"><strong>अंग्रेजी:</strong> "${comp.bookEn}"</p>
+                    <p class="text-xs text-saffron-700 font-semibold mt-1.5">📌 ${comp.extra}</p>
+                </div>
+            `).join('');
+
+            container.innerHTML = `
+                <div class="mb-3 flex items-center justify-between">
+                    <h3 class="font-black text-stone-900 text-base sm:text-lg">${data.title} के लिए उपलब्ध प्रतियोगिताएँ:</h3>
+                </div>
+                <div class="grid sm:grid-cols-${data.competitions.length > 1 ? '2' : '1'} gap-3">
+                    ${cardsHtml}
+                </div>
+            `;
+        }
+
+        // Initialize default category
+        selectCategory('groupA');
+
+        // 2. Countdown Timer to 30 November 2026
+        function updateCountdown() {
+            const target = new Date('2026-11-30T23:59:59+05:30').getTime();
+            const now = new Date().getTime();
+            const diff = target - now;
+
+            if (diff <= 0) {
+                document.getElementById('cd-days').innerText = '0';
+                document.getElementById('cd-hours').innerText = '0';
+                document.getElementById('cd-mins').innerText = '0';
+                document.getElementById('cd-secs').innerText = '0';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('cd-days').innerText = days;
+            document.getElementById('cd-hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('cd-mins').innerText = String(mins).padStart(2, '0');
+            document.getElementById('cd-secs').innerText = String(secs).padStart(2, '0');
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
+
