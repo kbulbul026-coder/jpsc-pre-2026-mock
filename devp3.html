@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>बेहतर परवरिश: समझदार और खुशहाल बचपन की राह</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Sans Devanagari & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans Devanagari"', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-amber-50/60 text-slate-800 antialiased selection:bg-teal-200 selection:text-teal-900">
+
+    <!-- नेविगेशन बार (Navigation Bar) -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-amber-100 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center text-white font-bold text-xl shadow-md">
+                    🌱
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-bold text-slate-900 leading-tight">सजग परवरिश</h1>
+                    <p class="text-xs text-slate-500">प्यार, नियम और समझ का संतुलन</p>
+                </div>
+            </div>
+            <nav class="flex flex-wrap items-center gap-2 sm:gap-4 text-sm font-medium">
+                <a href="#brain-section" class="px-3 py-2 rounded-xl hover:bg-teal-50 text-slate-700 hover:text-teal-700 transition">दिमाग का विज्ञान</a>
+                <a href="#styles-section" class="px-3 py-2 rounded-xl hover:bg-teal-50 text-slate-700 hover:text-teal-700 transition">परवरिश के तरीके</a>
+                <a href="#routine-section" class="px-3 py-2 rounded-xl hover:bg-teal-50 text-slate-700 hover:text-teal-700 transition">आदर्श रूटीन</a>
+                <a href="#words-section" class="px-3 py-2 rounded-xl bg-teal-600 text-white hover:bg-teal-700 transition shadow-sm">सकारात्मक संवाद</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- हीरो सेक्शन (Hero Section) -->
+    <section class="relative overflow-hidden py-12 sm:py-20 px-4 sm:px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-teal-100 text-teal-800 text-xs sm:text-sm font-semibold mb-4">
+                बच्चों के मन और दिमाग को समझें
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 leading-tight mb-6">
+                बेहतर परवरिश का रहस्य:<br class="hidden sm:inline" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-amber-600">
+                    डांट नहीं, समझ और सही सीमाएँ
+                </span>
+            </h2>
+            <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed">
+                बच्चे ज़िद या गुस्सा इसलिए नहीं करते कि वे बुरे हैं, बल्कि इसलिए करते हैं क्योंकि उनका दिमाग अभी भावनाओं को सँभालना सीख रहा है। आइए जानें कि हम उनके लिए एक सुरक्षित और प्रेरणादायक माहौल कैसे बना सकते हैं।
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#brain-section" class="px-6 py-3.5 rounded-2xl bg-teal-600 hover:bg-teal-700 text-white font-semibold shadow-lg shadow-teal-600/20 transition">
+                    बच्चे का दिमाग समझें 👇
+                </a>
+                <button onclick="openTipModal()" class="px-6 py-3.5 rounded-2xl bg-white hover:bg-amber-50 text-slate-800 font-semibold border border-amber-200 shadow-sm transition">
+                    आज का पेरेंटिंग मंत्र ✨
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- सेक्शन 1: इंटरैक्टिव ब्रेन एक्सप्लोरर (Interactive Brain Explorer) -->
+    <section id="brain-section" class="py-12 px-4 sm:px-6 max-w-6xl mx-auto">
+        <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-amber-100">
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">1. बच्चे का दिमाग कैसे काम करता है?</h3>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    दिमाग के चित्र पर किसी भी हिस्से (लोब) या नीचे दिए गए बटनों पर टैप करें और जानें कि हर हिस्सा बच्चे के व्यवहार को कैसे प्रभावित करता है।
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- इंटरैक्टिव दिमाग का चित्र (Interactive SVG Brain Diagram) -->
+                <div class="lg:col-span-6 flex flex-col items-center">
+                    <div class="w-full max-w-md bg-gradient-to-b from-amber-50/80 to-teal-50/60 rounded-3xl p-4 sm:p-6 border border-amber-200/70 shadow-inner">
+                        <svg viewBox="0 0 420 330" class="w-full h-auto drop-shadow-sm select-none" aria-label="इंटरैक्टिव मस्तिष्क चित्र">
+                            <!-- हल्का बैकग्राउंड आभामंडल -->
+                            <circle cx="210" cy="155" r="135" fill="#ffffff" opacity="0.7" />
+                            
+                            <!-- दिशा संकेतक (आगे / पीछे) -->
+                            <text x="48" y="45" fill="#64748b" font-size="11" font-weight="600">← सामने (माथा)</text>
+                            <text x="305" y="45" fill="#64748b" font-size="11" font-weight="600">पीछे (सिर) →</text>
+
+                            <!-- 1. ब्रेन स्टेम (Brain Stem) -->
+                            <g id="svg-part-brainstem" onclick="selectBrainPart('brainstem')" class="cursor-pointer transition-all duration-200 hover:opacity-90">
+                                <path d="M 195 215 Q 202 260 198 302 L 228 302 Q 232 255 225 212 Z" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
+                                <text x="242" y="282" fill="#334155" font-size="12" font-weight="700">ब्रेन स्टेम</text>
+                                <line x1="226" y1="278" x2="238" y2="278" stroke="#64748b" stroke-width="1.5" />
+                            </g>
+
+                            <!-- 2. सेरिबेलम / छोटा दिमाग (Cerebellum) -->
+                            <g id="svg-part-cerebellum" onclick="selectBrainPart('cerebellum')" class="cursor-pointer transition-all duration-200 hover:opacity-90">
+                                <path d="M 225 208 C 265 205, 315 215, 312 248 C 308 272, 260 278, 226 258 Z" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
+                                <!-- सेरिबेलम की धारियाँ -->
+                                <path d="M 238 228 Q 272 225 300 232 M 235 242 Q 270 240 296 247" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.6" />
+                                <text x="268" y="243" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">सेरिबेलम</text>
+                            </g>
+
+                            <!-- 3. ऑक्सीपिटल लोब (Occipital Lobe - दृष्टि) -->
+                            <g id="svg-part-occipital" onclick="selectBrainPart('occipital')" class="cursor-pointer transition-all duration-200 hover:opacity-90">
+                                <path d="M 295 102 C 345 118, 365 170, 325 210 C 302 215, 282 205, 275 182 C 272 150, 282 122, 295 102 Z" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
+                                <text x="318" y="162" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">ऑक्सीपिटल</text>
+                                <text x="318" y="175" text-anchor="middle" fill="#ffffff" font-size="9.5" opacity="0.9">(दृष्टि)</text>
+                            </g>
+
+                            <!-- 4. पैराइटल लोब (Parietal Lobe - स्पर्श व कौशल) -->
+                            <g id="svg-part-parietal" onclick="selectBrainPart('parietal')" class="cursor-pointer transition-all duration-200 hover:opacity-90">
+                                <path d="M 192 54 C 245 50, 282 72, 295 102 C 282 122, 272 150, 275 182 C 245 172, 215 162, 195 152 C 188 118, 188 85, 192 54 Z" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
+                                <text x="242" y="112" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">पैराइटल</text>
+                                <text x="242" y="126" text-anchor="middle" fill="#ffffff" font-size="9.5" opacity="0.9">(स्पर्श/कौशल)</text>
+                            </g>
+
+                            <!-- 5. फ्रंटल कॉर्टेक्स (Frontal Cortex - लॉजिक ब्रेन) -->
+                            <g id="svg-part-frontal" onclick="selectBrainPart('frontal')" class="cursor-pointer transition-all duration-200 hover:opacity-90">
+                                <path d="M 192 54 C 132 52, 72 95, 68 158 C 66 192, 95 212, 138 206 C 155 182, 175 165, 195 152 C 188 118, 188 85, 192 54 Z" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
+                                <!-- दिमाग की सिलवटें (Brain folds) -->
+                                <path d="M 105 115 Q 130 105 152 118 M 92 148 Q 122 138 145 150" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" opacity="0.45" />
+                                <text x="130" y="134" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">फ्रंटल कॉर्टेक्स</text>
+                                <text x="130" y="149" text-anchor="middle" fill="#ffffff" font-size="9.5" opacity="0.95">(लॉजिक ब्रेन)</text>
+                            </g>
+
+                            <!-- 6. टेम्पोरल लोब (Temporal Lobe - आवाज़ और याददाश्त) -->
+                            <g id="svg-part-temporal" onclick="selectBrainPart('temporal')" class="cursor-pointer transition-all duration-200 hover:opacity-90">
+                                <path d="M 138 206 C 155 182, 175 165, 195 152 C 225 165, 255 175, 275 182 C 272 204, 245 215, 212 216 C 175 218, 148 216, 138 206 Z" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
+                                <text x="208" y="193" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">टेम्पोरल लोब</text>
+                                <text x="208" y="206" text-anchor="middle" fill="#ffffff" font-size="9" opacity="0.95">(आवाज़/याददाश्त)</text>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <!-- त्वरित चयन चिप्स (Quick Select Pills) -->
+                    <div class="flex flex-wrap justify-center gap-2 mt-4" id="brain-buttons">
+                        <!-- JavaScript से रेंडर होंगे -->
+                    </div>
+                </div>
+
+                <!-- विवरण कार्ड (Detail Display Card) -->
+                <div class="lg:col-span-6 bg-gradient-to-br from-teal-50 to-amber-50/70 rounded-3xl p-6 sm:p-8 border border-teal-200/80 shadow-sm min-h-[300px] flex flex-col justify-between" id="brain-detail-card">
+                    <!-- JavaScript से कंटेंट अपडेट होगा -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- सेक्शन 2: परवरिश के 4 तरीके (4 Parenting Styles) -->
+    <section id="styles-section" class="py-12 px-4 sm:px-6 max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+            <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">2. परवरिश के 4 प्रमुख तरीके</h3>
+            <p class="text-slate-600 text-sm sm:text-base">
+                सही संतुलन कहाँ है? जानिए अलग-अलग तरीकों का बच्चों के आत्मविश्वास और भविष्य पर क्या असर पड़ता है।
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- कार्ड 1: अथॉरिटेटिव (सर्वश्रेष्ठ) -->
+            <div class="bg-white rounded-3xl p-6 sm:p-7 border-2 border-emerald-400 shadow-md relative">
+                <span class="absolute top-5 right-5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">
+                    सर्वश्रेष्ठ तरीका 🌟
+                </span>
+                <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mb-4">
+                    🤝
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 mb-2">अथॉरिटेटिव (प्यार + साफ़ नियम)</h4>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    माता-पिता बच्चों की भावनाओं का सम्मान करते हैं, उनकी बात सुनते हैं, लेकिन साथ ही घर के नियम और सीमाएँ भी स्पष्ट रखते हैं।
+                </p>
+                <div class="bg-emerald-50 rounded-xl p-3 text-xs sm:text-sm text-emerald-900 font-medium">
+                    <strong>असर:</strong> बच्चे आत्मविश्वासी, अनुशासित और भावनात्मक रूप से मजबूत बनते हैं।
+                </div>
+            </div>
+
+            <!-- कार्ड 2: अथॉरिटेरियन -->
+            <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm">
+                <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-700 flex items-center justify-center text-2xl mb-4">
+                    🛑
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 mb-2">अथॉरिटेरियन (सिर्फ़ सख़्ती और डर)</h4>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    "मैंने कह दिया बस कह दिया!" — इसमें सवाल पूछने की इजाज़त नहीं होती और डांट या सज़ा का सहारा लिया जाता है।
+                </p>
+                <div class="bg-rose-50 rounded-xl p-3 text-xs sm:text-sm text-rose-900 font-medium">
+                    <strong>असर:</strong> बच्चे डरपोक हो सकते हैं या बड़े होकर विद्रोही और गुस्सैल बन सकते हैं।
+                </div>
+            </div>
+
+            <!-- कार्ड 3: परमिसिव -->
+            <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm">
+                <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl mb-4">
+                    🎈
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 mb-2">परमिसिव (जरूरत से ज़्यादा ढील)</h4>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    बच्चा रोए या ज़िद न करे, इसलिए हर बात मान लेना—जैसे खाते समय मोबाइल देना या रोज़ जंक फ़ूड खिलाना।
+                </p>
+                <div class="bg-amber-50 rounded-xl p-3 text-xs sm:text-sm text-amber-900 font-medium">
+                    <strong>असर:</strong> बच्चों में आत्म-नियंत्रण की कमी हो जाती है और वे 'ना' सुनना नहीं सीख पाते।
+                </div>
+            </div>
+
+            <!-- कार्ड 4: नेगलेक्टफुल -->
+            <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm">
+                <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center text-2xl mb-4">
+                    📱
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 mb-2">नेगलेक्टफुल (समय और ध्यान की कमी)</h4>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    काम, मोबाइल या तनाव में इतना व्यस्त रहना कि बच्चे को भावनात्मक जुड़ाव और क्वालिटी टाइम न मिल पाए।
+                </p>
+                <div class="bg-slate-100 rounded-xl p-3 text-xs sm:text-sm text-slate-800 font-medium">
+                    <strong>असर:</strong> बच्चा अकेलापन महसूस करता है और सही-गलत की पहचान नहीं कर पाता।
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- सेक्शन 3: आदर्श दैनिक रूटीन और 3 मैजिक आवर्स (Daily Routine & 3 Magic Hours) -->
+    <section id="routine-section" class="py-12 px-4 sm:px-6 max-w-6xl mx-auto">
+        <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-amber-100">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">3. दिन के 3 'मैजिक आवर्स' और स्वस्थ आदतें</h3>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    पूरा दिन व्यस्त रहने के बावजूद, दिन के इन तीन ख़ास समय पर पूरा ध्यान देकर आप बच्चे से गहरा रिश्ता बना सकते हैं।
+                </p>
+            </div>
+
+            <!-- 3 मैजिक आवर्स -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div class="rounded-2xl bg-amber-50 p-6 border border-amber-200/70">
+                    <div class="text-3xl mb-3">🌅</div>
+                    <h4 class="font-bold text-lg text-slate-900 mb-2">1. सुबह उठने के पहले 5 मिनट</h4>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        उठते ही निर्देश देने के बजाय बच्चे को गले लगाएँ, प्यार जताएँ और सकारात्मक बातें बोलें (जैसे: "मैं शांत हूँ, मैं खुश हूँ")। इससे दिमाग में लव हार्मोन (ऑक्सीटोसिन) बढ़ता है।
+                    </p>
+                </div>
+
+                <div class="rounded-2xl bg-teal-50 p-6 border border-teal-200/70">
+                    <div class="text-3xl mb-3">🎒</div>
+                    <h4 class="font-bold text-lg text-slate-900 mb-2">2. स्कूल से घर लौटने पर</h4>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        आते ही होमवर्क या नंबरों के बारे में न पूछें। पहले उसे महसूस कराएँ कि घर एक सुरक्षित और प्यार भरी जगह है, जहाँ बिना शर्त अपनापन मिलता है।
+                    </p>
+                </div>
+
+                <div class="rounded-2xl bg-indigo-50 p-6 border border-indigo-200/70">
+                    <div class="text-3xl mb-3">🌙</div>
+                    <h4 class="font-bold text-lg text-slate-900 mb-2">3. रात को सोने से पहले</h4>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        जब बच्चा शांत और रिलैक्स हो, तब प्यार से दिन भर की बातों पर चर्चा करें। गुस्से के समय नहीं, बल्कि इस शांत समय में समझाई गई बात बच्चे के मन में उतरती है।
+                    </p>
+                </div>
+            </div>
+
+            <!-- इंटरैक्टिव डेली चेकलिस्ट (Interactive Daily Habits Checklist) -->
+            <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                    <h4 class="font-bold text-lg text-slate-900">आज की परवरिश चेकलिस्ट (क्लिक करके चुनें):</h4>
+                    <span id="checklist-score" class="px-3 py-1 rounded-full bg-teal-100 text-teal-800 text-xs font-bold">
+                        0 / 5 पूर्ण
+                    </span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="habit-checklist">
+                    <!-- JS से रेंडर होगा -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- सेक्शन 4: क्या कहें, क्या न कहें (Positive Communication) -->
+    <section id="words-section" class="py-12 px-4 sm:px-6 max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+            <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">4. शब्दों की शक्ति: क्या कहें और क्या बदलें</h3>
+            <p class="text-slate-600 text-sm sm:text-base">
+                हमारे शब्द बच्चों के अवचेतन मन (Subconscious Mind) में उनकी पहचान बनाते हैं।
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- तुलना कार्ड 1 -->
+            <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 flex flex-col gap-4">
+                <div class="p-4 rounded-2xl bg-rose-50 border border-rose-100">
+                    <span class="text-xs font-bold uppercase tracking-wider text-rose-600 block mb-1">❌ यह न कहें (लेबलिंग)</span>
+                    <p class="text-slate-800 font-medium">"मेरा बच्चा तो बहुत शर्मीला है, किसी से बात ही नहीं करता।"</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100">
+                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 block mb-1">✅ इसके बजाय यह कहें</span>
+                    <p class="text-slate-800 font-medium">"मेरा बच्चा पहले चीज़ों को ध्यान से समझता है, और घुलने-मिलने पर बहुत आत्मविश्वास से बात करता है।"</p>
+                </div>
+            </div>
+
+            <!-- तुलना कार्ड 2 -->
+            <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 flex flex-col gap-4">
+                <div class="p-4 rounded-2xl bg-rose-50 border border-rose-100">
+                    <span class="text-xs font-bold uppercase tracking-wider text-rose-600 block mb-1">❌ यह न कहें (डर दिखाना)</span>
+                    <p class="text-slate-800 font-medium">"जल्दी खाना खाओ, वरना पुलिस या भूत आ जाएगा!"</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100">
+                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 block mb-1">✅ इसके बजाय यह कहें</span>
+                    <p class="text-slate-800 font-medium">"यह पौष्टिक खाना हमारे शरीर और दिमाग को सुपर-स्ट्रॉन्ग बनाता है। चलो साथ मिलकर खाते हैं!"</p>
+                </div>
+            </div>
+
+            <!-- तुलना कार्ड 3 -->
+            <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 flex flex-col gap-4">
+                <div class="p-4 rounded-2xl bg-rose-50 border border-rose-100">
+                    <span class="text-xs font-bold uppercase tracking-wider text-rose-600 block mb-1">❌ यह न कहें (गुस्से में)</span>
+                    <p class="text-slate-800 font-medium">"तुम हमेशा ज़िद करते हो, तुम्हें कुछ समझ नहीं आता!"</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100">
+                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 block mb-1">✅ इसके बजाय यह कहें</span>
+                    <p class="text-slate-800 font-medium">"मैं समझ सकता हूँ कि तुम्हें अभी बुरा लग रहा है। पहले गहरी साँस लेकर शांत होते हैं, फिर बात करेंगे।"</p>
+                </div>
+            </div>
+
+            <!-- तुलना कार्ड 4 -->
+            <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 flex flex-col gap-4">
+                <div class="p-4 rounded-2xl bg-rose-50 border border-rose-100">
+                    <span class="text-xs font-bold uppercase tracking-wider text-rose-600 block mb-1">❌ यह न कहें (तुलना करना)</span>
+                    <p class="text-slate-800 font-medium">"देखो शर्मा जी का बेटा कितना होशियार है, तुम कब सीखोगे?"</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100">
+                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 block mb-1">✅ इसके बजाय यह कहें</span>
+                    <p class="text-slate-800 font-medium">"तुमने पिछली बार से बेहतर कोशिश की है। हर दिन थोड़ा-थोड़ा अभ्यास करके तुम और निखरोगे।"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- फुटर (Footer) -->
+    <footer class="mt-12 bg-slate-900 text-slate-300 py-10 px-4 sm:px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <p class="text-lg font-bold text-white mb-2">🌱 सजग परवरिश, उज्ज्वल भविष्य</p>
+            <p class="text-sm text-slate-400 max-w-xl mx-auto mb-6">
+                याद रखें: बच्चों को परफेक्ट माता-पिता की नहीं, बल्कि शांत, धैर्यवान और सीखने के लिए तैयार माता-पिता की ज़रूरत होती है।
+            </p>
+            <div class="text-xs text-slate-500">
+                शैक्षणिक और जागरूकता उद्देश्य के लिए निर्मित
+            </div>
+        </div>
+    </footer>
+
+    <!-- कस्टम मोडल बॉक्स (alert() की जगह उपयोग के लिए) -->
+    <div id="tip-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-amber-100 transform transition-all">
+            <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold">आज का विचार 💡</span>
+                <button onclick="closeTipModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 font-bold">
+                    ✕
+                </button>
+            </div>
+            <p id="modal-quote-text" class="text-lg font-semibold text-slate-800 leading-relaxed mb-6">
+                "जब बच्चे का गुस्सा तूफ़ान जैसा हो, तो माता-पिता को उस तूफ़ान का हिस्सा नहीं, बल्कि शांत किनारे की तरह होना चाहिए।"
+            </p>
+            <div class="flex justify-end gap-3">
+                <button onclick="nextQuote()" class="px-4 py-2.5 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-900 text-sm font-semibold transition">
+                    अगला विचार ↻
+                </button>
+                <button onclick="closeTipModal()" class="px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-sm font-semibold transition">
+                    समझ गया 👍
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript लॉजिक -->
+    <script>
+        // 1. दिमाग के हिस्सों का डेटा (Brain Parts Data)
+        const brainParts = [
+            {
+                id: 'frontal',
+                shortName: 'फ्रंटल कॉर्टेक्स',
+                title: 'फ्रंटल कॉर्टेक्स (लॉजिक ब्रेन)',
+                icon: '🧠',
+                color: '#0d9488',
+                role: 'सोचने, निर्णय लेने, समस्या सुलझाने और गुस्से पर काबू रखने का काम करता है।',
+                fact: 'यह हिस्सा 3 साल की उम्र के बाद धीरे-धीरे विकसित होना शुरू होता है और युवावस्था तक बनता रहता है।',
+                tip: 'जब बच्चा बहुत गुस्से में हो, तो उसका लॉजिक ब्रेन काम करना बंद कर देता है। पहले उसे गले लगाकर शांत करें, फिर बाद में प्यार से समझाएँ।'
+            },
+            {
+                id: 'parietal',
+                shortName: 'पैराइटल लोब',
+                title: 'पैराइटल लोब (स्पर्श और कौशल)',
+                icon: '🖐️',
+                color: '#2563eb',
+                role: 'स्पर्श (Touch) महसूस करने और उंगलियों की बारीक हरकतों (Fine Motor Skills) को सँभालता है।',
+                fact: 'कागज़ मोड़ने, मिट्टी से खेलने, चित्र बनाने और पहेलियाँ सुलझाने से दिमाग में नए न्यूरल कनेक्शन बनते हैं।',
+                tip: 'मोबाइल स्क्रीन की जगह बच्चों को ब्लॉक गेम्स, पज़ल्स, रंग और रचनात्मक खेलों से जोड़ें।'
+            },
+            {
+                id: 'occipital',
+                shortName: 'ऑक्सीपिटल लोब',
+                title: 'ऑक्सीपिटल लोब (दृष्टि और समझ)',
+                icon: '👁️',
+                color: '#7c3aed',
+                role: 'आँखों से देखी गई चीज़ों, रंगों और किताबों के चित्रों को समझने में मदद करता है।',
+                fact: 'जन्म के समय बच्चे को धुंधला दिखाई देता है; 6 महीने से 1 साल के बीच उसकी दृष्टि स्पष्ट होती है।',
+                tip: 'तेज़ चमकने वाले मोबाइल वीडियो की जगह बच्चों को प्रकृति दिखाएँ, रंग-बिरंगी किताबें पढ़ाएँ और पीक-अ-बू जैसे खेल खेलें।'
+            },
+            {
+                id: 'temporal',
+                shortName: 'टेम्पोरल लोब',
+                title: 'टेम्पोरल लोब (याददाश्त और आवाज़)',
+                icon: '👂',
+                color: '#d97706',
+                role: 'सुनने, भाषा सीखने, कहानियों को समझने और यादें सँजोने में मदद करता है।',
+                fact: 'यह जन्म से ही तेज़ी से सक्रिय रहता है। बच्चे आपकी आवाज़ के लहजे (Tone) को शब्दों से पहले समझते हैं।',
+                tip: 'बच्चों के साथ रोज़ कहानियाँ सुनाएँ, बातें करें और तेज़ आवाज़ वाले कार्टून की जगह ऑडियो कहानियाँ या संवाद अपनाएँ।'
+            },
+            {
+                id: 'cerebellum',
+                shortName: 'सेरिबेलम',
+                title: 'सेरिबेलम (छोटा दिमाग - संतुलन)',
+                icon: '🏃',
+                color: '#059669',
+                role: 'शरीर का संतुलन बनाए रखने, दौड़ने, कूदने और शारीरिक तालमेल के लिए ज़रूरी है।',
+                fact: 'इसे "छोटा दिमाग" भी कहा जाता है। शारीरिक खेल सीधे तौर पर एकाग्रता (Focus) को बेहतर बनाते हैं।',
+                tip: 'बच्चों को रोज़ कम से कम 40 मिनट बाहर खुले मैदान या पार्क में खेलने दें।'
+            },
+            {
+                id: 'brainstem',
+                shortName: 'ब्रेन स्टेम',
+                title: 'ब्रेन स्टेम (सुरक्षा केंद्र)',
+                icon: '💓',
+                color: '#e11d48',
+                role: 'दिल की धड़कन, साँस लेने और खतरे से बचाव (Fight or Flight) को नियंत्रित करता है।',
+                fact: 'डांटने, मारने या भूत-पुलिस की धमकी देने पर ब्रेन स्टेम में डर के संकेत जाते हैं, जिससे सीखने की क्षमता घटती है।',
+                tip: 'बच्चों को डराने के बजाय घर में सुरक्षित और शांत वातावरण दें ताकि उनका दिमाग खुलकर विकसित हो सके।'
+            }
+        ];
+
+        let selectedBrainId = 'frontal';
+
+        // ब्रेन सेक्शन रेंडर करने का फ़ंक्शन
+        function renderBrainSection() {
+            const buttonsContainer = document.getElementById('brain-buttons');
+            const detailCard = document.getElementById('brain-detail-card');
+
+            // SVG के हर हिस्से का रंग अपडेट करें
+            brainParts.forEach(part => {
+                const svgGroup = document.getElementById(`svg-part-${part.id}`);
+                if (svgGroup) {
+                    const isSelected = part.id === selectedBrainId;
+                    const shapes = svgGroup.querySelectorAll('path');
+                    shapes.forEach((path, idx) => {
+                        if (idx === 0) {
+                            path.setAttribute('fill', part.color);
+                            path.setAttribute('opacity', isSelected ? '1' : '0.68');
+                            path.setAttribute('stroke', isSelected ? '#fef08a' : '#ffffff');
+                            path.setAttribute('stroke-width', isSelected ? '4.5' : '2.5');
+                        }
+                    });
+                }
+            });
+
+            // नीचे के त्वरित बटन अपडेट करें
+            buttonsContainer.innerHTML = brainParts.map(part => {
+                const isActive = part.id === selectedBrainId;
+                return `
+                    <button onclick="selectBrainPart('${part.id}')" 
+                        class="px-3.5 py-2 rounded-full border text-xs sm:text-sm font-bold transition flex items-center gap-1.5 ${
+                            isActive 
+                            ? 'bg-slate-900 text-white border-slate-900 shadow-md scale-105' 
+                            : 'bg-white hover:bg-teal-50 text-slate-700 border-slate-200'
+                        }">
+                        <span>${part.icon}</span>
+                        <span>${part.shortName}</span>
+                    </button>
+                `;
+            }).join('');
+
+            // विवरण कार्ड अपडेट करें
+            const activePart = brainParts.find(p => p.id === selectedBrainId);
+            detailCard.innerHTML = `
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold text-white mb-4 shadow-sm" style="background-color: ${activePart.color}">
+                        <span>चयनित हिस्सा</span>
+                    </div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-4xl">${activePart.icon}</span>
+                        <h4 class="text-xl sm:text-2xl font-bold text-slate-900">${activePart.title}</h4>
+                    </div>
+                    <div class="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed">
+                        <p><strong class="text-slate-900">मुख्य कार्य:</strong> ${activePart.role}</p>
+                        <p><strong class="text-slate-900">रोचक तथ्य:</strong> ${activePart.fact}</p>
+                    </div>
+                </div>
+                <div class="mt-6 p-4 rounded-2xl bg-white/95 border border-teal-200 text-teal-950 text-sm shadow-sm">
+                    <strong>💡 पेरेंटिंग टिप:</strong> ${activePart.tip}
+                </div>
+            `;
+        }
+
+        function selectBrainPart(id) {
+            selectedBrainId = id;
+            renderBrainSection();
+        }
+
+        // 2. दैनिक चेकलिस्ट का डेटा (Daily Habits Checklist)
+        const dailyHabits = [
+            { id: 1, text: 'खाना खाते समय टीवी या मोबाइल बंद रखा', checked: false },
+            { id: 2, text: 'कम से कम 40 मिनट आउटडोर खेल या शारीरिक गतिविधि', checked: false },
+            { id: 3, text: 'बच्चे की बात बिना टोके ध्यान से सुनी', checked: false },
+            { id: 4, text: 'रात 9 से 10 बजे के बीच सोने का नियम निभाया', checked: false },
+            { id: 5, text: 'किसी भी नकारात्मक लेबल (जैसे "जिद्दी" या "शर्मीला") का उपयोग नहीं किया', checked: false }
+        ];
+
+        function renderChecklist() {
+            const container = document.getElementById('habit-checklist');
+            const scoreBadge = document.getElementById('checklist-score');
+            const completedCount = dailyHabits.filter(h => h.checked).length;
+
+            scoreBadge.textContent = `${completedCount} / ${dailyHabits.length} पूर्ण`;
+
+            container.innerHTML = dailyHabits.map(habit => `
+                <div onclick="toggleHabit(${habit.id})" 
+                    class="cursor-pointer p-4 rounded-xl border transition flex items-center gap-3 select-none ${
+                        habit.checked 
+                        ? 'bg-emerald-50 border-emerald-300 text-emerald-900' 
+                        : 'bg-white hover:bg-amber-50/50 border-slate-200 text-slate-700'
+                    }">
+                    <div class="w-6 h-6 rounded-lg flex items-center justify-center border font-bold text-sm ${
+                        habit.checked 
+                        ? 'bg-emerald-600 border-emerald-600 text-white' 
+                        : 'border-slate-300 bg-white'
+                    }">
+                        ${habit.checked ? '✓' : ''}
+                    </div>
+                    <span class="text-sm font-medium ${habit.checked ? 'line-through opacity-80' : ''}">
+                        ${habit.text}
+                    </span>
+                </div>
+            `).join('');
+        }
+
+        function toggleHabit(id) {
+            const habit = dailyHabits.find(h => h.id === id);
+            if (habit) {
+                habit.checked = !habit.checked;
+                renderChecklist();
+            }
+        }
+
+        // 3. मोडल बॉक्स और प्रेरणादायक विचार (Quotes Modal)
+        const quotes = [
+            "जब बच्चे का गुस्सा तूफ़ान जैसा हो, तो माता-पिता को उस तूफ़ान का हिस्सा नहीं, बल्कि शांत किनारे की तरह होना चाहिए।",
+            "बच्चे वही नहीं सीखते जो हम उन्हें उपदेश में कहते हैं, वे वही सीखते हैं जो हम रोज़ खुद करके दिखाते हैं।",
+            "सही नियम और सीमाएँ बच्चों को बाँधती नहीं हैं, बल्कि उन्हें सुरक्षित और आत्मविश्वासी बनाती हैं।",
+            "तेज़ वीडियो और ज़्यादा चीनी छोटे दिमाग को थका देते हैं; प्रकृति, कहानियाँ और अपनापन उसे पोषण देते हैं।"
+        ];
+        let currentQuoteIdx = 0;
+
+        function openTipModal() {
+            const modal = document.getElementById('tip-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeTipModal() {
+            const modal = document.getElementById('tip-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function nextQuote() {
+            currentQuoteIdx = (currentQuoteIdx + 1) % quotes.length;
+            document.getElementById('modal-quote-text').textContent = `"${quotes[currentQuoteIdx]}"`;
+        }
+
+        // पेज लोड होने पर इनिशियलाइज़ करें
+        function initApp() {
+            try {
+                renderBrainSection();
+                renderChecklist();
+            } catch (error) {
+                console.error('Initialization error:', error);
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initApp);
+        } else {
+            initApp();
+        }
+    </script>
+</body>
+</html>
+
